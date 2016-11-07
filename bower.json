@@ -1,0 +1,24 @@
+{
+  "name": "2017-components",
+  "authors": [
+    "James Speirs <james_speirs@byu.edu>",
+    "Joseph Moore <joseph_moore@byu.edu>",
+    "Kevin Bauer <kevin_bauer@byu.edu>"
+  ],
+  "description": "BYU 2017 Theme Components",
+  "main": "byu-top-bar.html",
+  "keywords": [
+    "byu",
+    "web-components",
+    "theme"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
