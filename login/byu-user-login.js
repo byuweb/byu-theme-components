@@ -52,6 +52,7 @@ class ByuUserLogin extends HTMLElement {
         font-size: 13px;
         font-family: "Gotham Book", sans-serif;
         text-transform: uppercase;
+        contain: content;/* New CSS feature that gives us a performance win */
     }
     .link {
         display: flex;
@@ -71,22 +72,48 @@ class ByuUserLogin extends HTMLElement {
         display: inline-block;
         margin-left: 4px;
     }
+    #delegate::slotted(*) {
+        display: none;
+    }
 </style>
 <div>
     <a class="link" href="${this.loginUrl}">
         <span class="text">Sign In</span>
         <img class="icon" src="../img/user.svg">
     </a>
+    <slot id="delegate" style="display: none;" hidden></slot>
 </div>
 `;
     }
 
     connectedCallback() {
+        this._addSlotListeners();
         this._addAriaAttributes();
+    }
+
+    _addSlotListeners() {
+        this._setUrlFromLightDom();
+        const slot = this.shadowRoot.querySelector('#delegate');
+        slot.addEventListener('slotchange', e => {
+            this._setUrlFromLightDom();
+        });
     }
 
     _addAriaAttributes() {
         this.setAttribute('role', 'button');
+    }
+
+    _setUrlFromLightDom() {
+        let slot = this.shadowRoot.querySelector('#delegate');
+        let nodes = slot.assignedNodes().filter(node => node instanceof HTMLAnchorElement);
+        if (!nodes.length) {
+            return;
+        }
+        let link = nodes[0];
+        if (link.href) {
+            console.log('setting login url from', link);
+            this.loginUrl = link.href;
+        }
     }
 
 }
