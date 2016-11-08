@@ -1,0 +1,16 @@
+{
+  "name": "byuweb-components",
+  "version": "0.0.1",
+  "description": "Components to be used for byu web pages and applications.",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "private": true,
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}
