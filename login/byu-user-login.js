@@ -77,7 +77,7 @@ class ByuUserLogin extends HTMLElement {
     }
 </style>
 <div>
-    <a class="link" href="${this.loginUrl}">
+    <a class="link" href="${this.loginUrl||'#'}">
         <span class="text">Sign In</span>
         <img class="icon" src="../img/user.svg">
     </a>
