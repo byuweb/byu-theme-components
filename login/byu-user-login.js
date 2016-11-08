@@ -70,14 +70,14 @@ class ByuUserLogin extends HTMLElement {
         border: 1px solid white;
         padding: 4px;
         display: inline-block;
-        margin-left: 4px;
+        margin: 0 8px;
     }
     #delegate::slotted(*) {
         display: none;
     }
 </style>
 <div>
-    <a class="link" href="${this.loginUrl||'#'}">
+    <a class="link" ${this.loginUrl?'href="'+this.loginUrl:''}">
         <span class="text">Sign In</span>
         <img class="icon" src="../img/user.svg">
     </a>
