@@ -6,6 +6,8 @@
 
     <script src="byu-user-login.js"></script>
 
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+
     <style>
         .header {
             display: flex;
@@ -22,14 +24,22 @@
 <body>
 
 <h1>Simple Setup</h1>
-<div class="header">
-    <byu-user-login login-url="#login"></byu-user-login>
-</div>
+<demo-snippet>
+    <template>
+        <div class="header">
+            <byu-user-login login-url="#login"></byu-user-login>
+        </div>
+    </template>
+</demo-snippet>
 
 <h1>Progressive Enhancement</h1>
-<div class="header">
-    <byu-user-login><a href="#hi">Sign In</a></byu-user-login>
-</div>
+<demo-snippet>
+    <template>
+        <div class="header">
+            <byu-user-login><a href="#hi">Sign In</a></byu-user-login>
+        </div>
+    </template>
+</demo-snippet>
 
 </body>
 </html>
