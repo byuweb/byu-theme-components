@@ -5,6 +5,7 @@
 		let shadowRoot = customElement.attachShadow({ mode: 'open' });
 		const instance = t.content.cloneNode(true);
 		shadowRoot.appendChild(instance);
+		return shadowRoot;
 	},
 
 	toggleClass: function(el, className, add) {
