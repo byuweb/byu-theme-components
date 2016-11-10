@@ -1,0 +1,66 @@
+<!--
+  ~  @license
+  ~    Copyright 2016 Brigham Young University
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8" />
+  <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="/Scripts/Utilities.js"></script>
+  <link rel="import" href="/Components/byu-search/byu-search.html" />
+
+  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+
+  <byu-search action='https://www.google.com/#q=$1' method='get' placeholder='Search Google'></byu-search>
+
+  <byu-search action='https://www.google.com/#q=$1' value='foo'>
+    <input slot='search' type='text' placeholder='My Input'>
+  </byu-search>
+
+  <byu-search action='https://www.google.com/#q=$1'>
+    <input slot='search' type='text' placeholder='My Input' value='foo'>
+  </byu-search>
+
+  <byu-search action='https://www.google.com/#q=$1'>
+    <input slot='search' type='date' placeholder='My Input'>
+  </byu-search>
+
+  <byu-search action='https://www.google.com/#q=$1'>
+    <input slot='search' type='number' placeholder='My Input'>
+  </byu-search>
+
+  <input id='foo' value='bar'>
+
+<!--<form slot=search action="">
+  <byu-search url-pattern="example.com/search?q=$" google-site-search-key="" options="" autocomplete-timeout="500">
+    <input placeholder="Search Placeholder" />
+  </byu-search>
+</form>
+
+<byu-search slot=search url-pattern="example.com/search?q=$" google-site-search-key="" options="" autocomplete-timeout="500">
+  <input placeholder="Search Placeholder" />
+</byu-search>
+
+<byu-search slot=search url-pattern="example.com/search?q=$" google-site-search-key="" placeholder="Search Placeholder"></byu-search>
+
+<byu-search slot=search placeholder="Search Placeholder" on-search="myFunction"></byu-search>-->
+
+</body>
+</html>
