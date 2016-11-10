@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="byu-user-login.js"></script>
+
+    <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+
+    <style>
+        .fake-header {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            width: 100%;
+            background-color: #002e5d;
+            height: 48px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Simple Setup</h1>
+<demo-snippet>
+    <template>
+        <div class="fake-header">
+            <byu-user-login login-url="#login"></byu-user-login>
+        </div>
+    </template>
+</demo-snippet>
+
+<h1>Progressive Enhancement</h1>
+<demo-snippet>
+    <template>
+        <div class="fake-header">
+            <byu-user-login><a href="#hi">Sign In</a></byu-user-login>
+        </div>
+    </template>
+</demo-snippet>
+
+<h1>Handle Via Javascript</h1>
+<demo-snippet>
+    <template>
+        <div class="fake-header">
+            <byu-user-login onclick="alert('Clicked Login!')"></byu-user-login>
+        </div>
+    </template>
+</demo-snippet>
+
+
+
+</body>
+</html>
