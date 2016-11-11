@@ -121,24 +121,24 @@
       }
 
       search() {
-        var component = this;
-        var form = this.shadowRoot.querySelector('form');
-        var value = this.value;
+        if (this.hasAttribute('onsearch')) evalInContext.call(this, this.getAttribute('onsearch'));
 
-        if (component.hasAttribute('on-search')) {
-          window[component.getAttribute('on-search')](value);
-        }
-
-        if (component.hasAttribute('action')) {
-          var action = component.getAttribute('action').toString().replace(/\$1/g, value);
+        if (this.hasAttribute('action')) {
+          var form = this.shadowRoot.querySelector('form');
+          var value = this.value;
+          var action = this.getAttribute('action').toString().replace(/\$1/g, value);
           form.setAttribute('action', action);
-          form.setAttribute('method', component.hasAttribute('method')
-            ? component.getAttribute('method')
+          form.setAttribute('method', this.hasAttribute('method')
+            ? this.getAttribute('method')
             : 'GET');
           form.submit();
         }
       }
 
+    }
+
+    function evalInContext(string) {
+      return eval(string);
     }
 
     function getInputValue(component) {
