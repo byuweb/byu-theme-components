@@ -103,7 +103,7 @@
 
       disconnectedCallback() {
         var input = getInputElement(this, true);
-        if (input) input.addEventListener('input', inputHandler);
+        if (input) input.removeEventListener('input', inputHandler);
 
         this.shadowRoot.querySelector('form')
           .removeEventListener('submit', formSubmitHandler);
