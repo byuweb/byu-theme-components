@@ -131,6 +131,7 @@
           form.setAttribute('method', this.hasAttribute('method')
             ? this.getAttribute('method')
             : 'GET');
+          if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
           form.submit();
         }
       }
