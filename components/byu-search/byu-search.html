@@ -68,7 +68,7 @@
   (function (ownerDocument) { // limit scope
     var store = new WeakMap();
 
-    window.customElements.define('byu-search', class extends HTMLElement {
+    class ByuSearch extends HTMLElement {
 
       static get observedAttributes() {
         return ['placeholder', 'value'];
@@ -92,15 +92,21 @@
       }
 
       connectedCallback() {
-        var input;
+        var input = getInputElement(this, true);
+        if (input) input.addEventListener('input', inputHandler);
+
         this.shadowRoot.querySelector('form')
           .addEventListener('submit', formSubmitHandler);
+
         if (this.hasAttribute('value')) this.value = this.getAttribute('value');
       }
 
       disconnectedCallback() {
-          this.shadowRoot.querySelector('form')
-            .removeEventListener('submit', formSubmitHandler);
+        var input = getInputElement(this, true);
+        if (input) input.addEventListener('input', inputHandler);
+
+        this.shadowRoot.querySelector('form')
+          .removeEventListener('submit', formSubmitHandler);
       }
 
       get value() {
@@ -133,7 +139,7 @@
         }
       }
 
-    });
+    }
 
     function getInputValue(component) {
       var input = getInputElement(component, true);
@@ -148,10 +154,23 @@
       return null;
     }
 
+    function getParentComponent(el) {
+      while (!(el instanceof ByuSearch)) el = el.parentNode;
+      return el;
+    }
+
+    function inputHandler(e) {
+      var el = e.target;
+      var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
+      component.value = e.target.value;
+    }
+
     function formSubmitHandler(e) {
       if (!e) e.preventDefault();
       this.parentNode.host.search();
     }
+
+    window.customElements.define('byu-search', ByuSearch);
 
   })(document.currentScript.ownerDocument);
 
