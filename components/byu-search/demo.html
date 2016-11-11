@@ -21,32 +21,74 @@
   <title></title>
   <meta charset="utf-8" />
   <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
-  <script src="/Scripts/Utilities.js"></script>
-  <link rel="import" href="/Components/byu-search/byu-search.html" />
+  <script src="/js/utilities.js"></script>
+  <link rel="import" href="/components/byu-search/byu-search.html" />
 
   <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <style>
+    body {
+      padding: 20px;
+    }
+    code {
+      display: block;
+      background-color: #EEE;
+      padding: 10px 15px;
+      border: 1px solid #DDD;
+      line-height: 150%;
+    }
+    h3 {
+      margin-bottom: 0;
+    }
+    .row {
+      display: flex;
+    }
+    .row > :first-child {
+      padding-right: 20px;
+    }
+  </style>
 </head>
 <body>
 
-  <byu-search action='https://www.google.com/#q=$1' method='get' placeholder='Search Google'></byu-search>
+<h3>Send search to URL</h3>
+<div class='row'>
+  <p><byu-search action='https://www.google.com/#q=$1' method='get' placeholder='Search Google'></byu-search></p>
+  <pre><code>&lt;byu-search
+  action='https://www.google.com/#q=$1'
+  method='get'
+  placeholder='Search Google'&gt;
+&lt;/byu-search&gt;</code></pre>
+</div>
 
-  <byu-search action='https://www.google.com/#q=$1' value='foo'>
-    <input slot='search' type='text' placeholder='My Input'>
-  </byu-search>
+<h3>Send search to URL and provide input element</h3>
+<div class='row'>
+  <p>
+    <byu-search action='https://www.google.com/#q=$1'>
+      <input slot='search' type='text' placeholder='Search Google'>
+    </byu-search>
+  </p>
+  <pre><code>&lt;byu-search action='https://www.google.com/#q=$1'&gt;
+  &lt;input slot='search' type='text' placeholder='Search Google'&gt;
+&lt;/byu-search&gt;</code></pre>
+</div>
 
-  <byu-search action='https://www.google.com/#q=$1'>
-    <input slot='search' type='text' placeholder='My Input' value='foo'>
-  </byu-search>
+<h3>Set Initial Value</h3>
+<div class='row'>
+  <p><byu-search value='foo'></byu-search></p>
+  <pre><code>&lt;byu-search value='foo'&gt;&lt;/byu-search&gt;</code></pre>
+</div>
+<div class='row'>
+  <p>
+    <byu-search>
+      <input slot='search' type='text' placeholder='My Input' value='foo'>
+    </byu-search>
+  </p>
+  <pre><code>&lt;byu-search&gt;
+  &lt;input slot='search' type='text' placeholder='My Input' value='foo'&gt;
+&lt;/byu-search&gt;</code></pre>
+</div>
 
-  <byu-search action='https://www.google.com/#q=$1'>
-    <input slot='search' type='date' placeholder='My Input'>
-  </byu-search>
 
-  <byu-search action='https://www.google.com/#q=$1'>
-    <input slot='search' type='number' placeholder='My Input'>
-  </byu-search>
 
-  <input id='foo' value='bar'>
 
 <!--<form slot=search action="">
   <byu-search url-pattern="example.com/search?q=$" google-site-search-key="" options="" autocomplete-timeout="500">
