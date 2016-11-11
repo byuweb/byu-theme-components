@@ -155,7 +155,7 @@
     }
 
     function getParentComponent(el) {
-      while (!(el instanceof ByuSearch)) el = el.parentNode;
+      while (!(el instanceof ByuSearch)) el = el.host ? el.host : el.parentNode;
       return el;
     }
 
