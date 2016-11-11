@@ -63,11 +63,11 @@
 <div class='row'>
   <p>
     <byu-search action='https://www.google.com/#q=$1'>
-      <input slot='search' type='text' placeholder='Search Google'>
+      <input slot='search' type='search' placeholder='Search Google'>
     </byu-search>
   </p>
   <pre><code>&lt;byu-search action='https://www.google.com/#q=$1'&gt;
-  &lt;input slot='search' type='text' placeholder='Search Google'&gt;
+  &lt;input slot='search' type='search' placeholder='Search Google'&gt;
 &lt;/byu-search&gt;</code></pre>
 </div>
 
@@ -87,22 +87,31 @@
 &lt;/byu-search&gt;</code></pre>
 </div>
 
-
-
-
-<!--<form slot=search action="">
-  <byu-search url-pattern="example.com/search?q=$" google-site-search-key="" options="" autocomplete-timeout="500">
-    <input placeholder="Search Placeholder" />
-  </byu-search>
-</form>
-
-<byu-search slot=search url-pattern="example.com/search?q=$" google-site-search-key="" options="" autocomplete-timeout="500">
-  <input placeholder="Search Placeholder" />
-</byu-search>
-
-<byu-search slot=search url-pattern="example.com/search?q=$" google-site-search-key="" placeholder="Search Placeholder"></byu-search>
-
-<byu-search slot=search placeholder="Search Placeholder" on-search="myFunction"></byu-search>-->
+<h3>Listen for Input Events</h3>
+<script>
+function changeListener(element) {
+  console.log(element, element.value);
+}
+</script>
+<pre><code>&lt;script&gt;
+function changeListener(element) {
+  console.log(element, element.value);
+}
+&lt;/script&gt;</code></pre>
+<div class='row'>
+  <p><byu-search oninput='changeListener(this)'></byu-search></p>
+  <pre><code>&lt;byu-search oninput='changeListener(this)'&gt;&lt;/byu-search&gt;</code></pre>
+</div>
+<div class='row'>
+  <p>
+    <byu-search>
+      <input slot='search' type='search' oninput='changeListener(this)'>
+    </byu-search>
+  </p>
+  <pre><code>&lt;byu-search&gt;
+  &lt;input slot='search' type='search' oninput='changeListener(this)'&gt;
+&lt;/byu-search&gt;</code></pre>
+</div>
 
 </body>
 </html>
