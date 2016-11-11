@@ -92,8 +92,10 @@
       }
 
       connectedCallback() {
+        var input;
         this.shadowRoot.querySelector('form')
           .addEventListener('submit', formSubmitHandler);
+        if (this.hasAttribute('value')) this.value = this.getAttribute('value');
       }
 
       disconnectedCallback() {
