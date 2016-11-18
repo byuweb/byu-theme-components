@@ -160,7 +160,7 @@ class ByuUserMenu extends HTMLElement {
     }
 </style>
 <div id="button" role="button">
-    <span class="text">${this.name}</span>
+    <span class="text">Account</span>
     <img class="icon" src="../img/user.svg">
 </div>
 <div id="dropdown">
