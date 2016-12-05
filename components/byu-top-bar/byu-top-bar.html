@@ -289,7 +289,7 @@
 
 			<div id="menuTemplate" class="byu-header-menu-button">
 				<button type="button" aria-label="Open or close menu"
-					onclick="utilities.toggleClass(this.parentElement.parentElement.nextElementSibling, 'collapsed')">
+					onclick="document.querySelector('byu-menu').collapsed = !document.querySelector('byu-menu').collapsed;"	
 					<span class="fa fa-bars"></span>
 				</button>
 			</div>

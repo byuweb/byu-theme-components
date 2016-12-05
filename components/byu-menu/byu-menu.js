@@ -2,6 +2,22 @@
 
     class BYUMenu extends HTMLElement {
 
+        static get observedAttributes() {
+            return ['collapsed'];
+        }
+
+        get collapsed() {
+            return this.hasAttribute('collapsed');
+        }
+
+        set collapsed(val) {
+            if (val)
+                this.setAttribute('collapsed', '');
+            else
+                this.removeAttribute('collapsed');
+        }
+
+
         constructor() {
             super(); // always call super first
 
@@ -11,6 +27,10 @@
             // TODO: update styles to match latest design specs
             // TODO: add a gray line under the menu
             // TODO: at some point it will need to interact with the other components (when responsive it needs to shrink if they click on search)
+        }
+
+        attributeChangedCallback(name, oldValue, newValue) {
+            utilities.toggleClass(this.shadowRoot.querySelector('.secondaryNav'), 'collapsed');                
         }
 
         connectedCallback() {
@@ -180,7 +200,7 @@
                     </div>
                 </nav>
 
-                <div class="navbar-collapse">
+                <div id="navbar-collapse" class="navbar-collapse">
                     <nav class="nav secondaryNav">
 
                     </nav>
