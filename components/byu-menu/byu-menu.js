@@ -20,6 +20,12 @@
             var allLinks = slot.assignedNodes().filter(function (element) { return element instanceof HTMLElement });
             if (allLinks.length > 6)
             {
+                // create the secondary nav links
+                for (var i = 0; i < allLinks.length; i++)
+                {
+                    this.shadowRoot.querySelector('.secondaryNav').appendChild(allLinks[i]);
+                }
+
                 // Since we want this one to show when there are 6 or less we need to manually switch it off instead
                 // of using nth-child like we do for the others 
                 allLinks[5].style.display = "none";
@@ -36,86 +42,150 @@
                     listItem.appendChild(allLinks[i]);
                     dropdown.appendChild(listItem);
                 }
+
+                
             }
         }
 
         template() {
             return `
-<style type="text/css">
-    :host {
-        display: block;
-        width: 100%;
-        height: 32px;
-        background: #ffffff;
-    }
+                <style type="text/css">
+                    :host {
+                        display: block;
+                        width: 100%;
+                        height: 32px;
+                        background: #ffffff;
+                    }
 
-    .outerNav {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        justify-content: flex-start;
-        margin: 0 16px;
-        padding: 0;
-    }
+                    .outerNav {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: nowrap;
+                        justify-content: space-between;
+                        align-items: center;
+                        justify-content: flex-start;
+                        margin: 0 16px;
+                        padding: 0;
+                    }
 
-    .innerNav {
-        width: 100%;
-        display:table;
-    }
+                    .innerNav {
+                        width: 100%;
+                        display:table;
+                    }
 
-    ::slotted(*) {
-        display: table;
-        width: 16.66%;
-    }
+                    /*---------------------------------------*/
+                    .navbar-collapse {
+                        padding: 0 15px;
+                        overflow-x: visible;
+                        border-top: 1px solid transparent;
+                        -webkit-overflow-scrolling: touch;
+                        margin: 0 -15px;
+                        font-family: "Gotham Book";
 
-    ::slotted(*.selected) {
-        background: #e5e5e5;
-    }
+                        -webkit-box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
+                        -moz-box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
+                        box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
+                    }
 
-    .extraLinks, ::slotted(*) {
-        font-family: "Gotham Book";
-        font-size: 13px;
-        color: #002e5d;
-        height: 32px;
-        display: table-cell;
-        text-transform: uppercase;
-        text-decoration: none;
-        vertical-align: middle;
-        text-align: center;
-        padding: 0 6px;
-    }
+                    .nav {
+                        padding-left: 0;
+                        margin: 0 -15px;
+                        list-style: none;
+                    }
 
-    .extraLinks:hover, ::slotted(*:hover) {
-        background: #e5e5e5;
-    }
+                    /*.nav > li {
+                        padding: 0 15px;
+                        box-sizing: border-box;
+                    }
 
-    @media (min-width: 1024px) {
-        /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and 
-        stick them in a separate dropdown that gets hidden for mobile views */
-        ::slotted(*:nth-child(n+7)) { 
-            display: none;
-        }
-    }
+                    .nav > li:hover {
+                        background-color: #f6f6f6;
+                        cursor: pointer;
+                    }
 
-    @media (max-width: 1023px) {
-        nav.outerNav {
-            display: none;
-        }
-    }
-</style>
-<nav class="outerNav">
-    <div class="innerNav">
-        <slot id="slot"></slot>
-        <div class="extraLinks" id="extraLinks" style="display: none">
-            More
-            <ul style="display: none" id="extraLinksDropdown"></ul>
-        </div>
-    </div>
-</nav>
-<div class="secondaryNav">Links go here</div>
-`;
+                    .nav > li > a {
+                        position: relative;
+                        display: block;
+                        padding: 15px 15px;
+                        line-height: 20px;
+                    }*/
+
+                    .nav > a {
+                        box-sizing: border-box;
+                        position: relative;
+                        display: block;
+                        padding: 18px 30px;
+                        line-height: 12px;
+                        text-decoration: none;
+                        color: #444;
+                    }
+
+                    .nav > a:hover {
+                        background-color: #f6f6f6;
+                        cursor: pointer;
+                    }
+
+                    .collapsed {
+                        display: none;
+                    }
+                    /*---------------------------------------*/
+
+                    ::slotted(*) {
+                        display: table;
+                        width: 16.66%;
+                    }
+
+                    ::slotted(*.selected) {
+                        background: #e5e5e5;
+                    }
+
+                    .extraLinks, ::slotted(*) {
+                        font-family: "Gotham Book";
+                        font-size: 13px;
+                        color: #002e5d;
+                        height: 32px;
+                        display: table-cell;
+                        text-transform: uppercase;
+                        text-decoration: none;
+                        vertical-align: middle;
+                        text-align: center;
+                        padding: 0 6px;
+                    }
+
+                    .extraLinks:hover, ::slotted(*:hover) {
+                        background: #e5e5e5;
+                    }
+
+                    @media (min-width: 1024px) {
+                        /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and 
+                        stick them in a separate dropdown that gets hidden for mobile views */
+                        ::slotted(*:nth-child(n+7)) { 
+                            display: none;
+                        }
+                    }
+
+                    @media (max-width: 1023px) {
+                        nav.outerNav {
+                            display: none;
+                        }
+                    }
+                </style>
+                <nav class="outerNav">
+                    <div class="innerNav">
+                        <slot id="slot"></slot>
+                        <div class="extraLinks" id="extraLinks" style="display: none">
+                            More
+                            <ul style="display: none" id="extraLinksDropdown"></ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <div class="navbar-collapse">
+                    <nav class="nav secondaryNav">
+
+                    </nav>
+                </div>
+                `;
         }
 
     }
