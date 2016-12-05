@@ -1,6 +1,10 @@
 # 2017-components
 Web Components implementing the 2017 theme.
 
+This project is the implementation of our atomic design decision. Please refer to the main docs (todo: create main docs) for more information. The general concept (as in, not our version of it exactly) is available here: http://atomicdesign.bradfrost.com/
+
+The nutshell version (in case that was TLDR) is that we are creating our own HTML tags, and using them to produce beautiful, stable, and BYU-standard interface features.
+
 # Development Standards
 
 - Node.js LTS build/development environment (base "hardcore" development requirement)
