@@ -1,6 +1,10 @@
 # 2017-components
 Web Components implementing the 2017 theme.
 
+This project is the implementation of our atomic design decision. Please refer to the main docs (todo: create main docs) for more information. The general concept (as in, not our version of it exactly) is available here: http://atomicdesign.bradfrost.com/
+
+The nutshell version (in case that was TLDR) is that we are creating our own HTML tags, and using them to produce beautiful, stable, and BYU-standard interface features.
+
 # Development Standards
 
 - Node.js LTS build/development environment (base "hardcore" development requirement)
@@ -34,3 +38,29 @@ Web Components implementing the 2017 theme.
     - Web Component Injector (todo: name change) a module which allows you to "watch changes" and build into template (variable)
 - Distribution will be in three (or more?) flavors: core, basic, and professional-grade!
   - Scripts need to wrap element definitions for feature definitions (to fill in the blanks for less-advanced browsers vis-a-vis Polyfills). Testing must be done using Shady-DOM _and_ Shadow DOM.
+
+- Different browsers have different implementations of web component standards and other web standards (such as ES6).
+  - We transpile our code, which was written in ES6
+    - There is a bootstrap to detect which version of the code is needed.
+    - The two different scripts that may be loaded:
+      - ES6
+        - This is the code, as written and not transpiled.
+      - ES5 and Polyfills (separate files, but triggered together)
+        - Loaded to replace ES6, never both.
+        - Provides the features of ES6 required for web components.
+    - ES6 is easier to read and correct.
+    - Native web components require ES6.
+    - ES5 will be loaded (separate code) when ES6 or web components are unsuported.
+      - ES5 uses more polyfills, and therefore is heavier, slower, and soon to be outdated.
+  - IE 11 HTMLElement prototyping breaks our component technology. This has in part motivated the above.
+  - Feature detection is better than user agent parsing.
+  - 1. We could bootstrap in an "init" style, detecting all required features and including libraries, patches, polyfills, etc only as needed to "set the stage" for each component.
+  - 2. We could bootstrap and feature detect within each web component using a wrapper (tooling provided within the build environment) common among all web components to do the feature detection required for that component.
+    - The second option makes it easier to include the constructors every time, and could potentially reduce the number of web requests.
+    - If we wrap each web component in the feature checking script, then we must always load ES5, which is slower (worse) and requires HTMLElement to be shimmed (overriden) which is _very bad_.
+    - Option 1 can include the easy construction features...
+    - We chose option 1
+  - In the future the bootstrap feature can be enhanced to provide conditional loading of components (including ones we haven't thought of yet)...
+- In development of the web components we will decide how much customization is and isn't provided for (by using shadow DOM more or less restrictively) to aid personality and individual design within each campus site. 
+  - Main differentiator here is when they want behavior and styling, or when they want behavior and minimal styling.
+
