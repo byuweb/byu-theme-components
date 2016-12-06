@@ -16,8 +16,7 @@
             else
                 this.removeAttribute('collapsed');
         }
-
-
+        
         constructor() {
             super(); // always call super first
 
@@ -30,7 +29,8 @@
         }
 
         attributeChangedCallback(name, oldValue, newValue) {
-            utilities.toggleClass(this.shadowRoot.querySelector('.secondaryNav'), 'collapsed');                
+            // We don't need to toggle a css class anymore. Using :host([collapsed]) instead
+            //utilities.toggleClass(this.shadowRoot.querySelector('.secondaryNav'), 'collapsed');                
         }
 
         connectedCallback() {
@@ -38,11 +38,9 @@
             const slot = this.shadowRoot.querySelector("#slot");
             console.log(slot);
             var allLinks = slot.assignedNodes().filter(function (element) { return element instanceof HTMLElement });
-            if (allLinks.length > 6)
-            {
+            if (allLinks.length > 6) {
                 // create the secondary nav links
-                for (var i = 0; i < allLinks.length; i++)
-                {
+                for (var i = 0; i < allLinks.length; i++) {
                     this.shadowRoot.querySelector('.secondaryNav').appendChild(allLinks[i]);
                 }
 
@@ -56,14 +54,11 @@
                 
                 allLinks = allLinks.slice(5);
                 var dropdown = extraLinks.querySelector("#extraLinksDropdown")
-				for (var i = 0; i < allLinks.length; i++)
-                {
+				for (var i = 0; i < allLinks.length; i++) {
                     var listItem = document.createElement("li");
                     listItem.appendChild(allLinks[i]);
                     dropdown.appendChild(listItem);
                 }
-
-                
             }
         }
 
@@ -73,8 +68,14 @@
                     :host {
                         display: block;
                         width: 100%;
-                        height: 32px;
+                        height: auto;
                         background: #ffffff;
+
+                        position: relative;
+                    }
+
+                    :host([collapsed]) .navbar-collapse {
+                        height: 0;
                     }
 
                     .outerNav {
@@ -93,10 +94,10 @@
                         display:table;
                     }
 
-                    /*---------------------------------------*/
                     .navbar-collapse {
+                        height: 241px;
                         padding: 0 15px;
-                        overflow-x: visible;
+                        overflow: hidden;
                         border-top: 1px solid transparent;
                         -webkit-overflow-scrolling: touch;
                         margin: 0 -15px;
@@ -105,6 +106,16 @@
                         -webkit-box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
                         -moz-box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
                         box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
+
+                        -webkit-transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690); 
+                        -moz-transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690); 
+                        -o-transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690); 
+                        transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690);
+
+                        -webkit-transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690); 
+                        -moz-transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690); 
+                        -o-transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690); 
+                        transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690);
                     }
 
                     .nav {
@@ -112,23 +123,6 @@
                         margin: 0 -15px;
                         list-style: none;
                     }
-
-                    /*.nav > li {
-                        padding: 0 15px;
-                        box-sizing: border-box;
-                    }
-
-                    .nav > li:hover {
-                        background-color: #f6f6f6;
-                        cursor: pointer;
-                    }
-
-                    .nav > li > a {
-                        position: relative;
-                        display: block;
-                        padding: 15px 15px;
-                        line-height: 20px;
-                    }*/
 
                     .nav > a {
                         box-sizing: border-box;
@@ -144,11 +138,6 @@
                         background-color: #f6f6f6;
                         cursor: pointer;
                     }
-
-                    .collapsed {
-                        display: none;
-                    }
-                    /*---------------------------------------*/
 
                     ::slotted(*) {
                         display: table;
@@ -200,7 +189,7 @@
                     </div>
                 </nav>
 
-                <div id="navbar-collapse" class="navbar-collapse">
+                <div class="navbar-collapse">
                     <nav class="nav secondaryNav">
 
                     </nav>
