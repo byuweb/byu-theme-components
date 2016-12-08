@@ -71,7 +71,6 @@
                         height: auto;
                         background: #ffffff;
 
-                        position: relative;
                     }
 
                     :host([collapsed]) .navbar-collapse {
