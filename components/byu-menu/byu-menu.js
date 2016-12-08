@@ -98,33 +98,31 @@
                         height: 241px;
                         padding: 0 15px;
                         overflow: hidden;
-                        border-top: 1px solid transparent;
-                        -webkit-overflow-scrolling: touch;
                         margin: 0 -15px;
-                        font-family: "Gotham Book";
 
                         -webkit-box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
                         -moz-box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
                         box-shadow: 0px 2px 21px -4px rgba(0,0,0,0.2);
 
-                        -webkit-transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690); 
-                        -moz-transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690); 
-                        -o-transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690); 
-                        transition: all 250ms cubic-bezier(0.850, 0.345, 0.125, 0.690);
+                        -webkit-transition-timing-function: ease;
+                        -o-transition-timing-function: ease;
+                        transition-timing-function: ease;
 
-                        -webkit-transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690); 
-                        -moz-transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690); 
-                        -o-transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690); 
-                        transition-timing-function: cubic-bezier(0.850, 0.345, 0.125, 0.690);
+                        -webkit-transition-duration: .35s;
+                        -o-transition-duration: .35s;
+                        transition-duration: .35s;
+
+                        -webkit-transition-property: height;
+                        -o-transition-property: height;
+                        transition-property: height;
                     }
 
-                    .nav {
+                    .secondaryNav {
                         padding-left: 0;
                         margin: 0 -15px;
-                        list-style: none;
                     }
 
-                    .nav > a {
+                    .secondaryNav > a {
                         box-sizing: border-box;
                         position: relative;
                         display: block;
@@ -134,7 +132,7 @@
                         color: #444;
                     }
 
-                    .nav > a:hover {
+                    .secondaryNav > a:hover {
                         background-color: #f6f6f6;
                         cursor: pointer;
                     }
@@ -190,7 +188,7 @@
                 </nav>
 
                 <div class="navbar-collapse">
-                    <nav class="nav secondaryNav">
+                    <nav class="secondaryNav">
 
                     </nav>
                 </div>
