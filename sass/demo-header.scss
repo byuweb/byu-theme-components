@@ -109,6 +109,28 @@ $header-bottom:     32px;
   }
 }
 
+/* collapsible menu */
+.navbar-collapse {
+  padding: 0 15px;
+	overflow-x: visible;
+	border-top: 1px solid transparent;
+	-webkit-overflow-scrolling: touch;
+
+  ul {
+    padding-left: 0;
+		margin-bottom: 0;
+		list-style: none;
+  }
+
+  .expanded {
+    display: inline;
+  }
+
+  .collapsed {
+    display: none;
+  }
+}
+
 /* FULL SIZE */
 @media (min-width: 1024px) {
 

@@ -8,16 +8,29 @@
 		return shadowRoot;
 	},
 
-	toggleClass: function(el, className, add) {
-	if (el) {
-		var classNames = el.className.split(/\s+/);
-		var index = classNames.indexOf(className);
-		if (add && index === -1) {
-			classNames.push(className);
-		} else if (!add && index !== -1) {
-			classNames.splice(index, 1);
+	// toggleClass: function(el, className, add) {
+	// 	if (el) {
+	// 		var classNames = el.className.split(/\s+/);
+	// 		var index = classNames.indexOf(className);
+	// 		if (add && index === -1) {
+	// 			classNames.push(className);
+	// 		} else if (!add && index !== -1) {
+	// 			classNames.splice(index, 1);
+	// 		}
+	// 		el.className = classNames.join(' ');
+	// 	}
+	// }
+
+	toggleClass: function(el, className) {
+		if (el) {
+			var classNames = el.className.split(/\s+/);
+			var index = classNames.indexOf(className);
+			if (index === -1) {
+				classNames.push(className);
+			} else if (index !== -1) {
+				classNames.splice(index, 1);
+			}
+			el.className = classNames.join(' ');
 		}
-		el.className = classNames.join(' ');
 	}
-}
 }
