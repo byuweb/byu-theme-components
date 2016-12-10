@@ -1,9 +1,9 @@
 ﻿<template id="ByuTopBarTemplate">
 	<style type="text/css">
+	
 		.byu-header {
 			font-family: "Vitesee Book";
 			font-size: 18px;
-			height: 80px;
 		}
 		
 		.byu-header.no-nav .byu-header-menu,
@@ -245,9 +245,20 @@
 				display: none;
 			}
 		}
+
+		/* Drop-down menu bar when browser width is < 640px */
+		/*.container {
+			padding: 0 15px;
+			margin: 0 auto;
+		}*/
+
+		
+
+
 	</style>
+
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
-	
+
 	<div id="header" class="byu-header">
 
 		<div class="byu-header-primary">
@@ -277,23 +288,26 @@
 			</div>
 
 			<div id="menuTemplate" class="byu-header-menu-button">
-				<button type="button" aria-label="Open or close menu">
+				<button type="button" aria-label="Open or close menu"
+					onclick="document.querySelector('byu-menu').collapsed = !document.querySelector('byu-menu').collapsed;"	
 					<span class="fa fa-bars"></span>
 				</button>
 			</div>
 
 		</div>
 
-		<slot name="nav"></slot>
-
+		<slot id="navbarMenu" name="nav">
+			
+		</slot>
+		
 
 	</div>
 </template>
+
+
 <script>
 
 	(function (doc) { // limit scope
-
-		
 
 		window.customElements.define('byu-top-bar', class extends HTMLElement {
 
