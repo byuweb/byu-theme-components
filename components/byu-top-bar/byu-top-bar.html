@@ -64,7 +64,7 @@
 		}
 		
 		.byu-header .byu-logo {
-			background: url(components/byu-top-bar/images/BYU.jpg) no-repeat;
+			background: url(../byu-top-bar/images/BYU.jpg) no-repeat;
 			height: 48px;
 			width: 92px;
 		}
@@ -257,7 +257,7 @@
 
 	</style>
 
-	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
 
 	<div id="header" class="byu-header">
 
@@ -289,7 +289,7 @@
 
 			<div id="menuTemplate" class="byu-header-menu-button">
 				<button type="button" aria-label="Open or close menu"
-					onclick="document.querySelector('byu-menu').collapsed = !document.querySelector('byu-menu').collapsed;"	
+					onclick="this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed"	
 					<span class="fa fa-bars"></span>
 				</button>
 			</div>
