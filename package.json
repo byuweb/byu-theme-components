@@ -4,7 +4,8 @@
   "description": "Components to be used for byu web pages and applications.",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss components/byu-menu/style.scss components/byu-menu/style.css"
   },
   "private": true,
   "author": "",

@@ -1,0 +1,21 @@
+
+<template id="ByuMenu">
+    <link rel="stylesheet" href="style.css" />
+    <nav class="outerNav">
+        <div class="innerNav">
+            <slot id="slot"></slot>
+            <div class="extraLinks" id="extraLinks" style="display: none">
+                More
+                <ul style="display: none" id="extraLinksDropdown"></ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="navbar-collapse">
+        <nav class="secondaryNav"></nav>
+    </div>
+    <div id="stylePlaceHolder">
+    </div>
+</template>
+
+<script type="text/javascript" src="script.js"></script>
