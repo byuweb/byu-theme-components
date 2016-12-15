@@ -7,7 +7,7 @@
 :host([collapsed]) .navbar-collapse {
   height: 0; }
 
-.outerNav {
+.outer-nav {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -17,7 +17,7 @@
   margin: 0 16px;
   padding: 0; }
 
-.innerNav {
+.inner-nav {
   width: 100%;
   display: table; }
 
@@ -39,20 +39,24 @@
   -o-transition-property: height;
   transition-property: height; }
 
-.secondaryNav {
+.secondary-nav {
   padding-left: 0;
   margin: 0 -15px; }
 
-.secondaryNav > a {
+.secondary-nav > a {
+  font-family: 'Gotham';
+  font-size: 13px;
+  font-weight: 400;
+  color: #002e5d;
+  text-transform: uppercase;
   box-sizing: border-box;
   position: relative;
   display: block;
   padding: 18px 30px;
   line-height: 12px;
-  text-decoration: none;
-  color: #444; }
+  text-decoration: none; }
 
-.secondaryNav > a:hover {
+.secondary-nav > a:hover {
   background-color: #f6f6f6;
   cursor: pointer; }
 
@@ -63,7 +67,7 @@
 ::slotted(*.selected) {
   background: #e5e5e5; }
 
-.extraLinks, ::slotted(*) {
+.extra-links, ::slotted(*) {
   font-family: "Gotham Book";
   font-size: 13px;
   color: #002e5d;
@@ -75,7 +79,7 @@
   text-align: center;
   padding: 0 6px; }
 
-.extraLinks:hover, ::slotted(*:hover) {
+.extra-links:hover, ::slotted(*:hover) {
   background: #e5e5e5; }
 
 @media (min-width: 1024px) {
@@ -85,5 +89,5 @@
     display: none; } }
 
 @media (max-width: 1023px) {
-  nav.outerNav {
+  nav.outer-nav {
     display: none; } }

@@ -37,7 +37,7 @@
             // create the secondary nav links
             for (var i = 0; i < allLinks.length; i++) {
                 var cln = allLinks[i].cloneNode(true);
-                this.shadowRoot.querySelector('.secondaryNav').appendChild(cln);
+                this.shadowRoot.querySelector('.secondary-nav').appendChild(cln);
             }
 
             // calculate the height of the mobile dropdown
