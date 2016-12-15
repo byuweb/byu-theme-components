@@ -23,7 +23,7 @@
   ],
   "dependencies": {
     "webcomponentsjs": "^0.7.23",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5"

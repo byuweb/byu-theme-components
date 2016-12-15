@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../../js/utilities.js"></script>
+    <link rel="import" href="../byu-top-bar/byu-top-bar.html" />
+    <script src="../byu-menu/byu-menu.js"></script>
+    <link rel="import" href="../byu-hero/byu-hero.html" />
+    <link rel="import" href="../byu-bottom-bar/byu-bottom-bar.html" />
+
+    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="import" href="../../bower_components/iron-demo-helpers/demo-snippet.html">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        
+        .demo-snippet {
+            padding: 0 !important;
+        }
+        
+        .demo-snippet-0 .code.demo-snippet > pre.demo-snippet {
+            margin: 0;
+            padding: 10px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Six Links or Less</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+                <byu-menu slot="nav" collapsed>
+                    <a class="selected" href="javascript: void 0">Link 1</a>
+                    <a href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 3</a>
+                    <a href="javascript: void 0">Link 4</a>
+                    <a href="javascript: void 0">Link 5</a>
+                    <a href="javascript: void 0">Link 6</a>
+                </byu-menu>
+            </byu-top-bar>
+            <div style="margin: 10px">
+                Note: this demo page may look strange because the headers need to be in a container element with no margin/padding. 
+                In a real page that would be the body tag, but here it's the demo snippet container.
+            </div>
+        </template>
+    </demo-snippet>
+
+
+
+    <h1>More than Six Links</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+                <byu-menu slot="nav" collapsed>
+                    <a class="selected" href="javascript: void 0">Link 1</a>
+                    <a href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 3</a>
+                    <a href="javascript: void 0">Link 4</a>
+                    <a href="javascript: void 0">Link 5</a>
+                    <a href="javascript: void 0">Link 6</a>
+                    <a href="javascript: void 0">Link 7</a>
+                    <a href="javascript: void 0">Link 8</a>
+                    <a href="javascript: void 0">Link 9</a>
+                    <a href="javascript: void 0">Link 10</a>
+                </byu-menu>
+            </byu-top-bar>
+            <div style="margin: 10px">
+                Note: this demo page may look strange because the headers need to be in a container element with no margin/padding. 
+                In a real page that would be the body tag, but here it's the demo snippet container.
+            </div>
+        </template>
+    </demo-snippet>
+
+</body>
+
+</html>

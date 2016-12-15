@@ -117,4 +117,5 @@ $RECYCLE.BIN/
 *.lnk
 *.project
 
-
+#Visual Studio Code junk
+.vscode/

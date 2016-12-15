@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ffffff; }
+
+:host([collapsed]) .navbar-collapse {
+  height: 0; }
+
+.outer-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 16px;
+  padding: 0; }
+
+.inner-nav {
+  width: 100%;
+  display: table; }
+
+.navbar-collapse {
+  /* change height to be dynamic */
+  padding: 0 15px;
+  overflow: hidden;
+  margin: 0 -15px;
+  -webkit-box-shadow: 0px 2px 21px -4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 2px 21px -4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 21px -4px rgba(0, 0, 0, 0.2);
+  -webkit-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transition-duration: .35s;
+  -o-transition-duration: .35s;
+  transition-duration: .35s;
+  -webkit-transition-property: height;
+  -o-transition-property: height;
+  transition-property: height; }
+
+.secondary-nav {
+  padding-left: 0;
+  margin: 0 -15px; }
+
+.secondary-nav > a {
+  font-family: 'Gotham';
+  font-size: 13px;
+  font-weight: 400;
+  color: #002e5d;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  padding: 18px 30px;
+  line-height: 12px;
+  text-decoration: none; }
+
+.secondary-nav > a:hover {
+  background-color: #f6f6f6;
+  cursor: pointer; }
+
+::slotted(*) {
+  display: table;
+  width: 16.66%; }
+
+::slotted(*.selected) {
+  background: #e5e5e5; }
+
+.extra-links, ::slotted(*) {
+  font-family: "Gotham Book";
+  font-size: 13px;
+  color: #002e5d;
+  height: 32px;
+  display: table-cell;
+  text-transform: uppercase;
+  text-decoration: none;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0 6px; }
+
+.extra-links:hover, ::slotted(*:hover) {
+  background: #e5e5e5; }
+
+@media (min-width: 1024px) {
+  /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and 
+    stick them in a separate dropdown that gets hidden for mobile views */
+  ::slotted(*:nth-child(n+7)) {
+    display: none; } }
+
+@media (max-width: 1023px) {
+  nav.outer-nav {
+    display: none; } }
