@@ -1,0 +1,26 @@
+:host {
+  display: inline-block; }
+
+.sr-only {
+  display: none; }
+
+button {
+  background-color: var(--byu-search-color, #767676);
+  border: 1px solid var(--byu-search-color, #767676);
+  color: #FFF;
+  padding-left: 10px;
+  padding-right: 10px; }
+
+form {
+  display: flex;
+  align-items: stretch;
+  align-content: center; }
+
+form #search-container {
+  flex: 1; }
+
+form #search-container input,
+::slotted(input) {
+  padding: 5px 10px;
+  border: 1px solid var(--byu-search-color, #767676);
+  border-right: none; }

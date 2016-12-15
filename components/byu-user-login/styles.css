@@ -1,0 +1,28 @@
+:host {
+  color: white;
+  font-size: 13px;
+  font-family: "Gotham Book", sans-serif;
+  text-transform: uppercase;
+  contain: content;
+  /* New CSS feature that gives us a performance win */ }
+
+.link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  color: white; }
+
+.icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid white;
+  padding: 4px;
+  display: inline-block;
+  margin: 0 8px; }
+
+#delegate::slotted(*) {
+  display: none; }
