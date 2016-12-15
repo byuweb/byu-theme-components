@@ -48,6 +48,17 @@ jspm_packages
 .lock-wscript
 
 # =========================
+# IDE Files
+# ========================
+
+#Jetbrains
+.idea
+*.iml
+
+#VS Code
+.vscode
+
+# =========================
 # Operating System Files
 # =========================
 
