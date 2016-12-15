@@ -12,5 +12,6 @@
     }
 
     window.customElements.define('my-component', MyComponent);
+    window.MyComponent = MyComponent;
 
 })(/* FUSE */);
