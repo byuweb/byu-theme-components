@@ -22,10 +22,13 @@
     "tests"
   ],
   "dependencies": {
-    "webcomponentsjs": "^0.7.23",
-    "font-awesome": "fontawesome#^4.7.0"
+    "webcomponentsjs": "v1",
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5"
+  },
+  "resolutions": {
+    "webcomponentsjs": "v1"
   }
 }
