@@ -15,19 +15,31 @@
  *    limitations under the License.
  **/
 'use strict';
+const cached    = require('gulp-cached');
+const fuse      = require('gulp-fuse');
 const gulp      = require('gulp');
 const sass      = require('gulp-sass');
 
+gulp.task('build', ['fuse'], function() {
+    // put closure code in here
+});
+
+gulp.task('fuse', ['sass'], function() {
+    return gulp.src('./components/**/*')
+        .pipe(cached('fuse'))
+        .pipe(fuse())
+        .pipe(gulp.dest('./components'));
+});
+
 gulp.task('sass', function() {
-    return gulp.src('./sass/**/*.scss')
+    return gulp.src('./components/**/*.scss')
+        .pipe(cached('sass'))
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('./components'));
 });
 
-gulp.task('sass:watch', function () {
-    gulp.watch('./sass/**/*.scss', ['sass']);
+gulp.task('watch', function () {
+    gulp.watch('./components/**/*', ['fuse']);
 });
-
-gulp.task('watch', ['sass:watch']);
 
 gulp.task('default', ['watch']);

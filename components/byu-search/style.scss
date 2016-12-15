@@ -1,0 +1,34 @@
+$color-primary: #767676;
+
+:host {
+  display: inline-block;
+}
+
+.sr-only {
+  display: none;
+}
+
+button {
+  background-color: var(--byu-search-color, $color-primary);
+  border: 1px solid var(--byu-search-color, $color-primary);
+  color: #FFF;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+form {
+  display: flex;
+  align-items: stretch;
+  align-content: center;
+}
+
+form #search-container {
+  flex: 1;
+}
+
+form #search-container input,
+::slotted(input) {
+  padding: 5px 10px;
+  border: 1px solid var(--byu-search-color, $color-primary);
+  border-right: none;
+}

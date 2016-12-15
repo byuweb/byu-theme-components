@@ -11,7 +11,11 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
+  },
+  "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-cached": "^1.1.1",
+    "gulp-fuse": "0.0.1",
     "gulp-sass": "^2.3.2"
   }
 }
