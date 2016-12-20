@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../byu-top-bar/byu-top-bar.js"></script>
+    <script src="../byu-menu/byu-menu.js"></script>
+
+    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="import" href="../../bower_components/iron-demo-helpers/demo-snippet.html">
+
+    <!-- Styles needed to get the header to display full-width (ordinarily the body tag would 
+    have margin/padding of 0, but in this case the demo snippet holder needs it too) -->
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+        
+        .demo-snippet {
+            padding: 0 !important;
+        }
+        
+        .demo-snippet-0 .code.demo-snippet > pre.demo-snippet {
+            margin: 0;
+            padding: 10px !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Header only</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+            </byu-top-bar>
+        </template>
+    </demo-snippet>
+
+    <h1>Header only with search</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+            </byu-top-bar>
+            </div>
+        </template>
+    </demo-snippet>
+
+    <h1>Header only with search and sign-in</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+            </byu-top-bar>
+        </template>
+    </demo-snippet>
+
+    <h1>Header with search, sign-in, and nav</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+                <byu-menu slot="nav" collapsed>
+                    <a href="javascript: void 0">Link 1</a>
+                    <a href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 3</a>
+                    <a href="javascript: void 0">Link 4</a>
+                    <a href="javascript: void 0">Link 5</a>
+                    <a href="javascript: void 0">Link 6</a>
+                    <a href="javascript: void 0">Link 7</a>
+                    <a href="javascript: void 0">Link 8</a>
+                    <a href="javascript: void 0">Link 9</a>
+                    <a href="javascript: void 0">Link 10</a>
+                </byu-menu>
+            </byu-top-bar>
+        </template>
+    </demo-snippet>
+
+    <h1>Header + Nav with two-line title</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+                <byu-menu slot="nav" collapsed>
+                    <a href="javascript: void 0">Link 1</a>
+                    <a href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 3</a>
+                    <a href="javascript: void 0">Link 4</a>
+                    <a href="javascript: void 0">Link 5</a>
+                    <a href="javascript: void 0">Link 6</a>
+                    <a href="javascript: void 0">Link 7</a>
+                    <a href="javascript: void 0">Link 8</a>
+                    <a href="javascript: void 0">Link 9</a>
+                    <a href="javascript: void 0">Link 10</a>
+                </byu-menu>
+            </byu-top-bar>
+        </template>
+    </demo-snippet>
+
+    <h1>Header + Nav with "Sign Out"</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+                <byu-menu slot="nav" collapsed>
+                    <a href="javascript: void 0">Link 1</a>
+                    <a href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 3</a>
+                    <a href="javascript: void 0">Link 4</a>
+                    <a href="javascript: void 0">Link 5</a>
+                    <a href="javascript: void 0">Link 6</a>
+                    <a href="javascript: void 0">Link 7</a>
+                    <a href="javascript: void 0">Link 8</a>
+                    <a href="javascript: void 0">Link 9</a>
+                    <a href="javascript: void 0">Link 10</a>
+                </byu-menu>
+            </byu-top-bar>
+        </template>
+    </demo-snippet>
+
+    <h1>Header + Nav, Signed in with Account options</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+                <byu-menu slot="nav" collapsed>
+                    <a href="javascript: void 0">Link 1</a>
+                    <a href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 3</a>
+                    <a href="javascript: void 0">Link 4</a>
+                    <a href="javascript: void 0">Link 5</a>
+                    <a href="javascript: void 0">Link 6</a>
+                    <a href="javascript: void 0">Link 7</a>
+                    <a href="javascript: void 0">Link 8</a>
+                    <a href="javascript: void 0">Link 9</a>
+                    <a href="javascript: void 0">Link 10</a>
+                </byu-menu>
+            </byu-top-bar>
+        </template>
+    </demo-snippet>
+
+    <h1>Header + Nav with active state</h1>
+    <demo-snippet>
+        <template>
+            <byu-top-bar>
+                <span slot="title">Our site.... in the middle of our web.</span>
+                <byu-menu slot="nav" collapsed>
+                    <a href="javascript: void 0">Link 1</a>
+                    <a class="selected" href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 3</a>
+                    <a href="javascript: void 0">Link 4</a>
+                    <a href="javascript: void 0">Link 5</a>
+                    <a href="javascript: void 0">Link 6</a>
+                    <a href="javascript: void 0">Link 7</a>
+                    <a href="javascript: void 0">Link 8</a>
+                    <a href="javascript: void 0">Link 9</a>
+                    <a href="javascript: void 0">Link 10</a>
+                </byu-menu>
+            </byu-top-bar>
+            <div style="margin: 10px">
+                Note: this demo page may look strange because the headers need to be in a container element with no margin/padding. In a
+                real page that would be the body tag, but here it's the demo snippet container.
+            </div>
+        </template>
+    </demo-snippet>
+
+</body>
+
+</html>

@@ -24,8 +24,6 @@
         }
 
         attributeChangedCallback(name, oldValue, newValue) {
-            // We don't need to toggle a css class anymore. Using :host([collapsed]) instead
-            //utilities.toggleClass(this.shadowRoot.querySelector('.secondaryNav'), 'collapsed');                
         }
 
         connectedCallback() {
@@ -69,7 +67,7 @@
         }
     }
 
-
     window.customElements.define('byu-menu', BYUMenu);
+    window.BYUMenu = BYUMenu;
 
 })(/* FUSE */);

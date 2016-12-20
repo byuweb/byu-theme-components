@@ -1,0 +1,47 @@
+<style>/* FUSE */</style>
+
+<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+
+<div id="header" class="byu-header">
+
+    <div class="byu-header-primary">
+        <div class="byu-logo"></div>
+        <div class="byu-header-title">
+            <slot name="title"></slot>
+        </div>
+    </div>
+
+    <div id="secondary" class="byu-header-secondary">
+
+        <div class="byu-header-user">
+            <button type="button">
+                <span class="label">SIGN IN</span>
+                <span class="icon">
+                    <span class="fa fa-user"></span>
+                </span>
+            </button>
+        </div>
+
+        <div class="byu-header-search">
+            <label for="search-input"></label>
+            <input type="text" id="search-input" placeholder="search">
+            <button type="button" aria-label="Run search">
+                <span class="fa fa-search"></span>
+            </button>
+        </div>
+
+        <div id="menuTemplate" class="byu-header-menu-button">
+            <button type="button" aria-label="Open or close menu"
+                onclick="this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed"	
+                <span class="fa fa-bars"></span>
+            </button>
+        </div>
+
+    </div>
+
+    <slot id="navbarMenu" name="nav">
+        
+    </slot>
+    
+
+</div>
