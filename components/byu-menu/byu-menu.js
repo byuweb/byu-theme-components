@@ -44,10 +44,6 @@
             
             if (allLinks.length > 6) {
 
-                // Since we want this one to show when there are 6 or less we need to manually switch it off instead
-                // of using nth-child like we do for the others 
-                allLinks[5].style.display = "none";
-
                 // create the "extra links" dropdown
                 var extraLinks = this.shadowRoot.querySelector('#extraLinks');
                 extraLinks.style.display = "table-cell";
@@ -71,11 +67,13 @@
     window.BYUMenu = BYUMenu;
 
 })(`<style>
-    :host {
+    /*Variables*/
+:host {
   display: block;
   width: 100%;
   height: auto;
-  background: #ffffff; }
+  background: #ffffff;
+  opacity: 0.88; }
 
 :host([collapsed]) .navbar-collapse {
   height: 0; }
@@ -116,7 +114,7 @@
   margin: 0 -15px; }
 
 .secondary-nav > a {
-  font-family: 'Gotham';
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: #002e5d;
@@ -137,13 +135,14 @@
   width: 16.66%; }
 
 ::slotted(*.selected) {
-  background: #e5e5e5; }
+  background: #e6e6e6; }
 
 .extra-links, ::slotted(*) {
-  font-family: "Gotham Book";
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
   font-size: 13px;
+  font-weight: 400;
   color: #002e5d;
-  height: 32px;
+  height: 35px;
   display: table-cell;
   text-transform: uppercase;
   text-decoration: none;
@@ -152,7 +151,23 @@
   padding: 0 6px; }
 
 .extra-links:hover, ::slotted(*:hover) {
-  background: #e5e5e5; }
+  background: #c5c5c5; }
+
+.extra-links {
+  display: none;
+  cursor: pointer; }
+  .extra-links .extra-links-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    min-width: 115px;
+    margin-top: 10px; }
+    .extra-links .extra-links-dropdown ul {
+      list-style-type: none;
+      padding: 0; }
+  .extra-links:hover .extra-links-dropdown {
+    display: block; }
 
 @media (min-width: 1024px) {
   /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and 
@@ -168,9 +183,11 @@
 <nav class="outer-nav">
     <div class="inner-nav">
         <slot id="slot"></slot>
-        <div class="extra-links" id="extraLinks" style="display: none">
+        <div class="extra-links" id="extraLinks">
             More
-            <ul style="display: none" id="extraLinksDropdown"></ul>
+            <div class="extra-links-dropdown">
+                <ul id="extraLinksDropdown"></ul>
+            </div>
         </div>
     </div>
 </nav>

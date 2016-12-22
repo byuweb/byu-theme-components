@@ -1,4 +1,6 @@
-<style>/* FUSE */</style>
+<style>
+    /* FUSE */
+</style>
 
 <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
 
@@ -15,11 +17,11 @@
 
         <div class="byu-header-user">
             <button type="button">
-                <span class="label">SIGN IN</span>
                 <span class="icon">
-                    <span class="fa fa-user"></span>
+                    <span class="fa fa-user-circle-o"></span>
                 </span>
-            </button>
+                <span class="label">Sign in</span>
+           </button>
         </div>
 
         <div class="byu-header-search">
@@ -31,8 +33,7 @@
         </div>
 
         <div id="menuTemplate" class="byu-header-menu-button">
-            <button type="button" aria-label="Open or close menu"
-                onclick="this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed"	
+            <button type="button" aria-label="Open or close menu" onclick="this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed"
                 <span class="fa fa-bars"></span>
             </button>
         </div>
@@ -40,8 +41,8 @@
     </div>
 
     <slot id="navbarMenu" name="nav">
-        
+
     </slot>
-    
+
 
 </div>

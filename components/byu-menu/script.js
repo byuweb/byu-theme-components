@@ -44,10 +44,6 @@
             
             if (allLinks.length > 6) {
 
-                // Since we want this one to show when there are 6 or less we need to manually switch it off instead
-                // of using nth-child like we do for the others 
-                allLinks[5].style.display = "none";
-
                 // create the "extra links" dropdown
                 var extraLinks = this.shadowRoot.querySelector('#extraLinks');
                 extraLinks.style.display = "table-cell";
