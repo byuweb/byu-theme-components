@@ -19,6 +19,8 @@ const cached    = require('gulp-cached');
 const fuse      = require('gulp-fuse');
 const gulp      = require('gulp');
 const sass      = require('gulp-sass');
+const minifyCss = require('gulp-minify-css'); //minifies css
+   
 
 gulp.task('build', ['fuse'], function() {
     // put closure code in here
@@ -36,6 +38,13 @@ gulp.task('sass', function() {
         .pipe(cached('sass'))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./components'));
+});
+
+gulp.task('sitecss', function() {
+  gulp.src('./css/*.scss')                          //reads all the SASS files
+    .pipe(sass().on('error', sass.logError))  //compiles SASS to CSS and logs errors
+    .pipe(minifyCss())                        //minifies the CSS files 
+    .pipe(gulp.dest('./css')) //writes the renamed file to the destination
 });
 
 gulp.task('watch', function () {

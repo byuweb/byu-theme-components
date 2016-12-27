@@ -73,7 +73,8 @@
   width: 100%;
   height: auto;
   background: #ffffff;
-  opacity: 0.88; }
+  opacity: 0.88;
+  border-bottom: 1px solid #ccc; }
 
 :host([collapsed]) .navbar-collapse {
   height: 0; }
@@ -180,6 +181,8 @@
     display: none; } }
 
 </style>
+<link type="text/css" rel="stylesheet" href="https://cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+
 <nav class="outer-nav">
     <div class="inner-nav">
         <slot id="slot"></slot>

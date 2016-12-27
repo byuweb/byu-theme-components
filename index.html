@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="components/byu-top-bar/byu-top-bar.js"></script>
+    <script src="components/byu-menu/byu-menu.js"></script>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="import" href"bower_components/iron-demo-helpers/demo-snippet.html">
+    <link rel="stylesheet" rel="stylesheet" href="https://lscdn.byu.edu/Template/css/site.css">
+</head>
+
+<body>
+    <byu-top-bar>
+        <span slot="title">Templates Demo Site</span>
+        <byu-menu slot="nav" collapsed>
+            <a class="selected" href="components/index.html">Home</a>
+            <a href="components/byu-top-bar/demo.html">Top Bar</a>
+            <a href="components/byu-menu/demo.html">Menu</a>
+            <a href="components/byu-search/demo.html">Search</a>
+            <a href="components/byu-user-login/demo.html">User Login</a>
+            <a href="components/byu-hero/demo.html">Hero</a>
+        </byu-menu>
+    </byu-top-bar>
+    <div style="margin: 10px">
+        <h1>Welcome to the new templates!</h1>
+        <p>
+            Feel free to check back here for updates. I'll upload the latest code every time we get a pull request on the github repository 
+            (<a href="https://github.com/byuweb/2017-components">https://github.com/byuweb/2017-components</a>).
+        </p>
+        <p>
+            As of right now, you need to include the following to use the components:
+
+            <ul>
+                <li>The web component polyfills: &lt;script src="https://lscdn.byu.edu/Template/bower_components/webcomponentsjs/webcomponents.js"&gt;&lt;/script&gt;</li>
+                <li>The script file for each component you want: &lt;script src="https://lscdn.byu.edu/Template/components/byu-[component-name]/byu-[component-name].js"&gt;&lt;/script&gt;</li>
+                <li>The font-awesome stylesheet: &lt;link rel="stylesheet" rel="stylesheet" href="https://lscdn.byu.edu/Template/bower_components/font-awesome/css/font-awesome.min.css"&gt;</li>
+                <li>The default site.css: &lt;link rel="stylesheet" rel="stylesheet" href="https://lscdn.byu.edu/Template/css/site.css"&gt;</li>                
+            </ul>
+
+        </p>
+    </div>
+</body>
+
+</html>

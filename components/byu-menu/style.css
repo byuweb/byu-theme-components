@@ -4,7 +4,8 @@
   width: 100%;
   height: auto;
   background: #ffffff;
-  opacity: 0.88; }
+  opacity: 0.88;
+  border-bottom: 1px solid #ccc; }
 
 :host([collapsed]) .navbar-collapse {
   height: 0; }

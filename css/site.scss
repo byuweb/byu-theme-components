@@ -1,0 +1,443 @@
+body {
+    margin: 0;
+}
+
+
+
+/* SASS Variables ------------------- */
+$mobile_sidebar_width: 20%;
+$mobile_main_width: 100% - $mobile_sidebar_width;
+$mobile_max_width: 1023px;
+$large_screen_start_width: 1024px;
+// colors
+$navy: #002E5D;
+$lightestblue: #C4CFDA;
+$lightblue: #A6B6C7;
+$medblue: #889FB7;
+$dullnavy: desaturate($navy, 30%);
+$dullblue: desaturate($navy, 70%);
+$brightblue: lighten($navy, 50%);
+$lightestblue: lighten($dullblue, 50%);
+$mediumblue: darken($lightestblue, 3%);
+$xlightgray: #f2f2f2;
+$lightgray: #e5e5e5;
+$medgray: #9b9b9b;
+$gray: #767676;
+$darkgray: #6a6a6b;
+$royal: #003DA5;
+$royallight: #114BAD;
+//other colors
+$greenlightened: #72B518;
+$green: #6EAE17;
+$greendarkened: #6AA816;
+// other
+$nav_gradient: 10%;
+$nav_gradient_2: 5%;
+@mixin sidebar-inner-shadowbox() {
+    -webkit-box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+@mixin main-outer-shadowbox() {
+    -webkit-box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+@mixin display-flex() {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    
+}
+@mixin button {
+    text-align: center;
+    padding: 9px 0px!important;
+    
+}
+/* ------------------------------------- */
+body {
+    color: #444;
+}
+a {
+    color: $royal;
+}
+a:hover {
+    text-decoration: none;
+}
+.node-readmore {
+    visibility: hidden;
+}
+.alert-box {
+    z-index: 100;
+}
+.light-gray-bg {
+    background: $lightgray;
+}
+.gray-button {
+    @include button;
+    background: $lightgray;
+    padding: 10px;
+    border: 1px solid $medgray;
+    margin: 10px;
+    text-align: center;
+    color: $navy;
+    font-size: 12px;
+}
+.green-button {
+    @include button;
+    background-color: $green!important;
+//    padding: 9px 18px!important;
+    width: 120px;
+    font-size: 12px;
+    a {
+        color: #fff;
+    }   
+}
+.green-button:hover {
+    background: $greenlightened;
+}
+.green-button:active {
+    background: $greendarkened;
+}
+/* -------- font & sizing -------- */
+@media screen and (max-width: $mobile_max_width){
+    // set smaller header sizes for mobile.
+    h1 {
+        font-size: 1.3em;
+    }
+    
+}
+h2 {
+    font-size: 1em;
+}
+@media screen and (min-width: $large_screen_start_width) {
+    h2 {
+        font-size: 1.6875em;
+    }
+}
+h3, h3 a {
+    color: $navy;
+}
+p, span, div {
+    font-family: "Gotham SSm A","Gotham SSm B";
+}
+h1, h2, h3, h4,
+.weekview-day-header, .list-header, .list-header div,
+.day-navigation-day-items, .weekview-day-header .day-header-day {
+    font-family: "Sentinel SSm A","Sentinel SSm B";
+}
+h1 {
+    color: $navy;
+}
+// if they only want event page titles to be navy
+.page-node.node-type-event h1#page-title {
+//    color: $navy;
+}
+/* ------------ regions ----------------------*/
+section.l-top-title.row {
+    border-bottom: 1px solid $lightgray;
+}
+#top-content {
+    @include display-flex();
+    justify-content: center;
+    padding: 30px 0px;
+}
+section.l-bottom-content.row {
+    max-width: 64em;
+}
+#bottom-content {
+    padding: 30px 0px;
+}
+/* ------ often used classes ------------*/
+.hidden {
+    display: none;
+}
+.panel {
+    background: #fff;
+}
+.gray-button {
+    background-color: $lightgray!important;
+    padding: 9px 12px!important;
+    font-size: 12px;
+    a {
+       color: $navy;
+    }
+}
+.medgray-button {
+    background-color: $medgray!important;
+    padding: 9px 12px!important;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    height: 30px;
+    a {
+        color: #fff;
+    }
+}
+.medgray-button:hover {
+    background: #a2a2a2;
+}
+.royal-button {
+    background-color: $royal;
+    padding: 9px 12px!important;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    a {
+        color: #fff;
+    }
+}
+.royal-button:hover {
+    background: $royallight;
+}
+//.blue-inline-label {
+//    color: $navy;
+//    font-weight: bold;
+//    display: inline;
+//    float: left;
+//    padding-right: 5px;
+//}
+/* ----- general input things like checkboxes etc ----- */
+@mixin gray-select {
+    font-weight: bold;
+    color: $gray;
+    border: 1px solid $medgray;
+    padding: 2px 25px 2px 6px;
+}
+@mixin select-dropdown {
+    background: #fff;
+    background: url("/sites/all/themes/byu_calendar/images/gray-bg-dropdown-arrow.png") no-repeat right white;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    -o-appearance:none;
+    appearance:none;
+//    background-position-x: 244px;
+}
+@mixin plain-dropdown {
+    background: #fff;
+    background: url("/sites/all/themes/byu_calendar/images/gray-bg-dropdown-arrow.png") no-repeat right white;
+    -webkit-appearance: none; 
+    -moz-appearance: none;
+    -o-appearance:none;
+    appearance:none;
+}
+select::-ms-expand {
+    display: none;
+}
+// Checkboxes
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+    margin: 0 0 1px 0;
+}
+/* Hide the Ordinary Checkbox */
+input[type="checkbox"] {
+    display: none;
+}
+@mixin basic-checkbox {
+    label {
+        position: relative;
+        margin-left: 32px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #fff;
+        padding: 16px 28px 0 0;
+    }
+    label:before, label:after {
+        font-family: FontAwesome;
+        
+        color: $medgray;
+        /*absolutely positioned*/
+        position: absolute; top: 2px; left: -28px; right: 10px;
+    }
+    label:before {  // before is checkbox
+        content: '\f096'; /*checkbox unchecked */
+        font-size: 23px;
+    }
+    label:after {  // after is checkmark
+        content: '\f00c'; /*checkbox checked*/
+        max-width: 0;
+        overflow: hidden;
+        opacity: 0.5;
+        font-size: 23px;
+        top: -3px;
+        left: -27px;
+        color: $green;
+        -webkit-transition: all 0.50s;
+        -moz-transition: all 0.50s;
+        -o-transition: all 0.50s;
+         transition: all 0.50s;
+    }
+}
+.form-type-checkbox {   
+    // basic for editing and adding nodes
+   @include basic-checkbox; 
+}
+// checkboxes for views better exposed filters
+.form-type-bef-checkbox {
+    @include basic-checkbox; 
+    label {
+        font-size: 13px;  // smaller checkbox
+        margin-left: 28px;
+        padding: 5px 28px 0 0;
+    }
+    label:before, label:after {
+//        color: $navy;
+    }
+    label:before {
+        font-size: 20px;
+    }
+    label:after {
+        font-size: 19px;
+        left: -26px;
+        top: -1px;
+    }
+    
+}
+/* Animating the Checkbox Icon */
+input[type="checkbox"]:checked ~ label:after {
+    max-width: 25px;
+    opacity: 1;
+    margin-right: 40px;
+}
+.ui-timepicker-table td a {
+    width: 2.2em;
+}
+.ui-timepicker-table .ui-timepicker-title {
+    background: $navy;
+    color: #fff;
+}
+.chosen-container-single .chosen-single {
+    padding: 0px 15px;
+    color: $gray;
+}
+.chosen-container-single .chosen-search input[type="text"] {
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid $medgray;
+    border-bottom: 1px solid $medgray;
+    padding: 7px 15px;
+}
+// pull dropdown up so it covers the top search part
+.chosen-container-single .chosen-drop {
+    margin-top: -26px;
+    border-radius: 4px;
+    background-clip: padding-box;
+}
+.chosen-container .chosen-results {
+    text-transform: lowercase;
+    padding: 0px;
+}
+// hide first, which is 'search'
+.chosen-container .chosen-results li:first-of-type {
+    display: none;
+}
+.chosen-container .chosen-results li {
+    color: $gray;
+    padding: 7px 15px;
+}
+.mobile .chosen-container .chosen-results li {
+//    padding-left: 5px 15px;
+}
+.chosen-container .chosen-results li.highlighted {
+    background-color: $navy!important;
+    background-image: none!important;
+    color: #fff;
+}
+.chosen-container-single .chosen-single {
+    background: none;
+    border-radius: 2px;
+}
+.chosen-container-single .chosen-search {
+    padding: 0px;
+    input[type="text"] {
+        
+    }
+}
+.chosen-drop ul.chosen-results {
+    max-height: 175px;
+}
+.mobile .chosen-drop ul.chosen-results {
+    max-height: 150px;
+}
+    // formatting dropdown arrows
+//    background: url(new_arrow.png) no-repeat right #ddd;
+/* --- menu -------- */
+@media screen and (max-width: $mobile_max_width) {
+    .top-bar {
+        overflow: hidden;
+        height: 45px;
+        line-height: 45px;
+        position: fixed;
+        width: 100%;
+        background: $navy;
+        margin-bottom: 0;
+        @media screen and (max-width: $mobile_max_width) {
+//            position: fixed;
+            z-index: 50;
+        }
+    }
+    .top-bar.expanded .title-area {
+        background: $navy;
+    }
+    .top-bar-section ul {
+        background: none;
+    }
+    .top-bar .toggle-topbar.menu-icon a span {
+        color: $navy; // so the menu doesn't show
+    }
+    ul#secondary-menu li,
+    ul#main-menu li {
+        border-left: 2px solid $medgray;
+        width: 80%;
+    
+    }
+    ul#secondary-menu li.last.leaf {
+        border-bottom: 2px solid $medgray;
+        border-bottom-left-radius: 4px;
+    }
+    ul#secondary-menu li,
+    ul#secondary-menu li a,
+    ul#main-menu li,
+    ul#main-menu li a {
+        background: #fff;
+        color: $navy;
+        float: right;
+        font-family: "Sentinel SSm A", "Sentinel SSm B";
+        font-size: 16px;
+    }
+    ul#secondary-menu li a,
+    ul#main-menu li a {
+        padding: 8px 15px;
+//        width: 100%;
+    }
+}
+@media screen and (min-width: $large_screen_start_width) {
+     .top-bar {
+        position: relative;
+    }
+}
+// for mobile and large
+li.leaf:hover {
+    background: $lightgray;
+}
+.top-bar-section li a:not(.button):hover {
+    background: $lightgray;
+    color: $navy;
+}
+@media screen and (min-width: $large_screen_start_width) {
+    ul#secondary-menu {
+        display: none;
+    }   
+}
+/*  --- Random mobile display settings - */
+@media screen and (max-width: $mobile_max_width) {
+    ul.breadcrumbs {
+        display: none!important;
+    }
+}
