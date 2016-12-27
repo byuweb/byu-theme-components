@@ -2,7 +2,7 @@
     /* FUSE */
 </style>
 
-<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/template/bower_components/font-awesome/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet" href="https://cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
 
 <div id="header" class="byu-header">
@@ -12,13 +12,16 @@
         <div class="byu-header-title">
             <slot name="title"></slot>
         </div>
+        <button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed">
+            <span class="fa fa-bars"></span>
+         </button>
     </div>
 
     <div id="secondary" class="byu-header-secondary">
 
         <div class="byu-header-user">
             <button type="button">
-                <span class="icon">
+                <span class="icon"> 
                     <span class="fa fa-user-circle-o"></span>
                 </span>
                 <span class="label">Sign in</span>
@@ -34,9 +37,7 @@
         </div>
 
         <div id="menuTemplate" class="byu-header-menu-button">
-            <button type="button" aria-label="Open or close menu" onclick="this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed"
-                <span class="fa fa-bars"></span>
-            </button>
+
         </div>
 
     </div>

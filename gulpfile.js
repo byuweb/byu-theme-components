@@ -20,7 +20,9 @@ const fuse      = require('gulp-fuse');
 const gulp      = require('gulp');
 const sass      = require('gulp-sass');
 const minifyCss = require('gulp-minify-css'); //minifies css
-   
+const uglify    = require('gulp-uglify'); // minifies js
+const concat    = require('gulp-concat');
+const babel     = require('gulp-babel'); // transpile es6 to es5
 
 gulp.task('build', ['fuse'], function() {
     // put closure code in here
@@ -48,7 +50,22 @@ gulp.task('sitecss', function() {
 });
 
 gulp.task('watch', function () {
-    gulp.watch('./components/**/*', ['fuse']);
+    // gulp.watch('./components/**/*', ['fuse']);
+    // gulp.watch('./css/*', ['sitecss']);
+    gulp.watch(['./components/**/*', './css/*'], ['bundle']);
+});
+
+gulp.task('bundle', ['fuse', 'sitecss'], function() {
+    gulp.src(['./components/**/*.js', '!./components/**/script.js'])
+        // .pipe(babel({
+        //     presets: ['es2015']
+        // }))
+        //.pipe(uglify())
+        .pipe(concat('components.js'))
+        .pipe(gulp.dest('dist'))
+    gulp.src('./css/site.css')
+        .pipe(concat('site.min.css'))
+        .pipe(gulp.dest('dist'))    
 });
 
 gulp.task('default', ['watch']);

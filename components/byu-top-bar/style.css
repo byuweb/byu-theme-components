@@ -10,6 +10,10 @@
     border: none;
     display: inline-block;
     cursor: pointer; }
+    .byu-header button.nav-expand {
+      background-color: transparent; }
+      .byu-header button.nav-expand span.fa {
+        font-size: 20px; }
   .byu-header .byu-header-primary {
     background-color: #002e5d;
     color: #ffffff;
@@ -72,6 +76,8 @@
     align-items: center; }
     .byu-header.no-nav {
       height: 48px; }
+    .byu-header .nav-expand {
+      display: none; }
     .byu-header .byu-header-secondary {
       background-color: #002e5d;
       color: #ffffff;
@@ -104,8 +110,7 @@
 /* TABLET SIZE */
 @media (max-width: 1023px) {
   .byu-header button {
-    height: 100%;
-    width: 140px; }
+    height: 100%; }
   .byu-header .byu-header-secondary {
     background-color: #767676;
     color: #ffffff;
@@ -116,9 +121,14 @@
     align-items: center; }
     .byu-header .byu-header-secondary > div {
       margin-right: 0;
-      height: 32px; }
+      height: auto; }
     .byu-header .byu-header-secondary button {
       border-left: 1px solid #ffffff; }
+      .byu-header .byu-header-secondary button > span {
+        font-size: 17px;
+        line-height: 12px; }
+    .byu-header .byu-header-secondary .byu-header-user {
+      display: none; }
     .byu-header .byu-header-secondary .byu-header-search {
       display: flex;
       flex-direction: row;
@@ -128,7 +138,7 @@
       flex: 1; }
       .byu-header .byu-header-secondary .byu-header-search input {
         flex: 1;
-        height: 26px;
+        height: 35px;
         padding-left: 16px; }
       .byu-header .byu-header-secondary .byu-header-search button {
         border-left: none; }

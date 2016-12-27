@@ -19,6 +19,14 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
         border: none;
         display: inline-block;
         cursor: pointer;
+
+        &.nav-expand {
+            background-color: transparent;
+
+            span.fa {
+                font-size: 20px;
+            }
+        }        
     }
 
     .byu-header-primary {
@@ -107,6 +115,11 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
         &.no-nav {
             height: 48px;
         }
+
+        .nav-expand {
+            display: none;
+        }
+
         .byu-header-secondary {
             background-color: $byu_blue;
             color: #ffffff;
@@ -151,7 +164,6 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
     .byu-header {
         button {
             height: 100%;
-            width: 140px;
         }
 
         .byu-header-secondary {
@@ -165,11 +177,20 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
         
             & > div {
                 margin-right: 0;
-                height: 32px;
+                height: auto;
             }
             button {
                 border-left: 1px solid #ffffff;
+            
+                & > span {
+                    font-size: 17px;
+                    line-height: 12px;
+                }
             }
+            .byu-header-user {
+                display: none;
+            }
+
             .byu-header-search {
                 display: flex;
                 flex-direction: row;
@@ -180,7 +201,7 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
             
                 input {
                     flex: 1;
-                    height: 26px;
+                    height: 35px;
                     padding-left: 16px;
                 }
                 button {

@@ -27,6 +27,10 @@
     border: none;
     display: inline-block;
     cursor: pointer; }
+    .byu-header button.nav-expand {
+      background-color: transparent; }
+      .byu-header button.nav-expand span.fa {
+        font-size: 20px; }
   .byu-header .byu-header-primary {
     background-color: #002e5d;
     color: #ffffff;
@@ -89,6 +93,8 @@
     align-items: center; }
     .byu-header.no-nav {
       height: 48px; }
+    .byu-header .nav-expand {
+      display: none; }
     .byu-header .byu-header-secondary {
       background-color: #002e5d;
       color: #ffffff;
@@ -121,8 +127,7 @@
 /* TABLET SIZE */
 @media (max-width: 1023px) {
   .byu-header button {
-    height: 100%;
-    width: 140px; }
+    height: 100%; }
   .byu-header .byu-header-secondary {
     background-color: #767676;
     color: #ffffff;
@@ -133,9 +138,14 @@
     align-items: center; }
     .byu-header .byu-header-secondary > div {
       margin-right: 0;
-      height: 32px; }
+      height: auto; }
     .byu-header .byu-header-secondary button {
       border-left: 1px solid #ffffff; }
+      .byu-header .byu-header-secondary button > span {
+        font-size: 17px;
+        line-height: 12px; }
+    .byu-header .byu-header-secondary .byu-header-user {
+      display: none; }
     .byu-header .byu-header-secondary .byu-header-search {
       display: flex;
       flex-direction: row;
@@ -145,7 +155,7 @@
       flex: 1; }
       .byu-header .byu-header-secondary .byu-header-search input {
         flex: 1;
-        height: 26px;
+        height: 35px;
         padding-left: 16px; }
       .byu-header .byu-header-secondary .byu-header-search button {
         border-left: none; }
@@ -175,7 +185,7 @@
 
 </style>
 
-<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/template/bower_components/font-awesome/css/font-awesome.min.css">
 <link type="text/css" rel="stylesheet" href="https://cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
 
 <div id="header" class="byu-header">
@@ -185,13 +195,16 @@
         <div class="byu-header-title">
             <slot name="title"></slot>
         </div>
+        <button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed">
+            <span class="fa fa-bars"></span>
+         </button>
     </div>
 
     <div id="secondary" class="byu-header-secondary">
 
         <div class="byu-header-user">
             <button type="button">
-                <span class="icon">
+                <span class="icon"> 
                     <span class="fa fa-user-circle-o"></span>
                 </span>
                 <span class="label">Sign in</span>
@@ -207,9 +220,7 @@
         </div>
 
         <div id="menuTemplate" class="byu-header-menu-button">
-            <button type="button" aria-label="Open or close menu" onclick="this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed"
-                <span class="fa fa-bars"></span>
-            </button>
+
         </div>
 
     </div>
