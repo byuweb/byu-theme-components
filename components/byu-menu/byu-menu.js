@@ -136,23 +136,23 @@
   width: 16.66%; }
 
 ::slotted(*.selected) {
-  background: #e6e6e6; }
+  background: #e6e6e6 !important; }
 
 .extra-links, ::slotted(*) {
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  color: #002e5d;
-  height: 35px;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #002e5d !important;
+  height: 35px !important;
   display: table-cell;
-  text-transform: uppercase;
-  text-decoration: none;
-  vertical-align: middle;
-  text-align: center;
-  padding: 0 6px; }
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 0 6px !important; }
 
 .extra-links:hover, ::slotted(*:hover) {
-  background: #c5c5c5; }
+  background-color: #c5c5c5 !important; }
 
 .extra-links {
   display: none;

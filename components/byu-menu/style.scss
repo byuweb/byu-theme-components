@@ -87,25 +87,25 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 }
 
 ::slotted(*.selected) {
-    background: $active_color;
+    background: $active_color !important;
 }
 
 .extra-links, ::slotted(*) {
-    font-family: $menu_font;
-    font-size: 13px;
-    font-weight: 400;
-    color: $byu_blue;
-    height: 35px;
+    font-family: $menu_font !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: $byu_blue !important;
+    height: 35px !important;
     display: table-cell;
-    text-transform: uppercase;
-    text-decoration: none;
-    vertical-align: middle;
-    text-align: center;
-    padding: 0 6px;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    padding: 0 6px !important;
 }
 
 .extra-links:hover, ::slotted(*:hover) {
-    background: $hover_color;
+    background-color: $hover_color !important;
 }
 
 .extra-links {
