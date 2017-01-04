@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../byu-top-bar/byu-top-bar.js"></script>
+    <script src="../byu-menu/byu-menu.js"></script>
+    <script src="../byu-footer/byu-footer.js"></script>
+
+
+    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+
+    <link rel="import" href="../../bower_components/iron-demo-helpers/demo-snippet.html">
+    <link type="text/css" rel="stylesheet" href="https://cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+    <link rel="stylesheet" rel="stylesheet" href="https://lscdn.byu.edu/Template/css/site.css">
+</head>
+
+<body>
+    <byu-top-bar>
+        <span slot="title">Templates Demo Site</span>
+        <byu-menu slot="nav" collapsed>
+            <a href="/template/index.html">Home</a>
+            <a href="/template/components/byu-top-bar/demo.html">Top Bar</a>
+            <a href="/template/components/byu-menu/demo.html">Menu</a>
+            <a href="/template/components/byu-search/demo.html">Search</a>
+            <a href="/template/components/byu-user-login/demo.html">User Login</a>
+            <a class="selected" href="/template/components/byu-footer/demo.html">Footer</a>
+        </byu-menu>
+    </byu-top-bar>
+    <h1>Footer Demo</h1>
+    <div style="margin-bottom: 20px">
+        <h2>Blue Bar Only</h2>
+        <demo-snippet>
+            <template>
+                <byu-footer>
+                </byu-footer>
+            </template>
+        </demo-snippet>
+        <h2>Full Footer with Links</h2>
+        <demo-snippet>
+            <template>
+                <byu-footer>
+                    <span slot="col1">
+                        Content for first column
+                    </span>
+                    <div slot="col2">
+                        Content for second column
+                    </div>
+                    <div slot="col3">
+                        Content for second column
+                    </div>
+                    <div slot="col4">
+                        Content for second column
+                    </div>
+                </byu-footer>
+            </template>
+        </demo-snippet>
+    </div>
+
+    <footer>
+        <byu-footer></byu-footer>
+    </footer>
+</body>
+
+</html>

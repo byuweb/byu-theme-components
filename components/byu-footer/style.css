@@ -1,0 +1,27 @@
+.blue-footer {
+  background-color: #002e5d;
+  text-align: center;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+  height: 80px;
+  display: table;
+  width: 100%; }
+
+.inner-wrapper {
+  display: table-cell;
+  vertical-align: middle; }
+
+.university-logo {
+  width: 380px;
+  height: 33.6px; }
+
+.secondary-footer {
+  max-height: 295px;
+  background-color: #e6e6e6;
+  text-align: center; }
+  .secondary-footer .column {
+    width: 20%;
+    display: inline-block;
+    text-align: left; }
