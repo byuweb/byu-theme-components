@@ -20,8 +20,7 @@
 .secondary-footer {
   max-height: 295px;
   background-color: #e6e6e6;
-  text-align: center;
-  padding: 25px 10%; }
+  text-align: center; }
   .secondary-footer .column {
     width: 20%;
     display: inline-block;
