@@ -29,11 +29,13 @@ $footer_gray: #e6e6e6;
   max-height: 295px;
   background-color: $footer_gray;
   text-align: center;
+  padding: 25px 10%;
 
   .column {
     width: 20%;
     display: inline-block;
     text-align: left;
+    vertical-align: top;
   }
 
 }

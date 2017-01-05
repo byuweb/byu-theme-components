@@ -1,0 +1,37 @@
+$byu_blue: #002e5d;
+$content_color: #767676;
+$header_font: "Vitesse A", "Vitesse B", Georgia, serif;
+$content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
+:host {
+    color: purple !important;
+}
+
+.column {
+    padding: 0 15px;
+
+    h2 {
+        font-family: $header_font;
+        text-transform: uppercase;
+        color: $byu_blue;
+        font-size: 20px;
+        border-bottom: 1px solid #c5c5c5;
+        padding-bottom: 10px;
+        white-space: nowrap;
+        font-weight: 400;
+    }
+}
+
+::slotted(*), .content * {
+    font-family: $content_font !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: $content_color !important;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+::slotted(a):hover, .content a:hover {
+    color: $byu_blue !important;
+    cursor: pointer !important;
+}
