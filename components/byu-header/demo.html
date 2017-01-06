@@ -5,27 +5,27 @@
     <title></title>
     <meta charset="utf-8" />
     <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
-    <script src="../byu-header/byu-header.js"></script>
-    <script src="../byu-menu/byu-menu.js"></script>
-    <script src="../byu-footer/byu-footer.js"></script>
+     <script src="../../dist/components.js"></script>
+
 
     <link type="text/css" rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="import" href="../../bower_components/iron-demo-helpers/demo-snippet.html">
     <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
-    <link type="text/css" rel="stylesheet" href="https://lscdn.byu.edu/Template/css/site.css">
+    <link type="text/css" rel="stylesheet" href="../../css/site.css">
 </head>
 
 <body>
     <byu-header>
         <span slot="title">Templates Demo Site</span>
         <byu-menu slot="nav" collapsed>
-            <a href="/template/index.html">Home</a>
-            <a class="selected" href="/template/components/byu-header/demo.html">Top Bar</a>
-            <a href="/template/components/byu-menu/demo.html">Menu</a>
-            <a href="/template/components/byu-search/demo.html">Search</a>
-            <a href="/template/components/byu-user-login/demo.html">User Login</a>
-            <a href="/template/components/byu-footer/demo.html">Footer</a>
+            <a href="../../index.html">Home</a>
+            <a class="selected" href="../../components/byu-header/demo.html">Top Bar</a>
+            <a href="../../components/byu-menu/demo.html">Menu</a>
+            <a href="../../components/byu-search/demo.html">Search</a>
+            <a href="../../components/byu-user-login/demo.html">User Login</a>
+            <a href="../../components/byu-footer/demo.html">Footer</a>
         </byu-menu>
+        <byu-search slot="search"></byu-search>
     </byu-header>
     <h1>Top Bar Demo</h1>
     <div style="margin-bottom: 20px">

@@ -2,27 +2,29 @@
 <html>
 
 <head>
-    <title></title>
+<title></title>
     <meta charset="utf-8" />
     <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
-    <link rel="import" href"bower_components/iron-demo-helpers/demo-snippet.html">
-    <script src="/template/dist/components.js"></script>
-    <link type="text/css" rel="stylesheet" href="/template/dist/site.min.css">
-    <link type="text/css" rel="stylesheet" href="/Template/bower_components/font-awesome/css/font-awesome.min.css">
+    <script src="dist/components.js"></script>
+
+
+    <link type="text/css" rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="css/site.css">
 </head>
 
 <body>
     <byu-header>
         <span slot="title">Templates Demo Site</span>
         <byu-menu slot="nav" collapsed>
-            <a class="selected" href="/template/index.html">Home</a>
+            <a class="selected" href="../../index.html">Home</a>
             <a href="components/byu-header/demo.html">Top Bar</a>
             <a href="components/byu-menu/demo.html">Menu</a>
             <a href="components/byu-search/demo.html">Search</a>
             <a href="components/byu-user-login/demo.html">User Login</a>
             <a href="components/byu-footer/demo.html">Footer</a>
         </byu-menu>
+        <byu-search slot="search"></byu-search>
     </byu-header>
     <div style="margin: 10px">
         <h1>Welcome to the new templates!</h1>
@@ -34,10 +36,10 @@
             As of right now, you need to include the following to use the components:
 
             <ul>
-                <li>The web component polyfills: &lt;script src="https://lscdn.byu.edu/Template/bower_components/webcomponentsjs/webcomponents.js"&gt;&lt;/script&gt;</li>
-                <li>The script file for the components: &lt;script src="https://lscdn.byu.edu/Template/dist/components.js"&gt;&lt;/script&gt;</li>
-                <li>The font-awesome stylesheet: &lt;link rel="stylesheet" href="https://lscdn.byu.edu/Template/bower_components/font-awesome/css/font-awesome.min.css"&gt;</li>
-                <li>The default site.css: &lt;link rel="stylesheet" href="https://lscdn.byu.edu/Template/css/site.css"&gt;</li>     <li>The Hoeffler Fonts Stylesheet: &lt;link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" /&gt;</li>        
+                <li>The web component polyfills: &lt;script src="https://lscdn.byu.edu../../bower_components/webcomponentsjs/webcomponents.js"&gt;&lt;/script&gt;</li>
+                <li>The script file for the components: &lt;script src="https://lscdn.byu.edu../../dist/components.js"&gt;&lt;/script&gt;</li>
+                <li>The font-awesome stylesheet: &lt;link rel="stylesheet" href="https://lscdn.byu.edu../../bower_components/font-awesome/css/font-awesome.min.css"&gt;</li>
+                <li>The default site.css: &lt;link rel="stylesheet" href="https://lscdn.byu.edu../../css/site.css"&gt;</li>     <li>The Hoeffler Fonts Stylesheet: &lt;link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" /&gt;</li>        
             </ul>
 
         </p>
