@@ -1,7 +1,7 @@
 (function (template) {
     'use strict';
 
-    class ByuTopBar extends HTMLElement {
+    class BYUHeader extends HTMLElement {
 
         constructor() {
             super();
@@ -11,7 +11,7 @@
 
     }
 
-    window.customElements.define('byu-top-bar', ByuTopBar);
-    window.ByuTopBar = ByuTopBar;
+    window.customElements.define('byu-header', BYUHeader);
+    window.BYUHeader = BYUHeader;
 
 })(/* FUSE */);
