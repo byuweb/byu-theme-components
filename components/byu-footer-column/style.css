@@ -4,7 +4,7 @@
 .column {
   padding: 0 15px; }
 
-::slotted(*) #headertext {
+::slotted(*) {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   text-transform: uppercase !important;
   color: #002e5d !important;

@@ -109,7 +109,7 @@
 /* TABLET SIZE */
 @media (max-width: 1023px) {
   .byu-header .byu-header-secondary {
-    background-color: #767676;
+    background-color: initial;
     color: #ffffff;
     display: flex;
     flex-direction: row;
