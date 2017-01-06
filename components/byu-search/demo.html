@@ -17,18 +17,22 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
   <title></title>
   <meta charset="utf-8" />
-  <script src="/bower_components/webcomponentsjs/webcomponents.js"></script>
-  <script src="/components/byu-search/byu-search.js"></script>
+  <script src="/template/bower_components/webcomponentsjs/webcomponents.js"></script>
+  <script src="../byu-search/byu-search.js"></script>
+  <script src="../byu-header/byu-header.js"></script>
+  <script src="../byu-menu/byu-menu.js"></script>
+  <script src="../byu-footer/byu-footer.js"></script>
 
-  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+  <link type="text/css" rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+  <link rel="import" href="../../bower_components/iron-demo-helpers/demo-snippet.html">
   <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+  <link type="text/css" rel="stylesheet" href="https://lscdn.byu.edu/Template/css/site.css">
   <style>
-    body {
-      padding: 20px;
-    }
+    
     code {
       display: block;
       background-color: #EEE;
@@ -47,11 +51,30 @@
     }
   </style>
 </head>
+
 <body>
+  <byu-header>
+    <span slot="title">Templates Demo Site</span>
+    <byu-menu slot="nav" collapsed>
+      <a href="/template/index.html">Home</a>
+      <a href="/template/components/byu-header/demo.html">Top Bar</a>
+      <a href="/template/components/byu-menu/demo.html">Menu</a>
+      <a class="selected" href="/template/components/byu-search/demo.html">Search</a>
+      <a href="/template/components/byu-user-login/demo.html">User Login</a>
+      <a href="/template/components/byu-footer/demo.html">Footer</a>
+    </byu-menu>
+  </byu-header>
+  <h1>Top Bar Demo</h1>
+  <div style="margin-bottom: 20px"> This page contains several demos of the new BYU top bar. Note that many of these are incomplete pending further development.
+</div>
+<hr>
+<section style="margin: 20px">
 
 <h3>Send search to URL</h3>
 <div class='row'>
-  <p><byu-search action='https://www.google.com/#q=$1' method='get' placeholder='Search Google'></byu-search></p>
+  <p>
+    <byu-search action='https://www.google.com/#q=$1' method='get' placeholder='Search Google'></byu-search>
+  </p>
   <pre><code>&lt;byu-search
   action='https://www.google.com/#q=$1'
   method='get'
@@ -73,7 +96,9 @@
 
 <h3>Set Search Target</h3>
 <div class='row'>
-  <p><byu-search action='https://www.google.com/#q=$1' target='_blank' placeholder='Search Google'></byu-search></p>
+  <p>
+    <byu-search action='https://www.google.com/#q=$1' target='_blank' placeholder='Search Google'></byu-search>
+  </p>
   <pre><code>&lt;byu-search
   action='https://www.google.com/#q=$1'
   target='_blank'
@@ -83,7 +108,9 @@
 
 <h3>Set Initial Value</h3>
 <div class='row'>
-  <p><byu-search value='foo'></byu-search></p>
+  <p>
+    <byu-search value='foo'></byu-search>
+  </p>
   <pre><code>&lt;byu-search value='foo'&gt;&lt;/byu-search&gt;</code></pre>
 </div>
 <div class='row'>
@@ -99,9 +126,9 @@
 
 <h3>Listen for Input Events</h3>
 <script>
-function changeListener(element) {
-  console.log(element, element.value);
-}
+  function changeListener(element) {
+    console.log(element, element.value);
+  }
 </script>
 <pre><code>&lt;script&gt;
 function changeListener(element) {
@@ -109,35 +136,43 @@ function changeListener(element) {
 }
 &lt;/script&gt;</code></pre>
 <div class='row'>
-  <p><byu-search oninput='changeListener(this)'></byu-search></p>
-  <pre><code>&lt;byu-search oninput='changeListener(this)'&gt;&lt;/byu-search&gt;</code></pre>
+  <p>
+    <byu-search oninput='changeListener(this)'></byu-search>
+</p>
+<pre><code>&lt;byu-search oninput='changeListener(this)'&gt;&lt;/byu-search&gt;</code></pre>
 </div>
 <div class='row'>
   <p>
     <byu-search>
       <input slot='search' type='search' oninput='changeListener(this)'>
-    </byu-search>
-  </p>
-  <pre><code>&lt;byu-search&gt;
+</byu-search>
+</p>
+<pre><code>&lt;byu-search&gt;
   &lt;input slot='search' type='search' oninput='changeListener(this)'&gt;
 &lt;/byu-search&gt;</code></pre>
 </div>
 
 <h3>Listen for Search Events</h3>
 <div class='row'>
-  <p><byu-search onsearch='changeListener(this)'></byu-search></p>
-  <pre><code>&lt;byu-search onsearch='changeListener(this)'&gt;&lt;/byu-search&gt;</code></pre>
+  <p>
+    <byu-search onsearch='changeListener(this)'></byu-search>
+</p>
+<pre><code>&lt;byu-search onsearch='changeListener(this)'&gt;&lt;/byu-search&gt;</code></pre>
 </div>
 <div class='row'>
   <p>
     <byu-search onsearch='changeListener(this)'>
-      <input type='search'>
-    </byu-search>
-  </p>
-  <pre><code>&lt;byu-search onsearch='changeListener(this)'&gt;
+<input type='search'>
+</byu-search>
+</p>
+<pre><code>&lt;byu-search onsearch='changeListener(this)'&gt;
     &lt;input type='search'&gt;
   &lt;/byu-search&gt;</code></pre>
 </div>
-
+</section>
+<footer>
+  <byu-footer></byu-footer>
+</footer>
 </body>
+
 </html>
