@@ -172,6 +172,18 @@ form #search-container input,
   border: 1px solid var(--byu-search-color, #767676);
   border-right: none; }
 
+@media (max-width: 1023px) {
+  :host {
+    width: 100%;
+    height: 35px; }
+  form #search-container input,
+  ::slotted(input) {
+    padding: 5px 10px;
+    border: 1px solid var(--byu-search-color, #767676);
+    border-right: none;
+    width: 100%;
+    height: 35px; } }
+
 </style>
 
 <form>

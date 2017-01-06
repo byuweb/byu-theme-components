@@ -18,15 +18,11 @@
 })(`<style>.footer-column {
   padding: 0 15px; }
 
-<<<<<<< HEAD
-::slotted(*) {
-=======
 .header {
   width: 100%;
   -webkit-margin-after: 0.53em; }
 
 .header ::slotted(*) {
->>>>>>> d54dff86595f16c1161e5a560a012f29b309d14e
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   text-transform: uppercase !important;
   color: #002e5d !important;
