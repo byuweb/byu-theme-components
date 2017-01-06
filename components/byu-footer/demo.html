@@ -35,15 +35,15 @@
         <h2>Blue Bar Only</h2>
         <demo-snippet>
             <template>
-                <byu-footer>
-                </byu-footer>
+                <byu-footer></byu-footer>
             </template>
         </demo-snippet>
         <h2>Full Footer with Links</h2>
         <demo-snippet>
             <template>
                 <byu-footer>
-                    <byu-footer-column slot="col1" column-header="Contact">
+                    <byu-footer-column slot="col1">
+                        <span slot="header">Contact</span>
                         <span slot="content">
                             Myspace
                             <p>
@@ -57,13 +57,16 @@
                             </p>
                         </span>
                     </byu-footer-column>
-                    <byu-footer-column slot="col2" column-header="Helpful Links">
+                    <byu-footer-column slot="col2">
+                        <span slot="header">Helpful Links</span>
                         <span slot="content">Content for second column</span>
                     </byu-footer-column>
-                    <byu-footer-column slot="col3" column-header="Related Services">
+                    <byu-footer-column slot="col3">
+                        <span slot="header">Related Services</span>
                         <span slot="content">Content for third column</span>
                     </byu-footer-column>
-                    <byu-footer-column slot="col4" column-header="Connect With Us">
+                    <byu-footer-column slot="col4">
+                        <span slot="header">Connect With Us</span>
                         <span slot="content">Content for fourth column</span>
                     </byu-footer-column>
                 </byu-footer>
