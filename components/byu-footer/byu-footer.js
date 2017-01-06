@@ -40,14 +40,31 @@
   height: 33.6px; }
 
 .secondary-footer {
-  max-height: 295px;
+  height: auto;
   background-color: #e6e6e6;
   text-align: center; }
   .secondary-footer .column {
-    width: 20%;
     display: inline-block;
     text-align: left;
     vertical-align: top; }
+  .secondary-footer a {
+    color: #767676 !important;
+    text-decoration: none !important; }
+  .secondary-footer a:hover {
+    color: #002e5d !important;
+    cursor: pointer !important; }
+  @media (max-width: 767px) {
+    .secondary-footer .column {
+      width: 80%; } }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    .secondary-footer .column {
+      width: 40%; } }
+  @media (min-width: 1200px) {
+    .secondary-footer .column {
+      width: 20%; } }
+
+.column ::slotted(*):empty {
+  display: none; }
 </style>
 
 
