@@ -199,11 +199,7 @@
         </div>
 
         <div class="byu-header-search">
-            <label for="search-input"></label>
-            <input type="text" id="search-input" placeholder="search">
-            <button type="button" aria-label="Run search">
-                <span class="fa fa-search"></span>
-            </button>
+            <slot id="search" name="search"></slot>
         </div>
 
         <div id="menuTemplate" class="byu-header-menu-button">
@@ -215,6 +211,5 @@
     <slot id="navbarMenu" name="nav">
 
     </slot>
-
 
 </div>`);
