@@ -25,8 +25,18 @@ const concat = require('gulp-concat');
 const babel = require('gulp-babel'); // transpile es6 to es5
 const browserSync = require('browser-sync').create();
 
-gulp.task('build', ['fuse'], function () {
-    // put closure code in here
+gulp.task('build', ['fuse', 'sitecss'], function () {
+      
+    gulp.src(['./components/**/*.js', '!./components/**/script.js'])
+        // .pipe(babel({
+        //     presets: ['es2015']
+        // }))
+        //.pipe(uglify())
+        .pipe(concat('components.js'))
+        .pipe(gulp.dest('dist'))
+        .pipe(browserSync.reload({stream: true}));
+
+        // put closure code in here
 });
 
 gulp.task('fuse', ['sass'], function () {
@@ -65,22 +75,7 @@ gulp.task('watch', function (done) {
         }
     }, done);
     
-    // gulp.watch('./components/**/*', ['fuse']);
-    // gulp.watch('./css/*', ['sitecss']);
-    gulp.watch(['./components/**/template.html', './components/**/script.js', './components/**/style.scss', './css/*.scss'], ['bundle']);
-});
-
-gulp.task('bundle', ['fuse', 'sitecss'], function () {
-    
-    
-    gulp.src(['./components/**/*.js', '!./components/**/script.js'])
-        // .pipe(babel({
-        //     presets: ['es2015']
-        // }))
-        //.pipe(uglify())
-        .pipe(concat('components.js'))
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.reload({stream: true}));
+   gulp.watch(['index.html', './components/**/*.html', './components/**/script.js', './components/**/style.scss', './css/*.scss'], ['build']);
 });
 
 gulp.task('default', ['watch']);

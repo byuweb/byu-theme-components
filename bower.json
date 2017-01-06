@@ -6,7 +6,7 @@
     "Kevin Bauer <kevin_bauer@byu.edu>"
   ],
   "description": "BYU 2017 Theme Components",
-  "main": "byu-top-bar.html",
+  "main": "byu-header.html",
   "keywords": [
     "byu",
     "web-components",
