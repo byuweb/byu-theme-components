@@ -3,59 +3,38 @@ $content_color: #767676;
 $header_font: "Vitesse A", "Vitesse B", Georgia, serif;
 $content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
-:host {
-    color: purple !important;
-}
+//:host {
+//   styles to be applied to the byu-footer-column component
+//}
 
-// :host-context(#headertext) {
-//     h2 {
-//         font-family: $header_font !important;
-//         text-transform: uppercase !important;
-//         color: $byu_blue !important;
-//         font-size: 20px !important;
-//         border-bottom: 1px solid #c5c5c5 !important;
-//         padding-bottom: 10px !important;
-//         white-space: nowrap !important;
-//         font-weight: 400 !important;
-//     }
-// }
-
-.column {
+.footer-column {
     padding: 0 15px;
-
-    // .header {
-    //     font-family: $header_font !important;
-    //     text-transform: uppercase !important;
-    //     color: $byu_blue !important;
-    //     font-size: 20px !important;
-    //     border-bottom: 1px solid #c5c5c5 !important;
-    //     padding-bottom: 10px !important;
-    //     white-space: nowrap !important;
-    //     font-weight: 400 !important;
-    // }
 }
 
-::slotted(*) {
+.header {
+    width: 100%;
+    -webkit-margin-after: 0.53em;
+}
+
+.header ::slotted(*) {
     font-family: $header_font !important;
     text-transform: uppercase !important;
     color: $byu_blue !important;
     font-size: 20px !important;
     border-bottom: 1px solid #c5c5c5 !important;
-    padding-bottom: 10px !important;
+    padding-bottom: 3px !important;
     white-space: nowrap !important;
     font-weight: 400 !important;
+    width: 100%;
+    display: inline-block;
 }
 
-// ::slotted(.content) * {
-//     font-family: $content_font !important;
-//     font-size: 13px !important;
-//     font-weight: 400 !important;
-//     color: $content_color !important;
-//     text-decoration: none !important;
-//     outline: none !important;
-// }
-
-// ::slotted(a):hover, .content a:hover {
-//     color: $byu_blue !important;
-//     cursor: pointer !important;
-// }
+.content ::slotted(*) {
+    font-family: $content_font !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: $content_color !important;
+    text-decoration: none !important;
+    outline: none !important;
+    line-height: 2.8em !important;
+}

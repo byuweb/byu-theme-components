@@ -26,16 +26,56 @@ $footer_gray: #e6e6e6;
 }
 
 .secondary-footer {
-  max-height: 295px;
+  //max-height: 295px;
+  height: auto;
   background-color: $footer_gray;
   text-align: center;
   // padding: 25px 10%;
 
   .column {
-    width: 20%;
+    //width: 20%;
     display: inline-block;
     text-align: left;
     vertical-align: top;
+
+    // ::slotted(*):empty {
+    //   display: none;
+    // }
   }
 
+  //--- These don't work
+  a {
+    color: #767676 !important;
+    text-decoration: none !important;
+  }
+
+  a:hover {
+    color: #002e5d !important;
+    cursor: pointer !important;
+  }
+  //---
+
+  @media (max-width: 767px) {
+      .column {
+        width: 80%;
+      }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+      .column {
+        width: 40%;
+      }
+  }
+
+  @media (min-width: 1200px) {
+      .column {
+        width: 20%;
+      }
+  }
+
+}
+
+// Need to hide column elements if they are empty
+.column ::slotted(*):empty {
+  display: none;
 }
