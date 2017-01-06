@@ -7,31 +7,55 @@ $content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
     color: purple !important;
 }
 
+// :host-context(#headertext) {
+//     h2 {
+//         font-family: $header_font !important;
+//         text-transform: uppercase !important;
+//         color: $byu_blue !important;
+//         font-size: 20px !important;
+//         border-bottom: 1px solid #c5c5c5 !important;
+//         padding-bottom: 10px !important;
+//         white-space: nowrap !important;
+//         font-weight: 400 !important;
+//     }
+// }
+
 .column {
     padding: 0 15px;
 
-    h2 {
-        font-family: $header_font;
-        text-transform: uppercase;
-        color: $byu_blue;
-        font-size: 20px;
-        border-bottom: 1px solid #c5c5c5;
-        padding-bottom: 10px;
-        white-space: nowrap;
-        font-weight: 400;
-    }
+    // .header {
+    //     font-family: $header_font !important;
+    //     text-transform: uppercase !important;
+    //     color: $byu_blue !important;
+    //     font-size: 20px !important;
+    //     border-bottom: 1px solid #c5c5c5 !important;
+    //     padding-bottom: 10px !important;
+    //     white-space: nowrap !important;
+    //     font-weight: 400 !important;
+    // }
 }
 
-::slotted(*), .content * {
-    font-family: $content_font !important;
-    font-size: 13px !important;
-    font-weight: 400 !important;
-    color: $content_color !important;
-    text-decoration: none !important;
-    outline: none !important;
-}
-
-::slotted(a):hover, .content a:hover {
+::slotted(*) {
+    font-family: $header_font !important;
+    text-transform: uppercase !important;
     color: $byu_blue !important;
-    cursor: pointer !important;
+    font-size: 20px !important;
+    border-bottom: 1px solid #c5c5c5 !important;
+    padding-bottom: 10px !important;
+    white-space: nowrap !important;
+    font-weight: 400 !important;
 }
+
+// ::slotted(.content) * {
+//     font-family: $content_font !important;
+//     font-size: 13px !important;
+//     font-weight: 400 !important;
+//     color: $content_color !important;
+//     text-decoration: none !important;
+//     outline: none !important;
+// }
+
+// ::slotted(a):hover, .content a:hover {
+//     color: $byu_blue !important;
+//     cursor: pointer !important;
+// }

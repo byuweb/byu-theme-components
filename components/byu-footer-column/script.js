@@ -3,13 +3,13 @@
 
     class BYUFooterColumn extends HTMLElement {
 
-        static get observedAttributes() {
-            return['column-header'];
-        }
+        // static get observedAttributes() {
+        //     return['column-header'];
+        // }
 
-        get columnHeader() {
-            return this.hasAttribute('column-header');
-        }
+        // get columnHeader() {
+        //     return this.hasAttribute('column-header');
+        // }
 
         constructor() {
             super();
@@ -18,8 +18,8 @@
         }
 
         connectedCallback() {
-            if (this.columnHeader)
-                this.shadowRoot.querySelector('#header').innerText = this.getAttribute('column-header');
+            // if (this.columnHeader)
+            //     this.shadowRoot.querySelector('#header').innerText = this.getAttribute('column-header');
         }
     }
 
