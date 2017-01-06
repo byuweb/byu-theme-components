@@ -41,13 +41,13 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
         flex: 1;
         height: $header_height;
 
-        .byu-header-title {
+        .byu-header-title, #title::slotted(*) {
             white-space: nowrap;
             overflow: hidden;
             -ms-text-overflow: ellipsis;
             text-overflow: ellipsis;
             flex: 1;
-            font-family: $title_font;
+            font-family: $title_font !important;
             font-size: 22px;
         }
     }

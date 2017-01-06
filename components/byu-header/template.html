@@ -12,7 +12,7 @@
         />
 
         <div class="byu-header-title">
-            <slot name="title"></slot>
+            <slot id="title" name="title"></slot>
         </div>
         <button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed">
             <span class="fa fa-bars"></span>

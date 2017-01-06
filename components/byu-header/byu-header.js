@@ -42,13 +42,13 @@
     padding-left: 16px;
     flex: 1;
     height: 55px; }
-    .byu-header .byu-header-primary .byu-header-title {
+    .byu-header .byu-header-primary .byu-header-title, .byu-header .byu-header-primary #title::slotted(*) {
       white-space: nowrap;
       overflow: hidden;
       -ms-text-overflow: ellipsis;
       text-overflow: ellipsis;
       flex: 1;
-      font-family: "Vitesse A", "Vitesse B", Georgia, serif;
+      font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
       font-size: 22px; }
   .byu-header .byu-header-user button {
     background-color: transparent;
@@ -180,7 +180,7 @@
         />
 
         <div class="byu-header-title">
-            <slot name="title"></slot>
+            <slot id="title" name="title"></slot>
         </div>
         <button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed">
             <span class="fa fa-bars"></span>
