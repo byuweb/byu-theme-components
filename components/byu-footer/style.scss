@@ -1,0 +1,81 @@
+$byu_blue: #002e5d;
+$footer_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$blue_footer_height: 80px; 
+$footer_gray: #e6e6e6;
+
+.blue-footer {
+  background-color: $byu_blue;
+  text-align: center;
+  font-family:$footer_font;
+  font-weight: 400;
+  font-size: 12px;
+  color: white;
+  height: $blue_footer_height;
+  display: table;
+  width: 100%;
+}
+
+.inner-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.university-logo {
+  width: 380px;
+  height: 33.6px;
+}
+
+.secondary-footer {
+  //max-height: 295px;
+  height: auto;
+  background-color: $footer_gray;
+  text-align: center;
+  // padding: 25px 10%;
+
+  .column {
+    //width: 20%;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top;
+
+    // ::slotted(*):empty {
+    //   display: none;
+    // }
+  }
+
+  //--- These don't work
+  a {
+    color: #767676 !important;
+    text-decoration: none !important;
+  }
+
+  a:hover {
+    color: #002e5d !important;
+    cursor: pointer !important;
+  }
+  //---
+
+  @media (max-width: 767px) {
+      .column {
+        width: 80%;
+      }
+  }
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+      .column {
+        width: 40%;
+      }
+  }
+
+  @media (min-width: 1200px) {
+      .column {
+        width: 20%;
+      }
+  }
+
+}
+
+// Need to hide column elements if they are empty
+.column ::slotted(*):empty {
+  display: none;
+}

@@ -1,0 +1,146 @@
+/* SASS Variables ------------------- */
+$mobile_sidebar_width: 20%;
+$mobile_main_width: 100% - $mobile_sidebar_width;
+$mobile_max_width: 1023px;
+$large_screen_start_width: 1024px;
+// colors
+$navy: #002E5D;
+$lightestblue: #C4CFDA;
+$lightblue: #A6B6C7;
+$medblue: #889FB7;
+$dullnavy: desaturate($navy, 30%);
+$dullblue: desaturate($navy, 70%);
+$brightblue: lighten($navy, 50%);
+$lightestblue: lighten($dullblue, 50%);
+$mediumblue: darken($lightestblue, 3%);
+$xlightgray: #f2f2f2;
+$lightgray: #e5e5e5;
+$medgray: #9b9b9b;
+$gray: #767676;
+$darkgray: #6a6a6b;
+$royal: #003DA5;
+$royallight: #114BAD;
+//other colors
+$greenlightened: #72B518;
+$green: #6EAE17;
+$greendarkened: #6AA816;
+// other
+$nav_gradient: 10%;
+$nav_gradient_2: 5%;
+@mixin sidebar-inner-shadowbox() {
+    -webkit-box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: inset -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+@mixin main-outer-shadowbox() {
+    -webkit-box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: -3px 0px 5px 0px rgba(0, 0, 0, 0.4);
+}
+@mixin display-flex() {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    
+} 
+@mixin button {
+    text-align: center;
+    padding: 9px 0px!important;
+    
+}
+/* ------------------------------------- */
+
+
+body {
+    margin: 0;
+    color: #444;
+}
+
+a {
+    color: $royal;
+}
+a:hover {
+    text-decoration: none;
+}
+
+/* -------- font & sizing -------- */
+@media screen and (max-width: $mobile_max_width){
+    // set smaller header sizes for mobile.
+    h1 {
+        font-size: 1.3em;
+    }
+    
+}
+h2 {
+    font-size: 1em;
+}
+@media screen and (min-width: $large_screen_start_width) {
+    h2 {
+        font-size: 1.6875em;
+    }
+}
+h3, h3 a {
+    color: $navy;
+}
+p, span, div {
+    font-family: "Gotham SSm A","Gotham SSm B";
+}
+h1, h2, h3, h4 {
+    font-family: "Sentinel SSm A","Sentinel SSm B";
+}
+h1 {
+    color: $navy;
+}
+
+/* ------------------------------------- */
+
+/* ------ often used classes ------------*/
+.hidden {
+    display: none;
+}
+.panel {
+    background: #fff;
+}
+.gray-button {
+    background-color: $lightgray!important;
+    padding: 9px 12px!important;
+    font-size: 12px;
+    a {
+       color: $navy;
+    }
+}
+.medgray-button {
+    background-color: $medgray!important;
+    padding: 9px 12px!important;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    height: 30px;
+    a {
+        color: #fff;
+    }
+}
+.medgray-button:hover {
+    background: #a2a2a2;
+}
+.royal-button {
+    background-color: $royal;
+    padding: 9px 12px!important;
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    a {
+        color: #fff;
+    }
+}
+.royal-button:hover {
+    background: $royallight;
+}
+

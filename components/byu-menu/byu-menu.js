@@ -24,8 +24,6 @@
         }
 
         attributeChangedCallback(name, oldValue, newValue) {
-            // We don't need to toggle a css class anymore. Using :host([collapsed]) instead
-            //utilities.toggleClass(this.shadowRoot.querySelector('.secondaryNav'), 'collapsed');                
         }
 
         connectedCallback() {
@@ -46,10 +44,6 @@
             
             if (allLinks.length > 6) {
 
-                // Since we want this one to show when there are 6 or less we need to manually switch it off instead
-                // of using nth-child like we do for the others 
-                allLinks[5].style.display = "none";
-
                 // create the "extra links" dropdown
                 var extraLinks = this.shadowRoot.querySelector('#extraLinks');
                 extraLinks.style.display = "table-cell";
@@ -69,15 +63,18 @@
         }
     }
 
-
     window.customElements.define('byu-menu', BYUMenu);
+    window.BYUMenu = BYUMenu;
 
 })(`<style>
-    :host {
+    /*Variables*/
+:host {
   display: block;
   width: 100%;
   height: auto;
-  background: #ffffff; }
+  background: #ffffff;
+  opacity: 0.88;
+  border-bottom: 1px solid #ccc; }
 
 :host([collapsed]) .navbar-collapse {
   height: 0; }
@@ -89,7 +86,6 @@
   justify-content: space-between;
   align-items: center;
   justify-content: flex-start;
-  margin: 0 16px;
   padding: 0; }
 
 .inner-nav {
@@ -119,7 +115,7 @@
   margin: 0 -15px; }
 
 .secondary-nav > a {
-  font-family: 'Gotham';
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
   font-size: 13px;
   font-weight: 400;
   color: #002e5d;
@@ -140,22 +136,39 @@
   width: 16.66%; }
 
 ::slotted(*.selected) {
-  background: #e5e5e5; }
+  background: #e6e6e6 !important; }
 
 .extra-links, ::slotted(*) {
-  font-family: "Gotham Book";
-  font-size: 13px;
-  color: #002e5d;
-  height: 32px;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  color: #002e5d !important;
+  height: 35px !important;
   display: table-cell;
-  text-transform: uppercase;
-  text-decoration: none;
-  vertical-align: middle;
-  text-align: center;
-  padding: 0 6px; }
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 0 6px !important; }
 
 .extra-links:hover, ::slotted(*:hover) {
-  background: #e5e5e5; }
+  background-color: #c5c5c5 !important; }
+
+.extra-links {
+  display: none;
+  cursor: pointer; }
+  .extra-links .extra-links-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    min-width: 115px;
+    margin-top: 10px; }
+    .extra-links .extra-links-dropdown ul {
+      list-style-type: none;
+      padding: 0; }
+  .extra-links:hover .extra-links-dropdown {
+    display: block; }
 
 @media (min-width: 1024px) {
   /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and 
@@ -168,12 +181,16 @@
     display: none; } }
 
 </style>
+<link type="text/css" rel="stylesheet" href="https://cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+
 <nav class="outer-nav">
     <div class="inner-nav">
         <slot id="slot"></slot>
-        <div class="extra-links" id="extraLinks" style="display: none">
+        <div class="extra-links" id="extraLinks">
             More
-            <ul style="display: none" id="extraLinksDropdown"></ul>
+            <div class="extra-links-dropdown">
+                <ul id="extraLinksDropdown"></ul>
+            </div>
         </div>
     </div>
 </nav>

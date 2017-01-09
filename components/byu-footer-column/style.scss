@@ -1,0 +1,40 @@
+$byu_blue: #002e5d;
+$content_color: #767676;
+$header_font: "Vitesse A", "Vitesse B", Georgia, serif;
+$content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
+//:host {
+//   styles to be applied to the byu-footer-column component
+//}
+
+.footer-column {
+    padding: 0 15px;
+}
+
+.header {
+    width: 100%;
+    -webkit-margin-after: 0.53em;
+}
+
+.header ::slotted(*) {
+    font-family: $header_font !important;
+    text-transform: uppercase !important;
+    color: $byu_blue !important;
+    font-size: 20px !important;
+    border-bottom: 1px solid #c5c5c5 !important;
+    padding-bottom: 3px !important;
+    white-space: nowrap !important;
+    font-weight: 400 !important;
+    width: 100%;
+    display: inline-block;
+}
+
+.content ::slotted(*) {
+    font-family: $content_font !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: $content_color !important;
+    text-decoration: none !important;
+    outline: none !important;
+    line-height: 2.8em !important;
+}

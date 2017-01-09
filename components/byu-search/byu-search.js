@@ -143,7 +143,7 @@
   ~    limitations under the License.
   -->
 
-<link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
 <style>
   :host {
   display: inline-block; }
@@ -171,6 +171,18 @@ form #search-container input,
   padding: 5px 10px;
   border: 1px solid var(--byu-search-color, #767676);
   border-right: none; }
+
+@media (max-width: 1023px) {
+  :host {
+    width: 100%;
+    height: 35px; }
+  form #search-container input,
+  ::slotted(input) {
+    padding: 5px 10px;
+    border: 1px solid var(--byu-search-color, #767676);
+    border-right: none;
+    width: 100%;
+    height: 35px; } }
 
 </style>
 

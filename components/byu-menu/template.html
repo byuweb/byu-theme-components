@@ -1,12 +1,16 @@
 <style>
     /* FUSE */
 </style>
+<link type="text/css" rel="stylesheet" href="https://cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+
 <nav class="outer-nav">
     <div class="inner-nav">
         <slot id="slot"></slot>
-        <div class="extra-links" id="extraLinks" style="display: none">
+        <div class="extra-links" id="extraLinks">
             More
-            <ul style="display: none" id="extraLinksDropdown"></ul>
+            <div class="extra-links-dropdown">
+                <ul id="extraLinksDropdown"></ul>
+            </div>
         </div>
     </div>
 </nav>

@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../../dist/components.js"></script>
 
-    <script src="byu-user-login.js"></script>
 
+    <link type="text/css" rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="import" href="../../bower_components/iron-demo-helpers/demo-snippet.html">
-
+    <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="../../css/site.css">
     <style>
         .fake-header {
             display: flex;
@@ -21,36 +25,52 @@
         }
     </style>
 </head>
+
 <body>
+    <byu-header>
+        <span slot="title">Templates Demo Site</span>
+        <byu-menu slot="nav" collapsed>
+            <a href="../../index.html">Home</a>
+            <a href="../../components/byu-header/demo.html">Header</a>
+            <a class="selected" href="../../components/byu-menu/demo.html">Menu</a>
+            <a href="../../components/byu-search/demo.html">Search</a>
+            <a href="../../components/byu-user-login/demo.html">User Login</a>
+            <a href="../../components/byu-footer/demo.html">Footer</a>
+        </byu-menu>
+        <byu-search slot="search"></byu-search>
+    </byu-header>
+    <h1>Simple Setup</h1>
+    <demo-snippet>
+        <template>
+            <div class="fake-header">
+                <byu-user-login login-url="#login"></byu-user-login>
+            </div>
+        </template>
+    </demo-snippet>
 
-<h1>Simple Setup</h1>
-<demo-snippet>
-    <template>
-        <div class="fake-header">
-            <byu-user-login login-url="#login"></byu-user-login>
-        </div>
-    </template>
+    <h1>Progressive Enhancement</h1>
+    <demo-snippet>
+        <template>
+            <div class="fake-header">
+                <byu-user-login><a href="#hi">Sign In</a></byu-user-login>
+            </div>
+        </template>
+    </demo-snippet>
+
+    <h1>Handle Via Javascript</h1>
+    <demo-snippet>
+        <template>
+            <div class="fake-header">
+                <byu-user-login onclick="alert('Clicked Login!')"></byu-user-login>
+</div>
+</template>
 </demo-snippet>
 
-<h1>Progressive Enhancement</h1>
-<demo-snippet>
-    <template>
-        <div class="fake-header">
-            <byu-user-login><a href="#hi">Sign In</a></byu-user-login>
-        </div>
-    </template>
-</demo-snippet>
 
-<h1>Handle Via Javascript</h1>
-<demo-snippet>
-    <template>
-        <div class="fake-header">
-            <byu-user-login onclick="alert('Clicked Login!')"></byu-user-login>
-        </div>
-    </template>
-</demo-snippet>
-
-
+<footer>
+    <byu-footer></byu-footer>
+</footer>
 
 </body>
+
 </html>

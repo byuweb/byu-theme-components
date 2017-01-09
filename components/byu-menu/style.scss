@@ -1,8 +1,17 @@
+/*Variables*/
+$menu_height: 35px;
+$byu_blue: #002e5d;
+$hover_color: #c5c5c5;
+$active_color: #e6e6e6;
+$menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
 :host {
     display: block;
     width: 100%;
     height: auto;
     background: #ffffff;
+    opacity: 0.88;
+    border-bottom: 1px solid #ccc;
 }
 
 :host([collapsed]) .navbar-collapse {
@@ -16,7 +25,6 @@
     justify-content: space-between;
     align-items: center;
     justify-content: flex-start;
-    margin: 0 16px;
     padding: 0;
 }
 
@@ -54,10 +62,10 @@
 }
 
 .secondary-nav > a {
-    font-family: 'Gotham';
+    font-family: $menu_font;
     font-size: 13px;
     font-weight: 400;
-    color: #002e5d;
+    color: $byu_blue;
     text-transform: uppercase;
 
     box-sizing: border-box;
@@ -79,25 +87,55 @@
 }
 
 ::slotted(*.selected) {
-    background: #e5e5e5;
+    background: $active_color !important;
 }
 
 .extra-links, ::slotted(*) {
-    font-family: "Gotham Book";
-    font-size: 13px;
-    color: #002e5d;
-    height: 32px;
+    font-family: $menu_font !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+    color: $byu_blue !important;
+    height: 35px !important;
     display: table-cell;
-    text-transform: uppercase;
-    text-decoration: none;
-    vertical-align: middle;
-    text-align: center;
-    padding: 0 6px;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    padding: 0 6px !important;
 }
 
 .extra-links:hover, ::slotted(*:hover) {
-    background: #e5e5e5;
+    background-color: $hover_color !important;
 }
+
+.extra-links {
+
+    display: none;
+    cursor: pointer;
+
+    .extra-links-dropdown {
+        display: none;
+        position:absolute;
+        background-color: white;
+        z-index: 10;
+        min-width: 115px;
+        margin-top:10px;
+
+        // display: block;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    }
+
+    &:hover .extra-links-dropdown {
+        display: block;
+    }
+}
+
+
+
 
 @media (min-width: 1024px) {
     /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and 
