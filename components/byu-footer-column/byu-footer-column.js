@@ -15,12 +15,11 @@
     window.customElements.define('byu-footer-column', BYUFooterColumn);
     window.BYUFooterColumn = BYUFooterColumn;
 
-})(`<style>.footer-column {
+})(`<style>:host {
   padding: 0 15px; }
 
 .header {
-  width: 100%;
-  -webkit-margin-after: 0.53em; }
+  width: 100%; }
 
 .header ::slotted(*) {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
@@ -34,21 +33,27 @@
   width: 100%;
   display: inline-block; }
 
-.content ::slotted(*) {
+.content ::slotted(:not(byu-footer-action-button)) {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-size: 13px !important;
+  font-size: 13px;
   font-weight: 400 !important;
   color: #767676 !important;
+  line-height: 35px !important;
+  position: relative;
+  top: -11px; }
+
+#defaultContent::slotted(a) {
   text-decoration: none !important;
-  outline: none !important;
-  line-height: 2.8em !important; }
+  outline: none !important; }
+
+#defaultContent::slotted(a:hover) {
+  cursor: pointer;
+  color: #002e5d !important; }
 </style>
 
-<div class="footer-column">
-    <h2 class="header">
-        <slot id="headertext" name="header"></slot>
-    </h2>
-    <div class="content">
-        <slot name="content"></slot>
-    </div>
+<h2 class="header">
+    <slot name="header"></slot>
+</h2>
+<div class="content">
+    <slot id="defaultContent"></slot>
 </div>`);
