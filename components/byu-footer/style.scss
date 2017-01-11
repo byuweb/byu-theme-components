@@ -68,7 +68,8 @@ $footer_gray: #e6e6e6;
 @media (min-width: 1200px) {
   .secondary-footer ::slotted(*) {
     width: 20%;
-    padding: 10px 0 30px 0;
+    padding-top: 10px;
+    padding-bottom: 30px;
   }
 }
 

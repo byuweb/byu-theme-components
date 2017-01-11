@@ -68,7 +68,8 @@
 @media (min-width: 1200px) {
   .secondary-footer ::slotted(*) {
     width: 20%;
-    padding: 10px 0 30px 0; } }
+    padding-top: 10px;
+    padding-bottom: 30px; } }
 </style>
 <div class="secondary-footer">
     <slot class="column" name="col1"></slot>
