@@ -19,13 +19,14 @@
 .content ::slotted(:not(byu-footer-action-button)) {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
   font-size: 13px;
-  font-weight: 400 !important;
+  font-weight: 400;
   color: #767676 !important;
-  line-height: 35px !important;
   position: relative;
-  top: -11px; }
+  top: -11px;
+  line-height: 1.42857143; }
 
 #defaultContent::slotted(a) {
+  line-height: 35px;
   text-decoration: none !important;
   outline: none !important; }
 
