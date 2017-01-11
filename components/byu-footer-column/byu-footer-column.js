@@ -50,7 +50,7 @@
   cursor: pointer;
   color: #002e5d !important; }
 </style>
-
+<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
 <h2 class="header">
     <slot name="header"></slot>
 </h2>

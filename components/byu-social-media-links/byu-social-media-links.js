@@ -9,7 +9,21 @@
             shadowRoot.innerHTML = template;
         }
 
-        connectedCallback() {}
+        connectedCallback() {
+            var idArr = ['facebook', 'instagram', 'twitter', 'googleplus', 'linkedin', 'youtube'];
+            var classArr = ['fa-facebook', 'fa-instagram', 'fa-twitter', 'fa-google-plus', 'fa-linkedin', 'fa-youtube-play'];
+
+            for (var i = 0; i < idArr.length; i++) {
+                const slotId = this.shadowRoot.querySelector("#" + idArr[i]);
+                var link = slotId.assignedNodes();
+
+                if (link.length > 0) {
+                    link[0].classList.add("fa");
+                    link[0].classList.add(classArr[i]);
+                }
+            }
+
+        }
     }
 
     window.customElements.define('byu-social-media-links', BYUSocialMediaLinks);
@@ -28,12 +42,12 @@
   height: 40px !important;
   text-align: center !important;
   border-radius: 20px !important;
-  margin: 0 5px 5px 0 !important; }
+  margin: 0 5px 5px 0 !important;
+  cursor: pointer; }
 
 ::slotted(.fa:hover) {
   background-color: #fff !important; }
 </style>
-
 <slot id="facebook" name="facebook"></slot>
 <slot id="instagram" name="instagram"></slot>
 <slot id="twitter" name="twitter"></slot>

@@ -18,25 +18,27 @@ $button_font: "Vitesse A", "Vitesse B", Georgia, serif;
     box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
 }
 
+// Use this to change how the button looks when active
 // :host(:active) {
 //     -webkit-box-shadow: none;
 //     -moz-box-shadow: none;
 //     box-shadow: none;
 // }
 
-::slotted(a) {
-    text-decoration: none !important;
+::slotted(*) {
+    font-family: $button_font !important;
+    font-weight: 400 !important;
+    color: #fff !important;
     display: inline-block;
     position: relative;
     height: 100%;
     width: 100%;
     margin: 0 20px;
     left: -20px;
+    cursor: pointer;
+    vertical-align: middle !important;
 }
 
-::slotted(*) {
-    color: #fff !important;
-    font-family: $button_font !important;
-    font-weight: 400 !important;
-    vertical-align: middle !important;
+::slotted(a) {
+    text-decoration: none !important;
 }

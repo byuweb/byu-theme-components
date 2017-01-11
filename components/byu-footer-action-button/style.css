@@ -14,17 +14,18 @@
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35); }
 
-::slotted(a) {
-  text-decoration: none !important;
+::slotted(*) {
+  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
+  font-weight: 400 !important;
+  color: #fff !important;
   display: inline-block;
   position: relative;
   height: 100%;
   width: 100%;
   margin: 0 20px;
-  left: -20px; }
-
-::slotted(*) {
-  color: #fff !important;
-  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
-  font-weight: 400 !important;
+  left: -20px;
+  cursor: pointer;
   vertical-align: middle !important; }
+
+::slotted(a) {
+  text-decoration: none !important; }

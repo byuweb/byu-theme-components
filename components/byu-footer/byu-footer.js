@@ -70,8 +70,6 @@
     width: 20%;
     padding: 10px 0 30px 0; } }
 </style>
-
-
 <div class="secondary-footer">
     <slot class="column" name="col1"></slot>
     <slot class="column" name="col2"></slot>
