@@ -26,12 +26,10 @@ const gulp        = require('gulp');
 const gulpIf      = require('gulp-if');
 const htmlmin     = require('gulp-htmlmin');
 const ignore      = require('gulp-ignore');
-const minifyCss   = require('gulp-minify-css'); //minifies css
 const path        = require('path');
 const pump        = require('pump');
 const rename      = require('gulp-rename');
 const sass        = require('gulp-sass');
-const uglify      = require('gulp-uglify'); // minifies js
 
 const polyfills = [
     './bower_components/custom-elements/custom-elements.min.js',
@@ -40,7 +38,7 @@ const polyfills = [
 ];
 
 gulp.task('build', ['assemble', 'assemble:minify', 'sitecss'], function () {
-    let src = polyfills.concat('./components.min.js');
+    let src = polyfills.concat('./dist/components.js');
     return gulp.src(src, {base: './'})
         .pipe(concat('components.min.js'))
         .pipe(closure({
@@ -51,7 +49,7 @@ gulp.task('build', ['assemble', 'assemble:minify', 'sitecss'], function () {
             createSourceMap: true,
             assumeFunctionWrapper: true
         }))
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('dist'))
         .pipe(browserSync.reload({stream: true}));
 });
 
@@ -64,7 +62,7 @@ gulp.task('assemble', ['fuse'], function () {
             return base !== 'example' && base !== parsed.name;
         }))
         .pipe(concat('components.js'))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('assemble:minify', ['fuse:minify'], function() {
@@ -77,7 +75,7 @@ gulp.task('assemble:minify', ['fuse:minify'], function() {
             return base !== 'example' && minName !== parsed.name;
         }))
         .pipe(concat('components.js'))
-        .pipe(gulp.dest('./'));
+        .pipe(gulp.dest('dist'));
 });
 
 
@@ -117,7 +115,7 @@ gulp.task('sitecss', function () {
     gulp.src('./css/*.scss')                        // reads all the SASS files
         .pipe(sass().on('error', sass.logError))    // compiles SASS to CSS and logs errors
         .pipe(gulp.dest('./css'))                   // gulwrites the regular css file
-        .pipe(minifyCss())                          // minifies the CSS files
+        .pipe(cssmin())                          // minifies the CSS files
         .pipe(concat('site.min.css'))               // renames the file
         .pipe(gulp.dest('dist'));                   // also writes it to the dist folder
 });
