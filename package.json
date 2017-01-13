@@ -13,6 +13,7 @@
   "dependencies": {},
   "devDependencies": {
     "babili": "0.0.9",
+    "browser-sync": "^2.18.6",
     "google-closure-compiler-js": "^20161201.0.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
