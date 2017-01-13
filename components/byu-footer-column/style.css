@@ -1,9 +1,8 @@
-.footer-column {
+:host {
   padding: 0 15px; }
 
 .header {
-  width: 100%;
-  -webkit-margin-after: 0.53em; }
+  width: 100%; }
 
 .header ::slotted(*) {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
@@ -17,11 +16,20 @@
   width: 100%;
   display: inline-block; }
 
-.content ::slotted(*) {
+.content ::slotted(:not(byu-footer-action-button)) {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
+  font-size: 13px;
+  font-weight: 400;
   color: #767676 !important;
+  position: relative;
+  top: -11px;
+  line-height: 1.42857143; }
+
+#defaultContent::slotted(a) {
+  line-height: 35px;
   text-decoration: none !important;
-  outline: none !important;
-  line-height: 2.8em !important; }
+  outline: none !important; }
+
+#defaultContent::slotted(a:hover) {
+  cursor: pointer;
+  color: #002e5d !important; }

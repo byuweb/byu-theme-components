@@ -1,0 +1,21 @@
+::slotted(a) {
+    text-decoration: none !important;
+}
+
+::slotted(.fa) {
+    text-decoration: none !important;
+    color: #002e5d !important;
+    font-size: 25px !important;
+    line-height: 40px !important;
+    border: 1px solid #fff !important;
+    width: 40px !important;
+    height: 40px !important;
+    text-align: center !important;
+    border-radius: 20px !important;
+    margin: 0 5px 5px 0 !important;
+    cursor: pointer;
+}
+
+::slotted(.fa:hover) {
+    background-color: #fff !important;
+}

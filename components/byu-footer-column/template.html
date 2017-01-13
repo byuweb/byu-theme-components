@@ -1,10 +1,8 @@
 <style>/* FUSE */</style>
-
-<div class="footer-column">
-    <h2 class="header">
-        <slot id="headertext" name="header"></slot>
-    </h2>
-    <div class="content">
-        <slot name="content"></slot>
-    </div>
+<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+<h2 class="header">
+    <slot name="header"></slot>
+</h2>
+<div class="content">
+    <slot id="defaultContent"></slot>
 </div>

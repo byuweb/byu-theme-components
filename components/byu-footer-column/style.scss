@@ -3,17 +3,12 @@ $content_color: #767676;
 $header_font: "Vitesse A", "Vitesse B", Georgia, serif;
 $content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
-//:host {
-//   styles to be applied to the byu-footer-column component
-//}
-
-.footer-column {
+:host {
     padding: 0 15px;
 }
 
 .header {
     width: 100%;
-    -webkit-margin-after: 0.53em;
 }
 
 .header ::slotted(*) {
@@ -29,12 +24,23 @@ $content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
     display: inline-block;
 }
 
-.content ::slotted(*) {
+.content ::slotted(:not(byu-footer-action-button)) {
     font-family: $content_font !important;
-    font-size: 13px !important;
-    font-weight: 400 !important;
+    font-size: 13px;
+    font-weight: 400;
     color: $content_color !important;
+    position: relative;
+    top: -11px;
+    line-height: 1.42857143;
+}
+
+#defaultContent::slotted(a) {
+    line-height: 35px;
     text-decoration: none !important;
     outline: none !important;
-    line-height: 2.8em !important;
+}
+
+#defaultContent::slotted(a:hover) {
+    cursor: pointer;
+    color: $byu_blue !important;
 }

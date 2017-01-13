@@ -5,25 +5,29 @@
     <title></title>
     <meta charset="utf-8" />
     <script src="../../bower_components/webcomponentsjs/webcomponents.js"></script>
-    <script src="../../dist/components.js"></script>
+    <script src="../byu-header/byu-header.js"></script>
+    <script src="../byu-menu/byu-menu.js"></script>
+    <script src="../byu-footer/byu-footer.js"></script>
+    <script src="../byu-footer-column/byu-footer-column.js"></script>
+    <script src="../byu-footer-action-button/byu-footer-action-button.js"></script>
+    <script src="../byu-social-media-links/byu-social-media-links.js"></script>
 
-
-    <link type="text/css" rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
     <link rel="import" href="../../bower_components/iron-demo-helpers/demo-snippet.html">
     <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
-    <link type="text/css" rel="stylesheet" href="../../css/site.css">
+    <link rel="stylesheet" href="https://lscdn.byu.edu/Template/css/site.css">
 </head>
 
 <body>
     <byu-header>
         <span slot="title">Templates Demo Site</span>
         <byu-menu slot="nav" collapsed>
-            <a href="../../index.html">Home</a>
-            <a href="../../components/byu-header/demo.html">Header</a>
-            <a href="../../components/byu-menu/demo.html">Menu</a>
-            <a href="../../components/byu-search/demo.html">Search</a>
-            <a href="../../components/byu-user-login/demo.html">User Login</a>
-            <a class="selected" href="../../components/byu-footer/demo.html">Footer</a>
+            <a href="/template/index.html">Home</a>
+            <a href="/template/components/byu-header/demo.html">Top Bar</a>
+            <a href="/template/components/byu-menu/demo.html">Menu</a>
+            <a href="/template/components/byu-search/demo.html">Search</a>
+            <a href="/template/components/byu-user-login/demo.html">User Login</a>
+            <a class="selected" href="/template/components/byu-footer/demo.html">Footer</a>
         </byu-menu>
     </byu-header>
     <h1>Footer Demo</h1>
@@ -40,42 +44,59 @@
         <byu-footer>
             <byu-footer-column slot="col1">
                 <span slot="header">Contact</span>
-                <span slot="content">
-                            Content for first column
-                        </span>
+                <p>
+                    BYU Speeches
+                    <br />
+                    701 East University Parkway
+                    <br />
+                    Provo, Utah 84602
+                    <br />
+                    888-888-8888
+                </p>
+                <byu-footer-action-button>
+                    <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+                </byu-footer-action-button>
             </byu-footer-column>
             <byu-footer-column slot="col2">
-                <span id="header" slot="header">Helpful Links</span>
-                <span id="content" slot="content">
-                            <a>Content for second column</a>
-                            <br />
-                            Content for second column
-                            <br />
-                            Content for second column
-                            <br />
-                            Content for second column
-                            <br />
-                            Content for second column
-                        </span>
+                <span slot="header">Affiliated Speeches</span>
+                <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+                <br />
+                <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+                <br />
+                <a href="https://womensconference.byu.edu">Women's Conference</a>
+                <br />
+                <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+                <br />
+                <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
             </byu-footer-column>
             <byu-footer-column slot="col3">
-                <span slot="header">Related Services</span>
-                <span slot="content">Content for third column</span>
+                <span slot="header">Related Links</span> 
+                <a>LDS.org</a>
+                <br />
+                <a>BYU Alumni</a>
+                <br />
+                <a>BYU Today</a>
+                <br />
+                <a>BYU Magazine</a>
             </byu-footer-column>
             <byu-footer-column slot="col4">
                 <span slot="header">Connect With Us</span>
-                <span slot="content">
-                            Myspace
-                            <p>
-                                Google
-                                <br />
-                                <a>Facebook</a>
-                                <br />
-                                <a>Instagram</a>
-                                <br />
-                                <a>Twitter</a>
-                            </p>
-                        </span>
+                <a>Feedback</a>
+                <br />
+                <a>Help</a>
+                <br />
+                <a>Follow BYU Speeches</a>
+                <br />
+                <byu-social-media-links>
+                    <a slot="facebook" href="https://www.facebook.com"></a>
+                    <a slot="instagram" href="https://www.instagram.com"></a>
+                    <a slot="twitter" href="https://www.twitter.com"></a>
+                    <a slot="googleplus" href="https://plus.google.com"></a>
+                    <!--<a slot="linkedin" href="https://www.linkedin.com"></a>-->
+                    <div slot="youtube" href="https://www.youtube.com"></div>
+                </byu-social-media-links>
+                <br />
+                <a>Subscribe</a>
             </byu-footer-column>
         </byu-footer>
     </template>
