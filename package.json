@@ -10,12 +10,23 @@
   "private": true,
   "author": "",
   "license": "Apache-2.0",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "babili": "0.0.9",
+    "browser-sync": "^2.18.6",
+    "google-closure-compiler-js": "^20161201.0.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-cached": "^1.1.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.1.7",
     "gulp-fuse": "0.0.1",
-    "gulp-sass": "^2.3.2"
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-if": "^2.0.2",
+    "gulp-ignore": "^2.0.2",
+    "gulp-minify-inline": "^0.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "pump": "^1.0.1"
   }
 }
