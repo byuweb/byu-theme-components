@@ -47,7 +47,7 @@ gulp.task('build', ['assemble', 'assemble:minify', 'sitecss'], function () {
             compilationLevel: 'SIMPLE',
             warningLevel: 'DEFAULT',
             outputWrapper: '(function(){\n%output%\n}).call(this)',
-            jsOutputFile: 'components.es5.min.js',  // outputs single file
+            jsOutputFile: 'components-and-polyfills.es5.min.js',  // outputs single file
             createSourceMap: true,
             assumeFunctionWrapper: true
         }))
