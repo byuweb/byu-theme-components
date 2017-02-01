@@ -16,6 +16,7 @@
  **/
 'use strict';
 const babel       = require('gulp-babel');
+const bootstrap   = require('gulp-web-component-bootstrap');
 const browserSync = require('browser-sync').create();
 const cached      = require('gulp-cached');
 const closure     = require('google-closure-compiler-js').gulp();
@@ -49,6 +50,7 @@ gulp.task('build', ['assemble', 'assemble:minify', 'sitecss'], function () {
             createSourceMap: true,
             assumeFunctionWrapper: true
         }))
+        .pipe(bootstrap({main: 'components.js', polyfills: 'components-and-polyfills.es5.min.js'}))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.reload({stream: true}));
 });

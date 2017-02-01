@@ -27,6 +27,7 @@
     "gulp-minify-inline": "^0.2.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
+    "gulp-web-component-bootstrap": "github:byuweb/gulp-web-component-bootstrap",
     "pump": "^1.0.1"
   }
 }
