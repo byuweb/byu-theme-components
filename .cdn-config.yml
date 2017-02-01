@@ -1,0 +1,9 @@
+---
+name: 2017 Theme Core Components
+description: Header and Footer components for 2017 Theme
+resources:
+  - src: dist/**
+    dest: ./
+entrypoints:
+  bootstrap.js: 'Examines browser support and downloads the appropriate component bundle'
+docs: https://github.com/byuweb/2017-components
