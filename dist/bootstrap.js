@@ -100,6 +100,6 @@
     }
     //END:currentExecutingScript
 })({
-    noPolyfills: '',
+    noPolyfills: 'components.js',
     polyfills: 'components-and-polyfills.es5.min.js'
 });
