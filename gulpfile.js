@@ -50,7 +50,7 @@ gulp.task('build', ['assemble', 'assemble:minify', 'sitecss'], function () {
             createSourceMap: true,
             assumeFunctionWrapper: true
         }))
-        .pipe(bootstrap({main: 'components.js', polyfills: 'components-and-polyfills.es5.min.js'}))
+        .pipe(bootstrap({noPolyfills: 'components.js', polyfills: 'components-and-polyfills.es5.min.js'}))
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.reload({stream: true}));
 });
