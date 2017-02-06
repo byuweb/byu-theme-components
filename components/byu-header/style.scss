@@ -49,6 +49,10 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
             flex: 1;
             font-family: $title_font !important;
             font-size: 22px;
+            color: #fff;
+            a {
+                color: #fff;
+            }
         }
     }
 
