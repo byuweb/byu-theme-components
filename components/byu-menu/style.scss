@@ -4,6 +4,7 @@ $byu_blue: #002e5d;
 $hover_color: #c5c5c5;
 $active_color: #e6e6e6;
 $light_gray: #e5e5e5;
+$med_gray: #CCCCCC;
 $dark_gray: #767676;
 $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
@@ -79,12 +80,12 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 }
 
 .secondary-nav > a:hover {
-    background-color: $light_gray;
+    background-color: $med_gray;
     cursor: pointer;
 }
 
 .secondary-nav > a:active {
-    background-color: $dark_gray;
+    background-color: $light_gray;
     color: #fff;
     cursor: pointer;
 }
