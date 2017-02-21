@@ -1,0 +1,45 @@
+<style>
+    <%- require('./style.scss') %>
+</style>
+
+<div id="header" class="byu-header">
+
+    <div class="byu-header-primary">
+        <img class="byu-logo" alt="BYU" src="<%- require('./byu-logo.svg') %>"/>
+
+        <div class="byu-header-title">
+            <slot id="title" name="title"></slot>
+        </div>
+        <% if (locals.mobile) { %>
+        <button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed">
+            <span class="fa fa-bars"></span>
+         </button>
+        <% } -%>
+    </div>
+
+    <div id="secondary" class="byu-header-secondary">
+
+        <div class="byu-header-user">
+            <button type="button">
+                <span class="icon"> 
+                    <span class="fa fa-user-circle-o"></span>
+                </span>
+                <span class="label">Sign in</span>
+           </button>
+        </div>
+
+        <div class="byu-header-search">
+            <slot id="search" name="search"></slot>
+        </div>
+
+        <div id="menuTemplate" class="byu-header-menu-button">
+
+        </div>
+
+    </div>
+
+    <slot id="navbarMenu" name="nav">
+
+    </slot>
+
+</div>
