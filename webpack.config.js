@@ -1,6 +1,4 @@
 const path = require('path');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const BabiliPlugin = require("babili-webpack-plugin");
 
 module.exports = {
     module: {
@@ -67,15 +65,5 @@ module.exports = {
         filename: 'components.js',
         path: path.resolve(__dirname, 'dist')
     },
-    devtool: 'source-map',
-    plugins: [
-        new BrowserSyncPlugin({
-            host: 'localhost',
-            port: 3000,
-            server: {basedir: ['dist']}
-        // }),
-        // new BabiliPlugin({
-
-        })
-    ]
+    devtool: 'source-map'
 };
