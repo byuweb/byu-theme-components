@@ -18,7 +18,6 @@
     </div>
 
     <div id="secondary" class="byu-header-secondary">
-
         <% if (!locals.mobile) { %>
         <div class="byu-header-actions">
             <slot id="actions" name="actions"></slot>
@@ -26,10 +25,10 @@
         <div class="byu-header-user">
             <slot id="user" name="user"></slot>
         </div>
+        <% } -%>
         <div class="byu-header-search">
             <slot id="search" name="search"></slot>
         </div>
-        <% } -%>
 
     </div>
 

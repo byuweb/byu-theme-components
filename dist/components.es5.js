@@ -906,7 +906,7 @@
 
 
         // module
-        exports.push([module.i, ".blue-footer{background-color:#002e5d;text-align:center;font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:12px;color:#fff;height:80px;display:table;width:100%}.inner-wrapper{display:table-cell;vertical-align:middle}.university-logo{width:380px;height:33.6px}.secondary-footer{height:auto;background-color:#e6e6e6;text-align:center}.secondary-footer ::slotted(*){display:inline-block;text-align:left;vertical-align:top}@media (max-width:767px){.secondary-footer ::slotted(*){width:80%}.secondary-footer ::slotted(:last-child){padding-bottom:30px}.secondary-footer ::slotted(:first-child){padding-top:10px}}@media (min-width:768px) and (max-width:1199px){.secondary-footer ::slotted(*){width:40%}.secondary-footer ::slotted(:nth-child(n+3)){padding-bottom:30px}.secondary-footer ::slotted(:nth-child(-n+2)){padding-top:10px}}@media (min-width:1200px){.secondary-footer ::slotted(*){width:20%;padding-top:10px;padding-bottom:30px}}", ""]);
+        exports.push([module.i, ".blue-footer{background-color:#002e5d;text-align:center;font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:12px;color:#fff;height:80px;display:table;width:100%}.inner-wrapper{display:table-cell;vertical-align:middle}.university-logo{width:380px;max-width:100vw}.secondary-footer{height:auto;background-color:#e6e6e6;text-align:center}.secondary-footer ::slotted(*){display:inline-block;text-align:left;vertical-align:top}@media (max-width:767px){.secondary-footer ::slotted(*){width:80%}.secondary-footer ::slotted(:last-child){padding-bottom:30px}.secondary-footer ::slotted(:first-child){padding-top:10px}}@media (min-width:768px) and (max-width:1199px){.secondary-footer ::slotted(*){width:40%}.secondary-footer ::slotted(:nth-child(n+3)){padding-bottom:30px}.secondary-footer ::slotted(:nth-child(-n+2)){padding-top:10px}}@media (min-width:1200px){.secondary-footer ::slotted(*){width:20%;padding-top:10px;padding-bottom:30px}}", ""]);
 
         // exports
 
@@ -1153,11 +1153,11 @@
                 __append(__webpack_require__(30));
                 __append('" alt="Menu">\n</button>\n');
             }
-            __append('</div><div id="secondary" class="byu-header-secondary">');
+            __append('</div><div id="secondary" class="byu-header-secondary">\n');
             if (!locals.mobile) {
-                __append('<div class="byu-header-actions">\n<slot id="actions" name="actions"></slot>\n</div>\n<div class="byu-header-user">\n<slot id="user" name="user"></slot>\n</div>\n<div class="byu-header-search">\n<slot id="search" name="search"></slot>\n</div>\n');
+                __append('<div class="byu-header-actions">\n<slot id="actions" name="actions"></slot>\n</div>\n<div class="byu-header-user">\n<slot id="user" name="user"></slot>\n</div>\n');
             }
-            __append("</div>");
+            __append('<div class="byu-header-search">\n<slot id="search" name="search"></slot>\n</div></div>');
             if (locals.mobile) {
                 __append('<div id="mobileMenu">\n<slot id="signin" name="user"></slot>\n<slot id="navbarMenu" name="nav"></slot>\n<slot id="actions" name="actions"></slot>\n</div>\n');
             } else {
