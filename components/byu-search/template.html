@@ -15,7 +15,6 @@
   ~    limitations under the License.
   -->
 
-<link rel="stylesheet" href="../../bower_components/font-awesome/css/font-awesome.min.css">
 <style>
   ${require('./style.scss')}
 </style>
@@ -25,7 +24,6 @@
     <slot id='search' name='search'><input type="search" placeholder="Search"></slot>
   </div>
   <button id='submit-button' type='submit'>
-    <span class='fa fa-search' aria-hidden='true'></span>
-    <div class='sr-only'>Run Search</div>
+    <img id="search-icon" src="./search-icon.svg" alt="Run Search">
   </button>
 </form>

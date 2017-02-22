@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 31);
+/******/ 	return __webpack_require__(__webpack_require__.s = 32);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -787,7 +787,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ":host{display:inline-block}.sr-only{display:none}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;padding-left:10px;padding-right:10px}form{display:flex;align-items:stretch;align-content:center}form #search-container{flex:1}::slotted(input),form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none}@media (max-width:1023px){:host{width:100%;height:35px}::slotted(input),form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none;width:100%;height:35px}}", ""]);
+exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;padding-left:10px;padding-right:10px}form{display:flex;align-items:stretch;align-content:center}form #search-container{flex:1}::slotted(input),form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none}@media (max-width:1023px){:host{width:100%;height:35px}::slotted(input),form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none;width:100%;height:35px}}", ""]);
 
 // exports
 
@@ -1033,7 +1033,7 @@ module.exports = "<style>\n    " + __webpack_require__(13) + "\n</style>\n<link 
 /* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<!--\n  ~  @license\n  ~    Copyright 2016 Brigham Young University\n  ~\n  ~    Licensed under the Apache License, Version 2.0 (the \"License\");\n  ~    you may not use this file except in compliance with the License.\n  ~    You may obtain a copy of the License at\n  ~\n  ~        http://www.apache.org/licenses/LICENSE-2.0\n  ~\n  ~    Unless required by applicable law or agreed to in writing, software\n  ~    distributed under the License is distributed on an \"AS IS\" BASIS,\n  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  ~    See the License for the specific language governing permissions and\n  ~    limitations under the License.\n  -->\n\n<link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\">\n<style>\n  " + __webpack_require__(14) + "\n</style>\n\n<form>\n  <div id='search-container'>\n    <slot id='search' name='search'><input type=\"search\" placeholder=\"Search\"></slot>\n  </div>\n  <button id='submit-button' type='submit'>\n    <span class='fa fa-search' aria-hidden='true'></span>\n    <div class='sr-only'>Run Search</div>\n  </button>\n</form>";
+module.exports = "<!--\n  ~  @license\n  ~    Copyright 2016 Brigham Young University\n  ~\n  ~    Licensed under the Apache License, Version 2.0 (the \"License\");\n  ~    you may not use this file except in compliance with the License.\n  ~    You may obtain a copy of the License at\n  ~\n  ~        http://www.apache.org/licenses/LICENSE-2.0\n  ~\n  ~    Unless required by applicable law or agreed to in writing, software\n  ~    distributed under the License is distributed on an \"AS IS\" BASIS,\n  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  ~    See the License for the specific language governing permissions and\n  ~    limitations under the License.\n  -->\n\n<style>\n  " + __webpack_require__(14) + "\n</style>\n\n<form>\n  <div id='search-container'>\n    <slot id='search' name='search'><input type=\"search\" placeholder=\"Search\"></slot>\n  </div>\n  <button id='submit-button' type='submit'>\n    <img id=\"search-icon\" src=\"" + __webpack_require__(31) + "\" alt=\"Run Search\">\n  </button>\n</form>";
 
 /***/ }),
 /* 26 */
@@ -1067,6 +1067,12 @@ module.exports = "data:image/svg+xml,%3Csvg width='1792' height='1792' viewBox='
 
 /***/ }),
 /* 31 */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/svg+xml,%3Csvg width='1792' height='1792' viewBox='0 0 1792 1792' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1216 832q0-185-131.5-316.5T768 384 451.5 515.5 320 832t131.5 316.5T768 1280t316.5-131.5T1216 832zm512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124-143 0-273.5-55.5t-225-150-150-225T64 832t55.5-273.5 150-225 225-150T768 128t273.5 55.5 225 150 150 225T1472 832q0 220-124 399l343 343q37 37 37 90z' fill='%23fff'/%3E%3C/svg%3E"
+
+/***/ }),
+/* 32 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
