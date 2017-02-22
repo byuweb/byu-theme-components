@@ -1,18 +1,19 @@
-(function (template) {
-    'use strict';
+'use strict';
 
-    class BYUFooterActionButton extends HTMLElement {
+const template = require('./template.html');
 
-        constructor() {
-            super();
-            let shadowRoot = this.attachShadow({ mode: 'open' });
-            shadowRoot.innerHTML = template;
-        }
+class BYUFooterActionButton extends HTMLElement {
 
-        connectedCallback() {}
+    constructor() {
+        super();
+        let shadowRoot = this.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = template;
     }
 
-    window.customElements.define('byu-footer-action-button', BYUFooterActionButton);
-    window.BYUFooterActionButton = BYUFooterActionButton;
+    connectedCallback() {
+    }
+}
 
-})(/* FUSE */);
+window.customElements.define('byu-footer-action-button', BYUFooterActionButton);
+window.BYUFooterActionButton = BYUFooterActionButton;
+

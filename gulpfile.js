@@ -47,7 +47,8 @@ gulp.task('assemble', function () {
                         "browsers": ["last 2 versions", "ie >= 11", "> 5% in US"]
                     }
                 }]
-            ]
+            ],
+            plugins: ['iife-wrap']
         }))
         .pipe(rename({suffix: '.es5'}))
         .pipe(sourcemaps.write('.'))
@@ -57,7 +58,7 @@ gulp.task('assemble', function () {
 });
 
 gulp.task('minify', ['assemble'], function () {
-    return gulp.src('dist/components*.js')
+    return gulp.src(['dist/components.js','dist/components.es5.js'])
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(babel({
             presets: ['babili']
@@ -69,16 +70,25 @@ gulp.task('minify', ['assemble'], function () {
 
 gulp.task('watch', ['assemble'], function (done) {
     browserSync.init({
-        proxy: {
-            middleware: function (req, res, next) {
-                //console.log(req.url);
-                res.setHeader('Access-Control-Allow-Origin', '*');
-                next();
-            }
+        server: {
+            baseDir: './'
         }
+        // proxy: {
+        //     target: 'http://localhost:3000',
+        //     middleware: function (req, res, next) {
+        //         //console.log(req.url);
+        //         res.setHeader('Access-Control-Allow-Origin', '*');
+        //         next();
+        //     }
+        // }
     }, done);
 
     gulp.watch(['index.html', './components/**', './css/*.scss'], ['assemble']);
+    gulp.watch(['webpack.config.js'], ['clear-webpack-cache', 'assemble'])
+});
+
+gulp.task('clear-webpack-cache', function() {
+    delete require.cache[path.resolve('./webpack.config.js')];
 });
 
 gulp.task('default', ['watch']);

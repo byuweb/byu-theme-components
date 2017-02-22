@@ -4,14 +4,18 @@
   "description": "Components to be used for byu web pages and applications.",
   "main": "",
   "scripts": {
-    "build": "webpack",
+    "build": "gulp build",
+    "serve": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "private": true,
   "author": "",
   "license": "Apache-2.0",
-  "dependencies": {},
+  "dependencies": {
+    "deep-equal": "^1.0.1"
+  },
   "devDependencies": {
+    "babel-plugin-iife-wrap": "^1.1.0",
     "babel-preset-babili": "0.0.11",
     "babel-preset-env": "^1.1.8",
     "babili": "0.0.9",
@@ -30,6 +34,7 @@
     "pump": "^1.0.1",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.1",
+    "svg-url-loader": "^2.0.2",
     "through2": "^2.0.3",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.1",

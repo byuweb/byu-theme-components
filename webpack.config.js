@@ -23,20 +23,24 @@ module.exports = {
                     loader: 'html-loader',
                     options: {
                         // attrs: ['link:href'],
-                        interpolate: true
+                        interpolate: true,
+                        // minimize: true
                     },
                 },
             },
             {
                 test: /\.scss$/,
                 use: [{
-                    loader: "css-loader"
+                    loader: "css-loader",
+                    options: {
+                        minimize: true
+                    }
                 }, {
                     loader: "sass-loader" // compiles Sass to CSS
                 }]
             },
             {
-                test: /\.(gif|png|jpe?g|svg)$/i,
+                test: /\.(gif|png|jpe?g)$/i,
                 loaders: [
                     'url-loader',
                     {
@@ -53,6 +57,24 @@ module.exports = {
                                 quality: '65-90',
                                 speed: 4
                             }
+                        }
+                    }
+                ]
+            },
+            //Separate this out because svg-url-loader is much more efficient than the base64 encoding in url-loader
+            {
+                test: /\.svg$/i,
+                loaders: [
+                    {
+                        loader: 'svg-url-loader',
+                        options: {
+                            noquotes: true
+                        }
+                    },
+                    {
+                        loader: 'image-webpack-loader',
+                        query: {
+                            progressive: true
                         }
                     }
                 ]
