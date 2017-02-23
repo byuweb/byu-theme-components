@@ -11,7 +11,7 @@
             <slot id="title" name="title"></slot>
         </div>
         <% if (locals.mobile) { %>
-        <button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector('#navbarMenu').assignedNodes()[0].collapsed">
+        <button type="button" class="mobile-menu-button" aria-label="Open or close menu">
             <img style="width: 1em; height: 1em;" src="<%- require('./menu-bars.svg') %>" alt="Menu">
          </button>
         <% } -%>

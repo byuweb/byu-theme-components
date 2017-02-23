@@ -309,7 +309,8 @@
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_deep_equal__);
 
         var ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
-        var ATTR_IN_MOBILE_VIEW = 'in-mobile-view';
+        var ATTR_MOBILE_VIEW = 'mobile-view';
+        var ATTR_MENU_OPEN = 'menu-open';
 
         var DEFAULT_MOBILE_WIDTH = '640px';
 
@@ -337,16 +338,43 @@
 
                         this._addSlotListeners();
                         this._notifyChildrenOfMobileState();
+                        this._addButtonListeners();
                     }
+                }
+            }, {
+                key: '_addButtonListeners',
+                value: function _addButtonListeners() {
+                    var _this5 = this;
+
+                    if (!this.inMobileView) {
+                        this.menuOpen = false;
+                        return;
+                    }
+                    var menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
+                    menuButton.addEventListener('click', function () {
+                        return _this5._toggleMenu();
+                    });
+                }
+            }, {
+                key: '_toggleMenu',
+                value: function _toggleMenu() {
+                    var newValue = !this.menuOpen;
+                    var menu = this.shadowRoot.getElementById('mobileMenu');
+                    if (newValue) {
+                        menu.style.maxHeight = menu.scrollHeight + 'px';
+                    } else {
+                        menu.style.maxHeight = null;
+                    }
+                    this.menuOpen = newValue;
                 }
             }, {
                 key: '_addSlotListeners',
                 value: function _addSlotListeners() {
-                    var _this5 = this;
+                    var _this6 = this;
 
                     this._findAllSlots().forEach(function (each) {
                         each.addEventListener('slotchange', function (event) {
-                            _this5._notifyChildrenOfMobileState();
+                            _this6._notifyChildrenOfMobileState();
                         });
                     });
                 }
@@ -356,13 +384,13 @@
                     var kids = this._findAllDistributedChildren();
                     if (this.inMobileView) {
                         kids.forEach(function (each) {
-                            each.setAttribute(ATTR_IN_MOBILE_VIEW, '');
-                            each.classList.add(ATTR_IN_MOBILE_VIEW);
+                            each.setAttribute(ATTR_MOBILE_VIEW, '');
+                            each.classList.add(ATTR_MOBILE_VIEW);
                         });
                     } else {
                         kids.forEach(function (each) {
-                            each.removeAttribute(ATTR_IN_MOBILE_VIEW);
-                            each.classList.remove(ATTR_IN_MOBILE_VIEW);
+                            each.removeAttribute(ATTR_MOBILE_VIEW);
+                            each.classList.remove(ATTR_MOBILE_VIEW);
                         });
                     }
                 }
@@ -401,7 +429,7 @@
                         case ATTR_MOBILE_MAX_WIDTH:
                             this._applyMobileWidth();
                             return;
-                        case ATTR_IN_MOBILE_VIEW:
+                        case ATTR_MOBILE_VIEW:
                             this._render();
                             return;
                     }
@@ -446,14 +474,25 @@
             }, {
                 key: 'inMobileView',
                 get: function get() {
-                    return this.hasAttribute(ATTR_IN_MOBILE_VIEW);
+                    return this.hasAttribute(ATTR_MOBILE_VIEW);
                 },
                 set: function set(val) {
-                    console.log('set inMobileView', val);
                     if (val) {
-                        this.setAttribute(ATTR_IN_MOBILE_VIEW, '');
+                        this.setAttribute(ATTR_MOBILE_VIEW, '');
                     } else {
-                        this.removeAttribute(ATTR_IN_MOBILE_VIEW);
+                        this.removeAttribute(ATTR_MOBILE_VIEW);
+                    }
+                }
+            }, {
+                key: 'menuOpen',
+                get: function get() {
+                    return this.hasAttribute(ATTR_MENU_OPEN);
+                },
+                set: function set(val) {
+                    if (val) {
+                        this.setAttribute(ATTR_MENU_OPEN, '');
+                    } else {
+                        this.removeAttribute(ATTR_MENU_OPEN);
                     }
                 }
             }, {
@@ -464,7 +503,7 @@
             }], [{
                 key: 'observedAttributes',
                 get: function get() {
-                    return [ATTR_MOBILE_MAX_WIDTH, ATTR_IN_MOBILE_VIEW];
+                    return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW];
                 }
             }]);
 
@@ -487,38 +526,26 @@
         var BYUMenu = function (_HTMLElement5) {
             _inherits(BYUMenu, _HTMLElement5);
 
-            _createClass(BYUMenu, [{
-                key: 'collapsed',
-                get: function get() {
-                    return this.hasAttribute('collapsed');
-                },
-                set: function set(val) {
-                    if (val) this.setAttribute('collapsed', '');else this.removeAttribute('collapsed');
-                }
-            }], [{
-                key: 'observedAttributes',
-                get: function get() {
-                    return ['collapsed'];
-                }
-            }]);
-
             function BYUMenu() {
                 _classCallCheck(this, BYUMenu);
 
-                var _this6 = _possibleConstructorReturn(this, (BYUMenu.__proto__ || Object.getPrototypeOf(BYUMenu)).call(this));
+                var _this7 = _possibleConstructorReturn(this, (BYUMenu.__proto__ || Object.getPrototypeOf(BYUMenu)).call(this));
 
                 // always call super first
-                var shadowRoot = _this6.attachShadow({ mode: 'open' });
+                var shadowRoot = _this7.attachShadow({ mode: 'open' });
                 shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
-                return _this6;
+                return _this7;
             }
 
             _createClass(BYUMenu, [{
-                key: 'attributeChangedCallback',
-                value: function attributeChangedCallback(name, oldValue, newValue) {}
-            }, {
                 key: 'connectedCallback',
                 value: function connectedCallback() {
+                    // this._maybeAddMoreMenu();
+                    this._addSlotListeners();
+                }
+            }, {
+                key: '_maybeAddMoreMenu',
+                value: function _maybeAddMoreMenu() {
                     // if there are more than 6 links add the extras to a "more" dropdown
                     var slot = this.shadowRoot.querySelector("#slot");
 
@@ -526,33 +553,29 @@
                         return element instanceof HTMLElement;
                     });
 
-                    // create the secondary nav links
-                    for (var i = 0; i < allLinks.length; i++) {
-                        var cln = allLinks[i].cloneNode(true);
-                        this.shadowRoot.querySelector('.secondary-nav').appendChild(cln);
-                    }
-
-                    // calculate the height of the mobile dropdown
-                    var h = allLinks.length * 48;
-
                     if (allLinks.length > 6) {
+                        this.setAttribute('has-extra-links', '');
 
-                        // create the "extra links" dropdown
-                        var extraLinks = this.shadowRoot.querySelector('#extraLinks');
-                        extraLinks.style.display = "table-cell";
-
-                        allLinks = allLinks.slice(5);
-                        var dropdown = extraLinks.querySelector("#extraLinksDropdown");
-                        for (var i = 0; i < allLinks.length; i++) {
+                        var extras = allLinks.slice(5);
+                        var dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
+                        for (var i = 0; i < extras.length; i++) {
                             var listItem = document.createElement("li");
-                            listItem.appendChild(allLinks[i]);
+                            // listItem.appendChild(allLinks[i]);
+                            listItem.appendChild(allLinks[i].cloneNode());
                             dropdown.appendChild(listItem);
                         }
+                    } else {
+                        this.removeAttribute('has-extra-links');
                     }
+                }
+            }, {
+                key: '_addSlotListeners',
+                value: function _addSlotListeners() {
+                    var _this8 = this;
 
-                    //dynamically set the height of the mobile dropdown based on the number of links
-                    var styleSheet = this.shadowRoot.querySelector("#stylePlaceHolder");
-                    styleSheet.innerHTML = "<style>.navbar-collapse { height: " + h + "px }</style>";
+                    this.shadowRoot.getElementById('slot').addEventListener('slotchange', function (e) {
+                        return _this8._maybeAddMoreMenu();
+                    });
                 }
             }]);
 
@@ -615,13 +638,13 @@
             function ByuSearch() {
                 _classCallCheck(this, ByuSearch);
 
-                var _this7 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
+                var _this9 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
 
                 // always call super first
 
-                var shadowRoot = _this7.attachShadow({ mode: 'open' });
+                var shadowRoot = _this9.attachShadow({ mode: 'open' });
                 shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
-                return _this7;
+                return _this9;
             }
 
             _createClass(ByuSearch, [{
@@ -725,11 +748,11 @@
             function BYUSocialMediaLinks() {
                 _classCallCheck(this, BYUSocialMediaLinks);
 
-                var _this8 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
+                var _this10 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
 
-                var shadowRoot = _this8.attachShadow({ mode: 'open' });
+                var shadowRoot = _this10.attachShadow({ mode: 'open' });
                 shadowRoot.innerHTML = template;
-                return _this8;
+                return _this10;
             }
 
             _createClass(BYUSocialMediaLinks, [{
@@ -797,13 +820,13 @@
             function ByuUserLogin() {
                 _classCallCheck(this, ByuUserLogin);
 
-                var _this9 = _possibleConstructorReturn(this, (ByuUserLogin.__proto__ || Object.getPrototypeOf(ByuUserLogin)).call(this));
+                var _this11 = _possibleConstructorReturn(this, (ByuUserLogin.__proto__ || Object.getPrototypeOf(ByuUserLogin)).call(this));
 
-                var shadowRoot = _this9.attachShadow({ mode: 'open' });
+                var shadowRoot = _this11.attachShadow({ mode: 'open' });
                 shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
                 //Hack to make sure that the proper login URL gets set in our template.
-                _this9.loginUrl = _this9.loginUrl;
-                return _this9;
+                _this11.loginUrl = _this11.loginUrl;
+                return _this11;
             }
 
             _createClass(ByuUserLogin, [{
@@ -824,12 +847,12 @@
             }, {
                 key: '_addSlotListeners',
                 value: function _addSlotListeners() {
-                    var _this10 = this;
+                    var _this12 = this;
 
                     this._setUrlFromLightDom();
                     var slot = this.shadowRoot.querySelector('#delegate');
                     slot.addEventListener('slotchange', function (e) {
-                        _this10._setUrlFromLightDom();
+                        _this12._setUrlFromLightDom();
                     });
                 }
             }, {
@@ -921,7 +944,7 @@
 
 
         // module
-        exports.push([module.i, ".byu-header{font-family:Vitesee Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;display:inline-block;cursor:pointer}.byu-header button.nav-expand{background-color:transparent}.byu-header button.nav-expand span.fa{font-size:20px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px}.byu-header .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-logo{height:48px;width:92px}@media (min-width:1024px){.byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}.byu-header.no-nav{height:48px}.byu-header .nav-expand{display:none}.byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}.byu-header .byu-header-secondary,.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}.byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}.byu-header .byu-header-secondary .byu-header-menu-button{display:none}}@media (max-width:1023px){.byu-header .byu-header-secondary{background-color:initial;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary>div{margin-right:0;height:auto}.byu-header .byu-header-secondary button{border-left:1px solid #fff}.byu-header .byu-header-secondary button>span{font-size:17px;line-height:12px}.byu-header .byu-header-secondary .byu-header-user{display:none}.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;flex:1}.byu-header .byu-header-secondary .byu-header-search input{flex:1;height:35px;padding-left:16px;box-sizing:border-box}.byu-header .byu-header-secondary .byu-header-search button{border-left:none;width:50px}.byu-header .byu-header-secondary .byu-header-user .label{display:none}.byu-header .byu-header-secondary .byu-header-user .icon{top:50%;left:50%;margin-top:-13px;margin-left:-13px}}", ""]);
+        exports.push([module.i, "#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1)}.byu-header{font-family:Vitesse Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;display:inline-block;cursor:pointer}.byu-header button.mobile-menu-button{background-color:transparent;font-size:20px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px}.byu-header .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-logo{height:48px;width:92px}#mobileMenu{overflow:hidden}@media (min-width:1024px){.byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}.byu-header.no-nav{height:48px}.byu-header .nav-expand{display:none}.byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}.byu-header .byu-header-secondary,.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}.byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}.byu-header .byu-header-secondary .byu-header-menu-button{display:none}}@media (max-width:1023px){.byu-header .byu-header-secondary{background-color:initial;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary>div{margin-right:0;height:auto}.byu-header .byu-header-secondary button{border-left:1px solid #fff}.byu-header .byu-header-secondary button>span{font-size:17px;line-height:12px}.byu-header .byu-header-secondary .byu-header-user{display:none}.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;flex:1}.byu-header .byu-header-secondary .byu-header-search input{flex:1;height:35px;padding-left:16px;box-sizing:border-box}.byu-header .byu-header-secondary .byu-header-search button{border-left:none;width:50px}.byu-header .byu-header-secondary .byu-header-user .label{display:none}.byu-header .byu-header-secondary .byu-header-user .icon{top:50%;left:50%;margin-top:-13px;margin-left:-13px}}", ""]);
 
         // exports
 
@@ -936,7 +959,7 @@
 
 
         // module
-        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;opacity:.88;border-bottom:1px solid #ccc}:host([collapsed]) .navbar-collapse{height:0}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}.navbar-collapse{padding:0 15px;overflow:hidden;margin:0 -15px;-webkit-box-shadow:0 2px 21px -4px rgba(0,0,0,.2);-moz-box-shadow:0 2px 21px -4px rgba(0,0,0,.2);box-shadow:0 2px 21px -4px rgba(0,0,0,.2);-webkit-transition-timing-function:ease;-o-transition-timing-function:ease;transition-timing-function:ease;-webkit-transition-duration:.35s;-o-transition-duration:.35s;transition-duration:.35s;-webkit-transition-property:height;-o-transition-property:height;transition-property:height}.secondary-nav{padding-left:0;margin:0 -15px}.secondary-nav>a{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:13px;font-weight:400;color:#002e5d;text-transform:uppercase;box-sizing:border-box;position:relative;display:block;padding:18px 30px;line-height:12px;text-decoration:none}.secondary-nav>a:hover{background-color:#f6f6f6;cursor:pointer}::slotted(*){display:table;width:16.66%}::slotted(.selected){background:#e6e6e6!important}.extra-links,::slotted(*){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:13px!important;font-weight:400!important;color:#002e5d!important;height:35px!important;display:table-cell;text-transform:uppercase!important;text-decoration:none!important;vertical-align:middle!important;text-align:center!important;padding:0 6px!important}.extra-links:hover,::slotted(:hover){background-color:#c5c5c5!important}.extra-links{display:none;cursor:pointer}.extra-links .extra-links-dropdown{display:none;position:absolute;background-color:#fff;z-index:10;min-width:115px;margin-top:10px}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown{display:block}@media (min-width:1024px){::slotted(:nth-child(n+7)){display:none}}@media (max-width:1023px){nav.outer-nav{display:none}}", ""]);
+        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;opacity:.88;border-bottom:1px solid #ccc}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}.secondary-nav>a:hover{background-color:#f6f6f6;cursor:pointer}::slotted(*){display:table;width:16.66%}::slotted(.selected){background:#e6e6e6!important}.extra-links,::slotted(*){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:13px!important;font-weight:400!important;color:#002e5d!important;height:35px!important;display:table-cell;text-transform:uppercase!important;text-decoration:none!important;vertical-align:middle!important;text-align:center!important;padding:0 6px!important}.extra-links:hover,::slotted(:hover){background-color:#c5c5c5!important}.extra-links{display:none;cursor:pointer}.extra-links .extra-links-dropdown{display:none;position:absolute;background-color:#fff;z-index:10;min-width:115px;margin-top:10px}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown{display:block}:host(.mobile-view) .outer-nav{flex-direction:column}:host(.mobile-view) .inner-nav{display:block}:host(.mobile-view) #slot{display:flex;flex-direction:column}:host(.mobile-view) ::slotted(*){display:block;width:100%;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important}", ""]);
 
         // exports
 
@@ -1149,7 +1172,7 @@
             __append(__webpack_require__(29));
             __append('"><div class="byu-header-title">\n<slot id="title" name="title"></slot>\n</div>\n');
             if (locals.mobile) {
-                __append('<button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector(\'#navbarMenu\').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector(\'#navbarMenu\').assignedNodes()[0].collapsed">\n<img style="width: 1em; height: 1em" src="');
+                __append('<button type="button" class="mobile-menu-button" aria-label="Open or close menu">\n<img style="width: 1em; height: 1em" src="');
                 __append(__webpack_require__(30));
                 __append('" alt="Menu">\n</button>\n');
             }
@@ -1193,7 +1216,7 @@
     /* 24 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(13) + "\n</style>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\" />\n\n<nav class=\"outer-nav\">\n    <div class=\"inner-nav\">\n        <slot id=\"slot\"></slot>\n        <div class=\"extra-links\" id=\"extraLinks\">\n            More\n            <div class=\"extra-links-dropdown\">\n                <ul id=\"extraLinksDropdown\"></ul>\n            </div>\n        </div>\n    </div>\n</nav>\n<div class=\"navbar-collapse\">\n    <nav class=\"secondary-nav\"></nav>\n</div>\n<div id=\"stylePlaceHolder\"></div>";
+        module.exports = "<style>\n    " + __webpack_require__(13) + "\n</style>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\" />\n\n<nav class=\"outer-nav\">\n    <div class=\"inner-nav\">\n        <slot id=\"slot\"></slot>\n        <div class=\"extra-links\" id=\"extraLinks\">\n            More\n            <div class=\"extra-links-dropdown\">\n                <ul id=\"extraLinksDropdown\"></ul>\n            </div>\n        </div>\n    </div>\n</nav>\n<div id=\"stylePlaceHolder\"></div>";
 
         /***/
     },

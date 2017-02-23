@@ -218,7 +218,8 @@ window.BYUFooter = BYUFooter;
 
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
-const ATTR_IN_MOBILE_VIEW = 'in-mobile-view';
+const ATTR_MOBILE_VIEW = 'mobile-view';
+const ATTR_MENU_OPEN = 'menu-open';
 
 const DEFAULT_MOBILE_WIDTH = '640px';
 
@@ -239,7 +240,28 @@ class BYUHeader extends HTMLElement {
 
             this._addSlotListeners();
             this._notifyChildrenOfMobileState();
+            this._addButtonListeners();
         }
+    }
+
+    _addButtonListeners() {
+        if (!this.inMobileView) {
+            this.menuOpen = false;
+            return;
+        }
+        let menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
+        menuButton.addEventListener('click', () => this._toggleMenu())
+    }
+
+    _toggleMenu() {
+        let newValue = !this.menuOpen;
+        let menu = this.shadowRoot.getElementById('mobileMenu');
+        if (newValue) {
+            menu.style.maxHeight = menu.scrollHeight + 'px';
+        } else {
+            menu.style.maxHeight = null;
+        }
+        this.menuOpen = newValue;
     }
 
     _addSlotListeners() {
@@ -254,13 +276,13 @@ class BYUHeader extends HTMLElement {
         let kids = this._findAllDistributedChildren();
         if (this.inMobileView) {
             kids.forEach(each => {
-                each.setAttribute(ATTR_IN_MOBILE_VIEW, '');
-                each.classList.add(ATTR_IN_MOBILE_VIEW);
+                each.setAttribute(ATTR_MOBILE_VIEW, '');
+                each.classList.add(ATTR_MOBILE_VIEW);
             });
         } else {
             kids.forEach(each => {
-                each.removeAttribute(ATTR_IN_MOBILE_VIEW);
-                each.classList.remove(ATTR_IN_MOBILE_VIEW);
+                each.removeAttribute(ATTR_MOBILE_VIEW);
+                each.classList.remove(ATTR_MOBILE_VIEW);
             });
         }
     }
@@ -286,7 +308,7 @@ class BYUHeader extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return [ATTR_MOBILE_MAX_WIDTH, ATTR_IN_MOBILE_VIEW];
+        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -294,7 +316,7 @@ class BYUHeader extends HTMLElement {
             case ATTR_MOBILE_MAX_WIDTH:
                 this._applyMobileWidth();
                 return;
-            case ATTR_IN_MOBILE_VIEW:
+            case ATTR_MOBILE_VIEW:
                 this._render();
                 return;
         }
@@ -313,15 +335,26 @@ class BYUHeader extends HTMLElement {
     }
 
     get inMobileView() {
-        return this.hasAttribute(ATTR_IN_MOBILE_VIEW);
+        return this.hasAttribute(ATTR_MOBILE_VIEW);
     }
 
     set inMobileView(val) {
-        console.log('set inMobileView', val);
         if (val) {
-            this.setAttribute(ATTR_IN_MOBILE_VIEW, '');
+            this.setAttribute(ATTR_MOBILE_VIEW, '');
         } else {
-            this.removeAttribute(ATTR_IN_MOBILE_VIEW);
+            this.removeAttribute(ATTR_MOBILE_VIEW);
+        }
+    }
+
+    get menuOpen() {
+        return this.hasAttribute(ATTR_MENU_OPEN);
+    }
+
+    set menuOpen(val) {
+        if (val) {
+            this.setAttribute(ATTR_MENU_OPEN, '');
+        } else {
+            this.removeAttribute(ATTR_MENU_OPEN);
         }
     }
 
@@ -368,23 +401,7 @@ window.BYUHeader = BYUHeader;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
 
 
-
 class BYUMenu extends HTMLElement {
-
-    static get observedAttributes() {
-        return ['collapsed'];
-    }
-
-    get collapsed() {
-        return this.hasAttribute('collapsed');
-    }
-
-    set collapsed(val) {
-        if (val)
-            this.setAttribute('collapsed', '');
-        else
-            this.removeAttribute('collapsed');
-    }
 
     constructor() {
         super(); // always call super first
@@ -392,45 +409,38 @@ class BYUMenu extends HTMLElement {
         shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
+    connectedCallback() {
+        // this._maybeAddMoreMenu();
+        this._addSlotListeners();
     }
 
-    connectedCallback() {
+    _maybeAddMoreMenu() {
         // if there are more than 6 links add the extras to a "more" dropdown
         const slot = this.shadowRoot.querySelector("#slot");
 
-        var allLinks = slot.assignedNodes().filter(function (element) {
+        let allLinks = slot.assignedNodes().filter(function (element) {
             return element instanceof HTMLElement
         });
 
-
-        // create the secondary nav links
-        for (var i = 0; i < allLinks.length; i++) {
-            var cln = allLinks[i].cloneNode(true);
-            this.shadowRoot.querySelector('.secondary-nav').appendChild(cln);
-        }
-
-        // calculate the height of the mobile dropdown
-        var h = allLinks.length * 48;
-
         if (allLinks.length > 6) {
+            this.setAttribute('has-extra-links', '');
 
-            // create the "extra links" dropdown
-            var extraLinks = this.shadowRoot.querySelector('#extraLinks');
-            extraLinks.style.display = "table-cell";
-
-            allLinks = allLinks.slice(5);
-            var dropdown = extraLinks.querySelector("#extraLinksDropdown")
-            for (var i = 0; i < allLinks.length; i++) {
-                var listItem = document.createElement("li");
-                listItem.appendChild(allLinks[i]);
+            let extras = allLinks.slice(5);
+            let dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
+            for (let i = 0; i < extras.length; i++) {
+                let listItem = document.createElement("li");
+                // listItem.appendChild(allLinks[i]);
+                listItem.appendChild(allLinks[i].cloneNode());
                 dropdown.appendChild(listItem);
             }
+        } else {
+            this.removeAttribute('has-extra-links');
         }
+    }
 
-        //dynamically set the height of the mobile dropdown based on the number of links
-        var styleSheet = this.shadowRoot.querySelector("#stylePlaceHolder");
-        styleSheet.innerHTML = "<style>.navbar-collapse { height: " + h + "px }</style>";
+    _addSlotListeners() {
+        this.shadowRoot.getElementById('slot')
+            .addEventListener('slotchange', e => this._maybeAddMoreMenu())
     }
 }
 
@@ -759,7 +769,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ".byu-header{font-family:Vitesee Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;display:inline-block;cursor:pointer}.byu-header button.nav-expand{background-color:transparent}.byu-header button.nav-expand span.fa{font-size:20px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px}.byu-header .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-logo{height:48px;width:92px}@media (min-width:1024px){.byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}.byu-header.no-nav{height:48px}.byu-header .nav-expand{display:none}.byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}.byu-header .byu-header-secondary,.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}.byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}.byu-header .byu-header-secondary .byu-header-menu-button{display:none}}@media (max-width:1023px){.byu-header .byu-header-secondary{background-color:initial;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary>div{margin-right:0;height:auto}.byu-header .byu-header-secondary button{border-left:1px solid #fff}.byu-header .byu-header-secondary button>span{font-size:17px;line-height:12px}.byu-header .byu-header-secondary .byu-header-user{display:none}.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;flex:1}.byu-header .byu-header-secondary .byu-header-search input{flex:1;height:35px;padding-left:16px;box-sizing:border-box}.byu-header .byu-header-secondary .byu-header-search button{border-left:none;width:50px}.byu-header .byu-header-secondary .byu-header-user .label{display:none}.byu-header .byu-header-secondary .byu-header-user .icon{top:50%;left:50%;margin-top:-13px;margin-left:-13px}}", ""]);
+exports.push([module.i, "#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1)}.byu-header{font-family:Vitesse Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;display:inline-block;cursor:pointer}.byu-header button.mobile-menu-button{background-color:transparent;font-size:20px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px}.byu-header .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-logo{height:48px;width:92px}#mobileMenu{overflow:hidden}@media (min-width:1024px){.byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}.byu-header.no-nav{height:48px}.byu-header .nav-expand{display:none}.byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}.byu-header .byu-header-secondary,.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}.byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}.byu-header .byu-header-secondary .byu-header-menu-button{display:none}}@media (max-width:1023px){.byu-header .byu-header-secondary{background-color:initial;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}.byu-header .byu-header-secondary>div{margin-right:0;height:auto}.byu-header .byu-header-secondary button{border-left:1px solid #fff}.byu-header .byu-header-secondary button>span{font-size:17px;line-height:12px}.byu-header .byu-header-secondary .byu-header-user{display:none}.byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;flex:1}.byu-header .byu-header-secondary .byu-header-search input{flex:1;height:35px;padding-left:16px;box-sizing:border-box}.byu-header .byu-header-secondary .byu-header-search button{border-left:none;width:50px}.byu-header .byu-header-secondary .byu-header-user .label{display:none}.byu-header .byu-header-secondary .byu-header-user .icon{top:50%;left:50%;margin-top:-13px;margin-left:-13px}}", ""]);
 
 // exports
 
@@ -773,7 +783,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;opacity:.88;border-bottom:1px solid #ccc}:host([collapsed]) .navbar-collapse{height:0}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}.navbar-collapse{padding:0 15px;overflow:hidden;margin:0 -15px;-webkit-box-shadow:0 2px 21px -4px rgba(0,0,0,.2);-moz-box-shadow:0 2px 21px -4px rgba(0,0,0,.2);box-shadow:0 2px 21px -4px rgba(0,0,0,.2);-webkit-transition-timing-function:ease;-o-transition-timing-function:ease;transition-timing-function:ease;-webkit-transition-duration:.35s;-o-transition-duration:.35s;transition-duration:.35s;-webkit-transition-property:height;-o-transition-property:height;transition-property:height}.secondary-nav{padding-left:0;margin:0 -15px}.secondary-nav>a{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:13px;font-weight:400;color:#002e5d;text-transform:uppercase;box-sizing:border-box;position:relative;display:block;padding:18px 30px;line-height:12px;text-decoration:none}.secondary-nav>a:hover{background-color:#f6f6f6;cursor:pointer}::slotted(*){display:table;width:16.66%}::slotted(.selected){background:#e6e6e6!important}.extra-links,::slotted(*){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:13px!important;font-weight:400!important;color:#002e5d!important;height:35px!important;display:table-cell;text-transform:uppercase!important;text-decoration:none!important;vertical-align:middle!important;text-align:center!important;padding:0 6px!important}.extra-links:hover,::slotted(:hover){background-color:#c5c5c5!important}.extra-links{display:none;cursor:pointer}.extra-links .extra-links-dropdown{display:none;position:absolute;background-color:#fff;z-index:10;min-width:115px;margin-top:10px}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown{display:block}@media (min-width:1024px){::slotted(:nth-child(n+7)){display:none}}@media (max-width:1023px){nav.outer-nav{display:none}}", ""]);
+exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;opacity:.88;border-bottom:1px solid #ccc}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}.secondary-nav>a:hover{background-color:#f6f6f6;cursor:pointer}::slotted(*){display:table;width:16.66%}::slotted(.selected){background:#e6e6e6!important}.extra-links,::slotted(*){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:13px!important;font-weight:400!important;color:#002e5d!important;height:35px!important;display:table-cell;text-transform:uppercase!important;text-decoration:none!important;vertical-align:middle!important;text-align:center!important;padding:0 6px!important}.extra-links:hover,::slotted(:hover){background-color:#c5c5c5!important}.extra-links{display:none;cursor:pointer}.extra-links .extra-links-dropdown{display:none;position:absolute;background-color:#fff;z-index:10;min-width:115px;margin-top:10px}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown{display:block}:host(.mobile-view) .outer-nav{flex-direction:column}:host(.mobile-view) .inner-nav{display:block}:host(.mobile-view) #slot{display:flex;flex-direction:column}:host(.mobile-view) ::slotted(*){display:block;width:100%;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important}", ""]);
 
 // exports
 
@@ -987,7 +997,7 @@ module.exports = function anonymous(locals, escapeFn, include, rethrow) {
     __append(__webpack_require__(29));
     __append('"><div class="byu-header-title">\n<slot id="title" name="title"></slot>\n</div>\n');
     if (locals.mobile) {
-        __append('<button type="button" class="nav-expand" aria-label="Open or close menu" onclick="this.parentElement.parentElement.querySelector(\'#navbarMenu\').assignedNodes()[0].collapsed = !this.parentElement.parentElement.querySelector(\'#navbarMenu\').assignedNodes()[0].collapsed">\n<img style="width: 1em; height: 1em" src="');
+        __append('<button type="button" class="mobile-menu-button" aria-label="Open or close menu">\n<img style="width: 1em; height: 1em" src="');
         __append(__webpack_require__(30));
         __append('" alt="Menu">\n</button>\n');
     }
@@ -1027,7 +1037,7 @@ module.exports = "<style>\n    " + __webpack_require__(11) + "\n</style>\n<div c
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>\n    " + __webpack_require__(13) + "\n</style>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\" />\n\n<nav class=\"outer-nav\">\n    <div class=\"inner-nav\">\n        <slot id=\"slot\"></slot>\n        <div class=\"extra-links\" id=\"extraLinks\">\n            More\n            <div class=\"extra-links-dropdown\">\n                <ul id=\"extraLinksDropdown\"></ul>\n            </div>\n        </div>\n    </div>\n</nav>\n<div class=\"navbar-collapse\">\n    <nav class=\"secondary-nav\"></nav>\n</div>\n<div id=\"stylePlaceHolder\"></div>";
+module.exports = "<style>\n    " + __webpack_require__(13) + "\n</style>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\" />\n\n<nav class=\"outer-nav\">\n    <div class=\"inner-nav\">\n        <slot id=\"slot\"></slot>\n        <div class=\"extra-links\" id=\"extraLinks\">\n            More\n            <div class=\"extra-links-dropdown\">\n                <ul id=\"extraLinksDropdown\"></ul>\n            </div>\n        </div>\n    </div>\n</nav>\n<div id=\"stylePlaceHolder\"></div>";
 
 /***/ }),
 /* 25 */

@@ -72,7 +72,8 @@ gulp.task('watch', ['assemble'], function (done) {
     browserSync.init({
         server: {
             baseDir: './'
-        }
+        },
+        notify: false
         // proxy: {
         //     target: 'http://localhost:3000',
         //     middleware: function (req, res, next) {

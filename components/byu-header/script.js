@@ -5,7 +5,8 @@ import * as templateFn from "./template.ejs.html";
 import * as equal from "deep-equal";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
-const ATTR_IN_MOBILE_VIEW = 'in-mobile-view';
+const ATTR_MOBILE_VIEW = 'mobile-view';
+const ATTR_MENU_OPEN = 'menu-open';
 
 const DEFAULT_MOBILE_WIDTH = '640px';
 
@@ -26,7 +27,28 @@ class BYUHeader extends HTMLElement {
 
             this._addSlotListeners();
             this._notifyChildrenOfMobileState();
+            this._addButtonListeners();
         }
+    }
+
+    _addButtonListeners() {
+        if (!this.inMobileView) {
+            this.menuOpen = false;
+            return;
+        }
+        let menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
+        menuButton.addEventListener('click', () => this._toggleMenu())
+    }
+
+    _toggleMenu() {
+        let newValue = !this.menuOpen;
+        let menu = this.shadowRoot.getElementById('mobileMenu');
+        if (newValue) {
+            menu.style.maxHeight = menu.scrollHeight + 'px';
+        } else {
+            menu.style.maxHeight = null;
+        }
+        this.menuOpen = newValue;
     }
 
     _addSlotListeners() {
@@ -41,13 +63,13 @@ class BYUHeader extends HTMLElement {
         let kids = this._findAllDistributedChildren();
         if (this.inMobileView) {
             kids.forEach(each => {
-                each.setAttribute(ATTR_IN_MOBILE_VIEW, '');
-                each.classList.add(ATTR_IN_MOBILE_VIEW);
+                each.setAttribute(ATTR_MOBILE_VIEW, '');
+                each.classList.add(ATTR_MOBILE_VIEW);
             });
         } else {
             kids.forEach(each => {
-                each.removeAttribute(ATTR_IN_MOBILE_VIEW);
-                each.classList.remove(ATTR_IN_MOBILE_VIEW);
+                each.removeAttribute(ATTR_MOBILE_VIEW);
+                each.classList.remove(ATTR_MOBILE_VIEW);
             });
         }
     }
@@ -73,7 +95,7 @@ class BYUHeader extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return [ATTR_MOBILE_MAX_WIDTH, ATTR_IN_MOBILE_VIEW];
+        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -81,7 +103,7 @@ class BYUHeader extends HTMLElement {
             case ATTR_MOBILE_MAX_WIDTH:
                 this._applyMobileWidth();
                 return;
-            case ATTR_IN_MOBILE_VIEW:
+            case ATTR_MOBILE_VIEW:
                 this._render();
                 return;
         }
@@ -100,15 +122,26 @@ class BYUHeader extends HTMLElement {
     }
 
     get inMobileView() {
-        return this.hasAttribute(ATTR_IN_MOBILE_VIEW);
+        return this.hasAttribute(ATTR_MOBILE_VIEW);
     }
 
     set inMobileView(val) {
-        console.log('set inMobileView', val);
         if (val) {
-            this.setAttribute(ATTR_IN_MOBILE_VIEW, '');
+            this.setAttribute(ATTR_MOBILE_VIEW, '');
         } else {
-            this.removeAttribute(ATTR_IN_MOBILE_VIEW);
+            this.removeAttribute(ATTR_MOBILE_VIEW);
+        }
+    }
+
+    get menuOpen() {
+        return this.hasAttribute(ATTR_MENU_OPEN);
+    }
+
+    set menuOpen(val) {
+        if (val) {
+            this.setAttribute(ATTR_MENU_OPEN, '');
+        } else {
+            this.removeAttribute(ATTR_MENU_OPEN);
         }
     }
 
