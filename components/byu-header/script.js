@@ -83,6 +83,7 @@ class BYUHeader extends HTMLElement {
     }
 
     connectedCallback() {
+        //This is a hack to ensure that the right defaults get applied.
         this.mobileMaxWidth = this.mobileMaxWidth;
         this._applyMobileWidth();
         this._render();

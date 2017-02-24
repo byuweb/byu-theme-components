@@ -413,6 +413,7 @@
             }, {
                 key: 'connectedCallback',
                 value: function connectedCallback() {
+                    //This is a hack to ensure that the right defaults get applied.
                     this.mobileMaxWidth = this.mobileMaxWidth;
                     this._applyMobileWidth();
                     this._render();
@@ -1512,12 +1513,12 @@
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_2__byu_search_script_js__ = __webpack_require__(6);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_script_js__ = __webpack_require__(8);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_4__byu_footer_script_js__ = __webpack_require__(3);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script__ = __webpack_require__(2);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script__ = __webpack_require__(1);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script__ = __webpack_require__(7);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script__);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__ = __webpack_require__(2);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__ = __webpack_require__(1);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__ = __webpack_require__(7);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__);
         /**
          * Created by ThatJoeMoore on 2/18/17
          */

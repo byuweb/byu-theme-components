@@ -16,7 +16,7 @@ import './byu-user-info/script.js';
  */
 
 import './byu-footer/script.js';
-import './byu-footer-column/script';
-import './byu-footer-action-button/script';
-import './byu-social-media-links/script';
+import './byu-footer-column/script.js';
+import './byu-footer-action-button/script.js';
+import './byu-social-media-links/script.js';
 
