@@ -22,8 +22,8 @@
     "tests"
   ],
   "dependencies": {
-    "webcomponentsjs": "v1",
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "webcomponentsjs": "v1"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.2.5"

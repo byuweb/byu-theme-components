@@ -1,69 +1,48 @@
-(function (template) { // limit scope
+import * as template from "./template.html";
 
-    class BYUMenu extends HTMLElement {
+class BYUMenu extends HTMLElement {
 
-        static get observedAttributes() {
-            return ['collapsed'];
-        }
+    constructor() {
+        super(); // always call super first
+        let shadowRoot = this.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = template;
+    }
 
-        get collapsed() {
-            return this.hasAttribute('collapsed');
-        }
+    connectedCallback() {
+        // this._maybeAddMoreMenu();
+        this._addSlotListeners();
+    }
 
-        set collapsed(val) {
-            if (val)
-                this.setAttribute('collapsed', '');
-            else
-                this.removeAttribute('collapsed');
-        }
+    _maybeAddMoreMenu() {
+        // if there are more than 6 links add the extras to a "more" dropdown
+        const slot = this.shadowRoot.querySelector("#slot");
 
-        constructor() {
-            super(); // always call super first
-            let shadowRoot = this.attachShadow({mode: 'open'});
-            shadowRoot.innerHTML = template;
-        }
+        let allLinks = slot.assignedNodes().filter(function (element) {
+            return element instanceof HTMLElement
+        });
 
-        attributeChangedCallback(name, oldValue, newValue) {
-        }
+        if (allLinks.length > 6) {
+            this.setAttribute('has-extra-links', '');
 
-        connectedCallback() {
-            // if there are more than 6 links add the extras to a "more" dropdown
-            const slot = this.shadowRoot.querySelector("#slot");
-
-            var allLinks = slot.assignedNodes().filter(function (element) { return element instanceof HTMLElement });
-            
-            
-            // create the secondary nav links
-            for (var i = 0; i < allLinks.length; i++) {
-                var cln = allLinks[i].cloneNode(true);
-                this.shadowRoot.querySelector('.secondary-nav').appendChild(cln);
+            let extras = allLinks.slice(5);
+            let dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
+            for (let i = 0; i < extras.length; i++) {
+                let listItem = document.createElement("li");
+                // listItem.appendChild(allLinks[i]);
+                listItem.appendChild(allLinks[i].cloneNode());
+                dropdown.appendChild(listItem);
             }
-
-            // calculate the height of the mobile dropdown
-            var h = allLinks.length * 48;
-            
-            if (allLinks.length > 6) {
-
-                // create the "extra links" dropdown
-                var extraLinks = this.shadowRoot.querySelector('#extraLinks');
-                extraLinks.style.display = "table-cell";
-
-                allLinks = allLinks.slice(5);
-                var dropdown = extraLinks.querySelector("#extraLinksDropdown")
-                for (var i = 0; i < allLinks.length; i++) {
-                    var listItem = document.createElement("li");
-                    listItem.appendChild(allLinks[i]);
-                    dropdown.appendChild(listItem);
-                }
-            }
-
-            //dynamically set the height of the mobile dropdown based on the number of links
-            var styleSheet = this.shadowRoot.querySelector("#stylePlaceHolder");
-            styleSheet.innerHTML = "<style>.navbar-collapse { height: " + h + "px }</style>";
+        } else {
+            this.removeAttribute('has-extra-links');
         }
     }
 
-    window.customElements.define('byu-menu', BYUMenu);
-    window.BYUMenu = BYUMenu;
+    _addSlotListeners() {
+        this.shadowRoot.getElementById('slot')
+            .addEventListener('slotchange', e => this._maybeAddMoreMenu())
+    }
+}
 
-})(/* FUSE */);
+window.customElements.define('byu-menu', BYUMenu);
+window.BYUMenu = BYUMenu;
+

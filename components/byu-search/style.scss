@@ -4,8 +4,9 @@ $color-primary: #767676;
   display: inline-block;
 }
 
-.sr-only {
-  display: none;
+#search-icon {
+  width: 1em;
+  height: 1em;
 }
 
 button {
@@ -33,12 +34,9 @@ form #search-container input,
   border-right: none;
 }
 
-@media (max-width: 1023px) {
-
-  :host {
-    width: 100%;
-    height: 35px;
-  }
+:host(.mobile-view) {
+  width: 100%;
+  height: 35px;
 
   form #search-container input,
   ::slotted(input) {
@@ -46,7 +44,7 @@ form #search-container input,
     border: 1px solid var(--byu-search-color, $color-primary);
     border-right: none;
     width: 100%;
-    height: 35px;        
+    height: 35px;
   }
 
 }

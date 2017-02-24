@@ -1,0 +1,37 @@
+$menu_height: 35px;
+$byu_blue: #002e5d;
+$hover_color: #c5c5c5;
+$active_color: #e6e6e6;
+$menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
+@mixin headerLink() {
+  text-decoration: none !important;
+  font-size: 13px!important;
+  font-family: $menu_font !important;
+  font-weight: 400!important;
+  text-transform: uppercase!important;
+  color: white !important;
+  cursor: pointer !important;
+}
+
+@mixin navItem() {
+  @include headerLink();
+  color: $byu_blue !important;
+  height: 35px !important;
+  display: table-cell;
+  vertical-align: middle !important;
+  text-align: center !important;
+  padding: 0 6px !important;
+}
+
+@mixin dropdownNavItem() {
+  @include navItem();
+  display: block;
+  width: 100%;
+
+  box-sizing: border-box;
+  padding: 18px 30px !important;
+  line-height: 12px;
+  text-align: left !important;
+  height: auto !important;
+}

@@ -1,23 +1,21 @@
-(function (template) {
-    'use strict';
+'use strict';
 
-    class BYUFooter extends HTMLElement {
+import * as template from './template.html';
 
-        constructor() {
-            super();
-            let shadowRoot = this.attachShadow({ mode: 'open' });
-            shadowRoot.innerHTML = template;
-        }
+class BYUFooter extends HTMLElement {
 
-        connectedCallback() {
-
-            // always show the current year in the copyright message
-            var currentYear = this.shadowRoot.querySelector("#currentYear");
-            currentYear.innerHTML = new Date().getFullYear();
-        }
+    constructor() {
+        super();
+        let shadowRoot = this.attachShadow({mode: 'open'});
+        shadowRoot.innerHTML = template;
     }
 
-    window.customElements.define('byu-footer', BYUFooter);
-    window.BYUFooter = BYUFooter;
+    connectedCallback() {
+        // always show the current year in the copyright message
+        var currentYear = this.shadowRoot.querySelector("#currentYear");
+        currentYear.innerHTML = new Date().getFullYear();
+    }
+}
 
-})(/* FUSE */);
+window.customElements.define('byu-footer', BYUFooter);
+window.BYUFooter = BYUFooter;
