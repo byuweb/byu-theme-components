@@ -1,9 +1,9 @@
-$tcon-size: 40px !default;
-$tcon-transition: .3s !default;
+$tcon-size: 1.5em !default;
+$tcon-transition: .15s !default;
 $tcon-jstransform: 'tcon-transform' !default;
 
 $tcon-menu-radius: ($tcon-size / 14) !default;
-$tcon-menu-color: black !default;
+$tcon-menu-color: white !default;
 $tcon-menu-arrowleft-transformation: (
         transform: scale3d(.8, .8, .8) rotate3d(0, 0, 1, 90deg)
 ) !default;
@@ -74,15 +74,26 @@ $tcon-menu-arrow360left-transformation: (
     transform: scale3d(.8, .8, .8);
   }
 }
-.tcon-menu--arrow {
+.tcon-menu--xbutterfly {
   width: auto;
+
+  .tcon-menu__lines {
+    &::before,
+    &::after {
+      transform-origin: 50% 50%;
+      transition: top .3s .6s ease, transform .3s ease;
+    }
+  }
 
   &.#{$tcon-jstransform} {
     .tcon-menu__lines {
+      background: transparent;
+
       &::before,
       &::after {
         top: 0;
-        width: ($tcon-size / 1.8);
+        transition: top .3s ease, transform .3s .5s ease;
+        width: $tcon-size;
       }
 
       &::before {
@@ -95,14 +106,7 @@ $tcon-menu-arrow360left-transformation: (
     }
   }
 }
-.tcon-menu--arrowup {
-  width: auto;
-  &.#{$tcon-jstransform} {
-    @each $property, $value in $tcon-menu-arrowleft-transformation {
-      #{$property} : #{$value};
-    }
-  }
-}
+
 // see issue #7 https://github.com/grayghostvisuals/transformicons/issues/7#issuecomment-59813596
 .tcon-visuallyhidden {
   border: 0;

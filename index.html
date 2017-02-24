@@ -21,21 +21,40 @@
 
     <!--<link type="text/css" rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">-->
     <!--<link type="text/css" rel="stylesheet" href="css/site.css">-->
+    <script>
+        document.addEventListener("DOMContentLoaded" , () => {
+            let userInfo = document.querySelector('byu-user-info');
+            userInfo.querySelector('a[slot=login]')
+                .addEventListener('click', () => {
+                    userInfo.setAttribute('has-user', '');
+                });
+            userInfo.querySelector('a[slot=logout]')
+                .addEventListener('click', () => {
+                    userInfo.removeAttribute('has-user');
+                });
+        });
+    </script>
 </head>
 
 <body>
-    <byu-header>
+    <byu-header mobile-max-width="825px">
         <span slot="title">Templates Demo Site</span>
-        <byu-menu slot="nav" collapsed>
-            <a class="selected" href="../../index.html">Home</a>
+        <byu-menu slot="nav">
+            <a class="selected" href="#">Home</a>
             <a href="components/byu-header/demo.html">Header</a>
             <a href="components/byu-menu/demo.html">Menu</a>
             <a href="components/byu-search/demo.html">Search</a>
-            <a href="components/byu-user-login/demo.html">User Login</a>
+            <a href="components/byu-user-info/demo.html">User Login</a>
             <a href="components/byu-footer/demo.html">Footer</a>
         </byu-menu>
-        <span slot="user">User Stuff</span>
+        <byu-user-info slot="user">
+            <a href="#" slot="login">Sign In</a>
+            <a href="#" slot="logout">Sign Out</a>
+            <span slot="user-name">Joe Student</span>
+        </byu-user-info>
         <byu-search slot="search"></byu-search>
+        <a href="#" slot="actions">Action 1</a>
+        <a href="#" slot="actions">Action 2</a>
     </byu-header>
     <div style="margin: 10px">
         <h1>Welcome to the new templates!</h1>

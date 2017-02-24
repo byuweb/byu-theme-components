@@ -5,36 +5,36 @@
 
 import * as template from "./template.html";
 
-class ByuUserLogin extends HTMLElement {
-
-    set loginUrl(value) {
-        let link = this.shadowRoot.querySelector('.link');
-
-        if (value) {
-            this.setAttribute('login-url', value);
-            if (link) {
-                link.setAttribute('href', value);
-            }
-        } else {
-            this.removeAttribute('login-url');
-            if (link) {
-                link.removeAttribute('href');
-            }
-        }
-    }
-
-    get loginUrl() {
-        return this.getAttribute('login-url');
-    }
+class ByuUserInfo extends HTMLElement {
 
     constructor() {
         super();
 
         let shadowRoot = this.attachShadow({mode: 'open'});
         shadowRoot.innerHTML = template;
-        //Hack to make sure that the proper login URL gets set in our template.
-        this.loginUrl = this.loginUrl;
+        // //Hack to make sure that the proper login URL gets set in our template.
+        // this.loginUrl = this.loginUrl;
     }
+
+    // set loginUrl(value) {
+    //     let link = this.shadowRoot.querySelector('.link');
+    //
+    //     if (value) {
+    //         this.setAttribute('login-url', value);
+    //         if (link) {
+    //             link.setAttribute('href', value);
+    //         }
+    //     } else {
+    //         this.removeAttribute('login-url');
+    //         if (link) {
+    //             link.removeAttribute('href');
+    //         }
+    //     }
+    // }
+    //
+    // get loginUrl() {
+    //     return this.getAttribute('login-url');
+    // }
 
     static get observedAttributes() {
         return ['login-url'];
@@ -49,8 +49,8 @@ class ByuUserLogin extends HTMLElement {
     }
 
     connectedCallback() {
-        this._addSlotListeners();
-        this._addAriaAttributes();
+        // this._addSlotListeners();
+        // this._addAriaAttributes();
     }
 
     _addSlotListeners() {
@@ -80,6 +80,6 @@ class ByuUserLogin extends HTMLElement {
 
 }
 
-window.customElements.define('byu-user-login', ByuUserLogin);
-window.ByuUserLogin = ByuUserLogin;
+window.customElements.define('byu-user-info', ByuUserInfo);
+window.ByuUserInfo = ByuUserInfo;
 

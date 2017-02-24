@@ -3,6 +3,7 @@
 import * as templateFn from "./template.ejs.html";
 
 import * as equal from "deep-equal";
+import {transform as transformIcon, revert as revertIcon} from "./icons/transformicons";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
@@ -41,14 +42,7 @@ class BYUHeader extends HTMLElement {
     }
 
     _toggleMenu() {
-        let newValue = !this.menuOpen;
-        let menu = this.shadowRoot.getElementById('mobileMenu');
-        if (newValue) {
-            menu.style.maxHeight = menu.scrollHeight + 'px';
-        } else {
-            menu.style.maxHeight = null;
-        }
-        this.menuOpen = newValue;
+        this.menuOpen = !this.menuOpen;
     }
 
     _addSlotListeners() {
@@ -95,7 +89,7 @@ class BYUHeader extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW];
+        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -106,6 +100,21 @@ class BYUHeader extends HTMLElement {
             case ATTR_MOBILE_VIEW:
                 this._render();
                 return;
+            case ATTR_MENU_OPEN:
+                this._applyMenuOpen();
+                return;
+        }
+    }
+
+    _applyMenuOpen() {
+        let menu = this.shadowRoot.getElementById('mobileMenu');
+        if (!menu) return;
+        if (this.menuOpen) {
+            menu.style.maxHeight = menu.scrollHeight + 'px';
+            transformIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
+        } else {
+            menu.style.maxHeight = null;
+            revertIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
         }
     }
 

@@ -5,10 +5,29 @@ $title_font: "Vitesse A", "Vitesse B", Georgia, serif;
 $placeholder_color: #c5c5c5;
 $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
+@import "../shared-styles/nav";
+@import "icons/transformicons.scss";
+
 /* MOBILE */
 #mobileMenu {
   max-height: 0;
   transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+slot[name=actions]::slotted(*) {
+  @include headerLink();
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+:host([mobile-view]) {
+  slot[name=actions]::slotted(*) {
+    @include dropdownNavItem();
+    background-color: $placeholder_color;
+  }
+  .byu-header>div>* {
+    margin-right: 0;
+  }
 }
 
 .byu-header {
@@ -23,7 +42,7 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
     background-color: #767676;
     color: #ffffff;
     border: none;
-    display: inline-block;
+    //display: inline-block;
     cursor: pointer;
 
     &.mobile-menu-button {
@@ -110,15 +129,9 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
   overflow: hidden;
 }
 
-//:host[mobile-view][menu-open] {
-//    #mobileMenu {
-//        height: 0;
-//    }
-//}
-
 /* FULL SIZE */
 
-@media (min-width: 1024px) {
+:host(:not([mobile-view])) {
   .byu-header {
     display: flex;
     flex-direction: row;
@@ -174,71 +187,3 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
   }
 }
 
-/* TABLET SIZE */
-
-@media (max-width: 1023px) {
-  .byu-header {
-
-    .byu-header-secondary {
-      background-color: initial;
-      color: #ffffff;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-
-      & > div {
-        margin-right: 0;
-        height: auto;
-      }
-      button {
-        border-left: 1px solid #ffffff;
-
-        & > span {
-          font-size: 17px;
-          line-height: 12px;
-        }
-      }
-      .byu-header-user {
-        display: none;
-      }
-
-      .byu-header-search {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        flex: 1;
-
-        input {
-          flex: 1;
-          height: 35px;
-          padding-left: 16px;
-          box-sizing: border-box;
-        }
-        button {
-          border-left: none;
-          width: 50px;
-        }
-      }
-      .byu-header-user {
-        .label {
-          display: none;
-        }
-        .icon {
-          top: 50%;
-          left: 50%;
-          margin-top: -13px;
-          margin-left: -13px;
-        }
-      }
-    }
-  }
-}
-
-/* PHONE SIZE */
-@media (max-width: 639px) {
-
-}

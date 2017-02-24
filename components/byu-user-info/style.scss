@@ -1,0 +1,84 @@
+@import "../shared-styles/nav";
+
+img {
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+}
+
+::slotted(*) {
+  @include headerLink();
+}
+
+.has-user, .no-user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* NON MOBILE */
+:host(:not([mobile-view])) {
+
+  color: white;
+
+  ::slotted(*) {
+    @include headerLink();
+  }
+
+  .mobile {
+    display: none;
+  }
+
+  img {
+    margin: 5px;
+  }
+}
+
+/* MOBILE */
+:host([mobile-view]) {
+  @include dropdownNavItem;
+  padding-left: 0 !important;
+
+  .not-mobile {
+    display: none;
+  }
+
+  .has-user {
+
+    .name {
+      order: 2;
+      flex: 1
+    }
+
+    img {
+      order: 1;
+      margin: 5px;
+    }
+
+    .logout {
+      order: 3;
+    }
+  }
+
+  ::slotted(*) {
+    color: $byu_blue !important;
+  }
+}
+
+:host(:not([has-user])) {
+  .has-user {
+    display: none;
+  }
+}
+
+:host([has-user]) {
+  .no-user {
+    display: none;
+  }
+}
+
+
+
+
+
+

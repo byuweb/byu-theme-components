@@ -9,7 +9,7 @@
 import './byu-header/script.js';
 import './byu-menu/script.js';
 import './byu-search/script.js';
-import './byu-user-login/script.js';
+import './byu-user-info/script.js';
 
 /*
  * Footer Bits

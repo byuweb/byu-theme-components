@@ -11,9 +11,13 @@
             <slot id="title" name="title"></slot>
         </div>
         <% if (locals.mobile) { %>
-        <button type="button" class="mobile-menu-button" aria-label="Open or close menu">
-            <img style="width: 1em; height: 1em;" src="<%- require('./menu-bars.svg') %>" alt="Menu">
-         </button>
+        <!--<button type="button" class="mobile-menu-button" aria-label="Open or close menu">-->
+            <!--<img style="width: 1em; height: 1em;" src="<%- require('./menu-bars.svg') %>" alt="Menu">-->
+         <!--</button>-->
+        <button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">
+            <span class="tcon-menu__lines" aria-hidden="true"></span>
+            <span class="tcon-visuallyhidden">toggle menu</span>
+        </button>
         <% } -%>
     </div>
 
