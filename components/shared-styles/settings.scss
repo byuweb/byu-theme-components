@@ -1,7 +1,15 @@
-@import "../shared-styles/colors.scss";
+@import "colors.scss";
+
+/* --- header settings ------- */
+$header_height: 55px;
+$siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
+
+/* --- search settings -------- */
+$searchPlaceholderColor: $gray;
+
 // menu settings
-$menu_height: 35px;
-$menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$menuHeight: 35px;
+$menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
 /* ---------  general text settings ----- */
 

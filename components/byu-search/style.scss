@@ -1,4 +1,4 @@
-$color-primary: #767676;
+@import "../shared-styles/colors.scss";
 
 :host {
   display: inline-block;
@@ -10,8 +10,8 @@ $color-primary: #767676;
 }
 
 button {
-  background-color: var(--byu-search-color, $color-primary);
-  border: 1px solid var(--byu-search-color, $color-primary);
+  background-color: var(--byu-search-color, $medgray);
+  border: 1px solid var(--byu-search-color, $medgray);
   color: #FFF;
   padding-left: 10px;
   padding-right: 10px;
@@ -30,7 +30,7 @@ form #search-container {
 form #search-container input,
 ::slotted(input) {
   padding: 5px 10px;
-  border: 1px solid var(--byu-search-color, $color-primary);
+  border: 1px solid var(--byu-search-color, $medgray);
   border-right: none;
 }
 
@@ -41,7 +41,7 @@ form #search-container input,
   form #search-container input,
   ::slotted(input) {
     padding: 5px 10px;
-    border: 1px solid var(--byu-search-color, $color-primary);
+    border: 1px solid var(--byu-search-color, $medgray);
     border-right: none;
     width: 100%;
     height: 35px;

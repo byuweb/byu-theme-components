@@ -1,8 +1,10 @@
+@import "colors.scss";
+@import "settings.scss";
 
 @mixin headerLink() {
   text-decoration: none !important;
   font-size: 13px!important;
-  font-family: $menu_font !important;
+  font-family: $menuFont !important;
   font-weight: 400!important;
   text-transform: uppercase!important;
   color: white !important;
@@ -11,7 +13,7 @@
 
 @mixin navItem() {
   @include headerLink();
-  color: $byu_blue !important;
+  color: $navy !important;
   height: 35px !important;
   display: table-cell;
   vertical-align: middle !important;
