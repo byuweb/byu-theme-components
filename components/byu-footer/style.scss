@@ -1,10 +1,5 @@
 @import "../shared-styles/colors.scss";
-
-$navy: #002e5d;
-
-$footerFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
-$blueFooterHeight: 80px;
-$footerBackground: #e6e6e6;
+@import "../shared-styles/settings.scss";
 
 .blue-footer {
   background-color: $navy;

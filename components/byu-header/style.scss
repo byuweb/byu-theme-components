@@ -1,15 +1,9 @@
 @import "../shared-styles/colors.scss";
 @import "../shared-styles/settings.scss";
-/*Variables*/
-//$header_height: 55px;
-//$navy: #002e5d;
-//$siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
-//$searchPlaceholderColor: #c5c5c5;
-//$menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
 @import "../shared-styles/nav";
 @import "icons/transformicons.scss";
-@import "mixins.scss"
+@import "mixins.scss";
 
 /* MOBILE */
 #mobileMenu {
