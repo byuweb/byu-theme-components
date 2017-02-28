@@ -1,16 +1,19 @@
-$byu_blue: #002e5d;
-$footer_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
-$blue_footer_height: 80px; 
-$footer_gray: #e6e6e6;
+@import "../shared-styles/colors.scss";
+
+$navy: #002e5d;
+
+$footerFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$blueFooterHeight: 80px;
+$footerBackground: #e6e6e6;
 
 .blue-footer {
-  background-color: $byu_blue;
+  background-color: $navy;
   text-align: center;
-  font-family:$footer_font;
+  font-family:$footerFont;
   font-weight: 400;
   font-size: 12px;
   color: white;
-  height: $blue_footer_height;
+  height: $blueFooterHeight;
   display: table;
   width: 100%;
 }
@@ -28,7 +31,7 @@ $footer_gray: #e6e6e6;
 
 .secondary-footer {
   height: auto;
-  background-color: $footer_gray;
+  background-color: $footerBackground;
   text-align: center;
 }
 

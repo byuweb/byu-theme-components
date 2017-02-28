@@ -1,7 +1,10 @@
-$byu_blue: #002e5d;
-$content_color: #767676;
-$header_font: "Vitesse A", "Vitesse B", Georgia, serif;
-$content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
+
+//$navy: #002e5d;
+//$footerContentColor: #767676;
+//$footerColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
+//$footerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
 :host {
     padding: 0 15px;
@@ -12,9 +15,9 @@ $content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 }
 
 .header ::slotted(*) {
-    font-family: $header_font !important;
+    font-family: $footerColumnTitleFont !important;
     text-transform: uppercase !important;
-    color: $byu_blue !important;
+    color: $navy !important;
     font-size: 20px !important;
     border-bottom: 1px solid #c5c5c5 !important;
     padding-bottom: 3px !important;
@@ -25,10 +28,10 @@ $content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 }
 
 .content ::slotted(:not(byu-footer-action-button)) {
-    font-family: $content_font !important;
+    font-family: $footerContentFont !important;
     font-size: 13px;
     font-weight: 400;
-    color: $content_color !important;
+    color: $footerContentColor !important;
     position: relative;
     top: -11px;
     line-height: 1.42857143;
@@ -42,5 +45,5 @@ $content_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
 #defaultContent::slotted(a:hover) {
     cursor: pointer;
-    color: $byu_blue !important;
+    color: $navy !important;
 }

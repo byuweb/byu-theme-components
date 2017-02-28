@@ -1,6 +1,21 @@
-
+@import "../shared-styles/colors.scss";
 // menu settings
 $menu_height: 35px;
 $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
-// general text settings
+/* ---------  general text settings ----- */
+
+
+
+/* ------ footer settings ------------- */
+
+$footerButtonColor: $medgray; // change this to one of the colors
+$footerButtonFont: "Vitesse A", "Vitesse B", Georgia, serif;
+
+$footerFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$blueFooterHeight: 80px;
+$footerBackground: $lightgray;
+
+$footerContentColor: $medgray;
+$footerColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
+$footerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
