@@ -1,0 +1,49 @@
+/*Variables*/
+$header_height: 55px;
+$byu_blue: #002e5d;
+$title_font: "Vitesse A", "Vitesse B", Georgia, serif;
+$placeholder_color: #c5c5c5;
+$menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
+@import "../shared-styles/nav";
+@import "icons/transformicons.scss";
+
+/* MOBILE */
+@mixin mobileMenu() {
+  max-height: 0;
+  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+@mixin actions(){
+  @include headerLink();
+  margin-left: 4px;
+  margin-right: 4px;
+}
+@mixin actionsMobile() {
+  @include dropdownNavItem();
+  background-color: $placeholder_color;
+}
+@mixin headerInnerMarginMobile() {
+  margin-right: 0px;
+}
+
+@mixin headerFonts(){
+  font-family: "Vitesse Book";
+  font-size: 18px;
+}
+
+@mixin headerInnerMargin() {
+  margin-right: 16px;
+}
+
+@mixin headerButton(){
+  background-color: #767676;
+  color: #ffffff;
+  border: none;
+  //display: inline-block;
+  cursor: pointer;
+}
+
+@mixin headerButtonMobile() {
+  background-color: transparent;
+  font-size: 18px;
+}

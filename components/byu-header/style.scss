@@ -7,47 +7,38 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 
 @import "../shared-styles/nav";
 @import "icons/transformicons.scss";
+@import "mixins.scss"
 
 /* MOBILE */
 #mobileMenu {
-  max-height: 0;
-  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  @include mobileMenu();
 }
 
 slot[name=actions]::slotted(*) {
-  @include headerLink();
-  margin-left: 4px;
-  margin-right: 4px;
+  @include actions();
 }
 
 :host([mobile-view]) {
   slot[name=actions]::slotted(*) {
-    @include dropdownNavItem();
-    background-color: $placeholder_color;
+    @include actionsMobile();
   }
-  .byu-header>div>* {
-    margin-right: 0;
+  .byu-header > div > * {
+    @include headerInnerMarginMobile();
   }
 }
 
 .byu-header {
-  font-family: "Vitesse Book";
-  font-size: 18px;
+  @include headerFonts();
 
   & > div > * {
-    margin-right: 16px;
+    @include headerInnerMargin();
   }
 
   button {
-    background-color: #767676;
-    color: #ffffff;
-    border: none;
-    //display: inline-block;
-    cursor: pointer;
+    @include headerButton();
 
     &.mobile-menu-button {
-      background-color: transparent;
-      font-size: 20px;
+      @include headerButtonMobile();
     }
   }
 
