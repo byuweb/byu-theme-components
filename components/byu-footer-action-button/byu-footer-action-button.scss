@@ -2,7 +2,7 @@
 @import "../shared-styles/settings.scss";
 @import "./mixins.scss";
 
-:host {
+byu-footer-action-button {
     @include footerActionButton();
 }
 
@@ -13,10 +13,10 @@
 //     box-shadow: none;
 // }
 
-::slotted(*) {
+byu-footer-action-button > * {
     @include footerActionButtonSlotted();
 }
 
-::slotted(a) {
+byu-footer-action-button a {
     @include footerActionButtonSlottedLink();
 }
