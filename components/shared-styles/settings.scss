@@ -1,0 +1,36 @@
+@import "colors.scss";
+
+
+/* --- Color variable names are all lower case. Other variables are camel-case --- */
+
+/* --- header settings ------- */
+$header_height: 55px;
+$siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
+
+/* --- search settings -------- */
+$searchPlaceholderColor: $gray;
+
+// menu settings
+$menuHeight: 35px;
+$menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
+$menuHover: $gray; // need to go replace
+$menuActive: $lightgray;  // need to go replace$hover_color
+
+/* ---------  general text settings ----- */
+
+
+
+/* ------ footer settings ------------- */
+
+
+$footerFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$blueFooterHeight: 80px;
+$footerBackground: $lightgray;
+
+$footerContentColor: $medgray;
+$footerColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
+$footerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
+$footerButtonColor: $medgray; // change this to one of the colors
+$footerButtonFont: "Vitesse A", "Vitesse B", Georgia, serif;

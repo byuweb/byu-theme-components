@@ -1,3 +1,5 @@
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
 @import "../shared-styles/nav";
 
 :host {
@@ -34,11 +36,11 @@
 
 :host(:not(.mobile-view)) {
   .extra-links:hover, ::slotted(*:hover) {
-    background-color: $hover_color !important;
+    background-color: $menuHover !important;
   }
 
   ::slotted(*.selected) {
-    background: $active_color !important;
+    background: $menuActive !important;
   }
 }
 
