@@ -1,0 +1,44 @@
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
+
+@mixin footerColumn() {
+    padding: 0 15px;
+}
+
+@mixin header() {
+    width: 100%;
+}
+
+@mixin headerSlotted() {
+    font-family: $footerColumnTitleFont !important;
+    text-transform: uppercase !important;
+    color: $navy !important;
+    font-size: 20px !important;
+    border-bottom: 1px solid #c5c5c5 !important;
+    padding-bottom: 3px !important;
+    white-space: nowrap !important;
+    font-weight: 400 !important;
+    width: 100%;
+    display: inline-block;
+}
+
+@mixin contentNotButton() {
+    font-family: $footerContentFont !important;
+    font-size: 13px;
+    font-weight: 400;
+    color: $footerContentColor !important;
+    position: relative;
+    top: -11px;
+    line-height: 1.42857143;
+}
+
+@mixin defaultContentLink() {
+    line-height: 35px;
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+@mixin defaultContentLinkHover() {
+    cursor: pointer;
+    color: $navy !important;
+}

@@ -2,7 +2,7 @@
 //@import "../shared-styles/settings.scss";
 @import "./mixins.scss";
 
-:host {
+byu-footer-column {
     @include footerColumn();
 }
 
@@ -10,18 +10,18 @@
     @include header();
 }
 
-.header ::slotted(*) {
+.header > * {
     @include headerSlotted();
 }
 
-.content ::slotted(:not(byu-footer-action-button)) {
+.content *:not(byu-footer-action-button) {
     @include contentNotButton();
 }
 
-#defaultContent::slotted(a) {
+#defaultContent a {
     @include defaultContentLink();
 }
 
-#defaultContent::slotted(a:hover) {
+#defaultContent a:hover {
     @include defaultContentLinkHover();
 }
