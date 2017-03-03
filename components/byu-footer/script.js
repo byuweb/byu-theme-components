@@ -1,13 +1,13 @@
 'use strict';
 
-import * as template from './template.html';
+import * as templateFn from './template.ejs.html';
 
 class BYUFooter extends HTMLElement {
 
     constructor() {
         super();
         let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;
+        shadowRoot.innerHTML = templateFn();
     }
 
     connectedCallback() {

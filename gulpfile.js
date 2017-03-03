@@ -53,7 +53,6 @@ gulp.task('assemble', ['docs'], function () {
         .pipe(rename({suffix: '.es5'}))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dist'))
-        .pipe(browserSync.reload({stream: true}))
         ;
 });
 
@@ -65,13 +64,15 @@ gulp.task('minify', ['assemble'], function () {
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'));
+        .pipe(gulp.dest('dist'))
+        .pipe(browserSync.reload({stream: true}))
+        ;
 });
 
-gulp.task('watch', ['assemble'], function (done) {
+gulp.task('watch', ['minify'], function (done) {
     browserSync.init({
         server: {
-            baseDir: './'
+            baseDir: './',
         },
         notify: false
         // proxy: {
@@ -84,8 +85,8 @@ gulp.task('watch', ['assemble'], function (done) {
         // }
     }, done);
 
-    gulp.watch(['index.html', './components/**', './css/*.scss'], ['assemble']);
-    gulp.watch(['webpack.config.js'], ['clear-webpack-cache', 'assemble'])
+    gulp.watch(['index.html', './components/**', './css/*.scss'], ['minify']);
+    gulp.watch(['webpack.config.js'], ['clear-webpack-cache', 'minify'])
 });
 
 gulp.task('clear-webpack-cache', function() {
@@ -102,7 +103,7 @@ gulp.task('docs', function()
         path.dirname = '';
         path.extname = '.html';
     }))
-    .pipe(gulp.dest('./docs'));
+    .pipe(gulp.dest('./docs'))
 })
 
 gulp.task('default', ['watch']);

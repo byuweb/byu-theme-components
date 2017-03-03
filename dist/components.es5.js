@@ -199,7 +199,7 @@
 
         "use strict";
 
-        var template = __webpack_require__(22);
+        var template = __webpack_require__(23);
 
         var BYUFooterActionButton = function (_HTMLElement) {
             _inherits(BYUFooterActionButton, _HTMLElement);
@@ -232,7 +232,7 @@
 
         "use strict";
 
-        var template = __webpack_require__(23);
+        var template = __webpack_require__(24);
 
         var BYUFooterColumn = function (_HTMLElement2) {
             _inherits(BYUFooterColumn, _HTMLElement2);
@@ -265,8 +265,8 @@
 
         "use strict";
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(24);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+        var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__ = __webpack_require__(21);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_ejs_html__);
 
         var BYUFooter = function (_HTMLElement3) {
             _inherits(BYUFooter, _HTMLElement3);
@@ -277,7 +277,7 @@
                 var _this3 = _possibleConstructorReturn(this, (BYUFooter.__proto__ || Object.getPrototypeOf(BYUFooter)).call(this));
 
                 var shadowRoot = _this3.attachShadow({ mode: 'open' });
-                shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
+                shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__();
                 return _this3;
             }
 
@@ -303,7 +303,7 @@
 
         "use strict";
         /* harmony import */
-        var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__ = __webpack_require__(21);
+        var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__ = __webpack_require__(22);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_ejs_html__);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal__ = __webpack_require__(18);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_deep_equal__);
@@ -1372,6 +1372,38 @@
             var __output = [],
                 __append = __output.push.bind(__output);
             __append("<style>\n");
+            __append(__webpack_require__(12));
+            __append('</style>\n<div class="secondary-footer">\n<slot id="slot"></slot>\n</div>\n<div class="blue-footer">\n<div class="inner-wrapper">\n<img src="');
+            __append(__webpack_require__(29));
+            __append('" alt="Brigham Young University" class="university-logo">\n<div class="copyright-contact">&copy;\n<span id="currentYear"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div>\n</div>\n</div>');
+            return __output.join("");
+        };
+
+        /***/
+    },
+    /* 22 */
+    /***/function (module, exports, __webpack_require__) {
+
+        module.exports = function anonymous(locals, escapeFn, include, rethrow) {
+            "use strict";
+
+            escapeFn = escapeFn || function (markup) {
+                return markup == undefined ? "" : String(markup).replace(_MATCH_HTML, encode_char);
+            };
+            var _ENCODE_HTML_RULES = {
+                "&": "&amp;",
+                "<": "&lt;",
+                ">": "&gt;",
+                '"': "&#34;",
+                "'": "&#39;"
+            },
+                _MATCH_HTML = /[&<>'"]/g;
+            function encode_char(c) {
+                return _ENCODE_HTML_RULES[c] || c;
+            }
+            var __output = [],
+                __append = __output.push.bind(__output);
+            __append("<style>\n");
             __append(__webpack_require__(13));
             __append('</style><div id="header" class="byu-header"><div class="byu-header-primary">\n<img class="byu-logo" alt="BYU" src="');
             __append(__webpack_require__(30));
@@ -1397,24 +1429,17 @@
 
         /***/
     },
-    /* 22 */
+    /* 23 */
     /***/function (module, exports, __webpack_require__) {
 
         module.exports = "<style>\n    " + __webpack_require__(10) + "\n</style>\n<slot name=\"actiontext\"></slot>";
 
         /***/
     },
-    /* 23 */
-    /***/function (module, exports, __webpack_require__) {
-
-        module.exports = "<style>\n    " + __webpack_require__(11) + "\n</style>\n<link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\">\n<h2 class=\"header\">\n    <slot name=\"header\"></slot>\n</h2>\n<div class=\"content\">\n    <span style=\"display: none\">Joseph Modified This</span>\n    <slot id=\"defaultContent\"></slot>\n</div>";
-
-        /***/
-    },
     /* 24 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(12) + "\n</style>\n<div class=\"secondary-footer\">\n    <slot class=\"column\" name=\"col1\"></slot>\n    <slot class=\"column\" name=\"col2\"></slot>\n    <slot class=\"column\" name=\"col3\"></slot>\n    <slot class=\"column\" name=\"col4\"></slot>\n</div>\n<div class=\"blue-footer\">\n    <div class=\"inner-wrapper\">\n        <img src=\"" + __webpack_require__(29) + "\"\n             alt=\"Brigham Young University\"\n            class=\"university-logo\">\n        <div class=\"copyright-contact\">&copy;\n            <span id=\"currentYear\"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div>\n    </div>\n</div>";
+        module.exports = "<style>\n    " + __webpack_require__(11) + "\n</style>\n<link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\">\n<h2 class=\"header\">\n    <slot name=\"header\"></slot>\n</h2>\n<div class=\"content\">\n    <span style=\"display: none\">Joseph Modified This</span>\n    <slot id=\"defaultContent\"></slot>\n</div>";
 
         /***/
     },

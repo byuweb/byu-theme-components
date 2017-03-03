@@ -1,0 +1,15 @@
+<style>
+    <%- require('./style.scss') %>
+</style>
+<div class="secondary-footer">
+    <slot id="slot">
+
+    </slot>
+</div>
+<div class="blue-footer">
+    <div class="inner-wrapper">
+        <img src="<%- require('./footer-logo.svg') %>" alt="Brigham Young University" class="university-logo">
+        <div class="copyright-contact">&copy;
+            <span id="currentYear"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div>
+    </div>
+</div>
