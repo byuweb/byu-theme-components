@@ -50,18 +50,22 @@ slot[name=actions]::slotted(*) {
     flex: 1;
     height: $header_height;
 
-        .byu-header-title, #title::slotted(*) {
-            white-space: nowrap;
-            overflow: hidden;
-            -ms-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            flex: 1;
-            font-family: $siteNameFont !important;
-            font-size: 22px;
+    .byu-header-title, #site-title::slotted(*) {
+        white-space: nowrap;
+        overflow: hidden;
+        -ms-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        flex: 1;
+        font-family: $siteNameFont !important;
+        font-size: $siteTitleSize;
         color: #fff;
-            a {
-                color: #fff;
-            }}
+        a {
+            color: #fff;
+        }
+    }
+    #site-title::slotted(.subtitle) {
+      font-size: $siteSubTitleSize;
+    }
     }
 
   .byu-header-user {

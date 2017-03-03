@@ -2,7 +2,7 @@
 @import "../shared-styles/settings.scss";
 @import "../shared-styles/nav";
 
-:host {
+@mixin menuGeneral() {
   display: block;
   width: 100%;
   height: auto;
@@ -10,8 +10,7 @@
   opacity: 0.88;
   border-bottom: 1px solid #ccc;
 }
-
-.outer-nav {
+@mixin outerNav() {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -20,69 +19,61 @@
   padding: 0;
 }
 
-.inner-nav {
+@mixin innerNav() {
   width: 100%;
   display: table;
 }
 
-::slotted(*) {
+@mixin menuSlotted() {
   display: table;
   width: 16.66%;
 }
 
-.extra-links, ::slotted(*) {
-  @include navItem();
+@mixin includeNavItem() {
+  @include navItem(); // where is this?
 }
 
-:host(:not(.mobile-view)) {
-  .extra-links:hover, ::slotted(*:hover) {
-    background-color: $menuHover !important;
-  }
-
-  ::slotted(*.selected) {
-    background: $menuActive !important;
-  }
+@mixin menuNotMobileHover() {
+  background-color: $menuHover !important;
 }
 
-.extra-links {
+@mixin menuNotMobileSelected() {
+  background: $menuActive !important;
+}
 
+@mixin extraLinks() {
   display: none;
   cursor: pointer;
-
-  .extra-links-dropdown {
+}
+@mixin extraLinksDropdown() {
     display: none;
     position: absolute;
     background-color: white;
     z-index: 10;
     min-width: 115px;
     margin-top: 10px;
-
     // display: block;
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
-  }
-
-  &:hover .extra-links-dropdown {
+@mixin extraLinksDropdownUl() {
+  list-style-type: none;
+  padding: 0;
+}
+@mixin hoverExtraLinksDropdown() {
     display: block;
-  }
 }
 
-:host(.mobile-view) {
-  .outer-nav {
-    flex-direction: column;
-  }
-  .inner-nav {
-    display: block;
-  }
-  #slot {
-    display: flex;
-    flex-direction: column;
-  }
+@mixin outerNavMobile() {
+  flex-direction: column;
+}
+@mixin innerNavMobile() {
+  display: block;
+}
+@mixin menuSlot() {
+  display: flex;
+  flex-direction: column;
+}
 
-  ::slotted(*) {
+@mixin menuSlotted() {
     @include dropdownNavItem();
   }
 

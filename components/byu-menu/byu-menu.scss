@@ -2,71 +2,55 @@
 @import "../shared-styles/settings.scss";
 @import "../shared-styles/nav";
 
-:host {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: #ffffff;
-  opacity: 0.88;
-  border-bottom: 1px solid #ccc;
+byu-menu {
+  @include menuGeneral();
 }
 
-.outer-nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0;
+//.outer-nav {
+//  @include outerNav();
+//}
+//
+//.inner-nav {
+//  @include innerNav();
+//}
+
+byu-menu > * {
+  @include menuSlotted();
 }
 
-.inner-nav {
-  width: 100%;
-  display: table;
+//.extra-links, ::slotted(*) {
+// think this might work, sicne none are moved to .extra-links
+byu-menu > * {
+  @include includeNavItem();
 }
-
-::slotted(*) {
-  display: table;
-  width: 16.66%;
-}
-
-.extra-links, ::slotted(*) {
-  @include navItem();
-}
-
-:host(:not(.mobile-view)) {
-  .extra-links:hover, ::slotted(*:hover) {
-    background-color: $menuHover !important;
+byu-menu:not(.mobile-view) {
+  //.extra-links:hover, ::slotted(*:hover) {
+  & > *:hover {
+    @include menuNotMobileHover();
   }
 
-  ::slotted(*.selected) {
-    background: $menuActive !important;
+  //::slotted(*.selected) {
+  & > *.selected {
+    @include menuNotMobileSelected();
+
   }
 }
 
 .extra-links {
-
-  display: none;
-  cursor: pointer;
+  @include extraLinks();
 
   .extra-links-dropdown {
-    display: none;
-    position: absolute;
-    background-color: white;
-    z-index: 10;
-    min-width: 115px;
-    margin-top: 10px;
+    @include extraLinks();
 
     // display: block;
 
     ul {
-      list-style-type: none;
-      padding: 0;
+      @include extraLinksDropdownUl();
     }
   }
 
   &:hover .extra-links-dropdown {
-    display: block;
+    @include hoverExtraLinksDropdown();
   }
 }
 
@@ -77,13 +61,12 @@
   .inner-nav {
     display: block;
   }
-  #slot {
-    display: flex;
-    flex-direction: column;
+  #menu-slot {
+    @include menuSlot();
   }
 
   ::slotted(*) {
-    @include dropdownNavItem();
+    @include menuSlotted();
   }
 
 }
