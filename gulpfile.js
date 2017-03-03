@@ -28,7 +28,7 @@ const gulpif = require('gulp-if');
 
 gulp.task('build', ['assemble', 'minify']);
 
-gulp.task('assemble', function () {
+gulp.task('assemble', ['docs'], function () {
     return gulp.src('./components/bundle.js')
         .pipe(webpackStream(require('./webpack.config.js'), require('webpack')))
         .pipe(gulp.dest('dist/'))
@@ -91,6 +91,19 @@ gulp.task('watch', ['assemble'], function (done) {
 gulp.task('clear-webpack-cache', function() {
     delete require.cache[path.resolve('./webpack.config.js')];
 });
+
+// copy the demo.html files to the docs folder, rename them as 'comonent-name.html'
+gulp.task('docs', function()
+{
+    return gulp.src('./components/*/demo.html')
+    .pipe(rename(function(path) {
+        console.log(path.dirname);
+        path.basename = path.dirname;
+        path.dirname = '';
+        path.extname = '.html';
+    }))
+    .pipe(gulp.dest('./docs'));
+})
 
 gulp.task('default', ['watch']);
 
