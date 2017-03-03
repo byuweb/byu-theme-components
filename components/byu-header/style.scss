@@ -13,7 +13,7 @@ slot[name=actions]::slotted(*) {
   slot[name=actions]::slotted(*) {
     @include actionsMobile();
   }
-  .byu-header > div > * {
+  & > div > * {
     @include headerInnerMarginMobile();
   }
 }

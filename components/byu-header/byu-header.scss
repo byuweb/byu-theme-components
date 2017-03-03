@@ -5,15 +5,15 @@
   @include mobileMenu();
 }
 
-.byu-header > * {
+.byu-header > [name=actions] {
   @include actions();
 }
 
-.byu-header([mobile-view]) {
-  .byu-header > * {
+.byu-header[mobile-view] {
+  & > [name=actions] {
     @include actionsMobile();
   }
-  .byu-header > div > * {
+  & > div > * {
     @include headerInnerMarginMobile();
   }
 }
