@@ -144,3 +144,7 @@ h1 {
     background: $royallight;
 }
 
+
+
+/* ------- include flash of unstyled content before components are laoded ---- */
+@import "../components/byu-footer/byu-footer.scss";

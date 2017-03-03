@@ -28,6 +28,7 @@ const gulpif = require('gulp-if');
 
 gulp.task('build', ['assemble', 'minify']);
 
+
 gulp.task('assemble', function () {
     return gulp.src('./components/bundle.js')
         .pipe(webpackStream(require('./webpack.config.js'), require('webpack')))

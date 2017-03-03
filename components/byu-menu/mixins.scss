@@ -1,0 +1,104 @@
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
+@import "../shared-styles/nav";
+
+:host {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  opacity: 0.88;
+  border-bottom: 1px solid #ccc;
+}
+
+.outer-nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.inner-nav {
+  width: 100%;
+  display: table;
+}
+
+::slotted(*) {
+  display: table;
+  width: 16.66%;
+}
+
+.extra-links, ::slotted(*) {
+  @include navItem();
+}
+
+:host(:not(.mobile-view)) {
+  .extra-links:hover, ::slotted(*:hover) {
+    background-color: $menuHover !important;
+  }
+
+  ::slotted(*.selected) {
+    background: $menuActive !important;
+  }
+}
+
+.extra-links {
+
+  display: none;
+  cursor: pointer;
+
+  .extra-links-dropdown {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 10;
+    min-width: 115px;
+    margin-top: 10px;
+
+    // display: block;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+
+  &:hover .extra-links-dropdown {
+    display: block;
+  }
+}
+
+:host(.mobile-view) {
+  .outer-nav {
+    flex-direction: column;
+  }
+  .inner-nav {
+    display: block;
+  }
+  #slot {
+    display: flex;
+    flex-direction: column;
+  }
+
+  ::slotted(*) {
+    @include dropdownNavItem();
+  }
+
+}
+
+
+//@media (min-width: 1024px) {
+//    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and
+//    stick them in a separate dropdown that gets hidden for mobile views */
+//    ::slotted(*:nth-child(n+7)) {
+//        display: none;
+//    }
+//}
+//
+//@media (max-width: 1023px) {
+//    nav.outer-nav {
+//        display: none;
+//    }
+//}
