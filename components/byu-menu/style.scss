@@ -52,10 +52,10 @@
 
 :host(.mobile-view) {
   .outer-nav {
-    flex-direction: column;
+    @include outerNavMobile();
   }
   .inner-nav {
-    display: block;
+    @include innerNavMobile();
   }
   #menu-slot {
     @include menuSlot();
