@@ -5,12 +5,12 @@
   @include mobileMenu();
 }
 
-slot[name=actions]::slotted(*) {
+.byu-header > * {
   @include actions();
 }
 
-:host([mobile-view]) {
-  slot[name=actions]::slotted(*) {
+.byu-header([mobile-view]) {
+  .byu-header > * {
     @include actionsMobile();
   }
   .byu-header > div > * {
@@ -32,7 +32,7 @@ slot[name=actions]::slotted(*) {
   }
   .byu-header-primary {
     @include headerPrimary();
-    .byu-header-title, #title::slotted(*) {
+    .byu-header-title, #title > * {
       @include headerTitle();
     }
   }
@@ -50,13 +50,13 @@ slot[name=actions]::slotted(*) {
   .byu-header-search {
     #search-input {
       @include searchInput();
-      &::-webkit-input-placeholder {
+      .byu-header-search.-webkit-input-placeholder {
         @include searchWebkitPlaceholder();
       }
-      &::-ms-input-placeholder {
+      .byu-header-search.-ms-input-placeholder {
         @include searchMicrosoftPlaceholder();
       }
-      &::-moz-placeholder {
+      .byu-header-search.-moz-placeholder {
         @include searchMozillaPlaceholder();
       }
     }
