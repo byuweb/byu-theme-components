@@ -18,7 +18,7 @@ slot[name=actions]::slotted(*) {
   slot[name=actions]::slotted(*) {
     @include actionsMobile();
   }
-  .byu-header > div > * {
+  & > div > * {
     @include headerInnerMarginMobile();
   }
 }
@@ -39,33 +39,9 @@ slot[name=actions]::slotted(*) {
   }
 
   .byu-header-primary {
-    background-color: $navy;
-    color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 16px;
-    flex: 1;
-    height: $header_height;
-
-    .byu-header-title, #site-title::slotted(*) {
-        white-space: nowrap;
-        overflow: hidden;
-        -ms-text-overflow: ellipsis;
-        text-overflow: ellipsis;
-        flex: 1;
-        font-family: $siteNameFont !important;
-        font-size: $siteTitleSize;
-        color: #fff;
-        a {
-            color: #fff;
-        }
-    }
-    #site-title::slotted(.subtitle) {
-      font-size: $siteSubTitleSize;
-    }
+    @include headerPrimary();
+    .byu-header-title, #title::slotted(*) {
+      @include headerTitle();
     }
 
   .byu-header-user {

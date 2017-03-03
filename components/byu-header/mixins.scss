@@ -1,10 +1,5 @@
-/*Variables*/
-$header_height: 55px;
-$byu_blue: #002e5d;
-$title_font: "Vitesse A", "Vitesse B", Georgia, serif;
-$placeholder_color: #c5c5c5;
-$menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
-
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
 @import "../shared-styles/nav";
 @import "icons/transformicons.scss";
 
@@ -20,7 +15,7 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 }
 @mixin actionsMobile() {
   @include dropdownNavItem();
-  background-color: $placeholder_color;
+  background-color: $gray;
 }
 @mixin headerInnerMarginMobile() {
   margin-right: 0px;
@@ -36,7 +31,7 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 }
 
 @mixin headerButton(){
-  background-color: #767676;
+  background-color: $medgray;
   color: #ffffff;
   border: none;
   //display: inline-block;
@@ -46,4 +41,138 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 @mixin headerButtonMobile() {
   background-color: transparent;
   font-size: 18px;
+}
+
+@mixin headerPrimary() {
+  background-color: $navy;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  flex: 1;
+  height: $header_height;
+}
+
+@mixin headerTitle() {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  flex: 1;
+  font-family: $siteNameFont !important;
+  font-size: 22px;
+  color: #fff;
+  a {
+    color: #fff;
+  }
+}
+
+@mixin headerUserButton() {
+  background-color: transparent;
+  position: relative;
+}
+
+@mixin headerUserIcon() {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+@mixin headerUserLabel() {
+  font-family: $menuFont;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+@mixin searchInput() {
+  font-family: $menuFont;
+  font-weight: 400;
+  font-size: 13px;
+  color: $navy;
+}
+
+@mixin searchWebkitPlaceholder() {
+  color: $searchPlaceholderColor;
+  opacity: 1;
+}
+
+@mixin searchMicrosoftPlaceholder() {
+  color: $searchPlaceholderColor;
+  opacity: 1;
+}
+
+@mixin searchMozillaPlaceholder() {
+  color: $searchPlaceholderColor;
+  opacity: 1;
+}
+
+@mixin byuLogo() {
+  height: 48px;
+  width: 92px;
+}
+
+@mixin mobileMenu() {
+  overflow: hidden;
+}
+
+/* FULL SIZE */
+
+@mixin headerNotMobile() {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin headerNotMobileNoNav() {
+    height: 48px;
+}
+
+@mixin headerNotMobileNavExpand() {
+    display: none;
+}
+
+@mixin headerSecondaryNotMobile() {
+  background-color: $navy;
+  color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  height: $header_height;
+}
+
+@mixin searchNotMobile() {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin searchInputNotMobile() {
+  border: 1px solid $navy;
+  border-right: none;
+  height: 20px;
+  padding: 4px 6px;
+  flex: 1;
+  width: 217px;
+  box-sizing: content-box;
+}
+
+@mixin searchButtonNotMobile() {
+  height: 28px;
+  width: 30px;
+  text-align: center;
+}
+
+@mixin headerMenuButtonNotMobile() {
+  display: none;
 }
