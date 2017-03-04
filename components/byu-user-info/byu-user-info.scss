@@ -4,7 +4,7 @@ img {
   @include userInfoImages();
 }
 
-::slotted(*) {
+byu-user-info > * {
   @include userInfoSlotted();
 }
 
@@ -13,10 +13,10 @@ img {
 }
 
 /* NON MOBILE */
-:host(:not([mobile-view])) {
+byu-user-info:not([mobile-view]) {
   @include userInfoNotMobile();
 
-  ::slotted(*) {
+  & > * {
     @include userInfoNotMobileSlotted();
   }
 
@@ -30,7 +30,7 @@ img {
 }
 
 /* MOBILE */
-:host([mobile-view]) {
+byu-user-info[mobile-view] {
   @include userInfoMobile();
 
   .not-mobile {
@@ -52,18 +52,18 @@ img {
     }
   }
 
-  ::slotted(*) {
+  & > * {
     @include mobileSlotted();
   }
 }
 
-:host(:not([has-user])) {
+byu-user-info:not([has-user]) {
   .has-user {
     @include notHasUserMobile();
   }
 }
 
-:host([has-user]) {
+byu-user-info[has-user] {
   .no-user {
     @include noUserMobile();
   }
