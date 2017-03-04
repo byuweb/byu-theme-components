@@ -1,0 +1,23 @@
+@import "../shared-styles/colors.scss";
+
+@mixin socialMediaLinks() {
+    text-decoration: none !important;
+}
+
+@mixin socialMediaFa() {
+    text-decoration: none !important;
+    color: $navy !important;
+    font-size: 25px !important;
+    line-height: 40px !important;
+    border: 1px solid #fff !important;
+    width: 40px !important;
+    height: 40px !important;
+    text-align: center !important;
+    border-radius: 20px !important;
+    margin: 0 5px 5px 0 !important;
+    cursor: pointer;
+}
+
+@mixin socialMediaFaHover() {
+    background-color: #fff !important;
+}

@@ -1,0 +1,13 @@
+@import "../shared-styles/colors.scss";
+
+byu-social-media-links > a {
+    @include socialMediaLinks();
+}
+
+byu-social-media-links > .fa {
+    @include socialMediaFa();
+}
+
+byu-social-media-links > .fa:hover {
+    @include socialMediaFaHover();
+}
