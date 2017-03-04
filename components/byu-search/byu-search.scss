@@ -1,6 +1,6 @@
-@import "./mixins.scss";
+@import "../shared-styles/colors.scss";
 
-:host {
+byu-search {
   @include byuSearch();
 }
 
@@ -20,16 +20,17 @@ form #search-container {
   @include searchContainer();
 }
 
+//styling won't work because it's reaching in multiple levels
 form #search-container input,
-::slotted(input) {
+byu-search input {
   @include searchContainerInput();
 }
 
-:host(.mobile-view) {
+byu-search.mobile-view {
   @include searchMobile();
 
   form #search-container input,
-  ::slotted(input) {
+  byu-search input {
     @include searchContainerInputMobile();
   }
 }
