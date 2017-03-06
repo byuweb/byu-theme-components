@@ -5,6 +5,10 @@
 :host {
   @include menuGeneral();
 }
+// transparent background option
+:host(.transparent) {
+    @include bgTransparent();
+}
 
 .outer-nav {
   @include outerNav();
@@ -67,13 +71,7 @@
 
 }
 
-// transparent background option
-:host(.transparent) {
-  .outer-nav {
-    @include outerNavTransparent();
 
-  }
-}
 
 //@media (min-width: 1024px) {
 //    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and

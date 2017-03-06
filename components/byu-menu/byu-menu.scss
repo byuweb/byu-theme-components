@@ -4,6 +4,15 @@
 
 byu-menu {
   @include menuGeneral();
+  order: 3;
+  margin-bottom: -2px;
+  @include outerNav();
+}
+// transparent background option
+byu-menu.transparent {
+  // we don't want any transparency here for the FOUC
+  // because there is byu-header blue behind it
+  //@include bgTransparent();
 }
 
 //.outer-nav {
@@ -16,10 +25,10 @@ byu-menu {
 
 byu-menu > * {
   @include menuSlotted();
-}
 
+}
 //.extra-links, ::slotted(*) {
-// think this might work, sicne none are moved to .extra-links
+// think this might work, since none are moved to .extra-links
 byu-menu > * {
   @include includeNavItem();
 }
@@ -71,13 +80,6 @@ byu-menu.mobile-view {
 
 }
 
-// transparent background option
-byu-menu.transparent {
-  .outer-nav {
-    @include outerNavTransparent();
-
-  }
-}
 
 //@media (min-width: 1024px) {
 //    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and

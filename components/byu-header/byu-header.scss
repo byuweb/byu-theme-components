@@ -1,5 +1,30 @@
 @import "mixins.scss";
 
+byu-header {
+  @include headerPrimary();
+  flex-wrap: wrap;
+  width: 100%;
+  height: 90px;
+  color: #fff!important;
+  a {
+    color: #fff!important;
+  }
+}
+
+byu-header > span[slot=site-title] {
+  @include headerTitle();
+  position: relative;
+  top: -6px;
+  //padding: 10px 15px;
+}
+// byu icon
+byu-header > span[slot=site-title]:before {
+  content: "BYU";
+  font-weight: bold;
+  font-size: 40px;
+  position: relative;
+  top: 6px;
+}
 /* MOBILE */
 #mobileMenu {
   @include mobileMenu();

@@ -1,7 +1,21 @@
 @import "../shared-styles/colors.scss";
+@import "./mixins.scss";
+
 
 byu-search {
-  @include byuSearch();
+  background: #fff;
+  height: 25px;
+  width: 150px;
+  margin-right: 30px;
+}
+
+byu-search:after {
+  content: " "; // placeholder for search icon
+  @include searchButton();
+  height: 25px;
+  width: 25px;
+  float: right;
+
 }
 
 #search-icon {

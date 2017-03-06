@@ -6,9 +6,13 @@
   display: block;
   width: 100%;
   height: auto;
-  background: #ffffff;
-  opacity: 0.88;
+  background: #fff;
   border-bottom: 1px solid #ccc;
+}
+
+@mixin bgTransparent() {
+  //background: rgba(255,255,255,0.8);
+  opacity: 0.88;
 }
 @mixin outerNav() {
   display: flex;
@@ -19,9 +23,7 @@
   padding: 0;
 }
 
-@mixin outerNavTransparent() {
-  background: rgba(255,255,255,0.8);
-}
+
 
 @mixin innerNav() {
   width: 100%;
@@ -34,7 +36,7 @@
 }
 
 @mixin includeNavItem() {
-  @include navItem(); // where is this?
+  @include navItem(); // win nav.scss
 }
 
 @mixin menuNotMobileHover() {

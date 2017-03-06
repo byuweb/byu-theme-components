@@ -13,8 +13,9 @@
   background-color: var(--byu-search-color, $medgray);
   border: 1px solid var(--byu-search-color, $medgray);
   color: #FFF;
-  padding-left: 10px;
-  padding-right: 10px;
+  display: flex; // using flex rather than padding to center
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin searchForm() {
