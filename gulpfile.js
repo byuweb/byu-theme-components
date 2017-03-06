@@ -26,7 +26,7 @@ const webpackStream = require('webpack-stream');
 const babel = require('gulp-babel');
 const gulpif = require('gulp-if');
 
-gulp.task('build', ['assemble', 'minify']);
+gulp.task('build', ['docs', 'minify']);
 
 gulp.task('assemble', function () {
     return gulp.src('./components/bundle.js')
@@ -68,7 +68,7 @@ gulp.task('minify', ['assemble'], function () {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', ['assemble'], function (done) {
+gulp.task('watch', ['build'], function (done) {
     browserSync.init({
         server: {
             baseDir: './'
@@ -84,13 +84,26 @@ gulp.task('watch', ['assemble'], function (done) {
         // }
     }, done);
 
-    gulp.watch(['index.html', './components/**', './css/*.scss'], ['assemble']);
-    gulp.watch(['webpack.config.js'], ['clear-webpack-cache', 'assemble'])
+    gulp.watch(['index.html', './components/**', './css/*.scss'], ['build']);
+    gulp.watch(['webpack.config.js'], ['clear-webpack-cache', 'build'])
 });
 
 gulp.task('clear-webpack-cache', function() {
     delete require.cache[path.resolve('./webpack.config.js')];
 });
+
+// copy the demo.html files to the docs folder, rename them as 'comonent-name.html'
+gulp.task('docs', function()
+{
+    return gulp.src('./components/*/demo.html')
+    .pipe(rename(function(path) {
+        console.log(path.dirname);
+        path.basename = path.dirname;
+        path.dirname = '';
+        path.extname = '.html';
+    }))
+    .pipe(gulp.dest('./docs'));
+})
 
 gulp.task('default', ['watch']);
 
