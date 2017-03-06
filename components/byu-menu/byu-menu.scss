@@ -54,7 +54,7 @@ byu-menu:not(.mobile-view) {
   }
 }
 
-:host(.mobile-view) {
+byu-menu.mobile-view {
   .outer-nav {
     @include outerNavMobile();
   }
@@ -65,12 +65,19 @@ byu-menu:not(.mobile-view) {
     @include menuSlot();
   }
 
-  ::slotted(*) {
+  & > * {
     @include menuSlotted();
   }
 
 }
 
+// transparent background option
+byu-menu.transparent {
+  .outer-nav {
+    @include outerNavTransparent();
+
+  }
+}
 
 //@media (min-width: 1024px) {
 //    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and

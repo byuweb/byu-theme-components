@@ -1,5 +1,15 @@
 @import "../components/shared-styles/colors.scss";
 @import "../components/shared-styles/nav.scss";
+// import individual component FOUC files
+@import "../components/byu-footer/byu-footer.scss";
+@import "../components/byu-footer-action-button/byu-footer-action-button.scss";
+@import "../components/byu-footer-column/byu-footer-column.scss";
+@import "../components/byu-header/byu-header.scss";
+@import "../components/byu-menu/byu-menu.scss";
+@import "../components/byu-search/byu-search.scss";
+@import "../components/byu-social-media-links/byu-social-media-links.scss";
+@import "../components/byu-user-info/byu-user-info.scss";
+
 
 // other
 
