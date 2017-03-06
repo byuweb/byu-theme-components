@@ -2,33 +2,37 @@
 @import "../shared-styles/settings.scss";
 @import "../shared-styles/nav";
 
-:host {
+byu-menu {
   @include menuGeneral();
 }
 
-.outer-nav {
-  @include outerNav();
+//.outer-nav {
+//  @include outerNav();
+//}
+//
+//.inner-nav {
+//  @include innerNav();
+//}
+
+byu-menu > * {
+  @include menuSlotted();
 }
 
-.inner-nav {
-  @include innerNav();
-}
-
-::slotted(*) {
-@include menuSlotted();
-}
-
-.extra-links, ::slotted(*) {
+//.extra-links, ::slotted(*) {
+// think this might work, sicne none are moved to .extra-links
+byu-menu > * {
   @include includeNavItem();
 }
-
-:host(:not(.mobile-view)) {
-  .extra-links:hover, ::slotted(*:hover) {
+byu-menu:not(.mobile-view) {
+  //.extra-links:hover, ::slotted(*:hover) {
+  & > *:hover {
     @include menuNotMobileHover();
   }
 
-  ::slotted(*.selected) {
+  //::slotted(*.selected) {
+  & > *.selected {
     @include menuNotMobileSelected();
+
   }
 }
 
@@ -50,7 +54,7 @@
   }
 }
 
-:host(.mobile-view) {
+byu-menu.mobile-view {
   .outer-nav {
     @include outerNavMobile();
   }
@@ -61,14 +65,14 @@
     @include menuSlot();
   }
 
-  ::slotted(*) {
+  & > * {
     @include menuSlotted();
   }
 
 }
 
 // transparent background option
-:host(.transparent) {
+byu-menu.transparent {
   .outer-nav {
     @include outerNavTransparent();
 

@@ -1,18 +1,29 @@
 @import "colors.scss";
 
-
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
+
+/* -- breakpoint settings ----- */
+$mobile_sidebar_width: 20%;
+$mobile_main_width: 100% - $mobile_sidebar_width;
+$mobile_max_width: 1023px;
+$large_screen_start_width: 1024px;
+
 
 /* --- header settings ------- */
 $header_height: 55px;
 $siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
 
+$siteTitleSize: 22px;
+$siteSubTitleSize: 16px;
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
 
 // menu settings
 $menuHeight: 35px;
 $menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+
+$nav_gradient: 10%;
+$nav_gradient_2: 5%;
 
 $menuHover: $gray; // need to go replace
 $menuActive: $lightgray;  // need to go replace$hover_color
