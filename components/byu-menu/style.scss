@@ -67,6 +67,14 @@
 
 }
 
+// transparent background option
+:host(.transparent) {
+  .outer-nav {
+    background: rgba(255,255,255,0.8);
+
+  }
+
+}
 
 //@media (min-width: 1024px) {
 //    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and
