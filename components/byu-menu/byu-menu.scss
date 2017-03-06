@@ -1,6 +1,7 @@
 @import "../shared-styles/colors.scss";
 @import "../shared-styles/settings.scss";
 @import "../shared-styles/nav";
+@import "./mixins.scss";
 
 byu-menu {
   @include menuGeneral();
@@ -19,7 +20,7 @@ byu-menu > * {
 }
 
 //.extra-links, ::slotted(*) {
-// think this might work, sicne none are moved to .extra-links
+// think this might work, since none are moved to .extra-links
 byu-menu > * {
   @include includeNavItem();
 }

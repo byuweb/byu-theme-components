@@ -34,15 +34,15 @@
 }
 
 @mixin includeNavItem() {
-  @include navItem(); // where is this?
+  @include navItem(); //in shared-styles/nav.scss
 }
 
 @mixin menuNotMobileHover() {
-  background-color: $menuHover !important;
+  background-color: $gray !important;
 }
 
 @mixin menuNotMobileSelected() {
-  background: $menuActive !important;
+  background: $lightgray !important;
 }
 
 @mixin extraLinks() {
@@ -50,20 +50,21 @@
   cursor: pointer;
 }
 @mixin extraLinksDropdown() {
-    display: none;
-    position: absolute;
-    background-color: white;
-    z-index: 10;
-    min-width: 115px;
-    margin-top: 10px;
-    // display: block;
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 10;
+  min-width: 115px;
+  margin-top: 10px;
+  // display: block;
+}
 
 @mixin extraLinksDropdownUl() {
   list-style-type: none;
   padding: 0;
 }
 @mixin hoverExtraLinksDropdown() {
-    display: block;
+  display: block;
 }
 
 @mixin outerNavMobile() {
@@ -78,9 +79,7 @@
 }
 
 @mixin menuSlotted() {
-    @include dropdownNavItem();
-  }
-
+  @include dropdownNavItem(); //in shared-styles/nav.scss
 }
 
 
