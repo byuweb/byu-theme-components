@@ -1,6 +1,7 @@
 @import "../shared-styles/colors.scss";
 @import "../shared-styles/settings.scss";
-@import "../shared-styles/nav";
+@import "../shared-styles/nav.scss";
+@import "./mixins.scss";
 
 byu-menu {
   @include menuGeneral();

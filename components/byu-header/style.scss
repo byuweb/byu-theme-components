@@ -44,113 +44,114 @@ slot[name=actions]::slotted(*) {
       @include headerTitle();
     }
 
-  .byu-header-user {
-    button {
-      background-color: transparent;
-      position: relative;
+    .byu-header-user {
+      button {
+        background-color: transparent;
+        position: relative;
 
-      .icon {
-        width: 20px;
-        height: 20px;
-        font-size: 20px;
-        vertical-align: middle;
+        .icon {
+          width: 20px;
+          height: 20px;
+          font-size: 20px;
+          vertical-align: middle;
+        }
+        .label {
+          font-family: $menuFont;
+          font-weight: 400;
+          font-size: 13px;
+          text-transform: uppercase;
+        }
       }
-      .label {
+    }
+
+    .byu-header-search {
+      #search-input {
         font-family: $menuFont;
         font-weight: 400;
         font-size: 13px;
-        text-transform: uppercase;
+        color: $navy;
+
+        &::-webkit-input-placeholder {
+          color: $searchPlaceholderColor;
+          opacity: 1;
+        }
+        &::-ms-input-placeholder {
+          color: $searchPlaceholderColor;
+          opacity: 1;
+        }
+        &::-moz-placeholder {
+          color: $searchPlaceholderColor;
+          opacity: 1;
+        }
       }
     }
-  }
 
-  .byu-header-search {
-    #search-input {
-      font-family: $menuFont;
-      font-weight: 400;
-      font-size: 13px;
-      color: $navy;
-
-      &::-webkit-input-placeholder {
-        color: $searchPlaceholderColor;
-        opacity: 1;
-      }
-      &::-ms-input-placeholder {
-        color: $searchPlaceholderColor;
-        opacity: 1;
-      }
-      &::-moz-placeholder {
-        color: $searchPlaceholderColor;
-        opacity: 1;
-      }
-    }
-  }
-
-  .byu-logo {
-    height: 48px;
-    width: 92px;
-  }
-}
-
-#mobileMenu {
-  overflow: hidden;
-}
-
-/* FULL SIZE */
-
-:host(:not([mobile-view])) {
-  .byu-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-
-    &.no-nav {
+    .byu-logo {
       height: 48px;
+      width: 92px;
     }
+  }
 
-    .nav-expand {
-      display: none;
-    }
+  #mobileMenu {
+    overflow: hidden;
+  }
 
-    .byu-header-secondary {
-      background-color: $navy;
-      color: #ffffff;
+  /* FULL SIZE */
+
+  :host(:not([mobile-view])) {
+    .byu-header {
       display: flex;
       flex-direction: row;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      height: $header_height;
 
-      .byu-header-search {
+      &.no-nav {
+        height: 48px;
+      }
+
+      .nav-expand {
+        display: none;
+      }
+
+      .byu-header-secondary {
+        background-color: $navy;
+        color: #ffffff;
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
+        height: $header_height;
 
-        input {
-          border: 1px solid $navy;
-          border-right: none;
-          height: 20px;
-          padding: 4px 6px;
-          flex: 1;
-          width: 217px;
-          box-sizing: content-box;
-        }
-        button {
-          height: 28px;
-          width: 30px;
-          text-align: center;
-        }
-      }
+        .byu-header-search {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          justify-content: space-between;
+          align-items: center;
 
-      .byu-header-menu-button {
-        display: none;
+          input {
+            border: 1px solid $navy;
+            border-right: none;
+            height: 20px;
+            padding: 4px 6px;
+            flex: 1;
+            width: 217px;
+            box-sizing: content-box;
+          }
+          button {
+            height: 28px;
+            width: 30px;
+            text-align: center;
+          }
+        }
+
+        .byu-header-menu-button {
+          display: none;
+        }
       }
     }
   }
-}
 
+}

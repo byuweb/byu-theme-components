@@ -52,14 +52,14 @@
   cursor: pointer;
 }
 @mixin extraLinksDropdown() {
-    display: none;
-    position: absolute;
-    background-color: white;
-    z-index: 10;
-    min-width: 115px;
-    margin-top: 10px;
-    // display: block;
-
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 10;
+  min-width: 115px;
+  margin-top: 10px;
+  // display: block;
+}
 @mixin extraLinksDropdownUl() {
   list-style-type: none;
   padding: 0;
@@ -80,10 +80,10 @@
 }
 
 @mixin menuSlotted() {
-    @include dropdownNavItem();
-  }
-
+  @include dropdownNavItem();
 }
+
+
 
 
 //@media (min-width: 1024px) {
