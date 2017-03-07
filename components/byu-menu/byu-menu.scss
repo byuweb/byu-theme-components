@@ -5,12 +5,15 @@
 
 byu-menu {
   @include menuGeneral();
-  height: 30px;
-  display: flex;
+  @include outerNav();
+  color: $navy;
+  height: $menuHeight;
   justify-content: space-around;
   order: 3;
   margin-bottom: -2px;
-  @include outerNav();
+  a {
+    color: $navy;
+  }
 }
 // transparent background option
 byu-menu.transparent {

@@ -23,7 +23,7 @@ slot[name=actions]::slotted(*) {
   }
 }
 
-.byu-header {
+.byu-header-inner {
   @include headerFonts();
 
   & > div > * {
@@ -99,7 +99,7 @@ slot[name=actions]::slotted(*) {
   /* FULL SIZE */
 
   :host(:not([mobile-view])) {
-    .byu-header {
+    .byu-header-inner {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
