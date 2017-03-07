@@ -29,8 +29,8 @@ byu-menu.transparent {
 
 byu-menu > * {
   @include menuSlotted();
-
 }
+
 //.extra-links, ::slotted(*) {
 // think this might work, since none are moved to .extra-links
 byu-menu > * {

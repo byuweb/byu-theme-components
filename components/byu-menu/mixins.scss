@@ -36,15 +36,15 @@
 }
 
 @mixin includeNavItem() {
-  @include navItem(); // win nav.scss
+  @include navItem(); //in shared-styles/nav.scss
 }
 
 @mixin menuNotMobileHover() {
-  background-color: $menuHover !important;
+  background-color: $gray !important;
 }
 
 @mixin menuNotMobileSelected() {
-  background: $menuActive !important;
+  background: $lightgray !important;
 }
 
 @mixin extraLinks() {
@@ -60,12 +60,13 @@
   margin-top: 10px;
   // display: block;
 }
+
 @mixin extraLinksDropdownUl() {
   list-style-type: none;
   padding: 0;
 }
 @mixin hoverExtraLinksDropdown() {
-    display: block;
+  display: block;
 }
 
 @mixin outerNavMobile() {
@@ -80,10 +81,8 @@
 }
 
 @mixin menuSlotted() {
-  @include dropdownNavItem();
+  @include dropdownNavItem(); //in shared-styles/nav.scss
 }
-
-
 
 
 //@media (min-width: 1024px) {
