@@ -11,15 +11,15 @@ byu-header {
   }
 }
 
-byu-header > span[slot=site-title] {
+byu-header > [slot="site-title"] {
   @include headerTitle();
   position: relative;
   top: -6px;
   //padding: 10px 15px;
 }
 // byu icon
-byu-header > span[slot=site-title]:before {
-  content: "BYU";
+byu-header > [slot="site-title"]:before {
+  content: "BYU"; // make sure the space is the exact same size
   font-weight: bold;
   font-size: 40px;
   position: relative;
