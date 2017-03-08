@@ -14,7 +14,7 @@
 @mixin navItem() {
   @include headerLink(); // where is this?
   color: $navy !important;
-  height: 35px !important;
+  height: $menuHeight !important;
   display: table-cell;
   vertical-align: middle !important;
   text-align: center !important;

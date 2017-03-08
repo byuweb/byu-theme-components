@@ -4,16 +4,16 @@
 
 byu-search:not(:defined) {
   background: #fff;
-  height: 25px;
-  width: 150px;
+  height: 27px;
+  width: 225px;
   margin-right: 30px;
 }
 
 byu-search:not(:defined):after {
   content: " "; // placeholder for search icon
   @include searchButton();
-  height: 25px;
-  width: 25px;
+  height: 27px;
+  width: 35px;
   float: right;
 
 }

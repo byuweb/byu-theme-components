@@ -9,6 +9,9 @@ byu-header:not(:defined) {
   a {
     color: #fff!important;
   }
+  [slot="actions"] {
+    text-transform: uppercase;
+  }
 }
 
 byu-header:not(:defined) > [slot="site-title"] {
@@ -22,6 +25,7 @@ byu-header:not(:defined) > [slot="site-title"]:before {
   content: "BYU"; // make sure the space is the exact same size
   font-weight: bold;
   font-size: 40px;
+  font-family: "Arial";
   position: relative;
   top: 6px;
 }
