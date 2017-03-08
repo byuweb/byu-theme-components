@@ -1,10 +1,37 @@
+<!--
+  ~  @license
+  ~    Copyright 2016 Brigham Young University
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
 <!DOCTYPE html>
 <html>
 
 <head>
     <title></title>
     <meta charset="utf-8" />
-    <script async src="//cdn.byu.edu/2017-core-components/latest/components.min.js"></script>
+    <script>
+        (function () {
+            var scriptPath = '//cdn.byu.edu/2017-core-components/latest/components.min.js';
+            var tag = document.createElement('script');
+            tag.async = true;
+            if (window.location.href.indexOf('localhost') != -1) {
+                scriptPath = '/dist/components.min.js';
+            }
+            tag.setAttribute('src', scriptPath);
+            document.head.appendChild(tag);
+        })();
+    </script>
     <link rel="import" href="lib/iron-demo-helpers/demo-snippet.html">
     <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
     <link rel="stylesheet" href="site.min.css">

@@ -9,7 +9,7 @@ class BYUMenu extends HTMLElement {
     }
 
     connectedCallback() {
-        // this._maybeAddMoreMenu();
+        this._maybeAddMoreMenu();
         this._addSlotListeners();
     }
 
@@ -28,10 +28,10 @@ class BYUMenu extends HTMLElement {
             let dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
             for (let i = 0; i < extras.length; i++) {
                 let listItem = document.createElement("li");
-                // listItem.appendChild(allLinks[i]);
-                listItem.appendChild(allLinks[i].cloneNode());
+                //listItem.appendChild(extras[i]);
+                listItem.appendChild(extras[i].cloneNode());
                 dropdown.appendChild(listItem);
-            }
+            } 
         } else {
             this.removeAttribute('has-extra-links');
         }

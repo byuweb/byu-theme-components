@@ -33,6 +33,7 @@
 }
 
 :host(:not(.mobile-view)) {
+
   .extra-links:hover, ::slotted(*:hover) {
     background-color: $hover_color !important;
   }
@@ -65,6 +66,17 @@
 
   &:hover .extra-links-dropdown {
     display: block;
+  }
+}
+
+:host([has-extra-links] ) {
+  .extra-links {
+
+    display: block;
+
+    .extra-links-dropdown {
+      display: block;
+    } 
   }
 }
 
