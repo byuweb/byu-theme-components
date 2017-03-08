@@ -1,6 +1,6 @@
 @import "./mixins.scss";
 
-byu-header {
+byu-header:not(:defined) {
   @include headerPrimary();
   flex-wrap: wrap;
   width: 100%;
@@ -11,14 +11,14 @@ byu-header {
   }
 }
 
-byu-header > [slot="site-title"] {
+byu-header:not(:defined) > [slot="site-title"] {
   @include headerTitle();
   position: relative;
   top: -6px;
   //padding: 10px 15px;
 }
 // byu icon
-byu-header > [slot="site-title"]:before {
+byu-header:not(:defined) > [slot="site-title"]:before {
   content: "BYU"; // make sure the space is the exact same size
   font-weight: bold;
   font-size: 40px;
@@ -26,101 +26,101 @@ byu-header > [slot="site-title"]:before {
   top: 6px;
 }
 /* MOBILE */
-#mobileMenu {
-  @include mobileMenu();
-}
-
-.byu-header > [name=actions] {
-  @include actions();
-}
-
-.byu-header[mobile-view] {
-  & > [name=actions] {
-    @include actionsMobile();
-  }
-  & > div > * {
-    @include headerInnerMarginMobile();
-  }
-}
-
-.byu-header {
-  @include headerFonts();
-  & > div > * {
-    @include headerInnerMargin();
-  }
-  button {
-    @include headerButton();
-
-    &.mobile-menu-button {
-      @include headerButtonMobile();
-    }
-  }
-  .byu-header-primary {
-    @include headerPrimary();
-    .byu-header-title, #title > * {
-      @include headerTitle();
-    }
-  }
-  .byu-header-user {
-    button {
-      @include headerUserButton();
-      .icon {
-        @include headerUserIcon();
-      }
-      .label {
-        @include headerUserLabel();
-      }
-    }
-  }
-  .byu-header-search {
-    #search-input {
-      @include searchInput();
-      .byu-header-search.-webkit-input-placeholder {
-        @include searchWebkitPlaceholder();
-      }
-      .byu-header-search.-ms-input-placeholder {
-        @include searchMicrosoftPlaceholder();
-      }
-      .byu-header-search.-moz-placeholder {
-        @include searchMozillaPlaceholder();
-      }
-    }
-  }
-  .byu-logo {
-    @include byuLogo();
-  }
-}
-
-#mobileMenu {
-  @include mobileMenu();
-}
-
-/* FULL SIZE */
-
-:host(:not([mobile-view])) {
-  .byu-header {
-    @include headerNotMobile();
-    &.no-nav {
-      @include headerNotMobileNoNav();
-    }
-    .nav-expand {
-      @include headerNotMobileNavExpand();
-    }
-    .byu-header-secondary {
-      @include headerSecondaryNotMobile();
-      .byu-header-search {
-        @include searchNotMobile();
-        input {
-          @include searchInputNotMobile();
-        }
-        button {
-          @include searchButtonNotMobile();
-        }
-      }
-      .byu-header-menu-button {
-        @include headerMenuButtonNotMobile();
-      }
-    }
-  }
-}
+//#mobileMenu {
+//  @include mobileMenu();
+//}
+//
+//.byu-header > [name=actions] {
+//  @include actions();
+//}
+//
+//.byu-header[mobile-view] {
+//  & > [name=actions] {
+//    @include actionsMobile();
+//  }
+//  & > div > * {
+//    @include headerInnerMarginMobile();
+//  }
+//}
+//
+//.byu-header {
+//  @include headerFonts();
+//  & > div > * {
+//    @include headerInnerMargin();
+//  }
+//  button {
+//    @include headerButton();
+//
+//    &.mobile-menu-button {
+//      @include headerButtonMobile();
+//    }
+//  }
+//  .byu-header-primary {
+//    @include headerPrimary();
+//    .byu-header-title, #title > * {
+//      @include headerTitle();
+//    }
+//  }
+//  .byu-header-user {
+//    button {
+//      @include headerUserButton();
+//      .icon {
+//        @include headerUserIcon();
+//      }
+//      .label {
+//        @include headerUserLabel();
+//      }
+//    }
+//  }
+//  .byu-header-search {
+//    #search-input {
+//      @include searchInput();
+//      .byu-header-search.-webkit-input-placeholder {
+//        @include searchWebkitPlaceholder();
+//      }
+//      .byu-header-search.-ms-input-placeholder {
+//        @include searchMicrosoftPlaceholder();
+//      }
+//      .byu-header-search.-moz-placeholder {
+//        @include searchMozillaPlaceholder();
+//      }
+//    }
+//  }
+//  .byu-logo {
+//    @include byuLogo();
+//  }
+//}
+//
+//#mobileMenu {
+//  @include mobileMenu();
+//}
+//
+///* FULL SIZE */
+//
+//:host(:not([mobile-view])) {
+//  .byu-header {
+//    @include headerNotMobile();
+//    &.no-nav {
+//      @include headerNotMobileNoNav();
+//    }
+//    .nav-expand {
+//      @include headerNotMobileNavExpand();
+//    }
+//    .byu-header-secondary {
+//      @include headerSecondaryNotMobile();
+//      .byu-header-search {
+//        @include searchNotMobile();
+//        input {
+//          @include searchInputNotMobile();
+//        }
+//        button {
+//          @include searchButtonNotMobile();
+//        }
+//      }
+//      .byu-header-menu-button {
+//        @include headerMenuButtonNotMobile();
+//      }
+//    }
+//  }
+//}
 

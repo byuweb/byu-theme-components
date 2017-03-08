@@ -27,16 +27,16 @@ byu-menu.transparent {
 //  @include innerNav();
 //}
 
-byu-menu > * {
+byu-menu:not(:defined) > * {
   @include menuSlotted();
 }
 
 //.extra-links, ::slotted(*) {
 // think this might work, since none are moved to .extra-links
-byu-menu > * {
+byu-menu:not(:defined) > * {
   @include includeNavItem();
 }
-byu-menu:not(.mobile-view) {
+byu-menu:not(:defined):not(.mobile-view) {
   //.extra-links:hover, ::slotted(*:hover) {
   & > *:hover {
     @include menuNotMobileHover();
@@ -48,42 +48,42 @@ byu-menu:not(.mobile-view) {
 
   }
 }
-
-.extra-links {
-  @include extraLinks();
-
-  .extra-links-dropdown {
-    @include extraLinks();
-
-    // display: block;
-
-    ul {
-      @include extraLinksDropdownUl();
-    }
-  }
-
-  &:hover .extra-links-dropdown {
-    @include hoverExtraLinksDropdown();
-  }
-}
-
-byu-menu.mobile-view {
-  .outer-nav {
-    @include outerNavMobile();
-  }
-  .inner-nav {
-    @include innerNavMobile();
-  }
-  #menu-slot {
-    @include menuSlot();
-  }
-
-  & > * {
-    @include menuSlotted();
-  }
-
-}
-
+//
+//.extra-links {
+//  @include extraLinks();
+//
+//  .extra-links-dropdown {
+//    @include extraLinks();
+//
+//    // display: block;
+//
+//    ul {
+//      @include extraLinksDropdownUl();
+//    }
+//  }
+//
+//  &:hover .extra-links-dropdown {
+//    @include hoverExtraLinksDropdown();
+//  }
+//}
+//
+//byu-menu.mobile-view {
+//  .outer-nav {
+//    @include outerNavMobile();
+//  }
+//  .inner-nav {
+//    @include innerNavMobile();
+//  }
+//  #menu-slot {
+//    @include menuSlot();
+//  }
+//
+//  & > * {
+//    @include menuSlotted();
+//  }
+//
+//}
+//
 
 //@media (min-width: 1024px) {
 //    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and

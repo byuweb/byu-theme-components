@@ -2,14 +2,14 @@
 @import "./mixins.scss";
 
 
-byu-search {
+byu-search:not(:defined) {
   background: #fff;
   height: 25px;
   width: 150px;
   margin-right: 30px;
 }
 
-byu-search:after {
+byu-search:not(:defined):after {
   content: " "; // placeholder for search icon
   @include searchButton();
   height: 25px;
@@ -17,34 +17,34 @@ byu-search:after {
   float: right;
 
 }
-
-#search-icon {
-  @include searchIcon();
-}
-
-button {
-  @include searchButton();
-}
-
-form {
-  @include searchForm();
-}
-
-form #search-container {
-  @include searchContainer();
-}
-
-//styling won't work because it's reaching in multiple levels
-form #search-container input,
-byu-search input {
-  @include searchContainerInput();
-}
-
-byu-search.mobile-view {
-  @include searchMobile();
-
-  form #search-container input,
-  byu-search input {
-    @include searchContainerInputMobile();
-  }
-}
+//
+//#search-icon {
+//  @include searchIcon();
+//}
+//
+//button {
+//  @include searchButton();
+//}
+//
+//form {
+//  @include searchForm();
+//}
+//
+//form #search-container {
+//  @include searchContainer();
+//}
+//
+////styling won't work because it's reaching in multiple levels
+//form #search-container input,
+//byu-search input {
+//  @include searchContainerInput();
+//}
+//
+//byu-search.mobile-view {
+//  @include searchMobile();
+//
+//  form #search-container input,
+//  byu-search input {
+//    @include searchContainerInputMobile();
+//  }
+//}
