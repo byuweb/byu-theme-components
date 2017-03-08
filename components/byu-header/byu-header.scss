@@ -9,6 +9,9 @@ byu-header {
   a {
     color: #fff!important;
   }
+  [slot="actions"] {
+    text-transform: uppercase;
+  }
 }
 
 byu-header > [slot="site-title"] {
@@ -22,6 +25,7 @@ byu-header > [slot="site-title"]:before {
   content: "BYU"; // make sure the space is the exact same size
   font-weight: bold;
   font-size: 40px;
+  font-family: "Arial";
   position: relative;
   top: 6px;
 }
@@ -30,9 +34,13 @@ byu-header > [slot="site-title"]:before {
   @include mobileMenu();
 }
 
-.byu-header > [name=actions] {
+byu-header > [name=actions] {
   @include actions();
+  font-family: "Arial";
 }
+
+
+
 
 .byu-header[mobile-view] {
   & > [name=actions] {

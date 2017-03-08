@@ -122,7 +122,7 @@ slot[name=actions]::slotted(*) {
         flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
-        height: $header_height;
+        height: $headerHeight;
 
         .byu-header-search {
           display: flex;
