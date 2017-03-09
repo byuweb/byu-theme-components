@@ -1400,49 +1400,49 @@
     /* 22 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(10) + "\n</style>\n<slot name=\"actiontext\"></slot>";
+        module.exports = "<style>" + __webpack_require__(10) + "</style> <slot name=\"actiontext\"></slot>";
 
         /***/
     },
     /* 23 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(11) + "\n</style>\n<link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\">\n<h2 class=\"header\">\n    <slot name=\"header\"></slot>\n</h2>\n<div class=\"content\">\n    <span style=\"display: none\">Joseph Modified This</span>\n    <slot id=\"defaultContent\"></slot>\n</div>";
+        module.exports = "<style>" + __webpack_require__(11) + "</style> <link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\"> <h2 class=\"header\"> <slot name=\"header\"></slot> </h2> <div class=\"content\"> <span style=\"display: none\">Joseph Modified This</span> <slot id=\"defaultContent\"></slot> </div>";
 
         /***/
     },
     /* 24 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(12) + "\n</style>\n<div class=\"secondary-footer\">\n    <slot class=\"column\" name=\"col1\"></slot>\n    <slot class=\"column\" name=\"col2\"></slot>\n    <slot class=\"column\" name=\"col3\"></slot>\n    <slot class=\"column\" name=\"col4\"></slot>\n</div>\n<div class=\"blue-footer\">\n    <div class=\"inner-wrapper\">\n        <img src=\"" + __webpack_require__(29) + "\"\n             alt=\"Brigham Young University\"\n            class=\"university-logo\">\n        <div class=\"copyright-contact\">&copy;\n            <span id=\"currentYear\"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div>\n    </div>\n</div>";
+        module.exports = "<style>" + __webpack_require__(12) + "</style> <div class=\"secondary-footer\"> <slot class=\"column\" name=\"col1\"></slot> <slot class=\"column\" name=\"col2\"></slot> <slot class=\"column\" name=\"col3\"></slot> <slot class=\"column\" name=\"col4\"></slot> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper\"> <img src=\"" + __webpack_require__(29) + "\" alt=\"Brigham Young University\" class=\"university-logo\"> <div class=\"copyright-contact\">&copy; <span id=\"currentYear\"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div> </div> </div>";
 
         /***/
     },
     /* 25 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(14) + "\n</style>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\" />\n\n<nav class=\"outer-nav\">\n    <div class=\"inner-nav\">\n        <slot id=\"slot\"></slot>\n        <div class=\"extra-links\" id=\"extraLinks\">\n            More\n            <div class=\"extra-links-dropdown\">\n                <ul id=\"extraLinksDropdown\"></ul>\n            </div>\n        </div>\n    </div>\n</nav>\n<div id=\"stylePlaceHolder\"></div>";
+        module.exports = "<style>" + __webpack_require__(14) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav\"> <div class=\"inner-nav\"> <slot id=\"slot\"></slot> <div class=\"extra-links\" id=\"extraLinks\"> More <div class=\"extra-links-dropdown\"> <ul id=\"extraLinksDropdown\"></ul> </div> </div> </div> </nav> <div id=\"stylePlaceHolder\"></div>";
 
         /***/
     },
     /* 26 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<!--\n  ~  @license\n  ~    Copyright 2016 Brigham Young University\n  ~\n  ~    Licensed under the Apache License, Version 2.0 (the \"License\");\n  ~    you may not use this file except in compliance with the License.\n  ~    You may obtain a copy of the License at\n  ~\n  ~        http://www.apache.org/licenses/LICENSE-2.0\n  ~\n  ~    Unless required by applicable law or agreed to in writing, software\n  ~    distributed under the License is distributed on an \"AS IS\" BASIS,\n  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  ~    See the License for the specific language governing permissions and\n  ~    limitations under the License.\n  -->\n\n<style>\n  " + __webpack_require__(15) + "\n</style>\n\n<form>\n  <div id='search-container'>\n    <slot id='search' name='search'><input type=\"search\" placeholder=\"Search\"></slot>\n  </div>\n  <button id='submit-button' type='submit'>\n    <img id=\"search-icon\" src=\"" + __webpack_require__(32) + "\" alt=\"Run Search\">\n  </button>\n</form>";
+        module.exports = "<style>" + __webpack_require__(15) + "</style> <form> <div id=\"search-container\"> <slot id=\"search\" name=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"submit-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(32) + "\" alt=\"Run Search\"> </button> </form>";
 
         /***/
     },
     /* 27 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(16) + "\n</style>\n<slot id=\"facebook\" name=\"facebook\"></slot>\n<slot id=\"instagram\" name=\"instagram\"></slot>\n<slot id=\"twitter\" name=\"twitter\"></slot>\n<slot id=\"googleplus\" name=\"googleplus\"></slot>\n<slot id=\"linkedin\" name=\"linkedin\"></slot>\n<slot id=\"youtube\" name=\"youtube\"></slot>";
+        module.exports = "<style>" + __webpack_require__(16) + "</style> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"googleplus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot>";
 
         /***/
     },
     /* 28 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(17) + "\n</style>\n\n<div class=\"no-user\">\n    <!--There are better ways to do this, but they require some work. This'll do for now.-->\n    <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\">\n    <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\">\n    <span class=\"text\">\n            <slot name=\"login\"></slot>\n        </span>\n</div>\n<div class=\"has-user\">\n    <span class=\"name\">\n        <slot name=\"user-name\"></slot>\n    </span>\n    <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\">\n    <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\">\n    <a class=\"logout\">\n        <slot name=\"logout\"></slot>\n    </a>\n</div>\n\n";
+        module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\"></slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\"></slot> </a> </div>";
 
         /***/
     },
@@ -1534,4 +1534,4 @@
         /***/
     }]);
 })();
-//# sourceMappingURL=components.es5.js.map
+//# sourceMappingURL=components-compat.js.map
