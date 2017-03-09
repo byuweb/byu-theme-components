@@ -460,6 +460,7 @@ window.customElements.define('byu-menu', BYUMenu);
 window.BYUMenu = BYUMenu;
 
 
+
 /***/ }),
 /* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -1264,11 +1265,7 @@ module.exports = "<style>" + __webpack_require__(16) + "</style> <slot id=\"face
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = "<style>\n    " + __webpack_require__(17) + "\n</style>\n\n<div class=\"no-user\">\n    <!--There are better ways to do this, but they require some work. This'll do for now.-->\n    Sign In \n    <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\">\n    <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\">\n    <span class=\"text\">\n        <slot name=\"login\"></slot>\n    </span>\n</div>\n<div class=\"has-user\">\n    <span class=\"name\">\n        <slot name=\"user-name\"></slot>\n    </span>\n    <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\">\n    <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\">\n    <a class=\"logout\">\n        <slot name=\"logout\"></slot>\n    </a>\n</div>\n\n";
-=======
-module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\"></slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\"></slot> </a> </div>";
->>>>>>> refs/remotes/origin/master
+module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> Sign In <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\"></slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\"></slot> </a> </div>";
 
 /***/ }),
 /* 29 */
