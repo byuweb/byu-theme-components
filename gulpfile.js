@@ -18,79 +18,31 @@
 const browserSync = require('browser-sync').create();
 const gulp = require('gulp');
 const path = require('path');
-const pump = require('pump');
 const rename = require('gulp-rename');
-const through = require('through2');
-const sourcemaps = require('gulp-sourcemaps');
-const webpackStream = require('webpack-stream');
-const babel = require('gulp-babel');
-const gulpif = require('gulp-if');
+const initWcBuild = require('byu-web-component-build').gulp;
 
-gulp.task('build', ['assemble', 'minify']);
+gulp.task('build', ['docs', 'wc:build']);
 
-gulp.task('assemble', ['docs'], function () {
-    return gulp.src('./components/bundle.js')
-        .pipe(webpackStream(require('./webpack.config.js'), require('webpack')))
-        .pipe(gulp.dest('dist/'))
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(through.obj(function (file, enc, cb) {
-            // Dont pipe through any source map files as it will be handled
-            // by gulp-sourcemaps
-            var isSourceMap = /\.map$/.test(file.path);
-            if (!isSourceMap) this.push(file);
-            cb();
-        }))
-        .pipe(babel({
-            presets: [
-                ['env', {
-                    "targets": {
-                        "browsers": ["last 2 versions", "ie >= 11", "> 5% in US"]
-                    }
-                }]
-            ],
-            plugins: ['iife-wrap']
-        }))
-        .pipe(rename({suffix: '.es5'}))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'))
-        ;
+initWcBuild(gulp, {
+    componentName: '2017-core-components',
+    js: {
+        input: './components/bundle.js'
+    },
+    css: {
+        input: './css/site.scss'
+    }
 });
 
-gulp.task('minify', ['assemble'], function () {
-    return gulp.src(['dist/components.js','dist/components.es5.js'])
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(babel({
-            presets: ['babili']
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.reload({stream: true}))
-        ;
-});
+gulp.task('watch', ['build'], function (done) {
 
-gulp.task('watch', ['minify'], function (done) {
     browserSync.init({
         server: {
             baseDir: './',
         },
         notify: false
-        // proxy: {
-        //     target: 'http://localhost:3000',
-        //     middleware: function (req, res, next) {
-        //         //console.log(req.url);
-        //         res.setHeader('Access-Control-Allow-Origin', '*');
-        //         next();
-        //     }
-        // }
     }, done);
 
-    gulp.watch(['index.html', './components/**', './css/*.scss'], ['minify']);
-    gulp.watch(['webpack.config.js'], ['clear-webpack-cache', 'minify'])
-});
-
-gulp.task('clear-webpack-cache', function() {
-    delete require.cache[path.resolve('./webpack.config.js')];
+    gulp.watch(['index.html', './components/**', './css/*.scss'], ['build']);
 });
 
 // copy the demo.html files to the docs folder, rename them as 'comonent-name.html'
@@ -103,8 +55,8 @@ gulp.task('docs', function()
         path.dirname = '';
         path.extname = '.html';
     }))
-    .pipe(gulp.dest('./docs'))
-})
+    .pipe(gulp.dest('./docs'));
+});
 
 gulp.task('default', ['watch']);
 

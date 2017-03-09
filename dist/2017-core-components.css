@@ -1,0 +1,78 @@
+/* SASS Variables ------------------- */
+/* ------------------------------------- */
+body {
+  margin: 0;
+  color: #444; }
+
+a {
+  color: #003DA5; }
+
+a:hover {
+  text-decoration: none; }
+
+/* -------- font & sizing -------- */
+@media screen and (max-width: 1023px) {
+  h1 {
+    font-size: 1.3em; } }
+
+h2 {
+  font-size: 1em; }
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 1.6875em; } }
+
+h3, h3 a {
+  color: #002E5D; }
+
+p, span, div {
+  font-family: "Gotham SSm A","Gotham SSm B"; }
+
+h1, h2, h3, h4 {
+  font-family: "Sentinel SSm A","Sentinel SSm B"; }
+
+h1 {
+  color: #002E5D; }
+
+/* ------------------------------------- */
+/* ------ often used classes ------------*/
+.hidden {
+  display: none; }
+
+.panel {
+  background: #fff; }
+
+.gray-button {
+  background-color: #e5e5e5 !important;
+  padding: 9px 12px !important;
+  font-size: 12px; }
+  .gray-button a {
+    color: #002E5D; }
+
+.medgray-button {
+  background-color: #9b9b9b !important;
+  padding: 9px 12px !important;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  height: 30px; }
+  .medgray-button a {
+    color: #fff; }
+
+.medgray-button:hover {
+  background: #a2a2a2; }
+
+.royal-button {
+  background-color: #003DA5;
+  padding: 9px 12px !important;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center; }
+  .royal-button a {
+    color: #fff; }
+
+.royal-button:hover {
+  background: #114BAD; }
+
+/*# sourceMappingURL=2017-core-components.css.map */
