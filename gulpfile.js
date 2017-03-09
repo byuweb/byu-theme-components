@@ -34,9 +34,10 @@ initWcBuild(gulp, {
 });
 
 gulp.task('watch', ['build'], function (done) {
+
     browserSync.init({
         server: {
-            baseDir: './'
+            baseDir: './',
         },
         notify: false
     }, done);

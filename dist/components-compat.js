@@ -1414,7 +1414,7 @@
     /* 24 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(12) + "</style> <div class=\"secondary-footer\"> <slot class=\"column\" name=\"col1\"></slot> <slot class=\"column\" name=\"col2\"></slot> <slot class=\"column\" name=\"col3\"></slot> <slot class=\"column\" name=\"col4\"></slot> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper\"> <img src=\"" + __webpack_require__(29) + "\" alt=\"Brigham Young University\" class=\"university-logo\"> <div class=\"copyright-contact\">&copy; <span id=\"currentYear\"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div> </div> </div>";
+        module.exports = "<style>" + __webpack_require__(12) + "</style> <div class=\"secondary-footer\"> <slot id=\"slot\"> </slot> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper\"> <img src=\"" + __webpack_require__(29) + "\" alt=\"Brigham Young University\" class=\"university-logo\"> <div class=\"copyright-contact\">&copy; <span id=\"currentYear\"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div> </div> </div>";
 
         /***/
     },
