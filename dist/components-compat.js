@@ -1442,7 +1442,7 @@
     /* 28 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> Sign In <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\"></slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\"></slot> </a> </div>";
+        module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\"></slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\"></slot> </a> </div>";
 
         /***/
     },
