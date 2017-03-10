@@ -11,8 +11,11 @@ byu-menu {
   justify-content: space-around;
   order: 3;
   margin-bottom: -2px;
+  // background-color should be a light grey
   a {
     color: $navy;
+    // needs additional text-decoration: none to
+    // override user agent stylesheet
   }
 }
 // transparent background option
@@ -36,6 +39,8 @@ byu-menu:not(:defined) > * {
 
 //.extra-links, ::slotted(*) {
 // think this might work, since none are moved to .extra-links
+// duplicate code since menuSlotted (above)
+// already contains the same mixins as includeNavItem
 byu-menu:not(:defined) > * {
   @include includeNavItem();
 }

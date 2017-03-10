@@ -9,6 +9,9 @@ byu-search:not(:defined) {
   margin-right: 30px;
 }
 
+// should be 25px height to account for
+// added border from searchButton OR
+// add border to byu-search
 byu-search:not(:defined):after {
   content: " "; // placeholder for search icon
   @include searchButton();
