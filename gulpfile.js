@@ -50,7 +50,6 @@ gulp.task('docs', function()
 {
     return gulp.src('./components/*/demo.html')
     .pipe(rename(function(path) {
-        console.log(path.dirname);
         path.basename = path.dirname;
         path.dirname = '';
         path.extname = '.html';

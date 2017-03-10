@@ -552,7 +552,7 @@
             _createClass(BYUMenu, [{
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    // this._maybeAddMoreMenu();
+                    this._maybeAddMoreMenu();
                     this._addSlotListeners();
                 }
             }, {
@@ -572,8 +572,8 @@
                         var dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
                         for (var i = 0; i < extras.length; i++) {
                             var listItem = document.createElement("li");
-                            // listItem.appendChild(allLinks[i]);
-                            listItem.appendChild(allLinks[i].cloneNode());
+                            //listItem.appendChild(extras[i]);
+                            listItem.appendChild(extras[i].cloneNode());
                             dropdown.appendChild(listItem);
                         }
                     } else {
@@ -1164,7 +1164,7 @@
 
 
         // module
-        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;opacity:.88;border-bottom:1px solid #ccc}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}::slotted(*){display:table;width:16.66%}.extra-links,::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important}:host(:not(.mobile-view)) .extra-links:hover,:host(:not(.mobile-view)) ::slotted(:hover){background-color:#c5c5c5!important}:host(:not(.mobile-view)) ::slotted(.selected){background:#e6e6e6!important}.extra-links{display:none;cursor:pointer}.extra-links .extra-links-dropdown{display:none;position:absolute;background-color:#fff;z-index:10;min-width:115px;margin-top:10px}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown{display:block}:host(.mobile-view) .outer-nav{flex-direction:column}:host(.mobile-view) .inner-nav{display:block}:host(.mobile-view) #slot{display:flex;flex-direction:column}:host(.mobile-view) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;width:100%;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important}", ""]);
+        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;opacity:.88;border-bottom:1px solid #ccc}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}::slotted(*){display:table;width:16.66%}.extra-links,::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important}:host(:not(.mobile-view)) .extra-links:hover,:host(:not(.mobile-view)) ::slotted(:hover){background-color:#c5c5c5!important}:host(:not(.mobile-view)) ::slotted(.selected){background:#e6e6e6!important}.extra-links{display:none;cursor:pointer}.extra-links .extra-links-dropdown{display:none;position:absolute;background-color:#fff;z-index:10;min-width:115px;margin-top:10px}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown,:host([has-extra-links]) .extra-links,:host([has-extra-links]) .extra-links .extra-links-dropdown{display:block}:host(.mobile-view) .outer-nav{flex-direction:column}:host(.mobile-view) .inner-nav{display:block}:host(.mobile-view) #slot{display:flex;flex-direction:column}:host(.mobile-view) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;width:100%;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important}", ""]);
 
         // exports
 
