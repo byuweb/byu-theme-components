@@ -314,7 +314,7 @@
         var ATTR_MOBILE_VIEW = 'mobile-view';
         var ATTR_MENU_OPEN = 'menu-open';
 
-        var DEFAULT_MOBILE_WIDTH = '640px';
+        var DEFAULT_MOBILE_WIDTH = '1024px';
 
         var BYUHeader = function (_HTMLElement4) {
             _inherits(BYUHeader, _HTMLElement4);
@@ -814,82 +814,55 @@
 
                 var shadowRoot = _this11.attachShadow({ mode: 'open' });
                 shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
-                // //Hack to make sure that the proper login URL gets set in our template.
-                // this.loginUrl = this.loginUrl;
                 return _this11;
             }
-
-            // set loginUrl(value) {
-            //     let link = this.shadowRoot.querySelector('.link');
-            //
-            //     if (value) {
-            //         this.setAttribute('login-url', value);
-            //         if (link) {
-            //             link.setAttribute('href', value);
-            //         }
-            //     } else {
-            //         this.removeAttribute('login-url');
-            //         if (link) {
-            //             link.removeAttribute('href');
-            //         }
-            //     }
-            // }
-            //
-            // get loginUrl() {
-            //     return this.getAttribute('login-url');
-            // }
 
             _createClass(ByuUserInfo, [{
                 key: 'attributeChangedCallback',
                 value: function attributeChangedCallback(attr, oldval, newval) {
-                    switch (attr) {
-                        case 'login-url':
-                            this.loginUrl = newval;
-                            break;
-                    }
+                    // switch (attr) {
+                    //     case 'login-url':
+                    //         this.loginUrl = newval;
+                    //         break;
+                    // }
                 }
             }, {
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    // this._addSlotListeners();
-                    // this._addAriaAttributes();
+                    this._addSlotListeners();
+                    this._addAriaAttributes();
                 }
             }, {
                 key: '_addSlotListeners',
                 value: function _addSlotListeners() {
                     var _this12 = this;
 
-                    this._setUrlFromLightDom();
-                    var slot = this.shadowRoot.querySelector('#delegate');
-                    slot.addEventListener('slotchange', function (e) {
-                        _this12._setUrlFromLightDom();
+                    this._setHasUser();
+                    var userSlot = this.shadowRoot.querySelector('#user-name');
+                    userSlot.addEventListener('slotchange', function (e) {
+                        _this12._setHasUser();
                     });
+                }
+            }, {
+                key: '_setHasUser',
+                value: function _setHasUser() {
+                    var userSlot = this.shadowRoot.querySelector('#user-name');
+                    if (userSlot.assignedNodes().length > 0) {
+                        this.setAttribute('has-user', '');
+                        console.log('here');
+                    } else {
+                        this.removeAttribute('has-user');
+                    }
                 }
             }, {
                 key: '_addAriaAttributes',
                 value: function _addAriaAttributes() {
                     this.setAttribute('role', 'button');
                 }
-            }, {
-                key: '_setUrlFromLightDom',
-                value: function _setUrlFromLightDom() {
-                    var slot = this.shadowRoot.querySelector('#delegate');
-                    var nodes = slot.assignedNodes().filter(function (node) {
-                        return node instanceof HTMLAnchorElement;
-                    });
-                    if (!nodes.length) {
-                        return;
-                    }
-                    var link = nodes[0];
-                    if (link.href) {
-                        console.log('setting login url from', link);
-                        this.loginUrl = link.href;
-                    }
-                }
             }], [{
                 key: 'observedAttributes',
                 get: function get() {
-                    return ['login-url'];
+                    // return ['login-url'];
                 }
             }]);
 
@@ -1209,7 +1182,7 @@
 
 
         // module
-        exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) img{margin:5px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;width:100%;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:5px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
+        exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff;cursor:pointer}:host(:not([mobile-view])) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) img{margin:5px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;width:100%;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:5px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
 
         // exports
 
@@ -1442,7 +1415,7 @@
     /* 28 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\"></slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\"></slot> </a> </div>";
+        module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\">Sign Out</slot> </a> </div>";
 
         /***/
     },
