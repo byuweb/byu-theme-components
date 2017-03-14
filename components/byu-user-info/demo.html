@@ -64,75 +64,118 @@
         </byu-menu>
         <byu-search slot="search"></byu-search>
     </byu-header>
-    <h1>Simple Setup</h1>
-    <demo-snippet>
-        <template>
-            <div class="fake-header">
-                <byu-user-info>
-                    <a slot="login" href="#login">Sign In</a>
-                    <a slot="logout" href="#logout">Sign Out</a>
-                </byu-user-info>
-            </div>
-        </template>
-    </demo-snippet>
 
-    <h1>Logged In User</h1>
-    <demo-snippet>
-        <template>
-            <div class="fake-header">
-                <byu-user-info>
-                    <a slot="login" href="#login">Sign In</a>
-                    <a slot="logout" href="#logout">Sign Out</a>
-                    <span slot="user-name">Cosmo2017</span>
-                </byu-user-info>
-            </div>
-        </template>
-    </demo-snippet>
+    <h1>User Info Demo</h1>
 
-    <h1>As Part of Header</h1>
-    <demo-snippet>
-        <template>
-            <byu-header>
-                <span slot="title">Our site.... in the middle of our web.</span>
-                <byu-search slot="search" action="https://www.google.com/#q=$1" method="get" placeholder="Search"></byu-search>
-                <byu-user-info slot="user" login-url="#login">
-                    <a slot="login" href="#login">Sign In</a>
-                    <a slot="logout" href="#logout">Sign Out</a>
-                </byu-user-info>
-                <byu-menu slot="nav" collapsed>
-                    <a class="selected" href="javascript: void 0">Link 1</a>
-                    <a href="javascript: void 0">Link 2</a>
-                    <a href="javascript: void 0">Link 3</a>
-                    <a href="javascript: void 0">Link 4</a>
-                    <a href="javascript: void 0">Link 5</a>
-                    <a href="javascript: void 0">Link 6</a>
-                </byu-menu>
-            </byu-header>
-        </template>
-    </demo-snippet>
+    <section style="margin: 20px">
 
-    <h1>As Part of Header (Logged In)</h1>
-    <demo-snippet>
-        <template>
-            <byu-header>
-                <span slot="title">Our site.... in the middle of our web.</span>
-                <byu-search slot="search" action="https://www.google.com/#q=$1" method="get" placeholder="Search"></byu-search>
-                <byu-user-info slot="user" login-url="#login">
-                    <a slot="login" href="#login">Sign In</a>
-                    <a slot="logout" href="#logout">Sign Out</a>
-                    <span slot="user-name">Cosmo2017</span>
-                </byu-user-info>
-                <byu-menu slot="nav" collapsed>
-                    <a class="selected" href="javascript: void 0">Link 1</a>
-                    <a href="javascript: void 0">Link 2</a>
-                    <a href="javascript: void 0">Link 3</a>
-                    <a href="javascript: void 0">Link 4</a>
-                    <a href="javascript: void 0">Link 5</a>
-                    <a href="javascript: void 0">Link 6</a>
-                </byu-menu>
-            </byu-header>
-        </template>
-    </demo-snippet>
+        <h1>Simple Setup</h1>
+        <demo-snippet>
+            <template>
+                <div class="fake-header">
+                    <byu-user-info>
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                    </byu-user-info>
+                </div>
+            </template>
+        </demo-snippet>
+
+        <h1>Logged In User</h1>
+        <demo-snippet>
+            <template>
+                <div class="fake-header">
+                    <byu-user-info>
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                        <span slot="user-name">Cosmo2017</span>
+                    </byu-user-info>
+                </div>
+            </template>
+        </demo-snippet>
+
+        <h1>As Part of Header</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="title">Our site.... in the middle of our web.</span>
+                    <byu-search slot="search" action="https://www.google.com/#q=$1" method="get" placeholder="Search"></byu-search>
+                    <byu-user-info slot="user" login-url="#login">
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                    </byu-user-info>
+                    <byu-menu slot="nav" collapsed>
+                        <a class="selected" href="javascript: void 0">Link 1</a>
+                        <a href="javascript: void 0">Link 2</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>As Part of Header (Logged In)</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="title">Our site.... in the middle of our web.</span>
+                    <byu-search slot="search" action="https://www.google.com/#q=$1" method="get" placeholder="Search"></byu-search>
+                    <byu-user-info slot="user" login-url="#login">
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                        <span slot="user-name">Cosmo2017</span>
+                    </byu-user-info>
+                    <byu-menu slot="nav" collapsed>
+                        <a class="selected" href="javascript: void 0">Link 1</a>
+                        <a href="javascript: void 0">Link 2</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Overriding CMS Styles</h1>
+
+        <p>
+            Many Content Management Systems will add extra divs and spans around your login/logout links. Unfortunately, Web Components
+            only allow you to style directly in the Shadow DOM. To fix this, you'll need some custom CSS. The exact CSS needed
+            will vary depending on your CMS, but this should give you the idea.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <style>
+                    .my-custom-login-class a {
+                        color: white;
+                        font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
+                        cursor: pointer;
+                    }
+                    
+                    .my-custom-login-class a:hover {
+                        color: white;
+                        text-decoration: none;
+                    }
+                </style>
+
+                <div class="fake-header">
+                    <byu-user-info>
+                        <span slot="login" class="my-custom-login-class">
+                        <div class="someCMSClass">
+                            <a class="someOtherCMSClassAndAttributes">Login</a>
+                        </div>
+                    </span>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                    </byu-user-info>
+                </div>
+            </template>
+        </demo-snippet>
+
+    </section>
 
 
     <footer>

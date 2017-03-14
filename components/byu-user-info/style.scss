@@ -8,6 +8,7 @@ img {
 
 ::slotted(*) {
   @include headerLink();
+  cursor: initial !important;
 }
 
 .has-user, .no-user {
@@ -20,11 +21,6 @@ img {
 :host(:not([mobile-view])) {
 
   color: white;
-  cursor: pointer;
-
-  ::slotted(*) {
-    @include headerLink();
-  }
 
   .mobile {
     display: none;
