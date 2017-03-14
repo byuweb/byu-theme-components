@@ -20,6 +20,7 @@ img {
 :host(:not([mobile-view])) {
 
   color: white;
+  cursor: pointer;
 
   ::slotted(*) {
     @include headerLink();
@@ -38,6 +39,7 @@ img {
 :host([mobile-view]) {
   @include dropdownNavItem;
   padding-left: 0 !important;
+  border-bottom: solid 1px #c5c5c5;
 
   .not-mobile {
     display: none;

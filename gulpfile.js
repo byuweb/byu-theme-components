@@ -21,7 +21,10 @@ const path = require('path');
 const rename = require('gulp-rename');
 const initWcBuild = require('byu-web-component-build').gulp;
 
-gulp.task('build', ['docs', 'wc:build']);
+gulp.task('build', ['docs', 'wc:build'], function() 
+{
+    browserSync.reload();
+});
 
 initWcBuild(gulp, {
     componentName: '2017-core-components',
