@@ -46,21 +46,15 @@
       border: 1px solid #DDD;
       line-height: 150%;
     }
-
-
-
-    h3 {
+    
+    h1 {
       margin-bottom: 0;
     }
-
-
-
+    
     .row {
       display: flex;
     }
-
-
-
+    
     .row> :first-child {
       padding-right: 20px;
     }
@@ -81,111 +75,82 @@
     <byu-search slot="search"></byu-search>
   </byu-header>
   <h1>Search Demo</h1>
-  <div style="margin-bottom: 20px"> This page contains several demos of the search component of the new BYU Header. Note that many of these are incomplete
-    pending further development.
-  </div>
-  <hr>
+
   <section style="margin: 20px">
 
-    <h3>Send search to URL</h3>
-    <div class='row'>
-      <p>
+    <h1>Send search to URL</h1>
+    <demo-snippet>
+      <template>
         <byu-search action='https://www.google.com/#q=$1' method='get' placeholder='Search Google'></byu-search>
-      </p>
-      <pre><code>&lt;byu-search
-  action='https://www.google.com/#q=$1'
-  method='get'
-  placeholder='Search Google'&gt;
-&lt;/byu-search&gt;</code></pre>
-    </div>
+      </template>
+    </demo-snippet>
 
-    <h3>Send search to URL and provide input element</h3>
-    <div class='row'>
-      <p>
+    <h1>Send search to URL and provide input element</h1>
+    <demo-snippet>
+      <template>
         <byu-search action='https://www.google.com/#q=$1'>
           <input slot='search' type='search' placeholder='Search Google'>
         </byu-search>
-      </p>
-      <pre><code>&lt;byu-search action='https://www.google.com/#q=$1'&gt;
-  &lt;input slot='search' type='search' placeholder='Search Google'&gt;
-&lt;/byu-search&gt;</code></pre>
-    </div>
+      </template>
+    </demo-snippet>
 
-    <h3>Set Search Target</h3>
-    <div class='row'>
-      <p>
+
+    <h1>Set Search Target</h1>
+    <demo-snippet>
+      <template>
         <byu-search action='https://www.google.com/#q=$1' target='_blank' placeholder='Search Google'></byu-search>
-      </p>
-      <pre><code>&lt;byu-search
-  action='https://www.google.com/#q=$1'
-  target='_blank'
-  placeholder='Search Google'&gt;
-&lt;/byu-search&gt;</code></pre>
-    </div>
+        </byu-search>
+      </template>
+    </demo-snippet>
 
-    <h3>Set Initial Value</h3>
-    <div class='row'>
-      <p>
+    <h1>Set Initial Value</h1>
+    <demo-snippet>
+      <template>
         <byu-search value='foo'></byu-search>
-      </p>
-      <pre><code>&lt;byu-search value='foo'&gt;&lt;/byu-search&gt;</code></pre>
-    </div>
-    <div class='row'>
-      <p>
+      </template>
+    </demo-snippet>
+    <demo-snippet>
+      <template>
         <byu-search>
           <input slot='search' type='text' placeholder='My Input' value='foo'>
         </byu-search>
-      </p>
-      <pre><code>&lt;byu-search&gt;
-  &lt;input slot='search' type='text' placeholder='My Input' value='foo'&gt;
-&lt;/byu-search&gt;</code></pre>
-    </div>
+      </template>
+    </demo-snippet>
 
-    <h3>Listen for Input Events</h3>
+    <h1>Listen for Input Events</h1>
     <script>
       function changeListener(element) {
         console.log(element, element.value);
       }
     </script>
-    <pre><code>&lt;script&gt;
-function changeListener(element) {
-  console.log(element, element.value);
-}
-&lt;/script&gt;</code></pre>
-    <div class='row'>
-      <p>
-        <byu-search oninput='changeListener(this)'></byu-search>
-      </p>
-      <pre><code>&lt;byu-search oninput='changeListener(this)'&gt;&lt;/byu-search&gt;</code></pre>
-    </div>
-    <div class='row'>
-      <p>
+    <pre><code>
+    &lt;script&gt;
+      function changeListener(element) {
+        console.log(element, element.value);
+      }
+    &lt;/script&gt;</code></pre>
+
+    <demo-snippet>
+      <template>
+        <byu-search oninput='changeListener(this)'></byu-search><br /><br />
         <byu-search>
           <input slot='search' type='search' oninput='changeListener(this)'>
         </byu-search>
-      </p>
-      <pre><code>&lt;byu-search&gt;
-  &lt;input slot='search' type='search' oninput='changeListener(this)'&gt;
-&lt;/byu-search&gt;</code></pre>
-    </div>
+      </template>
+    </demo-snippet>
 
-    <h3>Listen for Search Events</h3>
-    <div class='row'>
-      <p>
-        <byu-search onsearch='changeListener(this)'></byu-search>
-      </p>
-      <pre><code>&lt;byu-search onsearch='changeListener(this)'&gt;&lt;/byu-search&gt;</code></pre>
-    </div>
-    <div class='row'>
-      <p>
+
+    <h1>Listen for Search Events</h1>
+
+    <demo-snippet>
+      <template>
+        <byu-search onsearch='changeListener(this)'></byu-search><br /><br />
         <byu-search onsearch='changeListener(this)'>
           <input type='search'>
         </byu-search>
-      </p>
-      <pre><code>&lt;byu-search onsearch='changeListener(this)'&gt;
-    &lt;input type='search'&gt;
-  &lt;/byu-search&gt;</code></pre>
-    </div>
+      </template>
+    </demo-snippet>
+
   </section>
   <footer>
     <byu-footer></byu-footer>

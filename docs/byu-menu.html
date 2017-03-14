@@ -20,7 +20,7 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
-    
+
     <script>
         (function () {
             var scriptPath = '//cdn.byu.edu/2017-core-components/latest/components.min.js';
@@ -33,7 +33,7 @@
             document.head.appendChild(tag);
         })();
     </script>
-    
+
     <link rel="import" href="lib/iron-demo-helpers/demo-snippet.html">
     <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
     <link rel="stylesheet" href="site.min.css">
@@ -53,58 +53,54 @@
         <byu-search slot="search"></byu-search>
     </byu-header>
     <h1>Menu Demo</h1>
-    <div style="margin-bottom: 20px"> This page contains several demos of the menu in the new BYU Header. Note that many of these are incomplete pending further
-development.
-</div>
-<hr>
-<div style="margin: 20px">
-<h2>Six Links or Less</h2>
-<demo-snippet>
-    <template>
-        <byu-header>
-            <span slot="title">Our site.... in the middle of our web.</span>
-            <byu-menu slot="nav" collapsed>
-                <a class="selected" href="javascript: void 0">Link 1</a>
-                <a href="javascript: void 0">Link 2</a>
-                <a href="javascript: void 0">Link 3</a>
-                <a href="javascript: void 0">Link 4</a>
-                <a href="javascript: void 0">Link 5</a>
-                <a href="javascript: void 0">Link 6</a>
-            </byu-menu>
-        </byu-header>
-        <div style="margin: 10px"> Here we have some content so you can see what that might look like.
-</div>
-</template>
-</demo-snippet>
+    <section style="margin: 20px">
+        <h1>Six Links or Less</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="title">Our site.... in the middle of our web.</span>
+                    <byu-menu slot="nav" collapsed>
+                        <a class="selected" href="javascript: void 0">Link 1</a>
+                        <a href="javascript: void 0">Link 2</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                    </byu-menu>
+                </byu-header>
+                <div style="margin: 10px"> Here we have some content so you can see what that might look like.
+                </div>
+            </template>
+        </demo-snippet>
 
 
 
-<h2>More than Six Links</h2>
-<demo-snippet>
-    <template>
-        <byu-header>
-            <span slot="title">Our site.... in the middle of our web.</span>
-            <byu-menu slot="nav" collapsed>
-                <a class="selected" href="javascript: void 0">Link 1</a>
-                <a href="javascript: void 0">Link 2</a>
-                <a href="javascript: void 0">Link 3</a>
-                <a href="javascript: void 0">Link 4</a>
-                <a href="javascript: void 0">Link 5</a>
-                <a href="javascript: void 0">Link 6</a>
-                <a href="javascript: void 0">Link 7</a>
-                <a href="javascript: void 0">Link 8</a>
-                <a href="javascript: void 0">Link 9</a>
-                <a href="javascript: void 0">Link 10</a>
-            </byu-menu>
-        </byu-header>
-        <div style="margin: 10px"> Here we have some content so you can see what that might look like.
-</div>
-</template>
-</demo-snippet>
-</div>
-<footer>
-    <byu-footer></byu-footer>
-</footer>
+        <h1>More than Six Links</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="title">Our site.... in the middle of our web.</span>
+                    <byu-menu slot="nav" collapsed>
+                        <a class="selected" href="javascript: void 0">Link 1</a>
+                        <a href="javascript: void 0">Link 2</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                        <a href="javascript: void 0">Link 7</a>
+                        <a href="javascript: void 0">Link 8</a>
+                        <a href="javascript: void 0">Link 9</a>
+                        <a href="javascript: void 0">Link 10</a>
+                    </byu-menu>
+                </byu-header>
+                <div style="margin: 10px"> Here we have some content so you can see what that might look like.
+                </div>
+            </template>
+        </demo-snippet>
+    </section>
+    <footer>
+        <byu-footer></byu-footer>
+    </footer>
 </body>
 
 </html>
