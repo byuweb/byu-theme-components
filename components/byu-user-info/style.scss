@@ -3,7 +3,7 @@
 img {
   height: 20px;
   width: 20px;
-  margin: 5px;
+  margin: 7px;
 }
 
 ::slotted(*) {
@@ -31,7 +31,7 @@ img {
   }
 
   img {
-    margin: 5px;
+    margin: 7px;
   }
 }
 
@@ -54,7 +54,7 @@ img {
 
     img {
       order: 1;
-      margin: 5px;
+      margin: 7px;
     }
 
     .logout {
