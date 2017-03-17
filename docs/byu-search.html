@@ -47,17 +47,6 @@
       line-height: 150%;
     }
     
-    h1 {
-      margin-bottom: 0;
-    }
-    
-    .row {
-      display: flex;
-    }
-    
-    .row> :first-child {
-      padding-right: 20px;
-    }
   </style>
 </head>
 
@@ -89,7 +78,7 @@
     <demo-snippet>
       <template>
         <byu-search action='https://www.google.com/#q=$1'>
-          <input slot='search' type='search' placeholder='Search Google'>
+          <input type='search' placeholder='Search Google'>
         </byu-search>
       </template>
     </demo-snippet>
@@ -112,7 +101,7 @@
     <demo-snippet>
       <template>
         <byu-search>
-          <input slot='search' type='text' placeholder='My Input' value='foo'>
+          <input type='text' placeholder='My Input' value='foo'>
         </byu-search>
       </template>
     </demo-snippet>
@@ -134,7 +123,7 @@
       <template>
         <byu-search oninput='changeListener(this)'></byu-search><br /><br />
         <byu-search>
-          <input slot='search' type='search' oninput='changeListener(this)'>
+          <input type='search' oninput='changeListener(this)'>
         </byu-search>
       </template>
     </demo-snippet>
