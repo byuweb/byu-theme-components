@@ -23,7 +23,7 @@ slot[name=actions]::slotted(*) {
   }
 }
 
-.byu-header-inner {
+.byu-header {
   @include headerFonts();
 
   & > div > * {
@@ -46,112 +46,74 @@ slot[name=actions]::slotted(*) {
 
     .byu-header-user {
       button {
-        background-color: transparent;
-        position: relative;
+        @include headerUserButton();
 
         .icon {
-          width: 20px;
-          height: 20px;
-          font-size: 20px;
-          vertical-align: middle;
+          @include headerUserIcon();
         }
         .label {
-          font-family: $menuFont;
-          font-weight: 400;
-          font-size: 13px;
-          text-transform: uppercase;
+          @include headerUserLabel();
         }
       }
     }
 
     .byu-header-search {
       #search-input {
-        font-family: $menuFont;
-        font-weight: 400;
-        font-size: 13px;
-        color: $navy;
+        @include searchInput();
 
         &::-webkit-input-placeholder {
-          color: $searchPlaceholderColor;
-          opacity: 1;
+          @include searchWebkitPlaceholder();
         }
         &::-ms-input-placeholder {
-          color: $searchPlaceholderColor;
-          opacity: 1;
+          @include searchMicrosoftPlaceholder();
         }
         &::-moz-placeholder {
-          color: $searchPlaceholderColor;
-          opacity: 1;
+          @include searchMozillaPlaceholder();
         }
       }
     }
 
     .byu-logo {
-      height: 48px;
-      width: 92px;
+      @include byuLogo();
     }
   }
 
   #mobileMenu {
-    overflow: hidden;
+    @include mobileMenu();
   }
+}
 
   /* FULL SIZE */
 
   :host(:not([mobile-view])) {
-    .byu-header-inner {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+    .byu-header {
+      @include headerNotMobile();
 
       &.no-nav {
-        height: 48px;
+        @include headerNotMobileNoNav();
       }
 
       .nav-expand {
-        display: none;
+        @include headerNotMobileNavExpand();
       }
 
       .byu-header-secondary {
-        background-color: $navy;
-        color: #ffffff;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        height: $headerHeight;
+        @include headerSecondaryNotMobile();
 
         .byu-header-search {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          justify-content: space-between;
-          align-items: center;
+          @include searchNotMobile();
 
           input {
-            border: 1px solid $navy;
-            border-right: none;
-            height: 20px;
-            padding: 4px 6px;
-            flex: 1;
-            width: 217px;
-            box-sizing: content-box;
+            @include searchInputNotMobile();
           }
           button {
-            height: 28px;
-            width: 30px;
-            text-align: center;
+            @include searchButtonNotMobile();
           }
         }
 
         .byu-header-menu-button {
-          display: none;
+          @include headerMenuButtonNotMobile();
         }
       }
     }
   }
-
-}
