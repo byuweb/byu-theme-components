@@ -665,8 +665,6 @@
                     var input = getInputElement(this, true);
                     if (input) input.addEventListener('input', inputHandler);
 
-                    this.shadowRoot.querySelector('form').addEventListener('submit', formSubmitHandler);
-
                     if (this.hasAttribute('value')) this.value = this.getAttribute('value');
                 }
             }, {
@@ -674,23 +672,23 @@
                 value: function disconnectedCallback() {
                     var input = getInputElement(this, true);
                     if (input) input.removeEventListener('input', inputHandler);
-
-                    this.shadowRoot.querySelector('form').removeEventListener('submit', formSubmitHandler);
                 }
             }, {
                 key: 'search',
                 value: function search() {
                     if (this.hasAttribute('onsearch')) evalInContext.call(this, this.getAttribute('onsearch'));
 
-                    if (this.hasAttribute('action')) {
-                        var form = this.shadowRoot.querySelector('form');
-                        var value = this.value;
-                        var action = this.getAttribute('action').toString().replace(/\$1/g, value);
-                        form.setAttribute('action', action);
-                        form.setAttribute('method', this.hasAttribute('method') ? this.getAttribute('method') : 'GET');
-                        if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
-                        form.submit();
-                    }
+                    // if (this.hasAttribute('action')) {
+                    //     var form = this.shadowRoot.querySelector('form');
+                    //     var value = this.value;
+                    //     var action = this.getAttribute('action').toString().replace(/\$1/g, value);
+                    //     form.setAttribute('action', action);
+                    //     form.setAttribute('method', this.hasAttribute('method')
+                    //         ? this.getAttribute('method')
+                    //         : 'GET');
+                    //     if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
+                    //     form.submit();
+                    // }
                 }
             }, {
                 key: 'value',
@@ -726,15 +724,19 @@
         }
 
         function getParentComponent(el) {
-            while (!(el instanceof ByuSearch)) {
+            console.log(el.tagName);
+            console.log(el.parentNode);
+            while (!(el.tagName === 'byu-search')) {
                 el = el.host ? el.host : el.parentNode;
             }return el;
         }
 
         function inputHandler(e) {
             var el = e.target;
-            var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
-            component.value = e.target.value;
+            if (el) {
+                var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
+                component.value = e.target.value;
+            }
         }
 
         function formSubmitHandler(e) {
@@ -1077,7 +1079,7 @@
 
 
         // module
-        exports.push([module.i, ":host{background-color:#767676;font-family:Vitesse A,Vitesse B,Georgia,serif;font-size:20px!important;color:#fff;text-align:center;line-height:2.2em;height:45px;width:auto;min-width:125px;margin:10px 0 20px;-webkit-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);-moz-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);box-shadow:0 3px 5px 0 rgba(0,0,0,.35)}::slotted(*),:host{display:inline-block}::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:400!important;color:#fff!important;position:relative;height:100%;width:100%;margin:0 20px;left:-20px;cursor:pointer;vertical-align:middle!important}::slotted(a){text-decoration:none!important}", ""]);
+        exports.push([module.i, ":host{background-color:#767676;font-family:Vitesse A,Vitesse B,Georgia,serif;font-size:20px!important;color:#fff;display:inline-block;text-align:center;line-height:2.2em;height:45px;width:auto;min-width:125px;margin:10px 0 20px;-webkit-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);-moz-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);box-shadow:0 3px 5px 0 rgba(0,0,0,.35)}::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:400!important;color:#fff!important;display:inline-block!important;position:relative!important;height:100%!important;width:100%!important;margin:0 20px!important;left:-20px!important;cursor:pointer!important;vertical-align:middle!important}::slotted(a){text-decoration:none!important}", ""]);
 
         // exports
 
@@ -1152,7 +1154,7 @@
 
 
         // module
-        exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;padding-left:10px;padding-right:10px}form{display:flex;align-items:stretch;align-content:center}form #search-container{flex:1}::slotted(input),form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) ::slotted(input),:host(.mobile-view) form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none;width:100%;height:35px}", ""]);
+        exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;padding-left:10px;padding-right:10px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container input,::slotted(input){padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container input,:host(.mobile-view) ::slotted(input){padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none;width:100%;height:35px}", ""]);
 
         // exports
 
@@ -1401,7 +1403,7 @@
     /* 26 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(15) + "</style> <form> <div id=\"search-container\"> <slot id=\"search\" name=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"submit-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(32) + "\" alt=\"Run Search\"> </button> </form>";
+        module.exports = "<style>" + __webpack_require__(15) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"submit-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(32) + "\" alt=\"Run Search\"> </button> </div>";
 
         /***/
     },
