@@ -1,5 +1,3 @@
-//@import "../shared-styles/colors.scss";
-//@import "../shared-styles/settings.scss";
 @import "./mixins.scss";
 
 byu-footer {
@@ -24,22 +22,7 @@ byu-footer:after {
   top: 200px;
 }
 
-//.inner-wrapper {
-//  @include footerInnerWrapper();
-//}
 
-//.university-logo {
-//  @include universityLogo();
-//}
-
-//.secondary-footer {
-//  @include secondaryFooter();
-//}
-
-//.secondary-footer byu-footer-column {
-//  @include secondaryFooterSlotted();
-//}
-//
 //@media (max-width: 767px) {
 //  .secondary-footer byu-footer-column {
 //    @include secondaryFooterMobile();
@@ -65,11 +48,5 @@ byu-footer:after {
 //
 //  .secondary-footer byu-footer-column:nth-child(-n+2) {
 //    @include secondaryFooterTabletTopColumns();
-//  }
-//}
-//
-//@media (min-width: 1200px) {
-//  .secondary-footer byu-footer-column {
-//    @include secondaryFooterDesktop();
 //  }
 //}

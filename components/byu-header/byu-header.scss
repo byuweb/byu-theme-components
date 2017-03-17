@@ -101,33 +101,3 @@ byu-header:not(:defined) > [slot="site-title"]:before {
 //#mobileMenu {
 //  @include mobileMenu();
 //}
-//
-///* FULL SIZE */
-//
-//:host(:not([mobile-view])) {
-//  .byu-header {
-//    @include headerNotMobile();
-//    &.no-nav {
-//      @include headerNotMobileNoNav();
-//    }
-//    .nav-expand {
-//      @include headerNotMobileNavExpand();
-//    }
-//    .byu-header-secondary {
-//      @include headerSecondaryNotMobile();
-//      .byu-header-search {
-//        @include searchNotMobile();
-//        input {
-//          @include searchInputNotMobile();
-//        }
-//        button {
-//          @include searchButtonNotMobile();
-//        }
-//      }
-//      .byu-header-menu-button {
-//        @include headerMenuButtonNotMobile();
-//      }
-//    }
-//  }
-//}
-

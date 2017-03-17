@@ -1,17 +1,8 @@
-@import "../shared-styles/colors.scss";
-@import "../shared-styles/settings.scss";
 @import "./mixins.scss";
 
 byu-footer-action-button {
     @include footerActionButton();
 }
-
-// Use this to change how the button looks when active
-// :host(:active) {
-//     -webkit-box-shadow: none;
-//     -moz-box-shadow: none;
-//     box-shadow: none;
-// }
 
 byu-footer-action-button > * {
     @include footerActionButtonSlotted();

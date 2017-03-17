@@ -1,4 +1,3 @@
-@import "../shared-styles/colors.scss";
 @import "./mixins.scss";
 
 
@@ -20,29 +19,7 @@ byu-search:not(:defined):after {
   float: right;
 
 }
-//
-//#search-icon {
-//  @include searchIcon();
-//}
-//
-//button {
-//  @include searchButton();
-//}
-//
-//form {
-//  @include searchForm();
-//}
-//
-//form #search-container {
-//  @include searchContainer();
-//}
-//
-////styling won't work because it's reaching in multiple levels
-//form #search-container input,
-//byu-search input {
-//  @include searchContainerInput();
-//}
-//
+
 //byu-search.mobile-view {
 //  @include searchMobile();
 //

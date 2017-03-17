@@ -27,6 +27,18 @@
         </byu-menu>
         <a href="#" slot="actions">Action</a>
 
+        <byu-user-info slot="user">
+            <a slot="login" href="#">Sign In</a>
+            <!-- if you are using CAS, use the CAS sign out link instead: -->
+            <!--      <a slot="logout" href="/caslogout">Sign Out</a>-->
+            <a slot="logout" href="#">Sign Out</a>
+            <?php if($logged_in): ?>
+            <span slot="user-name">
+             username
+           </span>
+            <?php endif; ?>
+        </byu-user-info>
+
         <byu-search slot="search"></byu-search>
     </byu-header>
     <h1>Header Demo</h1>
@@ -171,9 +183,28 @@
             </template>
         </demo-snippet>
     </div>
-    <footer>
-        <byu-footer></byu-footer>
-    </footer>
+
+    <byu-footer>
+        <byu-footer-column slot="col1">
+            <span slot="header">Contact Us</span>
+            <div>Hello</div>
+            <div>People</div>
+            <div>BYU Rules</div>
+        </byu-footer-column>
+        <byu-footer-column>
+            <span slot="header">Resources</span>
+            <div>Hello</div>
+            <div>People</div>
+            <div>BYU Rules</div>
+        </byu-footer-column>
+        <byu-footer-column>
+            <span slot="header">Links</span>
+            <a href="#">Fancy Link</a>
+            <div>People</div>
+            <div>BYU Rules</div>
+        </byu-footer-column>
+    </byu-footer>
+
 </body>
 
 </html>
