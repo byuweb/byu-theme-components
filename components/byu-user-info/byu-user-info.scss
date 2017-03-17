@@ -1,16 +1,9 @@
 @import "./mixins.scss";
 
-//img {
-//  @include userInfoImages();
-//}
 
 byu-user-info:not(:defined) > * {
   @include userInfoSlotted();
 }
-//
-//.has-user, .no-user {
-//  @include userPresent();
-//}
 
 /* NON MOBILE */
 byu-user-info:not(:defined):not([mobile-view]) {
@@ -54,17 +47,5 @@ byu-user-info:not(:defined):not([mobile-view]) {
 //
 //  & > * {
 //    @include mobileSlotted();
-//  }
-//}
-//
-//byu-user-info:not(:defined):not([has-user]) {
-//  .has-user {
-//    @include notHasUserMobile();
-//  }
-//}
-//
-//byu-user-info:not(:defined)[has-user] {
-//  .no-user {
-//    @include noUserMobile();
 //  }
 //}

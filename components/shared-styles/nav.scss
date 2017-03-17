@@ -24,8 +24,7 @@
 @mixin dropdownNavItem() {
   @include navItem();
   display: block;
-  width: 100%;
-
+  //width: 100%;
   box-sizing: border-box;
   padding: 18px 30px !important;
   line-height: 12px;

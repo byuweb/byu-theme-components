@@ -27,6 +27,18 @@
         </byu-menu>
         <a href="#" slot="actions">Action</a>
 
+        <byu-user-info slot="user">
+            <a slot="login" href="#">Sign In</a>
+            <!-- if you are using CAS, use the CAS sign out link instead: -->
+            <!--      <a slot="logout" href="/caslogout">Sign Out</a>-->
+            <a slot="logout" href="#">Sign Out</a>
+            <?php if($logged_in): ?>
+            <span slot="user-name">
+             username
+           </span>
+            <?php endif; ?>
+        </byu-user-info>
+
         <byu-search slot="search"></byu-search>
     </byu-header>
     <h1>Header Demo</h1>
