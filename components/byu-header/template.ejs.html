@@ -5,45 +5,45 @@
 <div id="header" class="byu-header">
 
     <div class="byu-header-primary">
-        <img class="byu-logo" alt="BYU" src="<%- require('./byu-logo.svg') %>"/>
+        <img class="byu-logo" alt="BYU" src="<%- require('./byu-logo.svg') %>" />
 
         <div class="byu-header-title">
-            <slot id="title" name="site-title"></slot>
+            <slot id="site-title" name="site-title"></slot>
         </div>
         <% if (locals.mobile) { %>
-        <!--<button type="button" class="mobile-menu-button" aria-label="Open or close menu">-->
+            <!--<button type="button" class="mobile-menu-button" aria-label="Open or close menu">-->
             <!--<img style="width: 1em; height: 1em;" src="<%- require('./menu-bars.svg') %>" alt="Menu">-->
-         <!--</button>-->
-        <button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">
+            <!--</button>-->
+            <button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">
             <span class="tcon-menu__lines" aria-hidden="true"></span>
             <span class="tcon-visuallyhidden">toggle menu</span>
         </button>
-        <% } -%>
+            <% } -%>
     </div>
 
     <div id="secondary" class="byu-header-secondary">
         <% if (!locals.mobile) { %>
-        <div class="byu-header-actions">
-            <slot id="actions" name="actions"></slot>
-        </div>
-        <div class="byu-header-user">
-            <slot id="user" name="user"></slot>
-        </div>
-        <% } -%>
-        <div class="byu-header-search">
-            <slot id="search" name="search"></slot>
-        </div>
+            <div class="byu-header-actions">
+                <slot id="actions" name="actions"></slot>
+            </div>
+            <div class="byu-header-user">
+                <slot id="user" name="user"></slot>
+            </div>
+            <% } -%>
+                <div class="byu-header-search">
+                    <slot id="search" name="search"></slot>
+                </div>
 
     </div>
 
     <% if (locals.mobile) { -%>
-    <div id="mobileMenu">
-        <slot id="signin" name="user"></slot>
-        <slot id="navbarMenu" name="nav"></slot>
-        <slot id="actions" name="actions"></slot>
-    </div>
-    <% } else { -%>
-    <slot id="navbarMenu" name="nav"></slot>
-    <% } -%>
+        <div id="mobileMenu">
+            <slot id="signin" name="user"></slot>
+            <slot id="navbarMenu" name="nav"></slot>
+            <slot id="actions" name="actions"></slot>
+        </div>
+        <% } else { -%>
+            <slot id="navbarMenu" name="nav"></slot>
+            <% } -%>
 
 </div>

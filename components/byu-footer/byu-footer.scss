@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "./mixins.scss";
 
 byu-footer {
@@ -49,4 +50,57 @@ byu-footer:after {
 //  .secondary-footer byu-footer-column:nth-child(-n+2) {
 //    @include secondaryFooterTabletTopColumns();
 //  }
+=======
+@import "./mixins.scss";
+
+byu-footer {
+  background: $lightgray;
+  min-height: 200px;
+  display: flex;
+  width: 100%;
+}
+
+byu-footer:after {
+  @include blueFooter();
+  content: "BRIGHAM YOUNG UNIVERSITY";
+  //background: $navy;
+  //color: white;
+  //width: 100%;
+  //height: 80px;
+  display: flex;
+  //font-size: 20px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 200px;
+}
+
+
+//@media (max-width: 767px) {
+//  .secondary-footer byu-footer-column {
+//    @include secondaryFooterMobile();
+//  }
+//
+//  .secondary-footer byu-footer-column:last-child {
+//    @include secondaryFooterMobileLast();
+//  }
+//
+//  .secondary-footer byu-footer-column:first-child {
+//    @include secondaryFooterMobileFirst();
+//  }
+//}
+//
+//@media (min-width: 768px) and (max-width: 1199px) {
+//  .secondary-footer byu-footer-column {
+//    @include secondaryFooterTablet();
+//  }
+//
+//  .secondary-footer byu-footer-column:nth-child(n+3) {
+//    @include secondaryFooterTabletBottomColumns();
+//  }
+//
+//  .secondary-footer byu-footer-column:nth-child(-n+2) {
+//    @include secondaryFooterTabletTopColumns();
+//  }
+>>>>>>> refs/remotes/origin/master
 //}

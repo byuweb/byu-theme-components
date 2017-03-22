@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "../shared-styles/colors.scss";
 @import "../shared-styles/settings.scss";
 @import "../shared-styles/nav.scss";
@@ -104,4 +105,112 @@
 //    nav.outer-nav {
 //        display: none;
 //    }
+=======
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
+@import "../shared-styles/nav.scss";
+
+@mixin menuGeneral() {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+  // opacity used to be set here, but now it is an option.
+  border-bottom: 1px solid #ccc;
+}
+
+@mixin bgTransparent() {
+  //background: rgba(255,255,255,0.8);
+  opacity: 0.88;
+}
+@mixin outerNav() {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+
+
+@mixin innerNav() {
+  width: 100%;
+  display: table;
+}
+
+@mixin menuSlotted() {
+  display: table;
+  width: 16.66%;
+}
+
+@mixin includeNavItem() {
+  @include navItem(); //in shared-styles/nav.scss
+}
+
+@mixin menuNotMobileHover() {
+  background-color: $gray !important;
+}
+
+@mixin menuNotMobileSelected() {
+  background: $lightgray !important;
+}
+
+@mixin extraLinks() {
+  display: none;
+  cursor: pointer;
+}
+@mixin extraLinksDropdown() {
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 10;
+  min-width: 115px;
+  margin-top: 10px;
+  // display: block;
+}
+
+@mixin extraLinksDropdownUl() {
+  list-style-type: none;
+  padding: 0;
+}
+@mixin hoverExtraLinksDropdown() {
+  display: block;
+}
+@mixin hasExtraHoverExtraLinks() {
+  display: block;
+}
+@mixin hasExtraHoverExtraLinksDropdown() {
+  display: block;
+}
+
+@mixin outerNavMobile() {
+  flex-direction: column;
+}
+@mixin innerNavMobile() {
+  display: block;
+}
+@mixin menuSlot() {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin menuSlotted() {
+  @include dropdownNavItem(); //in shared-styles/nav.scss
+}
+
+
+//@media (min-width: 1024px) {
+//    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and
+//    stick them in a separate dropdown that gets hidden for mobile views */
+//    ::slotted(*:nth-child(n+7)) {
+//        display: none;
+//    }
+//}
+//
+//@media (max-width: 1023px) {
+//    nav.outer-nav {
+//        display: none;
+//    }
+>>>>>>> refs/remotes/origin/master
 //}

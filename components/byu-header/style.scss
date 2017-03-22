@@ -1,186 +1,118 @@
-/*Variables*/
-$header_height: 55px;
-$byu_blue: #002e5d;
-$title_font: "Vitesse A", "Vitesse B", Georgia, serif;
-$placeholder_color: #c5c5c5;
-$menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
-
-@import "../shared-styles/nav";
-@import "icons/transformicons.scss";
+@import "./mixins.scss";
 
 /* MOBILE */
 #mobileMenu {
-  max-height: 0;
-  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  @include mobileMenu();
 }
 
 slot[name=actions]::slotted(*) {
-  @include headerLink();
-  margin-left: 4px;
-  margin-right: 4px;
+  @include actions();
 }
 
 :host([mobile-view]) {
   slot[name=actions]::slotted(*) {
-    @include dropdownNavItem();
-    background-color: $placeholder_color;
+    @include actionsMobile();
+  }
+
+  & > div > :not(.byu-logo) {
+    @include headerInnerMarginMobile();
+  }
+  .byu-header > div > .byu-logo {
+    @include headerLogo();
   }
 }
 
 .byu-header {
-  font-family: "Vitesse Book";
-  font-size: 18px;
+  @include headerFonts();
 
   & > div > * {
-    margin-right: 16px;
+    @include headerInnerMargin();
   }
 
   button {
-    background-color: #767676;
-    color: #ffffff;
-    border: none;
-    //display: inline-block;
-    cursor: pointer;
+    @include headerButton();
 
     &.mobile-menu-button {
-      background-color: transparent;
-      font-size: 20px;
+      @include headerButtonMobile();
     }
   }
 
   .byu-header-primary {
-    background-color: $byu_blue;
-    color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 16px;
-    flex: 1;
-    height: $header_height;
-
-        .byu-header-title, #title::slotted(*) {
-            white-space: nowrap;
-            overflow: hidden;
-            -ms-text-overflow: ellipsis;
-            text-overflow: ellipsis;
-            flex: 1;
-            font-family: $title_font !important;
-            font-size: 22px;
-        color: #fff;
-            a {
-                color: #fff;
-            }}
+    @include headerPrimary();
+    .byu-header-title, #title::slotted(*) {
+      @include headerTitle();
     }
 
-  .byu-header-user {
-    button {
-      background-color: transparent;
-      position: relative;
+    .byu-header-user {
+      button {
+        @include headerUserButton();
 
-      .icon {
-        width: 20px;
-        height: 20px;
-        font-size: 20px;
-        vertical-align: middle;
-      }
-      .label {
-        font-family: $menu_font;
-        font-weight: 400;
-        font-size: 13px;
-        text-transform: uppercase;
-      }
-    }
-  }
-
-  .byu-header-search {
-    #search-input {
-      font-family: $menu_font;
-      font-weight: 400;
-      font-size: 13px;
-      color: $byu_blue;
-
-      &::-webkit-input-placeholder {
-        color: $placeholder_color;
-        opacity: 1;
-      }
-      &::-ms-input-placeholder {
-        color: $placeholder_color;
-        opacity: 1;
-      }
-      &::-moz-placeholder {
-        color: $placeholder_color;
-        opacity: 1;
-      }
-    }
-  }
-
-  .byu-logo {
-    height: 48px;
-    width: 92px;
-  }
-}
-
-#mobileMenu {
-  overflow: hidden;
-}
-
-/* FULL SIZE */
-
-:host(:not([mobile-view])) {
-  .byu-header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-
-    &.no-nav {
-      height: 48px;
-    }
-
-    .nav-expand {
-      display: none;
-    }
-
-    .byu-header-secondary {
-      background-color: $byu_blue;
-      color: #ffffff;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
-      align-items: center;
-      height: $header_height;
-
-      .byu-header-search {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-
-        input {
-          border: 1px solid $byu_blue;
-          border-right: none;
-          height: 20px;
-          padding: 4px 6px;
-          flex: 1;
-          width: 217px;
-          box-sizing: content-box;
+        .icon {
+          @include headerUserIcon();
         }
-        button {
-          height: 28px;
-          width: 30px;
-          text-align: center;
+        .label {
+          @include headerUserLabel();
         }
       }
+    }
 
-      .byu-header-menu-button {
-        display: none;
+    .byu-header-search {
+      #search-input {
+        @include searchInput();
+
+        &::-webkit-input-placeholder {
+          @include searchWebkitPlaceholder();
+        }
+        &::-ms-input-placeholder {
+          @include searchMicrosoftPlaceholder();
+        }
+        &::-moz-placeholder {
+          @include searchMozillaPlaceholder();
+        }
       }
     }
+
+    .byu-logo {
+      @include byuLogo();
+    }
+  }
+
+  #mobileMenu {
+    @include mobileMenuOverflow();
   }
 }
 
+  /* FULL SIZE */
+
+  :host(:not([mobile-view])) {
+    .byu-header {
+      @include headerNotMobile();
+
+      &.no-nav {
+        @include headerNotMobileNoNav();
+      }
+
+      .nav-expand {
+        @include headerNotMobileNavExpand();
+      }
+
+      .byu-header-secondary {
+        @include headerSecondaryNotMobile();
+
+        .byu-header-search {
+          @include searchNotMobile();
+
+          input {
+            @include searchInputNotMobile();
+          }
+          button {
+            @include searchButtonNotMobile();
+          }
+        }
+
+        .byu-header-menu-button {
+          @include headerMenuButtonNotMobile();
+        }
+      }
+    }
+  }
