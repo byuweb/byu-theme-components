@@ -25,12 +25,6 @@ slot[name=actions]::slotted(*) {
     @include dropdownNavItem();
     background-color: $placeholder_color;
   }
-  .byu-header>div> :not(.byu-logo) {
-    margin-right: 0;
-  }
-  .byu-header>div> .byu-logo {
-    margin-right: 8px;
-  }
 }
 
 .byu-header {
