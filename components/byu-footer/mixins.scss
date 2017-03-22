@@ -12,6 +12,14 @@
   display: table;
   width: 100%;
 }
+@mixin blueFooterLinks() {
+  text-decoration: none;
+  color: #fff;
+}
+@mixin blueFooterLinksHover() {
+  //text-decoration: none;
+  color: #fff;
+}
 
 @mixin footerInnerWrapper() {
   display: table-cell;

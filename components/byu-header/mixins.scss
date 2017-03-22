@@ -10,12 +10,14 @@
 }
 @mixin actions(){
   @include headerLink();
+  color: $navy;
   margin-left: 4px;
   margin-right: 4px;
 }
 @mixin actionsMobile() {
   @include dropdownNavItem();
   background-color: $gray;
+  border-top: 1px solid $medgray;
 }
 @mixin headerInnerMarginMobile() {
   margin-right: 0px;

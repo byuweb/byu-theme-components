@@ -66,13 +66,13 @@ byu-footer-action-button > * {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-weight: 400 !important;
   color: #fff !important;
-  display: inline-block;
-  position: relative;
-  height: 100%;
-  width: 100%;
-  margin: 0 20px;
-  left: -20px;
-  cursor: pointer;
+  display: inline-block !important;
+  position: relative !important;
+  height: 100% !important;
+  width: 100% !important;
+  margin: 0 20px !important;
+  left: -20px !important;
+  cursor: pointer !important;
   vertical-align: middle !important; }
 
 byu-footer-action-button a {

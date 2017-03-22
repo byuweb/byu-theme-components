@@ -2,6 +2,12 @@
 
 .blue-footer {
   @include blueFooter();
+  a {
+    @include blueFooterLinks();
+  }
+  a:hover {
+    @include blueFooterLinksHover();
+  }
 }
 
 .inner-wrapper {
