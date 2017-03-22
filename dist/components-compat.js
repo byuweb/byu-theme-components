@@ -1350,7 +1350,7 @@
             __append(__webpack_require__(13));
             __append('</style><div id="header" class="byu-header"><div class="byu-header-primary">\n<img class="byu-logo" alt="BYU" src="');
             __append(__webpack_require__(30));
-            __append('"><div class="byu-header-title">\n<slot id="title" name="title"></slot>\n</div>\n');
+            __append('"><div class="byu-header-title">\n<slot id="title" name="site-title"></slot>\n</div>\n');
             if (locals.mobile) {
                 __append('<!--<button type="button" class="mobile-menu-button" aria-label="Open or close menu">-->\n<!--<img style="width: 1em; height: 1em;" src="');
                 __append(__webpack_require__(31));
