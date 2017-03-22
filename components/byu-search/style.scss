@@ -20,7 +20,7 @@ form #search-container {
   @include searchContainer();
 }
 
-form #search-container input,
+#search-form #search-container input,
 ::slotted(input) {
   @include searchContainerInput();
 }
@@ -28,8 +28,9 @@ form #search-container input,
 :host(.mobile-view) {
   @include searchMobile();
 
-  form #search-container input,
+  #search-form #search-container input,
   ::slotted(input) {
     @include searchContainerInputMobile();
   }
+
 }

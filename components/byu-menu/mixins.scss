@@ -7,6 +7,7 @@
   width: 100%;
   height: auto;
   background: #fff;
+  // opacity used to be set here, but now it is an option.
   border-bottom: 1px solid #ccc;
 }
 
@@ -66,6 +67,12 @@
   padding: 0;
 }
 @mixin hoverExtraLinksDropdown() {
+  display: block;
+}
+@mixin hasExtraHoverExtraLinks() {
+  display: block;
+}
+@mixin hasExtraHoverExtraLinksDropdown() {
   display: block;
 }
 

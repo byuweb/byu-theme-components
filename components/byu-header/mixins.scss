@@ -20,6 +20,9 @@
 @mixin headerInnerMarginMobile() {
   margin-right: 0px;
 }
+@mixin headerLogo() {
+  margin-right: 8px;
+}
 
 @mixin headerFonts(){
   font-family: "Vitesse Book";
@@ -40,7 +43,7 @@
 
 @mixin headerButtonMobile() {
   background-color: transparent;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 @mixin headerPrimary() {
@@ -97,17 +100,17 @@
 }
 
 @mixin searchWebkitPlaceholder() {
-  color: $searchPlaceholderColor;
+  color: $gray;
   opacity: 1;
 }
 
 @mixin searchMicrosoftPlaceholder() {
-  color: $searchPlaceholderColor;
+  color: $gray;
   opacity: 1;
 }
 
 @mixin searchMozillaPlaceholder() {
-  color: $searchPlaceholderColor;
+  color: $gray;
   opacity: 1;
 }
 
@@ -116,7 +119,7 @@
   width: 92px;
 }
 
-@mixin mobileMenu() {
+@mixin mobileMenuOverflow() {
   overflow: hidden;
 }
 

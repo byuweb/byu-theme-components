@@ -9,6 +9,7 @@
 
 @mixin userInfoSlotted() {
   @include headerLink();
+  cursor: initial !important;
 }
 
 @mixin userPresent() {
@@ -31,16 +32,17 @@
 }
 
 @mixin userInfoNotMobileImages() {
-    margin: 5px;
+    margin: 7px;
 }
 
 /* MOBILE */
 @mixin userInfoMobile() {
   @include dropdownNavItem;
   padding-left: 0 !important;
+  border-bottom: solid 1px $gray;
 }
 
-@mixin userInfoMobileDisplay() {
+@mixin userInfoMobileNotDisplay() {
     display: none;
 }
 
@@ -51,7 +53,7 @@
 
 @mixin hasUserImage() {
   order: 1;
-  margin: 5px;
+  margin: 7px;
 }
 
 @mixin hasUserLogout() {

@@ -13,8 +13,11 @@ slot[name=actions]::slotted(*) {
   slot[name=actions]::slotted(*) {
     @include actionsMobile();
   }
-  & > div > * {
+  & > div > :not(.byu-logo) {
     @include headerInnerMarginMobile();
+  }
+  .byu-header > div > .byu-logo {
+    @include headerLogo();
   }
 }
 
@@ -74,7 +77,7 @@ slot[name=actions]::slotted(*) {
   }
 
   #mobileMenu {
-    @include mobileMenu();
+    @include mobileMenuOverflow();
   }
 }
 

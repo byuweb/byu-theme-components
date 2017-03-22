@@ -47,10 +47,7 @@ class ByuSearch extends HTMLElement {
     connectedCallback() {
         var input = getInputElement(this, true);
         if (input) input.addEventListener('input', inputHandler);
-
-        this.shadowRoot.querySelector('form')
-            .addEventListener('submit', formSubmitHandler);
-
+        
         if (this.hasAttribute('value')) this.value = this.getAttribute('value');
     }
 
@@ -58,8 +55,6 @@ class ByuSearch extends HTMLElement {
         var input = getInputElement(this, true);
         if (input) input.removeEventListener('input', inputHandler);
 
-        this.shadowRoot.querySelector('form')
-            .removeEventListener('submit', formSubmitHandler);
     }
 
     get value() {
@@ -76,17 +71,17 @@ class ByuSearch extends HTMLElement {
     search() {
         if (this.hasAttribute('onsearch')) evalInContext.call(this, this.getAttribute('onsearch'));
 
-        if (this.hasAttribute('action')) {
-            var form = this.shadowRoot.querySelector('form');
-            var value = this.value;
-            var action = this.getAttribute('action').toString().replace(/\$1/g, value);
-            form.setAttribute('action', action);
-            form.setAttribute('method', this.hasAttribute('method')
-                ? this.getAttribute('method')
-                : 'GET');
-            if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
-            form.submit();
-        }
+        // if (this.hasAttribute('action')) {
+        //     var form = this.shadowRoot.querySelector('form');
+        //     var value = this.value;
+        //     var action = this.getAttribute('action').toString().replace(/\$1/g, value);
+        //     form.setAttribute('action', action);
+        //     form.setAttribute('method', this.hasAttribute('method')
+        //         ? this.getAttribute('method')
+        //         : 'GET');
+        //     if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
+        //     form.submit();
+        // }
     }
 
 }
@@ -109,14 +104,19 @@ function getInputElement(component, flatten) {
 }
 
 function getParentComponent(el) {
-    while (!(el instanceof ByuSearch)) el = el.host ? el.host : el.parentNode;
+    console.log(el.tagName);
+    console.log(el.parentNode);
+    while (!(el.tagName === 'byu-search')) el = el.host ? el.host : el.parentNode;
     return el;
 }
 
 function inputHandler(e) {
     var el = e.target;
-    var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
-    component.value = e.target.value;
+    if (el)
+    {
+        var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
+        component.value = e.target.value;
+    }
 }
 
 function formSubmitHandler(e) {

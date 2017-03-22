@@ -28,6 +28,7 @@
 }
 
 :host(:not(.mobile-view)) {
+
   .extra-links:hover, ::slotted(*:hover) {
     @include menuNotMobileHover();
   }
@@ -52,6 +53,17 @@
 
   &:hover .extra-links-dropdown {
     @include hoverExtraLinksDropdown();
+  }
+}
+
+:host([has-extra-links] ) {
+  .extra-links {
+
+    @include hasExtraHoverExtraLinks();
+
+    .extra-links-dropdown {
+      @include hasExtraHoverExtraLinksDropdown();
+    } 
   }
 }
 

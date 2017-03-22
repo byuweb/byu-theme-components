@@ -16,9 +16,10 @@ img {
 :host(:not([mobile-view])) {
   @include userInfoNotMobile();
 
-  ::slotted(*) {
-    @include userInfoNotMobileSlotted();
-  }
+  // this was removed in master, leaving as a comment in case it is needed later
+  //::slotted(*) {
+  //  @include userInfoNotMobileSlotted();
+  //}
 
   .mobile {
     @include userInfoNotMobileDisplay();
@@ -34,7 +35,7 @@ img {
   @include userInfoMobile();
 
   .not-mobile {
-    @include userInfoMobileDisplay();
+    @include userInfoNotMobileDisplay();
   }
 
   .has-user {

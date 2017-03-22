@@ -314,7 +314,7 @@
         var ATTR_MOBILE_VIEW = 'mobile-view';
         var ATTR_MENU_OPEN = 'menu-open';
 
-        var DEFAULT_MOBILE_WIDTH = '640px';
+        var DEFAULT_MOBILE_WIDTH = '1024px';
 
         var BYUHeader = function (_HTMLElement4) {
             _inherits(BYUHeader, _HTMLElement4);
@@ -552,7 +552,7 @@
             _createClass(BYUMenu, [{
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    // this._maybeAddMoreMenu();
+                    this._maybeAddMoreMenu();
                     this._addSlotListeners();
                 }
             }, {
@@ -572,8 +572,8 @@
                         var dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
                         for (var i = 0; i < extras.length; i++) {
                             var listItem = document.createElement("li");
-                            // listItem.appendChild(allLinks[i]);
-                            listItem.appendChild(allLinks[i].cloneNode());
+                            //listItem.appendChild(extras[i]);
+                            listItem.appendChild(extras[i].cloneNode());
                             dropdown.appendChild(listItem);
                         }
                     } else {
@@ -665,8 +665,6 @@
                     var input = getInputElement(this, true);
                     if (input) input.addEventListener('input', inputHandler);
 
-                    this.shadowRoot.querySelector('form').addEventListener('submit', formSubmitHandler);
-
                     if (this.hasAttribute('value')) this.value = this.getAttribute('value');
                 }
             }, {
@@ -674,23 +672,23 @@
                 value: function disconnectedCallback() {
                     var input = getInputElement(this, true);
                     if (input) input.removeEventListener('input', inputHandler);
-
-                    this.shadowRoot.querySelector('form').removeEventListener('submit', formSubmitHandler);
                 }
             }, {
                 key: 'search',
                 value: function search() {
                     if (this.hasAttribute('onsearch')) evalInContext.call(this, this.getAttribute('onsearch'));
 
-                    if (this.hasAttribute('action')) {
-                        var form = this.shadowRoot.querySelector('form');
-                        var value = this.value;
-                        var action = this.getAttribute('action').toString().replace(/\$1/g, value);
-                        form.setAttribute('action', action);
-                        form.setAttribute('method', this.hasAttribute('method') ? this.getAttribute('method') : 'GET');
-                        if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
-                        form.submit();
-                    }
+                    // if (this.hasAttribute('action')) {
+                    //     var form = this.shadowRoot.querySelector('form');
+                    //     var value = this.value;
+                    //     var action = this.getAttribute('action').toString().replace(/\$1/g, value);
+                    //     form.setAttribute('action', action);
+                    //     form.setAttribute('method', this.hasAttribute('method')
+                    //         ? this.getAttribute('method')
+                    //         : 'GET');
+                    //     if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
+                    //     form.submit();
+                    // }
                 }
             }, {
                 key: 'value',
@@ -726,15 +724,19 @@
         }
 
         function getParentComponent(el) {
-            while (!(el instanceof ByuSearch)) {
+            console.log(el.tagName);
+            console.log(el.parentNode);
+            while (!(el.tagName === 'byu-search')) {
                 el = el.host ? el.host : el.parentNode;
             }return el;
         }
 
         function inputHandler(e) {
             var el = e.target;
-            var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
-            component.value = e.target.value;
+            if (el) {
+                var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
+                component.value = e.target.value;
+            }
         }
 
         function formSubmitHandler(e) {
@@ -814,82 +816,55 @@
 
                 var shadowRoot = _this11.attachShadow({ mode: 'open' });
                 shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
-                // //Hack to make sure that the proper login URL gets set in our template.
-                // this.loginUrl = this.loginUrl;
                 return _this11;
             }
-
-            // set loginUrl(value) {
-            //     let link = this.shadowRoot.querySelector('.link');
-            //
-            //     if (value) {
-            //         this.setAttribute('login-url', value);
-            //         if (link) {
-            //             link.setAttribute('href', value);
-            //         }
-            //     } else {
-            //         this.removeAttribute('login-url');
-            //         if (link) {
-            //             link.removeAttribute('href');
-            //         }
-            //     }
-            // }
-            //
-            // get loginUrl() {
-            //     return this.getAttribute('login-url');
-            // }
 
             _createClass(ByuUserInfo, [{
                 key: 'attributeChangedCallback',
                 value: function attributeChangedCallback(attr, oldval, newval) {
-                    switch (attr) {
-                        case 'login-url':
-                            this.loginUrl = newval;
-                            break;
-                    }
+                    // switch (attr) {
+                    //     case 'login-url':
+                    //         this.loginUrl = newval;
+                    //         break;
+                    // }
                 }
             }, {
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    // this._addSlotListeners();
-                    // this._addAriaAttributes();
+                    this._addSlotListeners();
+                    this._addAriaAttributes();
                 }
             }, {
                 key: '_addSlotListeners',
                 value: function _addSlotListeners() {
                     var _this12 = this;
 
-                    this._setUrlFromLightDom();
-                    var slot = this.shadowRoot.querySelector('#delegate');
-                    slot.addEventListener('slotchange', function (e) {
-                        _this12._setUrlFromLightDom();
+                    this._setHasUser();
+                    var userSlot = this.shadowRoot.querySelector('#user-name');
+                    userSlot.addEventListener('slotchange', function (e) {
+                        _this12._setHasUser();
                     });
+                }
+            }, {
+                key: '_setHasUser',
+                value: function _setHasUser() {
+                    var userSlot = this.shadowRoot.querySelector('#user-name');
+                    if (userSlot.assignedNodes().length > 0) {
+                        this.setAttribute('has-user', '');
+                        console.log('here');
+                    } else {
+                        this.removeAttribute('has-user');
+                    }
                 }
             }, {
                 key: '_addAriaAttributes',
                 value: function _addAriaAttributes() {
                     this.setAttribute('role', 'button');
                 }
-            }, {
-                key: '_setUrlFromLightDom',
-                value: function _setUrlFromLightDom() {
-                    var slot = this.shadowRoot.querySelector('#delegate');
-                    var nodes = slot.assignedNodes().filter(function (node) {
-                        return node instanceof HTMLAnchorElement;
-                    });
-                    if (!nodes.length) {
-                        return;
-                    }
-                    var link = nodes[0];
-                    if (link.href) {
-                        console.log('setting login url from', link);
-                        this.loginUrl = link.href;
-                    }
-                }
             }], [{
                 key: 'observedAttributes',
                 get: function get() {
-                    return ['login-url'];
+                    // return ['login-url'];
                 }
             }]);
 
@@ -1149,7 +1124,7 @@
 
 
         // module
-        exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:1.5em;transition:.15s;user-select:none;width:1.5em;background:transparent;outline:none;-webkit-tap-highlight-color:transparent}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:1.5em;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;height:.21429em;border-radius:.10714em;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:1.5em;content:\"\";position:absolute;left:0;transform-origin:.10714em center;width:100%}.tcon-menu__lines:before{top:.375em}.tcon-menu__lines:after{top:-.375em}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:1.5em}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}#mobileMenu{overflow:hidden}slot[name=actions]::slotted(*){color:#fff!important;margin-left:4px;margin-right:4px}:host([mobile-view]) slot[name=actions]::slotted(*),slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;cursor:pointer!important}:host([mobile-view]) slot[name=actions]::slotted(*){color:#fff!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5}:host([mobile-view])>div>*{margin-right:0}.byu-header{font-family:Vitesse Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header button.mobile-menu-button{background-color:transparent;font-size:18px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important}.byu-header .byu-header-primary #title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:48px;width:92px}.byu-header #mobileMenu{overflow:hidden}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
+        exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:1.5em;transition:.15s;user-select:none;width:1.5em;background:transparent;outline:none;-webkit-tap-highlight-color:transparent}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:1.5em;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;height:.21429em;border-radius:.10714em;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:1.5em;content:\"\";position:absolute;left:0;transform-origin:.10714em center;width:100%}.tcon-menu__lines:before{top:.375em}.tcon-menu__lines:after{top:-.375em}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:1.5em}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1)}slot[name=actions]::slotted(*){color:#fff!important;margin-left:4px;margin-right:4px}:host([mobile-view]) slot[name=actions]::slotted(*),slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;cursor:pointer!important}:host([mobile-view]) slot[name=actions]::slotted(*){color:#fff!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header>div>.byu-logo{margin-right:8px}.byu-header{font-family:Vitesse Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header button.mobile-menu-button{background-color:transparent;font-size:20px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important}.byu-header .byu-header-primary #title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:48px;width:92px}.byu-header #mobileMenu{overflow:hidden}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
 
         // exports
 
@@ -1164,7 +1139,7 @@
 
 
         // module
-        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}::slotted(*){height:35px!important;display:table-cell;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important}.extra-links,::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;vertical-align:middle!important}.extra-links,::slotted(*){height:35px!important;display:table-cell;text-align:center!important;padding:0 6px!important}:host(:not(.mobile-view)) .extra-links:hover,:host(:not(.mobile-view)) ::slotted(:hover){background-color:#c5c5c5!important}:host(:not(.mobile-view)) ::slotted(.selected){background:#e5e5e5!important}.extra-links,.extra-links .extra-links-dropdown{display:none;cursor:pointer}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown{display:block}:host(.mobile-view) .outer-nav{flex-direction:column}:host(.mobile-view) .inner-nav{display:block}:host(.mobile-view) #menu-slot{display:flex;flex-direction:column}:host(.mobile-view) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important}", ""]);
+        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}::slotted(*){height:35px!important;display:table-cell;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important}.extra-links,::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;vertical-align:middle!important}.extra-links,::slotted(*){height:35px!important;display:table-cell;text-align:center!important;padding:0 6px!important}:host(:not(.mobile-view)) .extra-links:hover,:host(:not(.mobile-view)) ::slotted(:hover){background-color:#c5c5c5!important}:host(:not(.mobile-view)) ::slotted(.selected){background:#e5e5e5!important}.extra-links,.extra-links .extra-links-dropdown{display:none;cursor:pointer}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown,:host([has-extra-links]) .extra-links,:host([has-extra-links]) .extra-links .extra-links-dropdown{display:block}:host(.mobile-view) .outer-nav{flex-direction:column}:host(.mobile-view) .inner-nav{display:block}:host(.mobile-view) #menu-slot{display:flex;flex-direction:column}:host(.mobile-view) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important}", ""]);
 
         // exports
 
@@ -1179,7 +1154,7 @@
 
 
         // module
-        exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;justify-content:center;align-items:center}button,form{display:flex}form{align-items:stretch;align-content:center}form #search-container{flex:1}::slotted(input),form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) ::slotted(input),:host(.mobile-view) form #search-container input{padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none;width:100%;height:35px}", ""]);
+        exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;justify-content:center;align-items:center}button,form{display:flex}form{align-items:stretch;align-content:center}form #search-container{flex:1}#search-form #search-container input,::slotted(input){padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container input,:host(.mobile-view) ::slotted(input){padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none;width:100%;height:35px}", ""]);
 
         // exports
 
@@ -1209,7 +1184,7 @@
 
 
         // module
-        exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) img{margin:5px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 30px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:5px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
+        exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
 
         // exports
 
@@ -1400,49 +1375,49 @@
     /* 22 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(10) + "\n</style>\n<slot name=\"actiontext\"></slot>";
+        module.exports = "<style>" + __webpack_require__(10) + "</style> <slot name=\"actiontext\"></slot>";
 
         /***/
     },
     /* 23 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(11) + "\n</style>\n<link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\">\n<h2 class=\"header\">\n    <slot name=\"header\"></slot>\n</h2>\n<div class=\"content\">\n    <span style=\"display: none\">Joseph Modified This</span>\n    <slot id=\"defaultContent\"></slot>\n</div>";
+        module.exports = "<style>" + __webpack_require__(11) + "</style> <link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\"> <h2 class=\"header\"> <slot name=\"header\"></slot> </h2> <div class=\"content\"> <span style=\"display: none\">Joseph Modified This</span> <slot id=\"defaultContent\"></slot> </div>";
 
         /***/
     },
     /* 24 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(12) + "\n</style>\n<div class=\"secondary-footer\">\n    <slot class=\"column\" name=\"col1\"></slot>\n    <slot class=\"column\" name=\"col2\"></slot>\n    <slot class=\"column\" name=\"col3\"></slot>\n    <slot class=\"column\" name=\"col4\"></slot>\n</div>\n<div class=\"blue-footer\">\n    <div class=\"inner-wrapper\">\n        <img src=\"" + __webpack_require__(29) + "\"\n             alt=\"Brigham Young University\"\n            class=\"university-logo\">\n        <div class=\"copyright-contact\">&copy;\n            <span id=\"currentYear\"></span> All Rights Reserved | Provo, UT 84602, USA | 801.422.4636</div>\n    </div>\n</div>";
+        module.exports = "<style>" + __webpack_require__(12) + "</style> <div class=\"secondary-footer\"> <slot id=\"slot\"> </slot> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper\"> <a href=\"https://home.byu.edu/home/\" target=\"_blank\"><img src=\"" + __webpack_require__(29) + "\" alt=\"Brigham Young University\" class=\"university-logo\"></a> <div class=\"copyright-contact\">&copy; <span id=\"currentYear\"></span> All Rights Reserved | Provo, UT 84602, USA | <a href=\"tel:18014224636\">801.422.4636</a></div> </div> </div>";
 
         /***/
     },
     /* 25 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(14) + "\n</style>\n<link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\" />\n\n<nav class=\"outer-nav\">\n    <div class=\"inner-nav\">\n        <slot id=\"menu-slot\"></slot>\n        <div class=\"extra-links\" id=\"extraLinks\">\n            More\n            <div class=\"extra-links-dropdown\">\n                <ul id=\"extraLinksDropdown\"></ul>\n            </div>\n        </div>\n    </div>\n</nav>\n<div id=\"stylePlaceHolder\"></div>";
+        module.exports = "<style>" + __webpack_require__(14) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav\"> <div class=\"inner-nav\"> <slot id=\"menu-slot\"></slot> <div class=\"extra-links\" id=\"extraLinks\"> More <div class=\"extra-links-dropdown\"> <ul id=\"extraLinksDropdown\"></ul> </div> </div> </div> </nav> <div id=\"stylePlaceHolder\"></div>";
 
         /***/
     },
     /* 26 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<!--\n  ~  @license\n  ~    Copyright 2016 Brigham Young University\n  ~\n  ~    Licensed under the Apache License, Version 2.0 (the \"License\");\n  ~    you may not use this file except in compliance with the License.\n  ~    You may obtain a copy of the License at\n  ~\n  ~        http://www.apache.org/licenses/LICENSE-2.0\n  ~\n  ~    Unless required by applicable law or agreed to in writing, software\n  ~    distributed under the License is distributed on an \"AS IS\" BASIS,\n  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n  ~    See the License for the specific language governing permissions and\n  ~    limitations under the License.\n  -->\n\n<style>\n  " + __webpack_require__(15) + "\n</style>\n\n<form>\n  <div id='search-container'>\n    <slot id='search' name='search'><input type=\"search\" placeholder=\"Search\"></slot>\n  </div>\n  <button id='submit-button' type='submit'>\n    <img id=\"search-icon\" src=\"" + __webpack_require__(32) + "\" alt=\"Run Search\">\n  </button>\n</form>";
+        module.exports = "<style>" + __webpack_require__(15) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"submit-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(32) + "\" alt=\"Run Search\"> </button> </div>";
 
         /***/
     },
     /* 27 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(16) + "\n</style>\n<slot id=\"facebook\" name=\"facebook\"></slot>\n<slot id=\"instagram\" name=\"instagram\"></slot>\n<slot id=\"twitter\" name=\"twitter\"></slot>\n<slot id=\"googleplus\" name=\"googleplus\"></slot>\n<slot id=\"linkedin\" name=\"linkedin\"></slot>\n<slot id=\"youtube\" name=\"youtube\"></slot>";
+        module.exports = "<style>" + __webpack_require__(16) + "</style> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"googleplus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot>";
 
         /***/
     },
     /* 28 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>\n    " + __webpack_require__(17) + "\n</style>\n\n<div class=\"no-user\">\n    <!--There are better ways to do this, but they require some work. This'll do for now.-->\n    <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\">\n    <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\">\n    <span class=\"text\">\n            <slot name=\"login\"></slot>\n        </span>\n</div>\n<div class=\"has-user\">\n    <span class=\"name\">\n        <slot name=\"user-name\"></slot>\n    </span>\n    <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\">\n    <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\">\n    <a class=\"logout\">\n        <slot name=\"logout\"></slot>\n    </a>\n</div>\n\n";
+        module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"no-user\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(36) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(35) + "\"> <span class=\"text\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(34) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(33) + "\"> <a class=\"logout\"> <slot name=\"logout\">Sign Out</slot> </a> </div>";
 
         /***/
     },
@@ -1534,4 +1509,4 @@
         /***/
     }]);
 })();
-//# sourceMappingURL=components.es5.js.map
+//# sourceMappingURL=components-compat.js.map
