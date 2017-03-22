@@ -1,0 +1,13 @@
+@import "./mixins.scss";
+
+byu-social-media-links:not(:defined) > a {
+    @include socialMediaLinks();
+}
+
+byu-social-media-links:not(:defined) > .fa {
+    @include socialMediaFa();
+}
+
+byu-social-media-links:not(:defined) > .fa:hover {
+    @include socialMediaFaHover();
+}

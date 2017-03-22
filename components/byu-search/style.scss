@@ -1,50 +1,36 @@
-$color-primary: #767676;
+@import "./mixins.scss";
 
 :host {
-  display: inline-block;
+  @include byuSearch();
 }
 
 #search-icon {
-  width: 1em;
-  height: 1em;
+  @include searchIcon();
 }
 
 button {
-  background-color: var(--byu-search-color, $color-primary);
-  border: 1px solid var(--byu-search-color, $color-primary);
-  color: #FFF;
-  padding-left: 10px;
-  padding-right: 10px;
+  @include searchButton();
 }
 
-#search-form {
-  display: flex;
-  align-items: stretch;
-  align-content: center;
+form {
+  @include searchForm();
 }
 
-#search-form #search-container {
-  flex: 1;
+form #search-container {
+  @include searchContainer();
 }
 
 #search-form #search-container input,
 ::slotted(input) {
-  padding: 5px 10px;
-  border: 1px solid var(--byu-search-color, $color-primary);
-  border-right: none;
+  @include searchContainerInput();
 }
 
 :host(.mobile-view) {
-  width: 100%;
-  height: 35px;
+  @include searchMobile();
 
   #search-form #search-container input,
   ::slotted(input) {
-    padding: 5px 10px;
-    border: 1px solid var(--byu-search-color, $color-primary);
-    border-right: none;
-    width: 100%;
-    height: 35px;
+    @include searchContainerInputMobile();
   }
 
 }

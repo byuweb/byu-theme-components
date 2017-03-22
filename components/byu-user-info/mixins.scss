@@ -1,0 +1,73 @@
+@import "../shared-styles/nav.scss";
+@import "../shared-styles/colors.scss";
+
+@mixin userInfoImages() {
+  height: 20px;
+  width: 20px;
+  margin: 5px;
+}
+
+@mixin userInfoSlotted() {
+  @include headerLink();
+  cursor: initial !important;
+}
+
+@mixin userPresent() {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* NON MOBILE */
+@mixin userInfoNotMobile() {
+  color: white;
+}
+
+@mixin userInfoNotMobileSlotted() {
+    @include headerLink();
+}
+
+@mixin userInfoNotMobileDisplay() {
+    display: none;
+}
+
+@mixin userInfoNotMobileImages() {
+    margin: 7px;
+}
+
+/* MOBILE */
+@mixin userInfoMobile() {
+  @include dropdownNavItem;
+  padding-left: 0 !important;
+  border-bottom: solid 1px $gray;
+}
+
+@mixin userInfoMobileNotDisplay() {
+    display: none;
+}
+
+@mixin hasUserName() {
+  order: 2;
+  flex: 1
+}
+
+@mixin hasUserImage() {
+  order: 1;
+  margin: 7px;
+}
+
+@mixin hasUserLogout() {
+  order: 3;
+}
+
+@mixin mobileSlotted() {
+  color: $navy !important;
+}
+
+@mixin notHasUserMobile() {
+    display: none;
+}
+
+@mixin noUserMobile() {
+  display: none;
+}

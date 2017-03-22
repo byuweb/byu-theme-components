@@ -1,0 +1,48 @@
+@import "../shared-styles/colors.scss";
+
+@mixin byuSearch() {
+  display: inline-block;
+}
+
+@mixin searchIcon() {
+  width: 1em;
+  height: 1em;
+}
+
+@mixin searchButton() {
+  background-color: var(--byu-search-color, $medgray);
+  border: 1px solid var(--byu-search-color, $medgray);
+  color: #FFF;
+  display: flex; // using flex rather than padding to center
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin searchForm() {
+  display: flex;
+  align-items: stretch;
+  align-content: center;
+}
+
+@mixin searchContainer() {
+  flex: 1;
+}
+
+@mixin searchContainerInput() {
+  padding: 5px 10px;
+  border: 1px solid var(--byu-search-color, $medgray);
+  border-right: none;
+}
+
+@mixin searchMobile() {
+  width: 100%;
+  height: 35px;
+}
+
+@mixin searchContainerInputMobile() {
+  padding: 5px 10px;
+  border: 1px solid var(--byu-search-color, $medgray);
+  border-right: none;
+  width: 100%;
+  height: 35px;
+}
