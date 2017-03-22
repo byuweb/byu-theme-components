@@ -1,0 +1,51 @@
+@import "./mixins.scss";
+
+
+byu-user-info:not(:defined) > * {
+  @include userInfoSlotted();
+}
+
+/* NON MOBILE */
+byu-user-info:not(:defined):not([mobile-view]) {
+  @include userInfoNotMobile();
+
+  & > * {
+    @include userInfoNotMobileSlotted();
+  }
+
+  .mobile {
+    @include userInfoNotMobileDisplay();
+  }
+
+  img {
+    @include userInfoNotMobileImages();
+  }
+}
+
+/* MOBILE */
+//byu-user-info:not(:defined)[mobile-view] {
+//  @include userInfoMobile();
+//
+//  .not-mobile {
+//    @include userInfoMobileDisplay();
+//  }
+//
+//  .has-user {
+//
+//    .name {
+//      @include hasUserName();
+//    }
+//
+//    img {
+//      @include hasUserImage();
+//    }
+//
+//    .logout {
+//      @include hasUserLogout();
+//    }
+//  }
+//
+//  & > * {
+//    @include mobileSlotted();
+//  }
+//}

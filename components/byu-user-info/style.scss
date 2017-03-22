@@ -1,82 +1,71 @@
-@import "../shared-styles/nav";
+@import "./mixins.scss";
 
 img {
-  height: 20px;
-  width: 20px;
-  margin: 7px;
+  @include userInfoImages();
 }
 
 ::slotted(*) {
-  @include headerLink();
-  cursor: initial !important;
+  @include userInfoSlotted();
 }
 
 .has-user, .no-user {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include userPresent();
 }
 
 /* NON MOBILE */
 :host(:not([mobile-view])) {
+  @include userInfoNotMobile();
 
-  color: white;
+  // this was removed in master, leaving as a comment in case it is needed later
+  //::slotted(*) {
+  //  @include userInfoNotMobileSlotted();
+  //}
 
   .mobile {
-    display: none;
+    @include userInfoNotMobileDisplay();
   }
 
   img {
-    margin: 7px;
+    @include userInfoNotMobileImages();
   }
 }
 
 /* MOBILE */
 :host([mobile-view]) {
-  @include dropdownNavItem;
-  padding-left: 0 !important;
-  border-bottom: solid 1px #c5c5c5;
+  @include userInfoMobile();
 
   .not-mobile {
-    display: none;
+    @include userInfoNotMobileDisplay();
   }
 
   .has-user {
 
     .name {
-      order: 2;
-      flex: 1
+      @include hasUserName();
     }
 
     img {
-      order: 1;
-      margin: 7px;
+      @include hasUserImage();
     }
 
     .logout {
-      order: 3;
+      @include hasUserLogout();
     }
   }
 
   ::slotted(*) {
-    color: $byu_blue !important;
+    @include mobileSlotted();
   }
 }
 
 :host(:not([has-user])) {
   .has-user {
-    display: none;
+    @include notHasUserMobile();
   }
 }
 
 :host([has-user]) {
   .no-user {
-    display: none;
+    @include noUserMobile();
   }
 }
-
-
-
-
-
-

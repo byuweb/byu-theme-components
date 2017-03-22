@@ -1,102 +1,89 @@
-@import "../shared-styles/nav";
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
+@import "../shared-styles/nav.scss";
+@import "./mixins.scss";
 
 :host {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: #ffffff;
-  opacity: 0.88;
-  border-bottom: 1px solid #ccc;
+  @include menuGeneral();
+}
+// transparent background option
+:host(.transparent) {
+    @include bgTransparent();
 }
 
 .outer-nav {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0;
+  @include outerNav();
 }
 
 .inner-nav {
-  width: 100%;
-  display: table;
+  @include innerNav();
 }
 
 ::slotted(*) {
-  display: table;
-  width: 16.66%;
+@include menuSlotted();
 }
 
 .extra-links, ::slotted(*) {
-  @include navItem();
+  @include includeNavItem();
 }
 
 :host(:not(.mobile-view)) {
 
   .extra-links:hover, ::slotted(*:hover) {
-    background-color: $hover_color !important;
+    @include menuNotMobileHover();
   }
 
   ::slotted(*.selected) {
-    background: $active_color !important;
+    @include menuNotMobileSelected();
   }
 }
 
 .extra-links {
-
-  display: none;
-  cursor: pointer;
+  @include extraLinks();
 
   .extra-links-dropdown {
-    display: none;
-    position: absolute;
-    background-color: white;
-    z-index: 10;
-    min-width: 115px;
-    margin-top: 10px;
+    @include extraLinks();
 
     // display: block;
 
     ul {
-      list-style-type: none;
-      padding: 0;
+      @include extraLinksDropdownUl();
     }
   }
 
   &:hover .extra-links-dropdown {
-    display: block;
+    @include hoverExtraLinksDropdown();
   }
 }
 
 :host([has-extra-links] ) {
   .extra-links {
 
-    display: block;
+    @include hasExtraHoverExtraLinks();
 
     .extra-links-dropdown {
-      display: block;
+      @include hasExtraHoverExtraLinksDropdown();
     } 
   }
 }
 
 :host(.mobile-view) {
   .outer-nav {
-    flex-direction: column;
+    @include outerNavMobile();
   }
   .inner-nav {
-    display: block;
+    @include innerNavMobile();
   }
-  #slot {
-    display: flex;
-    flex-direction: column;
+  #menu-slot {
+    @include menuSlot();
   }
 
   ::slotted(*) {
-    @include dropdownNavItem();
+    @include menuSlotted();
   }
 
 }
+
 
 
 //@media (min-width: 1024px) {

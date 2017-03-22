@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.6",
-    "byu-web-component-build": "^0.2.0",
+    "byu-web-component-build": "^0.2.1",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2"
   }

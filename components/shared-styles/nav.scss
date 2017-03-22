@@ -1,13 +1,10 @@
-$menu_height: 35px;
-$byu_blue: #002e5d;
-$hover_color: #c5c5c5;
-$active_color: #e6e6e6;
-$menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
+@import "colors.scss";
+@import "settings.scss";
 
 @mixin headerLink() {
   text-decoration: none !important;
   font-size: 13px!important;
-  font-family: $menu_font !important;
+  font-family: $menuFont !important;
   font-weight: 400!important;
   text-transform: uppercase!important;
   color: white !important;
@@ -15,9 +12,9 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 }
 
 @mixin navItem() {
-  @include headerLink();
-  color: $byu_blue !important;
-  height: 35px !important;
+  @include headerLink(); // where is this?
+  color: $navy !important;
+  height: $menuHeight !important;
   display: table-cell;
   vertical-align: middle !important;
   text-align: center !important;
@@ -27,8 +24,7 @@ $menu_font: "Gotham A", "Gotham B", Helvetica, sans-serif;
 @mixin dropdownNavItem() {
   @include navItem();
   display: block;
-  width: 100%;
-
+  //width: 100%;
   box-sizing: border-box;
   padding: 18px 33px !important;
   line-height: 12px;

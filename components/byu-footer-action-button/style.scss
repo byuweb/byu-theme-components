@@ -1,21 +1,7 @@
-$button_color: #767676;
-$button_font: "Vitesse A", "Vitesse B", Georgia, serif;
+@import "./mixins.scss";
 
 :host {
-    background-color: $button_color;
-    font-family: $button_font;
-    font-size: 20px !important;
-    color: #fff;
-    display: inline-block;
-    text-align: center;
-    line-height: 2.2em;
-    height: 45px;
-    width: auto;
-    min-width: 125px;
-    margin: 10px 0 20px 0;
-    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
+    @include footerActionButton();
 }
 
 // Use this to change how the button looks when active
@@ -26,19 +12,9 @@ $button_font: "Vitesse A", "Vitesse B", Georgia, serif;
 // }
 
 ::slotted(*) {
-    font-family: $button_font !important;
-    font-weight: 400 !important;
-    color: #fff !important;
-    display: inline-block !important;
-    position: relative !important;
-    height: 100% !important;
-    width: 100% !important;
-    margin: 0 20px !important;
-    left: -20px !important;
-    cursor: pointer !important;
-    vertical-align: middle !important;
+    @include footerActionButtonSlotted();
 }
 
 ::slotted(a) {
-    text-decoration: none !important;
+    @include footerActionButtonSlottedLink();
 }
