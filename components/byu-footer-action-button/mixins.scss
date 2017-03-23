@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import "../shared-styles/colors.scss";
 @import "../shared-styles/settings.scss";
 
@@ -41,4 +42,49 @@
 
 @mixin footerActionButtonSlottedLink() {
     text-decoration: none !important;
+=======
+@import "../shared-styles/colors.scss";
+@import "../shared-styles/settings.scss";
+
+@mixin footerActionButton() {
+    background-color: $footerButtonColor;
+    font-family: $footerButtonFont;
+    font-size: 20px !important;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 2.2em;
+    height: 45px;
+    width: auto;
+    min-width: 125px;
+    margin: 10px 0 20px 0;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
+    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
+}
+
+// Use this to change how the button looks when active
+// :host(:active) {
+//     -webkit-box-shadow: none;
+//     -moz-box-shadow: none;
+//     box-shadow: none;
+// }
+
+@mixin footerActionButtonSlotted() {
+    font-family: $footerButtonFont !important;
+    font-weight: 400 !important;
+    color: #fff !important;
+    display: inline-block !important;
+    position: relative !important;
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0 20px !important;
+    left: -20px !important;
+    cursor: pointer !important;
+    vertical-align: middle !important;
+}
+
+@mixin footerActionButtonSlottedLink() {
+    text-decoration: none !important;
+>>>>>>> refs/remotes/origin/master
 }
