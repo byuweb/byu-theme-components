@@ -243,7 +243,6 @@ byu-header:not(:defined) {
     text-transform: uppercase; }
 
 byu-header:not(:defined) > [slot="site-title"] {
-  white-space: nowrap;
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
