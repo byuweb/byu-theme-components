@@ -1,6 +1,17 @@
+"use strict";
 import * as template from "./template.html";
 
 class BYUMenu extends HTMLElement {
+
+    get showMore () {
+        return hasClass(this.shadowRoot.querySelector('.byu-menu-more-menu'));
+    }
+
+    set showMore (show) {
+        const el = this.shadowRoot.querySelector('.byu-menu-more-menu');
+        if (show && !hasClass(el, 'byu-menu-more-expanded')) enableHideClick(this);
+        toggleClass(el, 'byu-menu-more-expanded', show);
+    }
 
     constructor() {
         super(); // always call super first
@@ -9,40 +20,70 @@ class BYUMenu extends HTMLElement {
     }
 
     connectedCallback() {
-        this._maybeAddMoreMenu();
-        this._addSlotListeners();
-    }
+        const component = this;
 
-    _maybeAddMoreMenu() {
-        // if there are more than 6 links add the extras to a "more" dropdown
-        const slot = this.shadowRoot.querySelector("#slot");
+        updateMoreMenuState(this);
+        addSlotListeners(this);
 
-        let allLinks = slot.assignedNodes().filter(function (element) {
-            return element instanceof HTMLElement
+        // when the more button is clicked then show the more menu
+        this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function() {
+            component.showMore = true;
         });
 
-        if (allLinks.length > 6) {
-            this.setAttribute('has-extra-links', '');
+    }
 
-            let extras = allLinks.slice(5);
-            let dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
-            for (let i = 0; i < extras.length; i++) {
-                let listItem = document.createElement("li");
-                //listItem.appendChild(extras[i]);
-                listItem.appendChild(extras[i].cloneNode());
-                dropdown.appendChild(listItem);
-            } 
-        } else {
-            this.removeAttribute('has-extra-links');
+
+}
+
+function addSlotListeners(component) {
+    component.shadowRoot.querySelector('slot')
+        .addEventListener('slotchange', e => updateMoreMenuState(component));
+}
+
+function enableHideClick(component) {
+    const fn = function() {
+        if (component.showMore) component.showMore = false;
+        document.removeEventListener('click', fn);
+    };
+    setTimeout(function() {
+        document.addEventListener('click', fn);
+    });
+}
+
+function updateMoreMenuState(component) {
+    const children = component.children;
+    const length = component.children.length;
+    const hasOverflow = length > 6;
+    const innerNav = component.shadowRoot.querySelector('.inner-nav');
+
+    if (innerNav) toggleClass(innerNav, 'byu-menu-more-visible', hasOverflow);
+
+    if (hasOverflow) {
+        for (let i = 5; i < length; i++) {
+            children[i].setAttribute('slot', 'more');
         }
+    } else if (length === 6) {
+        children[5].setAttribute('slot', '');
     }
+}
 
-    _addSlotListeners() {
-        this.shadowRoot.getElementById('slot')
-            .addEventListener('slotchange', e => this._maybeAddMoreMenu())
+function hasClass(el, className) {
+    const classes = el.className.split(/ +/);
+    return classes.indexOf(className) !== -1;
+}
+
+function toggleClass(el, className, value) {
+    const classes = el.className.split(/ +/);
+    const index = classes.indexOf(className);
+    const exists = index !== -1;
+    const setTo = arguments.length > 2 ? arguments[2] : !exists;
+    if (setTo && !exists) {
+        classes.push(className);
+    } else if (!setTo && exists) {
+        classes.splice(index, 1);
     }
+    el.className = classes.join(' ');
 }
 
 window.customElements.define('byu-menu', BYUMenu);
 window.BYUMenu = BYUMenu;
-
