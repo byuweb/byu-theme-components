@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import "./mixins.scss";
 
 byu-footer-column {
@@ -23,30 +22,4 @@ byu-footer-column {
 
 #defaultContent a:hover {
     @include defaultContentLinkHover();
-=======
-@import "./mixins.scss";
-
-byu-footer-column {
-    @include footerColumn();
-}
-
-.header {
-    @include header();
-}
-
-.header > * {
-    @include headerSlotted();
-}
-
-.content *:not(byu-footer-action-button) {
-    @include contentNotButton();
-}
-
-#defaultContent a {
-    @include defaultContentLink();
-}
-
-#defaultContent a:hover {
-    @include defaultContentLinkHover();
->>>>>>> refs/remotes/origin/master
 }

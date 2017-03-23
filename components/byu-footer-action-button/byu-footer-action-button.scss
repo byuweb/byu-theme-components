@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @import "./mixins.scss";
 
 byu-footer-action-button {
@@ -11,18 +10,4 @@ byu-footer-action-button > * {
 
 byu-footer-action-button a {
     @include footerActionButtonSlottedLink();
-=======
-@import "./mixins.scss";
-
-byu-footer-action-button {
-    @include footerActionButton();
-}
-
-byu-footer-action-button > * {
-    @include footerActionButtonSlotted();
-}
-
-byu-footer-action-button a {
-    @include footerActionButtonSlottedLink();
->>>>>>> refs/remotes/origin/master
 }
