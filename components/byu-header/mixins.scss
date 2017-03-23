@@ -74,7 +74,7 @@
   font-family: $siteNameFont !important;
   font-size: $siteTitleSize;
   color: #fff!important;
-  padding: 10px 0;
+  padding: 10px; //adding 0px to sides will move the BYU logo to the edge of the page
   a {
     color: #fff!important;
   }
