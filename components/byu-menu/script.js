@@ -4,12 +4,12 @@ import * as template from "./template.html";
 class BYUMenu extends HTMLElement {
 
     get showMore () {
-        return hasClass(this.shadowRoot.querySelector('.byu-menu-more-menu'));
+        return isShowingMoreMenu(this);
     }
 
     set showMore (show) {
         const el = this.shadowRoot.querySelector('.byu-menu-more-menu');
-        if (show && !hasClass(el, 'byu-menu-more-expanded')) enableHideClick(this);
+        if (show && !isShowingMoreMenu(this)) enableHideClick(this);
         toggleClass(el, 'byu-menu-more-expanded', show);
     }
 
@@ -41,13 +41,37 @@ function addSlotListeners(component) {
 }
 
 function enableHideClick(component) {
+
     const fn = function() {
-        if (component.showMore) component.showMore = false;
         document.removeEventListener('click', fn);
+        component.showMore = false;
     };
-    setTimeout(function() {
+
+    setTimeout(function () {
         document.addEventListener('click', fn);
     });
+}
+
+function hasClass(el, className) {
+    const classes = el.className.split(/ +/);
+    return classes.indexOf(className) !== -1;
+}
+
+function isShowingMoreMenu(component) {
+    return hasClass(component.shadowRoot.querySelector('.byu-menu-more-menu'), 'byu-menu-more-expanded');
+}
+
+function toggleClass(el, className, value) {
+    const classes = el.className.split(/ +/);
+    const index = classes.indexOf(className);
+    const exists = index !== -1;
+    const setTo = arguments.length > 2 ? arguments[2] : !exists;
+    if (setTo && !exists) {
+        classes.push(className);
+    } else if (!setTo && exists) {
+        classes.splice(index, 1);
+    }
+    el.className = classes.join(' ');
 }
 
 function updateMoreMenuState(component) {
@@ -65,24 +89,6 @@ function updateMoreMenuState(component) {
     } else if (length === 6) {
         children[5].setAttribute('slot', '');
     }
-}
-
-function hasClass(el, className) {
-    const classes = el.className.split(/ +/);
-    return classes.indexOf(className) !== -1;
-}
-
-function toggleClass(el, className, value) {
-    const classes = el.className.split(/ +/);
-    const index = classes.indexOf(className);
-    const exists = index !== -1;
-    const setTo = arguments.length > 2 ? arguments[2] : !exists;
-    if (setTo && !exists) {
-        classes.push(className);
-    } else if (!setTo && exists) {
-        classes.splice(index, 1);
-    }
-    el.className = classes.join(' ');
 }
 
 window.customElements.define('byu-menu', BYUMenu);
