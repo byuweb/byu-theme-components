@@ -318,6 +318,7 @@ byu-menu {
     color: #002E5D; }
 
 byu-menu:not(:defined) > * {
+  width: 16.66%;
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
@@ -330,13 +331,11 @@ byu-menu:not(:defined) > * {
   display: table-cell;
   vertical-align: middle !important;
   text-align: center !important;
-  padding: 0 6px !important;
-  display: block;
-  box-sizing: border-box;
-  padding: 18px 33px !important;
-  line-height: 12px;
-  text-align: left !important;
-  height: auto !important; }
+  padding: 0 6px !important; }
+  byu-menu:not(:defined) > *:hover {
+    background: #c5c5c5 !important; }
+  byu-menu:not(:defined) > *.selected {
+    background: #e5e5e5 !important; }
 
 byu-menu:not(:defined) > * {
   text-decoration: none !important;
@@ -352,12 +351,10 @@ byu-menu:not(:defined) > * {
   vertical-align: middle !important;
   text-align: center !important;
   padding: 0 6px !important; }
-
-byu-menu:not(:defined):not(.mobile-view) > *:hover {
-  background-color: #c5c5c5 !important; }
-
-byu-menu:not(:defined):not(.mobile-view) > *.selected {
-  background: #e5e5e5 !important; }
+  byu-menu:not(:defined) > *:hover {
+    background: #c5c5c5 !important; }
+  byu-menu:not(:defined) > *.selected {
+    background: #e5e5e5 !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
