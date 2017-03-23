@@ -24,7 +24,17 @@ img {
   .mobile {
     @include userInfoNotMobileDisplay();
   }
+  // underline on hover for any link - sign in, sign out, username if linked, 
+  // idk how to tell it to hover if linking in a different way than with an a tag
+  ::slotted(a):hover {
+      @include nonMobileHeaderLinkHover();
+    }
+  .has-user {
 
+    slot[name=user-name]::slotted(*) {
+      @include nonMobileUsername();
+    }
+  }
   img {
     @include userInfoNotMobileImages();
   }
