@@ -52,9 +52,28 @@
         </byu-menu>
         <byu-search slot="search"></byu-search>
     </byu-header>
+
     <h1>Menu Demo</h1>
     <section style="margin: 20px">
-        <h1>Six Links or Less</h1>
+
+        <h1>Four Links</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <byu-menu slot="nav" collapsed>
+                        <a class="selected" href="javascript: void 0">Link 1</a>
+                        <a href="javascript: void 0">Link 2</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                    </byu-menu>
+                </byu-header>
+                <div style="margin: 10px"> Here we have some content so you can see what that might look like.
+                </div>
+            </template>
+        </demo-snippet>
+
+        <h1>Six Links</h1>
         <demo-snippet>
             <template>
                 <byu-header>
