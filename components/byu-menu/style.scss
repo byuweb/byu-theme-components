@@ -20,82 +20,40 @@
 }
 
 ::slotted(*) {
-@include menuSlotted();
+  @include menuSlotted();
+}
+::slotted(*:hover) {
+  background: $gray !important;
+}
+::slotted(*.selected) {
+  background: $lightgray !important;
 }
 
-.extra-links, ::slotted(*) {
-  @include includeNavItem();
-}
+.byu-menu-more-menu {
+  @include moreMenu();
 
-:host(:not(.mobile-view)) {
+  .byu-menu-more {
+    @include moreLink();
 
-  .extra-links:hover, ::slotted(*:hover) {
-    @include menuNotMobileHover();
-  }
-
-  ::slotted(*.selected) {
-    @include menuNotMobileSelected();
-  }
-}
-
-.extra-links {
-  @include extraLinks();
-
-  .extra-links-dropdown {
-    @include extraLinks();
-
-    // display: block;
-
-    ul {
-      @include extraLinksDropdownUl();
+    svg {
+      @include moreLinkSvg();
     }
   }
 
-  &:hover .extra-links-dropdown {
-    @include hoverExtraLinksDropdown();
+  .byu-menu-more-items {
+    @include moreItems();
+
+    ::slotted(*) {
+      @include moreItemsSlotted();
+    }
   }
 }
 
-:host([has-extra-links] ) {
-  .extra-links {
-
-    @include hasExtraHoverExtraLinks();
-
-    .extra-links-dropdown {
-      @include hasExtraHoverExtraLinksDropdown();
-    } 
-  }
+.byu-menu-more-visible .byu-menu-more-menu {
+  @include moreMenuVisible();
 }
 
 :host(.mobile-view) {
-  .outer-nav {
-    @include outerNavMobile();
-  }
-  .inner-nav {
-    @include innerNavMobile();
-  }
-  #menu-slot {
-    @include menuSlot();
-  }
-
-  ::slotted(*) {
-    @include menuSlotted();
-  }
+  @include mobileHost();
 
 }
-
-
-
-//@media (min-width: 1024px) {
-//    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and
-//    stick them in a separate dropdown that gets hidden for mobile views */
-//    ::slotted(*:nth-child(n+7)) {
-//        display: none;
-//    }
-//}
-//
-//@media (max-width: 1023px) {
-//    nav.outer-nav {
-//        display: none;
-//    }
-//}
