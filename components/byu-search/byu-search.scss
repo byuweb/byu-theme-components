@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @import "../shared-styles/colors.scss";
 @import "./mixins.scss";
 
@@ -29,36 +29,3 @@ byu-search:not(:defined):after {
 //  byu-search input {
 //    @include searchContainerInputMobile();
 //  }
-=======
-@import "../shared-styles/colors.scss";
-@import "./mixins.scss";
-
-
-byu-search:not(:defined) {
-  background: #fff;
-  height: 27px;
-  width: 225px;
-  margin-right: 30px;
-}
-
-// should be 25px height to account for
-// added border from searchButton OR
-// add border to byu-search
-byu-search:not(:defined):after {
-  content: " "; // placeholder for search icon
-  @include searchButton();
-  height: 27px;
-  width: 35px;
-  float: right;
-
-}
-
-//byu-search.mobile-view {
-//  @include searchMobile();
-//
-//  form #search-container input,
-//  byu-search input {
-//    @include searchContainerInputMobile();
-//  }
->>>>>>> refs/remotes/origin/master
-//}
