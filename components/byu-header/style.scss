@@ -20,6 +20,9 @@ slot[name=actions]::slotted(*) {
   .byu-header > div > .byu-logo {
     @include headerLogo();
   }
+  .byu-header-title, #title::slotted(*) {
+      @include mobileSiteTitle();
+  }
 }
 
 .byu-header {
