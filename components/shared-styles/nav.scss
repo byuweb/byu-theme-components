@@ -19,6 +19,14 @@
   vertical-align: middle !important;
   text-align: center !important;
   padding: 0 6px !important;
+
+  &:hover {
+    background: $gray !important;
+  }
+
+  &.selected {
+    background: $lightgray !important;
+  }
 }
 
 @mixin dropdownNavItem() {

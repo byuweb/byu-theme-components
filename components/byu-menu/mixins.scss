@@ -32,75 +32,132 @@
 }
 
 @mixin menuSlotted() {
-  display: table;
+  width: 16.66%;
+  @include navItem();
+}
+
+@mixin moreMenu {
+  display: none;
+  position: relative;
+  height: 35px;
   width: 16.66%;
 }
 
-@mixin includeNavItem() {
-  @include navItem(); //in shared-styles/nav.scss
+@mixin moreMenuVisible {
+  display: table-cell;
+
+  &.byu-menu-more-expanded {
+    background: $menuActive;
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
+
+    .byu-menu-more-items {
+      display: block;
+    }
+
+    .byu-menu-fixed-overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+  }
 }
 
-@mixin menuNotMobileHover() {
-  background-color: $gray !important;
+@mixin moreLink {
+  @include navItem();
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-top: 11px !important;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  text-align: left !important;
+  box-sizing: border-box;
 }
 
-@mixin menuNotMobileSelected() {
-  background: $lightgray !important;
+@mixin moreLinkSvg {
+  fill: $navy;
+  position: absolute;
+  right: 15px;
 }
 
-@mixin extraLinks() {
-  display: none;
-  cursor: pointer;
-}
-@mixin extraLinksDropdown() {
+@mixin moreItems {
   display: none;
   position: absolute;
-  background-color: white;
-  z-index: 10;
-  min-width: 115px;
-  margin-top: 10px;
-  // display: block;
+  top: 35px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: white;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
+  padding: 6px 0 12px 0;
 }
 
-@mixin extraLinksDropdownUl() {
-  list-style-type: none;
-  padding: 0;
-}
-@mixin hoverExtraLinksDropdown() {
+@mixin moreItemsSlotted {
+  width: 100%;
+  @include navItem();
   display: block;
+  text-align: left !important;
+  box-sizing: border-box;
+  padding: 11px 15px !important;
 }
-@mixin hasExtraHoverExtraLinks() {
+
+@mixin mobileSlotted {
+  display: block !important;
+  text-align: left !important;
+  padding: 15px 30px !important;
+  height: auto !important;
+  width: 100%;
+  position: static;
+  box-sizing: border-box;
+}
+
+@mixin mobileMoreMenu {
   display: block;
-}
-@mixin hasExtraHoverExtraLinksDropdown() {
-  display: block;
+  width: 100%;
+  box-shadow: none;
+  position: static;
+  height: auto;
+
+  .byu-menu-more-items {
+    display: block;
+    box-shadow: none;
+    padding: 0;
+
+    ::slotted(*) {
+      @include mobileSlotted();
+    }
+  }
+
+  &.byu-menu-more-expanded {
+    box-shadow: none;
+
+    .byu-menu-fixed-overlay {
+      display: none !important;
+    }
+  }
 }
 
-@mixin outerNavMobile() {
-  flex-direction: column;
-}
-@mixin innerNavMobile() {
-  display: block;
-}
-@mixin menuSlot() {
-  display: flex;
-  flex-direction: column;
-}
+@mixin mobileHost {
+  padding: 15px 0;
 
-@mixin menuSlotted() {
-  @include dropdownNavItem(); //in shared-styles/nav.scss
+  .byu-menu-more-items {
+    position: static;
+  }
+
+  .byu-menu-more {
+    display: none;
+  }
+
+  ::slotted(*) {
+    @include mobileSlotted();
+  }
+
+  .byu-menu-more-menu {
+    @include mobileMoreMenu();
+  }
 }
-
-
-//@media (min-width: 1024px) {
-//    /* Hide any menu elements not in the first six. We'll use javascript to duplicate them and
-//    stick them in a separate dropdown that gets hidden for mobile views */
-//    ::slotted(*:nth-child(n+7)) {
-//        display: none;
-//    }
-//}
-//
-//@media (max-width: 1023px) {
-//    nav.outer-nav {
-//        display: none;
-//    }
