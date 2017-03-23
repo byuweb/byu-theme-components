@@ -30,6 +30,15 @@
 @mixin userInfoNotMobileDisplay() {
     display: none;
 }
+@mixin nonMobileUsername() {
+  color: $xlightblue;
+  text-transform: capitalize !important;
+  width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
 
 @mixin userInfoNotMobileImages() {
     margin: 7px;
