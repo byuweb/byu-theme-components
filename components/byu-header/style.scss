@@ -13,6 +13,7 @@ slot[name=actions]::slotted(*) {
   slot[name=actions]::slotted(*) {
     @include actionsMobile();
   }
+
   & > div > :not(.byu-logo) {
     @include headerInnerMarginMobile();
   }
@@ -20,7 +21,7 @@ slot[name=actions]::slotted(*) {
     @include headerLogo();
   }
   .byu-header-title, #site-title::slotted(*) {
-    @include mobileHeaderTitle();
+    @include mobileSiteTitle();
   }
 }
 
