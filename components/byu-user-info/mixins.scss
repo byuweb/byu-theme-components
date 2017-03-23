@@ -40,6 +40,10 @@
 
 }
 
+@mixin nonMobileHeaderLinkHover() {
+  text-decoration: underline;
+}
+
 @mixin userInfoNotMobileImages() {
     margin: 7px;
 }
