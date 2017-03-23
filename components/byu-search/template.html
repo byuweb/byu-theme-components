@@ -19,7 +19,7 @@
   ${require('./style.scss')}
 </style>
 
-<div id='search-form'>
+<form id='search-form' onsubmit="formSubmitHandler">
   <div id='search-container'>
     <slot id='search'><input type="search" placeholder="Search"></slot>
   </div>
