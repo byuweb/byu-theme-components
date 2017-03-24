@@ -413,7 +413,18 @@ window.BYUHeader = BYUHeader;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
 
 
+
 class BYUMenu extends HTMLElement {
+
+    get showMore () {
+        return isShowingMoreMenu(this);
+    }
+
+    set showMore (show) {
+        const el = this.shadowRoot.querySelector('.byu-menu-more-menu');
+        if (show && !isShowingMoreMenu(this)) enableHideClick(this);
+        toggleClass(el, 'byu-menu-more-expanded', show);
+    }
 
     constructor() {
         super(); // always call super first
@@ -422,43 +433,79 @@ class BYUMenu extends HTMLElement {
     }
 
     connectedCallback() {
-        this._maybeAddMoreMenu();
-        this._addSlotListeners();
-    }
+        const component = this;
 
-    _maybeAddMoreMenu() {
-        // if there are more than 6 links add the extras to a "more" dropdown
-        const slot = this.shadowRoot.querySelector("#slot");
+        updateMoreMenuState(this);
+        addSlotListeners(this);
 
-        let allLinks = slot.assignedNodes().filter(function (element) {
-            return element instanceof HTMLElement
+        // when the more button is clicked then show the more menu
+        this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function() {
+            component.showMore = true;
         });
 
-        if (allLinks.length > 6) {
-            this.setAttribute('has-extra-links', '');
-
-            let extras = allLinks.slice(5);
-            let dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
-            for (let i = 0; i < extras.length; i++) {
-                let listItem = document.createElement("li");
-                //listItem.appendChild(extras[i]);
-                listItem.appendChild(extras[i].cloneNode());
-                dropdown.appendChild(listItem);
-            } 
-        } else {
-            this.removeAttribute('has-extra-links');
-        }
     }
 
-    _addSlotListeners() {
-        this.shadowRoot.getElementById('slot')
-            .addEventListener('slotchange', e => this._maybeAddMoreMenu())
+
+}
+
+function addSlotListeners(component) {
+    component.shadowRoot.querySelector('slot')
+        .addEventListener('slotchange', e => updateMoreMenuState(component));
+}
+
+function enableHideClick(component) {
+
+    const fn = function() {
+        document.removeEventListener('click', fn);
+        component.showMore = false;
+    };
+
+    setTimeout(function () {
+        document.addEventListener('click', fn);
+    });
+}
+
+function hasClass(el, className) {
+    const classes = el.className.split(/ +/);
+    return classes.indexOf(className) !== -1;
+}
+
+function isShowingMoreMenu(component) {
+    return hasClass(component.shadowRoot.querySelector('.byu-menu-more-menu'), 'byu-menu-more-expanded');
+}
+
+function toggleClass(el, className, value) {
+    const classes = el.className.split(/ +/);
+    const index = classes.indexOf(className);
+    const exists = index !== -1;
+    const setTo = arguments.length > 2 ? arguments[2] : !exists;
+    if (setTo && !exists) {
+        classes.push(className);
+    } else if (!setTo && exists) {
+        classes.splice(index, 1);
+    }
+    el.className = classes.join(' ');
+}
+
+function updateMoreMenuState(component) {
+    const children = component.children;
+    const length = component.children.length;
+    const hasOverflow = length > 6;
+    const nav = component.shadowRoot.querySelector('.outer-nav');
+
+    if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
+
+    if (hasOverflow) {
+        for (let i = 5; i < length; i++) {
+            children[i].setAttribute('slot', 'more');
+        }
+    } else if (length === 6) {
+        children[5].setAttribute('slot', '');
     }
 }
 
 window.customElements.define('byu-menu', BYUMenu);
 window.BYUMenu = BYUMenu;
-
 
 
 /***/ }),
@@ -998,7 +1045,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:1.5em;transition:.15s;user-select:none;width:1.5em;background:transparent;outline:none;-webkit-tap-highlight-color:transparent}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:1.5em;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;height:.21429em;border-radius:.10714em;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:1.5em;content:\"\";position:absolute;left:0;transform-origin:.10714em center;width:100%}.tcon-menu__lines:before{top:.375em}.tcon-menu__lines:after{top:-.375em}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:1.5em}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1)}slot[name=actions]::slotted(*){color:#fff!important;color:#002e5d;margin-left:4px;margin-right:4px}:host([mobile-view]) slot[name=actions]::slotted(*),slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;cursor:pointer!important}:host([mobile-view]) slot[name=actions]::slotted(*){color:#fff!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;border-top:1px solid #767676}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header>div>.byu-logo{margin-right:8px}.byu-header{font-family:Vitesse Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header button.mobile-menu-button{background-color:transparent;font-size:20px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important}.byu-header .byu-header-primary #title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:48px;width:92px}.byu-header #mobileMenu{overflow:hidden}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
+exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:1.5em;transition:.15s;user-select:none;width:1.5em;background:transparent;outline:none;-webkit-tap-highlight-color:transparent}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:1.5em;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;height:.21429em;border-radius:.10714em;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:1.5em;content:\"\";position:absolute;left:0;transform-origin:.10714em center;width:100%}.tcon-menu__lines:before{top:.375em}.tcon-menu__lines:after{top:-.375em}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:1.5em}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1)}slot[name=actions]::slotted(*){color:#fff!important;color:#002e5d;margin-left:4px;margin-right:4px}:host([mobile-view]) slot[name=actions]::slotted(*),slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;cursor:pointer!important}:host([mobile-view]) slot[name=actions]::slotted(*){color:#fff!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;border-top:1px solid #767676}:host([mobile-view]) slot[name=actions]::slotted(*):hover{background:#c5c5c5!important}:host([mobile-view]) slot[name=actions]::slotted(*).selected{background:#e5e5e5!important}:host([mobile-view]) slot[name=actions]::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]) slot[name=actions]::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header>div>.byu-logo{margin-right:8px}.byu-header{font-family:Vitesse Book;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header button.mobile-menu-button{background-color:transparent;font-size:20px}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;height:55px}.byu-header .byu-header-primary #title::slotted(*),.byu-header .byu-header-primary .byu-header-title{white-space:nowrap;overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important}.byu-header .byu-header-primary #title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:48px;width:92px}.byu-header #mobileMenu{overflow:hidden}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
 
 // exports
 
@@ -1012,7 +1059,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0}.inner-nav{width:100%;display:table}::slotted(*){height:35px!important;display:table-cell;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important}.extra-links,::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;vertical-align:middle!important}.extra-links,::slotted(*){height:35px!important;display:table-cell;text-align:center!important;padding:0 6px!important}:host(:not(.mobile-view)) .extra-links:hover,:host(:not(.mobile-view)) ::slotted(:hover){background-color:#c5c5c5!important}:host(:not(.mobile-view)) ::slotted(.selected){background:#e5e5e5!important}.extra-links,.extra-links .extra-links-dropdown{display:none;cursor:pointer}.extra-links .extra-links-dropdown ul{list-style-type:none;padding:0}.extra-links:hover .extra-links-dropdown,:host([has-extra-links]) .extra-links,:host([has-extra-links]) .extra-links .extra-links-dropdown{display:block}:host(.mobile-view) .outer-nav{flex-direction:column}:host(.mobile-view) .inner-nav{display:block}:host(.mobile-view) #menu-slot{display:flex;flex-direction:column}:host(.mobile-view) ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important}", ""]);
+exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0;height:35px;position:relative}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex:1;max-width:200px}::slotted(*):hover{background:#c5c5c5!important}::slotted(*).selected{background:#e5e5e5!important}::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}::slotted(:hover){background:#c5c5c5!important}::slotted(.selected){background:#e5e5e5!important}::slotted(.long-link){max-width:300px;flex:2;padding:0 12px!important}::slotted(.extra-long-link){max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu{display:none;position:relative;height:35px;width:16.66%}.byu-menu-more-menu .byu-menu-more{text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:relative;flex:1;max-width:200px;display:block}.byu-menu-more-menu .byu-menu-more:hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more.selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more.long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more.extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more svg{fill:#002e5d}.byu-menu-more-menu .byu-menu-more-items{display:none;position:absolute;top:35px;left:0;right:0;z-index:2;background:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-menu .byu-menu-more-items ::slotted(*){width:100%;text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;text-align:left!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*):hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-visible .byu-menu-more-menu{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded{background:#e5e5e5;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-more-items{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1}:host(.mobile-view) .outer-nav{display:block;height:auto}:host(.mobile-view) .byu-menu-more{display:none}:host(.mobile-view) ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;max-width:100%}:host(.mobile-view) .byu-menu-more-menu{display:block;width:100%;box-shadow:none;position:static;height:auto;max-width:100%}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items{display:block;box-shadow:none;padding:0}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded{box-shadow:none}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{display:none!important}:host(.mobile-view) .byu-menu-more-items{position:static}", ""]);
 
 // exports
 
@@ -1054,7 +1101,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:400!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
+exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a):hover{text-decoration:underline}:host(:not([mobile-view])) .has-user slot[name=user-name]::slotted(*){color:#c3ddf9;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
 
 // exports
 
@@ -1266,7 +1313,7 @@ module.exports = "<style>" + __webpack_require__(13) + "</style> <div class=\"se
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(15) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav\"> <div class=\"inner-nav\"> <slot id=\"menu-slot\"></slot> <div class=\"extra-links\" id=\"extraLinks\"> More <div class=\"extra-links-dropdown\"> <ul id=\"extraLinksDropdown\"></ul> </div> </div> </div> </nav> <div id=\"stylePlaceHolder\"></div>";
+module.exports = "<style>" + __webpack_require__(15) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <svg width=\"13\" height=\"13\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z\"/></svg> </a> <div class=\"byu-menu-more-items\"> <slot name=\"more\"></slot> </div> </div> </nav>";
 
 /***/ }),
 /* 27 */

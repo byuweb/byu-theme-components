@@ -310,6 +310,8 @@ byu-menu {
   align-items: center;
   justify-content: flex-start;
   padding: 0;
+  height: 35px;
+  position: relative;
   color: #002E5D;
   height: 35px;
   justify-content: space-around;
@@ -319,46 +321,55 @@ byu-menu {
     color: #002E5D; }
 
 byu-menu:not(:defined) > * {
+  flex: 1;
+  max-width: 200px;
+  white-space: nowrap;
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
   color: #002E5D !important;
   height: 35px !important;
-  display: table-cell;
-  vertical-align: middle !important;
+  display: inline-block;
+  box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
-  display: block;
-  box-sizing: border-box;
-  padding: 18px 33px !important;
-  line-height: 12px;
-  text-align: left !important;
-  height: auto !important; }
+  line-height: 35px; }
+  byu-menu:not(:defined) > *:hover {
+    background: #c5c5c5 !important; }
+  byu-menu:not(:defined) > *.selected {
+    background: #e5e5e5 !important; }
+  byu-menu:not(:defined) > *.long-link {
+    max-width: 300px; }
+  byu-menu:not(:defined) > *.extra-long-link {
+    max-width: 400px; }
 
 byu-menu:not(:defined) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
   color: #002E5D !important;
   height: 35px !important;
-  display: table-cell;
-  vertical-align: middle !important;
+  display: inline-block;
+  box-sizing: border-box;
   text-align: center !important;
-  padding: 0 6px !important; }
-
-byu-menu:not(:defined):not(.mobile-view) > *:hover {
-  background-color: #c5c5c5 !important; }
-
-byu-menu:not(:defined):not(.mobile-view) > *.selected {
-  background: #e5e5e5 !important; }
+  padding: 0 6px !important;
+  line-height: 35px; }
+  byu-menu:not(:defined) > *:hover {
+    background: #c5c5c5 !important; }
+  byu-menu:not(:defined) > *.selected {
+    background: #e5e5e5 !important; }
+  byu-menu:not(:defined) > *.long-link {
+    max-width: 300px; }
+  byu-menu:not(:defined) > *.extra-long-link {
+    max-width: 400px; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -415,7 +426,7 @@ byu-user-info:not(:defined) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
@@ -428,7 +439,7 @@ byu-user-info:not(:defined):not([mobile-view]) {
     text-decoration: none !important;
     font-size: 13px !important;
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
     color: white !important;
     cursor: pointer !important; }
