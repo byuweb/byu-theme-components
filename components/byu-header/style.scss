@@ -18,7 +18,7 @@ slot[name=actions]::slotted(*) {
     @include headerInnerMarginMobile();
   }
   .byu-header > div > .byu-logo {
-    @include headerLogo();
+    @include mobileHeaderLogo();
   }
   .byu-header-title, #title::slotted(*) {
       @include mobileSiteTitle();

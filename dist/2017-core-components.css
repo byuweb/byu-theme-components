@@ -321,9 +321,6 @@ byu-menu {
     color: #002E5D; }
 
 byu-menu:not(:defined) > * {
-  flex: 1;
-  max-width: 200px;
-  white-space: nowrap;
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
@@ -337,15 +334,24 @@ byu-menu:not(:defined) > * {
   box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
-  line-height: 35px; }
+  line-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  max-width: 200px; }
   byu-menu:not(:defined) > *:hover {
     background: #c5c5c5 !important; }
   byu-menu:not(:defined) > *.selected {
     background: #e5e5e5 !important; }
   byu-menu:not(:defined) > *.long-link {
-    max-width: 300px; }
+    max-width: 300px;
+    flex: 2;
+    padding: 0 12px !important; }
   byu-menu:not(:defined) > *.extra-long-link {
-    max-width: 400px; }
+    max-width: 400px;
+    flex: 3;
+    padding: 0 12px !important; }
 
 byu-menu:not(:defined) > * {
   text-decoration: none !important;
@@ -361,15 +367,22 @@ byu-menu:not(:defined) > * {
   box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
-  line-height: 35px; }
+  line-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
   byu-menu:not(:defined) > *:hover {
     background: #c5c5c5 !important; }
   byu-menu:not(:defined) > *.selected {
     background: #e5e5e5 !important; }
   byu-menu:not(:defined) > *.long-link {
-    max-width: 300px; }
+    max-width: 300px;
+    flex: 2;
+    padding: 0 12px !important; }
   byu-menu:not(:defined) > *.extra-long-link {
-    max-width: 400px; }
+    max-width: 400px;
+    flex: 3;
+    padding: 0 12px !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */

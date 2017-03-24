@@ -24,7 +24,7 @@ byu-menu.transparent {
 }
 
 byu-menu:not(:defined) > * {
-  @include menuSlotted();
+  @include navItemSlotted();
 }
 
 //.extra-links, ::slotted(*) {
