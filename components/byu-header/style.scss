@@ -1,45 +1,20 @@
 @import "./mixins.scss";
 
-/* MOBILE */
-#mobileMenu {
-  @include mobileMenu();
-}
-
-slot[name=actions]::slotted(*) {
-  @include actions();
-}
-
-:host([mobile-view]) {
-  slot[name=actions]::slotted(*) {
-    @include actionsMobile();
-  }
-
-  & > div > :not(.byu-logo) {
-    @include headerInnerMarginMobile();
-  }
-  .byu-header > div > .byu-logo {
-    @include headerLogo();
-  }
-  .byu-header-title, #site-title::slotted(*) {
-    @include mobileSiteTitle();
-  }
-}
-
-//General - mobile & desktop - move later
+/* GENERAL STYLING */
 
 .byu-header {
-  @include headerFonts();
+  @include headerDefaultFont();
 
   & > div > * {
     @include headerInnerMargin();
   }
 
+  slot[name=actions]::slotted(*) {
+    @include actions();
+  }
+
   button {
     @include headerButton();
-
-    &.mobile-menu-button {
-      @include headerButtonMobile();
-    }
   }
 
   .byu-header-primary {
@@ -81,9 +56,32 @@ slot[name=actions]::slotted(*) {
       @include byuLogo();
     }
   }
+}
 
-  #mobileMenu {
-    @include mobileMenuOverflow();
+/* MOBILE */
+#mobileMenu {
+  @include mobileMenu();
+  @include mobileMenuOverflow();
+}
+
+:host([mobile-view]) {
+  slot[name=actions]::slotted(*) {
+    @include actionsMobile();
+  }
+
+  & > div > :not(.byu-logo) {
+    @include headerInnerMarginMobile();
+  }
+  .byu-header > div > .byu-logo {
+    @include mobileHeaderLogo();
+  }
+  .byu-header-title, #site-title::slotted(*) {
+    @include mobileSiteTitle();
+  }
+  button {
+    &.mobile-menu-button {
+      @include headerButtonMobile();
+    }
   }
 }
 

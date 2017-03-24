@@ -64,7 +64,7 @@ byu-footer-action-button {
 
 byu-footer-action-button > * {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   color: #fff !important;
   display: inline-block !important;
   position: relative !important;
@@ -100,14 +100,14 @@ byu-footer-column {
   border-bottom: 1px solid #c5c5c5 !important;
   padding-bottom: 3px !important;
   white-space: nowrap !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   width: 100%;
   display: inline-block; }
 
 .content *:not(byu-footer-action-button) {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   color: #767676 !important;
   position: relative;
   top: -11px;
@@ -220,6 +220,7 @@ byu-footer-column {
     position: static;
     width: auto; }
 
+/* GENERAL STYLING */
 /* MOBILE */
 /* FULL SIZE */
 byu-header:not(:defined) {
@@ -321,10 +322,12 @@ byu-menu:not(:defined) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-weight: 500 !important;
   color: #002E5D !important;
   height: 35px !important;
   display: table-cell;
@@ -342,10 +345,12 @@ byu-menu:not(:defined) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-weight: 500 !important;
   color: #002E5D !important;
   height: 35px !important;
   display: table-cell;
@@ -414,7 +419,7 @@ byu-user-info:not(:defined) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
@@ -427,7 +432,7 @@ byu-user-info:not(:defined):not([mobile-view]) {
     text-decoration: none !important;
     font-size: 13px !important;
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-    font-weight: 400 !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
     color: white !important;
     cursor: pointer !important; }
@@ -467,7 +472,7 @@ p, span, div {
   font-family: "Gotham SSm A","Gotham SSm B"; }
 
 h1, h2, h3, h4 {
-  font-family: "Sentinel SSm A","Sentinel SSm B"; }
+  font-family: "Vitesse A", "Vitesse B", Georgia, serif; }
 
 h1 {
   color: #002E5D; }
@@ -513,7 +518,7 @@ h1 {
 .royal-button:hover {
   background: #114BAD; }
 
-/* ------- include flash of unstyled content before components are laoded ---- */
+/* ------- include flash of unstyled content before components are loaded ---- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
