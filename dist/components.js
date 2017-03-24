@@ -413,7 +413,18 @@ window.BYUHeader = BYUHeader;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
 
 
+
 class BYUMenu extends HTMLElement {
+
+    get showMore () {
+        return isShowingMoreMenu(this);
+    }
+
+    set showMore (show) {
+        const el = this.shadowRoot.querySelector('.byu-menu-more-menu');
+        if (show && !isShowingMoreMenu(this)) enableHideClick(this);
+        toggleClass(el, 'byu-menu-more-expanded', show);
+    }
 
     constructor() {
         super(); // always call super first
@@ -422,43 +433,79 @@ class BYUMenu extends HTMLElement {
     }
 
     connectedCallback() {
-        this._maybeAddMoreMenu();
-        this._addSlotListeners();
-    }
+        const component = this;
 
-    _maybeAddMoreMenu() {
-        // if there are more than 6 links add the extras to a "more" dropdown
-        const slot = this.shadowRoot.querySelector("#slot");
+        updateMoreMenuState(this);
+        addSlotListeners(this);
 
-        let allLinks = slot.assignedNodes().filter(function (element) {
-            return element instanceof HTMLElement
+        // when the more button is clicked then show the more menu
+        this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function() {
+            component.showMore = true;
         });
 
-        if (allLinks.length > 6) {
-            this.setAttribute('has-extra-links', '');
-
-            let extras = allLinks.slice(5);
-            let dropdown = this.shadowRoot.getElementById("extraLinksDropdown");
-            for (let i = 0; i < extras.length; i++) {
-                let listItem = document.createElement("li");
-                //listItem.appendChild(extras[i]);
-                listItem.appendChild(extras[i].cloneNode());
-                dropdown.appendChild(listItem);
-            } 
-        } else {
-            this.removeAttribute('has-extra-links');
-        }
     }
 
-    _addSlotListeners() {
-        this.shadowRoot.getElementById('slot')
-            .addEventListener('slotchange', e => this._maybeAddMoreMenu())
+
+}
+
+function addSlotListeners(component) {
+    component.shadowRoot.querySelector('slot')
+        .addEventListener('slotchange', e => updateMoreMenuState(component));
+}
+
+function enableHideClick(component) {
+
+    const fn = function() {
+        document.removeEventListener('click', fn);
+        component.showMore = false;
+    };
+
+    setTimeout(function () {
+        document.addEventListener('click', fn);
+    });
+}
+
+function hasClass(el, className) {
+    const classes = el.className.split(/ +/);
+    return classes.indexOf(className) !== -1;
+}
+
+function isShowingMoreMenu(component) {
+    return hasClass(component.shadowRoot.querySelector('.byu-menu-more-menu'), 'byu-menu-more-expanded');
+}
+
+function toggleClass(el, className, value) {
+    const classes = el.className.split(/ +/);
+    const index = classes.indexOf(className);
+    const exists = index !== -1;
+    const setTo = arguments.length > 2 ? arguments[2] : !exists;
+    if (setTo && !exists) {
+        classes.push(className);
+    } else if (!setTo && exists) {
+        classes.splice(index, 1);
+    }
+    el.className = classes.join(' ');
+}
+
+function updateMoreMenuState(component) {
+    const children = component.children;
+    const length = component.children.length;
+    const hasOverflow = length > 6;
+    const nav = component.shadowRoot.querySelector('.outer-nav');
+
+    if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
+
+    if (hasOverflow) {
+        for (let i = 5; i < length; i++) {
+            children[i].setAttribute('slot', 'more');
+        }
+    } else if (length === 6) {
+        children[5].setAttribute('slot', '');
     }
 }
 
 window.customElements.define('byu-menu', BYUMenu);
 window.BYUMenu = BYUMenu;
-
 
 
 /***/ }),
@@ -1056,6 +1103,7 @@ exports = module.exports = __webpack_require__(0)();
 // module
 exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a):hover{text-decoration:underline}:host(:not([mobile-view])) .has-user slot[name=user-name]::slotted(*){color:#c3ddf9;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:table-cell;vertical-align:middle!important;text-align:center!important;padding:0 6px!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
 
+
 // exports
 
 
@@ -1266,7 +1314,7 @@ module.exports = "<style>" + __webpack_require__(13) + "</style> <div class=\"se
 /* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(15) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav\"> <div class=\"inner-nav\"> <slot id=\"menu-slot\"></slot> <div class=\"extra-links\" id=\"extraLinks\"> More <div class=\"extra-links-dropdown\"> <ul id=\"extraLinksDropdown\"></ul> </div> </div> </div> </nav> <div id=\"stylePlaceHolder\"></div>";
+module.exports = "<style>" + __webpack_require__(15) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <svg width=\"13\" height=\"13\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z\"/></svg> </a> <div class=\"byu-menu-more-items\"> <slot name=\"more\"></slot> </div> </div> </nav>";
 
 /***/ }),
 /* 27 */

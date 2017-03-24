@@ -11,16 +11,53 @@
   cursor: pointer !important;
 }
 
+
+@mixin navItemHover() {
+  background: $gray !important;
+}
+@mixin navItemSelected() {
+  background: $lightgray !important;
+}
+@mixin navItemLongLink() {
+  max-width: 300px;
+  flex: 2;
+  padding: 0 12px !important;
+}
+@mixin navItemExtraLongLink() {
+  max-width: 400px;
+  flex: 3;
+  padding: 0 12px !important;
+}
 @mixin navItem() {
   @include headerLink();
   font-family: $menuFont !important;
   font-weight: $menuFontWeight!important;
   color: $navy !important;
   height: $menuHeight !important;
-  display: table-cell;
-  vertical-align: middle !important;
+  display: inline-block;
+  box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
+  line-height: $menuHeight;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &:hover {
+    @include navItemHover();
+  }
+
+  &.selected {
+    @include navItemSelected();
+  }
+
+  &.long-link {
+    @include navItemLongLink();
+  }
+
+  &.extra-long-link {
+    @include navItemExtraLongLink();
+  }
 }
 
 @mixin dropdownNavItem() {

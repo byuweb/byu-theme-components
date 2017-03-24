@@ -24,7 +24,7 @@ byu-menu.transparent {
 }
 
 byu-menu:not(:defined) > * {
-  @include menuSlotted();
+  @include navItemSlotted();
 }
 
 //.extra-links, ::slotted(*) {
@@ -32,17 +32,5 @@ byu-menu:not(:defined) > * {
 // duplicate code since menuSlotted (above)
 // already contains the same mixins as includeNavItem
 byu-menu:not(:defined) > * {
-  @include includeNavItem();
-}
-byu-menu:not(:defined):not(.mobile-view) {
-  //.extra-links:hover, ::slotted(*:hover) {
-  & > *:hover {
-    @include menuNotMobileHover();
-  }
-
-  //::slotted(*.selected) {
-  & > *.selected {
-    @include menuNotMobileSelected();
-
-  }
+  @include navItem();
 }

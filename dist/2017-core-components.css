@@ -251,6 +251,7 @@ byu-header:not(:defined) > [slot="site-title"] {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-size: 22px;
   color: #fff !important;
+  padding: 10px 0;
   position: relative;
   top: -6px; }
   byu-header:not(:defined) > [slot="site-title"] a {
@@ -309,6 +310,8 @@ byu-menu {
   align-items: center;
   justify-content: flex-start;
   padding: 0;
+  height: 35px;
+  position: relative;
   color: #002E5D;
   height: 35px;
   justify-content: space-around;
@@ -329,16 +332,28 @@ byu-menu:not(:defined) > * {
   font-weight: 500 !important;
   color: #002E5D !important;
   height: 35px !important;
-  display: table-cell;
-  vertical-align: middle !important;
+  display: inline-block;
+  box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
-  display: block;
-  box-sizing: border-box;
-  padding: 18px 33px !important;
-  line-height: 12px;
-  text-align: left !important;
-  height: auto !important; }
+  line-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+  max-width: 200px; }
+  byu-menu:not(:defined) > *:hover {
+    background: #c5c5c5 !important; }
+  byu-menu:not(:defined) > *.selected {
+    background: #e5e5e5 !important; }
+  byu-menu:not(:defined) > *.long-link {
+    max-width: 300px;
+    flex: 2;
+    padding: 0 12px !important; }
+  byu-menu:not(:defined) > *.extra-long-link {
+    max-width: 400px;
+    flex: 3;
+    padding: 0 12px !important; }
 
 byu-menu:not(:defined) > * {
   text-decoration: none !important;
@@ -352,16 +367,26 @@ byu-menu:not(:defined) > * {
   font-weight: 500 !important;
   color: #002E5D !important;
   height: 35px !important;
-  display: table-cell;
-  vertical-align: middle !important;
+  display: inline-block;
+  box-sizing: border-box;
   text-align: center !important;
-  padding: 0 6px !important; }
-
-byu-menu:not(:defined):not(.mobile-view) > *:hover {
-  background-color: #c5c5c5 !important; }
-
-byu-menu:not(:defined):not(.mobile-view) > *.selected {
-  background: #e5e5e5 !important; }
+  padding: 0 6px !important;
+  line-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+  byu-menu:not(:defined) > *:hover {
+    background: #c5c5c5 !important; }
+  byu-menu:not(:defined) > *.selected {
+    background: #e5e5e5 !important; }
+  byu-menu:not(:defined) > *.long-link {
+    max-width: 300px;
+    flex: 2;
+    padding: 0 12px !important; }
+  byu-menu:not(:defined) > *.extra-long-link {
+    max-width: 400px;
+    flex: 3;
+    padding: 0 12px !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
