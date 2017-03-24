@@ -65,10 +65,12 @@
 }
 
 :host([mobile-view]) {
+  .byu-header-primary {
+    @include mobileHeaderAlign();
+  }
   slot[name=actions]::slotted(*) {
     @include actionsMobile();
   }
-
   & > div > :not(.byu-logo) {
     @include headerInnerMarginMobile();
   }
