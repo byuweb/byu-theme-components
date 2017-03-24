@@ -4,8 +4,8 @@
 @mixin blueFooter() {
   background-color: $navy;
   text-align: center;
-  font-family: $footerFont;
-  font-weight: 400;
+  font-family: $blueFooterFont;
+  font-weight: $blueFooterFontWeight;
   font-size: 12px;
   color: white;
   height: $blueFooterHeight;

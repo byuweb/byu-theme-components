@@ -26,7 +26,7 @@ slot[name=actions]::slotted(*) {
 }
 
 .byu-header {
-  @include headerFonts();
+  @include headerDefaultFont();
 
   & > div > * {
     @include headerInnerMargin();
