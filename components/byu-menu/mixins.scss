@@ -22,18 +22,15 @@
   align-items: center;
   justify-content: flex-start;
   padding: 0;
+  height: 35px;
+  position: relative;
 }
 
-
-
-@mixin innerNav() {
-  width: 100%;
-  display: table;
-}
-
-@mixin menuSlotted() {
-  width: 16.66%;
+@mixin navItemSlotted() {
   @include navItem();
+  flex: 1;
+  max-width: 200px;
+  white-space: nowrap;
 }
 
 @mixin moreMenu {
@@ -44,7 +41,7 @@
 }
 
 @mixin moreMenuVisible {
-  display: table-cell;
+  display: block;
 
   &.byu-menu-more-expanded {
     background: $menuActive;
@@ -67,22 +64,14 @@
 
 @mixin moreLink {
   @include navItem();
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding-top: 11px !important;
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-  text-align: left !important;
-  box-sizing: border-box;
+  position: relative;
+  flex: 1;
+  max-width: 200px;
+  display: block;
 }
 
 @mixin moreLinkSvg {
   fill: $navy;
-  position: absolute;
-  right: 15px;
 }
 
 @mixin moreItems {
@@ -94,7 +83,6 @@
   z-index: 2;
   background: white;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
-  padding: 6px 0 12px 0;
 }
 
 @mixin moreItemsSlotted {
@@ -102,8 +90,6 @@
   @include navItem();
   display: block;
   text-align: left !important;
-  box-sizing: border-box;
-  padding: 11px 15px !important;
 }
 
 @mixin mobileSlotted {
@@ -143,10 +129,10 @@
 }
 
 @mixin mobileHost {
-  padding: 15px 0;
 
-  .byu-menu-more-items {
-    position: static;
+  .outer-nav {
+    display: block;
+    height: auto;
   }
 
   .byu-menu-more {
@@ -155,9 +141,15 @@
 
   ::slotted(*) {
     @include mobileSlotted();
+    max-width: 100%;
   }
 
   .byu-menu-more-menu {
     @include mobileMoreMenu();
+    max-width: 100%;
+  }
+
+  .byu-menu-more-items {
+    position: static;
   }
 }

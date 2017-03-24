@@ -15,19 +15,22 @@
   @include outerNav();
 }
 
-.inner-nav {
-  @include innerNav();
-}
-
 ::slotted(*) {
-  @include menuSlotted();
+  @include navItemSlotted();
 }
 ::slotted(*:hover) {
-  background: $gray !important;
+  @include navItemHover();
 }
 ::slotted(*.selected) {
-  background: $lightgray !important;
+  @include navItemSelected();
 }
+::slotted(*.long-link) {
+  @include navItemLongLink();
+}
+::slotted(*.extra-long-link) {
+  @include navItemExtraLongLink();
+}
+
 
 .byu-menu-more-menu {
   @include moreMenu();
