@@ -41,7 +41,7 @@
 }
 
 @mixin nonMobileHeaderLinkHover() {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 @mixin userInfoNotMobileImages() {
