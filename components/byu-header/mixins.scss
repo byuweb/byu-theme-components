@@ -101,7 +101,7 @@
 @mixin byuLogo() {
   //height: 48px;  //was forcing padding within image
   //width: 92px;
-  height: 30px;
+  height: $byuLogoHeight;
 }
 
 /* MOBILE */
@@ -117,8 +117,9 @@
 
 @mixin mobileHeaderAlign() {
   align-items: flex-start;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: ($headerHeight - $byuLogoHeight)/2;
+  padding-bottom: ($headerHeight - $byuLogoHeight)/2;
+  min-height: $byuLogoHeight;
 }
 
 @mixin actionsMobile() {
