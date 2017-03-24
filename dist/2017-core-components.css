@@ -249,7 +249,7 @@ byu-header:not(:defined) > [slot="site-title"] {
   text-overflow: ellipsis;
   flex: 1;
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
-  font-size: 22px !important;
+  font-size: 22px;
   color: #fff !important;
   position: relative;
   top: -6px; }

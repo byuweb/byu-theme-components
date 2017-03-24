@@ -50,7 +50,7 @@
   text-overflow: ellipsis;
   flex: 1;
   font-family: $siteNameFont !important;
-  font-size: $siteTitleSize !important;
+  font-size: $siteTitleSize;
   color: #fff!important;
   a {
     color: #fff!important;
@@ -134,7 +134,7 @@
 }
 
 @mixin mobileSiteTitle() {
-  font-size: $mobileSiteTitleSize;
+  font-size: $mobileSiteTitleSize !important;
 }
 
 @mixin headerButtonMobile() {
