@@ -52,7 +52,6 @@
   font-family: $siteNameFont !important;
   font-size: $siteTitleSize !important;
   color: #fff!important;
-  padding-bottom: 10px;
   a {
     color: #fff!important;
   }
@@ -119,6 +118,7 @@
 @mixin mobileHeaderAlign() {
   align-items: flex-start;
   padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 @mixin actionsMobile() {
