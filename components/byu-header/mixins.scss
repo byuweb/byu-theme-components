@@ -135,7 +135,7 @@
 
 @mixin mobileSiteTitle() {
   font-size: $mobileSiteTitleSize !important;
-  color: pink;
+  color: pink !important;
 }
 
 @mixin headerButtonMobile() {
