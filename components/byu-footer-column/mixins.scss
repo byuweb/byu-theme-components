@@ -17,7 +17,7 @@
     border-bottom: 1px solid $gray !important;
     padding-bottom: 3px !important;
     white-space: nowrap !important;
-    font-weight: 400 !important;
+    font-weight: $footerContentFontWeight !important;
     width: 100%;
     display: inline-block;
 }

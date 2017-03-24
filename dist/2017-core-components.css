@@ -64,7 +64,7 @@ byu-footer-action-button {
 
 byu-footer-action-button > * {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   color: #fff !important;
   display: inline-block !important;
   position: relative !important;
@@ -100,7 +100,7 @@ byu-footer-column {
   border-bottom: 1px solid #c5c5c5 !important;
   padding-bottom: 3px !important;
   white-space: nowrap !important;
-  font-weight: 400 !important;
+  font-weight: 500 !important;
   width: 100%;
   display: inline-block; }
 
@@ -328,6 +328,8 @@ byu-menu:not(:defined) > * {
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-weight: 500 !important;
   color: #002E5D !important;
   height: 35px !important;
   display: inline-block;
@@ -361,6 +363,8 @@ byu-menu:not(:defined) > * {
   text-transform: uppercase !important;
   color: white !important;
   cursor: pointer !important;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-weight: 500 !important;
   color: #002E5D !important;
   height: 35px !important;
   display: inline-block;
@@ -492,7 +496,7 @@ p, span, div {
   font-family: "Gotham SSm A","Gotham SSm B"; }
 
 h1, h2, h3, h4 {
-  font-family: "Sentinel SSm A","Sentinel SSm B"; }
+  font-family: "Vitesse A", "Vitesse B", Georgia, serif; }
 
 h1 {
   color: #002E5D; }
@@ -538,7 +542,7 @@ h1 {
 .royal-button:hover {
   background: #114BAD; }
 
-/* ------- include flash of unstyled content before components are laoded ---- */
+/* ------- include flash of unstyled content before components are loaded ---- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
