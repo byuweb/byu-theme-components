@@ -220,6 +220,7 @@ byu-footer-column {
     position: static;
     width: auto; }
 
+/* GENERAL STYLING */
 /* MOBILE */
 /* FULL SIZE */
 byu-header:not(:defined) {
@@ -232,7 +233,7 @@ byu-header:not(:defined) {
   align-items: center;
   padding-left: 16px;
   flex: 1;
-  height: 55px;
+  min-height: 55px;
   flex-wrap: wrap;
   width: 100%;
   height: 90px;
@@ -243,7 +244,6 @@ byu-header:not(:defined) {
     text-transform: uppercase; }
 
 byu-header:not(:defined) > [slot="site-title"] {
-  white-space: nowrap;
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -251,6 +251,7 @@ byu-header:not(:defined) > [slot="site-title"] {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-size: 22px;
   color: #fff !important;
+  padding: 10px 0;
   position: relative;
   top: -6px; }
   byu-header:not(:defined) > [slot="site-title"] a {

@@ -16,12 +16,17 @@ $siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
 $siteTitleSize: 22px;
 $mobileSiteTitleSize: 16px;
 $siteSubTitleSize: 16px;
+
+$headerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$headerContentFontWeight: 500;
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
 
 // menu settings
 $menuHeight: 35px;
 $menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$menuFontWeight: 500;
+//headerContentFont and menuFont are currently same, but might change later
 
 $nav_gradient: 10%;
 $nav_gradient_2: 5%;
