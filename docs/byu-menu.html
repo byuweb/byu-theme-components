@@ -20,6 +20,7 @@
 <head>
     <title></title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <script>
         (function () {
@@ -63,7 +64,7 @@
                     <span slot="site-title">Site Title</span>
                     <byu-menu slot="nav">
                         <a class="selected" href="javascript: void 0">Link 1</a>
-                        <a href="javascript: void 0">Link 2</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
                         <a href="javascript: void 0">Link 3</a>
                         <a href="javascript: void 0">Link 4</a>
                     </byu-menu>
@@ -78,7 +79,7 @@
                     <span slot="site-title">Site Title</span>
                     <byu-menu slot="nav">
                         <a class="selected" href="javascript: void 0">Link 1</a>
-                        <a href="javascript: void 0">Link 2</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
                         <a href="javascript: void 0">Link 3</a>
                         <a href="javascript: void 0">Link 4</a>
                         <a href="javascript: void 0">Link 5</a>
@@ -95,10 +96,14 @@
             <template>
                 <byu-header>
                     <span slot="site-title">Site Title</span>
+                    <byu-user-info slot="user" login-url="#login">
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                    </byu-user-info>
                     <byu-menu slot="nav">
-                        <a class="selected" href="javascript: void 0">Link 1</a>
-                        <a href="javascript: void 0">Link 2</a>
-                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a class="selected" href="javascript: void 0">Link 3</a>
                         <a href="javascript: void 0">Link 4</a>
                         <a href="javascript: void 0">Link 5</a>
                         <a href="javascript: void 0">Link 6</a>
@@ -108,6 +113,7 @@
                         <a href="javascript: void 0">Link 10</a>
                     </byu-menu>
                 </byu-header>
+                <p>Content Area</p>
             </template>
         </demo-snippet>
     </section>
