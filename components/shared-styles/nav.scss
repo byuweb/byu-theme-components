@@ -20,10 +20,12 @@
 }
 @mixin navItemLongLink() {
   max-width: 300px;
+  flex: 2;
   padding: 0 12px !important;
 }
 @mixin navItemExtraLongLink() {
   max-width: 400px;
+  flex: 3;
   padding: 0 12px !important;
 }
 @mixin navItem() {
@@ -35,6 +37,9 @@
   text-align: center !important;
   padding: 0 6px !important;
   line-height: $menuHeight;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
     @include navItemHover();
