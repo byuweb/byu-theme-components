@@ -3,36 +3,23 @@
 @import "../shared-styles/nav.scss";
 @import "icons/transformicons.scss";
 
-/* MOBILE */
-@mixin mobileMenu() {
-  max-height: 0;
-  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-@mixin actions(){
-  @include headerLink();
-  color: $navy;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-@mixin actionsMobile() {
-  @include dropdownNavItem();
-  background-color: $gray;
-  border-top: 1px solid $medgray;
-}
-@mixin headerInnerMarginMobile() {
-  margin-right: 0px;
-}
-@mixin headerLogo() {
-  margin-right: 8px;
-}
+/* GENERAL STYLING */
 
-@mixin headerFonts(){
-  font-family: "Vitesse Book";
+@mixin headerDefaultFont(){
+  //font-family: "Vitesse Book";
+  font-family: $headerContentFont;
   font-size: 18px;
 }
 
 @mixin headerInnerMargin() {
   margin-right: 16px;
+}
+
+@mixin actions(){
+  @include headerLink();
+  color: $navy;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 @mixin headerButton(){
@@ -41,11 +28,6 @@
   border: none;
   //display: inline-block;
   cursor: pointer;
-}
-
-@mixin headerButtonMobile() {
-  background-color: transparent;
-  font-size: 20px;
 }
 
 @mixin headerPrimary() {
@@ -58,15 +40,11 @@
   align-items: center;
   padding-left: 16px;
   flex: 1;
-  height: $headerHeight;
-}
-
-@mixin mobileSiteTitle() {
-  font-size: $mobileSiteTitleSize; 
+  min-height: $headerHeight;
 }
 
 @mixin headerTitle() {
-  white-space: nowrap;
+  //white-space: nowrap;  //fixes issues with double-stacking
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -74,6 +52,7 @@
   font-family: $siteNameFont !important;
   font-size: $siteTitleSize;
   color: #fff!important;
+  padding: 10px 0;
   a {
     color: #fff!important;
   }
@@ -92,15 +71,15 @@
 }
 
 @mixin headerUserLabel() {
-  font-family: $menuFont;
-  font-weight: 400;
+  font-family: $headerContentFont;
+  font-weight: $headerContentFontWeight;
   font-size: 13px;
   text-transform: uppercase;
 }
 
 @mixin searchInput() {
-  font-family: $menuFont;
-  font-weight: 400;
+  font-family: $headerContentFont;
+  font-weight: $headerContentFontWeight;
   font-size: 13px;
   color: $navy;
 }
@@ -121,12 +100,42 @@
 }
 
 @mixin byuLogo() {
-  height: 48px;
-  width: 92px;
+  //height: 48px;  //was forcing padding within image
+  //width: 92px;
+  height: 30px;
+}
+
+/* MOBILE */
+
+@mixin mobileMenu() {
+  max-height: 0;
+  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
 
 @mixin mobileMenuOverflow() {
   overflow: hidden;
+}
+
+@mixin actionsMobile() {
+  @include dropdownNavItem();
+  background-color: $gray;
+  border-top: 1px solid $medgray;
+}
+@mixin headerInnerMarginMobile() {
+  margin-right: 0px;
+}
+@mixin mobileHeaderLogo() {
+  margin-right: 8px;
+  align-items: flex-start;
+}
+
+@mixin mobileSiteTitle() {
+  font-size: $mobileSiteTitleSize;
+}
+
+@mixin headerButtonMobile() {
+  background-color: transparent;
+  font-size: 20px;
 }
 
 /* FULL SIZE */
@@ -140,11 +149,11 @@
 }
 
 @mixin headerNotMobileNoNav() {
-    height: 48px;
+  height: 48px;
 }
 
 @mixin headerNotMobileNavExpand() {
-    display: none;
+  display: none;
 }
 
 @mixin headerSecondaryNotMobile() {
