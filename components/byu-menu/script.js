@@ -78,9 +78,9 @@ function updateMoreMenuState(component) {
     const children = component.children;
     const length = component.children.length;
     const hasOverflow = length > 6;
-    const innerNav = component.shadowRoot.querySelector('.inner-nav');
+    const nav = component.shadowRoot.querySelector('.outer-nav');
 
-    if (innerNav) toggleClass(innerNav, 'byu-menu-more-visible', hasOverflow);
+    if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
 
     if (hasOverflow) {
         for (let i = 5; i < length; i++) {
