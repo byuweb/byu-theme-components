@@ -4,8 +4,8 @@
 @mixin headerLink() {
   text-decoration: none !important;
   font-size: 13px!important;
-  font-family: $menuFont !important;
-  font-weight: 500!important;
+  font-family: $headerContentFont !important;
+  font-weight: $headerContentFontWeight!important;
   text-transform: uppercase!important;
   color: white !important;
   cursor: pointer !important;
@@ -29,7 +29,9 @@
   padding: 0 12px !important;
 }
 @mixin navItem() {
-  @include headerLink(); // where is this?
+  @include headerLink();
+  font-family: $menuFont !important;
+  font-weight: $menuFontWeight!important;
   color: $navy !important;
   height: $menuHeight !important;
   display: inline-block;
