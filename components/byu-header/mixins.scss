@@ -27,7 +27,8 @@
 }
 
 @mixin headerFonts(){
-  font-family: "Vitesse Book";
+  //font-family: "Vitesse Book";
+  font-family: $headerContentFont;
   font-size: 18px;
 }
 

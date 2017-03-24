@@ -107,7 +107,7 @@ byu-footer-column {
 .content *:not(byu-footer-action-button) {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
   font-size: 13px;
-  font-weight: 400;
+  font-weight: 500;
   color: #767676 !important;
   position: relative;
   top: -11px;
