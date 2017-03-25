@@ -12,6 +12,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
+    "byu-web-component-utils": "^0.1.0",
     "deep-equal": "^1.0.1"
   },
   "devDependencies": {

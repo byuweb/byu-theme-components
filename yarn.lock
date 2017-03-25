@@ -1228,9 +1228,9 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
-byu-web-component-build@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/byu-web-component-build/-/byu-web-component-build-0.2.0.tgz#9fbab9c641e54b1ab8646d2c31348569eae9417d"
+byu-web-component-build@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/byu-web-component-build/-/byu-web-component-build-0.2.1.tgz#b18f8d7d95f07f6b33fb00d74f881bef479cff9f"
   dependencies:
     babel-plugin-iife-wrap "^1.1.0"
     babel-preset-babili "^0.0.11"
@@ -1268,6 +1268,12 @@ byu-web-component-loader-generator@^0.1.2:
     jsmin "^1.0.1"
     through2 "^2.0.3"
     vinyl "^2.0.1"
+
+byu-web-component-utils@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/byu-web-component-utils/-/byu-web-component-utils-0.1.0.tgz#709e3f6b2fee4863fcf2a76960e8d54820b2c0aa"
+  dependencies:
+    hash-sum "^1.0.2"
 
 callsite@1.0.0:
   version "1.0.0"
@@ -3030,6 +3036,10 @@ has@^1.0.1:
   resolved "https://registry.yarnpkg.com/has/-/has-1.0.1.tgz#8461733f538b0837c9361e39a9ab9e9704dc2f28"
   dependencies:
     function-bind "^1.0.2"
+
+hash-sum@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-1.0.2.tgz#33b40777754c6432573c120cc3808bbd10d47f04"
 
 hash.js@^1.0.0, hash.js@^1.0.3:
   version "1.0.3"
@@ -5426,13 +5436,7 @@ right-align@^0.1.1:
   dependencies:
     align-text "^0.1.1"
 
-rimraf@2, rimraf@^2.2.6, rimraf@^2.5.4:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.1.tgz#c2338ec643df7a1b7fe5c54fa86f57428a55f33d"
-  dependencies:
-    glob "^7.0.5"
-
-rimraf@~2.5.1, rimraf@~2.5.4:
+rimraf@2, rimraf@^2.2.6, rimraf@^2.5.4, rimraf@~2.5.1, rimraf@~2.5.4:
   version "2.5.4"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.5.4.tgz#96800093cbf1a0c86bd95b4625467535c29dfa04"
   dependencies:
@@ -5488,13 +5492,13 @@ semver-truncate@^1.0.0:
   dependencies:
     semver "^5.3.0"
 
-"semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", semver@^4.0.3, semver@^4.1.0:
-  version "4.3.6"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
-
-semver@^5.3.0, semver@~5.3.0:
+"semver@2 || 3 || 4 || 5", "semver@2.x || 3.x || 4 || 5", semver@^5.3.0, semver@~5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
+
+semver@^4.0.3, semver@^4.1.0:
+  version "4.3.6"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
 
 send@0.14.1:
   version "0.14.1"
