@@ -13,15 +13,22 @@ $large_screen_start_width: 1024px;
 $headerHeight: 55px;
 $siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
 
+$byuLogoHeight: 30px;
+
 $siteTitleSize: 22px;
 $mobileSiteTitleSize: 16px;
 $siteSubTitleSize: 16px;
+
+$headerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$headerContentFontWeight: 500;
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
 
 // menu settings
 $menuHeight: 35px;
 $menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$menuFontWeight: 500;
+//headerContentFont and menuFont are currently same, but might change later
 
 $nav_gradient: 10%;
 $nav_gradient_2: 5%;
@@ -36,13 +43,15 @@ $menuActive: $lightgray;  // need to go replace$hover_color
 /* ------ footer settings ------------- */
 
 
-$footerFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$blueFooterFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$blueFooterFontWeight: 400;
 $blueFooterHeight: 80px;
-$footerBackground: $lightgray;
 
+$footerBackground: $lightgray;
 $footerContentColor: $medgray;
 $footerColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
 $footerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$footerContentFontWeight: 500;
 
 $footerButtonColor: $medgray; // change this to one of the colors
 $footerButtonFont: "Vitesse A", "Vitesse B", Georgia, serif;

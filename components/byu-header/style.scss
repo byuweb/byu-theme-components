@@ -1,48 +1,25 @@
 @import "./mixins.scss";
 
-/* MOBILE */
-#mobileMenu {
-  @include mobileMenu();
-}
-
-slot[name=actions]::slotted(*) {
-  @include actions();
-}
-
-:host([mobile-view]) {
-  slot[name=actions]::slotted(*) {
-    @include actionsMobile();
-  }
-
-  & > div > :not(.byu-logo) {
-    @include headerInnerMarginMobile();
-  }
-  .byu-header > div > .byu-logo {
-    @include headerLogo();
-  }
-  .byu-header-title, #title::slotted(*) {
-      @include mobileSiteTitle();
-  }
-}
+/* GENERAL STYLING */
 
 .byu-header {
-  @include headerFonts();
+  @include headerDefaultFont();
 
   & > div > * {
     @include headerInnerMargin();
   }
 
+  slot[name=actions]::slotted(*) {
+    @include actions();
+  }
+
   button {
     @include headerButton();
-
-    &.mobile-menu-button {
-      @include headerButtonMobile();
-    }
   }
 
   .byu-header-primary {
     @include headerPrimary();
-    .byu-header-title, #title::slotted(*) {
+    .byu-header-title, #site-title::slotted(*) {
       @include headerTitle();
     }
 
@@ -79,43 +56,68 @@ slot[name=actions]::slotted(*) {
       @include byuLogo();
     }
   }
+}
 
-  #mobileMenu {
-    @include mobileMenuOverflow();
+/* MOBILE */
+#mobileMenu {
+  @include mobileMenu();
+  @include mobileMenuOverflow();
+}
+
+:host([mobile-view]) {
+  .byu-header-primary {
+    @include mobileHeaderAlign();
+  }
+  slot[name=actions]::slotted(*) {
+    @include actionsMobile();
+  }
+  & > div > :not(.byu-logo) {
+    @include headerInnerMarginMobile();
+  }
+  .byu-header > div > .byu-logo {
+    @include mobileHeaderLogo();
+  }
+  .byu-header-title, #site-title::slotted(*) {
+    @include mobileSiteTitle();
+  }
+  button {
+    &.mobile-menu-button {
+      @include headerButtonMobile();
+    }
   }
 }
 
-  /* FULL SIZE */
+/* FULL SIZE */
 
-  :host(:not([mobile-view])) {
-    .byu-header {
-      @include headerNotMobile();
+:host(:not([mobile-view])) {
+  .byu-header {
+    @include headerNotMobile();
 
-      &.no-nav {
-        @include headerNotMobileNoNav();
+    &.no-nav {
+      @include headerNotMobileNoNav();
+    }
+
+    .nav-expand {
+      @include headerNotMobileNavExpand();
+    }
+
+    .byu-header-secondary {
+      @include headerSecondaryNotMobile();
+
+      .byu-header-search {
+        @include searchNotMobile();
+
+        input {
+          @include searchInputNotMobile();
+        }
+        button {
+          @include searchButtonNotMobile();
+        }
       }
 
-      .nav-expand {
-        @include headerNotMobileNavExpand();
-      }
-
-      .byu-header-secondary {
-        @include headerSecondaryNotMobile();
-
-        .byu-header-search {
-          @include searchNotMobile();
-
-          input {
-            @include searchInputNotMobile();
-          }
-          button {
-            @include searchButtonNotMobile();
-          }
-        }
-
-        .byu-header-menu-button {
-          @include headerMenuButtonNotMobile();
-        }
+      .byu-header-menu-button {
+        @include headerMenuButtonNotMobile();
       }
     }
   }
+}
