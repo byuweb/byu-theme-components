@@ -32,17 +32,12 @@
 }
 @mixin nonMobileUsername() {
   color: $xlightblue !important;
-  //text-decoration: underline !important;
   text-transform: capitalize !important;
   width: 130px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-//@mixin nonMobileUsernameHover() {
-//  text-decoration: underline !important;
-//}
 
 @mixin nonMobileHeaderLinkHover() {
   text-decoration: underline !important;
