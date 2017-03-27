@@ -31,7 +31,7 @@ img {
     }
   .has-user {
 
-    slot[name=user-name]::slotted(*) {
+    #user-name::slotted(*) {
       @include nonMobileUsername();
     }
   }
