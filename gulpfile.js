@@ -45,6 +45,7 @@ gulp.task('watch', ['build'], function (done) {
         server: {
             baseDir: './',
         },
+        startPath: '/every-feature.html',
         notify: false
     }, done);
 
