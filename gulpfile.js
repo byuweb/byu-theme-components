@@ -29,7 +29,8 @@ gulp.task('build', ['docs', 'wc:build'], function()
 initWcBuild(gulp, {
     componentName: '2017-core-components',
     js: {
-        input: './components/bundle.js'
+        input: './components/bundle.js',
+        polyfillUrl: 'https://cdn.byu.edu/web-component-polyfills/latest/web-component-polyfills.min.js'
     },
     css: {
         input: './css/site.scss'
