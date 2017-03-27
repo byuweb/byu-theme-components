@@ -37,6 +37,7 @@
   position: relative;
   height: 35px;
   width: 16.66%;
+  max-width: 200px;
 }
 
 @mixin moreMenuVisible {

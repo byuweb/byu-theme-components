@@ -336,10 +336,10 @@ byu-menu:not(:defined) > * {
   box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
-  line-height: 35px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: 35px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
   flex: 1;
   max-width: 200px; }
   byu-menu:not(:defined) > *:hover {
@@ -371,10 +371,10 @@ byu-menu:not(:defined) > * {
   box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
-  line-height: 35px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
+  line-height: 35px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important; }
   byu-menu:not(:defined) > *:hover {
     background: #c5c5c5 !important; }
   byu-menu:not(:defined) > *.selected {

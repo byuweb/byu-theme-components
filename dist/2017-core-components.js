@@ -169,7 +169,7 @@
     //END:currentExecutingScript
 //
 })({
-    polyfills: 'https://cdn.byu.edu/web-component-polyfills/latest/polyfills.min.js',
+    polyfills: 'https://cdn.byu.edu/web-component-polyfills/latest/webcomponents-lite.js',
     bundle: 'components.min.js',
     compatBundle: 'components-compat.min.js'
 });
