@@ -34,6 +34,10 @@ img {
     #user-name::slotted(*) {
       @include nonMobileUsername();
     }
+
+    //#user-name::slotted(a:hover) {
+    //  @include nonMobileUsernameHover();
+    //}
   }
   img {
     @include userInfoNotMobileImages();
