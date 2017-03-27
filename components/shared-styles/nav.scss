@@ -34,14 +34,14 @@
   font-weight: $menuFontWeight!important;
   color: $navy !important;
   height: $menuHeight !important;
-  display: inline-block;
-  box-sizing: border-box;
+  display: inline-block !important;
+  box-sizing: border-box !important;
   text-align: center !important;
   padding: 0 6px !important;
-  line-height: $menuHeight;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: $menuHeight !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 
   &:hover {
     @include navItemHover();
