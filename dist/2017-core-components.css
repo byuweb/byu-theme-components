@@ -327,7 +327,6 @@ byu-menu:not(:defined) > * {
   font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
-  cursor: pointer !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
   font-weight: 500 !important;
   color: #002E5D !important;
@@ -362,7 +361,6 @@ byu-menu:not(:defined) > * {
   font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
-  cursor: pointer !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
   font-weight: 500 !important;
   color: #002E5D !important;
@@ -446,7 +444,6 @@ byu-user-info:not(:defined) > * {
   font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important;
-  cursor: pointer !important;
   cursor: initial !important; }
 
 /* NON MOBILE */
@@ -458,8 +455,7 @@ byu-user-info:not(:defined):not([mobile-view]) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
     font-weight: 500 !important;
     text-transform: uppercase !important;
-    color: white !important;
-    cursor: pointer !important; }
+    color: white !important; }
   byu-user-info:not(:defined):not([mobile-view]) .mobile {
     display: none; }
   byu-user-info:not(:defined):not([mobile-view]) img {
