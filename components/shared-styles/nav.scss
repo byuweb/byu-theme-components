@@ -38,10 +38,10 @@
   box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
-  line-height: $menuHeight;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  line-height: $menuHeight !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
 
   &:hover {
     @include navItemHover();
