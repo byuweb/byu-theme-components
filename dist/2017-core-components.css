@@ -246,7 +246,6 @@ byu-header:not(:defined) > [slot="site-title"] {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-size: 22px;
   color: #fff !important;
-  padding: 10px 0;
   position: relative;
   top: -6px; }
   byu-header:not(:defined) > [slot="site-title"] a {
