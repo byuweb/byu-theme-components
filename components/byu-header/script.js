@@ -3,6 +3,7 @@
 import * as templateFn from "./template.ejs.html";
 
 import * as equal from "deep-equal";
+import * as util from 'byu-web-component-utils';
 import {transform as transformIcon, revert as revertIcon} from "./icons/transformicons";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
@@ -23,12 +24,13 @@ class BYUHeader extends HTMLElement {
             mobile: this.inMobileView
         };
         if (!equal(state, this._renderState)) {
-            this._shadowRoot.innerHTML = templateFn(state);
-            this._renderState = state;
-
-            this._addSlotListeners();
-            this._notifyChildrenOfMobileState();
-            this._addButtonListeners();
+            util.applyTemplate(this, 'byu-header', templateFn(state), () => {
+                this._renderState = state;
+                this._addSlotListeners();
+                this._notifyChildrenOfMobileState();
+                this._addButtonListeners();
+            });
+            
         }
     }
 
@@ -37,7 +39,7 @@ class BYUHeader extends HTMLElement {
             this.menuOpen = false;
             return;
         }
-        let menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
+        let menuButton = this._shadowRoot.querySelector('.mobile-menu-button');
         menuButton.addEventListener('click', () => this._toggleMenu())
     }
 
@@ -108,14 +110,14 @@ class BYUHeader extends HTMLElement {
     }
 
     _applyMenuOpen() {
-        let menu = this.shadowRoot.getElementById('mobileMenu');
+        let menu = this._shadowRoot.querySelector('#mobileMenu');
         if (!menu) return;
         if (this.menuOpen) {
             menu.style.maxHeight = menu.scrollHeight + 'px';
-            transformIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
+            transformIcon(this._shadowRoot.querySelector('.mobile-menu-button'));
         } else {
             menu.style.maxHeight = null;
-            revertIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
+            revertIcon(this._shadowRoot.querySelector('.mobile-menu-button'));
         }
     }
 

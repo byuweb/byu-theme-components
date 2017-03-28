@@ -9,7 +9,7 @@
     @include headerInnerMargin();
   }
 
-  slot[name=actions]::slotted(*) {
+  .byu-header-actions ::slotted(*) {
     @include actions();
   }
 
@@ -19,7 +19,7 @@
 
   .byu-header-primary {
     @include headerPrimary();
-    .byu-header-title, #site-title::slotted(*) {
+    .byu-header-title {
       @include headerTitle();
     }
 
@@ -68,7 +68,7 @@
   .byu-header-primary {
     @include mobileHeaderAlign();
   }
-  slot[name=actions]::slotted(*) {
+  .byu-header-actions ::slotted(*) {
     @include actionsMobile();
   }
   & > div > :not(.byu-logo) {
