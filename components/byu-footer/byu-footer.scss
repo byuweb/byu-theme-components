@@ -1,14 +1,14 @@
 
 @import "./mixins.scss";
 
-byu-footer {
+byu-footer:not(:defined) {
   background: $lightgray;
   min-height: 200px;
   display: flex;
   width: 100%;
 }
 
-byu-footer:after {
+byu-footer:not(:defined):after {
   @include blueFooter();
   content: "BRIGHAM YOUNG UNIVERSITY";
   //background: $navy;
