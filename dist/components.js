@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 40);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -124,27 +124,19 @@ module.exports = function() {
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_templating__ = __webpack_require__(39);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTemplate", function() { return __WEBPACK_IMPORTED_MODULE_0__utils_templating__["a"]; });
+/**
+ * Created by ThatJoeMoore on 2/14/17
+ */
 
 
-const template = __webpack_require__(23);
 
-class BYUFooterActionButton extends HTMLElement {
 
-    constructor() {
-        super();
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;
-    }
-
-    connectedCallback() {
-    }
-}
-
-window.customElements.define('byu-footer-action-button', BYUFooterActionButton);
-window.BYUFooterActionButton = BYUFooterActionButton;
 
 
 
@@ -154,17 +146,45 @@ window.BYUFooterActionButton = BYUFooterActionButton;
 
 "use strict";
 
+
+const template = __webpack_require__(23);
+const util = __webpack_require__(1);
+
+class BYUFooterActionButton extends HTMLElement {
+
+    constructor() {
+        super();
+        this.attachShadow({mode: 'open'});
+    }
+
+    connectedCallback() {
+        util.applyTemplate(this, 'byu-footer-action-button', template);
+    }
+}
+
+window.customElements.define('byu-footer-action-button', BYUFooterActionButton);
+window.BYUFooterActionButton = BYUFooterActionButton;
+
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 const template = __webpack_require__(24);
+const util = __webpack_require__(1);
 
 class BYUFooterColumn extends HTMLElement {
 
     constructor() {
         super();
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;
+        this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {
+        util.applyTemplate(this, 'byu-footer-column', template);
     }
 }
 
@@ -173,12 +193,14 @@ window.BYUFooterColumn = BYUFooterColumn;
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
+
 
 
 
@@ -187,14 +209,15 @@ class BYUFooter extends HTMLElement {
 
     constructor() {
         super();
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
+        this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {
-        // always show the current year in the copyright message
-        var currentYear = this.shadowRoot.querySelector("#currentYear");
-        currentYear.innerHTML = new Date().getFullYear();
+        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-footer', __WEBPACK_IMPORTED_MODULE_0__template_html__, () => {
+            // always show the current year in the copyright message
+            var currentYear = this.shadowRoot.querySelector("#currentYear");
+            currentYear.innerHTML = new Date().getFullYear();
+        });
     }
 }
 
@@ -203,7 +226,7 @@ window.BYUFooter = BYUFooter;
 
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -405,7 +428,7 @@ window.BYUHeader = BYUHeader;
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -509,7 +532,7 @@ window.BYUMenu = BYUMenu;
 
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -647,35 +670,37 @@ window.ByuSearch = ByuSearch;
 
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 const template = __webpack_require__(28);
+const util = __webpack_require__(1);
 
 class BYUSocialMediaLinks extends HTMLElement {
 
     constructor() {
         super();
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;
+        this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {
-        var idArr = ['facebook', 'instagram', 'twitter', 'googleplus', 'linkedin', 'youtube'];
-        var classArr = ['fa-facebook', 'fa-instagram', 'fa-twitter', 'fa-google-plus', 'fa-linkedin', 'fa-youtube-play'];
+        util.applyTemplate(this, 'byu-social-media-links', template, () => {
+            var idArr = ['facebook', 'instagram', 'twitter', 'googleplus', 'linkedin', 'youtube'];
+            var classArr = ['fa-facebook', 'fa-instagram', 'fa-twitter', 'fa-google-plus', 'fa-linkedin', 'fa-youtube-play'];
 
-        for (var i = 0; i < idArr.length; i++) {
-            const slotId = this.shadowRoot.querySelector("#" + idArr[i]);
-            var link = slotId.assignedNodes();
+            for (var i = 0; i < idArr.length; i++) {
+                const slotId = this.shadowRoot.querySelector("#" + idArr[i]);
+                var link = slotId.assignedNodes();
 
-            if (link.length > 0) {
-                link[0].classList.add("fa");
-                link[0].classList.add(classArr[i]);
+                if (link.length > 0) {
+                    link[0].classList.add("fa");
+                    link[0].classList.add(classArr[i]);
+                }
             }
-        }
 
+        });
     }
 }
 
@@ -684,7 +709,7 @@ window.BYUSocialMediaLinks = BYUSocialMediaLinks;
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -752,47 +777,6 @@ class ByuUserInfo extends HTMLElement {
 
 window.customElements.define('byu-user-info', ByuUserInfo);
 window.ByuUserInfo = ByuUserInfo;
-
-
-
-/***/ }),
-/* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_header_script_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__byu_menu_script_js__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__byu_search_script_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_script_js__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__byu_footer_script_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__);
-/**
- * Created by ThatJoeMoore on 2/18/17
- */
-
-
-/*
- * Header Bits
- */
-
-
-
-
-
-/*
- * Footer Bits
- */
-
-
-
-
-
 
 
 
@@ -1003,7 +987,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ":host{background-color:#767676;font-family:Vitesse A,Vitesse B,Georgia,serif;font-size:20px!important;color:#fff;display:inline-block;text-align:center;line-height:2.2em;height:45px;width:auto;min-width:125px;margin:10px 0 20px;-webkit-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);-moz-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);box-shadow:0 3px 5px 0 rgba(0,0,0,.35)}::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:500!important;color:#fff!important;display:inline-block!important;position:relative!important;height:100%!important;width:100%!important;margin:0 20px!important;left:-20px!important;cursor:pointer!important;vertical-align:middle!important}::slotted(a){text-decoration:none!important}", ""]);
+exports.push([module.i, ":host{background-color:#767676;font-family:Vitesse A,Vitesse B,Georgia,serif;font-size:20px!important;color:#fff;display:inline-block;text-align:center;line-height:2.2em;height:45px;width:auto;min-width:125px;margin:10px 0 20px;-webkit-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);-moz-box-shadow:0 3px 5px 0 rgba(0,0,0,.35);box-shadow:0 3px 5px 0 rgba(0,0,0,.35)}.wrapper ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:500!important;color:#fff!important;display:inline-block!important;position:relative!important;height:100%!important;width:100%!important;margin:0 20px!important;left:-20px!important;cursor:pointer!important;vertical-align:middle!important}.wrapper ::slotted(a){text-decoration:none!important}", ""]);
 
 // exports
 
@@ -1017,7 +1001,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ":host{padding:0 15px}.header{width:100%}.header ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:20px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;white-space:nowrap!important;font-weight:500!important;width:100%;display:inline-block}.content ::slotted(:not(byu-footer-action-button)){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:13px;font-weight:500;color:#767676!important;position:relative;top:-11px;line-height:1.42857143}#defaultContent::slotted(a){line-height:35px;text-decoration:none!important;outline:none!important}#defaultContent::slotted(a:hover){cursor:pointer;color:#002e5d!important}", ""]);
+exports.push([module.i, ":host{padding:0 15px}.header{width:100%}.header ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:20px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;white-space:nowrap!important;font-weight:500!important;width:100%;display:inline-block}.content ::slotted(:not(byu-footer-action-button)){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:13px;font-weight:500;color:#767676!important;position:relative;top:-11px;line-height:1.42857143}.content ::slotted(a){line-height:35px;text-decoration:none!important;outline:none!important}.content ::slotted(a:hover){cursor:pointer;color:#002e5d!important}", ""]);
 
 // exports
 
@@ -1031,7 +1015,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ".blue-footer{background-color:#002e5d;text-align:center;font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:12px;color:#fff;height:80px;display:table;width:100%}.blue-footer a{text-decoration:none;color:#fff}.blue-footer a:hover{color:#fff}.inner-wrapper{display:table-cell;vertical-align:middle}.university-logo{width:450px;max-width:93vw;margin-bottom:-10px}.secondary-footer{height:auto;background-color:#e5e5e5;text-align:center}.secondary-footer ::slotted(*){display:inline-block;text-align:left;vertical-align:top}@media (max-width:767px){.secondary-footer ::slotted(*){width:80%}.secondary-footer ::slotted(:last-child){padding-bottom:30px}.secondary-footer ::slotted(:first-child){padding-top:10px}}@media (min-width:768px) and (max-width:1199px){.secondary-footer ::slotted(*){width:40%}.secondary-footer ::slotted(:nth-child(n+3)){padding-bottom:30px}.secondary-footer ::slotted(:nth-child(-n+2)){padding-top:10px}}@media (min-width:1200px){.secondary-footer ::slotted(*){width:20%;padding-top:10px;padding-bottom:30px}}", ""]);
+exports.push([module.i, ".blue-footer{background-color:#002e5d;text-align:center;font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:400;font-size:12px;color:#fff;height:80px;display:table;width:100%}.blue-footer a{text-decoration:none;color:#fff}.blue-footer a:hover{color:#fff}.inner-wrapper{display:table-cell;vertical-align:middle}.university-logo{width:450px;max-width:100vw;box-sizing:border-box;margin-bottom:-10px}.secondary-footer{height:auto;background-color:#e5e5e5;text-align:center}.secondary-footer ::slotted(*){display:inline-block;text-align:left;vertical-align:top}@media (max-width:767px){.secondary-footer ::slotted(*){width:80%}.secondary-footer ::slotted(:last-child){padding-bottom:30px}.secondary-footer ::slotted(:first-child){padding-top:10px}}@media (min-width:768px) and (max-width:1199px){.secondary-footer ::slotted(*){width:40%}.secondary-footer ::slotted(:nth-child(n+3)){padding-bottom:30px}.secondary-footer ::slotted(:nth-child(-n+2)){padding-top:10px}}@media (min-width:1200px){.secondary-footer ::slotted(*){width:20%;padding-top:10px;padding-bottom:30px}}", ""]);
 
 // exports
 
@@ -1045,7 +1029,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:1.5em;transition:.15s;user-select:none;width:1.5em;background:transparent;outline:none;-webkit-tap-highlight-color:transparent}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:1.5em;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;height:.21429em;border-radius:.10714em;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:1.5em;content:\"\";position:absolute;left:0;transform-origin:.10714em center;width:100%}.tcon-menu__lines:before{top:.375em}.tcon-menu__lines:after{top:-.375em}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:1.5em}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;color:#002e5d;margin-left:4px;margin-right:4px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;min-height:55px}.byu-header .byu-header-primary #site-title::slotted(*),.byu-header .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important;padding:10px 0}.byu-header .byu-header-primary #site-title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:30px}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-primary{align-items:flex-start;padding-top:12.5px;padding-bottom:12.5px;min-height:30px}:host([mobile-view]) slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;border-top:1px solid #767676}:host([mobile-view]) slot[name=actions]::slotted(*):hover{background:#c5c5c5!important}:host([mobile-view]) slot[name=actions]::slotted(*).selected{background:#e5e5e5!important}:host([mobile-view]) slot[name=actions]::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]) slot[name=actions]::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header>div>.byu-logo{margin-right:8px}:host([mobile-view]) #site-title::slotted(*),:host([mobile-view]) .byu-header-title{font-size:16px!important;align-items:flex-start}:host([mobile-view]) button.mobile-menu-button{background-color:transparent;font-size:20px}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
+exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:1.5em;transition:.15s;user-select:none;width:1.5em;background:transparent;outline:none;-webkit-tap-highlight-color:transparent}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:1.5em;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;height:.21429em;border-radius:.10714em;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:1.5em;content:\"\";position:absolute;left:0;transform-origin:.10714em center;width:100%}.tcon-menu__lines:before{top:.375em}.tcon-menu__lines:after{top:-.375em}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:1.5em}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;color:#002e5d;margin-left:4px;margin-right:4px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;min-height:55px}.byu-header .byu-header-primary #site-title::slotted(*),.byu-header .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important;padding:10px 0}.byu-header .byu-header-primary #site-title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:30px}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-primary{align-items:flex-start;padding-top:12.5px;padding-bottom:12.5px;min-height:30px}:host([mobile-view]) slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;border-top:1px solid #767676}:host([mobile-view]) slot[name=actions]::slotted(*):hover{background:#c5c5c5!important}:host([mobile-view]) slot[name=actions]::slotted(*).selected{background:#e5e5e5!important}:host([mobile-view]) slot[name=actions]::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]) slot[name=actions]::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header>div>.byu-logo{margin-right:8px}:host([mobile-view]) #site-title::slotted(*),:host([mobile-view]) .byu-header-title{font-size:16px!important;align-items:flex-start}:host([mobile-view]) button.mobile-menu-button{background-color:transparent;font-size:20px}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
 
 // exports
 
@@ -1059,7 +1043,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0;height:35px;position:relative}::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;flex:1;max-width:200px}::slotted(*):hover{background:#c5c5c5!important}::slotted(*).selected{background:#e5e5e5!important}::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}::slotted(:hover){background:#c5c5c5!important}::slotted(.selected){background:#e5e5e5!important}::slotted(.long-link){max-width:300px;flex:2;padding:0 12px!important}::slotted(.extra-long-link){max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu{display:none;position:relative;height:35px;width:16.66%;max-width:200px}.byu-menu-more-menu .byu-menu-more{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;position:relative;flex:1;max-width:200px;display:block}.byu-menu-more-menu .byu-menu-more:hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more.selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more.long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more.extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more svg{fill:#002e5d}.byu-menu-more-menu .byu-menu-more-items{display:none;position:absolute;top:35px;left:0;right:0;z-index:2;background:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-menu .byu-menu-more-items ::slotted(*){width:100%;text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;text-align:left!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*):hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-visible .byu-menu-more-menu{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded{background:#e5e5e5;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-more-items{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1}:host(.mobile-view) .outer-nav{display:block;height:auto}:host(.mobile-view) .byu-menu-more{display:none}:host(.mobile-view) ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;max-width:100%}:host(.mobile-view) .byu-menu-more-menu{display:block;width:100%;box-shadow:none;position:static;height:auto;max-width:100%}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items{display:block;box-shadow:none;padding:0}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded{box-shadow:none}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{display:none!important}:host(.mobile-view) .byu-menu-more-items{position:static}", ""]);
+exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0;height:35px;position:relative}::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;flex:1;max-width:200px}::slotted(*):hover{background:#c5c5c5!important}::slotted(*).selected{background:#e5e5e5!important}::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}::slotted(:hover){background:#c5c5c5!important}::slotted(.selected){background:#e5e5e5!important}::slotted(.long-link){max-width:300px;flex:2;padding:0 12px!important}::slotted(.extra-long-link){max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu{display:none;position:relative;height:35px;width:16.66%;max-width:200px}.byu-menu-more-menu .byu-menu-more{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;position:relative;flex:1;max-width:200px;display:block}.byu-menu-more-menu .byu-menu-more:hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more.selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more.long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more.extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more svg{fill:#002e5d}.byu-menu-more-menu .byu-menu-more-items{display:none;position:absolute;top:35px;left:0;right:0;z-index:2;background:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-menu .byu-menu-more-items ::slotted(*){width:100%;text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;text-align:left!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*):hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-visible .byu-menu-more-menu{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded{background:#e5e5e5;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-more-items{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1}:host(.mobile-view) .outer-nav{display:block;height:auto}:host(.mobile-view) .byu-menu-more{display:none}:host(.mobile-view) ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;max-width:100%}:host(.mobile-view) .byu-menu-more-menu{display:block;width:100%;box-shadow:none;position:static;height:auto;max-width:100%}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items{display:block;box-shadow:none;padding:0}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded{box-shadow:none}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{display:none!important}:host(.mobile-view) .byu-menu-more-items{position:static}", ""]);
 
 // exports
 
@@ -1087,7 +1071,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "::slotted(.fa),::slotted(a){text-decoration:none!important}::slotted(.fa){color:#002e5d!important;font-size:25px!important;line-height:40px!important;border:1px solid #fff!important;width:40px!important;height:40px!important;text-align:center!important;border-radius:20px!important;margin:0 5px 5px 0!important;cursor:pointer}::slotted(.fa:hover){background-color:#fff!important}", ""]);
+exports.push([module.i, ".slot-wrapper ::slotted(.fa),.slot-wrapper ::slotted(a){text-decoration:none!important}.slot-wrapper ::slotted(.fa){color:#002e5d!important;font-size:25px!important;line-height:40px!important;border:1px solid #fff!important;width:40px!important;height:40px!important;text-align:center!important;border-radius:20px!important;margin:0 5px 5px 0!important;cursor:pointer}.slot-wrapper ::slotted(.fa:hover){background-color:#fff!important}", ""]);
 
 // exports
 
@@ -1101,7 +1085,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user #user-name::slotted(*){color:#c3ddf9!important;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;cursor:pointer!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
+exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user #user-name::slotted(*){color:#c3ddf9;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
 
 // exports
 
@@ -1295,13 +1279,13 @@ module.exports = function anonymous(locals, escapeFn, include, rethrow) {
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(11) + "</style> <slot name=\"actiontext\"></slot>";
+module.exports = "<style>" + __webpack_require__(11) + "</style> <div class=\"wrapper\"> <slot name=\"actiontext\"></slot> </div>";
 
 /***/ }),
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(12) + "</style> <link rel=\"stylesheet\" href=\"../../bower_components/font-awesome/css/font-awesome.min.css\"> <h2 class=\"header\"> <slot name=\"header\"></slot> </h2> <div class=\"content\"> <span style=\"display: none\">Joseph Modified This</span> <slot id=\"defaultContent\"></slot> </div>";
+module.exports = "<style>" + __webpack_require__(12) + "</style> <h2 class=\"header\"> <slot name=\"header\"></slot> </h2> <div class=\"content\"> <slot></slot> </div>";
 
 /***/ }),
 /* 25 */
@@ -1325,7 +1309,7 @@ module.exports = "<style>" + __webpack_require__(16) + "</style> <div id=\"searc
 /* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(17) + "</style> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"googleplus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot>";
+module.exports = "<style>" + __webpack_require__(17) + "</style> <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" rel=\"stylesheet\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\"> <div class=\"slot-wrapper\"> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"googleplus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot> </div>";
 
 /***/ }),
 /* 29 */
@@ -1380,6 +1364,196 @@ module.exports = "data:image/svg+xml,%3Csvg height='1000' width='1000' xmlns='ht
 /***/ (function(module, exports) {
 
 module.exports = "data:image/svg+xml,%3Csvg height='1000' width='1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FFF' d='M500 0q101.6 0 194.2 39.6t159.6 106.6 106.6 159.6T1000 500q0 101-39.3 193.6T854.4 853.2 694.8 960.1 500 1000t-194.8-39.6-159.3-106.9T39.6 693.9 0 500t39.6-194.2 106.6-159.6T305.8 39.6 500 0zm345.4 753.9q83.2-114.4 83.2-253.9 0-87.1-34.1-166.3T803 197t-136.7-91.5T500 71.4t-166.3 34.1T197 197t-91.5 136.7T71.4 500q0 139.5 83.2 253.9 36.8-182.5 170.7-182.5 73.1 71.5 174.7 71.5t174.7-71.5q133.9 0 170.7 182.5zm-131.1-361q0-88.8-62.8-151.5T500 178.6t-151.5 62.8-62.8 151.5 62.8 151.5T500 607.1t151.5-62.7 62.8-151.5z'/%3E%3C/svg%3E"
+
+/***/ }),
+/* 38 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+function pad (hash, len) {
+  while (hash.length < len) {
+    hash = '0' + hash;
+  }
+  return hash;
+}
+
+function fold (hash, text) {
+  var i;
+  var chr;
+  var len;
+  if (text.length === 0) {
+    return hash;
+  }
+  for (i = 0, len = text.length; i < len; i++) {
+    chr = text.charCodeAt(i);
+    hash = ((hash << 5) - hash) + chr;
+    hash |= 0;
+  }
+  return hash < 0 ? hash * -2 : hash;
+}
+
+function foldObject (hash, o, seen) {
+  return Object.keys(o).sort().reduce(foldKey, hash);
+  function foldKey (hash, key) {
+    return foldValue(hash, o[key], key, seen);
+  }
+}
+
+function foldValue (input, value, key, seen) {
+  var hash = fold(fold(fold(input, key), toString(value)), typeof value);
+  if (value === null) {
+    return fold(hash, 'null');
+  }
+  if (value === undefined) {
+    return fold(hash, 'undefined');
+  }
+  if (typeof value === 'object') {
+    if (seen.indexOf(value) !== -1) {
+      return fold(hash, '[Circular]' + key);
+    }
+    seen.push(value);
+    return foldObject(hash, value, seen);
+  }
+  return fold(hash, value.toString());
+}
+
+function toString (o) {
+  return Object.prototype.toString.call(o);
+}
+
+function sum (o) {
+  return pad(foldValue(0, o, '', []).toString(16), 8);
+}
+
+module.exports = sum;
+
+
+/***/ }),
+/* 39 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
+/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
+/*
+ *  @license
+ *    Copyright 2017 Brigham Young University
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
+
+
+
+
+function applyTemplate(element, elementName, template, callback) {
+    let sum = __WEBPACK_IMPORTED_MODULE_0_hash_sum___default()(template);
+
+    let elSettings = element.__byu_webCommunity_components = element.__byu_webCommunity_components || {};
+    if (elSettings.templateHash === sum) {
+        //Nothing has changed in the element.  Don't replace the DOM, don't fire the callback.
+        return;
+    }
+    elSettings.templateHash = sum;
+
+    if (window.ShadyCSS) {
+        applyTemplateShady(element, elementName, template, callback, sum);
+    } else {
+        applyTemplateNative(element, template, callback);
+    }
+}
+
+function applyTemplateShady(element, elementName, template, callback, sum) {
+    let templateId = '__byu-custom-element-template_' + elementName + '_' + sum;
+    let templateElement = document.head.querySelector('template#' + templateId);
+    if (!templateElement) {
+        templateElement = document.createElement('template');
+        templateElement.id = templateId;
+        templateElement.innerHTML = template;
+        document.head.appendChild(templateElement);
+        ShadyCSS.prepareTemplate(templateElement, elementName);
+    }
+    if (ShadyCSS.styleElement) {
+        ShadyCSS.styleElement(element);
+    } else if (ShadyCSS.applyStyle) {
+        ShadyCSS.applyStyle(element);
+    } else {
+        throw new Error('ShadyCSS is not properly defined: no styleElement or applyStyle!');
+    }
+    let imported = document.importNode(templateElement.content, true);
+    let shadow = element.shadowRoot;
+    //It'd be nice if we could just diff the DOM and replace what changed between templates, but that might lead to
+    // event listeners getting applied twice.  Easier to just clear out the shadow DOM and replace it.
+    while (shadow.firstChild) {
+        shadow.removeChild(shadow.firstChild);
+    }
+    shadow.appendChild(imported);
+    if (callback) {
+        setTimeout(callback);
+    }
+}
+
+function applyTemplateNative(element, template, callback) {
+    element.shadowRoot.innerHTML = template;
+    if (callback) {
+        callback();
+    }
+}
+
+
+
+/***/ }),
+/* 40 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_header_script_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__byu_menu_script_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__byu_search_script_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_script_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__byu_footer_script_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__);
+/**
+ * Created by ThatJoeMoore on 2/18/17
+ */
+
+
+/*
+ * Header Bits
+ */
+
+
+
+
+
+/*
+ * Footer Bits
+ */
+
+
+
+
+
+
+
 
 /***/ })
 /******/ ]);

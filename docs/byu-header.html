@@ -23,18 +23,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        (function () {
-            var scriptPath = '//cdn.byu.edu/2017-core-components/latest/components.min.js';
-            var tag = document.createElement('script');
-            tag.async = true;
-            if (window.location.href.indexOf('localhost') != -1) {
-                scriptPath = '/dist/components.min.js';
-            }
-            tag.setAttribute('src', scriptPath);
-            document.head.appendChild(tag);
-        })();
-    </script>
+    <script src="load-components.js"></script>
+
+    <script async src="lib/html-imports/html-imports.min.js"></script>
 
     <link rel="import" href="lib/iron-demo-helpers/demo-snippet.html">
     <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
