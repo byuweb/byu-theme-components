@@ -37,6 +37,7 @@
 
     var scriptPath = url(root, '2017-core-components', min, 'js');
     var stylePath = url(root, '2017-core-components', min, 'css');
+
     var style = document.createElement('link');
     style.href = stylePath;
     style.rel = 'stylesheet';

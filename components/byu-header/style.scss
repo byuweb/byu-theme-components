@@ -2,14 +2,14 @@
 
 /* GENERAL STYLING */
 
-.byu-header-root {
+.byu-header {
   @include headerDefaultFont();
 
   & > div > * {
     @include headerInnerMargin();
   }
 
-  .byu-header-actions ::slotted(*) {
+  slot[name=actions]::slotted(*) {
     @include actions();
   }
 
@@ -19,7 +19,7 @@
 
   .byu-header-primary {
     @include headerPrimary();
-    .byu-header-title, .byu-header-title #site-title::slotted(*) {
+    .byu-header-title, #site-title::slotted(*) {
       @include headerTitle();
     }
 
@@ -68,7 +68,7 @@
   .byu-header-primary {
     @include mobileHeaderAlign();
   }
-  .byu-header-actions ::slotted(*) {
+  slot[name=actions]::slotted(*) {
     @include actionsMobile();
   }
   & > div > :not(.byu-logo) {
@@ -90,7 +90,7 @@
 /* FULL SIZE */
 
 :host(:not([mobile-view])) {
-  .byu-header-root {
+  .byu-header {
     @include headerNotMobile();
 
     &.no-nav {
