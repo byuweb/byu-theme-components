@@ -2,22 +2,22 @@
     ${require('./style.scss')}
 </style>
 
-<div class="no-user">
-    <img class="not-mobile" src="./icons/user-circle-o-white.svg">
-    <img class="mobile" src="./icons/user-circle-o-darkblue.svg">
-    <span class="text">
+<div class="byu-user-wrapper">
+    <div class="no-user slot-wrapper">
+        <img class="not-mobile" src="./icons/user-circle-o-white.svg">
+        <img class="mobile" src="./icons/user-circle-o-darkblue.svg">
+        <span class="text">
         <slot name="login">Sign In</slot>
     </span>
-</div>
-<div class="has-user">
-    <span class="name"> 
+    </div>
+    <div class="has-user slot-wrapper">
+        <span class="name"> 
         <slot name="user-name" id='user-name'></slot>
     </span>
-    <img class="not-mobile" src="./icons/user-circle-filled-white.svg">
-    <img class="mobile" src="./icons/user-circle-filled-darkblue.svg">
-    <a class="logout">
-        <slot name="logout">Sign Out</slot>
-    </a>
+        <img class="not-mobile" src="./icons/user-circle-filled-white.svg">
+        <img class="mobile" src="./icons/user-circle-filled-darkblue.svg">
+        <a class="logout">
+            <slot name="logout">Sign Out</slot>
+        </a>
+    </div>
 </div>
-
- 

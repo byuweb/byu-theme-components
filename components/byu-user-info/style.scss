@@ -1,10 +1,13 @@
 @import "./mixins.scss";
 
-img {
-  @include userInfoImages();
+.byu-user-wrapper {
+  img {
+    @include userInfoImages();
+  }
 }
 
-::slotted(*) {
+.slot-wrapper ::slotted(*)
+{
   @include userInfoSlotted();
 }
 
@@ -24,11 +27,12 @@ img {
   .mobile {
     @include userInfoNotMobileDisplay();
   }
-  // underline on hover for any link - sign in, sign out, username if linked, 
-  // idk how to tell it to hover if linking in a different way than with an a tag
-  ::slotted(a:hover) {
-      @include nonMobileHeaderLinkHover();
-    }
+
+ .slot-wrapper ::slotted(a:hover) {
+        // underline on hover for any link - sign in, sign out, username if linked, 
+        // idk how to tell it to hover if linking in a different way than with an a tag
+        @include nonMobileHeaderLinkHover();
+  }
   .has-user {
 
     #user-name::slotted(*) {
@@ -63,7 +67,7 @@ img {
     }
   }
 
-  ::slotted(*) {
+  .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
   }
 }
@@ -79,3 +83,5 @@ img {
     @include noUserMobile();
   }
 }
+
+

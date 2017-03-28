@@ -3,6 +3,7 @@
 import * as templateFn from "./template.ejs.html";
 
 import * as equal from "deep-equal";
+import * as util from 'byu-web-component-utils';
 import {transform as transformIcon, revert as revertIcon} from "./icons/transformicons";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
@@ -15,7 +16,7 @@ class BYUHeader extends HTMLElement {
 
     constructor() {
         super();
-        this._shadowRoot = this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: 'open'});
     }
 
     _render() {
@@ -23,12 +24,13 @@ class BYUHeader extends HTMLElement {
             mobile: this.inMobileView
         };
         if (!equal(state, this._renderState)) {
-            this._shadowRoot.innerHTML = templateFn(state);
-            this._renderState = state;
-
-            this._addSlotListeners();
-            this._notifyChildrenOfMobileState();
-            this._addButtonListeners();
+            util.applyTemplate(this, 'byu-header', templateFn(state), () => {
+                this._renderState = state;
+                this._addSlotListeners();
+                this._notifyChildrenOfMobileState();
+                this._addButtonListeners();
+            });
+            
         }
     }
 
@@ -69,7 +71,7 @@ class BYUHeader extends HTMLElement {
     }
 
     _findAllSlots() {
-        let slots = this._shadowRoot.querySelectorAll('slot');
+        let slots = this.shadowRoot.querySelectorAll('slot');
         let arr = [];
         for (let i = 0; i < slots.length; ++i) {
             arr.push(slots[i]);
@@ -108,7 +110,7 @@ class BYUHeader extends HTMLElement {
     }
 
     _applyMenuOpen() {
-        let menu = this.shadowRoot.getElementById('mobileMenu');
+        let menu = this.shadowRoot.querySelector('#mobileMenu');
         if (!menu) return;
         if (this.menuOpen) {
             menu.style.maxHeight = menu.scrollHeight + 'px';
