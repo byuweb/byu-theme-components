@@ -1,25 +1,25 @@
 @import "./mixins.scss";
 
-byu-footer-column {
+byu-footer-column:not(:defined) {
     @include footerColumn();
-}
 
-.header {
-    @include header();
-}
+    .header {
+        @include header();
+    }
 
-.header > * {
-    @include headerSlotted();
-}
+    .header > * {
+        @include headerSlotted();
+    }
 
-.content *:not(byu-footer-action-button) {
-    @include contentNotButton();
-}
+    .content *:not(byu-footer-action-button) {
+        @include contentNotButton();
+    }
 
-#defaultContent a {
-    @include defaultContentLink();
-}
+    #defaultContent a {
+        @include defaultContentLink();
+    }
 
-#defaultContent a:hover {
-    @include defaultContentLinkHover();
+    #defaultContent a:hover {
+        @include defaultContentLinkHover();
+    }
 }

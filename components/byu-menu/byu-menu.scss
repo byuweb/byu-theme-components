@@ -4,7 +4,7 @@
 @import "../shared-styles/nav.scss";
 @import "./mixins.scss";
 
-byu-menu {
+byu-menu:not(:defined) {
   @include menuGeneral();
   @include outerNav();
   color: $navy;
@@ -17,7 +17,7 @@ byu-menu {
   }
 }
 // transparent background option
-byu-menu.transparent {
+byu-menu:not(:defined).transparent {
   // we don't want any transparency here for the FOUC
   // because there is byu-header blue behind it
   //@include bgTransparent();
