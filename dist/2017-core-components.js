@@ -169,7 +169,11 @@
     //END:currentExecutingScript
 //
 })({
+<<<<<<< HEAD
     polyfills: 'https://cdn.byu.edu/web-component-polyfills/latest/web-component-polyfills.min.js',
+=======
+    polyfills: 'https://cdn.byu.edu/web-component-polyfills/latest/webcomponents-lite.js',
+>>>>>>> gulp rebuild
     bundle: 'components.min.js',
     compatBundle: 'components-compat.min.js'
 });
