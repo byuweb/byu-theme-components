@@ -1239,7 +1239,7 @@
 
 
         // module
-        exports.push([module.i, "::slotted(.fa),::slotted(a){text-decoration:none!important}::slotted(.fa){color:#002e5d!important;font-size:25px!important;line-height:40px!important;border:1px solid #fff!important;width:40px!important;height:40px!important;text-align:center!important;border-radius:20px!important;margin:0 5px 5px 0!important;cursor:pointer}::slotted(.fa:hover){background-color:#fff!important}", ""]);
+        exports.push([module.i, ".slot-wrapper ::slotted(.fa),.slot-wrapper ::slotted(a){text-decoration:none!important}.slot-wrapper ::slotted(.fa){color:#002e5d!important;font-size:25px!important;line-height:40px!important;border:1px solid #fff!important;width:40px!important;height:40px!important;text-align:center!important;border-radius:20px!important;margin:0 5px 5px 0!important;cursor:pointer}.slot-wrapper ::slotted(.fa:hover){background-color:#fff!important}", ""]);
 
         // exports
 
@@ -1480,7 +1480,7 @@
     /* 28 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(17) + "</style> <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" rel=\"stylesheet\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\"> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"googleplus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot>";
+        module.exports = "<style>" + __webpack_require__(17) + "</style> <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" rel=\"stylesheet\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\"> <div class=\"slot-wrapper\"> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"googleplus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot> </div>";
 
         /***/
     },
