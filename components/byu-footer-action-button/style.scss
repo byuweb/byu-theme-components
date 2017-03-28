@@ -11,10 +11,10 @@
 //     box-shadow: none;
 // }
 
-::slotted(*) {
+.wrapper ::slotted(*) {
     @include footerActionButtonSlotted();
 }
 
-::slotted(a) {
+.wrapper ::slotted(a) {
     @include footerActionButtonSlottedLink();
 }
