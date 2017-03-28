@@ -48,7 +48,6 @@ class ByuUserInfo extends HTMLElement {
         const userSlot = this.shadowRoot.querySelector('#user-name');
         if (userSlot.assignedNodes().length > 0) {
             this.setAttribute('has-user', '');
-            console.log('here');
         }
         else {
             this.removeAttribute('has-user');
