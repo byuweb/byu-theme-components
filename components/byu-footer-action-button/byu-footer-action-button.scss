@@ -1,13 +1,13 @@
 @import "./mixins.scss";
 
-byu-footer-action-button {
+byu-footer-action-button:not(:defined) {
     @include footerActionButton();
 }
 
-byu-footer-action-button > * {
+byu-footer-action-button:not(:defined) > * {
     @include footerActionButtonSlotted();
 }
 
-byu-footer-action-button a {
+byu-footer-action-button:not(:defined) a {
     @include footerActionButtonSlottedLink();
 }

@@ -15,13 +15,13 @@
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer {
+byu-footer:not(:defined) {
   background: #e5e5e5;
   min-height: 200px;
   display: flex;
   width: 100%; }
 
-byu-footer:after {
+byu-footer:not(:defined):after {
   background-color: #002E5D;
   text-align: center;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
@@ -46,7 +46,7 @@ byu-footer:after {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer-action-button {
+byu-footer-action-button:not(:defined) {
   background-color: #767676;
   font-family: "Vitesse A", "Vitesse B", Georgia, serif;
   font-size: 20px !important;
@@ -62,7 +62,7 @@ byu-footer-action-button {
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35); }
 
-byu-footer-action-button > * {
+byu-footer-action-button:not(:defined) > * {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-weight: 500 !important;
   color: #fff !important;
@@ -75,7 +75,7 @@ byu-footer-action-button > * {
   cursor: pointer !important;
   vertical-align: middle !important; }
 
-byu-footer-action-button a {
+byu-footer-action-button:not(:defined) a {
   text-decoration: none !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -86,41 +86,36 @@ byu-footer-action-button a {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer-column {
+byu-footer-column:not(:defined) {
   padding: 0 15px; }
-
-.header {
-  width: 100%; }
-
-.header > * {
-  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
-  text-transform: uppercase !important;
-  color: #002E5D !important;
-  font-size: 20px !important;
-  border-bottom: 1px solid #c5c5c5 !important;
-  padding-bottom: 3px !important;
-  white-space: nowrap !important;
-  font-weight: 500 !important;
-  width: 100%;
-  display: inline-block; }
-
-.content *:not(byu-footer-action-button) {
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-size: 13px;
-  font-weight: 500;
-  color: #767676 !important;
-  position: relative;
-  top: -11px;
-  line-height: 1.42857143; }
-
-#defaultContent a {
-  line-height: 35px;
-  text-decoration: none !important;
-  outline: none !important; }
-
-#defaultContent a:hover {
-  cursor: pointer;
-  color: #002E5D !important; }
+  byu-footer-column:not(:defined) .header {
+    width: 100%; }
+  byu-footer-column:not(:defined) .header > * {
+    font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
+    text-transform: uppercase !important;
+    color: #002E5D !important;
+    font-size: 20px !important;
+    border-bottom: 1px solid #c5c5c5 !important;
+    padding-bottom: 3px !important;
+    white-space: nowrap !important;
+    font-weight: 500 !important;
+    width: 100%;
+    display: inline-block; }
+  byu-footer-column:not(:defined) .content *:not(byu-footer-action-button) {
+    font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+    font-size: 13px;
+    font-weight: 500;
+    color: #767676 !important;
+    position: relative;
+    top: -11px;
+    line-height: 1.42857143; }
+  byu-footer-column:not(:defined) #defaultContent a {
+    line-height: 35px;
+    text-decoration: none !important;
+    outline: none !important; }
+  byu-footer-column:not(:defined) #defaultContent a:hover {
+    cursor: pointer;
+    color: #002E5D !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -298,7 +293,7 @@ byu-header:not(:defined) > [slot="site-title"]:before {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-menu {
+byu-menu:not(:defined) {
   display: block;
   width: 100%;
   height: auto;
@@ -317,7 +312,7 @@ byu-menu {
   justify-content: space-around;
   order: 3;
   margin-bottom: -2px; }
-  byu-menu a {
+  byu-menu:not(:defined) a {
     color: #002E5D; }
 
 byu-menu:not(:defined) > * {
@@ -544,13 +539,13 @@ h1 {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer {
+byu-footer:not(:defined) {
   background: #e5e5e5;
   min-height: 200px;
   display: flex;
   width: 100%; }
 
-byu-footer:after {
+byu-footer:not(:defined):after {
   background-color: #002E5D;
   text-align: center;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
