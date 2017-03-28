@@ -41,7 +41,7 @@
     var style = document.createElement('link');
     style.href = stylePath;
     style.rel = 'stylesheet';
-    document.head.appendChild(style);
+    // document.head.appendChild(style);
 
     var script = document.createElement('script');
     script.async = true;

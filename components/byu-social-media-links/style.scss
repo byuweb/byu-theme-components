@@ -1,13 +1,13 @@
 @import "./mixins.scss";
 
-::slotted(a) {
+.slot-wrapper ::slotted(a) {
     @include socialMediaLinks();
 }
 
-::slotted(.fa) {
+.slot-wrapper ::slotted(.fa) {
     @include socialMediaFa();
 }
 
-::slotted(.fa:hover) {
+.slot-wrapper ::slotted(.fa:hover) {
     @include socialMediaFaHover();
 }
