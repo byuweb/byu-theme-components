@@ -2,7 +2,7 @@
 
 /* GENERAL STYLING */
 
-.byu-header {
+.byu-header-root {
   @include headerDefaultFont();
 
   & > div > * {
@@ -90,7 +90,7 @@
 /* FULL SIZE */
 
 :host(:not([mobile-view])) {
-  .byu-header {
+  .byu-header-root {
     @include headerNotMobile();
 
     &.no-nav {
