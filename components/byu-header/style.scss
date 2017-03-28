@@ -19,7 +19,7 @@
 
   .byu-header-primary {
     @include headerPrimary();
-    .byu-header-title {
+    .byu-header-title, .byu-header-title #site-title::slotted(*) {
       @include headerTitle();
     }
 

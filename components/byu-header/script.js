@@ -16,7 +16,7 @@ class BYUHeader extends HTMLElement {
 
     constructor() {
         super();
-        this._shadowRoot = this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: 'open'});
     }
 
     _render() {
@@ -39,7 +39,7 @@ class BYUHeader extends HTMLElement {
             this.menuOpen = false;
             return;
         }
-        let menuButton = this._shadowRoot.querySelector('.mobile-menu-button');
+        let menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
         menuButton.addEventListener('click', () => this._toggleMenu())
     }
 
@@ -71,7 +71,7 @@ class BYUHeader extends HTMLElement {
     }
 
     _findAllSlots() {
-        let slots = this._shadowRoot.querySelectorAll('slot');
+        let slots = this.shadowRoot.querySelectorAll('slot');
         let arr = [];
         for (let i = 0; i < slots.length; ++i) {
             arr.push(slots[i]);
@@ -110,14 +110,14 @@ class BYUHeader extends HTMLElement {
     }
 
     _applyMenuOpen() {
-        let menu = this._shadowRoot.querySelector('#mobileMenu');
+        let menu = this.shadowRoot.querySelector('#mobileMenu');
         if (!menu) return;
         if (this.menuOpen) {
             menu.style.maxHeight = menu.scrollHeight + 'px';
-            transformIcon(this._shadowRoot.querySelector('.mobile-menu-button'));
+            transformIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
         } else {
             menu.style.maxHeight = null;
-            revertIcon(this._shadowRoot.querySelector('.mobile-menu-button'));
+            revertIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
         }
     }
 
