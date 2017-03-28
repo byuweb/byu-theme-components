@@ -145,14 +145,15 @@ byu-footer-column {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 1.5em;
+  height: 20px;
   transition: 0.15s;
   user-select: none;
-  width: 1.5em;
+  width: 17px;
   background: transparent;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-  -webkit-tap-highlight-color: transparent; }
+  -webkit-tap-highlight-color: transparent;
+  padding: 0 !important; }
   .tcon > * {
     display: block; }
   .tcon:hover, .tcon:focus {
@@ -162,28 +163,28 @@ byu-footer-column {
 
 .tcon-menu__lines {
   display: inline-block;
-  height: 0.21429em;
-  width: 1.5em;
-  border-radius: 0.10714em;
+  border-radius: 1px;
+  height: 2px;
+  width: 20px;
   transition: 0.15s;
   background: white;
   position: relative; }
   .tcon-menu__lines::before, .tcon-menu__lines::after {
     display: inline-block;
-    height: 0.21429em;
-    width: 1.5em;
-    border-radius: 0.10714em;
+    border-radius: 1px;
+    height: 2px;
+    width: 20px;
     transition: 0.15s;
     background: white;
     content: '';
     position: absolute;
     left: 0;
-    transform-origin: 0.10714em center;
+    transform-origin: 1.42857px center;
     width: 100%; }
   .tcon-menu__lines::before {
-    top: 0.375em; }
+    top: 5px; }
   .tcon-menu__lines::after {
-    top: -0.375em; }
+    top: -5px; }
   .tcon-transform .tcon-menu__lines {
     transform: scale3d(0.8, 0.8, 0.8); }
 
@@ -197,7 +198,7 @@ byu-footer-column {
     .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::before, .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::after {
       top: 0;
       transition: top .3s ease, transform .3s .5s ease;
-      width: 1.5em; }
+      width: 20px; }
     .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::before {
       transform: rotate3d(0, 0, 1, 45deg); }
     .tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines::after {
@@ -230,7 +231,7 @@ byu-header:not(:defined) {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding-left: 16px;
+  padding: 0 16px;
   flex: 1;
   height: 55px;
   flex-wrap: wrap;
@@ -372,9 +373,7 @@ byu-search:not(:defined):after {
   background-color: var(--byu-search-color, #767676);
   border: 1px solid var(--byu-search-color, #767676);
   color: #FFF;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 30px;
   height: 27px;
   width: 35px;
   float: right; }

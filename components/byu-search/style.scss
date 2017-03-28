@@ -12,11 +12,11 @@ button {
   @include searchButton();
 }
 
-form {
+#search-form {
   @include searchForm();
 }
 
-form #search-container {
+#search-form #search-container {
   @include searchContainer();
 }
 
@@ -31,6 +31,14 @@ form #search-container {
   #search-form #search-container input,
   ::slotted(input) {
     @include searchContainerInputMobile();
+  }
+
+  #search-button {
+    @include searchButtonMobile();
+  }
+
+  #search-icon {
+    @include searchIconMobile();
   }
 
 }

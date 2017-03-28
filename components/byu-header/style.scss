@@ -25,9 +25,12 @@ slot[name=actions]::slotted(*) {
 .byu-header {
   @include headerFonts();
 
-  & > div > * {
-    @include headerInnerMargin();
-  }
+  // This causes the secondary header to have a margin right of 16px, 
+  //     not the full width like we want
+
+  // & > div > * {
+  //   @include headerInnerMargin();
+  // }
 
   button {
     @include headerButton();
