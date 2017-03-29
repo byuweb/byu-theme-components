@@ -28,7 +28,7 @@
 
 @mixin footerActionButtonSlotted() {
     font-family: $footerButtonFont !important;
-    font-weight: 400 !important;
+    font-weight: $footerContentFontWeight !important;
     color: #fff !important;
     display: inline-block !important;
     position: relative !important;

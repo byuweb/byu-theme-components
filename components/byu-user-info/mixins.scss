@@ -41,7 +41,7 @@
 }
 
 @mixin nonMobileHeaderLinkHover() {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 @mixin userInfoNotMobileImages() {
@@ -50,7 +50,7 @@
 
 /* MOBILE */
 @mixin userInfoMobile() {
-  @include dropdownNavItem;
+  @include dropdownNavItem();
   padding-left: 0 !important;
   border-bottom: solid 1px $gray;
 }

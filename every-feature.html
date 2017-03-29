@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+  ~  @license
+  ~    Copyright 2017 Brigham Young University
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Feature Demo</title>
+
+    <script src="docs/load-components.js"></script>
+    <script>
+        (function () {
+            window.addEventListener('load', function () {
+                var name = document.createElement('a');
+                name.href = "#user-info";
+                name.setAttribute('slot', 'user-name');
+                name.innerText = 'Cosmo2017';
+
+                var ui = document.getElementById('user-info');
+
+                if (!ui) return;
+                ui.querySelector('a#sign-in').addEventListener('click', function () {
+                    ui.appendChild(name);
+                }, false);
+                ui.querySelector('a#sign-out').addEventListener('click', function () {
+                    ui.removeChild(name);
+                }, false);
+            }, false);
+        })();
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+<body>
+<byu-header mobile-max-width="1024px">
+    <span slot="site-title">Component Demos</span>
+    <!--<span slot="site-title" class="subtitle">Every Single Feature</span>-->
+
+    <a href="#action-1" slot="actions">Action 1</a>
+    <a href="#action-2" slot="actions">Action 2</a>
+
+    <byu-user-info slot="user" id="user-info">
+        <a slot="login" id="sign-in" href="#login">Sign In</a>
+        <a slot="logout" id="sign-out" href="#logout">Sign Out</a>
+    </byu-user-info>
+
+    <byu-menu slot="nav">
+        <a href="docs/index.html">Main Docs</a>
+        <a href="#nav1" class="current">Nav Item 1</a>
+        <a href="#nav2">Nav Item 2</a>
+        <a href="#nav3">Nav Item 3</a>
+        <a href="#nav4">Nav Item 4</a>
+        <a href="#nav5">Nav Item 5</a>
+    </byu-menu>
+
+</byu-header>
+
+<h1>Hey there,</h1>
+<p>this is a big test of all of the features of the current BYU theme components.</p>
+
+<byu-footer>
+    <byu-footer-column>
+        <span slot="header">Contact</span>
+        <p>
+            BYU Speeches
+            <br/> 701 East University Parkway
+            <br/> Provo, Utah 84602
+            <br/> 888-888-8888
+        </p>
+        <byu-footer-action-button>
+            <a href="#give" slot="actiontext">GIVE to Speeches</a>
+        </byu-footer-action-button>
+    </byu-footer-column>
+    <byu-footer-column>
+        <span slot="header">Affiliated Speeches</span>
+        <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+        <br/>
+        <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+        <br/>
+        <a href="https://womensconference.byu.edu">Women's Conference</a>
+        <br/>
+        <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+        <br/>
+        <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
+    </byu-footer-column>
+    <byu-footer-column>
+        <span slot="header">Related Links</span>
+        <a>LDS.org</a>
+        <br/>
+        <a>BYU Alumni</a>
+        <br/>
+        <a>BYU Today</a>
+        <br/>
+        <a>BYU Magazine</a>
+    </byu-footer-column>
+    <byu-footer-column>
+        <span slot="header">Connect With Us</span>
+        <a>Feedback</a>
+        <br/>
+        <a>Help</a>
+        <br/>
+        <a>Follow BYU Speeches</a>
+        <br/>
+        <byu-social-media-links>
+            <a slot="facebook" href="https://www.facebook.com"></a>
+            <a slot="instagram" href="https://www.instagram.com"></a>
+            <a slot="twitter" href="https://www.twitter.com"></a>
+            <a slot="googleplus" href="https://plus.google.com"></a>
+            <!--<a slot="linkedin" href="https://www.linkedin.com"></a>-->
+            <div slot="youtube" href="https://www.youtube.com"></div>
+        </byu-social-media-links>
+        <br/>
+        <a>Subscribe</a>
+    </byu-footer-column>
+</byu-footer>
+
+</body>
+</html>

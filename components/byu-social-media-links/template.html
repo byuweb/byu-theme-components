@@ -1,9 +1,14 @@
 <style>
     ${require('./style.scss')}
 </style>
-<slot id="facebook" name="facebook"></slot>
-<slot id="instagram" name="instagram"></slot>
-<slot id="twitter" name="twitter"></slot>
-<slot id="googleplus" name="googleplus"></slot>
-<slot id="linkedin" name="linkedin"></slot>
-<slot id="youtube" name="youtube"></slot>
+<!--TODO: This is a hack, and should be replaced with inline SVGs before release-->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<div class="slot-wrapper">
+    <slot id="facebook" name="facebook"></slot>
+    <slot id="instagram" name="instagram"></slot>
+    <slot id="twitter" name="twitter"></slot>
+    <slot id="googleplus" name="googleplus"></slot>
+    <slot id="linkedin" name="linkedin"></slot>
+    <slot id="youtube" name="youtube"></slot>
+</div>

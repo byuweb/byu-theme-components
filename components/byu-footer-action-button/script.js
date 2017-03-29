@@ -1,16 +1,17 @@
 'use strict';
 
 const template = require('./template.html');
+const util = require('byu-web-component-utils');
 
 class BYUFooterActionButton extends HTMLElement {
 
     constructor() {
         super();
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;
+        this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {
+        util.applyTemplate(this, 'byu-footer-action-button', template);
     }
 }
 

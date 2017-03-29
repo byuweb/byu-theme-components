@@ -4,21 +4,59 @@
 @mixin headerLink() {
   text-decoration: none !important;
   font-size: 13px!important;
-  font-family: $menuFont !important;
-  font-weight: 400!important;
+  font-family: $headerContentFont !important;
+  font-weight: $headerContentFontWeight!important;
   text-transform: uppercase!important;
   color: white !important;
-  cursor: pointer !important;
 }
 
+
+@mixin navItemHover() {
+  background: $gray !important;
+}
+@mixin navItemSelected() {
+  background: $lightgray !important;
+}
+@mixin navItemLongLink() {
+  max-width: 300px;
+  flex: 2;
+  padding: 0 12px !important;
+}
+@mixin navItemExtraLongLink() {
+  max-width: 400px;
+  flex: 3;
+  padding: 0 12px !important;
+}
 @mixin navItem() {
-  @include headerLink(); // where is this?
+  @include headerLink();
+  font-family: $menuFont !important;
+  font-weight: $menuFontWeight!important;
   color: $navy !important;
   height: $menuHeight !important;
-  display: table-cell;
-  vertical-align: middle !important;
+  display: inline-block;
+  box-sizing: border-box;
   text-align: center !important;
   padding: 0 6px !important;
+  line-height: $menuHeight !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+
+  &:hover {
+    @include navItemHover();
+  }
+
+  &.selected {
+    @include navItemSelected();
+  }
+
+  &.long-link {
+    @include navItemLongLink();
+  }
+
+  &.extra-long-link {
+    @include navItemExtraLongLink();
+  }
 }
 
 @mixin dropdownNavItem() {

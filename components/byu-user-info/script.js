@@ -4,6 +4,7 @@
 "use strict";
 
 import * as template from "./template.html";
+import * as util from 'byu-web-component-utils';
 
 class ByuUserInfo extends HTMLElement {
 
@@ -11,7 +12,7 @@ class ByuUserInfo extends HTMLElement {
         super();
 
         let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;  
+       
     }
 
 
@@ -28,8 +29,10 @@ class ByuUserInfo extends HTMLElement {
     }
 
     connectedCallback() {
-        this._addSlotListeners();
-        this._addAriaAttributes();
+         util.applyTemplate(this, 'byu-user-info', template, () => {
+            this._addSlotListeners();
+            this._addAriaAttributes();
+         });       
     }
 
     _addSlotListeners() {

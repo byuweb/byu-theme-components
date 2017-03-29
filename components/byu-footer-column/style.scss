@@ -16,10 +16,10 @@
     @include contentNotButton();
 }
 
-#defaultContent::slotted(a) {
+.content ::slotted(a) {
     @include defaultContentLink();
 }
 
-#defaultContent::slotted(a:hover) {
+.content ::slotted(a:hover) {
     @include defaultContentLinkHover();
 }
