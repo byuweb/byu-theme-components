@@ -128,8 +128,8 @@ module.exports = function() {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_templating__ = __webpack_require__(12);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTemplate", function() { return __WEBPACK_IMPORTED_MODULE_0__utils_templating__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTemplate", function() { return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"]; });
 /**
  * Created by ThatJoeMoore on 2/14/17
  */
@@ -234,8 +234,10 @@ window.BYUFooter = BYUFooter;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_ejs_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_deep_equal__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_deep_equal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_deep_equal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__icons_transformicons__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__icons_transformicons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__icons_transformicons__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__);
+
 
 
 
@@ -253,7 +255,7 @@ class BYUHeader extends HTMLElement {
 
     constructor() {
         super();
-        this._shadowRoot = this.attachShadow({mode: 'open'});
+        this.attachShadow({mode: 'open'});
     }
 
     _render() {
@@ -261,12 +263,13 @@ class BYUHeader extends HTMLElement {
             mobile: this.inMobileView
         };
         if (!__WEBPACK_IMPORTED_MODULE_1_deep_equal__(state, this._renderState)) {
-            this._shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__(state);
-            this._renderState = state;
-
-            this._addSlotListeners();
-            this._notifyChildrenOfMobileState();
-            this._addButtonListeners();
+            __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__["applyTemplate"](this, 'byu-header', __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__(state), () => {
+                this._renderState = state;
+                this._addSlotListeners();
+                this._notifyChildrenOfMobileState();
+                this._addButtonListeners();
+            });
+            
         }
     }
 
@@ -307,7 +310,7 @@ class BYUHeader extends HTMLElement {
     }
 
     _findAllSlots() {
-        let slots = this._shadowRoot.querySelectorAll('slot');
+        let slots = this.shadowRoot.querySelectorAll('slot');
         let arr = [];
         for (let i = 0; i < slots.length; ++i) {
             arr.push(slots[i]);
@@ -346,14 +349,14 @@ class BYUHeader extends HTMLElement {
     }
 
     _applyMenuOpen() {
-        let menu = this.shadowRoot.getElementById('mobileMenu');
+        let menu = this.shadowRoot.querySelector('#mobileMenu');
         if (!menu) return;
         if (this.menuOpen) {
             menu.style.maxHeight = menu.scrollHeight + 'px';
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__icons_transformicons__["transform"])(this.shadowRoot.querySelector('.mobile-menu-button'));
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__["transform"])(this.shadowRoot.querySelector('.mobile-menu-button'));
         } else {
             menu.style.maxHeight = null;
-            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_2__icons_transformicons__["revert"])(this.shadowRoot.querySelector('.mobile-menu-button'));
+            __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__["revert"])(this.shadowRoot.querySelector('.mobile-menu-button'));
         }
     }
 
@@ -659,6 +662,13 @@ function inputHandler(e) {
     }
 }
 
+function searchHandler(e) {
+    if(e.keyCode === 13){
+        e.preventDefault();
+        this.parentNode.host.search();
+    }
+}
+
 function formSubmitHandler(e) {
     if (e) e.preventDefault();
     this.parentNode.host.search();
@@ -715,9 +725,11 @@ window.BYUSocialMediaLinks = BYUSocialMediaLinks;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
 /**
  * Created by ThatJoeMoore on 11/7/16.
  */
+
 
 
 
@@ -728,7 +740,7 @@ class ByuUserInfo extends HTMLElement {
         super();
 
         let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;  
+       
     }
 
 
@@ -745,8 +757,10 @@ class ByuUserInfo extends HTMLElement {
     }
 
     connectedCallback() {
-        this._addSlotListeners();
-        this._addAriaAttributes();
+         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__template_html__, () => {
+            this._addSlotListeners();
+            this._addAriaAttributes();
+         });       
     }
 
     _addSlotListeners() {
@@ -1074,7 +1088,13 @@ function applyTemplateShady(element, elementName, template, callback, sum) {
         document.head.appendChild(templateElement);
         ShadyCSS.prepareTemplate(templateElement, elementName);
     }
-    ShadyCSS.styleElement(element);
+    if (ShadyCSS.styleElement) {
+        ShadyCSS.styleElement(element);
+    } else if (ShadyCSS.applyStyle) {
+        ShadyCSS.applyStyle(element);
+    } else {
+        throw new Error('ShadyCSS is not properly defined: no styleElement or applyStyle!');
+    }
     let imported = document.importNode(templateElement.content, true);
     let shadow = element.shadowRoot;
     //It'd be nice if we could just diff the DOM and replace what changed between templates, but that might lead to
@@ -1148,7 +1168,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:1.5em;transition:.15s;user-select:none;width:1.5em;background:transparent;outline:none;-webkit-tap-highlight-color:transparent}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:1.5em;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;height:.21429em;border-radius:.10714em;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:1.5em;content:\"\";position:absolute;left:0;transform-origin:.10714em center;width:100%}.tcon-menu__lines:before{top:.375em}.tcon-menu__lines:after{top:-.375em}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:1.5em}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header>div>*{margin-right:16px}.byu-header slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;color:#002e5d;margin-left:4px;margin-right:4px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding-left:16px;flex:1;min-height:55px}.byu-header .byu-header-primary #site-title::slotted(*),.byu-header .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important;padding:10px 0}.byu-header .byu-header-primary #site-title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:30px}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-primary{align-items:flex-start;padding-top:12.5px;padding-bottom:12.5px;min-height:30px}:host([mobile-view]) slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;border-top:1px solid #767676}:host([mobile-view]) slot[name=actions]::slotted(*):hover{background:#c5c5c5!important}:host([mobile-view]) slot[name=actions]::slotted(*).selected{background:#e5e5e5!important}:host([mobile-view]) slot[name=actions]::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]) slot[name=actions]::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header>div>.byu-logo{margin-right:8px}:host([mobile-view]) #site-title::slotted(*),:host([mobile-view]) .byu-header-title{font-size:16px!important;align-items:flex-start}:host([mobile-view]) button.mobile-menu-button{background-color:transparent;font-size:20px}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
+exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:20px;transition:.15s;user-select:none;width:17px;background:transparent;outline:none;-webkit-tap-highlight-color:transparent;padding:0!important}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:20px;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;border-radius:1px;height:2px;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:20px;content:\"\";position:absolute;left:0;transform-origin:1.42857px center;width:100%}.tcon-menu__lines:before{top:5px}.tcon-menu__lines:after{top:-5px}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:20px}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header .byu-logo{margin-right:16px}.byu-header slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;color:#002e5d;margin-left:4px;margin-right:4px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding:0 16px;flex:1;min-height:55px}.byu-header .byu-header-primary #site-title::slotted(*),.byu-header .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important}.byu-header .byu-header-primary #site-title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:30px}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-primary{align-items:flex-start;padding-top:12.5px;padding-bottom:12.5px;min-height:30px}:host([mobile-view]) slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;border-top:1px solid #767676}:host([mobile-view]) slot[name=actions]::slotted(*):hover{background:#c5c5c5!important}:host([mobile-view]) slot[name=actions]::slotted(*).selected{background:#e5e5e5!important}:host([mobile-view]) slot[name=actions]::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]) slot[name=actions]::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) #site-title::slotted(*),:host([mobile-view]) .byu-header-title{font-size:16px!important;align-items:flex-start}:host([mobile-view]) button.mobile-menu-button{background-color:transparent;font-size:20px}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px;padding-right:16px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
 
 // exports
 
@@ -1176,7 +1196,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;display:flex;justify-content:center;align-items:center}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container input,::slotted(input){padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container input,:host(.mobile-view) ::slotted(input){padding:5px 10px;border:1px solid var(--byu-search-color,#767676);border-right:none;width:100%;height:35px}", ""]);
+exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;width:30px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container input,::slotted(input){padding:5px 10px;border:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container input,:host(.mobile-view) ::slotted(input){padding:5px 10px;width:100%;height:35px;border:none;border-bottom:1px solid #c5c5c5}:host(.mobile-view) #search-button{width:53px;padding:0 16px}:host(.mobile-view) #search-icon{width:20px;height:20px}", ""]);
 
 // exports
 
@@ -1204,7 +1224,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user #user-name::slotted(*){color:#c3ddf9!important;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
+exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user #user-name::slotted(*){color:#c3ddf9;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
 
 // exports
 
@@ -1487,7 +1507,7 @@ module.exports = "<style>" + __webpack_require__(17) + "</style> <link type=\"te
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"submit-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
+module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"search\" onkeypress=\"searchHandler(event)\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
 
 /***/ }),
 /* 31 */
@@ -1499,7 +1519,7 @@ module.exports = "<style>" + __webpack_require__(19) + "</style> <link href=\"ht
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"no-user\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <a class=\"logout\"> <slot name=\"logout\">Sign Out</slot> </a> </div>";
+module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user slot-wrapper\"> <span class=\"name\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <a class=\"logout\"> <slot name=\"logout\">Sign Out</slot> </a> </div> </div>";
 
 /***/ }),
 /* 33 */
