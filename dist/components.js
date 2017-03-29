@@ -518,7 +518,7 @@ function updateMoreMenuState(component) {
     const length = component.children.length;
     const hasOverflow = length > 6;
     const nav = component.shadowRoot.querySelector('.outer-nav');
-
+    
     if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
 
     if (hasOverflow) {
