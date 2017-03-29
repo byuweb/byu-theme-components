@@ -22,8 +22,9 @@
 @mixin headerInnerMarginMobile() {
   margin-right: 0px;
 }
+
 @mixin headerLogo() {
-  margin-right: 8px;
+  margin-right: 16px;
 }
 
 /* GENERAL STYLING */
@@ -152,9 +153,6 @@
 }
 @mixin headerInnerMarginMobile() {
   margin-right: 0px;
-}
-@mixin mobileHeaderLogo() {
-  margin-right: 8px;
 }
 
 @mixin mobileSiteTitle() {

@@ -5,6 +5,10 @@
 .byu-header {
   @include headerDefaultFont();
 
+  .byu-logo {
+    @include headerLogo();
+  }
+
   slot[name=actions]::slotted(*) {
     @include actions();
   }
@@ -69,9 +73,6 @@
   }
   & > div > :not(.byu-logo) {
     @include headerInnerMarginMobile();
-  }
-  .byu-header > div > .byu-logo {
-    @include mobileHeaderLogo();
   }
   .byu-header-title, #site-title::slotted(*) {
     @include mobileSiteTitle();
