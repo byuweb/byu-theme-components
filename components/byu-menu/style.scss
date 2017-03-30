@@ -15,19 +15,19 @@
   @include outerNav();
 }
 
-::slotted(*) {
+.slot-container ::slotted(*) {
   @include navItemSlotted();
 }
-::slotted(*:hover) {
+.slot-container ::slotted(*:hover) {
   @include navItemHover();
 }
-::slotted(*.selected) {
+.slot-container ::slotted(*.selected) {
   @include navItemSelected();
 }
-::slotted(*.long-link) {
+.slot-container ::slotted(*.long-link) {
   @include navItemLongLink();
 }
-::slotted(*.extra-long-link) {
+.slot-container ::slotted(*.extra-long-link) {
   @include navItemExtraLongLink();
 }
 
