@@ -3,8 +3,31 @@
 @import "../shared-styles/nav.scss";
 @import "icons/transformicons.scss";
 
-/* GENERAL STYLING */
+/* MOBILE */
+@mixin mobileMenu() {
+  max-height: 0;
+  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+@mixin actions() {
+  @include headerLink();
+  color: $navy;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+@mixin actionsMobile() {
+  @include dropdownNavItem();
+  background-color: $gray;
+  border-top: 1px solid $medgray;
+}
+@mixin headerInnerMarginMobile() {
+  margin-right: 0px;
+}
 
+@mixin headerLogo() {
+  margin-right: 16px;
+}
+
+/* GENERAL STYLING */
 @mixin headerDefaultFont(){
   //font-family: "Vitesse Book";
   font-family: $headerContentFont;
@@ -38,7 +61,7 @@
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding-left: 16px;
+  padding: 0 16px;
   flex: 1;
   min-height: $headerHeight;
 }
@@ -131,9 +154,6 @@
 @mixin headerInnerMarginMobile() {
   margin-right: 0px;
 }
-@mixin mobileHeaderLogo() {
-  margin-right: 8px;
-}
 
 @mixin mobileSiteTitle() {
   font-size: $mobileSiteTitleSize !important;
@@ -172,6 +192,7 @@
   justify-content: space-between;
   align-items: center;
   height: $headerHeight;
+  padding-right: 16px;
 }
 
 @mixin searchNotMobile() {

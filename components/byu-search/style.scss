@@ -33,4 +33,11 @@ button {
     @include searchContainerInputMobile();
   }
 
+  #search-button {
+    @include searchButtonMobile();
+  }
+
+  #search-icon {
+    @include searchIconMobile();
+  }
 }

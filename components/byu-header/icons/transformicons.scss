@@ -1,8 +1,9 @@
-$tcon-size: 1.5em !default;
+//$tcon-size: 1.5em !default;
+$tcon-size: 20px !default;
 $tcon-transition: .15s !default;
 $tcon-jstransform: 'tcon-transform' !default;
 
-$tcon-menu-radius: ($tcon-size / 14) !default;
+$tcon-menu-radius: 1px !default;
 $tcon-menu-color: white !default;
 $tcon-menu-arrowleft-transformation: (
         transform: scale3d(.8, .8, .8) rotate3d(0, 0, 1, 90deg)
@@ -10,6 +11,7 @@ $tcon-menu-arrowleft-transformation: (
 $tcon-menu-arrow360left-transformation: (
         transform: scale3d(.8, .8, .8) rotate3d(0, 0, 1, 360deg)
 ) !default;
+
 .tcon {
   appearance: none;
   border: none;
@@ -20,11 +22,12 @@ $tcon-menu-arrow360left-transformation: (
   height: $tcon-size;
   transition: $tcon-transition;
   user-select: none;
-  width: $tcon-size;
+  width: 17px;
   background: transparent;
   outline: none;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
   -webkit-tap-highlight-color: transparent;
+  padding: 0 !important;
 
   > * {
     display: block;
@@ -41,9 +44,9 @@ $tcon-menu-arrow360left-transformation: (
 
 @mixin tcon-menu-lines {
   display: inline-block;
-  height: ($tcon-size / 7);
-  width: $tcon-size;
   border-radius: $tcon-menu-radius;
+  height: 2px;
+  width: $tcon-size;
   transition: $tcon-transition;
   background: $tcon-menu-color;
 }
@@ -74,6 +77,7 @@ $tcon-menu-arrow360left-transformation: (
     transform: scale3d(.8, .8, .8);
   }
 }
+
 .tcon-menu--xbutterfly {
   width: auto;
 

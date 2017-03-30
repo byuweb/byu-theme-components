@@ -119,6 +119,13 @@ function inputHandler(e) {
     }
 }
 
+function searchHandler(e) {
+    if(e.keyCode === 13){
+        e.preventDefault();
+        this.parentNode.host.search();
+    }
+}
+
 function formSubmitHandler(e) {
     if (e) e.preventDefault();
     this.parentNode.host.search();
