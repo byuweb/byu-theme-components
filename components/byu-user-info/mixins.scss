@@ -31,8 +31,8 @@
     display: none;
 }
 @mixin nonMobileUsername() {
-  color: $xlightblue;
-  text-transform: capitalize !important;
+  color: $xlightblue !important;
+  text-transform: uppercase !important;
   width: 130px;
   white-space: nowrap;
   overflow: hidden;
