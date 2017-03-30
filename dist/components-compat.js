@@ -200,9 +200,9 @@
         "use strict";
 
         Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__utils_templating__ = __webpack_require__(12);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
         /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "applyTemplate", function () {
-            return __WEBPACK_IMPORTED_MODULE_0__utils_templating__["a"];
+            return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"];
         });
         /**
          * Created by ThatJoeMoore on 2/14/17
@@ -1242,7 +1242,13 @@
                 document.head.appendChild(templateElement);
                 ShadyCSS.prepareTemplate(templateElement, elementName);
             }
-            ShadyCSS.styleElement(element);
+            if (ShadyCSS.styleElement) {
+                ShadyCSS.styleElement(element);
+            } else if (ShadyCSS.applyStyle) {
+                ShadyCSS.applyStyle(element);
+            } else {
+                throw new Error('ShadyCSS is not properly defined: no styleElement or applyStyle!');
+            }
             var imported = document.importNode(templateElement.content, true);
             var shadow = element.shadowRoot;
             //It'd be nice if we could just diff the DOM and replace what changed between templates, but that might lead to
@@ -1378,11 +1384,7 @@
 
 
         // module
-<<<<<<< HEAD
         exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user #user-name::slotted(*){color:#c3ddf9!important;text-transform:uppercase!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
-=======
-        exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user #user-name::slotted(*){color:#c3ddf9!important;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
->>>>>>> refs/remotes/origin/master
 
         // exports
 
