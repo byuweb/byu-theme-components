@@ -4,8 +4,8 @@ img {
   @include userInfoImages();
 }
 
-.slot-wrapper ::slotted(*)
- {
+
+.slot-wrapper ::slotted(*) {
   @include userInfoSlotted();
 }
 
