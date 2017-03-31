@@ -4,7 +4,8 @@
 @import "../shared-styles/nav.scss";
 @import "./mixins.scss";
 
-byu-menu:not(:defined) {
+//byu-menu:not(:defined) {
+byu-menu:not(.byu-component-rendered) {
   @include menuGeneral();
   @include outerNav();
   color: $navy;
@@ -17,13 +18,15 @@ byu-menu:not(:defined) {
   }
 }
 // transparent background option
-byu-menu:not(:defined).transparent {
+//byu-menu:not(:defined).transparent {
+byu-menu:not(.byu-component-rendered).transparent {
   // we don't want any transparency here for the FOUC
   // because there is byu-header blue behind it
   //@include bgTransparent();
 }
 
-byu-menu:not(:defined) > * {
+//byu-menu:not(:defined) > * {
+byu-menu:not(.byu-component-rendered) > * {
   @include navItemSlotted();
 }
 
@@ -31,6 +34,7 @@ byu-menu:not(:defined) > * {
 // think this might work, since none are moved to .extra-links
 // duplicate code since menuSlotted (above)
 // already contains the same mixins as includeNavItem
-byu-menu:not(:defined) > * {
+//byu-menu:not(:defined) > * {
+byu-menu:not(.byu-component-rendered) > * {
   @include navItem();
 }

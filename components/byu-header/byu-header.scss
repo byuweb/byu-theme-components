@@ -1,6 +1,7 @@
 @import "./mixins.scss";
 
-byu-header:not(:defined) {
+//byu-header:not(:defined) {
+byu-header:not(.byu-component-rendered) {
   @include headerPrimary();
   flex-wrap: wrap;
   width: 100%;
@@ -17,14 +18,16 @@ byu-header:not(:defined) {
   }
 }
 
-byu-header:not(:defined) > [slot="site-title"] {
+//byu-header:not(:defined) > [slot="site-title"] {
+byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   @include headerTitle();
   position: relative;
   top: -6px;
   //padding: 10px 15px;
 }
 // byu icon
-byu-header:not(:defined) > [slot="site-title"]:before {
+//byu-header:not(:defined) > [slot="site-title"]:before {
+byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU"; // make sure the space is the exact same size
   font-weight: bold;
   font-size: 40px;
