@@ -3,31 +3,12 @@
 @import "../shared-styles/nav.scss";
 @import "icons/transformicons.scss";
 
-/* MOBILE */
-@mixin mobileMenu() {
-  max-height: 0;
-  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
-}
-@mixin actions() {
-  @include headerLink();
-  color: $navy;
-  margin-left: 4px;
-  margin-right: 4px;
-}
-@mixin actionsMobile() {
-  @include dropdownNavItem();
-  background-color: $gray;
-  border-top: 1px solid $medgray;
-}
-@mixin headerInnerMarginMobile() {
-  margin-right: 0px;
-}
 
+/* GENERAL STYLING */
 @mixin headerLogo() {
   margin-right: 16px;
 }
 
-/* GENERAL STYLING */
 @mixin headerDefaultFont(){
   //font-family: "Vitesse Book";
   font-family: $headerContentFont;
@@ -40,7 +21,6 @@
 
 @mixin actions(){
   @include headerLink();
-  color: $navy;
   margin-left: 4px;
   margin-right: 4px;
 }
@@ -149,6 +129,7 @@
 @mixin actionsMobile() {
   @include dropdownNavItem();
   background-color: $gray;
+  color: $navy !important;
   border-top: 1px solid $medgray;
 }
 @mixin headerInnerMarginMobile() {

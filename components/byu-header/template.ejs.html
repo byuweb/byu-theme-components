@@ -2,7 +2,7 @@
     <%- require('./style.scss') %>
 </style>
 
-<div id="header" class="byu-header">
+<div id="header" class="byu-header-root">
 
     <div class="byu-header-primary">
         <img class="byu-logo" alt="BYU" src="<%- require('./byu-logo.svg') %>" />
@@ -40,7 +40,9 @@
         <div id="mobileMenu">
             <slot id="signin" name="user"></slot>
             <slot id="navbarMenu" name="nav"></slot>
-            <slot id="actions" name="actions"></slot>
+            <div class="byu-header-actions">
+                <slot id="actions" name="actions"></slot>
+            </div>
         </div>
         <% } else { -%>
             <slot id="navbarMenu" name="nav"></slot>

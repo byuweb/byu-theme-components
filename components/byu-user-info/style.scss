@@ -4,7 +4,8 @@ img {
   @include userInfoImages();
 }
 
-::slotted(*) {
+
+.slot-wrapper ::slotted(*) {
   @include userInfoSlotted();
 }
 
@@ -26,12 +27,12 @@ img {
   }
   // underline on hover for any link - sign in, sign out, username if linked, 
   // idk how to tell it to hover if linking in a different way than with an a tag
-  ::slotted(a:hover) {
+  .slot-wrapper ::slotted(a:hover) {
       @include nonMobileHeaderLinkHover();
     }
   .has-user {
 
-    #user-name::slotted(*) {
+    .name ::slotted(*) {
       @include nonMobileUsername();
     }
   }
@@ -63,7 +64,7 @@ img {
     }
   }
 
-  ::slotted(*) {
+  .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
   }
 }

@@ -9,7 +9,6 @@
 
 @mixin userInfoSlotted() {
   @include headerLink();
-  cursor: initial !important;
 }
 
 @mixin userPresent() {
@@ -31,8 +30,8 @@
     display: none;
 }
 @mixin nonMobileUsername() {
-  color: $xlightblue;
-  text-transform: capitalize !important;
+  color: $xlightblue !important;
+  text-transform: uppercase !important;
   width: 130px;
   white-space: nowrap;
   overflow: hidden;
@@ -52,7 +51,7 @@
 @mixin userInfoMobile() {
   @include dropdownNavItem();
   padding-left: 0 !important;
-  border-bottom: solid 1px $gray;
+  border-bottom: solid 1px $gray; 
 }
 
 @mixin userInfoMobileNotDisplay() {

@@ -1,5 +1,6 @@
 "use strict";
 import * as template from "./template.html";
+import * as util from 'byu-web-component-utils';
 
 class BYUMenu extends HTMLElement {
 
@@ -15,24 +16,22 @@ class BYUMenu extends HTMLElement {
 
     constructor() {
         super(); // always call super first
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;
+        this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {
         const component = this;
 
-        updateMoreMenuState(this);
-        addSlotListeners(this);
+        util.applyTemplate(this, 'byu-menu', template, () => {
+            updateMoreMenuState(this);
+            addSlotListeners(this);
 
-        // when the more button is clicked then show the more menu
-        this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function() {
-            component.showMore = true;
+            // when the more button is clicked then show the more menu
+            this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function() {
+                component.showMore = true;
+            });
         });
-
     }
-
-
 }
 
 function addSlotListeners(component) {
@@ -79,7 +78,7 @@ function updateMoreMenuState(component) {
     const length = component.children.length;
     const hasOverflow = length > 6;
     const nav = component.shadowRoot.querySelector('.outer-nav');
-
+    
     if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
 
     if (hasOverflow) {

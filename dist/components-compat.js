@@ -561,6 +561,7 @@
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(29);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
 
         var BYUMenu = function (_HTMLElement5) {
             _inherits(BYUMenu, _HTMLElement5);
@@ -583,22 +584,25 @@
                 var _this9 = _possibleConstructorReturn(this, (BYUMenu.__proto__ || Object.getPrototypeOf(BYUMenu)).call(this));
 
                 // always call super first
-                var shadowRoot = _this9.attachShadow({ mode: 'open' });
-                shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
+                _this9.attachShadow({ mode: 'open' });
                 return _this9;
             }
 
             _createClass(BYUMenu, [{
                 key: 'connectedCallback',
                 value: function connectedCallback() {
+                    var _this10 = this;
+
                     var component = this;
 
-                    updateMoreMenuState(this);
-                    addSlotListeners(this);
+                    __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__template_html__, function () {
+                        updateMoreMenuState(_this10);
+                        addSlotListeners(_this10);
 
-                    // when the more button is clicked then show the more menu
-                    this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
-                        component.showMore = true;
+                        // when the more button is clicked then show the more menu
+                        _this10.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
+                            component.showMore = true;
+                        });
                     });
                 }
             }]);
@@ -730,13 +734,13 @@
             function ByuSearch() {
                 _classCallCheck(this, ByuSearch);
 
-                var _this10 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
+                var _this11 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
 
                 // always call super first
 
-                var shadowRoot = _this10.attachShadow({ mode: 'open' });
+                var shadowRoot = _this11.attachShadow({ mode: 'open' });
                 shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
-                return _this10;
+                return _this11;
             }
 
             _createClass(ByuSearch, [{
@@ -839,23 +843,23 @@
             function BYUSocialMediaLinks() {
                 _classCallCheck(this, BYUSocialMediaLinks);
 
-                var _this11 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
+                var _this12 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
 
-                _this11.attachShadow({ mode: 'open' });
-                return _this11;
+                _this12.attachShadow({ mode: 'open' });
+                return _this12;
             }
 
             _createClass(BYUSocialMediaLinks, [{
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    var _this12 = this;
+                    var _this13 = this;
 
                     util.applyTemplate(this, 'byu-social-media-links', template, function () {
                         var idArr = ['facebook', 'instagram', 'twitter', 'googleplus', 'linkedin', 'youtube'];
                         var classArr = ['fa-facebook', 'fa-instagram', 'fa-twitter', 'fa-google-plus', 'fa-linkedin', 'fa-youtube-play'];
 
                         for (var i = 0; i < idArr.length; i++) {
-                            var slotId = _this12.shadowRoot.querySelector("#" + idArr[i]);
+                            var slotId = _this13.shadowRoot.querySelector("#" + idArr[i]);
                             var link = slotId.assignedNodes();
 
                             if (link.length > 0) {
@@ -893,11 +897,11 @@
             function ByuUserInfo() {
                 _classCallCheck(this, ByuUserInfo);
 
-                var _this13 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
+                var _this14 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
 
-                var shadowRoot = _this13.attachShadow({ mode: 'open' });
+                var shadowRoot = _this14.attachShadow({ mode: 'open' });
 
-                return _this13;
+                return _this14;
             }
 
             _createClass(ByuUserInfo, [{
@@ -912,22 +916,22 @@
             }, {
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    var _this14 = this;
+                    var _this15 = this;
 
                     __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__template_html__, function () {
-                        _this14._addSlotListeners();
-                        _this14._addAriaAttributes();
+                        _this15._addSlotListeners();
+                        _this15._addAriaAttributes();
                     });
                 }
             }, {
                 key: '_addSlotListeners',
                 value: function _addSlotListeners() {
-                    var _this15 = this;
+                    var _this16 = this;
 
                     this._setHasUser();
                     var userSlot = this.shadowRoot.querySelector('#user-name');
                     userSlot.addEventListener('slotchange', function (e) {
-                        _this15._setHasUser();
+                        _this16._setHasUser();
                     });
                 }
             }, {
@@ -936,7 +940,6 @@
                     var userSlot = this.shadowRoot.querySelector('#user-name');
                     if (userSlot.assignedNodes().length > 0) {
                         this.setAttribute('has-user', '');
-                        console.log('here');
                     } else {
                         this.removeAttribute('has-user');
                     }
@@ -1212,6 +1215,8 @@
          *    limitations under the License.
          */
 
+        var TEMPLATE_RENDERED_CLASS = 'byu-component-rendered';
+
         function applyTemplate(element, elementName, template, callback) {
             var sum = __WEBPACK_IMPORTED_MODULE_0_hash_sum___default()(template);
 
@@ -1254,13 +1259,18 @@
                 shadow.removeChild(shadow.firstChild);
             }
             shadow.appendChild(imported);
-            if (callback) {
-                setTimeout(callback);
-            }
+            setTimeout(function () {
+                runAfterStamping(element, callback);
+            });
         }
 
         function applyTemplateNative(element, template, callback) {
             element.shadowRoot.innerHTML = template;
+            runAfterStamping(element, callback);
+        }
+
+        function runAfterStamping(element, callback) {
+            element.classList.add(TEMPLATE_RENDERED_CLASS);
             if (callback) {
                 callback();
             }
@@ -1321,7 +1331,7 @@
 
 
         // module
-        exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:20px;transition:.15s;user-select:none;width:17px;background:transparent;outline:none;-webkit-tap-highlight-color:transparent;padding:0!important}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:20px;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;border-radius:1px;height:2px;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:20px;content:\"\";position:absolute;left:0;transform-origin:1.42857px center;width:100%}.tcon-menu__lines:before{top:5px}.tcon-menu__lines:after{top:-5px}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:20px}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header .byu-logo{margin-right:16px}.byu-header slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;color:#002e5d;margin-left:4px;margin-right:4px}.byu-header button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding:0 16px;flex:1;min-height:55px}.byu-header .byu-header-primary #site-title::slotted(*),.byu-header .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important}.byu-header .byu-header-primary #site-title::slotted(*) a,.byu-header .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header .byu-header-primary .byu-logo{height:30px}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-primary{align-items:flex-start;padding-top:12.5px;padding-bottom:12.5px;min-height:30px}:host([mobile-view]) slot[name=actions]::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;border-top:1px solid #767676}:host([mobile-view]) slot[name=actions]::slotted(*):hover{background:#c5c5c5!important}:host([mobile-view]) slot[name=actions]::slotted(*).selected{background:#e5e5e5!important}:host([mobile-view]) slot[name=actions]::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]) slot[name=actions]::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) #site-title::slotted(*),:host([mobile-view]) .byu-header-title{font-size:16px!important;align-items:flex-start}:host([mobile-view]) button.mobile-menu-button{background-color:transparent;font-size:20px}:host(:not([mobile-view])) .byu-header{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header.no-nav{height:48px}:host(:not([mobile-view])) .byu-header .nav-expand{display:none}:host(:not([mobile-view])) .byu-header .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px;padding-right:16px}:host(:not([mobile-view])) .byu-header .byu-header-secondary,:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
+        exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:20px;transition:.15s;user-select:none;width:17px;background:transparent;outline:none;-webkit-tap-highlight-color:transparent;padding:0!important}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:20px;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;border-radius:1px;height:2px;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:20px;content:\"\";position:absolute;left:0;transform-origin:1.42857px center;width:100%}.tcon-menu__lines:before{top:5px}.tcon-menu__lines:after{top:-5px}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:20px}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header-actions ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;margin-left:4px;margin-right:4px}.byu-header-root{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header-root .byu-logo{margin-right:16px}.byu-header-root button{background-color:#767676;color:#fff;border:none;cursor:pointer}.byu-header-root .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;padding:0 16px;flex:1;min-height:55px}.byu-header-root .byu-header-primary #site-title::slotted(*),.byu-header-root .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-size:22px;color:#fff!important}.byu-header-root .byu-header-primary #site-title::slotted(*) a,.byu-header-root .byu-header-primary .byu-header-title a{color:#fff!important}.byu-header-root .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header-root .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header-root .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header-root .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header-root .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-logo{height:30px}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-primary{align-items:flex-start;padding-top:12.5px;padding-bottom:12.5px;min-height:30px}:host([mobile-view]) .byu-header-actions ::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;background-color:#c5c5c5;color:#002e5d!important;border-top:1px solid #767676}:host([mobile-view]) .byu-header-actions ::slotted(*):hover{background:#c5c5c5!important}:host([mobile-view]) .byu-header-actions ::slotted(*).selected{background:#e5e5e5!important}:host([mobile-view]) .byu-header-actions ::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]) .byu-header-actions ::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view])>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) #site-title::slotted(*),:host([mobile-view]) .byu-header-title{font-size:16px!important;align-items:flex-start}:host([mobile-view]) button.mobile-menu-button{background-color:transparent;font-size:20px}:host(:not([mobile-view])) .byu-header-root{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header-root.no-nav{height:48px}:host(:not([mobile-view])) .byu-header-root .nav-expand{display:none}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px;padding-right:16px}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary,:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-menu-button{display:none}", ""]);
 
         // exports
 
@@ -1336,7 +1346,7 @@
 
 
         // module
-        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0;height:35px;position:relative}::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;flex:1;max-width:200px}::slotted(*):hover{background:#c5c5c5!important}::slotted(*).selected{background:#e5e5e5!important}::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}::slotted(:hover){background:#c5c5c5!important}::slotted(.selected){background:#e5e5e5!important}::slotted(.long-link){max-width:300px;flex:2;padding:0 12px!important}::slotted(.extra-long-link){max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu{display:none;position:relative;height:35px;width:16.66%;max-width:200px}.byu-menu-more-menu .byu-menu-more{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;position:relative;flex:1;max-width:200px;display:block}.byu-menu-more-menu .byu-menu-more:hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more.selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more.long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more.extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more svg{fill:#002e5d}.byu-menu-more-menu .byu-menu-more-items{display:none;position:absolute;top:35px;left:0;right:0;z-index:2;background:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-menu .byu-menu-more-items ::slotted(*){width:100%;text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;text-align:left!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*):hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-visible .byu-menu-more-menu{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded{background:#e5e5e5;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-more-items{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1}:host(.mobile-view) .outer-nav{display:block;height:auto}:host(.mobile-view) .byu-menu-more{display:none}:host(.mobile-view) ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;max-width:100%}:host(.mobile-view) .byu-menu-more-menu{display:block;width:100%;box-shadow:none;position:static;height:auto;max-width:100%}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items{display:block;box-shadow:none;padding:0}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded{box-shadow:none}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{display:none!important}:host(.mobile-view) .byu-menu-more-items{position:static}", ""]);
+        exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#fff;border-bottom:1px solid #ccc}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;padding:0;height:35px;position:relative}.slot-container ::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;flex:1;max-width:200px}.slot-container ::slotted(*):hover{background:#c5c5c5!important}.slot-container ::slotted(*).selected{background:#e5e5e5!important}.slot-container ::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}.slot-container ::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.slot-container ::slotted(:hover){background:#c5c5c5!important}.slot-container ::slotted(.selected){background:#e5e5e5!important}.slot-container ::slotted(.long-link){max-width:300px;flex:2;padding:0 12px!important}.slot-container ::slotted(.extra-long-link){max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu{display:none;position:relative;height:35px;width:16.66%;max-width:200px}.byu-menu-more-menu .byu-menu-more{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;position:relative;flex:1;max-width:200px;display:block}.byu-menu-more-menu .byu-menu-more:hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more.selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more.long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more.extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more svg{fill:#002e5d}.byu-menu-more-menu .byu-menu-more-items{display:none;position:absolute;top:35px;left:0;right:0;z-index:2;background:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-menu .byu-menu-more-items ::slotted(*){width:100%;text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;text-align:left!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*):hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).long-link{max-width:300px;flex:2;padding:0 12px!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}.byu-menu-more-visible .byu-menu-more-menu{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded{background:#e5e5e5;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-more-items{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1}:host(.mobile-view) .outer-nav{display:block;height:auto}:host(.mobile-view) .byu-menu-more{display:none!important}:host(.mobile-view) .slot-container ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;max-width:100%}:host(.mobile-view) .slot-container ::slotted(*).byu-menu-more-menu{padding:0!important}:host(.mobile-view) .byu-menu-more-menu{display:block;width:100%;box-shadow:none;position:static;height:auto;max-width:100%}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items{display:block;box-shadow:none;padding:0}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items ::slotted(*){display:block!important;text-align:left!important;padding:15px 30px!important;height:auto!important;width:100%;position:static;box-sizing:border-box}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded{box-shadow:none}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{display:none!important}:host(.mobile-view) .byu-menu-more-items{position:static}", ""]);
 
         // exports
 
@@ -1381,7 +1391,7 @@
 
 
         // module
-        exports.push([module.i, "img{height:20px;width:20px;margin:5px}::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important;cursor:auto!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user #user-name::slotted(*){color:#c3ddf9;text-transform:capitalize!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
+        exports.push([module.i, "img{height:20px;width:20px;margin:5px}.slot-wrapper ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important}.has-user,.no-user{display:flex;flex-direction:row;align-items:center}:host(:not([mobile-view])){color:#fff}:host(:not([mobile-view])) .mobile{display:none}:host(:not([mobile-view])) .slot-wrapper ::slotted(a:hover){text-decoration:underline!important}:host(:not([mobile-view])) .has-user .name ::slotted(*){color:#c3ddf9!important;text-transform:uppercase!important;width:130px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}:host(:not([mobile-view])) img{margin:7px}:host([mobile-view]){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding-left:0!important;border-bottom:1px solid #c5c5c5}:host([mobile-view]):hover{background:#c5c5c5!important}:host([mobile-view]).selected{background:#e5e5e5!important}:host([mobile-view]).long-link{max-width:300px;flex:2;padding:0 12px!important}:host([mobile-view]).extra-long-link{max-width:400px;flex:3;padding:0 12px!important}:host([mobile-view]) .not-mobile{display:none}:host([mobile-view]) .has-user .name{order:2;flex:1}:host([mobile-view]) .has-user img{order:1;margin:7px}:host([mobile-view]) .has-user .logout{order:3}:host([mobile-view]) .slot-wrapper ::slotted(*){color:#002e5d!important}:host(:not([has-user])) .has-user,:host([has-user]) .no-user{display:none}", ""]);
 
         // exports
 
@@ -1545,7 +1555,7 @@
                 __append = __output.push.bind(__output);
             __append("<style>\n");
             __append(__webpack_require__(16));
-            __append('</style><div id="header" class="byu-header"><div class="byu-header-primary">\n<img class="byu-logo" alt="BYU" src="');
+            __append('</style><div id="header" class="byu-header-root"><div class="byu-header-primary">\n<img class="byu-logo" alt="BYU" src="');
             __append(__webpack_require__(34));
             __append('"><div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
             if (locals.mobile) {
@@ -1559,7 +1569,7 @@
             }
             __append('<div class="byu-header-search">\n<slot id="search" name="search"></slot>\n</div></div>');
             if (locals.mobile) {
-                __append('<div id="mobileMenu">\n<slot id="signin" name="user"></slot>\n<slot id="navbarMenu" name="nav"></slot>\n<slot id="actions" name="actions"></slot>\n</div>\n');
+                __append('<div id="mobileMenu">\n<slot id="signin" name="user"></slot>\n<slot id="navbarMenu" name="nav"></slot>\n<div class="byu-header-actions">\n<slot id="actions" name="actions"></slot>\n</div>\n</div>\n');
             } else {
                 __append('<slot id="navbarMenu" name="nav"></slot>\n');
             }
@@ -1657,7 +1667,7 @@
     /* 29 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(17) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <svg width=\"13\" height=\"13\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z\"/></svg> </a> <div class=\"byu-menu-more-items\"> <slot name=\"more\"></slot> </div> </div> </nav>";
+        module.exports = "<style>" + __webpack_require__(17) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <svg width=\"13\" height=\"13\" viewBox=\"0 0 1792 1792\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1683 808l-742 741q-19 19-45 19t-45-19l-742-741q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z\"/></svg> </a> <div class=\"byu-menu-more-items slot-container\"> <slot name=\"more\"></slot> </div> </div> </nav>";
 
         /***/
     },
@@ -1678,7 +1688,7 @@
     /* 32 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user slot-wrapper\"> <span class=\"name\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <a class=\"logout\"> <slot name=\"logout\">Sign Out</slot> </a> </div> </div>";
+        module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <a class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </a> </div> </div>";
 
         /***/
     },

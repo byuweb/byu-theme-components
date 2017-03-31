@@ -216,7 +216,6 @@ byu-footer-column:not(:defined) {
     position: static;
     width: auto; }
 
-/* MOBILE */
 /* GENERAL STYLING */
 /* MOBILE */
 /* FULL SIZE */
@@ -437,8 +436,7 @@ byu-user-info:not(:defined) > * {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
-  color: white !important;
-  cursor: initial !important; }
+  color: white !important; }
 
 /* NON MOBILE */
 byu-user-info:not(:defined):not([mobile-view]) {
