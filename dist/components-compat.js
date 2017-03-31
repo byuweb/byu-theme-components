@@ -705,9 +705,20 @@
                             this.shadowRoot.querySelector('input').setAttribute('placeholder', newValue);
                             break;
                         case 'value':
-                            store.set(this, getInputValue(this));
+                            store.set(this, this.getInputValue(this));
                             break;
                     }
+                }
+            }, {
+                key: 'value',
+                get: function get() {
+                    return store.get(this);
+                },
+                set: function set(value) {
+                    store.set(this, '' + value);
+                    var input = this.getInputElement(this, true);
+                    if (input) input.value = value;
+                    return this;
                 }
             }], [{
                 key: 'observedAttributes',
@@ -731,94 +742,83 @@
             _createClass(ByuSearch, [{
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    var input = getInputElement(this, true);
-                    if (input) input.addEventListener('input', inputHandler);
+                    var component = this;
+                    var input = this.getInputElement(this, true);
+                    if (input) {
+                        input.addEventListener('input', this.inputHandler);
+                        input.addEventListener('keypress', function (e) {
+                            if (e.keyCode === 13) {
+                                e.preventDefault();
+                                component.search();
+                            }
+                        }, false);
+                    }
 
                     if (this.hasAttribute('value')) this.value = this.getAttribute('value');
                 }
             }, {
                 key: 'disconnectedCallback',
                 value: function disconnectedCallback() {
-                    var input = getInputElement(this, true);
-                    if (input) input.removeEventListener('input', inputHandler);
+                    var input = this.getInputElement(this, true);
+                    if (input) {
+                        input.removeEventListener('input', this.inputHandler);
+                        input.removeEventListener('keypress', this.searchHandler);
+                    }
                 }
             }, {
                 key: 'search',
                 value: function search() {
-                    if (this.hasAttribute('onsearch')) evalInContext.call(this, this.getAttribute('onsearch'));
-
-                    // if (this.hasAttribute('action')) {
-                    //     var form = this.shadowRoot.querySelector('form');
-                    //     var value = this.value;
-                    //     var action = this.getAttribute('action').toString().replace(/\$1/g, value);
-                    //     form.setAttribute('action', action);
-                    //     form.setAttribute('method', this.hasAttribute('method')
-                    //         ? this.getAttribute('method')
-                    //         : 'GET');
-                    //     if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
-                    //     form.submit();
-                    // }
+                    if (this.hasAttribute('onsearch')) this.evalInContext.call(this, this.getAttribute('onsearch'));
                 }
             }, {
-                key: 'value',
-                get: function get() {
-                    return store.get(this);
-                },
-                set: function set(value) {
-                    store.set(this, '' + value);
-                    var input = getInputElement(this, true);
-                    if (input) input.value = value;
-                    return this;
+                key: 'evalInContext',
+                value: function evalInContext(string) {
+                    return eval(string);
+                }
+            }, {
+                key: 'getInputValue',
+                value: function getInputValue(component) {
+                    var input = this.getInputElement(component, true);
+                    return input ? input.value : '';
+                }
+            }, {
+                key: 'getInputElement',
+                value: function getInputElement(component, flatten) {
+                    var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
+                    for (var i = 0; i < elements.length; i++) {
+                        if (elements[i].tagName === 'INPUT') return elements[i];
+                    }
+                    return null;
+                }
+            }, {
+                key: 'getParentComponent',
+                value: function getParentComponent(el) {
+                    console.log(el.tagName);
+                    console.log(el.parentNode);
+                    while (!(el.tagName.toUpperCase() === 'BYU-SEARCH')) {
+                        el = el.host ? el.host : el.parentNode;
+                    }return el;
+                }
+            }, {
+                key: 'inputHandler',
+                value: function inputHandler(e) {
+                    var el = e.target;
+                    console.log(e.target.value);
+                    if (el) {
+                        var component = this;
+                        component.value = e.target.value;
+                    }
+                }
+            }, {
+                key: 'formSubmitHandler',
+                value: function formSubmitHandler(e) {
+                    if (e) e.preventDefault();
+                    this.parentNode.host.search();
                 }
             }]);
 
             return ByuSearch;
         }(HTMLElement);
-
-        function evalInContext(string) {
-            return eval(string);
-        }
-
-        function getInputValue(component) {
-            var input = getInputElement(component, true);
-            return input ? input.value : '';
-        }
-
-        function getInputElement(component, flatten) {
-            var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
-            for (var i = 0; i < elements.length; i++) {
-                if (elements[i].tagName === 'INPUT') return elements[i];
-            }
-            return null;
-        }
-
-        function getParentComponent(el) {
-            console.log(el.tagName);
-            console.log(el.parentNode);
-            while (!(el.tagName === 'byu-search')) {
-                el = el.host ? el.host : el.parentNode;
-            }return el;
-        }
-
-        function inputHandler(e) {
-            var el = e.target;
-            if (el) {
-                var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
-                component.value = e.target.value;
-            }
-        }
-
-        function searchHandler(e) {
-            if (e.keyCode === 13) {
-                e.preventDefault();
-                this.parentNode.host.search();
-            }
-        }
-
-        function formSubmitHandler(e) {
-            if (e) e.preventDefault();
-            this.parentNode.host.search();
-        }
 
         window.customElements.define('byu-search', ByuSearch);
         window.ByuSearch = ByuSearch;
@@ -1664,7 +1664,7 @@
     /* 30 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"search\" onkeypress=\"searchHandler(event)\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
+        module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
 
         /***/
     },
