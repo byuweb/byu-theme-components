@@ -136,12 +136,16 @@
   }
 
   .byu-menu-more {
-    display: none;
+    display: none !important;
   }
 
-  ::slotted(*) {
+  .slot-container ::slotted(*) {
     @include mobileSlotted();
     max-width: 100%;
+
+    &.byu-menu-more-menu {
+      padding: 0 !important;
+    }
   }
 
   .byu-menu-more-menu {
