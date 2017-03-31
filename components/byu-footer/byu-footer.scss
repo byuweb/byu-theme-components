@@ -6,6 +6,11 @@ byu-footer:not(:defined) {
   min-height: 200px;
   display: flex;
   width: 100%;
+  font-family: sans-serif;
+  font-weight: 800;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  justify-content: space-around;
 }
 
 byu-footer:not(:defined):after {
@@ -20,7 +25,11 @@ byu-footer:not(:defined):after {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 200px;
+  //top: 200px;
+  font-weight: 100;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: serif;
 }
 
 

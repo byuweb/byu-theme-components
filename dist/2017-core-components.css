@@ -19,7 +19,12 @@ byu-footer:not(:defined) {
   background: #e5e5e5;
   min-height: 200px;
   display: flex;
-  width: 100%; }
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: 800;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  justify-content: space-around; }
 
 byu-footer:not(:defined):after {
   background-color: #002E5D;
@@ -36,7 +41,10 @@ byu-footer:not(:defined):after {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 200px; }
+  font-weight: 100;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: serif; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -116,6 +124,13 @@ byu-footer-column:not(:defined) {
   byu-footer-column:not(:defined) #defaultContent a:hover {
     cursor: pointer;
     color: #002E5D !important; }
+
+byu-footer-column [slot="header"] {
+  font-family: serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #002E5D;
+  font-weight: 600; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -542,7 +557,12 @@ byu-footer:not(:defined) {
   background: #e5e5e5;
   min-height: 200px;
   display: flex;
-  width: 100%; }
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: 800;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  justify-content: space-around; }
 
 byu-footer:not(:defined):after {
   background-color: #002E5D;
@@ -559,6 +579,9 @@ byu-footer:not(:defined):after {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 200px; }
+  font-weight: 100;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: serif; }
 
 /*# sourceMappingURL=2017-core-components.css.map */
