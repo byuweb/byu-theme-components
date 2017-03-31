@@ -2,6 +2,10 @@
 
 /* GENERAL STYLING */
 
+.byu-header-actions ::slotted(*) {
+    @include actions();
+}
+
 .byu-header-root {
   @include headerDefaultFont();
 
@@ -9,9 +13,7 @@
     @include headerLogo();
   }
 
-  .byu-header-actions ::slotted(*) {
-    @include actions();
-  }
+  
 
   button {
     @include headerButton();
