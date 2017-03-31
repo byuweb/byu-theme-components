@@ -9,7 +9,6 @@
 
 @mixin userInfoSlotted() {
   @include headerLink();
-  cursor: initial !important;
 }
 
 @mixin userPresent() {

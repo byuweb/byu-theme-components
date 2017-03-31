@@ -8,12 +8,6 @@
   max-height: 0;
   transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
 }
-@mixin actions() {
-  @include headerLink();
-  color: $navy;
-  margin-left: 4px;
-  margin-right: 4px;
-}
 @mixin actionsMobile() {
   @include dropdownNavItem();
   background-color: $gray;
@@ -40,7 +34,7 @@
 
 @mixin actions(){
   @include headerLink();
-  color: $navy;
+  color: $navy !important;
   margin-left: 4px;
   margin-right: 4px;
 }
