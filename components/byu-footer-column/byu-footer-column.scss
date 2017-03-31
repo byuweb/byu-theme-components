@@ -23,3 +23,11 @@ byu-footer-column:not(:defined) {
         @include defaultContentLinkHover();
     }
 }
+
+byu-footer-column [slot="header"] {
+    font-family: serif;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: $navy;
+    font-weight: 600;
+}
