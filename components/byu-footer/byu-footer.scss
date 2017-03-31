@@ -1,7 +1,8 @@
 
 @import "./mixins.scss";
 
-byu-footer:not(:defined) {
+//byu-footer:not(:defined) {
+byu-footer:not(.byu-component-rendered) {
   background: $lightgray;
   min-height: 200px;
   display: flex;
@@ -13,7 +14,8 @@ byu-footer:not(:defined) {
   justify-content: space-around;
 }
 
-byu-footer:not(:defined):after {
+//byu-footer:not(:defined):after {
+byu-footer:not(.byu-component-rendered):after {
   @include blueFooter();
   content: "BRIGHAM YOUNG UNIVERSITY";
   //background: $navy;
@@ -31,6 +33,7 @@ byu-footer:not(:defined):after {
   letter-spacing: 2px;
   font-family: serif;
 }
+
 
 
 //@media (max-width: 767px) {
