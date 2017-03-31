@@ -701,36 +701,6 @@
         var ByuSearch = function (_HTMLElement6) {
             _inherits(ByuSearch, _HTMLElement6);
 
-            _createClass(ByuSearch, [{
-                key: 'attributeChangedCallback',
-                value: function attributeChangedCallback(name, oldValue, newValue) {
-                    switch (name) {
-                        case 'placeholder':
-                            this.shadowRoot.querySelector('input').setAttribute('placeholder', newValue);
-                            break;
-                        case 'value':
-                            store.set(this, this.getInputValue(this));
-                            break;
-                    }
-                }
-            }, {
-                key: 'value',
-                get: function get() {
-                    return store.get(this);
-                },
-                set: function set(value) {
-                    store.set(this, '' + value);
-                    var input = this.getInputElement(this, true);
-                    if (input) input.value = value;
-                    return this;
-                }
-            }], [{
-                key: 'observedAttributes',
-                get: function get() {
-                    return ['placeholder', 'value'];
-                }
-            }]);
-
             function ByuSearch() {
                 _classCallCheck(this, ByuSearch);
 
@@ -788,11 +758,11 @@
             }, {
                 key: 'getInputElement',
                 value: function getInputElement(component, flatten) {
-                    var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
-                    for (var i = 0; i < elements.length; i++) {
-                        if (elements[i].tagName === 'INPUT') return elements[i];
-                    }
-                    return null;
+                    // var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
+                    // for (var i = 0; i < elements.length; i++) {
+                    //     if (elements[i].tagName === 'INPUT') return elements[i];
+                    // }
+                    // return null;
                 }
             }, {
                 key: 'getParentComponent',
@@ -806,18 +776,12 @@
             }, {
                 key: 'inputHandler',
                 value: function inputHandler(e) {
-                    var el = e.target;
-                    console.log(e.target.value);
-                    if (el) {
-                        var component = this;
-                        component.value = e.target.value;
-                    }
-                }
-            }, {
-                key: 'formSubmitHandler',
-                value: function formSubmitHandler(e) {
-                    if (e) e.preventDefault();
-                    this.parentNode.host.search();
+                    // var el = e.target;
+                    // console.log(e.target.value);
+                    // if (el) {
+                    //     var component = this;
+                    //     component.value = e.target.value;
+                    // }
                 }
             }]);
 

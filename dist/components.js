@@ -565,32 +565,6 @@ var store = new WeakMap();
 
 class ByuSearch extends HTMLElement {
 
-    get value() {
-        return store.get(this);
-    }
-
-    set value(value) {
-        store.set(this, '' + value);
-        var input = this.getInputElement(this, true);
-        if (input) input.value = value;
-        return this;
-    }
-
-    static get observedAttributes() {
-        return ['placeholder', 'value'];
-    }
-
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'placeholder':
-                this.shadowRoot.querySelector('input').setAttribute('placeholder', newValue);
-                break;
-            case 'value':
-                store.set(this, this.getInputValue(this));
-                break;
-        }
-    }
-
     constructor() {
         super(); // always call super first
 
@@ -636,11 +610,11 @@ class ByuSearch extends HTMLElement {
     }
 
     getInputElement(component, flatten) {
-        var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
-        for (var i = 0; i < elements.length; i++) {
-            if (elements[i].tagName === 'INPUT') return elements[i];
-        }
-        return null;
+        // var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
+        // for (var i = 0; i < elements.length; i++) {
+        //     if (elements[i].tagName === 'INPUT') return elements[i];
+        // }
+        // return null;
     }
 
     getParentComponent(el) {
@@ -651,17 +625,12 @@ class ByuSearch extends HTMLElement {
     }
 
     inputHandler(e) {
-        var el = e.target;
-        console.log(e.target.value);
-        if (el) {
-            var component = this;
-            component.value = e.target.value;
-        }
-    }
-
-    formSubmitHandler(e) {
-        if (e) e.preventDefault();
-        this.parentNode.host.search();
+        // var el = e.target;
+        // console.log(e.target.value);
+        // if (el) {
+        //     var component = this;
+        //     component.value = e.target.value;
+        // }
     }
 }
 
