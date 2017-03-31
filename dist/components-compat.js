@@ -1215,8 +1215,6 @@
          *    limitations under the License.
          */
 
-        var TEMPLATE_RENDERED_CLASS = 'byu-component-rendered';
-
         function applyTemplate(element, elementName, template, callback) {
             var sum = __WEBPACK_IMPORTED_MODULE_0_hash_sum___default()(template);
 
@@ -1253,18 +1251,13 @@
                 shadow.removeChild(shadow.firstChild);
             }
             shadow.appendChild(imported);
-            setTimeout(function () {
-                runAfterStamping(element, callback);
-            });
+            if (callback) {
+                setTimeout(callback);
+            }
         }
 
         function applyTemplateNative(element, template, callback) {
             element.shadowRoot.innerHTML = template;
-            runAfterStamping(element, callback);
-        }
-
-        function runAfterStamping(element, callback) {
-            element.classList.add(TEMPLATE_RENDERED_CLASS);
             if (callback) {
                 callback();
             }

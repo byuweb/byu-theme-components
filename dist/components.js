@@ -1060,8 +1060,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 
-const TEMPLATE_RENDERED_CLASS = 'byu-component-rendered';
-
 function applyTemplate(element, elementName, template, callback) {
     let sum = __WEBPACK_IMPORTED_MODULE_0_hash_sum___default()(template);
 
@@ -1098,18 +1096,13 @@ function applyTemplateShady(element, elementName, template, callback, sum) {
         shadow.removeChild(shadow.firstChild);
     }
     shadow.appendChild(imported);
-    setTimeout(function() {
-        runAfterStamping(element, callback);
-    });
+    if (callback) {
+        setTimeout(callback);
+    }
 }
 
 function applyTemplateNative(element, template, callback) {
     element.shadowRoot.innerHTML = template;
-    runAfterStamping(element, callback);
-}
-
-function runAfterStamping(element, callback) {
-    element.classList.add(TEMPLATE_RENDERED_CLASS);
     if (callback) {
         callback();
     }
