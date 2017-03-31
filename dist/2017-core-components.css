@@ -15,13 +15,18 @@
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer:not(:defined) {
+byu-footer:not(.byu-component-rendered) {
   background: #e5e5e5;
   min-height: 200px;
   display: flex;
-  width: 100%; }
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: 800;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  justify-content: space-around; }
 
-byu-footer:not(:defined):after {
+byu-footer:not(.byu-component-rendered):after {
   background-color: #002E5D;
   text-align: center;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
@@ -36,7 +41,10 @@ byu-footer:not(:defined):after {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 200px; }
+  font-weight: 100;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: serif; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -46,7 +54,7 @@ byu-footer:not(:defined):after {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer-action-button:not(:defined) {
+byu-footer-action-button:not(.byu-component-rendered) {
   background-color: #767676;
   font-family: "Vitesse A", "Vitesse B", Georgia, serif;
   font-size: 20px !important;
@@ -62,7 +70,7 @@ byu-footer-action-button:not(:defined) {
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35); }
 
-byu-footer-action-button:not(:defined) > * {
+byu-footer-action-button:not(.byu-component-rendered) > * {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-weight: 500 !important;
   color: #fff !important;
@@ -75,7 +83,7 @@ byu-footer-action-button:not(:defined) > * {
   cursor: pointer !important;
   vertical-align: middle !important; }
 
-byu-footer-action-button:not(:defined) a {
+byu-footer-action-button:not(.byu-component-rendered) a {
   text-decoration: none !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -86,11 +94,11 @@ byu-footer-action-button:not(:defined) a {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer-column:not(:defined) {
+byu-footer-column:not(.byu-component-rendered) {
   padding: 0 15px; }
-  byu-footer-column:not(:defined) .header {
+  byu-footer-column:not(.byu-component-rendered) .header {
     width: 100%; }
-  byu-footer-column:not(:defined) .header > * {
+  byu-footer-column:not(.byu-component-rendered) .header > * {
     font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
     text-transform: uppercase !important;
     color: #002E5D !important;
@@ -101,7 +109,7 @@ byu-footer-column:not(:defined) {
     font-weight: 500 !important;
     width: 100%;
     display: inline-block; }
-  byu-footer-column:not(:defined) .content *:not(byu-footer-action-button) {
+  byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
     font-size: 13px;
     font-weight: 500;
@@ -109,13 +117,20 @@ byu-footer-column:not(:defined) {
     position: relative;
     top: -11px;
     line-height: 1.42857143; }
-  byu-footer-column:not(:defined) #defaultContent a {
+  byu-footer-column:not(.byu-component-rendered) #defaultContent a {
     line-height: 35px;
     text-decoration: none !important;
     outline: none !important; }
-  byu-footer-column:not(:defined) #defaultContent a:hover {
+  byu-footer-column:not(.byu-component-rendered) #defaultContent a:hover {
     cursor: pointer;
     color: #002E5D !important; }
+
+byu-footer-column [slot="header"]:not(.byu-component-rendered) {
+  font-family: serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #002E5D;
+  font-weight: 600; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -219,7 +234,7 @@ byu-footer-column:not(:defined) {
 /* GENERAL STYLING */
 /* MOBILE */
 /* FULL SIZE */
-byu-header:not(:defined) {
+byu-header:not(.byu-component-rendered) {
   background-color: #002E5D;
   color: #ffffff;
   display: flex;
@@ -234,12 +249,12 @@ byu-header:not(:defined) {
   width: 100%;
   height: 90px;
   color: #fff !important; }
-  byu-header:not(:defined) a {
+  byu-header:not(.byu-component-rendered) a {
     color: #fff !important; }
-  byu-header:not(:defined) [slot="actions"] {
+  byu-header:not(.byu-component-rendered) [slot="actions"] {
     text-transform: uppercase; }
 
-byu-header:not(:defined) > [slot="site-title"] {
+byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
@@ -249,10 +264,10 @@ byu-header:not(:defined) > [slot="site-title"] {
   color: #fff !important;
   position: relative;
   top: -6px; }
-  byu-header:not(:defined) > [slot="site-title"] a {
+  byu-header:not(.byu-component-rendered) > [slot="site-title"] a {
     color: #fff !important; }
 
-byu-header:not(:defined) > [slot="site-title"]:before {
+byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU";
   font-weight: bold;
   font-size: 40px;
@@ -293,7 +308,7 @@ byu-header:not(:defined) > [slot="site-title"]:before {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-menu:not(:defined) {
+byu-menu:not(.byu-component-rendered) {
   display: block;
   width: 100%;
   height: auto;
@@ -312,10 +327,10 @@ byu-menu:not(:defined) {
   justify-content: space-around;
   order: 3;
   margin-bottom: -2px; }
-  byu-menu:not(:defined) a {
+  byu-menu:not(.byu-component-rendered) a {
     color: #002E5D; }
 
-byu-menu:not(:defined) > * {
+byu-menu:not(.byu-component-rendered) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
@@ -336,20 +351,20 @@ byu-menu:not(:defined) > * {
   text-overflow: ellipsis !important;
   flex: 1;
   max-width: 200px; }
-  byu-menu:not(:defined) > *:hover {
+  byu-menu:not(.byu-component-rendered) > *:hover {
     background: #c5c5c5 !important; }
-  byu-menu:not(:defined) > *.selected {
+  byu-menu:not(.byu-component-rendered) > *.selected {
     background: #e5e5e5 !important; }
-  byu-menu:not(:defined) > *.long-link {
+  byu-menu:not(.byu-component-rendered) > *.long-link {
     max-width: 300px;
     flex: 2;
     padding: 0 12px !important; }
-  byu-menu:not(:defined) > *.extra-long-link {
+  byu-menu:not(.byu-component-rendered) > *.extra-long-link {
     max-width: 400px;
     flex: 3;
     padding: 0 12px !important; }
 
-byu-menu:not(:defined) > * {
+byu-menu:not(.byu-component-rendered) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
@@ -368,28 +383,28 @@ byu-menu:not(:defined) > * {
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important; }
-  byu-menu:not(:defined) > *:hover {
+  byu-menu:not(.byu-component-rendered) > *:hover {
     background: #c5c5c5 !important; }
-  byu-menu:not(:defined) > *.selected {
+  byu-menu:not(.byu-component-rendered) > *.selected {
     background: #e5e5e5 !important; }
-  byu-menu:not(:defined) > *.long-link {
+  byu-menu:not(.byu-component-rendered) > *.long-link {
     max-width: 300px;
     flex: 2;
     padding: 0 12px !important; }
-  byu-menu:not(:defined) > *.extra-long-link {
+  byu-menu:not(.byu-component-rendered) > *.extra-long-link {
     max-width: 400px;
     flex: 3;
     padding: 0 12px !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
-byu-search:not(:defined) {
+byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 27px;
   width: 225px;
   margin-right: 30px; }
 
-byu-search:not(:defined):after {
+byu-search:not(.byu-component-rendered):after {
   content: " ";
   background-color: var(--byu-search-color, #767676);
   border: 1px solid var(--byu-search-color, #767676);
@@ -400,10 +415,10 @@ byu-search:not(:defined):after {
   float: right; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
-byu-social-media-links:not(:defined) > a {
+byu-social-media-links:not(.byu-component-rendered) > a {
   text-decoration: none !important; }
 
-byu-social-media-links:not(:defined) > .fa {
+byu-social-media-links:not(.byu-component-rendered) > .fa {
   text-decoration: none !important;
   color: #002E5D !important;
   font-size: 25px !important;
@@ -416,7 +431,7 @@ byu-social-media-links:not(:defined) > .fa {
   margin: 0 5px 5px 0 !important;
   cursor: pointer; }
 
-byu-social-media-links:not(:defined) > .fa:hover {
+byu-social-media-links:not(.byu-component-rendered) > .fa:hover {
   background-color: #fff !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -430,7 +445,7 @@ byu-social-media-links:not(:defined) > .fa:hover {
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* NON MOBILE */
 /* MOBILE */
-byu-user-info:not(:defined) > * {
+byu-user-info:not(.byu-component-rendered) > * {
   text-decoration: none !important;
   font-size: 13px !important;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
@@ -439,18 +454,18 @@ byu-user-info:not(:defined) > * {
   color: white !important; }
 
 /* NON MOBILE */
-byu-user-info:not(:defined):not([mobile-view]) {
+byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
   color: white; }
-  byu-user-info:not(:defined):not([mobile-view]) > * {
+  byu-user-info:not(.byu-component-rendered):not([mobile-view]) > * {
     text-decoration: none !important;
     font-size: 13px !important;
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
     font-weight: 500 !important;
     text-transform: uppercase !important;
     color: white !important; }
-  byu-user-info:not(:defined):not([mobile-view]) .mobile {
+  byu-user-info:not(.byu-component-rendered):not([mobile-view]) .mobile {
     display: none; }
-  byu-user-info:not(:defined):not([mobile-view]) img {
+  byu-user-info:not(.byu-component-rendered):not([mobile-view]) img {
     margin: 7px; }
 
 /* MOBILE */
@@ -536,13 +551,18 @@ h1 {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-footer:not(:defined) {
+byu-footer:not(.byu-component-rendered) {
   background: #e5e5e5;
   min-height: 200px;
   display: flex;
-  width: 100%; }
+  width: 100%;
+  font-family: sans-serif;
+  font-weight: 800;
+  flex-wrap: wrap;
+  padding-top: 30px;
+  justify-content: space-around; }
 
-byu-footer:not(:defined):after {
+byu-footer:not(.byu-component-rendered):after {
   background-color: #002E5D;
   text-align: center;
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
@@ -557,6 +577,9 @@ byu-footer:not(:defined):after {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 200px; }
+  font-weight: 100;
+  font-size: 22px;
+  letter-spacing: 2px;
+  font-family: serif; }
 
 /*# sourceMappingURL=2017-core-components.css.map */

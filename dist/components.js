@@ -128,8 +128,8 @@ module.exports = function() {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTemplate", function() { return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_templating__ = __webpack_require__(12);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTemplate", function() { return __WEBPACK_IMPORTED_MODULE_0__utils_templating__["a"]; });
 /**
  * Created by ThatJoeMoore on 2/14/17
  */
@@ -1060,8 +1060,6 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
 
 
-const TEMPLATE_RENDERED_CLASS = 'byu-component-rendered';
-
 function applyTemplate(element, elementName, template, callback) {
     let sum = __WEBPACK_IMPORTED_MODULE_0_hash_sum___default()(template);
 
@@ -1089,13 +1087,7 @@ function applyTemplateShady(element, elementName, template, callback, sum) {
         document.head.appendChild(templateElement);
         ShadyCSS.prepareTemplate(templateElement, elementName);
     }
-    if (ShadyCSS.styleElement) {
-        ShadyCSS.styleElement(element);
-    } else if (ShadyCSS.applyStyle) {
-        ShadyCSS.applyStyle(element);
-    } else {
-        throw new Error('ShadyCSS is not properly defined: no styleElement or applyStyle!');
-    }
+    ShadyCSS.styleElement(element);
     let imported = document.importNode(templateElement.content, true);
     let shadow = element.shadowRoot;
     //It'd be nice if we could just diff the DOM and replace what changed between templates, but that might lead to
@@ -1104,18 +1096,13 @@ function applyTemplateShady(element, elementName, template, callback, sum) {
         shadow.removeChild(shadow.firstChild);
     }
     shadow.appendChild(imported);
-    setTimeout(function() {
-        runAfterStamping(element, callback);
-    });
+    if (callback) {
+        setTimeout(callback);
+    }
 }
 
 function applyTemplateNative(element, template, callback) {
     element.shadowRoot.innerHTML = template;
-    runAfterStamping(element, callback);
-}
-
-function runAfterStamping(element, callback) {
-    element.classList.add(TEMPLATE_RENDERED_CLASS);
     if (callback) {
         callback();
     }
