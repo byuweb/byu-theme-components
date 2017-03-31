@@ -3,7 +3,8 @@
 @import "./mixins.scss";
 
 
-byu-search:not(:defined) {
+//byu-search:not(:defined) {
+byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 27px;
   width: 225px;
@@ -13,7 +14,8 @@ byu-search:not(:defined) {
 // should be 25px height to account for
 // added border from searchButton OR
 // add border to byu-search
-byu-search:not(:defined):after {
+//byu-search:not(:defined):after {
+byu-search:not(.byu-component-rendered):after {
   content: " "; // placeholder for search icon
   @include searchButton();
   height: 27px;

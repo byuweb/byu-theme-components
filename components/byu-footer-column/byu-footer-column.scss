@@ -1,6 +1,7 @@
 @import "./mixins.scss";
 
-byu-footer-column:not(:defined) {
+//byu-footer-column:not(:defined) {
+byu-footer-column:not(.byu-component-rendered) {
     @include footerColumn();
 
     .header {
@@ -24,7 +25,7 @@ byu-footer-column:not(:defined) {
     }
 }
 
-byu-footer-column [slot="header"] {
+byu-footer-column [slot="header"]:not(.byu-component-rendered) {
     font-family: serif;
     font-size: 20px;
     text-transform: uppercase;
