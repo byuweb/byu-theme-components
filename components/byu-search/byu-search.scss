@@ -2,6 +2,13 @@
 @import "../shared-styles/colors.scss";
 @import "./mixins.scss";
 
+//need to figure out how to address this once changes to the search bar are completed
+//  .postfix.button {
+//    display: none;
+//  }
+//  input[type="text"] {
+//    display: none;
+//  }
 
 //byu-search:not(:defined) {
 byu-search:not(.byu-component-rendered) {
@@ -9,6 +16,9 @@ byu-search:not(.byu-component-rendered) {
   height: 27px;
   width: 225px;
   margin-right: 30px;
+  margin-left: 16px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 // should be 25px height to account for

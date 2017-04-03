@@ -407,7 +407,10 @@ byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 27px;
   width: 225px;
-  margin-right: 30px; }
+  margin-right: 30px;
+  margin-left: 16px;
+  display: flex;
+  justify-content: flex-end; }
 
 byu-search:not(.byu-component-rendered):after {
   content: " ";
