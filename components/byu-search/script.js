@@ -17,6 +17,7 @@
 'use strict';
 
 import * as template from './template.html';
+import * as util from 'byu-web-component-utils';
 
 const ATTR_SEARCH_HANDLER = 'onsearch';
 
@@ -36,27 +37,30 @@ class ByuSearch extends HTMLElement {
 
     constructor() {
         super(); // always call super first
-
-        let shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.innerHTML = template;
+        this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
-        var component = this;
-        var input = this.getInputElement(this, true);
-        if (input) {
-            input.addEventListener('input', this.inputHandler);
-            input.addEventListener('keypress', function (e) {
-                if (e.keyCode === 13) {
-                    e.preventDefault();
-                    component.search();
-                }
-            }, false);
-        }
 
-        if (this.hasAttribute('onsearch')) this.searchHandler = this.getAttribute('onsearch');
-        this.shadowRoot.querySelector('#search-button').addEventListener('click', function() {
-            component.search(component);
+        const component = this;
+
+        util.applyTemplate(this, 'byu-search', template, () => {
+
+            var input = this.getInputElement(this, true);
+            if (input) {
+                input.addEventListener('input', this.inputHandler);
+                input.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        component.search();
+                    }
+                }, false);
+            }
+
+            if (this.hasAttribute('onsearch')) this.searchHandler = this.getAttribute('onsearch');
+            this.shadowRoot.querySelector('#search-button').addEventListener('click', function () {
+                component.search(component);
+            });
         });
     }
 
@@ -69,7 +73,7 @@ class ByuSearch extends HTMLElement {
     }
 
     search(component) {
-        if (component.hasAttribute('onsearch')) 
+        if (component.hasAttribute('onsearch'))
             component.evalInContext(component.getAttribute('onsearch'), component.getInputElement(component, true).value);
     }
 

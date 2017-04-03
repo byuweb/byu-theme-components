@@ -68,6 +68,24 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTemplate", function() { return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"]; });
+/**
+ * Created by ThatJoeMoore on 2/14/17
+ */
+
+
+
+
+
+
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports) {
 
 /*
@@ -123,24 +141,6 @@ module.exports = function() {
 
 
 /***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "applyTemplate", function() { return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"]; });
-/**
- * Created by ThatJoeMoore on 2/14/17
- */
-
-
-
-
-
-
-
-/***/ }),
 /* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -148,7 +148,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const template = __webpack_require__(26);
-const util = __webpack_require__(1);
+const util = __webpack_require__(0);
 
 class BYUFooterActionButton extends HTMLElement {
 
@@ -174,7 +174,7 @@ window.BYUFooterActionButton = BYUFooterActionButton;
 "use strict";
 
 const template = __webpack_require__(27);
-const util = __webpack_require__(1);
+const util = __webpack_require__(0);
 
 class BYUFooterColumn extends HTMLElement {
 
@@ -199,7 +199,7 @@ window.BYUFooterColumn = BYUFooterColumn;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
 
 
@@ -234,7 +234,7 @@ window.BYUFooter = BYUFooter;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_ejs_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_deep_equal__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_deep_equal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_deep_equal__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__);
 
@@ -437,7 +437,7 @@ window.BYUHeader = BYUHeader;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
 
 
@@ -541,6 +541,7 @@ window.BYUMenu = BYUMenu;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 /**
  *  @license
  *    Copyright 2016 Brigham Young University
@@ -557,6 +558,7 @@ window.BYUMenu = BYUMenu;
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  **/
+
 
 
 
@@ -579,27 +581,30 @@ class ByuSearch extends HTMLElement {
 
     constructor() {
         super(); // always call super first
-
-        let shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
+        this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
-        var component = this;
-        var input = this.getInputElement(this, true);
-        if (input) {
-            input.addEventListener('input', this.inputHandler);
-            input.addEventListener('keypress', function (e) {
-                if (e.keyCode === 13) {
-                    e.preventDefault();
-                    component.search();
-                }
-            }, false);
-        }
 
-        if (this.hasAttribute('onsearch')) this.searchHandler = this.getAttribute('onsearch');
-        this.shadowRoot.querySelector('#search-button').addEventListener('click', function() {
-            component.search(component);
+        const component = this;
+
+        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__template_html__, () => {
+
+            var input = this.getInputElement(this, true);
+            if (input) {
+                input.addEventListener('input', this.inputHandler);
+                input.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        component.search();
+                    }
+                }, false);
+            }
+
+            if (this.hasAttribute('onsearch')) this.searchHandler = this.getAttribute('onsearch');
+            this.shadowRoot.querySelector('#search-button').addEventListener('click', function () {
+                component.search(component);
+            });
         });
     }
 
@@ -612,7 +617,7 @@ class ByuSearch extends HTMLElement {
     }
 
     search(component) {
-        if (component.hasAttribute('onsearch')) 
+        if (component.hasAttribute('onsearch'))
             component.evalInContext(component.getAttribute('onsearch'), component.getInputElement(component, true).value);
     }
 
@@ -652,7 +657,7 @@ window.ByuSearch = ByuSearch;
 "use strict";
 
 const template = __webpack_require__(31);
-const util = __webpack_require__(1);
+const util = __webpack_require__(0);
 
 class BYUSocialMediaLinks extends HTMLElement {
 
@@ -691,7 +696,7 @@ window.BYUSocialMediaLinks = BYUSocialMediaLinks;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 /**
  * Created by ThatJoeMoore on 11/7/16.
  */
@@ -1093,7 +1098,7 @@ function runAfterStamping(element, callback) {
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
@@ -1107,7 +1112,7 @@ exports.push([module.i, ":host{background-color:#767676;font-family:Vitesse A,Vi
 /* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
@@ -1121,7 +1126,7 @@ exports.push([module.i, ":host{padding:0 15px}.header{width:100%}.header ::slott
 /* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
@@ -1135,7 +1140,7 @@ exports.push([module.i, ".blue-footer{background-color:#002e5d;text-align:center
 /* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
@@ -1149,7 +1154,7 @@ exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;displa
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
@@ -1163,12 +1168,12 @@ exports.push([module.i, ":host{display:block;width:100%;height:auto;background:#
 /* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
 // module
-exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;width:30px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container input,::slotted(input){padding:5px 10px;border:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container input,:host(.mobile-view) ::slotted(input){padding:5px 10px;width:100%;height:35px;border:none;border-bottom:1px solid #c5c5c5}:host(.mobile-view) #search-button{width:53px;padding:0 16px}:host(.mobile-view) #search-icon{width:20px;height:20px}", ""]);
+exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;width:30px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container ::slotted(input),#search-form #search-container input{padding:5px 10px;border:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container ::slotted(input),:host(.mobile-view) #search-form #search-container input{padding:5px 10px;width:100%;height:35px;border:none;border-bottom:1px solid #c5c5c5}:host(.mobile-view) #search-button{width:53px;padding:0 16px}:host(.mobile-view) #search-icon{width:20px;height:20px}", ""]);
 
 // exports
 
@@ -1177,7 +1182,7 @@ exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;heigh
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
@@ -1191,7 +1196,7 @@ exports.push([module.i, ".slot-wrapper ::slotted(.fa),.slot-wrapper ::slotted(a)
 /* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(0)();
+exports = module.exports = __webpack_require__(1)();
 // imports
 
 
@@ -1479,7 +1484,7 @@ module.exports = "<style>" + __webpack_require__(17) + "</style> <link type=\"te
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
+module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
 
 /***/ }),
 /* 31 */
@@ -1491,7 +1496,7 @@ module.exports = "<style>" + __webpack_require__(19) + "</style> <link href=\"ht
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <a class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </a> </div> </div>";
+module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
 /***/ }),
 /* 33 */

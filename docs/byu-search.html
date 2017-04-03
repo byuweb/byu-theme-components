@@ -83,6 +83,16 @@
     </demo-snippet>
 
     <h1>Drupal 7 Form</h1>
+
+    <script>
+
+      function d7Search(value) {
+          document.getElementById('search-submit').click();
+      }
+
+    </script>
+
+
     <demo-snippet>
       <template>
 
@@ -90,12 +100,17 @@
           #search-submit {
             display: none;
           }
+          
+          #basic-search input[type="search"] {
+            padding: 5px 10px;
+            border: none;
+          }
         </style>
 
 
         <byu-header>
           <span slot="site-title">Search Demo</span>
-          <byu-search slot="search">
+          <byu-search slot="search" onsearch="d7Search">
             <form action="/" method="post" id="basic-search" accept-charset="UTF-8">
               <div>
                 <input id="search" type="search" name="search_block_form">
