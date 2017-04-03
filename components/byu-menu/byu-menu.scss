@@ -10,7 +10,7 @@ byu-menu:not(.byu-component-rendered) {
   @include outerNav();
   color: $navy !important;
   height: $menuHeight;
-  justify-content: space-around;
+  justify-content: flex-start;
   order: 3;
   margin-bottom: -5px;
   a {
