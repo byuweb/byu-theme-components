@@ -331,7 +331,7 @@ byu-menu:not(.byu-component-rendered) {
   height: 35px;
   justify-content: space-around;
   order: 3;
-  margin-bottom: -2px; }
+  margin-bottom: -5px; }
   byu-menu:not(.byu-component-rendered) a {
     color: #002E5D; }
 
