@@ -618,7 +618,7 @@ class ByuSearch extends HTMLElement {
 
     search(component) {
         if (component.hasAttribute('onsearch'))
-            component.evalInContext(component.getAttribute('onsearch'), component.getInputElement(component, true).value);
+            component.evalInContext(component.getAttribute('onsearch'), component.getInputValue(component));
     }
 
     evalInContext(fnString, value) {

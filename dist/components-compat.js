@@ -766,7 +766,7 @@
             }, {
                 key: 'search',
                 value: function search(component) {
-                    if (component.hasAttribute('onsearch')) component.evalInContext(component.getAttribute('onsearch'), component.getInputElement(component, true).value);
+                    if (component.hasAttribute('onsearch')) component.evalInContext(component.getAttribute('onsearch'), component.getInputValue(component));
                 }
             }, {
                 key: 'evalInContext',
