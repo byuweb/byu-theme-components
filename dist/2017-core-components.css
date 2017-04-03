@@ -327,13 +327,13 @@ byu-menu:not(.byu-component-rendered) {
   padding: 0;
   height: 35px;
   position: relative;
-  color: #002E5D;
+  color: #002E5D !important;
   height: 35px;
   justify-content: space-around;
   order: 3;
   margin-bottom: -5px; }
   byu-menu:not(.byu-component-rendered) a {
-    color: #002E5D; }
+    color: #002E5D !important; }
 
 byu-menu:not(.byu-component-rendered) > * {
   text-decoration: none !important;
