@@ -561,9 +561,21 @@ window.BYUMenu = BYUMenu;
 
 
 
-var store = new WeakMap();
+const ATTR_SEARCH_HANDLER = 'onsearch';
 
 class ByuSearch extends HTMLElement {
+
+    static get observedAttributes() {
+        return [ATTR_SEARCH_HANDLER];
+    }
+
+    attributeChangedCallback(attr, oldValue, newValue) {
+        switch (attr) {
+            case ATTR_SEARCH_HANDLER:
+                this.searchHandler = newValue;
+                return;
+        }
+    }
 
     constructor() {
         super(); // always call super first
@@ -585,7 +597,10 @@ class ByuSearch extends HTMLElement {
             }, false);
         }
 
-        if (this.hasAttribute('value')) this.value = this.getAttribute('value');
+        if (this.hasAttribute('onsearch')) this.searchHandler = this.getAttribute('onsearch');
+        this.shadowRoot.querySelector('#search-button').addEventListener('click', function() {
+            component.search(component);
+        });
     }
 
     disconnectedCallback() {
@@ -596,12 +611,13 @@ class ByuSearch extends HTMLElement {
         }
     }
 
-    search() {
-        if (this.hasAttribute('onsearch')) this.evalInContext.call(this, this.getAttribute('onsearch'));
+    search(component) {
+        if (component.hasAttribute('onsearch')) 
+            component.evalInContext(component.getAttribute('onsearch'), component.getInputElement(component, true).value);
     }
 
-    evalInContext(string) {
-        return eval(string);
+    evalInContext(fnString, value) {
+        return eval(fnString + "('" + value + "')");
     }
 
     getInputValue(component) {
@@ -610,27 +626,19 @@ class ByuSearch extends HTMLElement {
     }
 
     getInputElement(component, flatten) {
-        // var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
-        // for (var i = 0; i < elements.length; i++) {
-        //     if (elements[i].tagName === 'INPUT') return elements[i];
-        // }
-        // return null;
-    }
-
-    getParentComponent(el) {
-        console.log(el.tagName);
-        console.log(el.parentNode);
-        while (!(el.tagName.toUpperCase() === 'BYU-SEARCH')) el = el.host ? el.host : el.parentNode;
-        return el;
+        var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].tagName === 'INPUT') return elements[i];
+        }
+        return null;
     }
 
     inputHandler(e) {
-        // var el = e.target;
-        // console.log(e.target.value);
-        // if (el) {
-        //     var component = this;
-        //     component.value = e.target.value;
-        // }
+        var el = e.target;
+        if (el) {
+            var component = this;
+            component.value = e.target.value;
+        }
     }
 }
 

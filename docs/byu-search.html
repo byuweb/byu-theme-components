@@ -31,7 +31,6 @@
   <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
   <link rel="stylesheet" href="site.min.css">
   <style>
-    
     code {
       display: block;
       background-color: #EEE;
@@ -39,7 +38,6 @@
       border: 1px solid #DDD;
       line-height: 150%;
     }
-
   </style>
 </head>
 
@@ -60,24 +58,59 @@
 
   <section style="margin: 20px">
 
-    <h1>Send search to URL</h1>
+    <script>
+      function demoSearch(value) {
+        console.log(value);
+      }
+    </script>
+
+    <h1>Basic Search with HTML Input</h1>
+
+    <pre><code>
+    &lt;script&gt;
+      function demoSearch(value) {
+        console.log(value);
+      }
+    &lt;/script&gt;</code></pre>
+
     <demo-snippet>
       <template>
-        <byu-search action='https://www.google.com/#q=$1' method='get' placeholder='Search Google'></byu-search>
+        <byu-header>
+          <span slot="site-title">Search Demo</span>
+          <byu-search slot="search" onsearch="demoSearch"></byu-search>
+        </byu-header>
       </template>
     </demo-snippet>
 
-    <h1>Send search to URL and provide input element</h1>
+    <h1>Drupal 7 Form</h1>
     <demo-snippet>
       <template>
-        <byu-search action='https://www.google.com/#q=$1'>
-          <input type='search' placeholder='Search Google'>
-        </byu-search>
+
+        <style type="text/css">
+          #search-submit {
+            display: none;
+          }
+        </style>
+
+
+        <byu-header>
+          <span slot="site-title">Search Demo</span>
+          <byu-search slot="search">
+            <form action="/" method="post" id="basic-search" accept-charset="UTF-8">
+              <div>
+                <input id="search" type="search" name="search_block_form">
+                <input id="search-submit" type="submit" value="Search">
+                <input type="hidden" name="form_build_id" value="this was redacted">
+                <input type="hidden" name="form_id" value="search_block_form">
+              </div>
+            </form>
+          </byu-search>
+        </byu-header>
       </template>
     </demo-snippet>
 
 
-    <h1>Set Search Target</h1>
+    <h1>Drupal 8 Form</h1>
     <demo-snippet>
       <template>
         <byu-search action='https://www.google.com/#q=$1' target='_blank' placeholder='Search Google'></byu-search>
@@ -85,7 +118,7 @@
       </template>
     </demo-snippet>
 
-    <h1>Set Initial Value</h1>
+    <h1>Wordpress Form</h1>
     <demo-snippet>
       <template>
         <byu-search value='foo'></byu-search>
@@ -99,36 +132,12 @@
       </template>
     </demo-snippet>
 
-    <h1>Listen for Input Events</h1>
-    <script>
-      function changeListener(element) {
-        console.log(element, element.value);
-      }
-    </script>
-    <pre><code>
-    &lt;script&gt;
-      function changeListener(element) {
-        console.log(element, element.value);
-      }
-    &lt;/script&gt;</code></pre>
-
+    <h1>ASP.NET Form</h1>
     <demo-snippet>
       <template>
         <byu-search oninput='changeListener(this)'></byu-search><br /><br />
         <byu-search>
           <input type='search' oninput='changeListener(this)'>
-        </byu-search>
-      </template>
-    </demo-snippet>
-
-
-    <h1>Listen for Search Events</h1>
-
-    <demo-snippet>
-      <template>
-        <byu-search onsearch='changeListener(this)'></byu-search><br /><br />
-        <byu-search onsearch='changeListener(this)'>
-          <input type='search'>
         </byu-search>
       </template>
     </demo-snippet>

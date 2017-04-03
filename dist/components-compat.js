@@ -696,10 +696,26 @@
          *    limitations under the License.
          **/
 
-        var store = new WeakMap();
+        var ATTR_SEARCH_HANDLER = 'onsearch';
 
         var ByuSearch = function (_HTMLElement6) {
             _inherits(ByuSearch, _HTMLElement6);
+
+            _createClass(ByuSearch, [{
+                key: 'attributeChangedCallback',
+                value: function attributeChangedCallback(attr, oldValue, newValue) {
+                    switch (attr) {
+                        case ATTR_SEARCH_HANDLER:
+                            this.searchHandler = newValue;
+                            return;
+                    }
+                }
+            }], [{
+                key: 'observedAttributes',
+                get: function get() {
+                    return [ATTR_SEARCH_HANDLER];
+                }
+            }]);
 
             function ByuSearch() {
                 _classCallCheck(this, ByuSearch);
@@ -728,7 +744,10 @@
                         }, false);
                     }
 
-                    if (this.hasAttribute('value')) this.value = this.getAttribute('value');
+                    if (this.hasAttribute('onsearch')) this.searchHandler = this.getAttribute('onsearch');
+                    this.shadowRoot.querySelector('#search-button').addEventListener('click', function () {
+                        component.search(component);
+                    });
                 }
             }, {
                 key: 'disconnectedCallback',
@@ -741,13 +760,13 @@
                 }
             }, {
                 key: 'search',
-                value: function search() {
-                    if (this.hasAttribute('onsearch')) this.evalInContext.call(this, this.getAttribute('onsearch'));
+                value: function search(component) {
+                    if (component.hasAttribute('onsearch')) component.evalInContext(component.getAttribute('onsearch'), component.getInputElement(component, true).value);
                 }
             }, {
                 key: 'evalInContext',
-                value: function evalInContext(string) {
-                    return eval(string);
+                value: function evalInContext(fnString, value) {
+                    return eval(fnString + "('" + value + "')");
                 }
             }, {
                 key: 'getInputValue',
@@ -758,30 +777,20 @@
             }, {
                 key: 'getInputElement',
                 value: function getInputElement(component, flatten) {
-                    // var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
-                    // for (var i = 0; i < elements.length; i++) {
-                    //     if (elements[i].tagName === 'INPUT') return elements[i];
-                    // }
-                    // return null;
-                }
-            }, {
-                key: 'getParentComponent',
-                value: function getParentComponent(el) {
-                    console.log(el.tagName);
-                    console.log(el.parentNode);
-                    while (!(el.tagName.toUpperCase() === 'BYU-SEARCH')) {
-                        el = el.host ? el.host : el.parentNode;
-                    }return el;
+                    var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
+                    for (var i = 0; i < elements.length; i++) {
+                        if (elements[i].tagName === 'INPUT') return elements[i];
+                    }
+                    return null;
                 }
             }, {
                 key: 'inputHandler',
                 value: function inputHandler(e) {
-                    // var el = e.target;
-                    // console.log(e.target.value);
-                    // if (el) {
-                    //     var component = this;
-                    //     component.value = e.target.value;
-                    // }
+                    var el = e.target;
+                    if (el) {
+                        var component = this;
+                        component.value = e.target.value;
+                    }
                 }
             }]);
 
