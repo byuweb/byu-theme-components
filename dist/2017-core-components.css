@@ -248,7 +248,8 @@ byu-header:not(.byu-component-rendered) {
   flex-wrap: wrap;
   width: 100%;
   height: 90px;
-  color: #fff !important; }
+  color: #fff !important;
+  padding: 0px; }
   byu-header:not(.byu-component-rendered) a {
     color: #fff !important; }
   byu-header:not(.byu-component-rendered) [slot="actions"] {
@@ -263,7 +264,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   font-size: 22px;
   color: #fff !important;
   position: relative;
-  top: -6px; }
+  top: -6px;
+  padding-left: 16px; }
   byu-header:not(.byu-component-rendered) > [slot="site-title"] a {
     color: #fff !important; }
 
@@ -271,9 +273,12 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU";
   font-weight: bold;
   font-size: 40px;
-  font-family: "Arial";
+  font-family: "Arial", sans-serif;
   position: relative;
-  top: 6px; }
+  top: 6px;
+  padding-right: 16px;
+  font-weight: 800;
+  letter-spacing: 2px; }
 
 /* MOBILE */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -322,13 +327,13 @@ byu-menu:not(.byu-component-rendered) {
   padding: 0;
   height: 35px;
   position: relative;
-  color: #002E5D;
+  color: #002E5D !important;
   height: 35px;
   justify-content: space-around;
   order: 3;
-  margin-bottom: -2px; }
+  margin-bottom: -5px; }
   byu-menu:not(.byu-component-rendered) a {
-    color: #002E5D; }
+    color: #002E5D !important; }
 
 byu-menu:not(.byu-component-rendered) > * {
   text-decoration: none !important;
@@ -402,7 +407,10 @@ byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 27px;
   width: 225px;
-  margin-right: 30px; }
+  margin-right: 30px;
+  margin-left: 16px;
+  display: flex;
+  justify-content: flex-end; }
 
 byu-search:not(.byu-component-rendered):after {
   content: " ";
