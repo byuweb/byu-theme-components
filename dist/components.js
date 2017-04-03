@@ -1525,7 +1525,7 @@ module.exports = "<style>" + __webpack_require__(19) + "</style> <link href=\"ht
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <a class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </a> </div> </div>";
+module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <img class=\"not-mobile\" src=\"" + __webpack_require__(40) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(39) + "\"> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <img class=\"not-mobile\" src=\"" + __webpack_require__(38) + "\"> <img class=\"mobile\" src=\"" + __webpack_require__(37) + "\"> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
 /***/ }),
 /* 33 */
