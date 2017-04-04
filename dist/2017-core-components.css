@@ -417,7 +417,8 @@ byu-search:not(.byu-component-rendered):after {
   background-color: var(--byu-search-color, #767676);
   border: 1px solid var(--byu-search-color, #767676);
   color: #FFF;
-  width: 30px;
+  width: 36px;
+  height: 36px;
   height: 27px;
   width: 35px;
   float: right; }
