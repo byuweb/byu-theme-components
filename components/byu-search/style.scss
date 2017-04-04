@@ -21,7 +21,7 @@ button {
 }
 
 #search-form #search-container input,
-::slotted(input) {
+#search-form #search-container ::slotted(input) {
   @include searchContainerInput();
 }
 
@@ -29,7 +29,7 @@ button {
   @include searchMobile();
 
   #search-form #search-container input,
-  ::slotted(input) {
+  #search-form #search-container ::slotted(input) {
     @include searchContainerInputMobile();
   }
 
