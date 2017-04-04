@@ -2,6 +2,7 @@
 
 @mixin byuSearch() {
   display: inline-block;
+  margin-left: 20px;
 }
 
 @mixin searchIcon() {
@@ -34,6 +35,7 @@
 @mixin searchMobile() {
   width: 100%;
   height: 35px;
+  margin: 0;
 }
 
 @mixin searchContainerInputMobile() {
