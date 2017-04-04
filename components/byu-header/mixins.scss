@@ -56,6 +56,7 @@
   flex-direction: column;
   font-family: $siteNameFont !important;
   font-size: $siteTitleSize;
+  line-height: $siteTitleSize;
   color: #fff!important;
   //padding: 10px 0;  unnecessary in both full and mobile
   a {
@@ -68,16 +69,18 @@
 }
 
 @mixin headerSiteTitle() {
-  margin-top: -2px;
-  margin-bottom: -2px;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 
 @mixin headerSubTitle() {
   font-size: $siteSubTitleSize;
+  line-height: $siteSubTitleSize;
 }
 
 @mixin headerSuperTitle() {
   font-size: $siteSuperTitleSize;
+  line-height: $siteSuperTitleSize;
 }
 
 @mixin headerUserButton() {
@@ -160,11 +163,13 @@
 }
 
 @mixin mobileSubTitle() {
-  font-size: $mobileSiteSubTitleSize;
+  font-size: $mobileSiteSubTitleSize !important;
+  line-height: $mobileSiteSubTitleSize;
 }
 
 @mixin mobileSuperTitle() {
-  font-size: $mobileSiteSuperTitleSize;
+  font-size: $mobileSiteSuperTitleSize !important;
+  line-height: $mobileSiteSuperTitleSize;
 }
 
 

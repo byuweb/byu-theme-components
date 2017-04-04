@@ -91,8 +91,19 @@
   & > div > :not(.byu-logo) {
     @include headerInnerMarginMobile();
   }
-  .byu-header-title, #site-title::slotted(*) {
+  .byu-header-title {
     @include mobileSiteTitle();
+
+    .title-wrapper {
+      @include mobileSiteTitle();
+    }
+
+    .sub-title-wrapper {
+      @include mobileSubTitle();
+    }
+    .super-title-wrapper {
+      @include mobileSuperTitle();
+    }
   }
   button {
     &.mobile-menu-button {
