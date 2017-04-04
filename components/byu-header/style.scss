@@ -21,9 +21,24 @@
 
   .byu-header-primary {
     @include headerPrimary();
-    .byu-header-title, #site-title::slotted(*) {
-      @include headerTitle();
-    }
+    .byu-header-title {
+        @include headerTitles();
+
+        .title-wrapper {
+          @include headerSiteTitle();
+        }
+
+        .sub-title-wrapper {
+          @include headerSubTitle();
+        }
+        .super-title-wrapper {
+          @include headerSuperTitle();
+        }
+
+        .title-font ::slotted(*) {
+          @include titleSlotted();
+        }
+    } 
 
     .byu-header-user {
       button {

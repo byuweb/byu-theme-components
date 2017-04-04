@@ -52,7 +52,37 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Header with sub-title</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Templates Demo Site</span>
+                    <span slot="site-sub-title">Example Sub-Title</span>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Header with super-title</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Templates Demo Site</span>
+                    <span slot="site-super-title">Example Super-Title</span>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Header with Italicized sub-title</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Templates Demo Site</span>
+                    <span slot="site-sub-title" style="font-style: italic">Italic Sub-Title</span>
                 </byu-header>
             </template>
         </demo-snippet>
@@ -61,9 +91,8 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
                     <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
-                    <span slot="site-title" class="subtitle">And a Subtitle.</span>
                 </byu-header>
             </template>
         </demo-snippet>
@@ -72,7 +101,7 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
                     <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
                     <byu-user-info slot="user" login-url="#login"></byu-user-info>
                 </byu-header>
@@ -83,30 +112,9 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
                     <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
                     <byu-user-info slot="user" login-url="#login"></byu-user-info>
-                    <byu-menu slot="nav" collapsed>
-                        <a href="javascript: void 0">Link 1</a>
-                        <a href="javascript: void 0">Link 2</a>
-                        <a href="javascript: void 0">Link 3</a>
-                        <a href="javascript: void 0">Link 4</a>
-                        <a href="javascript: void 0">Link 5</a>
-                        <a href="javascript: void 0">Link 6</a>
-                        <a href="javascript: void 0">Link 7</a>
-                        <a href="javascript: void 0">Link 8</a>
-                        <a href="javascript: void 0">Link 9</a>
-                        <a href="javascript: void 0">Link 10</a>
-                    </byu-menu>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
-        <h1>Header + Nav with two-line title</h1>
-        <demo-snippet>
-            <template>
-                <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
                     <byu-menu slot="nav" collapsed>
                         <a href="javascript: void 0">Link 1</a>
                         <a href="javascript: void 0">Link 2</a>
