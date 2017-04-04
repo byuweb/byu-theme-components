@@ -73,12 +73,10 @@
 }
 
 @mixin headerSubTitle() {
-  font-family: $siteNameFont !important;
   font-size: $siteSubTitleSize;
 }
 
 @mixin headerSuperTitle() {
-  font-family: $siteNameFont !important;
   font-size: $siteSuperTitleSize;
 }
 
@@ -158,9 +156,17 @@
 }
 
 @mixin mobileSiteTitle() {
-  font-size: $mobileSiteTitleSize !important;
   align-items: flex-start;
 }
+
+@mixin mobileSubTitle() {
+  font-size: $mobileSiteSubTitleSize;
+}
+
+@mixin mobileSuperTitle() {
+  font-size: $mobileSiteSuperTitleSize;
+}
+
 
 @mixin headerButtonMobile() {
   background-color: transparent;
