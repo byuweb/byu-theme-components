@@ -141,6 +141,22 @@
     /************************************************************************/
     /******/[
     /* 0 */
+    /***/function (module, __webpack_exports__, __webpack_require__) {
+
+        "use strict";
+
+        Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
+        /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "applyTemplate", function () {
+            return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"];
+        });
+        /**
+         * Created by ThatJoeMoore on 2/14/17
+         */
+
+        /***/
+    },
+    /* 1 */
     /***/function (module, exports) {
 
         /*
@@ -194,29 +210,13 @@
 
         /***/
     },
-    /* 1 */
-    /***/function (module, __webpack_exports__, __webpack_require__) {
-
-        "use strict";
-
-        Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
-        /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "applyTemplate", function () {
-            return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"];
-        });
-        /**
-         * Created by ThatJoeMoore on 2/14/17
-         */
-
-        /***/
-    },
     /* 2 */
     /***/function (module, exports, __webpack_require__) {
 
         "use strict";
 
         var template = __webpack_require__(26);
-        var util = __webpack_require__(1);
+        var util = __webpack_require__(0);
 
         var BYUFooterActionButton = function (_HTMLElement) {
             _inherits(BYUFooterActionButton, _HTMLElement);
@@ -251,7 +251,7 @@
         "use strict";
 
         var template = __webpack_require__(27);
-        var util = __webpack_require__(1);
+        var util = __webpack_require__(0);
 
         var BYUFooterColumn = function (_HTMLElement2) {
             _inherits(BYUFooterColumn, _HTMLElement2);
@@ -287,7 +287,7 @@
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(28);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
         var BYUFooter = function (_HTMLElement3) {
             _inherits(BYUFooter, _HTMLElement3);
@@ -331,7 +331,7 @@
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_ejs_html__);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal__ = __webpack_require__(21);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_deep_equal__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__ = __webpack_require__(1);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__ = __webpack_require__(0);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons__ = __webpack_require__(11);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__);
 
@@ -561,7 +561,7 @@
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(29);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
         var BYUMenu = function (_HTMLElement5) {
             _inherits(BYUMenu, _HTMLElement5);
@@ -679,6 +679,7 @@
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(30);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
         /**
          *  @license
          *    Copyright 2016 Brigham Young University
@@ -696,27 +697,24 @@
          *    limitations under the License.
          **/
 
-        var store = new WeakMap();
+        var ATTR_SEARCH_HANDLER = 'onsearch';
 
         var ByuSearch = function (_HTMLElement6) {
             _inherits(ByuSearch, _HTMLElement6);
 
             _createClass(ByuSearch, [{
                 key: 'attributeChangedCallback',
-                value: function attributeChangedCallback(name, oldValue, newValue) {
-                    switch (name) {
-                        case 'placeholder':
-                            this.shadowRoot.querySelector('input').setAttribute('placeholder', newValue);
-                            break;
-                        case 'value':
-                            store.set(this, getInputValue(this));
-                            break;
+                value: function attributeChangedCallback(attr, oldValue, newValue) {
+                    switch (attr) {
+                        case ATTR_SEARCH_HANDLER:
+                            this.searchHandler = newValue;
+                            return;
                     }
                 }
             }], [{
                 key: 'observedAttributes',
                 get: function get() {
-                    return ['placeholder', 'value'];
+                    return [ATTR_SEARCH_HANDLER];
                 }
             }]);
 
@@ -726,103 +724,83 @@
                 var _this11 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
 
                 // always call super first
-
-                var shadowRoot = _this11.attachShadow({ mode: 'open' });
-                shadowRoot.innerHTML = __WEBPACK_IMPORTED_MODULE_0__template_html__;
+                _this11.attachShadow({ mode: 'open' });
                 return _this11;
             }
 
             _createClass(ByuSearch, [{
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    var input = getInputElement(this, true);
-                    if (input) input.addEventListener('input', inputHandler);
+                    var _this12 = this;
 
-                    if (this.hasAttribute('value')) this.value = this.getAttribute('value');
+                    var component = this;
+
+                    __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__template_html__, function () {
+
+                        var input = _this12.getInputElement(_this12, true);
+                        if (input) {
+                            input.addEventListener('input', _this12.inputHandler);
+                            input.addEventListener('keypress', function (e) {
+                                if (e.keyCode === 13) {
+                                    e.preventDefault();
+                                    component.search();
+                                }
+                            }, false);
+                        }
+
+                        if (_this12.hasAttribute('onsearch')) _this12.searchHandler = _this12.getAttribute('onsearch');
+                        _this12.shadowRoot.querySelector('#search-button').addEventListener('click', function () {
+                            component.search(component);
+                        });
+                    });
                 }
             }, {
                 key: 'disconnectedCallback',
                 value: function disconnectedCallback() {
-                    var input = getInputElement(this, true);
-                    if (input) input.removeEventListener('input', inputHandler);
+                    var input = this.getInputElement(this, true);
+                    if (input) {
+                        input.removeEventListener('input', this.inputHandler);
+                        input.removeEventListener('keypress', this.searchHandler);
+                    }
                 }
             }, {
                 key: 'search',
-                value: function search() {
-                    if (this.hasAttribute('onsearch')) evalInContext.call(this, this.getAttribute('onsearch'));
-
-                    // if (this.hasAttribute('action')) {
-                    //     var form = this.shadowRoot.querySelector('form');
-                    //     var value = this.value;
-                    //     var action = this.getAttribute('action').toString().replace(/\$1/g, value);
-                    //     form.setAttribute('action', action);
-                    //     form.setAttribute('method', this.hasAttribute('method')
-                    //         ? this.getAttribute('method')
-                    //         : 'GET');
-                    //     if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
-                    //     form.submit();
-                    // }
+                value: function search(component) {
+                    if (component.hasAttribute('onsearch')) component.evalInContext(component.getAttribute('onsearch'), component.getInputValue(component));
                 }
             }, {
-                key: 'value',
-                get: function get() {
-                    return store.get(this);
-                },
-                set: function set(value) {
-                    store.set(this, '' + value);
-                    var input = getInputElement(this, true);
-                    if (input) input.value = value;
-                    return this;
+                key: 'evalInContext',
+                value: function evalInContext(fnString, value) {
+                    return eval(fnString + "('" + value + "')");
+                }
+            }, {
+                key: 'getInputValue',
+                value: function getInputValue(component) {
+                    var input = this.getInputElement(component, true);
+                    return input ? input.value : '';
+                }
+            }, {
+                key: 'getInputElement',
+                value: function getInputElement(component, flatten) {
+                    var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
+                    for (var i = 0; i < elements.length; i++) {
+                        if (elements[i].tagName === 'INPUT') return elements[i];
+                    }
+                    return null;
+                }
+            }, {
+                key: 'inputHandler',
+                value: function inputHandler(e) {
+                    var el = e.target;
+                    if (el) {
+                        var component = this;
+                        component.value = e.target.value;
+                    }
                 }
             }]);
 
             return ByuSearch;
         }(HTMLElement);
-
-        function evalInContext(string) {
-            return eval(string);
-        }
-
-        function getInputValue(component) {
-            var input = getInputElement(component, true);
-            return input ? input.value : '';
-        }
-
-        function getInputElement(component, flatten) {
-            var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
-            for (var i = 0; i < elements.length; i++) {
-                if (elements[i].tagName === 'INPUT') return elements[i];
-            }
-            return null;
-        }
-
-        function getParentComponent(el) {
-            console.log(el.tagName);
-            console.log(el.parentNode);
-            while (!(el.tagName === 'byu-search')) {
-                el = el.host ? el.host : el.parentNode;
-            }return el;
-        }
-
-        function inputHandler(e) {
-            var el = e.target;
-            if (el) {
-                var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
-                component.value = e.target.value;
-            }
-        }
-
-        function searchHandler(e) {
-            if (e.keyCode === 13) {
-                e.preventDefault();
-                this.parentNode.host.search();
-            }
-        }
-
-        function formSubmitHandler(e) {
-            if (e) e.preventDefault();
-            this.parentNode.host.search();
-        }
 
         window.customElements.define('byu-search', ByuSearch);
         window.ByuSearch = ByuSearch;
@@ -835,7 +813,7 @@
         "use strict";
 
         var template = __webpack_require__(31);
-        var util = __webpack_require__(1);
+        var util = __webpack_require__(0);
 
         var BYUSocialMediaLinks = function (_HTMLElement7) {
             _inherits(BYUSocialMediaLinks, _HTMLElement7);
@@ -843,23 +821,23 @@
             function BYUSocialMediaLinks() {
                 _classCallCheck(this, BYUSocialMediaLinks);
 
-                var _this12 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
+                var _this13 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
 
-                _this12.attachShadow({ mode: 'open' });
-                return _this12;
+                _this13.attachShadow({ mode: 'open' });
+                return _this13;
             }
 
             _createClass(BYUSocialMediaLinks, [{
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    var _this13 = this;
+                    var _this14 = this;
 
                     util.applyTemplate(this, 'byu-social-media-links', template, function () {
                         var idArr = ['facebook', 'instagram', 'twitter', 'googleplus', 'linkedin', 'youtube'];
                         var classArr = ['fa-facebook', 'fa-instagram', 'fa-twitter', 'fa-google-plus', 'fa-linkedin', 'fa-youtube-play'];
 
                         for (var i = 0; i < idArr.length; i++) {
-                            var slotId = _this13.shadowRoot.querySelector("#" + idArr[i]);
+                            var slotId = _this14.shadowRoot.querySelector("#" + idArr[i]);
                             var link = slotId.assignedNodes();
 
                             if (link.length > 0) {
@@ -886,7 +864,7 @@
         /* harmony import */
         var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(32);
         /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
-        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(1);
+        /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
         /**
          * Created by ThatJoeMoore on 11/7/16.
          */
@@ -897,11 +875,11 @@
             function ByuUserInfo() {
                 _classCallCheck(this, ByuUserInfo);
 
-                var _this14 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
+                var _this15 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
 
-                var shadowRoot = _this14.attachShadow({ mode: 'open' });
+                var shadowRoot = _this15.attachShadow({ mode: 'open' });
 
-                return _this14;
+                return _this15;
             }
 
             _createClass(ByuUserInfo, [{
@@ -916,22 +894,22 @@
             }, {
                 key: 'connectedCallback',
                 value: function connectedCallback() {
-                    var _this15 = this;
+                    var _this16 = this;
 
                     __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__template_html__, function () {
-                        _this15._addSlotListeners();
-                        _this15._addAriaAttributes();
+                        _this16._addSlotListeners();
+                        _this16._addAriaAttributes();
                     });
                 }
             }, {
                 key: '_addSlotListeners',
                 value: function _addSlotListeners() {
-                    var _this16 = this;
+                    var _this17 = this;
 
                     this._setHasUser();
                     var userSlot = this.shadowRoot.querySelector('#user-name');
                     userSlot.addEventListener('slotchange', function (e) {
-                        _this16._setHasUser();
+                        _this17._setHasUser();
                     });
                 }
             }, {
@@ -1281,7 +1259,7 @@
     /* 13 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
@@ -1296,7 +1274,7 @@
     /* 14 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
@@ -1311,7 +1289,7 @@
     /* 15 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
@@ -1326,7 +1304,7 @@
     /* 16 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
@@ -1341,7 +1319,7 @@
     /* 17 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
@@ -1356,12 +1334,12 @@
     /* 18 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
         // module
-        exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;width:30px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container input,::slotted(input){padding:5px 10px;border:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container input,:host(.mobile-view) ::slotted(input){padding:5px 10px;width:100%;height:35px;border:none;border-bottom:1px solid #c5c5c5}:host(.mobile-view) #search-button{width:53px;padding:0 16px}:host(.mobile-view) #search-icon{width:20px;height:20px}", ""]);
+        exports.push([module.i, ":host{display:inline-block}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;width:30px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container ::slotted(input),#search-form #search-container input{padding:5px 10px;border:none}:host(.mobile-view){width:100%;height:35px}:host(.mobile-view) #search-form #search-container ::slotted(input),:host(.mobile-view) #search-form #search-container input{padding:5px 10px;width:100%;height:35px;border:none;border-bottom:1px solid #c5c5c5}:host(.mobile-view) #search-button{width:53px;padding:0 16px}:host(.mobile-view) #search-icon{width:20px;height:20px}", ""]);
 
         // exports
 
@@ -1371,7 +1349,7 @@
     /* 19 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
@@ -1386,7 +1364,7 @@
     /* 20 */
     /***/function (module, exports, __webpack_require__) {
 
-        exports = module.exports = __webpack_require__(0)();
+        exports = module.exports = __webpack_require__(1)();
         // imports
 
 
@@ -1674,7 +1652,7 @@
     /* 30 */
     /***/function (module, exports, __webpack_require__) {
 
-        module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"search\" onkeypress=\"searchHandler(event)\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
+        module.exports = "<style>" + __webpack_require__(18) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"" + __webpack_require__(36) + "\" alt=\"Run Search\"> </button> </div>";
 
         /***/
     },

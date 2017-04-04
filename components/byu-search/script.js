@@ -17,120 +17,91 @@
 'use strict';
 
 import * as template from './template.html';
+import * as util from 'byu-web-component-utils';
 
-var store = new WeakMap();
+const ATTR_SEARCH_HANDLER = 'onsearch';
 
 class ByuSearch extends HTMLElement {
 
     static get observedAttributes() {
-        return ['placeholder', 'value'];
+        return [ATTR_SEARCH_HANDLER];
     }
 
-    attributeChangedCallback(name, oldValue, newValue) {
-        switch (name) {
-            case 'placeholder':
-                this.shadowRoot.querySelector('input').setAttribute('placeholder', newValue);
-                break;
-            case 'value':
-                store.set(this, getInputValue(this));
-                break;
+    attributeChangedCallback(attr, oldValue, newValue) {
+        switch (attr) {
+            case ATTR_SEARCH_HANDLER:
+                this.searchHandler = newValue;
+                return;
         }
     }
 
     constructor() {
         super(); // always call super first
-
-        let shadowRoot = this.attachShadow({mode: 'open'});
-        shadowRoot.innerHTML = template;
+        this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
-        var input = getInputElement(this, true);
-        if (input) input.addEventListener('input', inputHandler);
-        
-        if (this.hasAttribute('value')) this.value = this.getAttribute('value');
+
+        const component = this;
+
+        util.applyTemplate(this, 'byu-search', template, () => {
+
+            var input = this.getInputElement(this, true);
+            if (input) {
+                input.addEventListener('input', this.inputHandler);
+                input.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13) {
+                        e.preventDefault();
+                        component.search();
+                    }
+                }, false);
+            }
+
+            if (this.hasAttribute('onsearch')) this.searchHandler = this.getAttribute('onsearch');
+            this.shadowRoot.querySelector('#search-button').addEventListener('click', function () {
+                component.search(component);
+            });
+        });
     }
 
     disconnectedCallback() {
-        var input = getInputElement(this, true);
-        if (input) input.removeEventListener('input', inputHandler);
-
+        var input = this.getInputElement(this, true);
+        if (input) {
+            input.removeEventListener('input', this.inputHandler);
+            input.removeEventListener('keypress', this.searchHandler);
+        }
     }
 
-    get value() {
-        return store.get(this);
+    search(component) {
+        if (component.hasAttribute('onsearch'))
+            component.evalInContext(component.getAttribute('onsearch'), component.getInputValue(component));
     }
 
-    set value(value) {
-        store.set(this, '' + value);
-        var input = getInputElement(this, true);
-        if (input) input.value = value;
-        return this;
+    evalInContext(fnString, value) {
+        return eval(fnString + "('" + value + "')");
     }
 
-    search() {
-        if (this.hasAttribute('onsearch')) evalInContext.call(this, this.getAttribute('onsearch'));
-
-        // if (this.hasAttribute('action')) {
-        //     var form = this.shadowRoot.querySelector('form');
-        //     var value = this.value;
-        //     var action = this.getAttribute('action').toString().replace(/\$1/g, value);
-        //     form.setAttribute('action', action);
-        //     form.setAttribute('method', this.hasAttribute('method')
-        //         ? this.getAttribute('method')
-        //         : 'GET');
-        //     if (this.hasAttribute('target')) form.setAttribute('target', this.getAttribute('target'));
-        //     form.submit();
-        // }
+    getInputValue(component) {
+        var input = this.getInputElement(component, true);
+        return input ? input.value : '';
     }
 
-}
-
-function evalInContext(string) {
-    return eval(string);
-}
-
-function getInputValue(component) {
-    var input = getInputElement(component, true);
-    return input ? input.value : '';
-}
-
-function getInputElement(component, flatten) {
-    var elements = component.shadowRoot.querySelector("#search").assignedNodes({flatten: flatten});
-    for (var i = 0; i < elements.length; i++) {
-        if (elements[i].tagName === 'INPUT') return elements[i];
+    getInputElement(component, flatten) {
+        var elements = component.shadowRoot.querySelector("#search").assignedNodes({ flatten: flatten });
+        for (var i = 0; i < elements.length; i++) {
+            if (elements[i].tagName === 'INPUT') return elements[i];
+        }
+        return null;
     }
-    return null;
-}
 
-function getParentComponent(el) {
-    console.log(el.tagName);
-    console.log(el.parentNode);
-    while (!(el.tagName === 'byu-search')) el = el.host ? el.host : el.parentNode;
-    return el;
-}
-
-function inputHandler(e) {
-    var el = e.target;
-    if (el)
-    {
-        var component = el.tagName === 'byu-search' ? el : getParentComponent(el);
-        component.value = e.target.value;
+    inputHandler(e) {
+        var el = e.target;
+        if (el) {
+            var component = this;
+            component.value = e.target.value;
+        }
     }
-}
-
-function searchHandler(e) {
-    if(e.keyCode === 13){
-        e.preventDefault();
-        this.parentNode.host.search();
-    }
-}
-
-function formSubmitHandler(e) {
-    if (e) e.preventDefault();
-    this.parentNode.host.search();
 }
 
 window.customElements.define('byu-search', ByuSearch);
 window.ByuSearch = ByuSearch;
-
