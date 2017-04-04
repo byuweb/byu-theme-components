@@ -76,6 +76,11 @@
 }
 
 :host([mobile-view]) {
+  
+  .byu-logo {
+    @include mobileLogoAlign();
+  }
+  
   .byu-header-primary {
     @include mobileHeaderAlign();
   }

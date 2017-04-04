@@ -143,10 +143,13 @@
 }
 
 @mixin mobileHeaderAlign() {
-  align-items: flex-start;
   padding-top: ($headerHeight - $byuLogoHeight)/2;
   padding-bottom: ($headerHeight - $byuLogoHeight)/2;
   min-height: $byuLogoHeight;
+}
+
+@mixin mobileLogoAlign() {
+  align-self: flex-start;
 }
 
 @mixin actionsMobile() {
