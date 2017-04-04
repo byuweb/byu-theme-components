@@ -8,9 +8,7 @@
         <img class="byu-logo" alt="BYU" src="<%- require('!!svg-url-loader?noquotes!./byu-logo.svg') %>" />
 
         <div class="byu-header-title">
-            <span class="super-title-wrapper title-font"><slot id="site-super-title" name="site-super-title"></slot></span>
-            <span class="title-wrapper title-font"><slot id="site-title" name="site-title"></slot></span>
-            <span class="sub-title-wrapper title-font"><slot id="site-sub-title" name="site-sub-title"></slot></span>
+            <slot id="site-title" name="site-title"></slot>
         </div>
         <% if (locals.mobile) { %>
             <button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">

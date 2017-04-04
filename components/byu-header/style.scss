@@ -22,22 +22,16 @@
   .byu-header-primary {
     @include headerPrimary();
     .byu-header-title {
-        @include headerTitles();
+      @include headerTitles();
+        
+      ::slotted(*) {
+        @include titleSlotted();
+        @include headerSiteTitle();
+      }
 
-        .title-wrapper {
-          @include headerSiteTitle();
-        }
-
-        .sub-title-wrapper {
-          @include headerSubTitle();
-        }
-        .super-title-wrapper {
-          @include headerSuperTitle();
-        }
-
-        .title-font ::slotted(*) {
-          @include titleSlotted();
-        }
+      ::slotted(.subtitle) {
+            @include headerSubTitle();
+      }
     } 
 
     .byu-header-user {
@@ -94,15 +88,8 @@
   .byu-header-title {
     @include mobileSiteTitle();
 
-    .title-wrapper {
-      @include mobileSiteTitle();
-    }
-
-    .sub-title-wrapper {
-      @include mobileSubTitle();
-    }
-    .super-title-wrapper {
-      @include mobileSuperTitle();
+    ::slotted(.subtitle) {
+      @include mobileSubTitle();  
     }
   }
   button {

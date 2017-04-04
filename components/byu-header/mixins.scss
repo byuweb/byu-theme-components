@@ -76,6 +76,7 @@
 @mixin headerSubTitle() {
   font-size: $siteSubTitleSize;
   line-height: $siteSubTitleSize;
+  margin: 0;
 }
 
 @mixin headerSuperTitle() {
