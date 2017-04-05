@@ -14,7 +14,7 @@
   ~    See the License for the specific language governing permissions and
   ~    limitations under the License.
   -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -52,7 +52,37 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Header with sub-title</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Templates Demo Site</span>
+                    <span slot="site-title" class="subtitle">Example Sub-Title</span>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Header with super-title</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title" class="subtitle">Example Super-Title</span>
+                    <span slot="site-title">Templates Demo Site</span>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Header with Italicized sub-title</h1>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Templates Demo Site</span>
+                    <span slot="site-title" class="subtitle" style="font-style: italic">Italic Sub-Title</span>
                 </byu-header>
             </template>
         </demo-snippet>
@@ -61,9 +91,8 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
                     <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
-                    <span slot="site-title" class="subtitle">And a Subtitle.</span>
                 </byu-header>
             </template>
         </demo-snippet>
@@ -72,9 +101,12 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
                     <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
-                    <byu-user-info slot="user" login-url="#login"></byu-user-info>
+                    <byu-user-info slot="user">
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                    </byu-user-info>
                 </byu-header>
             </template>
         </demo-snippet>
@@ -83,52 +115,12 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
                     <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
-                    <byu-user-info slot="user" login-url="#login"></byu-user-info>
-                    <byu-menu slot="nav" collapsed>
-                        <a href="javascript: void 0">Link 1</a>
-                        <a href="javascript: void 0">Link 2</a>
-                        <a href="javascript: void 0">Link 3</a>
-                        <a href="javascript: void 0">Link 4</a>
-                        <a href="javascript: void 0">Link 5</a>
-                        <a href="javascript: void 0">Link 6</a>
-                        <a href="javascript: void 0">Link 7</a>
-                        <a href="javascript: void 0">Link 8</a>
-                        <a href="javascript: void 0">Link 9</a>
-                        <a href="javascript: void 0">Link 10</a>
-                    </byu-menu>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
-        <h1>Header + Nav with two-line title</h1>
-        <demo-snippet>
-            <template>
-                <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
-                    <byu-menu slot="nav" collapsed>
-                        <a href="javascript: void 0">Link 1</a>
-                        <a href="javascript: void 0">Link 2</a>
-                        <a href="javascript: void 0">Link 3</a>
-                        <a href="javascript: void 0">Link 4</a>
-                        <a href="javascript: void 0">Link 5</a>
-                        <a href="javascript: void 0">Link 6</a>
-                        <a href="javascript: void 0">Link 7</a>
-                        <a href="javascript: void 0">Link 8</a>
-                        <a href="javascript: void 0">Link 9</a>
-                        <a href="javascript: void 0">Link 10</a>
-                    </byu-menu>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
-        <h1>Header + Nav with "Sign Out"</h1>
-        <demo-snippet>
-            <template>
-                <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
-                    <byu-user-info slot="user" login-url="#login"><span slot="user-name">cosmo</span></byu-user-info>
+                    <byu-user-info slot="user">
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                    </byu-user-info>
                     <byu-menu slot="nav" collapsed>
                         <a href="javascript: void 0">Link 1</a>
                         <a href="javascript: void 0">Link 2</a>
@@ -149,7 +141,12 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
+                    <byu-user-info slot="user" login-url="#login">
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                        <span slot="user-name">cosmo</span>
+                    </byu-user-info>
                     <byu-menu slot="nav" collapsed>
                         <a href="javascript: void 0">Link 1</a>
                         <a href="javascript: void 0">Link 2</a>
@@ -170,7 +167,7 @@
         <demo-snippet>
             <template>
                 <byu-header>
-                    <span slot="site-title">Our site.... in the middle of our web.</span>
+                    <span slot="site-title">Templates Demo Site</span>
                     <byu-menu slot="nav" collapsed>
                         <a href="javascript: void 0">Link 1</a>
                         <a class="selected" href="javascript: void 0">Link 2</a>

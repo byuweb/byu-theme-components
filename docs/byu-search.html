@@ -151,6 +151,9 @@
 
 
     <h1>Drupal 7 Form (Complex)</h1>
+<p>Depending on which modules are in use, or if you have multiple search blocks 
+  (i.e. one on a Search page, and one in the header), the id of your search submit input may change. 
+  In this example, the id is "edit-submit--2". Inspect your block to find out what your id is.</p>
 
     <script>
                                               function d7SearchComplex(value) {
@@ -163,21 +166,21 @@
       <template>
 
         <style type="text/css">
-          .element-invisible {
+          byu-search .element-invisible {
             display: none;
           }
           
-          .form-submit {
+          byu-search .form-submit {
             display: none;
           }
           
-          .form-item .custom-search-box {
+          byu-search .form-item .custom-search-box {
             padding: 5px 10px;
             border: none;
             box-sizing: border-box;
           }
           
-          .mobile-view .form-item .custom-search-box {
+          byu-search .mobile-view .form-item .custom-search-box {
             padding: 5px 10px;
             width: 100%;
             height: 35px;
@@ -238,17 +241,17 @@
             display: none;
           }
           
-          .form-submit {
+          byu-search .form-submit {
             display: none;
           }
           
-          .form-item .form-search {
+          byu-search .form-item .form-search {
             padding: 5px 10px;
             border: none;
             box-sizing: border-box;
           }
           
-          .mobile-view .form-item .form-search {
+          byu-search .mobile-view .form-item .form-search {
             padding: 5px 10px;
             width: 100%;
             height: 35px;

@@ -5,15 +5,12 @@
 <div id="header" class="byu-header-root">
 
     <div class="byu-header-primary">
-        <img class="byu-logo" alt="BYU" src="<%- require('./byu-logo.svg') %>" />
+        <img class="byu-logo" alt="BYU" src="<%- require('!!svg-url-loader?noquotes!./byu-logo.svg') %>" />
 
         <div class="byu-header-title">
             <slot id="site-title" name="site-title"></slot>
         </div>
         <% if (locals.mobile) { %>
-            <!--<button type="button" class="mobile-menu-button" aria-label="Open or close menu">-->
-            <!--<img style="width: 1em; height: 1em;" src="<%- require('./menu-bars.svg') %>" alt="Menu">-->
-            <!--</button>-->
             <button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">
             <span class="tcon-menu__lines" aria-hidden="true"></span>
             <span class="tcon-visuallyhidden">toggle menu</span>
