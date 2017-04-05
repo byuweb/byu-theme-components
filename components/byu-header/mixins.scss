@@ -147,6 +147,7 @@
   padding-bottom: ($headerHeight - $byuLogoHeight)/2;
   min-height: $byuLogoHeight;
   padding-right: 14px !important;
+  align-items: baseline;
 }
 
 @mixin mobileLogoAlign() {
@@ -165,6 +166,7 @@
 
 @mixin mobileSiteTitle() {
   align-items: flex-start;
+  align-self: center;
 }
 
 @mixin mobileSubTitle() {
@@ -180,6 +182,9 @@
 
 @mixin headerButtonMobile() {
   background-color: transparent;
+  margin-top: ($byuLogoHeight - $tcon-size)/2;
+  margin-bottom: ($byuLogoHeight - $tcon-size)/2;
+  
 }
 
 /* FULL SIZE */
