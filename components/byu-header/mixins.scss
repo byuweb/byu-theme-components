@@ -146,6 +146,7 @@
   padding-top: ($headerHeight - $byuLogoHeight)/2;
   padding-bottom: ($headerHeight - $byuLogoHeight)/2;
   min-height: $byuLogoHeight;
+  padding-right: 14px !important;
 }
 
 @mixin mobileLogoAlign() {
@@ -179,7 +180,6 @@
 
 @mixin headerButtonMobile() {
   background-color: transparent;
-  font-size: 20px;
 }
 
 /* FULL SIZE */
