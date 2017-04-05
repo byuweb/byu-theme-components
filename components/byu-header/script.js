@@ -29,9 +29,20 @@ class BYUHeader extends HTMLElement {
                 this._addSlotListeners();
                 this._notifyChildrenOfMobileState();
                 this._addButtonListeners();
-            });
-            
-        }
+
+                // check whether to show the mobile menu button
+                var userSlot = this.shadowRoot.querySelector("#user");
+                var userInfo = userSlot.assignedNodes();
+
+                var menuSlot = this.shadowRoot.querySelector("#navbarMenu");
+                var menu = menuSlot.assignedNodes();
+                    
+                if (userInfo.length == 0 && menu.length == 0)
+                {
+                    this.setAttribute('no-menu', '');
+                }
+            });   
+        } 
     }
 
     _addButtonListeners() {
