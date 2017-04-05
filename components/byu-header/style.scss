@@ -105,6 +105,10 @@
   }
 }
 
+:host([no-menu]) button {
+  display: none;
+}
+
 /* FULL SIZE */
 
 :host(:not([mobile-view])) {

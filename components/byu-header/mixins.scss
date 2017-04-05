@@ -167,6 +167,7 @@
 @mixin mobileSiteTitle() {
   align-items: flex-start;
   align-self: center;
+  font-size: 16px;
 }
 
 @mixin mobileSubTitle() {
