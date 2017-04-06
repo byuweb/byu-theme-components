@@ -338,6 +338,7 @@
         var ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
         var ATTR_MOBILE_VIEW = 'mobile-view';
         var ATTR_MENU_OPEN = 'menu-open';
+        var ATTR_NO_MENU = 'no-menu';
 
         var DEFAULT_MOBILE_WIDTH = '1023px';
 
@@ -367,19 +368,24 @@
                             _this6._addSlotListeners();
                             _this6._notifyChildrenOfMobileState();
                             _this6._addButtonListeners();
-
-                            // check whether to show the mobile menu button
-                            var userSlot = _this6.shadowRoot.querySelector("#user");
-                            var userInfo = userSlot.assignedNodes();
-
-                            var menuSlot = _this6.shadowRoot.querySelector("#navbarMenu");
-                            var menu = menuSlot.assignedNodes();
-
-                            if (userInfo.length == 0 && menu.length == 0) {
-                                _this6.setAttribute('no-menu', '');
-                            }
+                            _this6._checkIfMenuIsNeeded();
                         });
                     }
+                }
+            }, {
+                key: '_checkIfMenuIsNeeded',
+                value: function _checkIfMenuIsNeeded() {
+                    // check whether to show the mobile menu button
+                    var userSlot = this.shadowRoot.querySelector("#user");
+                    var hasUserInfo = userSlot.assignedNodes().length !== 0;
+
+                    var menuSlot = this.shadowRoot.querySelector("#navbarMenu");
+                    var hasMenu = menuSlot.assignedNodes().length !== 0;
+
+                    var actionSlot = this.shadowRoot.querySelector('#actions');
+                    var hasActions = actionSlot.assignedNodes().length !== 0;
+
+                    this.noMenu = !(hasUserInfo || hasMenu || hasActions);
                 }
             }, {
                 key: '_addButtonListeners',
@@ -408,6 +414,7 @@
                     this._findAllSlots().forEach(function (each) {
                         each.addEventListener('slotchange', function (event) {
                             _this8._notifyChildrenOfMobileState();
+                            _this8._checkIfMenuIsNeeded();
                         });
                     });
                 }
@@ -543,6 +550,18 @@
                         this.setAttribute(ATTR_MENU_OPEN, '');
                     } else {
                         this.removeAttribute(ATTR_MENU_OPEN);
+                    }
+                }
+            }, {
+                key: 'noMenu',
+                get: function get() {
+                    return this.hasAttribute(ATTR_NO_MENU);
+                },
+                set: function set(val) {
+                    if (val) {
+                        this.setAttribute(ATTR_NO_MENU, '');
+                    } else {
+                        this.removeAttribute(ATTR_NO_MENU);
                     }
                 }
             }, {

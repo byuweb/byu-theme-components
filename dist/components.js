@@ -248,6 +248,7 @@ window.BYUFooter = BYUFooter;
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
+const ATTR_NO_MENU = 'no-menu';
 
 const DEFAULT_MOBILE_WIDTH = '1023px';
 
@@ -268,20 +269,23 @@ class BYUHeader extends HTMLElement {
                 this._addSlotListeners();
                 this._notifyChildrenOfMobileState();
                 this._addButtonListeners();
+                this._checkIfMenuIsNeeded();
+            });
+        }
+    }
 
-                // check whether to show the mobile menu button
-                var userSlot = this.shadowRoot.querySelector("#user");
-                var userInfo = userSlot.assignedNodes();
+    _checkIfMenuIsNeeded() {
+        // check whether to show the mobile menu button
+        let userSlot = this.shadowRoot.querySelector("#user");
+        let hasUserInfo = userSlot.assignedNodes().length !== 0;
 
-                var menuSlot = this.shadowRoot.querySelector("#navbarMenu");
-                var menu = menuSlot.assignedNodes();
-                    
-                if (userInfo.length == 0 && menu.length == 0)
-                {
-                    this.setAttribute('no-menu', '');
-                }
-            });   
-        } 
+        let menuSlot = this.shadowRoot.querySelector("#navbarMenu");
+        let hasMenu = menuSlot.assignedNodes().length !== 0;
+
+        let actionSlot = this.shadowRoot.querySelector('#actions');
+        let hasActions = actionSlot.assignedNodes().length !== 0;
+
+        this.noMenu = !(hasUserInfo || hasMenu || hasActions);
     }
 
     _addButtonListeners() {
@@ -301,6 +305,7 @@ class BYUHeader extends HTMLElement {
         this._findAllSlots().forEach(each => {
             each.addEventListener('slotchange', event => {
                 this._notifyChildrenOfMobileState();
+                this._checkIfMenuIsNeeded();
             });
         })
     }
@@ -404,6 +409,18 @@ class BYUHeader extends HTMLElement {
             this.setAttribute(ATTR_MENU_OPEN, '');
         } else {
             this.removeAttribute(ATTR_MENU_OPEN);
+        }
+    }
+
+    get noMenu() {
+        return this.hasAttribute(ATTR_NO_MENU);
+    }
+
+    set noMenu(val) {
+        if (val) {
+            this.setAttribute(ATTR_NO_MENU, '');
+        } else {
+            this.removeAttribute(ATTR_NO_MENU);
         }
     }
 
