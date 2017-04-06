@@ -10,7 +10,7 @@ const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
 
-const DEFAULT_MOBILE_WIDTH = '1024px';
+const DEFAULT_MOBILE_WIDTH = '1023px';
 
 class BYUHeader extends HTMLElement {
 
