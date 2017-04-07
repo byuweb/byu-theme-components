@@ -27,10 +27,10 @@ To begin using the components you can visit [the components demo site](http://20
 This repository is integrated with the BYU Web Content Delivery Network (cdn) at cdn.byu.edu. This means that every update to the master branch of the repository will be pushed immediately to the cdn, allowing websites across campus to receive the latest updates immediately. More documentation can be found on the [CDN Project Page](https://github.com/byuweb/web-cdn).  
 
 ## How to contribute:
-This project is open to the community, and we welcome contributions. You can start by opening a branch and submitting a pull request, though we strongly recommend you also join the slack channel at [byu-web.slack.com](http://byu-web.slack.com) so you can be part of the discussion.
+This project is open to the community, and we welcome contributions. You can start by [forking this repo](https://help.github.com/articles/fork-a-repo/) and submitting a pull request, though we strongly recommend you also join the slack channel at [byu-web.slack.com](http://byu-web.slack.com) so you can be part of the discussion.
 
 ### Our coding standards
-Our goal is to implement flexible, well-structured web components according to the latest specifications. Every pull request must be peer-reviewed by one of the project administrators before it can be merged with the master branch. As of this writing we require that any components work properly in at least the 2 latest versions of the following browsers:
+Our goal is to implement flexible, well-structured web components according to the latest brand guidelines. Every pull request must be peer-reviewed by one of the project administrators before it can be merged with the master branch. As of this writing we require that any components work properly in at least the 2 latest versions of the following browsers:
 
 * Chrome
 * Firefox
