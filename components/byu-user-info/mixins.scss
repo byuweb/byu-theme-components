@@ -66,7 +66,9 @@
 
 @mixin hasUserName() {
   order: 2;
-  flex: 1
+  flex: 1;
+  text-transform: capitalize !important;
+  color: $brightBlue !important;
 }
 
 @mixin hasUserImage() {
