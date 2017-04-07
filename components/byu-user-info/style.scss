@@ -67,14 +67,10 @@ img {
       @include hasUserLogout();
     }
 
-    .name {
-      @include hasUserName();
+    .slot-wrapper ::slotted(*) {
+      @include mobileSlotted();
     }
-  }
-
-  .slot-wrapper ::slotted(*) {
-    @include mobileSlotted();
-
+    
     .name {
       @include hasUserName();
     }
