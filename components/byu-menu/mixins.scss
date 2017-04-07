@@ -32,7 +32,7 @@
   max-width: 200px;
 }
 
-@mixin moreMenu {
+@mixin moreMenu() {
   display: none;
   position: relative;
   height: 35px;
@@ -40,29 +40,29 @@
   max-width: 200px;
 }
 
-@mixin moreMenuVisible {
-  display: block;
-
-  &.byu-menu-more-expanded {
-    background: $menuActive;
-    box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
-
-    .byu-menu-more-items {
-      display: block;
-    }
-
-    .byu-menu-fixed-overlay {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-    }
-  }
+@mixin moreMenuVisible() {
+  display: block
 }
 
-@mixin moreLink {
+@mixin menuMoreExpanded() {
+  background: $menuActive;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
+}
+
+@mixin menuMoreItems() {
+  display: block;
+}
+
+@mixin menuFixedOverlay() {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@mixin moreLink() {
   @include navItem();
   position: relative;
   flex: 1;
@@ -70,11 +70,11 @@
   display: block;
 }
 
-@mixin moreLinkSvg {
+@mixin moreLinkSvg() {
   fill: $navy;
 }
 
-@mixin moreItems {
+@mixin moreItems() {
   display: none;
   position: absolute;
   top: 35px;
@@ -85,14 +85,56 @@
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
 }
 
-@mixin moreItemsSlotted {
+@mixin moreItemsSlotted() {
   width: 100%;
   @include navItem();
   display: block;
   text-align: left !important;
 }
 
-@mixin mobileSlotted {
+/* MOBILE */
+
+@mixin mobileOuterNav() {
+  display: block;
+  height: auto;
+}
+
+@mixin mobileMenuMore() {
+  display: none !important;
+}
+
+@mixin mobileMenuSlotted() {
+  display: block !important;
+  text-align: left !important;
+  padding: 15px 30px !important;
+  height: auto !important;
+  width: 100%;
+  position: static;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+@mixin mobileMenuMoreMenuSlotted() {
+  padding: 0 !important;
+}
+
+@mixin mobileMenuMoreMenu() {
+  display: block;
+  width: 100%;
+  box-shadow: none;
+  position: static;
+  height: auto;
+  max-width: 100%;
+}
+
+@mixin mobileMenuMoreItems() {
+  display: block;
+  box-shadow: none;
+  padding: 0;
+  position: static !important;
+}
+
+@mixin mobileMenuMoreItemsSlotted() {
   display: block !important;
   text-align: left !important;
   padding: 15px 30px !important;
@@ -102,58 +144,170 @@
   box-sizing: border-box;
 }
 
-@mixin mobileMoreMenu {
-  display: block;
-  width: 100%;
+@mixin mobileMenuMoreExpanded() {
   box-shadow: none;
-  position: static;
-  height: auto;
-
-  .byu-menu-more-items {
-    display: block;
-    box-shadow: none;
-    padding: 0;
-
-    ::slotted(*) {
-      @include mobileSlotted();
-    }
-  }
-
-  &.byu-menu-more-expanded {
-    box-shadow: none;
-
-    .byu-menu-fixed-overlay {
-      display: none !important;
-    }
-  }
 }
 
-@mixin mobileHost {
-
-  .outer-nav {
-    display: block;
-    height: auto;
-  }
-
-  .byu-menu-more {
-    display: none !important;
-  }
-
-  .slot-container ::slotted(*) {
-    @include mobileSlotted();
-    max-width: 100%;
-
-    &.byu-menu-more-menu {
-      padding: 0 !important;
-    }
-  }
-
-  .byu-menu-more-menu {
-    @include mobileMoreMenu();
-    max-width: 100%;
-  }
-
-  .byu-menu-more-items {
-    position: static !important;
-  }
+@mixin mobileMenuFixedOverlay() {
+  display: none !important;
 }
+
+//@import "../shared-styles/colors.scss";
+//@import "../shared-styles/settings.scss";
+//@import "../shared-styles/nav.scss";
+//
+//@mixin menuGeneral() {
+//  display: block;
+//  width: 100%;
+//  height: auto;
+//  background: #fff;
+//  // opacity used to be set here, but now it is an option.
+//  border-bottom: 1px solid #ccc;
+//}
+//
+//@mixin bgTransparent() {
+//  //background: rgba(255,255,255,0.8);
+//  opacity: 0.88;
+//}
+//@mixin outerNav() {
+//  display: flex;
+//  flex-direction: row;
+//  flex-wrap: nowrap;
+//  align-items: center;
+//  justify-content: flex-start;
+//  padding: 0;
+//  height: 35px;
+//  position: relative;
+//}
+//
+//@mixin navItemSlotted() {
+//  @include navItem();
+//  flex: 1;
+//  max-width: 200px;
+//}
+//
+//@mixin moreMenu {
+//  display: none;
+//  position: relative;
+//  height: 35px;
+//  width: 16.66%;
+//  max-width: 200px;
+//}
+//
+//@mixin moreMenuVisible {
+//  display: block;
+//
+//  &.byu-menu-more-expanded {
+//    background: $menuActive;
+//    box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
+//
+//    .byu-menu-more-items {
+//      display: block;
+//    }
+//
+//    .byu-menu-fixed-overlay {
+//      position: fixed;
+//      top: 0;
+//      bottom: 0;
+//      left: 0;
+//      right: 0;
+//      z-index: 1;
+//    }
+//  }
+//}
+//
+//@mixin moreLink {
+//  @include navItem();
+//  position: relative;
+//  flex: 1;
+//  max-width: 200px;
+//  display: block;
+//}
+//
+//@mixin moreLinkSvg {
+//  fill: $navy;
+//}
+//
+//@mixin moreItems {
+//  display: none;
+//  position: absolute;
+//  top: 35px;
+//  left: 0;
+//  right: 0;
+//  z-index: 2;
+//  background: white;
+//  box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
+//}
+//
+//@mixin moreItemsSlotted {
+//  width: 100%;
+//  @include navItem();
+//  display: block;
+//  text-align: left !important;
+//}
+//
+//@mixin mobileSlotted {
+//  display: block !important;
+//  text-align: left !important;
+//  padding: 15px 30px !important;
+//  height: auto !important;
+//  width: 100%;
+//  position: static;
+//  box-sizing: border-box;
+//}
+//
+//@mixin mobileMoreMenu {
+//  display: block;
+//  width: 100%;
+//  box-shadow: none;
+//  position: static;
+//  height: auto;
+//
+//  .byu-menu-more-items {
+//    display: block;
+//    box-shadow: none;
+//    padding: 0;
+//
+//    ::slotted(*) {
+//      @include mobileSlotted();
+//    }
+//  }
+//
+//  &.byu-menu-more-expanded {
+//    box-shadow: none;
+//
+//    .byu-menu-fixed-overlay {
+//      display: none !important;
+//    }
+//  }
+//}
+//
+//@mixin mobileHost {
+//
+//  .outer-nav {
+//    display: block;
+//    height: auto;
+//  }
+//
+//  .byu-menu-more {
+//    display: none !important;
+//  }
+//
+//  .slot-container ::slotted(*) {
+//    @include mobileSlotted();
+//    max-width: 100%;
+//
+//    &.byu-menu-more-menu {
+//      padding: 0 !important;
+//    }
+//  }
+//
+//  .byu-menu-more-menu {
+//    @include mobileMoreMenu();
+//    max-width: 100%;
+//  }
+//
+//  .byu-menu-more-items {
+//    position: static !important;
+//  }
+//}
