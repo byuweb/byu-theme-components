@@ -30,7 +30,10 @@
     var root = '//cdn.byu.edu/2017-core-components/latest';
     var min = true;
 
-    if (window.location.hostname === 'localhost') {
+    var isLocalhost = window.location.hostname === 'localhost';
+    var isForced = window.location.search && window.location.search.indexOf('load-local=true') >= 0;
+
+    if (isLocalhost || isForced) {
         min = false;
         root = '/dist'
     }

@@ -19,8 +19,8 @@
     </style>
 
     <script>
-        document.addEventListener("DOMContentLoaded" , () => {
-            let userInfo = document.querySelector('byu-user-info');
+        document.addEventListener("DOMContentLoaded" , function() {
+            var userInfo = document.querySelector('byu-user-info');
             userInfo.querySelector('a[slot=login]')
                 .addEventListener('click', () => {
                     userInfo.setAttribute('has-user', '');

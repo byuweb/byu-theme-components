@@ -79,7 +79,8 @@ gulp.task('docs:copy-libs', ['docs:clean-libs'], function () {
     ];
     const ignoredFiles = [
         'gulpfile.js',
-        'index.html'
+        'index.html',
+        'hero.svg'
     ];
     const ignoredDirectories = [
         'test',
