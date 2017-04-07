@@ -74,6 +74,11 @@ img {
 
   .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
+
+    .name ::slotted(*) {
+      text-transform: capitalize !important;
+      color: $brightBlue !important;
+    }
   }
 }
 
