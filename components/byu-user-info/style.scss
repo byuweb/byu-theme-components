@@ -71,21 +71,16 @@ img {
   .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
   }
+}
 
-  .name.slot-wrapper {
-    text-transform: capitalize !important;
-    color: $brightBlue !important;
-  }
+:host(:not([has-user])) {
+   .has-user {
+     @include notHasUserMobile();
+   }
+ }
 
-  :host(:not([has-user])) {
-    .has-user {
-      @include notHasUserMobile();
-    }
-  }
-
-  :host([has-user]) {
-    .no-user {
-      @include noUserMobile();
-    }
+:host([has-user]) {
+  .no-user {
+    @include noUserMobile();
   }
 }
