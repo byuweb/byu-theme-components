@@ -62,7 +62,7 @@ img {
       @include hasUserLogout();
     }
 
-    .slot-wrapper {
+    .slot-wrapper ::slotted(*) {
       @include mobileSlotted();
 
       .name {
