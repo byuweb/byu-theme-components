@@ -45,6 +45,10 @@ img {
 :host([mobile-view]) {
   @include userInfoMobile();
 
+  img {
+    margin: 0;
+  }
+
   .not-mobile {
     @include userInfoNotMobileDisplay();
   }
@@ -66,6 +70,11 @@ img {
 
   .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
+
+    .name ::slotted(*) {
+      text-transform: capitalize !important;
+      color: $brightBlue !important;
+    }
   }
 }
 

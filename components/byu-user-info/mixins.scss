@@ -50,8 +50,9 @@
 /* MOBILE */
 @mixin userInfoMobile() {
   @include dropdownNavItem();
-  padding-left: 0 !important;
-  border-bottom: solid 1px $gray; 
+  //padding-left: 0 !important;
+  border-bottom: solid 1px $gray;
+  padding: 3px 14px !important;
 }
 
 @mixin userInfoMobileNotDisplay() {
@@ -65,7 +66,8 @@
 
 @mixin hasUserImage() {
   order: 1;
-  margin: 7px;
+  //margin: 7px;
+  padding: 0 14px !important;
 }
 
 @mixin hasUserLogout() {
