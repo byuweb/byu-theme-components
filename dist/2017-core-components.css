@@ -250,7 +250,7 @@ byu-header:not(.byu-component-rendered) {
   width: 100%;
   height: 90px;
   color: #fff !important;
-  padding: 0px; }
+  padding: 0; }
   byu-header:not(.byu-component-rendered) a {
     color: #fff !important; }
   byu-header:not(.byu-component-rendered) [slot="actions"] {
@@ -275,7 +275,6 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU";
-  font-weight: bold;
   font-size: 40px;
   font-family: "Arial", sans-serif;
   position: relative;
@@ -317,6 +316,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
+/* MOBILE */
 byu-menu:not(.byu-component-rendered) {
   display: block;
   width: 100%;
