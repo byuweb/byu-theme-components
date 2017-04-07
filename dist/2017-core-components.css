@@ -61,7 +61,7 @@ byu-footer-action-button:not(.byu-component-rendered) {
   color: #fff;
   display: inline-block;
   text-align: center;
-  line-height: 2.2em;
+  line-height: 2.1em;
   height: 45px;
   width: auto;
   min-width: 125px;
@@ -72,7 +72,7 @@ byu-footer-action-button:not(.byu-component-rendered) {
 
 byu-footer-action-button:not(.byu-component-rendered) > * {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
-  font-weight: 500 !important;
+  font-weight: 400 !important;
   color: #fff !important;
   display: inline-block !important;
   position: relative !important;
@@ -106,13 +106,13 @@ byu-footer-column:not(.byu-component-rendered) {
     border-bottom: 1px solid #c5c5c5 !important;
     padding-bottom: 3px !important;
     white-space: nowrap !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     width: 100%;
     display: inline-block; }
   byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
     font-size: 13px;
-    font-weight: 500;
+    font-weight: 400;
     color: #767676 !important;
     position: relative;
     top: -11px;
