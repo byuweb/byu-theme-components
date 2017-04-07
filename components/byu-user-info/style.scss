@@ -71,7 +71,7 @@ img {
   .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
 
-    .name ::slotted(*) {
+    &.name {
       text-transform: capitalize !important;
       color: $brightBlue !important;
     }
