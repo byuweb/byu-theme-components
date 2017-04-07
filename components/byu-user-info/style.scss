@@ -54,11 +54,6 @@ img {
   }
 
   .has-user {
-
-    .name {
-      @include hasUserName();
-    }
-
     img {
       @include hasUserImage();
     }
@@ -66,11 +61,11 @@ img {
     .logout {
       @include hasUserLogout();
     }
-  }
 
-  .slot-wrapper ::slotted(*) {
-    @include mobileSlotted();
-
+    .slot-wrapper ::slotted(*) {
+      @include mobileSlotted();
+    }
+    
     .name {
       @include hasUserName();
     }
