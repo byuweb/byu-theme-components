@@ -74,6 +74,10 @@ img {
 
   .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
+
+    .name {
+      @include hasUserName();
+    }
   }
 }
 
