@@ -51,6 +51,8 @@ Custom property | Description | Default
       label {
         font-family: 'Roboto', 'Noto', sans-serif;
         -webkit-font-smoothing: antialiased;
+        /* for backwards compat */
+        @apply --paper-font-common-base;
         display: inline-block;
         padding-right: 25px;
       }
@@ -58,6 +60,8 @@ Custom property | Description | Default
       span {
         font-family: 'Roboto Mono', 'Consolas', 'Menlo', monospace;
         -webkit-font-smoothing: antialiased;
+        /* for backwards compat */
+        @apply --paper-font-common-code;
         white-space: pre;
       }
 
@@ -93,7 +97,7 @@ Custom property | Description | Default
         },
 
         path: {
-          e: String
+          type: String
         },
 
         query: {

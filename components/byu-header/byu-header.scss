@@ -18,7 +18,7 @@ byu-header:not(.byu-component-rendered) {
 
 //byu-header:not(:defined) > [slot="site-title"] {
 byu-header:not(.byu-component-rendered) > [slot="site-title"] {
-  @include headerTitle();
+  @include headerTitles();
   position: relative;
   top: -6px;
   padding-left: 16px;
