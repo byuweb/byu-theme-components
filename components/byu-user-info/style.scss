@@ -72,7 +72,7 @@ img {
     @include mobileSlotted();
   }
 
-  .name {
+  .name.slot-wrapper {
     text-transform: capitalize !important;
     color: $brightBlue !important;
   }
