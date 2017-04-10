@@ -247,7 +247,6 @@ byu-header:not(.byu-component-rendered) {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 0 16px;
   flex: 1;
   min-height: 55px;
   box-sizing: border-box;
