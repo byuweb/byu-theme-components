@@ -1201,7 +1201,7 @@ exports = module.exports = __webpack_require__(1)();
 
 
 // module
-exports.push([module.i, ":host{display:inline-block;margin-left:20px}#search-icon{width:1em;height:1em}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;width:30px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container ::slotted(input),#search-form #search-container input{padding:5px 10px;border:none}:host(.mobile-view){width:100%;height:35px;margin:0}:host(.mobile-view) #search-form #search-container ::slotted(input),:host(.mobile-view) #search-form #search-container input{padding:5px 10px;width:100%;height:35px;border:none;border-bottom:1px solid #c5c5c5}:host(.mobile-view) #search-button{width:53px;padding:0 16px}:host(.mobile-view) #search-icon{width:20px;height:20px}", ""]);
+exports.push([module.i, ":host{display:inline-block;margin-left:20px}#search-icon{width:23px;height:23px}button{background-color:var(--byu-search-color,#767676);border:1px solid var(--byu-search-color,#767676);color:#fff;width:36px;height:36px}#search-form{display:flex;align-items:stretch;align-content:center}#search-form #search-container{flex:1}#search-form #search-container ::slotted(input),#search-form #search-container input{padding:5px 10px;border:none}:host(.mobile-view){width:100%;height:35px;margin:0}:host(.mobile-view) #search-form #search-container ::slotted(input),:host(.mobile-view) #search-form #search-container input{padding:5px 10px;width:100%;height:35px;border:none;border-bottom:1px solid #c5c5c5}:host(.mobile-view) #search-button{width:53px;padding:0 16px}:host(.mobile-view) #search-icon{width:20px;height:20px}", ""]);
 
 // exports
 
