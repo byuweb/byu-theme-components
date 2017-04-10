@@ -45,7 +45,7 @@
 
 <body>
   <byu-header>
-    <span slot="site-title">Templates Demo Site</span>
+    <span slot="site-title">Components Demo Site</span>
     <byu-menu slot="nav" collapsed>
       <a href="index.html">Home</a>
       <a href="byu-header.html">Header</a>
@@ -79,7 +79,7 @@
     <demo-snippet>
       <template>
         <byu-header>
-          <span slot="site-title">Search Demo</span>
+          <span slot="site-title">Components Demo Site</span>
           <byu-search slot="search" onsearch="demoSearch"></byu-search>
         </byu-header>
       </template>
@@ -107,18 +107,18 @@
       <template>
 
         <style type="text/css">
-          #search-submit {
+          byu-search #search-submit {
             display: none;
           }
           
-          #basic-search #search {
+          byu-search #basic-search #search {
             padding: 5px 10px;
             border: none;
             margin-top: 0px;
             margin-bottom: 0px;
           }
           
-          .mobile-view #basic-search #search {
+          byu-header .mobile-view #basic-search #search {
             padding: 5px 10px;
             width: 100%;
             height: 35px;
@@ -131,7 +131,7 @@
 
 
         <byu-header>
-          <span slot="site-title">Search Demo</span>
+          <span slot="site-title">Components Demo Site</span>
           <byu-search slot="search" onsearch="d7Search">
             <form action="/" method="post" id="basic-search" accept-charset="UTF-8">
               <div>
@@ -172,15 +172,15 @@
       <template>
 
         <style type="text/css">
-          .element-invisible {
+          byu-search .element-invisible {
             display: none;
           }
           
-          .form-submit {
+          byu-search .form-submit {
             display: none;
           }
           
-          .form-item .custom-search-box {
+          byu-search .form-item .custom-search-box {
             padding: 5px 10px;
             border: none;
             box-sizing: border-box;
@@ -188,7 +188,7 @@
             margin-bottom: 0px;
           }
           
-          .mobile-view .form-item .custom-search-box {
+          byu-search.mobile-view .form-item .custom-search-box {
             padding: 5px 10px;
             width: 100%;
             height: 35px;
@@ -201,7 +201,7 @@
 
 
         <byu-header>
-          <span slot="site-title">Search Demo</span>
+          <span slot="site-title">Components Demo Site</span>
           <byu-search slot="search" onsearch="d7SearchComplex">
             <form class="search-form" role="search" action="/" method="post" id="search-block-form" accept-charset="UTF-8" target="_self"
               _lpchecked="1">
@@ -251,11 +251,11 @@
             display: none;
           }
           
-          .form-submit {
+          byu-search .form-submit {
             display: none;
           }
           
-          .form-item .form-search {
+          byu-search .form-item .form-search {
             padding: 5px 10px;
             border: none;
             box-sizing: border-box;
@@ -263,7 +263,7 @@
             margin-bottom: 0px;
           }
           
-          .mobile-view .form-item .form-search {
+          byu-search.mobile-view .form-item .form-search {
             padding: 5px 10px;
             width: 100%;
             height: 35px;
@@ -275,7 +275,7 @@
         </style>
 
         <byu-header>
-          <span slot="site-title">Search Demo</span>
+          <span slot="site-title">Components Demo Site</span>
           <byu-search slot="search" onsearch="d8Search">
             <form action="/drupal8/search/node" method="get" id="search-block-form" accept-charset="UTF-8" class="search-form search-block-form">
               <div class="js-form-item form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label">
@@ -335,7 +335,7 @@
         </style>
 
         <byu-header>
-          <span slot="site-title">Search Demo</span>
+          <span slot="site-title">Components Demo Site</span>
           <byu-search slot="search" onsearch="wpSearch">
             <form class="byu-ribbon__search" action="https://brand-dev.byu.edu/google-cse" method="get" _lpchecked="1">
               <input class="byu-ribbon__search__text-box sm-hidden med-hidden mlg-hidden text-area" placeholder="Search" name="q">

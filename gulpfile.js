@@ -23,13 +23,12 @@ const rename = require('gulp-rename');
 const ignore = require('gulp-ignore');
 const initWcBuild = require('byu-web-component-build').gulp;
 
-gulp.task('build', ['docs', 'wc:build'], function() 
-{
+gulp.task('build', ['docs', 'wc:build', 'temp:copy-files'], function() {
     browserSync.reload();
 });
 
 initWcBuild(gulp, {
-    componentName: '2017-core-components',
+    componentName: 'byu-theme-components',
     js: {
         input: './components/bundle.js',
         polyfillUrl: 'https://cdn.byu.edu/web-component-polyfills/latest/web-component-polyfills.min.js'
@@ -38,6 +37,19 @@ initWcBuild(gulp, {
         input: './css/site.scss'
     }
 });
+
+/*
+ * This needs to go away once we've confirmed that everyone has moved from 2017-core-components to byu-theme-components.
+ * NOTE: This breaks sourcemaps support.
+ */
+gulp.task('temp:copy-files', ['wc:build'], function() {
+    gulp.src(['dist/*.js', 'dist/*.css'])
+        .pipe(rename(function(path) {
+            path.basename = path.basename.replace(/byu-theme-components/, '2017-core-components')
+        }))
+        .pipe(gulp.dest('dist'));
+});
+// END: Stuff that needs to go away
 
 gulp.task('watch', ['build'], function (done) {
 
@@ -79,7 +91,8 @@ gulp.task('docs:copy-libs', ['docs:clean-libs'], function () {
     ];
     const ignoredFiles = [
         'gulpfile.js',
-        'index.html'
+        'index.html',
+        'hero.svg'
     ];
     const ignoredDirectories = [
         'test',

@@ -13,11 +13,14 @@ $large_screen_start_width: 1024px;
 $headerHeight: 55px;
 $siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
 
-$byuLogoHeight: 30px;
+$byuLogoHeight: 34px;
 
 $siteTitleSize: 22px;
 $mobileSiteTitleSize: 16px;
-$siteSubTitleSize: 16px;
+$siteSubTitleSize: 14px;
+$siteSuperTitleSize: 14px;
+$mobileSiteSubTitleSize: 12px;
+$mobileSiteSuperTitleSize: 12px;
 
 $headerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 $headerContentFontWeight: 500;
@@ -51,7 +54,7 @@ $footerBackground: $lightgray;
 $footerContentColor: $medgray;
 $footerColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
 $footerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
-$footerContentFontWeight: 500;
+$footerContentFontWeight: 400;
 
 $footerButtonColor: $medgray; // change this to one of the colors
 $footerButtonFont: "Vitesse A", "Vitesse B", Georgia, serif;

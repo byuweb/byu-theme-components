@@ -19,6 +19,12 @@
   margin-right: 16px;
 }
 
+@mixin actionsWrapper() {
+  display: flex;
+  align-items: center;
+  height: $byuLogoHeight;
+}
+
 @mixin actions(){
   @include headerLink();
   margin-left: 4px;
@@ -44,21 +50,45 @@
   padding: 0 16px;
   flex: 1;
   min-height: $headerHeight;
+  box-sizing: border-box;
 }
 
-@mixin headerTitle() {
+@mixin headerTitles() {
   //white-space: nowrap;  //fixes issues with double-stacking
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
   flex: 1;
+  display: flex;
+  flex-direction: column;
   font-family: $siteNameFont !important;
   font-size: $siteTitleSize;
+  line-height: $siteTitleSize;
   color: #fff!important;
   //padding: 10px 0;  unnecessary in both full and mobile
   a {
     color: #fff!important;
   }
+}
+
+@mixin titleSlotted() {
+  font-family: $siteNameFont !important;
+}
+
+@mixin headerSiteTitle() {
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+
+@mixin headerSubTitle() {
+  font-size: $siteSubTitleSize;
+  line-height: $siteSubTitleSize;
+  margin: 0;
+}
+
+@mixin headerSuperTitle() {
+  font-size: $siteSuperTitleSize;
+  line-height: $siteSuperTitleSize;
 }
 
 @mixin headerUserButton() {
@@ -120,10 +150,15 @@
 }
 
 @mixin mobileHeaderAlign() {
-  align-items: flex-start;
   padding-top: ($headerHeight - $byuLogoHeight)/2;
   padding-bottom: ($headerHeight - $byuLogoHeight)/2;
   min-height: $byuLogoHeight;
+  padding-right: 14px !important;
+  align-items: baseline;
+}
+
+@mixin mobileLogoAlign() {
+  align-self: flex-start;
 }
 
 @mixin actionsMobile() {
@@ -137,13 +172,28 @@
 }
 
 @mixin mobileSiteTitle() {
-  font-size: $mobileSiteTitleSize !important;
   align-items: flex-start;
+  align-self: center;
+  font-size: $mobileSiteTitleSize !important;
+  line-height: $byuLogoHeight/2 !important;
 }
+
+@mixin mobileSubTitle() {
+  font-size: $mobileSiteSubTitleSize !important;
+  margin-top: $mobileSiteTitleSize - $mobileSiteSubTitleSize;
+}
+
+@mixin mobileSuperTitle() {
+  margin-top: 0px !important;
+  margin-bottom: $mobileSiteTitleSize - $mobileSiteSubTitleSize;
+}
+
 
 @mixin headerButtonMobile() {
   background-color: transparent;
-  font-size: 20px;
+  margin-top: ($byuLogoHeight - $tcon-size)/2;
+  margin-bottom: ($byuLogoHeight - $tcon-size)/2;
+  
 }
 
 /* FULL SIZE */

@@ -2,18 +2,20 @@
 
 /* GENERAL STYLING */
 
-.byu-header-actions ::slotted(*) {
-    @include actions();
-}
+.byu-header-actions {
 
+  @include actionsWrapper();
+
+  ::slotted(*) {
+      @include actions();
+  }
+} 
 .byu-header-root {
   @include headerDefaultFont();
 
   .byu-logo {
     @include headerLogo();
-  }
-
-  
+  }  
 
   button {
     @include headerButton();
@@ -21,9 +23,18 @@
 
   .byu-header-primary {
     @include headerPrimary();
-    .byu-header-title, #site-title::slotted(*) {
-      @include headerTitle();
-    }
+    .byu-header-title {
+      @include headerTitles();
+        
+      ::slotted(*) {
+        @include titleSlotted();
+        @include headerSiteTitle();
+      }
+
+      ::slotted(.subtitle) {
+            @include headerSubTitle();
+      }
+    } 
 
     .byu-header-user {
       button {
@@ -67,23 +78,41 @@
 }
 
 :host([mobile-view]) {
-  .byu-header-primary {
-    @include mobileHeaderAlign();
-  }
-  .byu-header-actions ::slotted(*) {
-    @include actionsMobile();
-  }
-  & > div > :not(.byu-logo) {
-    @include headerInnerMarginMobile();
-  }
-  .byu-header-title, #site-title::slotted(*) {
-    @include mobileSiteTitle();
-  }
-  button {
-    &.mobile-menu-button {
-      @include headerButtonMobile();
+  .byu-header-root { // needed to give correct precedence in Firefox
+    .byu-logo {
+      @include mobileLogoAlign();
+    }
+    
+    .byu-header-primary {
+      @include mobileHeaderAlign();
+    }
+    .byu-header-actions ::slotted(*) {
+      @include actionsMobile();
+    }
+    & > div > :not(.byu-logo) {
+      @include headerInnerMarginMobile();
+    }
+    .byu-header-title {
+      @include mobileSiteTitle();
+
+      ::slotted(.subtitle) {
+        @include mobileSubTitle();  
+      }
+
+      ::slotted(.subtitle:first-child) {
+        @include mobileSuperTitle();  
+      }
+    }
+    button {
+      &.mobile-menu-button {
+        @include headerButtonMobile();
+      }
     }
   }
+}
+
+:host([no-menu]) .mobile-menu-button {
+  display: none;
 }
 
 /* FULL SIZE */

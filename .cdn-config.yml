@@ -5,8 +5,8 @@ resources:
   - src: dist/**
     dest: ./
 entrypoints:
-  2017-core-components.js: 'Examines browser support and downloads the appropriate component bundle'
-  2017-core-components.min.js: 'Minified - Examines browser support and downloads the appropriate component bundle'
-  2017-core-components.css: 'Main CSS file'
-  2017-core-components.min.css: 'Main CSS file'
-docs: https://github.com/byuweb/2017-components
+  byu-theme-components.js: 'Examines browser support and downloads the appropriate component bundle'
+  byu-theme-components.min.js: 'Minified - Examines browser support and downloads the appropriate component bundle'
+  byu-theme-components.css: 'Main CSS file'
+  byu-theme-components.min.css: 'Main CSS file'
+docs: https://github.com/byuweb/byu-theme-components

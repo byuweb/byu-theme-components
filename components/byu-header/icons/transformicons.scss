@@ -1,5 +1,5 @@
 //$tcon-size: 1.5em !default;
-$tcon-size: 20px !default;
+$tcon-size: 24px !default;
 $tcon-transition: .15s !default;
 $tcon-jstransform: 'tcon-transform' !default;
 
@@ -45,7 +45,7 @@ $tcon-menu-arrow360left-transformation: (
 @mixin tcon-menu-lines {
   display: inline-block;
   border-radius: $tcon-menu-radius;
-  height: 2px;
+  height: 3px;
   width: $tcon-size;
   transition: $tcon-transition;
   background: $tcon-menu-color;

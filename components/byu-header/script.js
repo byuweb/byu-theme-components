@@ -3,14 +3,15 @@
 import * as templateFn from "./template.ejs.html";
 
 import * as equal from "deep-equal";
-import * as util from 'byu-web-component-utils';
-import {transform as transformIcon, revert as revertIcon} from "./icons/transformicons";
+import * as util from "byu-web-component-utils";
+import {revert as revertIcon, transform as transformIcon} from "./icons/transformicons";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
+const ATTR_NO_MENU = 'no-menu';
 
-const DEFAULT_MOBILE_WIDTH = '1024px';
+const DEFAULT_MOBILE_WIDTH = '1023px';
 
 class BYUHeader extends HTMLElement {
 
@@ -29,9 +30,23 @@ class BYUHeader extends HTMLElement {
                 this._addSlotListeners();
                 this._notifyChildrenOfMobileState();
                 this._addButtonListeners();
+                this._checkIfMenuIsNeeded();
             });
-            
         }
+    }
+
+    _checkIfMenuIsNeeded() {
+        // check whether to show the mobile menu button
+        let userSlot = this.shadowRoot.querySelector("#user");
+        let hasUserInfo = userSlot.assignedNodes().length !== 0;
+
+        let menuSlot = this.shadowRoot.querySelector("#navbarMenu");
+        let hasMenu = menuSlot.assignedNodes().length !== 0;
+
+        let actionSlot = this.shadowRoot.querySelector('#actions');
+        let hasActions = actionSlot.assignedNodes().length !== 0;
+
+        this.noMenu = !(hasUserInfo || hasMenu || hasActions);
     }
 
     _addButtonListeners() {
@@ -51,6 +66,7 @@ class BYUHeader extends HTMLElement {
         this._findAllSlots().forEach(each => {
             each.addEventListener('slotchange', event => {
                 this._notifyChildrenOfMobileState();
+                this._checkIfMenuIsNeeded();
             });
         })
     }
@@ -154,6 +170,18 @@ class BYUHeader extends HTMLElement {
             this.setAttribute(ATTR_MENU_OPEN, '');
         } else {
             this.removeAttribute(ATTR_MENU_OPEN);
+        }
+    }
+
+    get noMenu() {
+        return this.hasAttribute(ATTR_NO_MENU);
+    }
+
+    set noMenu(val) {
+        if (val) {
+            this.setAttribute(ATTR_NO_MENU, '');
+        } else {
+            this.removeAttribute(ATTR_NO_MENU);
         }
     }
 
