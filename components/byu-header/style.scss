@@ -98,6 +98,10 @@
       ::slotted(.subtitle) {
         @include mobileSubTitle();  
       }
+
+      ::slotted(.subtitle:first-child) {
+        @include mobileSuperTitle();  
+      }
     }
     button {
       &.mobile-menu-button {
