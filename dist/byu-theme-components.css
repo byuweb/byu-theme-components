@@ -236,6 +236,7 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
     width: auto; }
 
 /* GENERAL STYLING */
+/* GENERAL STYLING */
 /* MOBILE */
 /* FULL SIZE */
 byu-header:not(.byu-component-rendered) {
@@ -246,7 +247,7 @@ byu-header:not(.byu-component-rendered) {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding-right: 16px;
+  padding: 0 16px;
   flex: 1;
   min-height: 55px;
   box-sizing: border-box;
