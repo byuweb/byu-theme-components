@@ -67,8 +67,12 @@ img {
       @include hasUserLogout();
     }
 
-    .name {
+    .name  {
       @include hasUserName();
+    }
+
+    .name ::slotted(*) {
+      @include hasUserNameSlotted();
     }
   }
 

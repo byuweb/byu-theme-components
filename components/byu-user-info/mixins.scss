@@ -67,6 +67,9 @@
 @mixin hasUserName() {
   order: 2;
   flex: 1;
+}
+
+@mixin hasUserNameSlotted() {
   text-transform: capitalize !important;
   color: $brightBlue !important;
 }
