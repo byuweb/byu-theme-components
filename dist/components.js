@@ -307,7 +307,7 @@ class BYUHeader extends HTMLElement {
 
         this.noMenu = !(hasUserInfo || hasMenu || hasActions);
 
-        if (menu.length < 4) {
+        if (menuSlot.assignedNodes().length < 4) {
             this.setAttribute('left-align', '');
         }
 
