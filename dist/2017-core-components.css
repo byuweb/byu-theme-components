@@ -21,7 +21,7 @@ byu-footer:not(.byu-component-rendered) {
   display: flex;
   width: 100%;
   font-family: sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   flex-wrap: wrap;
   padding-top: 30px;
   justify-content: space-around; }
@@ -281,7 +281,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   position: relative;
   top: 6px;
   padding-right: 16px;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 2px; }
 
 /* MOBILE */
@@ -570,7 +570,7 @@ byu-footer:not(.byu-component-rendered) {
   display: flex;
   width: 100%;
   font-family: sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   flex-wrap: wrap;
   padding-top: 30px;
   justify-content: space-around; }
