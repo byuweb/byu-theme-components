@@ -1,20 +1,21 @@
 @import "./mixins.scss";
 
 /* GENERAL STYLING */
-
 .byu-header-actions ::slotted(*) {
     @include actions();
 }
 
 .byu-header-root {
+  @include headerRoot();
   @include headerDefaultFont();
+
+  .byu-header-content {
+    @include headerContent();
+  }
 
   .byu-logo {
     @include headerLogo();
   }
-
-  
-
   button {
     @include headerButton();
   }
@@ -30,7 +31,7 @@
       }
 
       ::slotted(.subtitle) {
-            @include headerSubTitle();
+        @include headerSubTitle();
       }
     } 
 
@@ -77,11 +78,14 @@
 
 :host([mobile-view]) {
   .byu-header-root { // needed to give correct precedence in Firefox
+    .byu-header-content {
+      @include mobileHeaderContent();
+    }
     .byu-logo {
       @include mobileLogoAlign();
     }
-    
     .byu-header-primary {
+      @include mobileHeaderPrimary();
       @include mobileHeaderAlign();
     }
     .byu-header-actions ::slotted(*) {
@@ -110,7 +114,6 @@
 }
 
 /* FULL SIZE */
-
 :host(:not([mobile-view])) {
   .byu-header-root {
     @include headerNotMobile();
@@ -118,11 +121,9 @@
     &.no-nav {
       @include headerNotMobileNoNav();
     }
-
     .nav-expand {
       @include headerNotMobileNavExpand();
     }
-
     .byu-header-secondary {
       @include headerSecondaryNotMobile();
 

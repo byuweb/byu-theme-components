@@ -41,6 +41,13 @@ class BYUHeader extends HTMLElement {
                 {
                     this.setAttribute('no-menu', '');
                 }
+
+                if (menu.length < 4) {
+                    this.setAttribute('left-align', '');
+                }
+
+                // TODO: Give developers option for header to be 100% width
+                // instead of max-width: 1200px
             });   
         } 
     }
@@ -195,8 +202,11 @@ class BYUHeader extends HTMLElement {
         return `(max-width: ${this.mobileMaxWidth})`;
     }
 
+    _setItemsLeftAlign() {
+
+    }
+
 }
 
 window.customElements.define('byu-header', BYUHeader);
 window.BYUHeader = BYUHeader;
-

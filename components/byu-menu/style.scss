@@ -31,7 +31,6 @@
   @include navItemExtraLongLink();
 }
 
-
 .byu-menu-more-menu {
   @include moreMenu();
 
@@ -58,5 +57,10 @@
 
 :host(.mobile-view) {
   @include mobileHost();
+}
 
+:host([left-align]) {
+  ::slotted(*) {
+    @include navItemsSlottedSetWidth();
+  }
 }

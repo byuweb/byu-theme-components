@@ -3,7 +3,8 @@
 @import "../shared-styles/nav.scss";
 
 @mixin menuGeneral() {
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: auto;
   background: #fff;
@@ -15,6 +16,7 @@
   //background: rgba(255,255,255,0.8);
   opacity: 0.88;
 }
+
 @mixin outerNav() {
   display: flex;
   flex-direction: row;
@@ -24,12 +26,18 @@
   padding: 0;
   height: 35px;
   position: relative;
+  max-width: 1200px;
+  flex: 1;
 }
 
 @mixin navItemSlotted() {
   @include navItem();
   flex: 1;
-  max-width: 200px;
+}
+
+@mixin navItemsSlottedSetWidth() {
+  min-width: 200px;
+  flex: initial;
 }
 
 @mixin moreMenu {

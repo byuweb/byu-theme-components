@@ -11,11 +11,16 @@ class BYUFooter extends HTMLElement {
     }
 
     connectedCallback() {
-        util.applyTemplate(this, 'byu-footer', template, () => {
+        const component = this;
+        util.applyTemplate(component, 'byu-footer', template, () => {
             // always show the current year in the copyright message
-            var currentYear = this.shadowRoot.querySelector("#currentYear");
+            var currentYear = component.shadowRoot.querySelector("#currentYear");
             currentYear.innerHTML = new Date().getFullYear();
         });
+
+        if (component.children.length < 4) {
+            //this.setAttribute('left-align', '');
+        }
     }
 }
 

@@ -31,6 +31,10 @@ class BYUMenu extends HTMLElement {
                 component.showMore = true;
             });
         });
+
+        if (component.children.length < 4) {
+            this.setAttribute('left-align', '');
+        }
     }
 }
 
