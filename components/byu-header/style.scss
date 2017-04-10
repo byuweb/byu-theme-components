@@ -1,10 +1,14 @@
 @import "./mixins.scss";
 
 /* GENERAL STYLING */
-.byu-header-actions ::slotted(*) {
-    @include actions();
-}
+.byu-header-actions {
 
+  @include actionsWrapper();
+
+  ::slotted(*) {
+      @include actions();
+  }
+} 
 .byu-header-root {
   @include headerRoot();
   @include headerDefaultFont();
@@ -15,7 +19,9 @@
 
   .byu-logo {
     @include headerLogo();
+
   }
+
   button {
     @include headerButton();
   }
@@ -99,6 +105,10 @@
 
       ::slotted(.subtitle) {
         @include mobileSubTitle();  
+      }
+
+      ::slotted(.subtitle:first-child) {
+        @include mobileSuperTitle();  
       }
     }
     button {

@@ -34,10 +34,8 @@ byu-footer:not(.byu-component-rendered):after {
   font-size: 12px;
   color: white;
   height: 80px;
+  display: table;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   content: "BRIGHAM YOUNG UNIVERSITY";
   display: flex;
   justify-content: center;
@@ -97,9 +95,7 @@ byu-footer-action-button:not(.byu-component-rendered) a {
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
 byu-footer-column:not(.byu-component-rendered) {
-  padding: 0 15px;
-  box-sizing: border-box;
-  float: left; }
+  padding: 0 15px; }
   byu-footer-column:not(.byu-component-rendered) .header {
     width: 100%; }
   byu-footer-column:not(.byu-component-rendered) .header > * {
@@ -246,7 +242,7 @@ byu-header:not(.byu-component-rendered) {
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  padding-right: 16px;
+  padding: 0 16px;
   flex: 1;
   min-height: 55px;
   box-sizing: border-box;
@@ -322,8 +318,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
 byu-menu:not(.byu-component-rendered) {
-  display: flex;
-  justify-content: center;
+  display: block;
   width: 100%;
   height: auto;
   background: #fff;
@@ -336,8 +331,6 @@ byu-menu:not(.byu-component-rendered) {
   padding: 0;
   height: 35px;
   position: relative;
-  max-width: 1200px;
-  flex: 1;
   color: #002E5D !important;
   height: 35px;
   justify-content: flex-start;
@@ -365,7 +358,8 @@ byu-menu:not(.byu-component-rendered) > * {
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  flex: 1; }
+  flex: 1;
+  max-width: 200px; }
   byu-menu:not(.byu-component-rendered) > *:hover {
     background: #c5c5c5 !important; }
   byu-menu:not(.byu-component-rendered) > *.selected {
@@ -588,10 +582,8 @@ byu-footer:not(.byu-component-rendered):after {
   font-size: 12px;
   color: white;
   height: 80px;
+  display: table;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   content: "BRIGHAM YOUNG UNIVERSITY";
   display: flex;
   justify-content: center;

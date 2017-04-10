@@ -1,12 +1,13 @@
 <style>
     <%- require('./style.scss') %>
 </style>
-
+ 
 <div id="header" class="byu-header-root">
-
+ 
     <div class="byu-header-content">
         <div class="byu-header-primary">
             <img class="byu-logo" alt="BYU" src="<%- require('!!svg-url-loader?noquotes!./byu-logo.svg') %>" />
+    
             <div class="byu-header-title">
                 <slot id="site-title" name="site-title"></slot>
             </div>
@@ -17,6 +18,7 @@
                 </button>
             <% } -%>
         </div>
+    
         <div id="secondary" class="byu-header-secondary">
             <% if (!locals.mobile) { %>
                 <div class="byu-header-actions">
@@ -29,9 +31,10 @@
             <div class="byu-header-search">
                 <slot id="search" name="search"></slot>
             </div>
+    
         </div>
     </div>
-
+ 
     <% if (locals.mobile) { -%>
         <div id="mobileMenu">
             <slot id="user" name="user"></slot>

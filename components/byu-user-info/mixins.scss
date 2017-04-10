@@ -17,6 +17,11 @@
   align-items: center;
 }
 
+@mixin centeredText() {
+  display: flex;
+  align-items: center;
+}
+
 /* NON MOBILE */
 @mixin userInfoNotMobile() {
   color: white;
@@ -32,7 +37,7 @@
 @mixin nonMobileUsername() {
   color: $xlightblue !important;
   text-transform: uppercase !important;
-  width: 130px;
+  max-width: 130px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
