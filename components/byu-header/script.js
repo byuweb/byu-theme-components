@@ -4,7 +4,7 @@ import * as templateFn from "./template.ejs.html";
 
 import * as equal from "deep-equal";
 import * as util from "byu-web-component-utils";
-import { revert as revertIcon, transform as transformIcon } from "./icons/transformicons";
+import {revert as revertIcon, transform as transformIcon} from "./icons/transformicons";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
@@ -17,22 +17,7 @@ class BYUHeader extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
-    }
-
-    _render() {
-        let state = {
-            mobile: this.inMobileView
-        };
-        if (!equal(state, this._renderState)) {
-            util.applyTemplate(this, 'byu-header', templateFn(state), () => {
-                this._renderState = state;
-                this._addSlotListeners();
-                this._notifyChildrenOfMobileState();
-                this._addButtonListeners();
-                this._checkIfMenuIsNeeded();
-            });
-        }
+        this.attachShadow({mode: 'open'});
     }
 
     _render() {
@@ -232,10 +217,6 @@ class BYUHeader extends HTMLElement {
 
     get mobileMediaQuery() {
         return `(max-width: ${this.mobileMaxWidth})`;
-    }
-
-    _setItemsLeftAlign() {
-
     }
 
 }
