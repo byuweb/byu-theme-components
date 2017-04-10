@@ -25,6 +25,11 @@ img {
   .mobile {
     @include userInfoNotMobileDisplay();
   }
+
+  .slot-wrapper {
+    @include centeredText();
+  }
+
   // underline on hover for any link - sign in, sign out, username if linked, 
   // idk how to tell it to hover if linking in a different way than with an a tag
   .slot-wrapper ::slotted(a:hover) {

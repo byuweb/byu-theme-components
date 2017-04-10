@@ -244,7 +244,7 @@ byu-header:not(.byu-component-rendered) {
   align-items: center;
   padding: 0 16px;
   flex: 1;
-  min-height: 55px;
+  height: 55px;
   flex-wrap: wrap;
   width: 100%;
   height: 90px;

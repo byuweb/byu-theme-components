@@ -2,18 +2,20 @@
 
 /* GENERAL STYLING */
 
-.byu-header-actions ::slotted(*) {
-    @include actions();
-}
+.byu-header-actions {
 
+  @include actionsWrapper();
+
+  ::slotted(*) {
+      @include actions();
+  }
+} 
 .byu-header-root {
   @include headerDefaultFont();
 
   .byu-logo {
     @include headerLogo();
-  }
-
-  
+  }  
 
   button {
     @include headerButton();
