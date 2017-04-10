@@ -27,7 +27,7 @@
 
 //Grab components JS and CSS. If running locally, grab it from /dist
 (function () {
-    var root = '//cdn.byu.edu/2017-core-components/latest';
+    var root = '//cdn.byu.edu/byu-theme-components/latest';
     var min = true;
 
     var isLocalhost = window.location.hostname === 'localhost';
@@ -38,8 +38,8 @@
         root = '/dist'
     }
 
-    var scriptPath = url(root, '2017-core-components', min, 'js');
-    var stylePath = url(root, '2017-core-components', min, 'css');
+    var scriptPath = url(root, 'byu-theme-components', min, 'js');
+    var stylePath = url(root, 'byu-theme-components', min, 'css');
 
     var style = document.createElement('link');
     style.href = stylePath;

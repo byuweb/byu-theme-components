@@ -31,6 +31,10 @@
                 });
         });
     </script>
+
+    <link rel="stylesheet" href="lib/prism/themes/prism.css">
+    <script src="lib/prism/prism.js"></script>
+    <script src="lib/prism/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
 </head>
 
 <body>
@@ -55,6 +59,27 @@
     </byu-header>
     <div style="margin: 10px">
         <h1>Welcome to the new templates!</h1>
+        <h2>Getting Started</h2>
+        <p>
+            Add the following to your <code class="language-html">&lt;head&gt;</code>:
+        </p>
+        <pre><code class="language-html">
+            &lt;link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.css"&gt;
+            &lt;script async src="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.js"&gt;&lt;/script&gt;
+        </code></pre>
+
+        <p>Then, add this to your page where you want the header to appear:</p>
+
+        <pre><code class="language-html">
+            &lt;byu-header&gt;
+                &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
+            &lt;/byu-header&gt;
+        </code></pre>
+
+        <p>And this where you want the footer:</p>
+
+        <pre><code class="language-html">&lt;byu-footer&gt;&lt;/byu-footer&gt;</code></pre>
+
         <p>
             Feel free to check back here for updates. While the code needed to use the core components is not expected to change, the look and feel of
             each component may change over time, and new features may be added.
@@ -62,16 +87,6 @@
         <p>
             If you'd like to get involved, you can join our group on Github <a href="https://github.com/byuweb">https://github.com/byuweb</a> or join the conversation on Slack (<a href="http://byu-web.slack.com">http://byu-web.slack.com</a>).
             (<a href="https://github.com/byuweb/2017-components">https://github.com/byuweb/2017-components</a>).
-        </p>
-        <p>
-            As of right now, you need to include the following to use the components:
-
-            <ul>
-                <li>The core components file: &lt;script async src="//cdn.byu.edu/2017-core-components/latest/2017-core-components.min.js"&gt;&lt;/script&gt;</li>
-                <li>The core components stylesheet: &lt;script async src="//cdn.byu.edu/2017-core-components/latest/2017-core-components.css"&gt;&lt;/script&gt;</li>
-                <li>The Hoeffler Fonts Stylesheet: &lt;link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" /&gt;</li>
-            </ul>
-
         </p>
         <p>
             You can also get instructions on creating your own BYU Web Components here: <a href="#">TODO: Actually link this to instructions</a>.
