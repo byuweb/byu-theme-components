@@ -19,6 +19,12 @@
   margin-right: 16px;
 }
 
+@mixin actionsWrapper() {
+  display: flex;
+  align-items: center;
+  height: $byuLogoHeight;
+}
+
 @mixin actions(){
   @include headerLink();
   margin-left: 4px;
@@ -44,6 +50,7 @@
   padding: 0 16px;
   flex: 1;
   min-height: $headerHeight;
+  box-sizing: border-box;
 }
 
 @mixin headerTitles() {
@@ -167,17 +174,18 @@
 @mixin mobileSiteTitle() {
   align-items: flex-start;
   align-self: center;
-  font-size: 16px;
+  font-size: $mobileSiteTitleSize !important;
+  line-height: $byuLogoHeight/2 !important;
 }
 
 @mixin mobileSubTitle() {
   font-size: $mobileSiteSubTitleSize !important;
-  line-height: $mobileSiteSubTitleSize;
+  margin-top: $mobileSiteTitleSize - $mobileSiteSubTitleSize;
 }
 
 @mixin mobileSuperTitle() {
-  font-size: $mobileSiteSuperTitleSize !important;
-  line-height: $mobileSiteSuperTitleSize;
+  margin-top: 0px !important;
+  margin-bottom: $mobileSiteTitleSize - $mobileSiteSubTitleSize;
 }
 
 
