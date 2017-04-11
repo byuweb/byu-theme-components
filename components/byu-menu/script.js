@@ -4,11 +4,11 @@ import * as util from 'byu-web-component-utils';
 
 class BYUMenu extends HTMLElement {
 
-    get showMore () {
+    get showMore() {
         return isShowingMoreMenu(this);
     }
 
-    set showMore (show) {
+    set showMore(show) {
         const el = this.shadowRoot.querySelector('.byu-menu-more-menu');
         if (show && !isShowingMoreMenu(this)) enableHideClick(this);
         toggleClass(el, 'byu-menu-more-expanded', show);
@@ -16,7 +16,7 @@ class BYUMenu extends HTMLElement {
 
     constructor() {
         super(); // always call super first
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
@@ -27,14 +27,10 @@ class BYUMenu extends HTMLElement {
             addSlotListeners(this);
 
             // when the more button is clicked then show the more menu
-            this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function() {
+            this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                 component.showMore = true;
             });
         });
-
-        if (component.children.length < 4) {
-            this.setAttribute('left-align', '');
-        }
     }
 }
 
@@ -45,7 +41,7 @@ function addSlotListeners(component) {
 
 function enableHideClick(component) {
 
-    const fn = function() {
+    const fn = function () {
         document.removeEventListener('click', fn);
         component.showMore = false;
     };
@@ -82,7 +78,7 @@ function updateMoreMenuState(component) {
     const length = component.children.length;
     const hasOverflow = length > 6;
     const nav = component.shadowRoot.querySelector('.outer-nav');
-    
+
     if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
 
     if (hasOverflow) {
@@ -91,6 +87,10 @@ function updateMoreMenuState(component) {
         }
     } else if (length === 6) {
         children[5].setAttribute('slot', '');
+    }
+
+    if (length < 4) {
+        this.setAttribute('left-align', '');
     }
 }
 
