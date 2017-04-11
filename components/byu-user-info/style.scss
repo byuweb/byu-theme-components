@@ -50,6 +50,10 @@ img {
 :host([mobile-view]) {
   @include userInfoMobile();
 
+  img {
+    @include userImage();
+  }
+
   .not-mobile {
     @include userInfoNotMobileDisplay();
   }
