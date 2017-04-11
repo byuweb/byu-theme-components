@@ -28,11 +28,11 @@
 }
 
 @mixin userInfoNotMobileSlotted() {
-    @include headerLink();
+  @include headerLink();
 }
 
 @mixin userInfoNotMobileDisplay() {
-    display: none;
+  display: none;
 }
 @mixin nonMobileUsername() {
   color: $xlightblue !important;
@@ -49,29 +49,39 @@
 }
 
 @mixin userInfoNotMobileImages() {
-    margin: 7px;
+  margin: 7px;
 }
 
 /* MOBILE */
 @mixin userInfoMobile() {
   @include dropdownNavItem();
-  padding-left: 0 !important;
-  border-bottom: solid 1px $gray; 
-  background-color: #fff;
+  //padding-left: 0 !important;
+  border-bottom: solid 1px $gray;
+  padding: 3px 14px !important;
+}
+
+@mixin userImage() {
+  margin: 0;
 }
 
 @mixin userInfoMobileNotDisplay() {
-    display: none;
+  display: none;
 }
 
 @mixin hasUserName() {
   order: 2;
-  flex: 1
+  flex: 1;
+}
+
+@mixin hasUserNameSlotted() {
+  text-transform: capitalize !important;
+  color: $brightBlue !important;
 }
 
 @mixin hasUserImage() {
   order: 1;
-  margin: 7px;
+  //margin: 7px;
+  padding: 0 14px !important;
 }
 
 @mixin hasUserLogout() {
@@ -83,7 +93,7 @@
 }
 
 @mixin notHasUserMobile() {
-    display: none;
+  display: none;
 }
 
 @mixin noUserMobile() {
