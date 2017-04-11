@@ -28,18 +28,6 @@
 
     <link rel="import" href="lib/iron-demo-helpers/demo-snippet.html">
     <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
-    <style>
-        .fake-header {
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            width: 100%;
-            background-color: #002e5d;
-            height: 48px;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-    </style>
 </head>
 
 <body>
@@ -63,29 +51,31 @@
         <h1>Simple Setup</h1>
         <demo-snippet>
             <template>
-                <div class="fake-header">
-                    <byu-user-info>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-user-info slot="user">
                         <a slot="login" href="#login">Sign In</a>
                         <a slot="logout" href="#logout">Sign Out</a>
                     </byu-user-info>
-                </div>
+                </byu-header>
             </template>
         </demo-snippet>
 
         <h1>Logged In User</h1>
         <demo-snippet>
             <template>
-                <div class="fake-header">
-                    <byu-user-info>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-user-info slot="user">
                         <a slot="login" href="#login">Sign In</a>
                         <a slot="logout" href="#logout">Sign Out</a>
                         <span slot="user-name">UserFirstName</span>
                     </byu-user-info>
-                </div>
+                </byu-header>
             </template>
         </demo-snippet>
 
-        <h1>As Part of Header</h1>
+        <h1>As Part of Header with Search</h1>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -107,7 +97,7 @@
             </template>
         </demo-snippet>
 
-        <h1>As Part of Header (Logged In)</h1>
+        <h1>As Part of Header with Search (Logged In)</h1>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -146,15 +136,16 @@
                         font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
                         cursor: pointer;
                     }
-
+                    
                     .my-custom-login-class a:hover {
                         color: white;
                         text-decoration: none;
                     }
                 </style>
 
-                <div class="fake-header">
-                    <byu-user-info>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-user-info slot="user">
                         <span slot="login" class="my-custom-login-class">
                         <div class="someCMSClass">
                             <a class="someOtherCMSClassAndAttributes">Sign In</a>
@@ -162,7 +153,7 @@
                     </span>
                         <a slot="logout" href="#logout">Sign Out</a>
                     </byu-user-info>
-                </div>
+                </byu-header>
             </template>
         </demo-snippet>
 

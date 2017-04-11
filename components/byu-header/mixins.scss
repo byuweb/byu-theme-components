@@ -33,6 +33,12 @@
   margin-right: 16px;
 }
 
+@mixin actionsNotMobile() {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+
 @mixin actionsWrapper() {
   display: flex;
   align-items: center;
@@ -41,8 +47,6 @@
 
 @mixin actions(){
   @include headerLink();
-  margin-left: 4px;
-  margin-right: 4px;
 }
 
 @mixin headerButton(){
@@ -181,6 +185,11 @@
 
 @mixin mobileLogoAlign() {
   align-self: flex-start;
+}
+
+@mixin actionsWrapperMobile() {
+  display: block;
+  height: auto;
 }
 
 @mixin actionsMobile() {
