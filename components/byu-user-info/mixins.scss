@@ -60,6 +60,10 @@
   padding: 3px 14px !important;
 }
 
+@mixin userImage() {
+  margin: 0;
+}
+
 @mixin userInfoMobileNotDisplay() {
     display: none;
 }
