@@ -600,10 +600,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                         component.showMore = true;
                     });
                 });
-
-                if (component.children.length < 4) {
-                    this.setAttribute('left-align', '');
-                }
             }
         }]);
 
@@ -664,6 +660,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             }
         } else if (length === 6) {
             children[5].setAttribute('slot', '');
+        }
+
+        if (length < 4) {
+            this.setAttribute('left-align', '');
         }
     }
 
