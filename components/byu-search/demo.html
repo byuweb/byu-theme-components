@@ -40,6 +40,21 @@
       /*margin-top: 0px;*/
       /*margin-bottom: 0px;*/
     }
+    
+    html {
+      height: 100%;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    /*wrap the page in this for an easy sticky footer*/
+    
+    .page-content {
+      flex: 1;
+    }
   </style>
 </head>
 
@@ -60,13 +75,10 @@
 
   <section style="margin: 20px" class="page-content">
 
-    <p>Because each CMS has very different markup for its search box and because 
-      web components only allow styling one level deep in the shadow DOM, you may
-      need to add some custom CSS to get it looking right. Specifically, you'll
-      need to hide any extra search buttons, then style the input tag, then use
-      javascript so the search component submits your search form. We've provided
-      examples in Drupal 7 and 8 and Wordpress, though the same principles
-      will apply to every CMS.</p>
+    <p>Because each CMS has very different markup for its search box and because web components only allow styling one level
+      deep in the shadow DOM, you may need to add some custom CSS to get it looking right. Specifically, you'll need to hide
+      any extra search buttons, then style the input tag, then use javascript so the search component submits your search
+      form. We've provided examples in Drupal 7 and 8 and Wordpress, though the same principles will apply to every CMS.</p>
 
     <h1>Basic Search with HTML Input</h1>
 
@@ -97,9 +109,9 @@
     <h1>Drupal 7 Form (Simple)</h1>
 
     <script>
-                                              function d7Search(value) {
-                                                document.getElementById('search-submit').click();
-                                              }
+      function d7Search(value) {
+        document.getElementById('search-submit').click();
+      }
     </script>
 
 
@@ -158,14 +170,14 @@
 
 
     <h1>Drupal 7 Form (Complex)</h1>
-<p>Depending on which modules are in use, or if you have multiple search blocks 
-  (i.e. one on a Search page, and one in the header), the id of your search submit input may change. 
-  In this example, the id is "edit-submit--2". Inspect your block to find out what your id is.</p>
+    <p>Depending on which modules are in use, or if you have multiple search blocks (i.e. one on a Search page, and one in the
+      header), the id of your search submit input may change. In this example, the id is "edit-submit--2". Inspect your block
+      to find out what your id is.</p>
 
     <script>
-                                              function d7SearchComplex(value) {
-                                                document.getElementById('edit-submit--2').click();
-                                              }
+      function d7SearchComplex(value) {
+        document.getElementById('edit-submit--2').click();
+      }
     </script>
 
 
@@ -239,9 +251,9 @@
     <h1>Drupal 8 Form</h1>
 
     <script>
-                                              function d8Search(value) {
-                                                document.getElementById('edit-submit').click();
-                                              }
+      function d8Search(value) {
+        document.getElementById('edit-submit').click();
+      }
     </script>
 
 
@@ -317,7 +329,6 @@
       <template>
 
         <style type="text/css">
-         
           .byu-ribbon__search__submit {
             display: none;
           }
@@ -347,7 +358,7 @@
             </form>
           </byu-search>
         </byu-header>
-         </template>
+      </template>
     </demo-snippet>
 
     In addition, you'll need the following Javascript:
