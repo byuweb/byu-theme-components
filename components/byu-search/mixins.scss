@@ -6,16 +6,17 @@
 }
 
 @mixin searchIcon() {
-  width: 23px;
-  height: 23px;
+  width: 17px;
+  height: 14px;
 }
 
 @mixin searchButton() {
   background-color: var(--byu-search-color, $medgray);
   border: 1px solid var(--byu-search-color, $medgray);
   color: #FFF;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
+  display: flex;
 }
 
 @mixin searchForm() {
@@ -31,6 +32,7 @@
 @mixin searchContainerInput() {
   padding: 5px 10px;
   border: none;
+  height: 30px;
 }
 
 @mixin searchMobile() {
@@ -49,6 +51,7 @@
 
 @mixin searchButtonMobile() {
   width: 53px;
+  height: 35px;
   padding: 0 16px;
 }
 
