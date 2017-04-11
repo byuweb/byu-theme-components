@@ -57,6 +57,7 @@
   @include dropdownNavItem();
   padding-left: 0 !important;
   border-bottom: solid 1px $gray; 
+  background-color: #fff;
 }
 
 @mixin userInfoMobileNotDisplay() {

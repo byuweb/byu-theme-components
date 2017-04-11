@@ -9,8 +9,11 @@
   font-size: 12px;
   color: white;
   height: $blueFooterHeight;
-  display: table;
   width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @mixin blueFooterLinks() {
   text-decoration: none;
@@ -22,8 +25,8 @@
 }
 
 @mixin footerInnerWrapper() {
-  display: table-cell;
-  vertical-align: middle;
+  max-width: 1200px;
+  margin-top: -10px;
 }
 
 @mixin universityLogo() {
@@ -37,6 +40,14 @@
   height: auto;
   background-color: $footerBackground;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+@mixin secondaryFooterContent() {
+  width: 1200px;
+  margin: 0 15px;
 }
 
 @mixin secondaryFooterSlotted() {
@@ -46,7 +57,7 @@
 }
 
 @mixin secondaryFooterMobile() {
-  width: 80%;
+  width: 100%;
 }
 
 @mixin secondaryFooterMobileLast() {
@@ -58,7 +69,7 @@
 }
 
 @mixin secondaryFooterTablet() {
-  width: 40%;
+  width: 50%;
 }
 
 @mixin secondaryFooterTabletBottomColumns() {
@@ -70,7 +81,15 @@
 }
 
 @mixin secondaryFooterDesktop() {
-  width: 20%;
+  width: 25%;
   padding-top: 10px;
   padding-bottom: 30px;
+}
+
+@mixin secondaryFooterNoLeftPad() {
+  padding-left: 0 !important;
+}
+
+@mixin secondaryFooterNoRightPad() {
+  padding-right: 0 !important;
 }

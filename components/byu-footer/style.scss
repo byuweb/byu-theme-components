@@ -26,6 +26,10 @@
   @include secondaryFooterSlotted();
 }
 
+.secondary-footer-content {
+  @include secondaryFooterContent();
+}
+
 @media (max-width: 767px) {
   .secondary-footer ::slotted(*) {
     @include secondaryFooterMobile();
@@ -37,6 +41,11 @@
 
   .secondary-footer ::slotted(*:first-child) {
     @include secondaryFooterMobileFirst();
+  }
+
+  .secondary-footer ::slotted(*) {
+    @include secondaryFooterNoLeftPad();
+    @include secondaryFooterNoRightPad();
   }
 }
 
@@ -52,10 +61,26 @@
   .secondary-footer ::slotted(*:nth-child(-n+2)) {
     @include secondaryFooterTabletTopColumns();
   }
+
+  .secondary-footer ::slotted(*:nth-child(odd)) {
+    @include secondaryFooterNoLeftPad();
+  }
+
+  .secondary-footer ::slotted(*:nth-child(even)) {
+    @include secondaryFooterNoRightPad();
+  }
 }
 
 @media (min-width: 1200px) {
   .secondary-footer ::slotted(*) {
     @include secondaryFooterDesktop();
+  }
+
+  .secondary-footer ::slotted(*:first-child) {
+    @include secondaryFooterNoLeftPad();
+  }
+  
+  .secondary-footer ::slotted(*:last-child) {
+    @include secondaryFooterNoRightPad();
   }
 }

@@ -47,6 +47,13 @@ class BYUHeader extends HTMLElement {
         let hasActions = actionSlot.assignedNodes().length !== 0;
 
         this.noMenu = !(hasUserInfo || hasMenu || hasActions);
+
+        if (menuSlot.assignedNodes().length < 4) {
+            this.setAttribute('left-align', '');
+        }
+
+        // TODO: Give developers option for header to be 100% width
+        // instead of max-width: 1200px
     }
 
     _addButtonListeners() {
@@ -216,4 +223,3 @@ class BYUHeader extends HTMLElement {
 
 window.customElements.define('byu-header', BYUHeader);
 window.BYUHeader = BYUHeader;
-

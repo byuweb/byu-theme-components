@@ -1,38 +1,40 @@
 <style>
     <%- require('./style.scss') %>
 </style>
-
+ 
 <div id="header" class="byu-header-root">
-
-    <div class="byu-header-primary">
-        <img class="byu-logo" alt="BYU" src="<%- require('!!svg-url-loader?noquotes!./byu-logo.svg') %>" />
-
-        <div class="byu-header-title">
-            <slot id="site-title" name="site-title"></slot>
+ 
+    <div class="byu-header-content">
+        <div class="byu-header-primary">
+            <img class="byu-logo" alt="BYU" src="<%- require('!!svg-url-loader?noquotes!./byu-logo.svg') %>" />
+    
+            <div class="byu-header-title">
+                <slot id="site-title" name="site-title"></slot>
+            </div>
+            <% if (locals.mobile) { %>
+                <button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">
+                    <span class="tcon-menu__lines" aria-hidden="true"></span>
+                    <span class="tcon-visuallyhidden">toggle menu</span>
+                </button>
+            <% } -%>
         </div>
-        <% if (locals.mobile) { %>
-            <button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">
-                <span class="tcon-menu__lines" aria-hidden="true"></span>
-                <span class="tcon-visuallyhidden">toggle menu</span>
-            </button>
-            <% } -%>
-    </div>
-
-    <div id="secondary" class="byu-header-secondary">
-        <% if (!locals.mobile) { %>
-            <div class="byu-header-actions">
-                <slot id="actions" name="actions"></slot>
-            </div>
-            <div class="byu-header-user">
-                <slot id="user" name="user"></slot>
-            </div>
-            <% } -%>
-                <div class="byu-header-search">
-                    <slot id="search" name="search"></slot>
+    
+        <div id="secondary" class="byu-header-secondary">
+            <% if (!locals.mobile) { %>
+                <div class="byu-header-actions">
+                    <slot id="actions" name="actions"></slot>
                 </div>
-
+                <div class="byu-header-user">
+                    <slot id="user" name="user"></slot>
+                </div>
+            <% } -%>
+            <div class="byu-header-search">
+                <slot id="search" name="search"></slot>
+            </div>
+    
+        </div>
     </div>
-
+ 
     <% if (locals.mobile) { -%>
         <div id="mobileMenu">
             <slot id="user" name="user"></slot>
@@ -41,8 +43,7 @@
                 <slot id="actions" name="actions"></slot>
             </div>
         </div>
-        <% } else { -%>
-            <slot id="navbarMenu" name="nav"></slot>
-            <% } -%>
-
+    <% } else { -%>
+        <slot id="navbarMenu" name="nav"></slot>
+    <% } -%>
 </div>
