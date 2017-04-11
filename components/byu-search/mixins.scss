@@ -50,6 +50,8 @@
 @mixin searchButtonMobile() {
   width: 53px;
   padding: 0 16px;
+  width: 35px;
+  height: 35px;
 }
 
 @mixin searchIconMobile() {
