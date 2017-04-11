@@ -6,8 +6,8 @@
 }
 
 @mixin searchIcon() {
-  width: 17px;
-  height: 14px;
+  width: 19px;
+  height: 19px;
 }
 
 @mixin searchButton() {
@@ -46,13 +46,14 @@
   width: 100%;
   height: 35px;
   border: none;
-  border-bottom: 1px solid #c5c5c5;
+  border-bottom: 1px solid $gray;
 }
 
 @mixin searchButtonMobile() {
   width: 53px;
   height: 35px;
   padding: 0 16px;
+  height: 35px;
 }
 
 @mixin searchIconMobile() {
