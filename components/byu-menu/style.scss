@@ -1,6 +1,3 @@
-@import "../shared-styles/colors.scss";
-@import "../shared-styles/settings.scss";
-@import "../shared-styles/nav.scss";
 @import "./mixins.scss";
 
 :host {
@@ -8,7 +5,7 @@
 }
 // transparent background option
 :host(.transparent) {
-    @include bgTransparent();
+  @include bgTransparent();
 }
 
 .outer-nav {
@@ -26,7 +23,7 @@
     @include navItemSelected();
   }
 }
- 
+
 .slot-container ::slotted(*.long-link) {
   @include navItemLongLink();
 }
@@ -56,10 +53,60 @@
 
 .byu-menu-more-visible .byu-menu-more-menu {
   @include moreMenuVisible();
+
+  &.byu-menu-more-expanded {
+    @include menuMoreExpanded();
+
+    .byu-menu-more-items {
+      @include menuMoreItems();
+    }
+
+    .byu-menu-fixed-overlay {
+      @include menuFixedOverlay();
+    }
+  }
 }
 
+/* MOBILE */
+
 :host(.mobile-view) {
-  @include mobileHost();
+  padding: 3px 14px !important;
+
+  .outer-nav {
+    @include mobileOuterNav();
+  }
+
+  .byu-menu-more {
+    @include mobileMenuMore();
+  }
+
+  .slot-container ::slotted(*) {
+    @include mobileMenuSlotted();
+
+    &.byu-menu-more-menu {
+      @include mobileMenuMoreMenuSlotted();
+    }
+  }
+
+  .byu-menu-more-menu {
+    @include mobileMenuMoreMenu();
+
+    .byu-menu-more-items {
+      @include mobileMenuMoreItems();
+
+      ::slotted(*) {
+        @include mobileMenuMoreItemsSlotted();
+      }
+    }
+
+    &.byu-menu-more-expanded {
+      @include mobileMenuMoreExpanded();
+
+      .byu-menu-fixed-overlay {
+        @include mobileMenuFixedOverlay();
+      }
+    }
+  }
 }
 
 :host([left-align]) {
@@ -73,3 +120,66 @@
     @include outerNavFullWidth();
   }
 }
+
+//@import "../shared-styles/colors.scss";
+//@import "../shared-styles/settings.scss";
+//@import "../shared-styles/nav.scss";
+//@import "./mixins.scss";
+//
+//:host {
+//  @include menuGeneral();
+//}
+//// transparent background option
+//:host(.transparent) {
+//  @include bgTransparent();
+//}
+//
+//.outer-nav {
+//  @include outerNav();
+//}
+//
+//.slot-container ::slotted(*) {
+//  @include navItemSlotted();
+//}
+//.slot-container ::slotted(*:hover) {
+//  @include navItemHover();
+//}
+//.slot-container ::slotted(*.selected) {
+//  @include navItemSelected();
+//}
+//.slot-container ::slotted(*.long-link) {
+//  @include navItemLongLink();
+//}
+//.slot-container ::slotted(*.extra-long-link) {
+//  @include navItemExtraLongLink();
+//}
+//
+//
+//.byu-menu-more-menu {
+//  @include moreMenu();
+//
+//  .byu-menu-more {
+//    @include moreLink();
+//
+//    svg {
+//      @include moreLinkSvg();
+//    }
+//  }
+//
+//  .byu-menu-more-items {
+//    @include moreItems();
+//
+//    ::slotted(*) {
+//      @include moreItemsSlotted();
+//    }
+//  }
+//}
+//
+//.byu-menu-more-visible .byu-menu-more-menu {
+//  @include moreMenuVisible();
+//}
+//
+//:host(.mobile-view) {
+//  @include mobileHost();
+//
+//}
