@@ -90,7 +90,7 @@ function updateMoreMenuState(component) {
     }
 
     if (length < 4) {
-        this.setAttribute('left-align', '');
+        component.setAttribute('left-align', '');
     }
 }
 
