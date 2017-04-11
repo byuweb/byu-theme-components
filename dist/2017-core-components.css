@@ -494,15 +494,9 @@ html {
   height: 100%; }
 
 body {
-  display: flex;
-  flex-direction: column;
   min-height: 100%;
   margin: 0;
   color: #444; }
-
-/*wrap the page in this for an easy sticky footer*/
-.page-content {
-  flex: 1; }
 
 a {
   color: #003DA5; }

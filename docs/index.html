@@ -8,14 +8,28 @@
 
     <script src="load-components.js"></script>
 
-    <link rel="stylesheet" href="site.min.css">
-
     <style>
         html, body {
             width: 100vw;
             min-width: 100vw;
             max-width: 100vw;
         }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        /*wrap the page in this for an easy sticky footer*/
+        .page-content {
+            flex: 1;
+        }
+
     </style>
 
     <script>
