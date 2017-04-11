@@ -20,8 +20,8 @@
  *
  * In reality, you should just add the following lines to your <head>:
  *
- * <link rel="stylesheet" href="https://cdn.byu.edu/2017-core-components/latest/2017-core-components.min.css">
- * <script async src="https://cdn.byu.edu/2017-core-components/latest/2017-core-components.min.js"></script>
+ * <link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.css">
+ * <script async src="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.js"></script>
  *
  */
 
@@ -44,7 +44,7 @@
     var style = document.createElement('link');
     style.href = stylePath;
     style.rel = 'stylesheet';
-    // document.head.appendChild(style);
+    document.head.appendChild(style);
 
     var script = document.createElement('script');
     script.async = true;
