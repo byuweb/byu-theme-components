@@ -68,8 +68,6 @@
 /* MOBILE */
 
 :host(.mobile-view) {
-  padding: 3px 14px !important;
-
   .outer-nav {
     @include mobileOuterNav();
   }
