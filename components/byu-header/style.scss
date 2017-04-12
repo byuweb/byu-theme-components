@@ -101,6 +101,12 @@
         @include actionsMobile();
       }
     }
+
+    //CHECK THIS
+    //.byu-header-actions ::slotted(*) {
+    //  @include actionsMobileSlotted();
+    //}
+
     & > div > :not(.byu-logo) {
       @include headerInnerMarginMobile();
     }
