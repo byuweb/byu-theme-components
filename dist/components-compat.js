@@ -833,8 +833,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 var _this13 = this;
 
                 util.applyTemplate(this, 'byu-social-media-links', template, function () {
-                    var idArr = ['facebook', 'instagram', 'twitter', 'googleplus', 'linkedin', 'youtube'];
-                    var classArr = ['fa-facebook', 'fa-instagram', 'fa-twitter', 'fa-google-plus', 'fa-linkedin', 'fa-youtube-play'];
+                    var idArr = ['facebook', 'twitter', 'instagram', 'youtube', 'pinterest', 'google-plus', 'linkedin', 'rss', 'snapchat'];
+                    var classArr = ['fa-facebook-official', 'fa-twitter', 'fa-instagram', 'fa-youtube-play', 'fa-pinterest', 'fa-google-plus-official', 'fa-linkedin', 'fa-rss-square', 'fa-snapchat'];
 
                     for (var i = 0; i < idArr.length; i++) {
                         var slotId = _this13.shadowRoot.querySelector("#" + idArr[i]);
@@ -1354,7 +1354,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
     // module
-    exports.push([module.i, ".slot-wrapper ::slotted(.fa),.slot-wrapper ::slotted(a){text-decoration:none!important}.slot-wrapper ::slotted(.fa){color:#002e5d!important;font-size:25px!important;line-height:40px!important;border:1px solid #fff!important;width:40px!important;height:40px!important;text-align:center!important;border-radius:20px!important;margin:0 5px 5px 0!important;cursor:pointer}.slot-wrapper ::slotted(.fa:hover){background-color:#fff!important}", ""]);
+    exports.push([module.i, ".slot-wrapper ::slotted(a){text-decoration:none!important}.slot-wrapper ::slotted(.fa){font-size:32px!important;line-height:28px!important;width:28px!important;height:28px!important;text-align:center!important;margin:10px 15px 10px 0!important;cursor:pointer}.slot-wrapper ::slotted(.fa-facebook-official){color:#3b5998!important}.slot-wrapper ::slotted(.fa-twitter){color:#1da1f2!important}.slot-wrapper ::slotted(.fa-instagram){color:#231f20!important}.slot-wrapper ::slotted(.fa-youtube-play){color:#cd201f!important}.slot-wrapper ::slotted(.fa-pinterest){color:#bd081c!important}.slot-wrapper ::slotted(.fa-google-plus-official){color:#dd4b39!important}.slot-wrapper ::slotted(.fa-linkedin){color:#0077b5!important}.slot-wrapper ::slotted(.fa-rss-square){color:#f26522!important}.slot-wrapper ::slotted(.fa-snapchat){color:#fffc00!important}", ""]);
 
     // exports
 
@@ -1657,7 +1657,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* 31 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(19) + "</style> <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" rel=\"stylesheet\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\"> <div class=\"slot-wrapper\"> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"googleplus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot> </div>";
+    module.exports = "<style>" + __webpack_require__(19) + "</style> <link href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css\" rel=\"stylesheet\" integrity=\"sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN\" crossorigin=\"anonymous\"> <div class=\"slot-wrapper\"> <slot id=\"facebook\" name=\"facebook\"></slot> <slot id=\"twitter\" name=\"twitter\"></slot> <slot id=\"instagram\" name=\"instagram\"></slot> <slot id=\"youtube\" name=\"youtube\"></slot> <slot id=\"pinterest\" name=\"pinterest\"></slot> <slot id=\"google-plus\" name=\"googleplus\"></slot> <slot id=\"linkedin\" name=\"linkedin\"></slot> <slot id=\"rss\" name=\"rss\"></slot> <slot id=\"snapchat\" name=\"snapchat\"></slot> </div>";
 
     /***/
 },

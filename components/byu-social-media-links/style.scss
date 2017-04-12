@@ -8,6 +8,30 @@
     @include socialMediaFa();
 }
 
-.slot-wrapper ::slotted(.fa:hover) {
-    @include socialMediaFaHover();
+.slot-wrapper ::slotted(.fa-facebook-official) {
+    @include facebook();
+}
+.slot-wrapper ::slotted(.fa-twitter) {
+    @include twitter();
+}
+.slot-wrapper ::slotted(.fa-instagram) {
+    @include instagram();
+}
+.slot-wrapper ::slotted(.fa-youtube-play) {
+    @include youtube();
+}
+.slot-wrapper ::slotted(.fa-pinterest) {
+    @include pinterest();
+}
+.slot-wrapper ::slotted(.fa-google-plus-official) {
+    @include google-plus();
+}
+.slot-wrapper ::slotted(.fa-linkedin) {
+    @include linkedin();
+}
+.slot-wrapper ::slotted(.fa-rss-square) {
+    @include rss();
+}
+.slot-wrapper ::slotted(.fa-snapchat) {
+    @include snapchat();
 }
