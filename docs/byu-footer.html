@@ -63,16 +63,76 @@
     <h1>Footer Demo</h1>
 
     <section style="margin: 20px" class="page-content">
-        <h1>Blue Bar Only</h1>
+        <h1>Blue bar only</h1>
         <demo-snippet>
             <template>
                 <byu-footer></byu-footer>
             </template>
         </demo-snippet>
-        <h1>Full Footer with Links</h1>
+        <h1>Full Footer with links</h1>
         <demo-snippet>
             <template>
                 <byu-footer>
+                    <byu-footer-column>
+                        <span slot="header">Contact</span>
+                        <p>
+                            BYU Speeches
+                            <br /> 701 East University Parkway
+                            <br /> Provo, Utah 84602
+                            <br /> 888-888-8888
+                        </p>
+                        <byu-footer-action-button>
+                            <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+                        </byu-footer-action-button>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Affiliated Speeches</span>
+                        <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+                        <br />
+                        <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+                        <br />
+                        <a href="https://womensconference.byu.edu">Women's Conference</a>
+                        <br />
+                        <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+                        <br />
+                        <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Related Links</span>
+                        <a>LDS.org</a>
+                        <br />
+                        <a>BYU Alumni</a>
+                        <br />
+                        <a>BYU Today</a>
+                        <br />
+                        <a>BYU Magazine</a>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Connect With Us</span>
+                        <a>Feedback</a>
+                        <br />
+                        <a>Help</a>
+                        <br />
+                        <a>Follow BYU Speeches</a>
+                        <br />
+                        <byu-social-media-links>
+                            <a slot="facebook" href="https://www.facebook.com"></a>
+                            <a slot="instagram" href="https://www.instagram.com"></a>
+                            <a slot="twitter" href="https://www.twitter.com"></a>
+                            <a slot="googleplus" href="https://plus.google.com"></a>
+                            <!--<a slot="linkedin" href="https://www.linkedin.com"></a>-->
+                            <div slot="youtube" href="https://www.youtube.com"></div>
+                        </byu-social-media-links>
+                        <br />
+                        <a>Subscribe</a>
+                    </byu-footer-column>
+                </byu-footer>
+            </template>
+        </demo-snippet>
+        <h1>Full Footer with links and full-width attribute</h1>
+        <demo-snippet>
+            <template>
+                <byu-footer full-width>
                     <byu-footer-column>
                         <span slot="header">Contact</span>
                         <p>

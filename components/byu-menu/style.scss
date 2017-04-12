@@ -64,3 +64,9 @@
     @include navItemsSlottedSetWidth();
   }
 }
+
+:host([full-width]) {
+  .outer-nav {
+    @include outerNavFullWidth();
+  }
+}

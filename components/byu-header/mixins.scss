@@ -229,7 +229,6 @@
 }
 
 /* FULL SIZE */
-
 @mixin headerNotMobile() {
   display: flex;
   flex-direction: row;
@@ -284,4 +283,9 @@
 
 @mixin headerMenuButtonNotMobile() {
   display: none;
+}
+
+/* FULL WIDTH (NOT DEFAULT WIDTH OF 1200px) */
+@mixin headerContentFullWidth() {
+  max-width: 100%;
 }
