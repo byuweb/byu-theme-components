@@ -94,8 +94,13 @@
       @include mobileHeaderPrimary();
       @include mobileHeaderAlign();
     }
-    .byu-header-actions ::slotted(*) {
+
+    .byu-header-actions {
       @include actionsMobile();
+    }
+
+    .byu-header-actions ::slotted(*) {
+      @include actionsMobileSlotted();
     }
     & > div > :not(.byu-logo) {
       @include headerInnerMarginMobile();
