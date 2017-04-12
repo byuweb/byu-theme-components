@@ -50,11 +50,15 @@
       flex-direction: column;
       height: 100%;
     }
-    /*wrap the page in this for an easy sticky footer*/
-    
+
+    /* wrap the page in this for an easy sticky footer and max-width */
     .page-content {
       flex: 1;
+      margin: 0 auto;
+      max-width: 1200px;
+      width: 100%;
     }
+
   </style>
 </head>
 
@@ -71,16 +75,16 @@
     </byu-menu>
     <byu-search slot="search"></byu-search>
   </byu-header>
+  
+  <div class="page-content">
   <h1>Search Demo</h1>
-
-  <section style="margin: 20px" class="page-content">
 
     <p>Because each CMS has very different markup for its search box and because web components only allow styling one level
       deep in the shadow DOM, you may need to add some custom CSS to get it looking right. Specifically, you'll need to hide
       any extra search buttons, then style the input tag, then use javascript so the search component submits your search
       form. We've provided examples in Drupal 7 and 8 and Wordpress, though the same principles will apply to every CMS.</p>
 
-    <h1>Basic Search with HTML Input</h1>
+    <h2>Basic Search with HTML Input</h2>
 
     <script>
       function demoSearch(value) {
@@ -106,7 +110,7 @@
       }
     &lt;/script&gt;</code></pre>
 
-    <h1>Drupal 7 Form (Simple)</h1>
+    <h2>Drupal 7 Form (Simple)</h2>
 
     <script>
       function d7Search(value) {
@@ -169,7 +173,7 @@
     &lt;/script&gt;</code></pre>
 
 
-    <h1>Drupal 7 Form (Complex)</h1>
+    <h2>Drupal 7 Form (Complex)</h2>
     <p>Depending on which modules are in use, or if you have multiple search blocks (i.e. one on a Search page, and one in the
       header), the id of your search submit input may change. In this example, the id is "edit-submit--2". Inspect your block
       to find out what your id is.</p>
@@ -248,7 +252,7 @@
       }
     &lt;/script&gt;</code></pre>
 
-    <h1>Drupal 8 Form</h1>
+    <h2>Drupal 8 Form</h2>
 
     <script>
       function d8Search(value) {
@@ -317,7 +321,7 @@
       }
     &lt;/script&gt;</code></pre>
 
-    <h1>Wordpress Form</h1>
+    <h2>Wordpress Form</h2>
 
     <script>
       function wpSearch(value) {
@@ -370,7 +374,7 @@
       }
     &lt;/script&gt;</code></pre>
 
-  </section>
+  </div>
   <footer>
     <byu-footer></byu-footer>
   </footer>

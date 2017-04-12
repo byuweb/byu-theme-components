@@ -25,9 +25,12 @@
             height: 100%;
         }
 
-        /*wrap the page in this for an easy sticky footer*/
+        /* wrap the page in this for an easy sticky footer and max-width */
         .page-content {
             flex: 1;
+            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
         }
 
     </style>
@@ -71,14 +74,15 @@
         <!--<a href="#" slot="actions">Action 1</a>
         <a href="#" slot="actions">Action 2</a>-->
     </byu-header>
-    <div style="margin: 10px" class="page-content">
+    <div class="page-content">
         <h1>Welcome to the new templates!</h1>
         <h2>Getting Started</h2>
         <p>
             Add the following to your <code class="language-html">&lt;head&gt;</code>:
         </p>
         <pre><code class="language-html">
-            &lt;link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.css"&gt;
+            &lt;link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" /&gt;
+            &lt;link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.css" /&gt;
             &lt;script async src="https://cdn.byu.edu/byu-theme-components/latest/byu-theme-components.min.js"&gt;&lt;/script&gt;
         </code></pre>
 
@@ -94,6 +98,72 @@
 
         <pre><code class="language-html">&lt;byu-footer&gt;&lt;/byu-footer&gt;</code></pre>
 
+        <h2>Max Page Width</h2>
+        <p>Since the header and footer have a default max width of 1200px, your page content will need some additional styling to match their width. Specifically, you'll want to wrap your page content in a div with the following CSS:</p>
+
+        <pre><code class="language-html">
+            &lt;style&gt;
+                .page-content {
+                    margin: 0 auto;
+                    max-width: 1200px;
+                    width: 100%;    
+                }
+            &lt;/style&gt;
+            
+            &lt;html&gt;
+                &lt;body&gt;   
+                    &lt;byu-header&gt;
+                        &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
+                    &lt;/byu-header&gt;
+                    
+                    &lt;div class="page-content"&gt;
+                        &lt;!-- Put your site content here --&gt;
+                    &lt;/div&gt;
+
+                    &lt;byu-footer&gt;&lt;/byu-footer&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+
+        </code></pre>        
+
+        <h2>Sticky Footer</h2>
+        <p>We strongly recommend adding some code to make the footer "stick" to the bottom of the window even when there is little or no page content. There are several ways to accomplish this, but here's a simple one using flexbox:</p>
+
+        <pre><code class="language-html">
+            &lt;style&gt;
+                html {
+                    height: 100%;
+                }
+                
+                body {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                }
+
+                .page-content {
+                    flex: 1;
+                }
+            &lt;/style&gt;
+            
+            &lt;html&gt;
+                &lt;body&gt;        
+                    &lt;byu-header&gt;
+                        &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
+                    &lt;/byu-header&gt;
+            
+                    &lt;div class="page-content"&gt;
+                        &lt;!-- Put your site content here --&gt;
+                    &lt;/div&gt;
+
+                    &lt;byu-footer&gt;&lt;/byu-footer&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+
+        </code></pre>        
+
+
+
         <p>
             Feel free to check back here for updates. While the code needed to use the core components is not expected to change, the look and feel of
             each component may change over time, and new features may be added.
@@ -103,7 +173,7 @@
             (<a href="https://github.com/byuweb/2017-components">https://github.com/byuweb/2017-components</a>).
         </p>
         <p>
-            You can also get instructions on creating your own BYU Web Components here: <a href="#">TODO: Actually link this to instructions</a>.
+            You can also get instructions on creating your own BYU Web Components here: <a href="#">*More Documentation Coming Soon*</a>.
         </p>
     </div>
     <footer>
