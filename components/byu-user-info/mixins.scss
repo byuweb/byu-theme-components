@@ -61,10 +61,6 @@
   background-color: #fff !important;
 }
 
-@mixin userImage() {
-  margin: 0;
-}
-
 @mixin userInfoMobileNotDisplay() {
   display: none;
 }
