@@ -17,10 +17,6 @@ class BYUFooter extends HTMLElement {
             var currentYear = component.shadowRoot.querySelector("#currentYear");
             currentYear.innerHTML = new Date().getFullYear();
         });
-
-        if (component.children.length < 4) {
-            //this.setAttribute('left-align', '');
-        }
     }
 }
 

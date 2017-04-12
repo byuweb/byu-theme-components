@@ -31,6 +31,7 @@ class BYUHeader extends HTMLElement {
                 this._notifyChildrenOfMobileState();
                 this._addButtonListeners();
                 this._checkIfMenuIsNeeded();
+                this._checkIfFullWidth();
             });
         }
     }
@@ -51,9 +52,19 @@ class BYUHeader extends HTMLElement {
         if (menuSlot.assignedNodes().length < 4) {
             this.setAttribute('left-align', '');
         }
+    }
 
-        // TODO: Give developers option for header to be 100% width
-        // instead of max-width: 1200px
+    _checkIfFullWidth() {
+        var menuSlot = this.shadowRoot.querySelector('#navbarMenu');
+        if (menuSlot.assignedNodes().length > 0)
+        {
+            var menu = menuSlot.assignedNodes()[0];
+            if (this.hasAttribute('full-width')) {
+                menu.setAttribute('full-width', '');
+            } else {
+                menu.removeAttribute('full-width');
+            }
+        }
     }
 
     _addButtonListeners() {
