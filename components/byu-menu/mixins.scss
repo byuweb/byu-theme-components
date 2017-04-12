@@ -30,6 +30,10 @@
   flex: 1;
 }
 
+@mixin outerNavFullWidth() {
+  max-width: 100%;
+}
+
 @mixin navItemSlotted() {
   @include navItem();
   flex: 1;
@@ -47,7 +51,7 @@
   position: relative;
   height: 35px;
   width: 16.66%;
-  max-width: 200px;
+  //max-width: 200px;
 }
 
 @mixin moreMenuVisible {
@@ -76,7 +80,7 @@
   @include navItem();
   position: relative;
   flex: 1;
-  max-width: 200px;
+  //max-width: 200px;
   display: block;
 }
 

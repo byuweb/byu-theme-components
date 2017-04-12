@@ -30,6 +30,15 @@
   @include secondaryFooterContent();
 }
 
+:host([full-width]) {
+  .inner-wrapper{
+    @include footerInnerWrapperFullWidth();
+  }
+  .secondary-footer-content {
+    @include secondaryFooterContentFullWidth();
+  }
+}
+
 @media (max-width: 767px) {
   .secondary-footer ::slotted(*) {
     @include secondaryFooterMobile();

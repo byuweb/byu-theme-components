@@ -29,6 +29,10 @@
   margin-top: -10px;
 }
 
+@mixin footerInnerWrapperFullWidth() {
+  max-width: 100%;
+}
+
 @mixin universityLogo() {
   width: 450px;
   max-width: 100vw;
@@ -49,6 +53,10 @@
 @mixin secondaryFooterContent() {
   width: 1200px;
   margin: 0 15px;
+}
+
+@mixin secondaryFooterContentFullWidth() {
+  width: 100%;
 }
 
 @mixin secondaryFooterSlotted() {

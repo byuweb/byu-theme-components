@@ -162,3 +162,9 @@
     }
   }
 }
+
+:host([full-width]) {
+  .byu-header-content {
+    @include headerContentFullWidth();
+  }
+}
