@@ -61,10 +61,6 @@
   background-color: #fff !important;
 }
 
-@mixin userImage() {
-  margin: 0;
-}
-
 @mixin userInfoMobileNotDisplay() {
   display: none;
 }
@@ -81,8 +77,8 @@
 
 @mixin hasUserImage() {
   order: 1;
-  //margin: 7px;
-  padding: 0 14px !important;
+  margin: 0 !important;
+  padding: 0 14px 0 0 !important;
 }
 
 @mixin hasUserLogout() {
