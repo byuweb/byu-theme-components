@@ -203,53 +203,34 @@
                 </div>
             </template>
         </demo-snippet>
-        
-        <h1>Header only with full-width attribute</h1>
-        <demo-snippet>
-            <template>
-                <byu-header full-width>
-                    <span slot="site-title">Components Demo Site</span>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
-        <h1>Header with search, sign-in, nav, and full-width attribute</h1>
-        <demo-snippet>
-            <template>
-                <byu-header full-width>
-                    <span slot="site-title">Components Demo Site</span>
-                    <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
-                    <byu-user-info slot="user">
-                        <a slot="login" href="#login">Sign In</a>
-                        <a slot="logout" href="#logout">Sign Out</a>
-                    </byu-user-info>
-                    <byu-menu slot="nav" collapsed>
-                        <a href="javascript: void 0">Link 1</a>
-                        <a href="javascript: void 0">Link 2</a>
-                        <a href="javascript: void 0">Link 3</a>
-                        <a href="javascript: void 0">Link 4</a>
-                        <a href="javascript: void 0">Link 5</a>
-                        <a href="javascript: void 0">Link 6</a>
-                        <a href="javascript: void 0">Link 7</a>
-                        <a href="javascript: void 0">Link 8</a>
-                        <a href="javascript: void 0">Link 9</a>
-                        <a href="javascript: void 0">Link 10</a>
-                    </byu-menu>
-                </byu-header>
-            </template>
-        </demo-snippet>
 
         <h2>Full Width</h2>
         <p>By default the header and footer have a width of 1200px. To get around this just add a "full-width" attribute to
             the header:</p>
     </div>
+
+    <h2>Header only with full-width attribute</h2>
     <demo-snippet>
         <template>
             <byu-header full-width>
                 <span slot="site-title">Components Demo Site</span>
+            </byu-header>
+        </template>
+    </demo-snippet>
+
+    <h2>Header with search, sign-in, nav, and full-width attribute</h2>
+    <demo-snippet>
+        <template>
+            <byu-header full-width>
+                <span slot="site-title">Components Demo Site</span>
+                <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
+                <byu-user-info slot="user">
+                    <a slot="login" href="#login">Sign In</a>
+                    <a slot="logout" href="#logout">Sign Out</a>
+                </byu-user-info>
                 <byu-menu slot="nav" collapsed>
                     <a href="javascript: void 0">Link 1</a>
-                    <a class="selected" href="javascript: void 0">Link 2</a>
+                    <a href="javascript: void 0">Link 2</a>
                     <a href="javascript: void 0">Link 3</a>
                     <a href="javascript: void 0">Link 4</a>
                     <a href="javascript: void 0">Link 5</a>
@@ -260,7 +241,6 @@
                     <a href="javascript: void 0">Link 10</a>
                 </byu-menu>
             </byu-header>
-
         </template>
     </demo-snippet>
 
