@@ -110,9 +110,19 @@
                 }
             &lt;/style&gt;
             
-            &lt;div class="page-content"&gt;
-                &lt;!-- Put your site content here --&gt;
-            &lt;/div&gt;
+            &lt;html&gt;
+                &lt;body&gt;   
+                    &lt;byu-header&gt;
+                        &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
+                    &lt;/byu-header&gt;
+                    
+                    &lt;div class="page-content"&gt;
+                        &lt;!-- Put your site content here --&gt;
+                    &lt;/div&gt;
+
+                    &lt;byu-footer&gt;&lt;/byu-footer&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
 
         </code></pre>        
 
@@ -138,9 +148,15 @@
             
             &lt;html&gt;
                 &lt;body&gt;        
+                    &lt;byu-header&gt;
+                        &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
+                    &lt;/byu-header&gt;
+            
                     &lt;div class="page-content"&gt;
                         &lt;!-- Put your site content here --&gt;
                     &lt;/div&gt;
+
+                    &lt;byu-footer&gt;&lt;/byu-footer&gt;
                 &lt;/body&gt;
             &lt;/html&gt;
 
