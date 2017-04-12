@@ -38,11 +38,15 @@
             flex-direction: column;
             height: 100%;
         }
-        /*wrap the page in this for an easy sticky footer*/
         
+        /* wrap the page in this for an easy sticky footer and max-width */
         .page-content {
             flex: 1;
+            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%; 
         }
+
     </style>
 </head>
 
@@ -60,10 +64,10 @@
         <byu-search slot="search"></byu-search>
     </byu-header>
 
-    <h1>Menu Demo</h1>
-    <section style="margin: 20px" class="page-content">
+    <div class="page-content">
+        <h1>Menu Demo</h1>
 
-        <h1>Three Links</h1>
+        <h2>Three Links</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -77,7 +81,7 @@
             </template>
         </demo-snippet>
 
-        <h1>Four Links</h1>
+        <h2>Four Links</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -92,7 +96,7 @@
             </template>
         </demo-snippet>
 
-        <h1>Five links</h1>
+        <h2>Five links</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -108,7 +112,7 @@
             </template>
         </demo-snippet>
 
-        <h1>Six Links</h1>
+        <h2>Six Links</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -127,7 +131,7 @@
 
 
 
-        <h1>More than Six Links</h1>
+        <h2>More than Six Links</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -152,7 +156,7 @@
                 <p>Content Area</p>
             </template>
         </demo-snippet>
-    </section>
+    </div>
     <footer>
         <byu-footer></byu-footer>
     </footer>

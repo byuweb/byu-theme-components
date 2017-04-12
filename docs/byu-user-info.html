@@ -38,10 +38,13 @@
             flex-direction: column;
             height: 100%;
         }
-        /*wrap the page in this for an easy sticky footer*/
+        /* wrap the page in this for an easy sticky footer and max-width */
         
         .page-content {
             flex: 1;
+            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
         }
     </style>
 </head>
@@ -60,11 +63,11 @@
         <byu-search slot="search"></byu-search>
     </byu-header>
 
-    <h1>User Info Demo</h1>
 
-    <section style="margin: 20px" class="page-content">
+    <div class="page-content">
+        <h1>User Info Demo</h1>
 
-        <h1>Simple Setup</h1>
+        <h2>Simple Setup</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -77,7 +80,7 @@
             </template>
         </demo-snippet>
 
-        <h1>Logged In User</h1>
+        <h2>Logged In User</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -91,7 +94,7 @@
             </template>
         </demo-snippet>
 
-        <h1>As Part of Header with Search</h1>
+        <h2>As Part of Header with Search</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -113,7 +116,7 @@
             </template>
         </demo-snippet>
 
-        <h1>As Part of Header with Search (Logged In)</h1>
+        <h2>As Part of Header with Search (Logged In)</h2>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -136,7 +139,7 @@
             </template>
         </demo-snippet>
 
-        <h1>Overriding CMS Styles</h1>
+        <h2>Overriding CMS Styles</h2>
 
         <p>
             Many Content Management Systems will add extra divs and spans around your login/logout links. Unfortunately, Web Components
@@ -173,7 +176,7 @@
             </template>
         </demo-snippet>
 
-    </section>
+    </div>
 
 
     <footer>

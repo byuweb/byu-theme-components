@@ -39,11 +39,15 @@
             flex-direction: column;
             height: 100%;
         }
-        /*wrap the page in this for an easy sticky footer*/
         
+        /* wrap the page in this for an easy sticky footer and max-width */
         .page-content {
             flex: 1;
+            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%;
         }
+
     </style>
 
 </head>
@@ -60,16 +64,16 @@
             <a class="selected" href="byu-footer.html">Footer</a>
         </byu-menu>
     </byu-header>
-    <h1>Footer Demo</h1>
 
-    <section style="margin: 20px" class="page-content">
-        <h1>Blue Bar Only</h1>
+    <div class="page-content"> 
+        <h1>Footer Demo</h1>
+        <h2>Blue Bar Only</h2>
         <demo-snippet>
             <template>
                 <byu-footer></byu-footer>
             </template>
         </demo-snippet>
-        <h1>Full Footer with Links</h1>
+        <h2>Full Footer with Links</h2>
         <demo-snippet>
             <template>
                 <byu-footer>
@@ -129,7 +133,7 @@
                 </byu-footer>
             </template>
         </demo-snippet>
-    </section>
+    </div>
 
     <footer>
         <byu-footer></byu-footer>
