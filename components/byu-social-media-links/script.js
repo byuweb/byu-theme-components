@@ -11,8 +11,8 @@ class BYUSocialMediaLinks extends HTMLElement {
 
     connectedCallback() {
         util.applyTemplate(this, 'byu-social-media-links', template, () => {
-            var idArr = ['facebook', 'instagram', 'twitter', 'googleplus', 'linkedin', 'youtube'];
-            var classArr = ['fa-facebook', 'fa-instagram', 'fa-twitter', 'fa-google-plus', 'fa-linkedin', 'fa-youtube-play'];
+            var idArr = ['facebook', 'twitter', 'instagram', 'youtube', 'pinterest', 'google-plus', 'linkedin', 'rss', 'snapchat'];
+            var classArr = ['fa-facebook-official', 'fa-twitter', 'fa-instagram', 'fa-youtube-play', 'fa-pinterest', 'fa-google-plus-official', 'fa-linkedin', 'fa-rss-square', 'fa-snapchat'];
 
             for (var i = 0; i < idArr.length; i++) {
                 const slotId = this.shadowRoot.querySelector("#" + idArr[i]);
