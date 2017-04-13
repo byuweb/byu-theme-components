@@ -107,6 +107,10 @@
       @include mobileActionsLinks();
     }
 
+    #actions p {
+      @include mobileActionsLinksP();
+    }
+
     & > div > :not(.byu-logo) {
       @include headerInnerMarginMobile();
     }

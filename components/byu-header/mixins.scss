@@ -205,6 +205,10 @@
   font-weight: $menuFontWeight;
 }
 
+@mixin mobileActionsLinksP() {
+  margin: 0 !important;
+}
+
 @mixin headerInnerMarginMobile() {
   margin-right: 0;
 }
