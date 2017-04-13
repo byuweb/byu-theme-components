@@ -24,6 +24,9 @@
 .slot-container ::slotted(*.selected) {
   @include navItemSelected();
 }
+.slot-container ::slotted(*.active) {
+  @include navItemSelected();
+}
 .slot-container ::slotted(*.long-link) {
   @include navItemLongLink();
 }

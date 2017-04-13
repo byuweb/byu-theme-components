@@ -371,6 +371,8 @@ byu-menu:not(.byu-component-rendered) > * {
     background: #c5c5c5 !important; }
   byu-menu:not(.byu-component-rendered) > *.selected {
     background: #e5e5e5 !important; }
+  byu-menu:not(.byu-component-rendered) > *.active {
+    background: #e5e5e5 !important; }
   byu-menu:not(.byu-component-rendered) > *.long-link {
     max-width: 300px;
     flex: 2;
@@ -402,6 +404,8 @@ byu-menu:not(.byu-component-rendered) > * {
   byu-menu:not(.byu-component-rendered) > *:hover {
     background: #c5c5c5 !important; }
   byu-menu:not(.byu-component-rendered) > *.selected {
+    background: #e5e5e5 !important; }
+  byu-menu:not(.byu-component-rendered) > *.active {
     background: #e5e5e5 !important; }
   byu-menu:not(.byu-component-rendered) > *.long-link {
     max-width: 300px;
