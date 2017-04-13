@@ -103,9 +103,8 @@
       }
     }
 
-      #actions a {
-        @include mobileActionsLinks();
-      }
+    #actions a {
+      @include mobileActionsLinks();
     }
 
     .byu-header-actions ::slotted(*) {
