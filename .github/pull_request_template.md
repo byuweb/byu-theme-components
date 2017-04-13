@@ -1,30 +1,18 @@
-# One-Line Summary
 
+# Summary of Changes
 
+**Fixes Issue #(Add issue number here)**
 
-# Websites Affected
+*What did you change? If this is a bug fix, how did you fix it?*
 
-*If this is a bug or styling issue, please list one or more URLs where
-we can see the issue.*
+**If this fixes styling, please include before and after screenshots!**
 
-# Issue Type
+# Browser Testing
 
-*Is this (add an x in the boxes that apply)*
-
-- [ ] A difference between the components and the [Official Specification](https://brand.byu.edu)?
-- [ ] A bug, such as a Javascript error, or the UI not rendering properly
-    on a page?
-- [ ] Inconsistent appearance/behavior between browsers?
-- [ ] An issue on mobile browsers?
-- [ ] A request for a new feature/enhancement?
-
-# Browsers Affected
+**I have tested these changes in:**
 
 *Add an x in all the boxes that apply. Please mark desktop and mobile
 browsers separately.*
-
-**We support the last two versions of Chrome, Firefox, Safari, and Edge,
-plus Internet Explorer 11.**
 
 ## Desktop Browsers
 
@@ -42,20 +30,8 @@ plus Internet Explorer 11.**
 - [ ] Firefox Mobile for Android
 - [ ] Other (please specify)
 
-# Web Site Platform
+**We support the last two versions of Chrome, Firefox, Safari, and Edge,
+plus Internet Explorer 11.**
 
-*What is hosting your website?*
-
-- [ ] Drupal 7
-- [ ] Drupal 8
-- [ ] Wordpress
-- [ ] Custom Site
-- [ ] Don't Know
-
-# Detailed Description
-
-*Tell us all about your problem or feature proposal.*
-
-**If the issue is with styling, please include screenshots!**
 
 
