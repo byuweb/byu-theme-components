@@ -99,6 +99,10 @@
       @include actionsMobile();
     }
 
+    a:not(#site-name) {
+      @include mobileActionsLinks();
+    }
+
     .byu-header-actions ::slotted(*) {
       @include actionsMobileSlotted();
     }

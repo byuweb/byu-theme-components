@@ -192,6 +192,10 @@
   width: 100%;
 }
 
+@mixin mobileActionsLinks() {
+  color: $navy !important;
+}
+
 @mixin actionsMobileSlotted() {
   color: $navy !important;
   padding: 18px 50px !important;
