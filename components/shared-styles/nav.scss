@@ -49,6 +49,10 @@
   &.selected {
     @include navItemSelected();
   }
+  &.active {
+    @include navItemSelected();
+  }
+  
 
   &.long-link {
     @include navItemLongLink();
