@@ -86,7 +86,7 @@
 }
 
 @mixin mobileSlotted() {
-  color: #0057b8 !important;
+  color: $navy !important;
 }
 
 @mixin notHasUserMobile() {
