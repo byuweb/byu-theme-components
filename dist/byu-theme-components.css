@@ -323,7 +323,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 /* ------ footer settings ------------- */
 /* MOBILE */
 byu-menu:not(.byu-component-rendered) {
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: auto;
   background: #fff;
@@ -336,6 +337,8 @@ byu-menu:not(.byu-component-rendered) {
   padding: 0;
   height: 35px;
   position: relative;
+  max-width: 1200px;
+  flex: 1;
   color: #002E5D !important;
   height: 35px;
   justify-content: flex-start;
@@ -363,8 +366,7 @@ byu-menu:not(.byu-component-rendered) > * {
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  flex: 1;
-  max-width: 200px; }
+  flex: 1; }
   byu-menu:not(.byu-component-rendered) > *:hover {
     background: #c5c5c5 !important; }
   byu-menu:not(.byu-component-rendered) > *.selected {
