@@ -26,33 +26,24 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       flushQueue(beforeRenderQueue);
       // after the render
       setTimeout(function() {
-        runQueue(afterRenderQueue);
+        flushQueue(afterRenderQueue);
       });
     });
   }
 
   function flushQueue(queue) {
     while (queue.length) {
-      callMethod(queue.shift());
-    }
-  }
-
-  function runQueue(queue) {
-    for (let i=0, l=queue.length; i < l; i++) {
-      callMethod(queue.shift());
-    }
-  }
-
-  function callMethod(info) {
-    const context = info[0];
-    const callback = info[1];
-    const args = info[2];
-    try {
-      callback.apply(context, args);
-    } catch(e) {
-      setTimeout(() => {
-        throw e;
-      })
+      const q = queue.shift();
+      const context = q[0];
+      const callback = q[1];
+      const args = q[2];
+      try {
+        callback.apply(context, args);
+      } catch(e) {
+        setTimeout(() => {
+          throw e;
+        })
+      }
     }
   }
 
@@ -61,7 +52,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       flushQueue(beforeRenderQueue);
       flushQueue(afterRenderQueue);
     }
-    scheduled = false;
   }
 
   /**
