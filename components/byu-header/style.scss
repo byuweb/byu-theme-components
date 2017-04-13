@@ -96,29 +96,16 @@
     }
 
     .byu-header-actions {
-      @include actionsWrapperMobile();
+      @include actionsMobile();
 
       ::slotted(*) {
-        @include actionsMobile();
+        @include actionsMobileSlotted();
       }
     }
 
     #header-actions a {
       @include mobileActionsLinks();
     }
-
-  //  CHECK THIS
-  //  .byu-header-actions {
-  //    @include actionsMobile();
-  //  }
-  //
-  //  a:not(#site-name) {
-  //    @include mobileActionsLinks();
-  //  }
-  //
-  //  .byu-header-actions ::slotted(*) {
-  //    @include actionsMobileSlotted();
-  //  }
 
     & > div > :not(.byu-logo) {
       @include headerInnerMarginMobile();
