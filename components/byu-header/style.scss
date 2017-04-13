@@ -97,10 +97,15 @@
 
     .byu-header-actions {
       @include actionsMobile();
+
+      ::slotted(*) {
+        @include actionsMobileSlotted();
+      }
     }
 
-    #header-actions a {
-      @include mobileActionsLinks();
+      #actions a {
+        @include mobileActionsLinks();
+      }
     }
 
     .byu-header-actions ::slotted(*) {
