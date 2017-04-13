@@ -239,6 +239,7 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
 /* GENERAL STYLING */
 /* MOBILE */
 /* FULL SIZE */
+/* FULL WIDTH (NOT DEFAULT WIDTH OF 1200px) */
 byu-header:not(.byu-component-rendered) {
   background-color: #002E5D;
   color: #ffffff;
@@ -430,6 +431,7 @@ byu-search:not(.byu-component-rendered):after {
   width: 30px;
   height: 30px;
   display: flex;
+  box-sizing: border-box;
   height: 27px;
   width: 35px;
   float: right; }
@@ -439,20 +441,13 @@ byu-social-media-links:not(.byu-component-rendered) > a {
   text-decoration: none !important; }
 
 byu-social-media-links:not(.byu-component-rendered) > .fa {
-  text-decoration: none !important;
-  color: #002E5D !important;
-  font-size: 25px !important;
-  line-height: 40px !important;
-  border: 1px solid #fff !important;
-  width: 40px !important;
-  height: 40px !important;
+  font-size: 32px !important;
+  line-height: 28px !important;
+  width: 28px !important;
+  height: 28px !important;
   text-align: center !important;
-  border-radius: 20px !important;
-  margin: 0 5px 5px 0 !important;
+  margin: 10px 15px 10px 0 !important;
   cursor: pointer; }
-
-byu-social-media-links:not(.byu-component-rendered) > .fa:hover {
-  background-color: #fff !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
