@@ -99,7 +99,7 @@
       @include actionsMobile();
     }
 
-    a:not(#site-name) {
+    #header-actions a {
       @include mobileActionsLinks();
     }
 
