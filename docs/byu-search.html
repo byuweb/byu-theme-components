@@ -40,11 +40,11 @@
       /*margin-top: 0px;*/
       /*margin-bottom: 0px;*/
     }
-    
+
     html {
       height: 100%;
     }
-    
+
     body {
       display: flex;
       flex-direction: column;
@@ -75,7 +75,7 @@
     </byu-menu>
     <byu-search slot="search"></byu-search>
   </byu-header>
-  
+
   <div class="page-content">
   <h1>Search Demo</h1>
 
@@ -131,18 +131,18 @@
             padding: 5px 10px;
             border: none;
             height: 30px;
-            margin-top: 0px;
-            margin-bottom: 0px;
+            margin: 0;
+            -webkit-appearance: none;
+            border-radius: 0;
+            box-sizing: border-box;
           }
           
-          byu-header .mobile-view #basic-search #search {
+          byu-search.mobile-view #basic-search #search {
             padding: 5px 10px 5px 16px;
             width: 100%;
             height: 35px;
             border: none;
             border-bottom: 1px solid #c5c5c5;
-            margin-top: 0px;
-            margin-bottom: 0px;
           }
         </style>
 
@@ -197,23 +197,22 @@
             display: none;
           }
           
-          byu-search .form-item .custom-search-box {
+          byu-search .custom-search-box {
             padding: 5px 10px;
             border: none;
-            box-sizing: border-box;
+
+            -webkit-appearance: none;
+            border-radius: 0;
             height: 30px;
-            margin-top: 0px;
-            margin-bottom: 0px;
+            box-sizing: border-box;
+            margin: 0;
           }
           
-          byu-search.mobile-view .form-item .custom-search-box {
+          byu-search.mobile-view .custom-search-box {
             padding: 5px 10px 5px 16px;
             width: 100%;
             height: 35px;
-            border: none;
             border-bottom: 1px solid #c5c5c5;
-            margin-top: 0px;
-            margin-bottom: 0px;
           }
         </style>
 
@@ -273,23 +272,22 @@
             display: none;
           }
           
-          byu-search .form-item .form-search {
+          byu-search .form-search {
             padding: 5px 10px;
             border: none;
-            box-sizing: border-box;
+
+            -webkit-appearance: none;
+            border-radius: 0;
             height: 30px;
-            margin-top: 0px;
-            margin-bottom: 0px;
+            box-sizing: border-box;
+            margin: 0;
           }
           
-          byu-search.mobile-view .form-item .form-search {
+          byu-search.mobile-view .form-search {
             padding: 5px 10px 5px 16px;
             width: 100%;
             height: 35px;
-            border: none;
             border-bottom: 1px solid #c5c5c5;
-            margin-top: 0px;
-            margin-bottom: 0px;
           }
         </style>
 
@@ -333,22 +331,25 @@
       <template>
 
         <style type="text/css">
-          .byu-ribbon__search__submit {
+          byu-search .byu-ribbon__search__submit {
             display: none;
           }
           
-          .byu-ribbon__search .byu-ribbon__search__text-box {
+          byu-search .byu-ribbon__search .byu-ribbon__search__text-box {
             padding: 5px 10px;
             height: 30px;
             border: none;
+            margin: 0;
+
+            -webkit-appearance: none;
+            border-radius: 0;
             box-sizing: border-box;
           }
           
-          .mobile-view .byu-ribbon__search .byu-ribbon__search__text-box {
+          byu-search.mobile-view .byu-ribbon__search .byu-ribbon__search__text-box {
             padding: 5px 10px 5px 16px;
             width: 100%;
             height: 35px;
-            border: none;
             border-bottom: 1px solid #c5c5c5;
           }
         </style>

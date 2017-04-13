@@ -57,6 +57,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       constructor() {
         super();
+        this.root = this;
         this.created();
       }
 
@@ -105,12 +106,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
       /**
        * Overrides the default `Polymer.PropertyEffects` implementation to
-       * add support for one-time `registration` callback.
+       * add support for class initialization via the `_registered` callback.
+       * This is called only when the first instance of the element is created.
        *
        * @override
        */
       _initializeProperties() {
-        this._registered();
+        let proto = Object.getPrototypeOf(this);
+        if (!proto.hasOwnProperty('__hasRegisterFinished')) {
+          proto.__hasRegisterFinished = true;
+          this._registered();
+        }
         super._initializeProperties();
       }
 
@@ -286,8 +292,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *   template content.
       */
       instanceTemplate(template) {
+        let content = this.constructor._contentForTemplate(template);
         let dom = /** @type {DocumentFragment} */
-          (document.importNode(template._content || template.content, true));
+          (document.importNode(content, true));
         return dom;
       }
 

@@ -14,6 +14,10 @@
     cursor: pointer;
 }
 
+@mixin socialMediaFaHover() {
+
+}
+
 @mixin facebook() {
     color: #3b5998 !important;
 }

@@ -150,6 +150,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // the bounding box of the target of the event
       // Thanks IE 10 >:(
       let t = Gestures._findOriginalTarget(ev);
+      // make sure the target of the event is an element so we can use getBoundingClientRect,
+      // if not, just assume it is a synthetic click
+      if (t.nodeType !== Node.ELEMENT_NODE) {
+        return true;
+      }
       let bcr = t.getBoundingClientRect();
       // use page x/y to account for scrolling
       let x = ev.pageX, y = ev.pageY;
@@ -239,7 +244,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       // if there is not a shadowroot, exit the loop
       while (next && next.shadowRoot && !window.ShadyDOM) {
         // if there is a node at x/y in the shadowroot, look deeper
+        let oldNext = next;
         next = next.shadowRoot.elementFromPoint(x, y);
+        // on Safari, elementFromPoint may return the shadowRoot host
+        if (oldNext === next) {
+          break;
+        }
         if (next) {
           node = next;
         }
