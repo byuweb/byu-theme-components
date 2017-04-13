@@ -186,11 +186,6 @@
   align-self: flex-start;
 }
 
-@mixin actionsWrapperMobile() {
-  display: block;
-  height: auto;
-}
-
 @mixin actionsMobile() {
   @include dropdownNavItem();
   padding: 12px 0 !important;
@@ -214,14 +209,14 @@
   width: 100%;
 }
 
-@mixin mobileActionsLinks() {
-  color: $navy;
-  font-weight: $menuFontWeight;
-}
-
 @mixin actionsMobileSlotted() {
   color: $navy !important;
   padding: 18px 50px !important;
+}
+
+@mixin mobileActionsLinks() {
+  color: $navy;
+  font-weight: $menuFontWeight;
 }
 
 @mixin headerInnerMarginMobile() {
