@@ -94,6 +94,7 @@
       @include mobileHeaderPrimary();
       @include mobileHeaderAlign();
     }
+
     .byu-header-actions {
       @include actionsWrapperMobile();
 
@@ -102,10 +103,18 @@
       }
     }
 
-    //CHECK THIS
-    //.byu-header-actions ::slotted(*) {
-    //  @include actionsMobileSlotted();
-    //}
+  //  CHECK THIS
+  //  .byu-header-actions {
+  //    @include actionsMobile();
+  //  }
+  //
+  //  a:not(#site-name) {
+  //    @include mobileActionsLinks();
+  //  }
+  //
+  //  .byu-header-actions ::slotted(*) {
+  //    @include actionsMobileSlotted();
+  //  }
 
     & > div > :not(.byu-logo) {
       @include headerInnerMarginMobile();
