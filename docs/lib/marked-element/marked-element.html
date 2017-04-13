@@ -22,7 +22,7 @@ but to a shadow DOM child that cannot be styled.
 The Markdown source can be specified either via the `markdown` attribute:
 
     <marked-element markdown="`Markdown` is _awesome_!">
-      <div slot="markdown-html"></div>
+      <div class="markdown-html"></div>
     </marked-element>
 
 Or, you can provide it via a `<script type="text/markdown">` element child:
@@ -50,11 +50,11 @@ the script content will _not_ update the rendered markdown!
 If you are using a child with the `markdown-html` class, you can style it
 as you would a regular DOM element:
 
-    [slot="markdown-html"] p {
+    .markdown-html p {
       color: red;
     }
 
-    [slot="markdown-html"] td:first-child {
+    .markdown-html td:first-child {
       padding-left: 24px;
     }
 
@@ -70,6 +70,7 @@ as you would a regular DOM element:
         display: block;
       }
 
+      /* Thanks IE 10. */
       [hidden] {
         display: none !important;
       }
