@@ -101,10 +101,10 @@
       ::slotted(*) {
         @include actionsMobileSlotted();
       }
-    }
 
-    #header-actions a {
-      @include mobileActionsLinks();
+      #actions a {
+        @include mobileActionsLinks();
+      }
     }
 
     & > div > :not(.byu-logo) {
