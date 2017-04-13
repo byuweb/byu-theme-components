@@ -193,7 +193,7 @@
 
 @mixin actionsMobile() {
   @include dropdownNavItem();
-  padding: 0 !important;
+  padding: 12px 0 !important;
   background-color: $lightergray;
   color: $navy !important;
   border-top: 1px solid $gray;
@@ -201,7 +201,8 @@
 }
 
 @mixin mobileActionsLinks() {
-  color: $navy !important;
+  color: $navy;
+  font-weight: $menuFontWeight;
 }
 
 @mixin actionsMobileSlotted() {

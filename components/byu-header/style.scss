@@ -103,6 +103,10 @@
       }
     }
 
+    #header-actions a {
+      @include mobileActionsLinks();
+    }
+
   //  CHECK THIS
   //  .byu-header-actions {
   //    @include actionsMobile();
