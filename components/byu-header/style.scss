@@ -103,11 +103,19 @@
       }
     }
 
-    #actions a {
+    //#actions a {
+    //  @include mobileActionsLinks();
+    //}
+    //
+    //#actions p {
+    //  @include mobileActionsLinksP();
+    //}
+
+    [slot="actions"] a {
       @include mobileActionsLinks();
     }
 
-    #actions p {
+    [slot="actions"] p {
       @include mobileActionsLinksP();
     }
 
