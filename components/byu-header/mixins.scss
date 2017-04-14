@@ -215,8 +215,8 @@
 }
 
 @mixin mobileActionsLinks() {
-  color: $navy;
-  font-weight: $menuFontWeight;
+  color: $navy !important;
+  font-weight: $menuFontWeight !important;
 }
 
 @mixin mobileActionsLinksP() {
