@@ -158,6 +158,10 @@
       @include actionsNotMobile();
     }
 
+    .byu-header-actions a {
+      @include actionsNotMobileLinks();
+    }
+
     &.no-nav {
       @include headerNotMobileNoNav();
     }
