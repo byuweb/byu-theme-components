@@ -51,7 +51,6 @@
   position: relative;
   height: 35px;
   width: 16.66%;
-  //max-width: 200px;
 }
 
 @mixin moreMenuVisible() {
@@ -80,7 +79,6 @@
   @include navItem();
   position: relative;
   flex: 1;
-  //max-width: 200px;
   display: block;
 }
 
@@ -155,6 +153,7 @@
   width: 100%;
   position: static;
   box-sizing: border-box;
+  line-height: 12px !important;
 }
 
 @mixin mobileMenuMoreExpanded() {
