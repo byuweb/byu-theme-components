@@ -190,11 +190,6 @@
   align-self: flex-start;
 }
 
-@mixin actionsWrapperMobile() {
-  display: block;
-  height: auto;
-}
-
 @mixin actionsMobile() {
   @include dropdownNavItem();
   padding: 12px 0 14px 0 !important;
