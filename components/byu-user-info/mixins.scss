@@ -55,10 +55,10 @@
 /* MOBILE */
 @mixin userInfoMobile() {
   @include dropdownNavItem();
-  //padding-left: 0 !important;
   border-bottom: solid 1px $gray;
-  padding: 3px 14px !important;
+  padding: 10px 14px !important;
   background-color: #fff !important;
+  line-height: 12px !important;
 }
 
 @mixin userInfoMobileNotDisplay() {
@@ -77,6 +77,11 @@
 
 @mixin hasUserImage() {
   order: 1;
+  margin: 0 !important;
+  padding: 0 14px 0 0 !important;
+}
+
+@mixin noUserImage() {
   margin: 0 !important;
   padding: 0 14px 0 0 !important;
 }
