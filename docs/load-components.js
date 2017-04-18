@@ -27,7 +27,7 @@
 
 //Grab components JS and CSS. If running locally, grab it from /dist
 (function () {
-    var root = '//cdn.byu.edu/byu-theme-components/experimental/mobile-menu-adjustments';
+    var root = '//cdn.byu.edu/byu-theme-components/latest';
     var min = true;
 
     var isLocalhost = window.location.hostname === 'localhost';
