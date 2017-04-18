@@ -72,6 +72,12 @@ img {
     }
   }
 
+  .no-user {
+    img {
+      @include noUserImage();
+    }
+  }
+
   .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
   }

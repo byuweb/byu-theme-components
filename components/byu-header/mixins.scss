@@ -39,7 +39,7 @@
 }
 
 @mixin actionsNotMobileLinks() {
-  color: #fff;
+  color: #fff !important;
 }
 
 @mixin actionsWrapper() {
@@ -192,13 +192,17 @@
 
 @mixin actionsMobile() {
   @include dropdownNavItem();
-  padding: 12px 0 !important;
+  padding: 12px 0 14px 0 !important;
   background-color: $lightergray;
   padding: 12px 0 !important;
   background-color: $lightergray;
   color: $navy !important;
   border-top: 1px solid $gray;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 12px !important;
 }
 
 @mixin mobileActionsLinks() {
