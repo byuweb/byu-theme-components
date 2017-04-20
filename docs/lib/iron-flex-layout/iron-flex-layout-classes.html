@@ -35,8 +35,7 @@ The following imports are available:
 <dom-module id="iron-flex">
   <template>
     <style>
-      .layout.horizontal,
-      .layout.vertical {
+      .layout {
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
@@ -64,6 +63,12 @@ The following imports are available:
         -ms-flex-wrap: wrap;
         -webkit-flex-wrap: wrap;
         flex-wrap: wrap;
+      }
+
+      .layout.no-wrap {
+        -ms-flex-wrap: nowrap;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
       }
 
       .layout.center,
@@ -362,6 +367,10 @@ The following imports are available:
     <style>
       .block {
         display: block;
+      }
+
+      [hidden] {
+        display: none !important;
       }
 
       .invisible {
