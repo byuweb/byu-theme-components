@@ -3,7 +3,7 @@
 
 @mixin userInfoImages() {
   height: 20px;
-  width: 20px;
+  //width: 20px;
   margin: 5px;
 }
 
@@ -28,11 +28,11 @@
 }
 
 @mixin userInfoNotMobileSlotted() {
-    @include headerLink();
+  @include headerLink();
 }
 
 @mixin userInfoNotMobileDisplay() {
-    display: none;
+  display: none;
 }
 @mixin nonMobileUsername() {
   color: $xlightblue !important;
@@ -49,29 +49,41 @@
 }
 
 @mixin userInfoNotMobileImages() {
-    margin: 7px;
+  margin: 7px;
 }
 
 /* MOBILE */
 @mixin userInfoMobile() {
   @include dropdownNavItem();
-  padding-left: 0 !important;
-  border-bottom: solid 1px $gray; 
-  background-color: #fff;
+  border-bottom: solid 1px $gray;
+  padding: 10px 14px !important;
+  background-color: #fff !important;
+  line-height: 12px !important;
 }
 
 @mixin userInfoMobileNotDisplay() {
-    display: none;
+  display: none;
 }
 
 @mixin hasUserName() {
   order: 2;
-  flex: 1
+  flex: 1;
+}
+
+@mixin hasUserNameSlotted() {
+  text-transform: capitalize !important;
+  color: $brightBlue !important;
 }
 
 @mixin hasUserImage() {
   order: 1;
-  margin: 7px;
+  margin: 0 !important;
+  padding: 0 14px 0 0 !important;
+}
+
+@mixin noUserImage() {
+  margin: 0 !important;
+  padding: 0 14px 0 0 !important;
 }
 
 @mixin hasUserLogout() {
@@ -79,11 +91,11 @@
 }
 
 @mixin mobileSlotted() {
-  color: #0057b8 !important;
+  color: $navy !important;
 }
 
 @mixin notHasUserMobile() {
-    display: none;
+  display: none;
 }
 
 @mixin noUserMobile() {
