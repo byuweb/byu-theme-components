@@ -65,7 +65,7 @@ gulp.task('watch', ['build'], function (done) {
 });
 
 // copy the demo.html files to the docs folder, rename them as 'comonent-name.html'
-gulp.task('docs',['docs:copy-libs'], function()
+gulp.task('docs', function()
 {
     return gulp.src('./components/*/demo.html')
     .pipe(rename(function(path) {
