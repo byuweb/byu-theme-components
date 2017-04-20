@@ -8,8 +8,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<link rel="import" href="../utils/mixin.html">
-
 <script>
 (function() {
   'use strict';
@@ -70,13 +68,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @summary Element class mixin to skip strict dirty-checking for objects
    *   and arrays
    */
-  Polymer.MutableData = Polymer.dedupingMixin(superClass => {
+  Polymer.MutableData = (superClass) => {
 
-    /**
-     * @polymerMixinClass
-     * @implements {Polymer_MutableData}
-     */
-    class MutableData extends superClass {
+    return class MutableData extends superClass {
       /**
        * Overrides `Polymer.PropertyEffects` to provide option for skipping
        * strict equality checking for Objects and Arrays.
@@ -100,9 +94,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     }
 
-    return MutableData;
-
-  });
+  };
 
   /**
    * Element class mixin to add the optional ability to skip strict
@@ -141,13 +133,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @summary Element class mixin to optionally skip strict dirty-checking
    *   for objects and arrays
    */
-  Polymer.OptionalMutableData = Polymer.dedupingMixin(superClass => {
+  Polymer.OptionalMutableData = (superClass) => {
 
-    /**
-     * @polymerMixinClass
-     * @implements {Polymer_OptionalMutableData}
-     */
-    class OptionalMutableData extends superClass {
+    return class OptionalMutableData extends superClass {
 
       static get properties() {
         return {
@@ -183,9 +171,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     }
 
-    return OptionalMutableData;
-
-  });
+  };
 
   // Export for use by legacy behavior
   Polymer.MutableData._mutablePropertyChange = mutablePropertyChange;
