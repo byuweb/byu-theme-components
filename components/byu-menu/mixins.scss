@@ -46,49 +46,47 @@
   padding: 0 16px !important;
 }
 
-@mixin moreMenu {
+@mixin moreMenu() {
   display: none;
   position: relative;
   height: 35px;
   width: 16.66%;
-  //max-width: 200px;
 }
 
-@mixin moreMenuVisible {
+@mixin moreMenuVisible() {
   display: block;
-
-  &.byu-menu-more-expanded {
-    background: $menuActive;
-    box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
-
-    .byu-menu-more-items {
-      display: block;
-    }
-
-    .byu-menu-fixed-overlay {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1;
-    }
-  }
 }
 
-@mixin moreLink {
+@mixin menuMoreExpanded() {
+  background: $menuActive;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.75);
+}
+
+@mixin menuMoreItems() {
+  display: block;
+}
+
+@mixin menuFixedOverlay() {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+@mixin moreLink() {
   @include navItem();
   position: relative;
   flex: 1;
-  //max-width: 200px;
   display: block;
 }
 
-@mixin moreLinkSvg {
+@mixin moreLinkSvg() {
   fill: $navy;
 }
 
-@mixin moreItems {
+@mixin moreItems() {
   display: none;
   position: absolute;
   top: 35px;
@@ -99,75 +97,69 @@
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
 }
 
-@mixin moreItemsSlotted {
+@mixin moreItemsSlotted() {
   width: 100%;
   @include navItem();
   display: block;
   text-align: left !important;
 }
 
-@mixin mobileSlotted {
+/* MOBILE */
+
+@mixin mobileOuterNav() {
+  display: block;
+  height: auto;
+}
+
+@mixin mobileMenuMore() {
+  display: none !important;
+}
+
+@mixin mobileMenuSlotted() {
   display: block !important;
   text-align: left !important;
-  padding: 15px 30px !important;
+  padding: 18px 50px !important;
   height: auto !important;
   width: 100%;
   position: static;
   box-sizing: border-box;
+  line-height: 12px !important;
 }
 
-@mixin mobileMoreMenu {
+@mixin mobileMenuMoreMenuSlotted() {
+  padding: 0 !important;
+}
+
+@mixin mobileMenuMoreMenu() {
   display: block;
   width: 100%;
   box-shadow: none;
   position: static;
   height: auto;
-
-  .byu-menu-more-items {
-    display: block;
-    box-shadow: none;
-    padding: 0;
-
-    ::slotted(*) {
-      @include mobileSlotted();
-    }
-  }
-
-  &.byu-menu-more-expanded {
-    box-shadow: none;
-
-    .byu-menu-fixed-overlay {
-      display: none !important;
-    }
-  }
 }
 
-@mixin mobileHost {
+@mixin mobileMenuMoreItems() {
+  display: block;
+  box-shadow: none;
+  padding: 0;
+  position: static !important;
+}
 
-  .outer-nav {
-    display: block;
-    height: auto;
-  }
+@mixin mobileMenuMoreItemsSlotted() {
+  display: block !important;
+  text-align: left !important;
+  padding: 18px 50px !important;
+  height: auto !important;
+  width: 100%;
+  position: static;
+  box-sizing: border-box;
+  line-height: 12px !important;
+}
 
-  .byu-menu-more {
-    display: none !important;
-  }
+@mixin mobileMenuMoreExpanded() {
+  box-shadow: none;
+}
 
-  .slot-container ::slotted(*) {
-    @include mobileSlotted();
-    max-width: 100%;
-
-    &.byu-menu-more-menu {
-      padding: 0 !important;
-    }
-  }
-
-  .byu-menu-more-menu {
-    @include mobileMoreMenu();
-    max-width: 100%;
-  }
-
-  .byu-menu-more-items {
-    position: static !important;
-  }
+@mixin mobileMenuFixedOverlay() {
+  display: none !important;
 }
