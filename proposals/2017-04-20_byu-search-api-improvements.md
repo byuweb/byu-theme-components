@@ -95,6 +95,8 @@ This action will search for a form in the Light DOM, then invoke
 If `action-target` does not resolve to a form, an error will be raised
 when the search button is pressed.
 
+### Examples
+
 In the following example, when the search button is clicked, the `submit`
 method will be called on the second `form` element.
 
@@ -132,6 +134,17 @@ using `HTMLElement.click`.
 If `action-target` does not select an element, an error will be raised
 when the search button is pressed.
 
+### Caveats
+
+This should NOT be used when we want to trigger a user
+navigation, because the simulated click CANNOT trigger a browser navigation.
+This is a security rule imposed by the browsers. `action="click"` is
+intended for use when the consumer will put a click listener on the
+button and take some action there. Most other cases should probably
+use `action="form-submit"`.
+
+### Examples
+
 Most of the time, there will be one input or button element that is a
 descendant of the `byu-search` element. In this case, `action-target`
 can be omitted:
@@ -162,21 +175,6 @@ be clicked:
 </byu-search>
 ```
 
-`action-target` does not have to resolve to a button-like element. It
-can resolve to any HTML element.
-
-In this example, the div with the ID of 'my-funky-submit-div' will have
-a click simulated:
-
-```
-<byu-search action="click" action-target="div#my-funky-submit-div">
-    <div>
-        <input type="search">
-        <div id="my-funky-submit-div"></div>
-    </div>
-</byu-search>
-```
-
 ## `action="navigate"`
 
 This will navigate the user to the specified URL. For example, this could
@@ -189,6 +187,8 @@ raised when the search button is clicked.
 user is to be sent. This string functions like an ES6 template string,
 so the consumer can specify where the search param will be embedded using
 the string `${search}`. The inserted search param will always be URL escaped.
+
+### Examples
 
 In this example, if the user entered "cosmo the cougar" into the search box,
 their browser would be redirected to
