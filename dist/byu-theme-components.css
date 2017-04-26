@@ -314,7 +314,7 @@ byu-menu:not(.byu-component-rendered) {
   justify-content: center;
   width: 100%;
   height: auto;
-  background: #fff !important;
+  background: #fff;
   border-bottom: 1px solid #ccc;
   display: flex;
   flex-direction: row;
