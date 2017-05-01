@@ -259,7 +259,11 @@ byu-header:not(.byu-component-rendered) {
   byu-header:not(.byu-component-rendered) a {
     color: #fff !important; }
   byu-header:not(.byu-component-rendered) [slot="actions"] {
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 1px; }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   overflow: hidden;
@@ -272,9 +276,10 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   font-size: 22px;
   line-height: 22px;
   color: #fff !important;
-  position: relative;
-  top: -6px;
-  padding-left: 16px; }
+  padding-left: 16px;
+  flex-direction: row;
+  height: 40px;
+  align-items: center; }
   byu-header:not(.byu-component-rendered) > [slot="site-title"] a {
     color: #fff !important; }
 
@@ -282,29 +287,11 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU";
   font-size: 40px;
   font-family: "Arial", sans-serif;
-  position: relative;
-  top: 6px;
   padding-right: 16px;
-  font-weight: 800;
+  font-weight: 800 !important;
   letter-spacing: 2px; }
 
 /* MOBILE */
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
-/* -- breakpoint settings ----- */
-/* --- header settings ------- */
-/* --- search settings -------- */
-/* ---------  general text settings ----- */
-/* ------ footer settings ------------- */
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
-/* -- breakpoint settings ----- */
-/* --- header settings ------- */
-/* --- search settings -------- */
-/* ---------  general text settings ----- */
-/* ------ footer settings ------------- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -343,7 +330,9 @@ byu-menu:not(.byu-component-rendered) {
   height: 35px;
   justify-content: flex-start;
   order: 3;
-  margin-bottom: -5px; }
+  margin-bottom: -5px;
+  max-width: 100%;
+  flex-basis: 100%; }
   byu-menu:not(.byu-component-rendered) a {
     color: #002E5D !important; }
 
@@ -382,46 +371,11 @@ byu-menu:not(.byu-component-rendered) > * {
     flex: 3;
     padding: 0 12px !important; }
 
-byu-menu:not(.byu-component-rendered) > * {
-  text-decoration: none !important;
-  font-size: 13px !important;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 500 !important;
-  text-transform: uppercase !important;
-  color: white !important;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 500 !important;
-  color: #002E5D !important;
-  height: 35px !important;
-  display: inline-block;
-  box-sizing: border-box;
-  text-align: center !important;
-  padding: 0 6px !important;
-  line-height: 35px !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important; }
-  byu-menu:not(.byu-component-rendered) > *:hover {
-    background: #c5c5c5 !important; }
-  byu-menu:not(.byu-component-rendered) > *.selected {
-    background: #e5e5e5 !important; }
-  byu-menu:not(.byu-component-rendered) > *.active {
-    background: #e5e5e5 !important; }
-  byu-menu:not(.byu-component-rendered) > *.long-link {
-    max-width: 300px;
-    flex: 2;
-    padding: 0 12px !important; }
-  byu-menu:not(.byu-component-rendered) > *.extra-long-link {
-    max-width: 400px;
-    flex: 3;
-    padding: 0 12px !important; }
-
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 byu-search:not(.byu-component-rendered) {
   background: #fff;
-  height: 27px;
-  width: 225px;
+  height: 32px;
   margin-right: 30px;
   margin-left: 16px;
   display: flex;
@@ -436,7 +390,7 @@ byu-search:not(.byu-component-rendered):after {
   height: 30px;
   display: flex;
   box-sizing: border-box;
-  height: 27px;
+  height: 32px;
   width: 35px;
   float: right; }
 
