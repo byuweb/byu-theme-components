@@ -121,6 +121,10 @@
     .byu-header-title {
       @include mobileSiteTitle();
 
+      ::slotted(*) {
+        @include mobileSiteTitleSlotted();
+      }
+
       ::slotted(.subtitle) {
         @include mobileSubTitle();  
       }

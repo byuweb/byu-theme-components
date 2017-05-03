@@ -274,7 +274,6 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   flex-direction: column;
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-size: 22px;
-  line-height: 22px;
   color: #fff !important;
   padding-left: 16px;
   flex-direction: row;
@@ -459,24 +458,11 @@ a {
   h1 {
     font-size: 1.3em; } }
 
-h2 {
-  font-size: 1em; }
-
-@media screen and (min-width: 1024px) {
-  h2 {
-    font-size: 1.6875em; } }
-
-h3, h3 a {
-  color: #002E5D; }
-
 p, span, div {
   font-family: "Gotham SSm A","Gotham SSm B"; }
 
 h1, h2, h3, h4 {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif; }
-
-h1 {
-  color: #002E5D; }
 
 /* ------------------------------------- */
 /* ------ often used classes ------------*/

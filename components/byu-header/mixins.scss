@@ -83,7 +83,6 @@
   flex-direction: column;
   font-family: $siteNameFont !important;
   font-size: $siteTitleSize;
-  line-height: $siteTitleSize;
   color: #fff!important;
   //padding: 10px 0;  unnecessary in both full and mobile
   a {
@@ -93,6 +92,12 @@
 
 @mixin titleSlotted() {
   font-family: $siteNameFont !important;
+  font-weight: normal;
+  font-size: $siteTitleSize;
+}
+
+@mixin mobileSiteTitleSlotted() {
+  font-size: $mobileSiteTitleSize;
 }
 
 @mixin headerSiteTitle() {
@@ -225,12 +230,11 @@
   align-items: flex-start;
   align-self: center;
   font-size: $mobileSiteTitleSize !important;
-  line-height: $byuLogoHeight/2 !important;
 }
 
 @mixin mobileSubTitle() {
   font-size: $mobileSiteSubTitleSize !important;
-  margin-top: $mobileSiteTitleSize - $mobileSiteSubTitleSize;
+  margin-top: $byuLogoHeight - $mobileSiteTitleSize - $mobileSiteSubTitleSize;
 }
 
 @mixin mobileSuperTitle() {
