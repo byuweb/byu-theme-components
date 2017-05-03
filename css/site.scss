@@ -10,3 +10,8 @@
 @import "../components/byu-search/byu-search.scss";
 @import "../components/byu-social-media-links/byu-social-media-links.scss";
 @import "../components/byu-user-info/byu-user-info.scss";
+
+// this isn't the place for general styling. Please include further styling in the 2017-styles repo.
+body {
+  margin: 0;
+}
