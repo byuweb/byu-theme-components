@@ -441,5 +441,7 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
     margin: 7px; }
 
 /* MOBILE */
+body {
+  margin: 0; }
 
 /*# sourceMappingURL=byu-theme-components.css.map */
