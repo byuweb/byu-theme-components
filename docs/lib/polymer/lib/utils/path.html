@@ -76,9 +76,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * ```
      *
      * @memberof Polymer.Path
-     * @param {string} base Path string to test against.
-     * @param {string} path Path string to test.
-     * @return {boolean} True if `path` is an ancestor of `base`.
+     * @param {string} path Path string
+     * @return {boolean} True if `path` is an ancestor of `base`
      */
     isAncestor: function(base, path) {
       //     base.startsWith(path + '.');
@@ -97,9 +96,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
      * ```
      *
      * @memberof Polymer.Path
-     * @param {string} base Path string to test against.
-     * @param {string} path Path string to test.
-     * @return {boolean} True if `path` is a descendant of `base`.
      */
     isDescendant: function(base, path) {
       //     path.startsWith(base + '.');

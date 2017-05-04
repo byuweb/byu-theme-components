@@ -13,15 +13,20 @@ byu-header:not(.byu-component-rendered) {
   }
   [slot="actions"] {
     text-transform: uppercase;
+    font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    margin-top: 1px;
   }
 }
 
 //byu-header:not(:defined) > [slot="site-title"] {
 byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   @include headerTitles();
-  position: relative;
-  top: -6px;
   padding-left: 16px;
+  flex-direction: row;
+  height: 40px;
+  align-items: center;
 }
 
 // byu icon
@@ -30,10 +35,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU"; // make sure the space is the exact same size
   font-size: 40px;
   font-family: "Arial", sans-serif;
-  position: relative;
-  top: 6px;
   padding-right: 16px;
-  font-weight: 800;
+  font-weight: 800 !important;
   letter-spacing: 2px;
 }
 /* MOBILE */
