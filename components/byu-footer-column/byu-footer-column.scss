@@ -33,10 +33,10 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
     font-weight: 600;
 }
 
-a {
+byu-footer-column a {
     color: $footerContentColor !important;
 }
 
-a:hover {
+byu-footer-column a:hover {
     color: $navy !important;
 }
