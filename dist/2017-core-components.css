@@ -115,8 +115,8 @@ byu-footer-column:not(.byu-component-rendered) {
     display: inline-block; }
   byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 13px !important;
+    font-weight: 400 !important;
     color: #666 !important;
     position: relative;
     top: -11px;
