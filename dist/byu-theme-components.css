@@ -57,7 +57,7 @@ byu-footer:not(.byu-component-rendered):after {
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
 byu-footer-action-button:not(.byu-component-rendered) {
-  background-color: #767676;
+  background-color: #666;
   font-family: "Vitesse A", "Vitesse B", Georgia, serif;
   font-size: 20px !important;
   color: #fff;
@@ -117,7 +117,7 @@ byu-footer-column:not(.byu-component-rendered) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
     font-size: 13px;
     font-weight: 400;
-    color: #767676 !important;
+    color: #666 !important;
     position: relative;
     top: -11px;
     line-height: 1.42857143; }
@@ -382,8 +382,8 @@ byu-search:not(.byu-component-rendered) {
 
 byu-search:not(.byu-component-rendered):after {
   content: " ";
-  background-color: var(--byu-search-color, #767676);
-  border: 1px solid var(--byu-search-color, #767676);
+  background-color: var(--byu-search-color, #666);
+  border: 1px solid var(--byu-search-color, #666);
   color: #FFF;
   width: 30px;
   height: 30px;
