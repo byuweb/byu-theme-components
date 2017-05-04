@@ -136,10 +136,10 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
   color: #002E5D;
   font-weight: 600; }
 
-a {
+byu-footer-column a {
   color: #666 !important; }
 
-a:hover {
+byu-footer-column a:hover {
   color: #002E5D !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
