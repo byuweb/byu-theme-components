@@ -310,5 +310,5 @@
 
 /* FULL WIDTH (NOT DEFAULT WIDTH OF 1200px) */
 @mixin headerContentFullWidth() {
-  max-width: 100%;
+  max-width: 100% !important;
 }
