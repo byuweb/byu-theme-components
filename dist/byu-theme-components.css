@@ -136,6 +136,12 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
   color: #002E5D;
   font-weight: 600; }
 
+a {
+  color: #666 !important; }
+
+a:hover {
+  color: #002E5D !important; }
+
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
