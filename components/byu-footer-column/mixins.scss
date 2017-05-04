@@ -26,8 +26,8 @@
 
 @mixin contentNotButton() {
     font-family: $footerContentFont !important;
-    font-size: 13px;
-    font-weight: $footerContentFontWeight;
+    font-size: $footerContentFontSize !important;
+    font-weight: $footerContentFontWeight !important;
     color: $footerContentColor !important;
     position: relative;
     top: -11px;
