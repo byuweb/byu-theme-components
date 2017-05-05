@@ -84,7 +84,6 @@
 
 :host([mobile-view]) {
   .byu-header-root { // needed to give correct precedence in Firefox
-    height: 90px;
 
     .byu-header-content {
       @include mobileHeaderContent();
