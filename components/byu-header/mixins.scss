@@ -190,7 +190,7 @@
 
 @mixin actionsMobile() {
   @include dropdownNavItem();
-  padding: 12px 0 14px 0 !important;
+  padding: 0 !important;
   background-color: $lightergray;
   color: $navy !important;
   border-top: 1px solid $gray;
