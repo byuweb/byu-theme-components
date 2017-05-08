@@ -4,14 +4,26 @@
 @import "icons/transformicons.scss";
 
 /* GENERAL STYLING */
+@mixin display-flex() {
+  display: flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
 @mixin headerRoot() {
   background-color: $navy;
   width: 100%;
 }
 
 @mixin headerContent() {
+  @include display-flex();
   max-width: 1200px;
-  display: flex;
   justify-content: center;
   flex: 1;
   margin: 0 16px;
