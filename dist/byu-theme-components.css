@@ -115,8 +115,8 @@ byu-footer-column:not(.byu-component-rendered) {
     display: inline-block; }
   byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-    font-size: 13px;
-    font-weight: 400;
+    font-size: 13px !important;
+    font-weight: 400 !important;
     color: #666 !important;
     position: relative;
     top: -11px;
@@ -135,6 +135,12 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
   text-transform: uppercase;
   color: #002E5D;
   font-weight: 600; }
+
+byu-footer-column a {
+  color: #666 !important; }
+
+byu-footer-column a:hover {
+  color: #002E5D !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -235,7 +241,6 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
     position: static;
     width: auto; }
 
-/* GENERAL STYLING */
 /* GENERAL STYLING */
 /* MOBILE */
 /* FULL SIZE */
@@ -388,6 +393,7 @@ byu-search:not(.byu-component-rendered):after {
   width: 30px;
   height: 30px;
   display: flex;
+  align-items: center;
   box-sizing: border-box;
   height: 32px;
   width: 35px;

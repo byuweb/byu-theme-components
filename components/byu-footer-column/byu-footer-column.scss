@@ -32,3 +32,11 @@ byu-footer-column [slot="header"]:not(.byu-component-rendered) {
     color: $navy;
     font-weight: 600;
 }
+
+byu-footer-column a {
+    color: $footerContentColor !important;
+}
+
+byu-footer-column a:hover {
+    color: $navy !important;
+}

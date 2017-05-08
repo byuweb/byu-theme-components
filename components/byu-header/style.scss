@@ -84,6 +84,7 @@
 
 :host([mobile-view]) {
   .byu-header-root { // needed to give correct precedence in Firefox
+
     .byu-header-content {
       @include mobileHeaderContent();
     }

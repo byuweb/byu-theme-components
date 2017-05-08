@@ -42,7 +42,6 @@
 @mixin navItemsSlottedSetWidth() {
   min-width: 200px;
   flex: initial;
-  text-align: left !important;
   padding: 0 16px !important;
 }
 
@@ -118,7 +117,7 @@
 @mixin mobileMenuSlotted() {
   display: block !important;
   text-align: left !important;
-  padding: 18px 50px !important;
+  padding: 18px 18px 18px 50px !important;
   height: auto !important;
   width: 100%;
   position: static;

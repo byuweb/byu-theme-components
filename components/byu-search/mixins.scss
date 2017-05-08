@@ -1,7 +1,7 @@
 @import "../shared-styles/colors.scss";
 
 @mixin byuSearch() {
-  display: inline-block;
+  //display: inline-block;
   margin-left: 20px;
 }
 
@@ -17,6 +17,7 @@
   width: 30px;
   height: 30px;
   display: flex;
+  align-items: center;
   box-sizing: border-box;
 }
 
