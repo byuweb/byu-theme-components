@@ -393,6 +393,7 @@ byu-search:not(.byu-component-rendered):after {
   width: 30px;
   height: 30px;
   display: flex;
+  align-items: center;
   box-sizing: border-box;
   height: 32px;
   width: 35px;
