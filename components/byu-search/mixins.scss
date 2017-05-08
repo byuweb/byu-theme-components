@@ -40,6 +40,10 @@
   margin: 0;
   // END: Safari fixes
   box-sizing: border-box;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: $navy !important;
 }
 
 @mixin searchMobile() {
