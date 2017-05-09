@@ -10,7 +10,6 @@
   background: #fff;
   // opacity used to be set here, but now it is an option.
   border-bottom: 1px solid #ccc;
-  flex-basis: 100%;
 }
 
 @mixin bgTransparent() {
@@ -29,6 +28,7 @@
   position: relative;
   max-width: 1200px;
   flex: 1;
+  flex-basis: 100%;
 }
 
 @mixin outerNavFullWidth() {
