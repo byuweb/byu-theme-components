@@ -320,6 +320,7 @@ byu-menu:not(.byu-component-rendered) {
   height: auto;
   background: #fff;
   border-bottom: 1px solid #ccc;
+  flex-basis: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
