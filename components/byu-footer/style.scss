@@ -22,7 +22,7 @@
   @include secondaryFooter();
 }
 
-.secondary-footer ::slotted(*) {
+.secondary-footer-content ::slotted(*) {
   @include secondaryFooterSlotted();
 }
 
@@ -40,56 +40,56 @@
 }
 
 @media (max-width: 767px) {
-  .secondary-footer ::slotted(*) {
+  .secondary-footer-content ::slotted(*) {
     @include secondaryFooterMobile();
   }
 
-  .secondary-footer ::slotted(*:last-child) {
+  .secondary-footer-content ::slotted(*:last-child) {
     @include secondaryFooterMobileLast();
   }
 
-  .secondary-footer ::slotted(*:first-child) {
+  .secondary-footer-content ::slotted(*:first-child) {
     @include secondaryFooterMobileFirst();
   }
 
-  .secondary-footer ::slotted(*) {
+  .secondary-footer-content ::slotted(*) {
     @include secondaryFooterNoLeftPad();
     @include secondaryFooterNoRightPad();
   }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  .secondary-footer ::slotted(*) {
+  .secondary-footer-content ::slotted(*) {
     @include secondaryFooterTablet();
   }
 
-  .secondary-footer ::slotted(*:nth-child(n+3)) {
+  .secondary-footer-content ::slotted(*:nth-child(n+3)) {
     @include secondaryFooterTabletBottomColumns();
   }
 
-  .secondary-footer ::slotted(*:nth-child(-n+2)) {
+  .secondary-footer-content ::slotted(*:nth-child(-n+2)) {
     @include secondaryFooterTabletTopColumns();
   }
 
-  .secondary-footer ::slotted(*:nth-child(odd)) {
+  .secondary-footer-content ::slotted(*:nth-child(odd)) {
     @include secondaryFooterNoLeftPad();
   }
 
-  .secondary-footer ::slotted(*:nth-child(even)) {
+  .secondary-footer-content ::slotted(*:nth-child(even)) {
     @include secondaryFooterNoRightPad();
   }
 }
 
 @media (min-width: 1200px) {
-  .secondary-footer ::slotted(*) {
+  .secondary-footer-content ::slotted(*) {
     @include secondaryFooterDesktop();
   }
 
-  .secondary-footer ::slotted(*:first-child) {
+  .secondary-footer-content ::slotted(*:first-child) {
     @include secondaryFooterNoLeftPad();
   }
   
-  .secondary-footer ::slotted(*:last-child) {
+  .secondary-footer-content ::slotted(*:last-child) {
     @include secondaryFooterNoRightPad();
   }
 }

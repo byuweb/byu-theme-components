@@ -25,6 +25,9 @@ byu-footer:not(.byu-component-rendered) {
   flex-wrap: wrap;
   padding-top: 30px;
   justify-content: space-around; }
+  byu-footer:not(.byu-component-rendered):empty {
+    min-height: 0;
+    padding: 0; }
 
 byu-footer:not(.byu-component-rendered):after {
   background-color: #002E5D;
