@@ -30,11 +30,11 @@ gulp.task('build', ['docs', 'wc:build', 'temp:copy-files'], function() {
 initWcBuild(gulp, {
     componentName: 'byu-theme-components',
     js: {
-        input: './components/bundle.js',
+        input: './components/byu-theme-components.js',
         polyfillUrl: 'https://cdn.byu.edu/web-component-polyfills/latest/web-component-polyfills.min.js'
     },
     css: {
-        input: './css/site.scss'
+        input: './components/byu-theme-components.scss'
     }
 });
 
