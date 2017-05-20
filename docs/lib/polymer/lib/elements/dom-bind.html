@@ -18,6 +18,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   (function() {
     'use strict';
 
+    /**
+     * @constructor
+     * @implements {Polymer_PropertyEffects}
+     * @implements {Polymer_OptionalMutableData}
+     * @implements {Polymer_GestureEventListener}
+     * @extends {HTMLElement}
+     */
     const domBindBase =
       Polymer.GestureEventListeners(
         Polymer.OptionalMutableData(
@@ -96,7 +103,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           for (let n=this.root.firstChild; n; n=n.nextSibling) {
             this.__children[this.__children.length] = n;
           }
-          this._flushProperties();
+          this._enableProperties();
         }
         this.__insertChildren();
         this.dispatchEvent(new CustomEvent('dom-change', {

@@ -86,14 +86,16 @@ Custom property | Description | Default
       is: 'url-bar',
       properties: {
         url: {
-          computed: '__computeUrl(path, query, hash)'
+          computed: '__computeUrl(path, query, hash)',
+          type: String
         },
 
         inIframe: {
           value: function() {
             return window.top !== window;
           },
-          reflectToAttribute: true
+          reflectToAttribute: true,
+          type: Boolean
         },
 
         path: {

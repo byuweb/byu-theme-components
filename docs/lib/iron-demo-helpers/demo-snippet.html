@@ -76,12 +76,22 @@ Custom property | Description | Default
         background-color: #f5f5f5;
         font-size: 13px;
         overflow: auto;
+        position: relative;
+        padding: 0 20px;
         @apply --demo-snippet-code;
       }
 
-      .code-container {
-        position: relative;
-        padding: 0 20px;
+      .code {
+        padding: 20px;
+        margin: 0;
+        background-color: var(--google-grey-100);
+        font-size: 13px;
+        overflow: auto;
+        @apply(--demo-snippet-code);
+      }
+      .code > pre {
+        margin: 0;
+        padding: 0 0 10px 0;
       }
 
       button {
@@ -150,12 +160,11 @@ Custom property | Description | Default
         this._markdown = '```\n' + snippet + '\n' + '```';
 
         // Stamp the template.
-        if (!template.is) {
+        if (!template.hasAttribute('is')) {
           // Don't need to listen for more changes (since stamping the template
           // will trigger an observeNodes)
           Polymer.dom(this.$.content).unobserveNodes(this._observer);
           this._observer = null;
-
           Polymer.dom(this).appendChild(document.importNode(template.content, true));
         }
       },
