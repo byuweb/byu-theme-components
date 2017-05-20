@@ -1,5 +1,5 @@
 'use strict';
-const template = require('./template.html');
+const template = require('./byu-footer-column.html');
 const util = require('byu-web-component-utils');
 
 class BYUFooterColumn extends HTMLElement {

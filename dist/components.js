@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 10);
+/******/ 	return __webpack_require__(__webpack_require__.s = 11);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -197,8 +197,8 @@ window.BYUFooterColumn = BYUFooterColumn;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_footer_html__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_footer_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_footer_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
 
@@ -214,7 +214,7 @@ class BYUFooter extends HTMLElement {
 
     connectedCallback() {
         const component = this;
-        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](component, 'byu-footer', __WEBPACK_IMPORTED_MODULE_0__template_html__, () => {
+        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](component, 'byu-footer', __WEBPACK_IMPORTED_MODULE_0__byu_footer_html__, () => {
             // always show the current year in the copyright message
             var currentYear = component.shadowRoot.querySelector("#currentYear");
             currentYear.innerHTML = new Date().getFullYear();
@@ -231,12 +231,12 @@ window.BYUFooter = BYUFooter;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__ = __webpack_require__(24);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_ejs_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_deep_equal__ = __webpack_require__(21);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_deep_equal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_deep_equal__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__);
 
 
@@ -265,7 +265,7 @@ class BYUHeader extends HTMLElement {
             mobile: this.inMobileView
         };
         if (!__WEBPACK_IMPORTED_MODULE_1_deep_equal__(state, this._renderState)) {
-            __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__["applyTemplate"](this, 'byu-header', __WEBPACK_IMPORTED_MODULE_0__template_ejs_html__(state), () => {
+            __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__["applyTemplate"](this, 'byu-header', __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__(state), () => {
                 this._renderState = state;
                 this._addSlotListeners();
                 this._notifyChildrenOfMobileState();
@@ -481,8 +481,8 @@ window.BYUHeader = BYUHeader;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_menu_html__ = __webpack_require__(29);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_menu_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
 
@@ -508,7 +508,7 @@ class BYUMenu extends HTMLElement {
     connectedCallback() {
         const component = this;
 
-        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__template_html__, () => {
+        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html__, () => {
             updateMoreMenuState(this);
             addSlotListeners(this);
 
@@ -589,8 +589,8 @@ window.BYUMenu = BYUMenu;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(30);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_search_html__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_search_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_search_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 /**
  *  @license
@@ -638,7 +638,7 @@ class ByuSearch extends HTMLElement {
 
         const component = this;
 
-        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__template_html__, () => {
+        __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__byu_search_html__, () => {
 
             var input = this.getInputElement(this, true);
             if (input) {
@@ -744,8 +744,8 @@ window.BYUSocialMediaLinks = BYUSocialMediaLinks;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html__ = __webpack_require__(32);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__template_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__template_html__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html__ = __webpack_require__(32);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_user_info_html__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 /**
  * Created by ThatJoeMoore on 11/7/16.
@@ -778,7 +778,7 @@ class ByuUserInfo extends HTMLElement {
     }
 
     connectedCallback() {
-         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__template_html__, () => {
+         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html__, () => {
             this._addSlotListeners();
             this._addAriaAttributes();
          });       
@@ -816,47 +816,6 @@ window.ByuUserInfo = ByuUserInfo;
 
 /***/ }),
 /* 10 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_header_script_js__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__byu_menu_script_js__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__byu_search_script_js__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_script_js__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__byu_footer_script_js__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__byu_footer_column_script_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_script_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_script_js__);
-/**
- * Created by ThatJoeMoore on 2/18/17
- */
-
-
-/*
- * Header Bits
- */
-
-
-
-
-
-/*
- * Footer Bits
- */
-
-
-
-
-
-
-
-
-/***/ }),
-/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1052,6 +1011,47 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
 
     return tcon;
 }));
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__byu_header_byu_header_js__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__byu_menu_byu_menu_js__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__byu_search_byu_search_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_byu_user_info_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__byu_footer_byu_footer_js__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js__);
+/**
+ * Created by ThatJoeMoore on 2/18/17
+ */
+
+
+/*
+ * Header Bits
+ */
+
+
+
+
+
+/*
+ * Footer Bits
+ */
+
+
+
+
+
+
+
 
 /***/ }),
 /* 12 */

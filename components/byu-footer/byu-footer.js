@@ -1,6 +1,6 @@
 'use strict';
 
-import * as template from './template.html';
+import * as template from './byu-footer.html';
 import * as util from 'byu-web-component-utils';
 
 class BYUFooter extends HTMLElement {
