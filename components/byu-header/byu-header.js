@@ -1,6 +1,6 @@
 'use strict';
 
-import * as templateFn from "./template.ejs.html";
+import * as templateFn from "./byu-header.ejs.html";
 
 import * as equal from "deep-equal";
 import * as util from "byu-web-component-utils";

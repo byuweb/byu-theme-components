@@ -1,5 +1,5 @@
 'use strict';
-const template = require('./template.html');
+const template = require('./byu-social-media-links.html');
 const util = require('byu-web-component-utils');
 
 class BYUSocialMediaLinks extends HTMLElement {
