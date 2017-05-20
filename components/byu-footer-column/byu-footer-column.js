@@ -1,6 +1,7 @@
 'use strict';
-const template = require('./byu-footer-column.html');
-const util = require('byu-web-component-utils');
+
+import template from './byu-footer-column.html';
+import * as util from "byu-web-component-utils";
 
 class BYUFooterColumn extends HTMLElement {
 

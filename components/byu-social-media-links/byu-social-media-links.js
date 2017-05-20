@@ -1,6 +1,6 @@
 'use strict';
-const template = require('./byu-social-media-links.html');
-const util = require('byu-web-component-utils');
+import template from './byu-social-media-links.html';
+import * as util from "byu-web-component-utils";
 
 class BYUSocialMediaLinks extends HTMLElement {
 

@@ -16,7 +16,7 @@
  **/
 'use strict';
 
-import * as template from './byu-search.html';
+import template from './byu-search.html';
 import * as util from 'byu-web-component-utils';
 
 const ATTR_SEARCH_HANDLER = 'onsearch';

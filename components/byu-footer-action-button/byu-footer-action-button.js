@@ -1,7 +1,8 @@
 'use strict';
 
-const template = require('./byu-footer-action-button.html');
-const util = require('byu-web-component-utils');
+import template from './byu-footer-action-button.html';
+import * as util from "byu-web-component-utils";
+
 
 class BYUFooterActionButton extends HTMLElement {
 

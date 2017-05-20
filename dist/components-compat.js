@@ -100,10 +100,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-
-    Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
-    /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "applyTemplate", function () {
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(12);
+    /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "a", function () {
         return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"];
     });
     /**
@@ -167,12 +166,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /***/
 },
 /* 2 */
-/***/function (module, exports, __webpack_require__) {
+/***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-
-    var template = __webpack_require__(26);
-    var util = __webpack_require__(0);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html__ = __webpack_require__(26);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html__);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
     var BYUFooterActionButton = function (_HTMLElement) {
         _inherits(BYUFooterActionButton, _HTMLElement);
@@ -189,7 +189,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         _createClass(BYUFooterActionButton, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                util.applyTemplate(this, 'byu-footer-action-button', template);
+                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-footer-action-button', __WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html___default.a);
             }
         }]);
 
@@ -202,12 +202,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /***/
 },
 /* 3 */
-/***/function (module, exports, __webpack_require__) {
+/***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-
-    var template = __webpack_require__(27);
-    var util = __webpack_require__(0);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html__ = __webpack_require__(27);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html__);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
     var BYUFooterColumn = function (_HTMLElement2) {
         _inherits(BYUFooterColumn, _HTMLElement2);
@@ -224,7 +225,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         _createClass(BYUFooterColumn, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                util.applyTemplate(this, 'byu-footer-column', template);
+                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-footer-column', __WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html___default.a);
             }
         }]);
 
@@ -261,7 +262,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             key: 'connectedCallback',
             value: function connectedCallback() {
                 var component = this;
-                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](component, 'byu-footer', __WEBPACK_IMPORTED_MODULE_0__byu_footer_html__, function () {
+                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](component, 'byu-footer', __WEBPACK_IMPORTED_MODULE_0__byu_footer_html___default.a, function () {
                     // always show the current year in the copyright message
                     var currentYear = component.shadowRoot.querySelector("#currentYear");
                     currentYear.innerHTML = new Date().getFullYear();
@@ -318,7 +319,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     mobile: this.inMobileView
                 };
                 if (!__WEBPACK_IMPORTED_MODULE_1_deep_equal__(state, this._renderState)) {
-                    __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__["applyTemplate"](this, 'byu-header', __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__(state), function () {
+                    __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-header', __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__(state), function () {
                         _this5._renderState = state;
                         _this5._addSlotListeners();
                         _this5._notifyChildrenOfMobileState();
@@ -598,7 +599,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
                 var component = this;
 
-                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html__, function () {
+                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default.a, function () {
                     updateMoreMenuState(_this9);
                     addSlotListeners(_this9);
 
@@ -742,7 +743,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
                 var component = this;
 
-                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__byu_search_html__, function () {
+                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__byu_search_html___default.a, function () {
 
                     var input = _this11.getInputElement(_this11, true);
                     if (input) {
@@ -815,12 +816,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /***/
 },
 /* 8 */
-/***/function (module, exports, __webpack_require__) {
+/***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-
-    var template = __webpack_require__(31);
-    var util = __webpack_require__(0);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html__ = __webpack_require__(31);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html__);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
     var BYUSocialMediaLinks = function (_HTMLElement7) {
         _inherits(BYUSocialMediaLinks, _HTMLElement7);
@@ -839,7 +841,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             value: function connectedCallback() {
                 var _this13 = this;
 
-                util.applyTemplate(this, 'byu-social-media-links', template, function () {
+                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-social-media-links', __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html___default.a, function () {
                     var idArr = ['facebook', 'twitter', 'instagram', 'youtube', 'pinterest', 'google-plus', 'linkedin', 'rss', 'snapchat'];
                     var classArr = ['fa-facebook-official', 'fa-twitter', 'fa-instagram', 'fa-youtube-play', 'fa-pinterest', 'fa-google-plus-official', 'fa-linkedin', 'fa-rss-square', 'fa-snapchat'];
 
@@ -903,7 +905,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             value: function connectedCallback() {
                 var _this15 = this;
 
-                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["applyTemplate"](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html__, function () {
+                __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html___default.a, function () {
                     _this15._addSlotListeners();
                     _this15._addAriaAttributes();
                 });
@@ -1156,11 +1158,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_byu_user_info_js__ = __webpack_require__(9);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_4__byu_footer_byu_footer_js__ = __webpack_require__(4);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js__ = __webpack_require__(3);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js__ = __webpack_require__(2);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js__ = __webpack_require__(8);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js__);
     /**
      * Created by ThatJoeMoore on 2/18/17
      */
