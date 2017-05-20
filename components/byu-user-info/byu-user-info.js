@@ -3,7 +3,7 @@
  */
 "use strict";
 
-import * as template from "./byu-user-info.html";
+import template from "./byu-user-info.html";
 import * as util from 'byu-web-component-utils';
 
 class ByuUserInfo extends HTMLElement {

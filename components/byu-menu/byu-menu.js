@@ -1,5 +1,5 @@
 "use strict";
-import * as template from "./byu-menu.html";
+import template from "./byu-menu.html";
 import * as util from 'byu-web-component-utils';
 
 class BYUMenu extends HTMLElement {
