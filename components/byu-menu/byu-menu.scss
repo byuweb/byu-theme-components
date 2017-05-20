@@ -1,4 +1,4 @@
-@import "./mixins.scss";
+@import "byu-menu-common";
 
 :host {
   @include menuGeneral();

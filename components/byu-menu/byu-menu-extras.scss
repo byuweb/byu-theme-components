@@ -1,4 +1,4 @@
-@import "./mixins.scss";
+@import "byu-menu-common";
 
 byu-menu:not(.byu-component-rendered) {
   @include menuGeneral();
