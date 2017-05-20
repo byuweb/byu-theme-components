@@ -1,0 +1,28 @@
+{
+  "name": "2017-components-docs",
+  "authors": [
+    "James Speirs <james_speirs@byu.edu>",
+    "Joseph Moore <joseph_moore@byu.edu>",
+    "Kevin Bauer <kevin_bauer@byu.edu>"
+  ],
+  "description": "BYU 2017 Theme Components",
+  "main": "byu-header.html",
+  "keywords": [
+    "byu",
+    "web-components",
+    "theme"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "html-imports": "webcomponents/html-imports#^1.0.0",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0"
+  }
+}

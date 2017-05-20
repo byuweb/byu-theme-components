@@ -16,14 +16,11 @@
  **/
 'use strict';
 const browserSync = require('browser-sync').create();
-const del = require('del');
 const gulp = require('gulp');
-const path = require('path');
 const rename = require('gulp-rename');
-const ignore = require('gulp-ignore');
 const initWcBuild = require('byu-web-component-build').gulp;
 
-gulp.task('build', ['docs', 'wc:build', 'temp:copy-files'], function() {
+gulp.task('build', ['wc:build', 'temp:copy-files'], function() {
     browserSync.reload();
 });
 
@@ -52,7 +49,6 @@ gulp.task('temp:copy-files', ['wc:build'], function() {
 // END: Stuff that needs to go away
 
 gulp.task('watch', ['build'], function (done) {
-
     browserSync.init({
         server: {
             baseDir: './',
@@ -62,67 +58,6 @@ gulp.task('watch', ['build'], function (done) {
     }, done);
 
     gulp.watch(['index.html', './components/**', './css/*.scss'], ['build']);
-});
-
-// copy the demo.html files to the docs folder, rename them as 'comonent-name.html'
-gulp.task('docs', function()
-{
-    return gulp.src('./components/*/demo.html')
-    .pipe(rename(function(path) {
-        path.basename = path.dirname;
-        path.dirname = '';
-        path.extname = '.html';
-    }))
-    .pipe(gulp.dest('./docs'));
-});
-
-gulp.task('docs:clean-libs', function () {
-    return del([
-        './docs/lib/**'
-    ]);
-});
-
-gulp.task('docs:copy-libs', ['docs:clean-libs'], function () {
-    const ignoredExtensions = [
-        '.json',
-        '.md',
-        '.txt',
-        '.png'
-    ];
-    const ignoredFiles = [
-        'gulpfile.js',
-        'index.html',
-        'hero.svg'
-    ];
-    const ignoredDirectories = [
-        'test',
-        'tests',
-        'demo',
-        'examples',
-        'src',
-        'entrypoints',
-        'externs'
-    ];
-    const ignoredLibs = ['webcomponentsjs'];
-    return gulp.src('./bower_components/**')
-        .pipe(ignore(function(file) {
-            let info = path.parse(file.path);
-            if (ignoredExtensions.includes(info.ext)) {
-                return true;
-            }
-            if (ignoredFiles.includes(info.base)) {
-                return true;
-            }
-            let split = file.relative.split(path.sep);
-            if (split.length >= 2 && ignoredDirectories.includes(split[1])) {
-                return true;
-            }
-            if (ignoredLibs.includes(split[0])) {
-                return true;
-            }
-            return false;
-        }))
-        .pipe(gulp.dest('./docs/lib'));
 });
 
 gulp.task('default', ['watch']);

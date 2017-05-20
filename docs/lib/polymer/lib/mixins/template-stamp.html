@@ -110,14 +110,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
    * @memberof Polymer
    * @summary Element class mixin that provides basic template parsing and stamping
    */
-  Polymer.TemplateStamp = Polymer.dedupingMixin(function(superClass) {
+  Polymer.TemplateStamp = Polymer.dedupingMixin(superClass => {
 
-    return class TemplateStamp extends superClass {
-
-      _initializeProperties() {
-        super._initializeProperties();
-        this.$ = null;
-      }
+    /**
+     * @polymerMixinClass
+     * @implements {Polymer_TemplateStamp}
+     */
+    class TemplateStamp extends superClass {
 
       /**
        * Scans a template to produce template metadata.
@@ -132,43 +131,46 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * The template metadata object returned from this method has the following
        * structure (many fields optional):
        *
+       * ```js
        *   {
        *     // Flattened list of node metadata (for nodes that generated metadata)
        *     nodeInfoList: [
        *       {
        *         // `id` attribute for any nodes with id's for generating `$` map
-       *         id: '<id>',
+       *         id: {string},
        *         // `on-event="handler"` metadata
        *         events: [
        *           {
-       *             name: '<name>'
-       *             value: '<handler name>'
+       *             name: {string},   // event name
+       *             value: {string},  // handler method name
        *           }, ...
        *         ],
        *         // Notes when the template contained a `<slot>` for shady DOM
        *         // optimization purposes
-       *         hasInsertionPoint: <boolean>,
-       *         // For nested <template> nodes, nested template metadata
-       *         templateInfo: <nested template metadata>,
+       *         hasInsertionPoint: {boolean},
+       *         // For nested `<template>`` nodes, nested template metadata
+       *         templateInfo: {object}, // nested template metadata
        *         // Metadata to allow efficient retrieval of instanced node
        *         // corresponding to this metadata
-       *         parentInfo: <reference to parent nodeInfo>,
-       *         parentIndex: <integer index in parent's `childNodes` collection>
-       *         infoIndex: <integer index of this `nodeInfo` in `templateInfo.nodeInfoList`
+       *         parentInfo: {number},   // reference to parent nodeInfo>
+       *         parentIndex: {number},  // index in parent's `childNodes` collection
+       *         infoIndex: {number},    // index of this `nodeInfo` in `templateInfo.nodeInfoList`
        *       },
        *       ...
        *     ],
        *     // When true, the template had the `strip-whitespace` attribute
        *     // or was nested in a template with that setting
-       *     stripWhitespace: <boolean>
+       *     stripWhitespace: {boolean},
        *     // For nested templates, nested template content is moved into
        *     // a document fragment stored here; this is an optimization to
        *     // avoid the cost of nested template cloning
-       *     content: <DocumentFragment>
+       *     content: {DocumentFragment}
        *   }
+       * ```
        *
        * This method kicks off a recursive treewalk as follows:
        *
+       * ```
        *    _parseTemplate <---------------------+
        *      _parseTemplateContent              |
        *        _parseTemplateNode  <------------|--+
@@ -176,6 +178,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *          _parseTemplateChildNodes ---------+
        *          _parseTemplateNodeAttributes
        *            _parseTemplateNodeAttribute
+       *
+       * ```
        *
        * These methods may be overridden to add custom metadata about templates
        * to either `templateInfo` or `nodeInfo`.
@@ -277,7 +281,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           if (this._parseTemplateNode(node, templateInfo, childInfo)) {
             childInfo.infoIndex = templateInfo.nodeInfoList.push(childInfo) - 1;
           }
-          parentIndex++;
+          // Increment if not removed
+          if (node.parentNode) {
+            parentIndex++;
+          }
         }
       }
 
@@ -291,8 +298,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * `_contentForTemplate` method to retrieve the content for this template
        * (an optimization to avoid the cost of cloning nested template content).
        *
-       * @param {Node} node Node to parse
-       * @param {Object} templateInfo Template metadata for current template
+       * @param {HTMLTemplateElement} node Node to parse (a <template>)
+       * @param {Object} outerTemplateInfo Template metadata for current template
+       *   that includes the template `node`
        * @param {Object} nodeInfo Node metadata for current template.
        * @return {boolean} `true` if the visited node added node-specific
        *   metadata to `nodeInfo`
@@ -338,7 +346,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {Object} templateInfo Template metadata for current template
        * @param {Object} nodeInfo Node metadata for current template.
        * @param {string} name Attribute name
-       * @param {string} name Attribute value
+       * @param {*} value Attribute value
        * @return {boolean} `true` if the visited node added node-specific
        *   metadata to `nodeInfo`
        */
@@ -391,7 +399,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        *
        * Note that the memoized template parsing process is destructive to the
        * template: attributes for bindings and declarative event listeners are
-       * removed after being noted in notes, and any nested <template>.content
+       * removed after being noted in notes, and any nested `<template>.content`
        * is removed and stored in notes as well.
        *
        * @param {HTMLTemplateElement} template Template to stamp
@@ -429,6 +437,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @param {Node} node Node to add listener on
        * @param {string} eventName Name of event
        * @param {string} methodName Name of method
+       * @param {*=} context Context the method will be called on (defaults
+       *   to `node`)
        * @return {Function} Generated handler function
        */
       _addMethodEventListenerToNode(node, eventName, methodName, context) {
@@ -461,6 +471,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
 
     }
+
+    return TemplateStamp;
 
   });
 
