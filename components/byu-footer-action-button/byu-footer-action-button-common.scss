@@ -1,6 +1,6 @@
 
-@import "../shared-styles/colors.scss";
-@import "../shared-styles/settings.scss";
+@import "../shared-styles/colors";
+@import "../shared-styles/settings";
 
 @mixin footerActionButton() {
     background-color: $footerButtonColor;

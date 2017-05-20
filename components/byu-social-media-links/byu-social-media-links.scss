@@ -1,4 +1,4 @@
-@import "./mixins.scss";
+@import "byu-social-media-links-common";
 
 .slot-wrapper ::slotted(a) {
     @include socialMediaLinks();

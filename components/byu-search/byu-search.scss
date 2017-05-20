@@ -1,4 +1,4 @@
-@import "./mixins.scss";
+@import "byu-search-common";
 
 :host {
   @include byuSearch();
