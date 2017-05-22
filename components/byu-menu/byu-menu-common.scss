@@ -51,6 +51,7 @@
   position: relative;
   height: 35px;
   width: 16.66%;
+  overflow: visible !important;
 }
 
 @mixin moreMenuVisible() {
