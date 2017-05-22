@@ -90,8 +90,9 @@
   display: none;
   position: absolute;
   top: 35px;
-  left: 0;
   right: 0;
+  min-width: 100%;
+  max-width: 250px;
   z-index: 2;
   background: white;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);
