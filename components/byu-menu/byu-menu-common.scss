@@ -84,7 +84,11 @@
 }
 
 @mixin moreLinkSvg() {
-  fill: $navy;
+  height: 13px;
+  width: 13px;
+  transition: transform 0.5s ease;
+  transform: rotate(0);
+  transform-origin: center;
 }
 
 @mixin moreItems() {
