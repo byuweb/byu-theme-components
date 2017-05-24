@@ -1227,15 +1227,15 @@ builtin-status-codes@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
 
-byu-web-component-build@^0.2.1:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/byu-web-component-build/-/byu-web-component-build-0.2.2.tgz#35c9e00f11506705a881cf9679e082e2da2e6a10"
+byu-web-component-build@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/byu-web-component-build/-/byu-web-component-build-0.2.3.tgz#4ed258b45c073891b00a352691d7b5dda909a025"
   dependencies:
     babel-preset-babili "^0.0.11"
     babel-preset-env "^1.1.11"
     babili "^0.0.11"
     browser-sync "^2.18.8"
-    byu-web-component-loader-generator "^0.1.2"
+    byu-web-component-loader-generator "^0.1.8"
     css-loader "^0.26.2"
     ejs-compiled-loader "^2.0.0"
     file-loader "^0.10.1"
@@ -1259,9 +1259,9 @@ byu-web-component-build@^0.2.1:
     webpack "^2.2.1"
     webpack-stream "^3.2.0"
 
-byu-web-component-loader-generator@^0.1.2:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/byu-web-component-loader-generator/-/byu-web-component-loader-generator-0.1.4.tgz#ecdd21db8327e4dd038c30e86577d03fed99a131"
+byu-web-component-loader-generator@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/byu-web-component-loader-generator/-/byu-web-component-loader-generator-0.1.8.tgz#b722751dab2ec828995876487bfc89a6fa7dc973"
   dependencies:
     ejs "^2.5.5"
     jsmin "^1.0.1"
@@ -4527,13 +4527,7 @@ on-finished@~2.3.0:
   dependencies:
     ee-first "1.1.1"
 
-once@^1.3.0, once@^1.3.3:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/once/-/once-1.4.0.tgz#583b1aa775961d4b113ac17d9c50baef9dd76bd1"
-  dependencies:
-    wrappy "1"
-
-once@~1.3.0:
+once@^1.3.0, once@^1.3.3, once@~1.3.0:
   version "1.3.3"
   resolved "https://registry.yarnpkg.com/once/-/once-1.3.3.tgz#b2e261557ce4c314ec8304f3fa82663e4297ca20"
   dependencies:
@@ -5116,13 +5110,13 @@ qs@6.2.1:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.2.1.tgz#ce03c5ff0935bc1d9d69a9f14cbd18e568d67625"
 
-"qs@>= 0.4.0", qs@~6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
-
-qs@~6.3.0:
+"qs@>= 0.4.0", qs@~6.3.0:
   version "6.3.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.3.2.tgz#e75bd5f6e268122a2a0e0bda630b2550c166502c"
+
+qs@~6.4.0:
+  version "6.4.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
 query-string@^4.1.0:
   version "4.3.2"
