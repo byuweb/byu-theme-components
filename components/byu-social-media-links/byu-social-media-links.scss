@@ -1,37 +1,98 @@
 @import "byu-social-media-links-common";
 
-.slot-wrapper ::slotted(a) {
-    @include socialMediaLinks();
+.slot-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  ::slotted(*) {
+    height: 28px;
+    width: 28px;
+    display: block;
+
+    color: transparent !important;
+    overflow: hidden;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-position: center;
+
+    margin: 10px 15px 10px 0 !important;
+  }
+
+  ::slotted(.facebook), ::slotted([slot="facebook"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/fa.svg');
+  }
+
+  ::slotted(.twitter), ::slotted([slot="twitter"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/tw.svg');
+  }
+
+  ::slotted(.instagram), ::slotted([slot="instagram"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/in.svg');
+  }
+
+  ::slotted(.youtube), ::slotted([slot="youtube"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/yo.svg');
+  }
+
+  ::slotted(.pinterest), ::slotted([slot="pinterest"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/pi.svg');
+  }
+
+  ::slotted(.googleplus), ::slotted([slot="googleplus"]),
+  ::slotted(.gplus), ::slotted([slot="gplus"]),
+  ::slotted(.google-plus), ::slotted([slot="google-plus"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/gp.svg');
+  }
+
+  ::slotted(.linkedin), ::slotted([slot="linkedin"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/li.svg');
+  }
+
+  ::slotted(.rss), ::slotted([slot="rss"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/rs.svg');
+  }
+
+  ::slotted(.snapchat), ::slotted([slot="snapchat"]) {
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/sn.svg');
+  }
+
 }
 
-.slot-wrapper ::slotted(.fa) {
-    @include socialMediaFa();
-}
 
-.slot-wrapper ::slotted(.fa-facebook-official) {
-    @include facebook();
-}
-.slot-wrapper ::slotted(.fa-twitter) {
-    @include twitter();
-}
-.slot-wrapper ::slotted(.fa-instagram) {
-    @include instagram();
-}
-.slot-wrapper ::slotted(.fa-youtube-play) {
-    @include youtube();
-}
-.slot-wrapper ::slotted(.fa-pinterest) {
-    @include pinterest();
-}
-.slot-wrapper ::slotted(.fa-google-plus-official) {
-    @include google-plus();
-}
-.slot-wrapper ::slotted(.fa-linkedin) {
-    @include linkedin();
-}
-.slot-wrapper ::slotted(.fa-rss-square) {
-    @include rss();
-}
-.slot-wrapper ::slotted(.fa-snapchat) {
-    @include snapchat();
-}
+//.slot-wrapper ::slotted(a) {
+//    @include socialMediaLinks();
+//}
+//
+//.slot-wrapper ::slotted(.fa) {
+//    @include socialMediaFa();
+//}
+//
+//.slot-wrapper ::slotted(.fa-facebook-official) {
+//    @include facebook();
+//}
+//.slot-wrapper ::slotted(.fa-twitter) {
+//    @include twitter();
+//}
+//.slot-wrapper ::slotted(.fa-instagram) {
+//    @include instagram();
+//}
+//.slot-wrapper ::slotted(.fa-youtube-play) {
+//    @include youtube();
+//}
+//.slot-wrapper ::slotted(.fa-pinterest) {
+//    @include pinterest();
+//}
+//.slot-wrapper ::slotted(.fa-google-plus-official) {
+//    @include google-plus();
+//}
+//.slot-wrapper ::slotted(.fa-linkedin) {
+//    @include linkedin();
+//}
+//.slot-wrapper ::slotted(.fa-rss-square) {
+//    @include rss();
+//}
+//.slot-wrapper ::slotted(.fa-snapchat) {
+//    @include snapchat();
+//}
