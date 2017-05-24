@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
+/******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/ 		}
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -674,12 +674,18 @@ class ByuSearch extends HTMLElement {
     }
 
     search(component) {
-        if (component.hasAttribute('onsearch'))
-            component.evalInContext(component.getAttribute('onsearch'), component.getInputValue(component));
+        if (component.hasAttribute('onsearch')) {
+            component.runCallback(component.getAttribute('onsearch'), component.getInputValue(component));
+        }
     }
 
-    evalInContext(fnString, value) {
-        return eval(fnString + "('" + value + "')");
+    runCallback(fnString, value) {
+        let func = window[fnString];
+        if (!func) {
+            console.error("Cannot find search callback function", fnString);
+            return;
+        }
+        return func.call(this, value);
     }
 
     getInputValue(component) {
@@ -1107,9 +1113,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
+/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /*
  *  @license
  *    Copyright 2017 Brigham Young University
