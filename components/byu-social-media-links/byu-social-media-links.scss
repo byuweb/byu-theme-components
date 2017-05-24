@@ -1,37 +1,48 @@
 @import "byu-social-media-links-common";
 
-.slot-wrapper ::slotted(a) {
-    @include socialMediaLinks();
-}
+.slot-wrapper {
+  @include socialMain();
 
-.slot-wrapper ::slotted(.fa) {
-    @include socialMediaFa();
-}
+  ::slotted(*) {
+    @include allSocialIcons();
+  }
 
-.slot-wrapper ::slotted(.fa-facebook-official) {
+  ::slotted(.facebook), ::slotted([slot="facebook"]) {
     @include facebook();
-}
-.slot-wrapper ::slotted(.fa-twitter) {
+  }
+
+  ::slotted(.twitter), ::slotted([slot="twitter"]) {
     @include twitter();
-}
-.slot-wrapper ::slotted(.fa-instagram) {
+  }
+
+  ::slotted(.instagram), ::slotted([slot="instagram"]) {
     @include instagram();
-}
-.slot-wrapper ::slotted(.fa-youtube-play) {
+  }
+
+  ::slotted(.youtube), ::slotted([slot="youtube"]) {
     @include youtube();
-}
-.slot-wrapper ::slotted(.fa-pinterest) {
+  }
+
+  ::slotted(.pinterest), ::slotted([slot="pinterest"]) {
     @include pinterest();
-}
-.slot-wrapper ::slotted(.fa-google-plus-official) {
+  }
+
+  ::slotted(.googleplus), ::slotted([slot="googleplus"]),
+  ::slotted(.gplus), ::slotted([slot="gplus"]),
+  ::slotted(.google-plus), ::slotted([slot="google-plus"]) {
     @include google-plus();
-}
-.slot-wrapper ::slotted(.fa-linkedin) {
+  }
+
+  ::slotted(.linkedin), ::slotted([slot="linkedin"]) {
     @include linkedin();
-}
-.slot-wrapper ::slotted(.fa-rss-square) {
+  }
+
+  ::slotted(.rss), ::slotted([slot="rss"]) {
     @include rss();
-}
-.slot-wrapper ::slotted(.fa-snapchat) {
+  }
+
+  ::slotted(.snapchat), ::slotted([slot="snapchat"]) {
     @include snapchat();
+  }
+
 }

@@ -37,7 +37,7 @@
   .byu-menu-more {
     @include moreLink();
 
-    svg {
+    .more-open-button {
       @include moreLinkSvg();
     }
   }
@@ -63,6 +63,9 @@
 
     .byu-menu-fixed-overlay {
       @include menuFixedOverlay();
+    }
+    .more-open-button {
+      transform: rotate(180deg);
     }
   }
 }

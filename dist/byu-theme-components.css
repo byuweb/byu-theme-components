@@ -404,17 +404,40 @@ byu-search:not(.byu-component-rendered):after {
   float: right; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
-byu-social-media-links:not(.byu-component-rendered) > a {
-  text-decoration: none !important; }
-
-byu-social-media-links:not(.byu-component-rendered) > .fa {
-  font-size: 32px !important;
-  line-height: 28px !important;
-  width: 28px !important;
-  height: 28px !important;
-  text-align: center !important;
-  margin: 10px 15px 10px 0 !important;
-  cursor: pointer; }
+byu-social-media-links:not(.byu-component-rendered) {
+  display: flex;
+  flex-direction: row; }
+  byu-social-media-links:not(.byu-component-rendered) > * {
+    height: 28px;
+    width: 28px;
+    display: block;
+    color: transparent !important;
+    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-position: center;
+    margin: 10px 15px 10px 0 !important; }
+  byu-social-media-links:not(.byu-component-rendered) > .facebook, byu-social-media-links:not(.byu-component-rendered) > [slot="facebook"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/fa.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .twitter, byu-social-media-links:not(.byu-component-rendered) > [slot="twitter"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/tw.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .instagram, byu-social-media-links:not(.byu-component-rendered) > [slot="instagram"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/in.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .youtube, byu-social-media-links:not(.byu-component-rendered) > [slot="youtube"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/yo.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .pinterest, byu-social-media-links:not(.byu-component-rendered) > [slot="pinterest"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/pi.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .linkedin, byu-social-media-links:not(.byu-component-rendered) > [slot="linkedin"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/li.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .rss, byu-social-media-links:not(.byu-component-rendered) > [slot="rss"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/rs.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .snapchat, byu-social-media-links:not(.byu-component-rendered) > [slot="snapchat"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/sn.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .gplus, byu-social-media-links:not(.byu-component-rendered) > [slot="gplus"],
+  byu-social-media-links:not(.byu-component-rendered) > .googleplus, byu-social-media-links:not(.byu-component-rendered) > [slot="googleplus"],
+  byu-social-media-links:not(.byu-component-rendered) > .google-plus, byu-social-media-links:not(.byu-component-rendered) > [slot="google-plus"] {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/gp.svg"); }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */

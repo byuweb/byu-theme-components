@@ -1,55 +1,59 @@
 @import "../shared-styles/colors.scss";
 
-@mixin socialMediaLinks() {
-    text-decoration: none !important;
+@mixin socialMain() {
+    display: flex;
+    flex-direction: row;
 }
 
-@mixin socialMediaFa() {
-    font-size: 32px!important;
-    line-height: 28px!important;
-    width: 28px!important;
-    height: 28px!important;
-    text-align: center!important;
-    margin: 10px 15px 10px 0!important;
-    cursor: pointer;
+//noinspection CssOptimizeSimilarProperties
+@mixin allSocialIcons() {
+    height: 28px;
+    width: 28px;
+    display: block;
+
+    color: transparent!important;
+    overflow: hidden;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-clip: content-box;
+    background-position: center;
+
+    margin: 10px 15px 10px 0 !important;
 }
 
-@mixin socialMediaFaHover() {
-
-}
-
+//We use obfuscated image names here to get around some common ad blocking lists.
 @mixin facebook() {
-    color: #3b5998 !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/fa.svg');
 }
 
 @mixin twitter() {
-    color: #1da1f2 !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/tw.svg');
 }
 
 @mixin instagram() {
-    color: #231F20 !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/in.svg');
 }
 
 @mixin youtube() {
-    color: #cd201f !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/yo.svg');
 }
 
 @mixin pinterest() {
-    color: #bd081c !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/pi.svg');
 }
 
 @mixin google-plus() {
-    color: #dd4b39 !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/gp.svg');
 }
 
 @mixin linkedin() {
-    color: #0077b5 !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/li.svg');
 }
 
 @mixin rss() {
-    color: #f26522 !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/rs.svg');
 }
 
 @mixin snapchat() {
-    color: #fffc00 !important;
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/sn.svg');
 }
