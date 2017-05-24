@@ -88,12 +88,12 @@
     }
 
     function canDoEs6() {
-        try {
-            new Function("class TestClass {}");
-            return true;
-        } catch (e) {
-            return false;
-        }
+        //Template strings are a good stand-in for class syntax detection
+        if (!String.raw) return false;
+
+        //And, we'll fall back to hacky IE detection, just in case.
+        var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+        return !isIE11;
     }
 
     function needsPolyfills() {
