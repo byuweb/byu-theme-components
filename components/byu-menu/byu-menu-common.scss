@@ -43,7 +43,7 @@
 @mixin navItemsSlottedSetWidth() {
   min-width: 200px;
   flex: initial;
-  padding: 0 16px;
+  padding: 0 16px !important;
 }
 
 @mixin moreMenu() {
