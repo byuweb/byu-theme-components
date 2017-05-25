@@ -111,7 +111,7 @@
 }
 
 :host([left-align]) {
-  ::slotted(*) {
+  .outer-nav ::slotted(*) {
     @include navItemsSlottedSetWidth();
   }
 }
