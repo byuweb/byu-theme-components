@@ -73,12 +73,18 @@ class ByuSearch extends HTMLElement {
     }
 
     search(component) {
-        if (component.hasAttribute('onsearch'))
-            component.evalInContext(component.getAttribute('onsearch'), component.getInputValue(component));
+        if (component.hasAttribute('onsearch')) {
+            component.runCallback(component.getAttribute('onsearch'), component.getInputValue(component));
+        }
     }
 
-    evalInContext(fnString, value) {
-        return eval(fnString + "('" + value + "')");
+    runCallback(fnString, value) {
+        let func = window[fnString];
+        if (!func) {
+            console.error("Cannot find search callback function", fnString);
+            return;
+        }
+        return func.call(this, value);
     }
 
     getInputValue(component) {
