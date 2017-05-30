@@ -94,23 +94,26 @@
 }
 
 @mixin mobileSiteTitleSlotted() {
-  font-size: $mobileSiteTitleSize;
+  font-size: $mobileSiteTitleSize !important;
 }
 
 @mixin headerSiteTitle() {
-  margin-top: -1px;
-  margin-bottom: -1px;
+ 
 }
 
 @mixin headerSubTitle() {
   font-size: $siteSubTitleSize;
   line-height: $siteSubTitleSize;
   margin: 0;
+  margin-top: -1px;
+  margin-bottom: 3px;
 }
 
 @mixin headerSuperTitle() {
   font-size: $siteSuperTitleSize;
   line-height: $siteSuperTitleSize;
+  margin-bottom: -1px;
+  margin-top: 2px;
 }
 
 @mixin headerUserButton() {
@@ -229,7 +232,7 @@
 
 @mixin mobileSubTitle() {
   font-size: $mobileSiteSubTitleSize !important;
-  margin-top: $byuLogoHeight - $mobileSiteTitleSize - $mobileSiteSubTitleSize;
+  margin-top: 3px;
 }
 
 @mixin mobileSuperTitle() {
