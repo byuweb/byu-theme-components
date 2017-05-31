@@ -403,6 +403,40 @@ byu-search:not(.byu-component-rendered):after {
   width: 35px;
   float: right; }
 
+byu-search .__byu-search-selected-input {
+  padding: 5px 10px;
+  border: none;
+  height: 30px;
+  -webkit-appearance: none;
+  border-radius: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #002E5D !important;
+  width: 100%; }
+
+byu-search.mobile-view .__byu-search-selected-input {
+  padding: 5px 10px;
+  border: none;
+  height: 30px;
+  -webkit-appearance: none;
+  border-radius: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: #002E5D !important;
+  width: 100%;
+  width: 100%;
+  height: 35px;
+  border-bottom: 1px solid #c5c5c5; }
+
+byu-search input:not(.__byu-search-selected-input), byu-search button {
+  display: none; }
+
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 byu-social-media-links:not(.byu-component-rendered) {
   display: flex;

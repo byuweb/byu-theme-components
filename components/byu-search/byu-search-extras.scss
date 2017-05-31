@@ -2,15 +2,6 @@
 @import "../shared-styles/colors.scss";
 @import "byu-search-common";
 
-//need to figure out how to address this once changes to the search bar are completed
-//  .postfix.button {
-//    display: none;
-//  }
-//  input[type="text"] {
-//    display: none;
-//  }
-
-//byu-search:not(:defined) {
 byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 32px;
@@ -23,20 +14,26 @@ byu-search:not(.byu-component-rendered) {
 // should be 25px height to account for
 // added border from searchButton OR
 // add border to byu-search
-//byu-search:not(:defined):after {
 byu-search:not(.byu-component-rendered):after {
   content: " "; // placeholder for search icon
   @include searchButton();
   height: 32px;
   width: 35px;
   float: right;
-
 }
 
-//byu-search.mobile-view {
-//  @include searchMobile();
-//
-//  form #search-container input,
-//  byu-search input {
-//    @include searchContainerInputMobile();
-//  }
+// Helpers for styling search elements.
+
+byu-search .__byu-search-selected-input {
+  @include searchContainerInput();
+}
+
+byu-search.mobile-view .__byu-search-selected-input {
+  @include searchContainerInputMobile();
+}
+
+byu-search {
+  input:not(.__byu-search-selected-input), button {
+    display: none;
+  }
+}
