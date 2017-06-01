@@ -400,7 +400,7 @@ class BYUHeader extends HTMLElement {
                 this._applyMenuOpen();
                 return;
             case ATTR_HOME_URL:
-                this._render();
+                this._applyHomeUrl(newValue);
                 return;
         }
     }
@@ -1543,7 +1543,7 @@ module.exports = function anonymous(locals, escapeFn, include, rethrow) {
     var __output = [], __append = __output.push.bind(__output);
     __append("<style>\n");
     __append(__webpack_require__(17));
-    __append('</style>\n<div id="header" class="byu-header-root">\n<div class="byu-header-content">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="" target="_blank" style="display: inline">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a>\n<div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
+    __append('</style>\n<div id="header" class="byu-header-root">\n<div class="byu-header-content">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="" target="_blank">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a>\n<div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
     if (locals.mobile) {
         __append('<button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">\n<span class="tcon-menu__lines" aria-hidden="true"></span>\n<span class="tcon-visuallyhidden">toggle menu</span>\n</button>\n');
     }

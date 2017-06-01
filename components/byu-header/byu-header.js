@@ -153,7 +153,7 @@ class BYUHeader extends HTMLElement {
                 this._applyMenuOpen();
                 return;
             case ATTR_HOME_URL:
-                this._render();
+                this._applyHomeUrl(newValue);
                 return;
         }
     }
