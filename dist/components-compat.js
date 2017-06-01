@@ -295,8 +295,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     var ATTR_MOBILE_VIEW = 'mobile-view';
     var ATTR_MENU_OPEN = 'menu-open';
     var ATTR_NO_MENU = 'no-menu';
+    var ATTR_HOME_URL = 'home-url';
 
     var DEFAULT_MOBILE_WIDTH = '1023px';
+    var DEFAULT_HOME_URL = 'https://byu.edu/';
 
     var BYUHeader = function (_HTMLElement4) {
         _inherits(BYUHeader, _HTMLElement4);
@@ -326,6 +328,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                         _this5._addButtonListeners();
                         _this5._checkIfMenuIsNeeded();
                         _this5._checkIfFullWidth();
+                        _this5._checkIfLinked();
                     });
                 }
             }
@@ -359,6 +362,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     } else {
                         menu.removeAttribute('full-width');
                     }
+                }
+            }
+        }, {
+            key: '_checkIfLinked',
+            value: function _checkIfLinked() {
+                if (this.hasAttribute(ATTR_HOME_URL)) {
+                    this._applyHomeUrl(this.getAttribute(ATTR_HOME_URL));
+                } else {
+                    this.setAttribute(ATTR_HOME_URL, DEFAULT_HOME_URL);
+                    this._applyHomeUrl(this.getAttribute(ATTR_HOME_URL));
                 }
             }
         }, {
@@ -450,6 +463,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     case ATTR_MENU_OPEN:
                         this._applyMenuOpen();
                         return;
+                    case ATTR_HOME_URL:
+                        this._applyHomeUrl(newValue);
+                        return;
                 }
             }
         }, {
@@ -464,6 +480,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     menu.style.maxHeight = null;
                     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__["revert"])(this.shadowRoot.querySelector('.mobile-menu-button'));
                 }
+            }
+        }, {
+            key: '_applyHomeUrl',
+            value: function _applyHomeUrl(url) {
+                this.homeUrl = url;
+                var aTag = this.shadowRoot.querySelector('#home-url');
+                aTag.setAttribute('href', this.homeUrl);
             }
         }, {
             key: '_applyMobileWidth',
@@ -539,6 +562,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 }
             }
         }, {
+            key: 'homeUrl',
+            get: function get() {
+                return this.getAttribute(ATTR_HOME_URL);
+            },
+            set: function set(val) {
+                if (val) {
+                    this.setAttribute(ATTR_HOME_URL, val);
+                } else {
+                    this.setAttribute(ATTR_HOME_URL, DEFAULT_HOME_URL);
+                }
+            }
+        }, {
             key: 'mobileMediaQuery',
             get: function get() {
                 return '(max-width: ' + this.mobileMaxWidth + ')';
@@ -546,7 +581,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }], [{
             key: 'observedAttributes',
             get: function get() {
-                return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN];
+                return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL];
             }
         }]);
 
@@ -1628,7 +1663,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             __append = __output.push.bind(__output);
         __append("<style>\n");
         __append(__webpack_require__(17));
-        __append('</style>\n<div id="header" class="byu-header-root">\n<div class="byu-header-content">\n<div class="byu-header-primary">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n<div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
+        __append('</style>\n<div id="header" class="byu-header-root">\n<div class="byu-header-content">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="" target="_blank">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a>\n<div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
         if (locals.mobile) {
             __append('<button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">\n<span class="tcon-menu__lines" aria-hidden="true"></span>\n<span class="tcon-visuallyhidden">toggle menu</span>\n</button>\n');
         }
