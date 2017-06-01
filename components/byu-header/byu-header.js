@@ -153,7 +153,7 @@ class BYUHeader extends HTMLElement {
                 this._applyMenuOpen();
                 return;
             case ATTR_HOME_URL:
-                this._applyHomeUrl();
+                this._render();
                 return;
         }
     }
@@ -172,7 +172,7 @@ class BYUHeader extends HTMLElement {
 
     _applyHomeUrl(url) {
         this.homeUrl = url;
-        let aTag = this.shadowRoot.querySelector('#homeUrl');
+        let aTag = this.shadowRoot.querySelector('#home-url');
         aTag.setAttribute('href', this.homeUrl);
     }
 
@@ -225,7 +225,7 @@ class BYUHeader extends HTMLElement {
     }
 
     get homeUrl() {
-        return this.hasAttribute(ATTR_HOME_URL);
+        return this.getAttribute(ATTR_HOME_URL);
     }
 
     set homeUrl(val) {
