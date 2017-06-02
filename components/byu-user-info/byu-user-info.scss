@@ -54,6 +54,10 @@ img {
     @include userInfoNotMobileDisplay();
   }
 
+  .slot-wrapper ::slotted(*) {
+    @include mobileSlotted();
+  }
+
   .has-user {
     img {
       @include hasUserImage();
@@ -76,10 +80,6 @@ img {
     img {
       @include noUserImage();
     }
-  }
-
-  .slot-wrapper ::slotted(*) {
-    @include mobileSlotted();
   }
 }
 
