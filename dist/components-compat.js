@@ -22,10 +22,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /******/function __webpack_require__(moduleId) {
         /******/
         /******/ // Check if module is in cache
-        /******/if (installedModules[moduleId]) {
+        /******/if (installedModules[moduleId])
             /******/return installedModules[moduleId].exports;
-            /******/
-        }
+        /******/
         /******/ // Create a new module (and put it into the cache)
         /******/var module = installedModules[moduleId] = {
             /******/i: moduleId,
@@ -329,7 +328,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                         _this5._addButtonListeners();
                         _this5._checkIfMenuIsNeeded();
                         _this5._checkIfFullWidth();
-                        _this5._checkIfLinked();
+                        _this5._applyHomeUrl();
                     });
                 }
             }
@@ -363,16 +362,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     } else {
                         menu.removeAttribute('full-width');
                     }
-                }
-            }
-        }, {
-            key: '_checkIfLinked',
-            value: function _checkIfLinked() {
-                if (this.hasAttribute(ATTR_HOME_URL)) {
-                    this._applyHomeUrl(this.getAttribute(ATTR_HOME_URL));
-                } else {
-                    this.setAttribute(ATTR_HOME_URL, DEFAULT_HOME_URL);
-                    this._applyHomeUrl(this.getAttribute(ATTR_HOME_URL));
                 }
             }
         }, {
@@ -465,7 +454,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                         this._applyMenuOpen();
                         return;
                     case ATTR_HOME_URL:
-                        this._applyHomeUrl(newValue);
+                        this._applyHomeUrl();
                         return;
                 }
             }
@@ -484,10 +473,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             }
         }, {
             key: '_applyHomeUrl',
-            value: function _applyHomeUrl(url) {
-                this.homeUrl = url;
+            value: function _applyHomeUrl() {
                 var aTag = this.shadowRoot.querySelector('#home-url');
-                aTag.setAttribute('href', this.homeUrl);
+                if (aTag) {
+                    //Filter out cases where we haven't fully initialized yet
+                    aTag.setAttribute('href', this.homeUrl);
+                }
             }
         }, {
             key: '_applyMobileWidth',
@@ -565,14 +556,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }, {
             key: 'homeUrl',
             get: function get() {
-                return this.getAttribute(ATTR_HOME_URL);
+                return this.getAttribute(ATTR_HOME_URL) || DEFAULT_HOME_URL;
             },
             set: function set(val) {
-                if (val) {
-                    this.setAttribute(ATTR_HOME_URL, val);
-                } else {
-                    this.setAttribute(ATTR_HOME_URL, DEFAULT_HOME_URL);
-                }
+                this.setAttribute(ATTR_HOME_URL, val);
             }
         }, {
             key: 'mobileMediaQuery',
@@ -1303,10 +1290,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony export (immutable) */
-    __webpack_exports__["a"] = applyTemplate;
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(26);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(26);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
+    /* harmony export (immutable) */__webpack_exports__["a"] = applyTemplate;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
