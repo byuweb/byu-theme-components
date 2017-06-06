@@ -24,13 +24,6 @@
   }
 }
 
-.slot-container ::slotted(*.long-link) {
-  @include navItemLongLink();
-}
-.slot-container ::slotted(*.extra-long-link) {
-  @include navItemExtraLongLink();
-}
-
 .byu-menu-more-menu {
   @include moreMenu();
 
