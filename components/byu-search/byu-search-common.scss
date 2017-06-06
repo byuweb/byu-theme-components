@@ -25,6 +25,7 @@
   display: flex;
   align-items: stretch;
   align-content: center;
+  width: 216px;
 }
 
 @mixin searchContainer() {
@@ -45,6 +46,7 @@
   font-size: 13px !important;
   font-weight: 500 !important;
   color: $navy !important;
+  width: 100%;
 }
 
 @mixin searchMobile() {
