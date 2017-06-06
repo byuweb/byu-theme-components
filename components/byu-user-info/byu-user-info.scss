@@ -8,6 +8,10 @@
   @include userPresent();
 }
 
+.user-info-image {
+  @include userInfoImage();
+}
+
 /* NON MOBILE */
 :host(:not([mobile-view])) {
   @include userInfoNotMobile();
@@ -19,10 +23,6 @@
 
   .mobile {
     @include userInfoNotMobileDisplay();
-  }
-
-  .user-info-image {
-    @include nonMobileUserInfoImages();
   }
 
   .slot-wrapper {
@@ -40,8 +40,9 @@
       @include nonMobileUsername();
     }
   }
-  img {
+  .user-info-image {
     @include userInfoNotMobileImages();
+    @include nonMobileUserImage();
   }
 }
 
@@ -53,18 +54,14 @@
     @include userInfoNotMobileDisplay();
   }
 
-  .user-info-image {
-    @include mobileUserInfoImages();
-  }
-
   .slot-wrapper ::slotted(*) {
     @include mobileSlotted();
   }
 
   .has-user {
-    img {
+    /* img {
       @include hasUserImage();
-    }
+    } */
 
     .logout {
       @include hasUserLogout();
@@ -79,10 +76,14 @@
     }
   }
 
+  .user-info-image {
+    @include mobileUserImage();
+  }
+
   .no-user {
-    img {
+    /* img {
       @include noUserImage();
-    }
+    } */
   }
 }
 
