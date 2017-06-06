@@ -4,8 +4,9 @@
 
 <div class="byu-user-wrapper">
     <div class="no-user slot-wrapper">
-        <img class="not-mobile" src="https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg">
-        <img class="mobile" src="https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-navy.svg">
+        <div class="user-info-image">
+            <!-- User info icon is div background -->
+        </div>
         <span class="text slot-wrapper">
             <slot name="login">Sign In</slot>
         </span>
@@ -14,8 +15,12 @@
         <span class="name slot-wrapper"> 
             <slot name="user-name" id='user-name'></slot>
         </span>
-        <img class="not-mobile" src="https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-white.svg">
-        <img class="mobile" src="https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-navy.svg">
+        <div class="not-mobile user-info-image">
+            <!-- White svg is div background -->
+        </div>
+        <div class="mobile user-info-image">
+            <!-- Navy svg is div background -->
+        </div>
         <span class="logout slot-wrapper">
             <slot name="logout">Sign Out</slot>
         </span>
