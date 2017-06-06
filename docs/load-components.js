@@ -14,6 +14,7 @@
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
  */
+"use strict";
 
 /**
  * This isn't how you would typically load up the components, but it helps the developers in their local testing.
@@ -30,7 +31,7 @@
     var root = '//cdn.byu.edu/byu-theme-components/latest';
     var min = true;
 
-    var isLocalhost = window.location.hostname === 'localhost';
+    var isLocalhost = isLocalhost();
     var isForced = window.location.search && window.location.search.indexOf('load-local=true') >= 0;
 
     if (isLocalhost || isForced) {
@@ -58,5 +59,12 @@
         }
         u += '.' + extension;
         return u;
+    }
+
+    function isLocalhost() {
+        var host = window.location.hostname;
+        if (host === 'localhost') return true;
+
+        return /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/.test(host);
     }
 })();
