@@ -450,6 +450,15 @@ byu-social-media-links:not(.byu-component-rendered) {
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* NON MOBILE */
 /* MOBILE */
+/* @mixin hasUserImage() {
+  order: 1;
+  margin: 0 !important;
+  padding: 0 14px 0 0 !important;
+} */
+/* @mixin noUserImage() {
+  margin: 0 !important;
+  padding: 0 14px 0 0 !important;
+} */
 byu-user-info:not(.byu-component-rendered) > * {
   text-decoration: none !important;
   font-size: 13px !important;
