@@ -74,8 +74,9 @@ function toggleClass(el, className, value) {
 }
 
 function updateMoreMenuState(component) {
-    const children = component.children;
-    const length = component.children.length;
+    var children = component.shadowRoot.querySelector('.byu-menu-items').assignedNodes();
+    var filteredChildren = children.filter(function(node) { return node instanceof HTMLElement });
+    const length = filteredChildren.length;
     const hasOverflow = length > 6;
     const nav = component.shadowRoot.querySelector('.outer-nav');
 
@@ -83,15 +84,20 @@ function updateMoreMenuState(component) {
 
     if (hasOverflow) {
         for (let i = 5; i < length; i++) {
-            children[i].setAttribute('slot', 'more');
+            filteredChildren[i].setAttribute('slot', 'more');
         }
     } else if (length === 6) {
-        children[5].setAttribute('slot', '');
+        filteredChildren[5].setAttribute('slot', '');
     }
 
     if (length < 4) {
         component.setAttribute('left-align', '');
     }
+    else
+    {
+        component.removeAttribute('left-align');
+    }
+
 }
 
 window.customElements.define('byu-menu', BYUMenu);

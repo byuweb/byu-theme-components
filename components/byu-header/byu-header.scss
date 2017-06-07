@@ -79,6 +79,14 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .byu-header-root {
+      .byu-header-content {
+        @include headerContentNotMaxWidth();
+      }
+  }
+}
+
 /* MOBILE */
 #mobileMenu {
   @include mobileMenu();
