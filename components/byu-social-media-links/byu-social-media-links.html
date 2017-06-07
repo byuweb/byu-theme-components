@@ -1,17 +1,16 @@
 <style>
     ${require('./byu-social-media-links.scss')}
 </style>
-<!--TODO: This is a hack, and should be replaced with inline SVGs before release-->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 <div class="slot-wrapper">
-    <slot id="facebook" name="facebook"></slot>
-    <slot id="twitter" name="twitter"></slot>
-    <slot id="instagram" name="instagram"></slot>
-    <slot id="youtube" name="youtube"></slot>
-    <slot id="pinterest" name="pinterest"></slot>
-    <slot id="google-plus" name="googleplus"></slot>
-    <slot id="linkedin" name="linkedin"></slot>
-    <slot id="rss" name="rss"></slot>
-    <slot id="snapchat" name="snapchat"></slot>
+    <slot id="social-main"></slot>
+    <!--These others are deprecated, and are here for backwards-compatibility-->
+    <slot id="social-deprecated-facebook" name="facebook"></slot>
+    <slot id="social-deprecated-twitter" name="twitter"></slot>
+    <slot id="social-deprecated-instagram" name="instagram"></slot>
+    <slot id="social-deprecated-youtube" name="youtube"></slot>
+    <slot id="social-deprecated-pinterest" name="pinterest"></slot>
+    <slot id="social-deprecated-googleplus" name="googleplus"></slot>
+    <slot id="social-deprecated-linkedin" name="linkedin"></slot>
+    <slot id="social-deprecated-rss" name="rss"></slot>
+    <slot id="social-deprecated-snapchat" name="snapchat"></slot>
 </div>

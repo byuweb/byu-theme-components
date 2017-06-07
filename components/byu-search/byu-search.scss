@@ -28,6 +28,10 @@ button {
 :host(.mobile-view) {
   @include searchMobile();
 
+  #search-form {
+    width: auto;
+  }
+
   #search-form #search-container input,
   #search-form #search-container ::slotted(input) {
     @include searchContainerInputMobile();

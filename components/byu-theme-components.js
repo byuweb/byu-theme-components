@@ -20,3 +20,6 @@ import './byu-footer-column/byu-footer-column.js';
 import './byu-footer-action-button/byu-footer-action-button.js';
 import './byu-social-media-links/byu-social-media-links.js';
 
+import {version} from '../package.json';
+
+console.log(`--------------- Starting byu-theme-components ${version} ---------------`);

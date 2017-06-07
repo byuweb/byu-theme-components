@@ -39,6 +39,9 @@
       ::slotted(.subtitle) {
         @include headerSubTitle();
       }
+      ::slotted(.subtitle:first-child) {
+        @include headerSuperTitle();
+      }
     } 
 
     .byu-header-user {

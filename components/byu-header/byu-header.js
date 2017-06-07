@@ -10,8 +10,10 @@ const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
 const ATTR_NO_MENU = 'no-menu';
+const ATTR_HOME_URL = 'home-url';
 
 const DEFAULT_MOBILE_WIDTH = '1023px';
+const DEFAULT_HOME_URL = 'https://byu.edu/';
 
 class BYUHeader extends HTMLElement {
 
@@ -32,6 +34,7 @@ class BYUHeader extends HTMLElement {
                 this._addButtonListeners();
                 this._checkIfMenuIsNeeded();
                 this._checkIfFullWidth();
+                this._applyHomeUrl();
             });
         }
     }
@@ -56,8 +59,7 @@ class BYUHeader extends HTMLElement {
 
     _checkIfFullWidth() {
         var menuSlot = this.shadowRoot.querySelector('#navbarMenu');
-        if (menuSlot.assignedNodes().length > 0)
-        {
+        if (menuSlot.assignedNodes().length > 0) {
             var menu = menuSlot.assignedNodes()[0];
             if (this.hasAttribute('full-width')) {
                 menu.setAttribute('full-width', '');
@@ -126,7 +128,7 @@ class BYUHeader extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN];
+        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -140,6 +142,9 @@ class BYUHeader extends HTMLElement {
             case ATTR_MENU_OPEN:
                 this._applyMenuOpen();
                 return;
+            case ATTR_HOME_URL:
+                this._applyHomeUrl();
+                return;
         }
     }
 
@@ -152,6 +157,13 @@ class BYUHeader extends HTMLElement {
         } else {
             menu.style.maxHeight = null;
             revertIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
+        }
+    }
+
+    _applyHomeUrl() {
+        let aTag = this.shadowRoot.querySelector('#home-url');
+        if (aTag) {//Filter out cases where we haven't fully initialized yet
+            aTag.setAttribute('href', this.homeUrl);
         }
     }
 
@@ -201,6 +213,14 @@ class BYUHeader extends HTMLElement {
         } else {
             this.removeAttribute(ATTR_NO_MENU);
         }
+    }
+
+    get homeUrl() {
+        return this.getAttribute(ATTR_HOME_URL) || DEFAULT_HOME_URL;
+    }
+
+    set homeUrl(val) {
+        this.setAttribute(ATTR_HOME_URL, val);
     }
 
     _applyMobileWidth() {

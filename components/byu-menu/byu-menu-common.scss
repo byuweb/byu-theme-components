@@ -42,8 +42,8 @@
 
 @mixin navItemsSlottedSetWidth() {
   min-width: 200px;
-  flex: initial;
-  padding: 0 16px !important;
+  flex: 0;
+  padding: 0 16px;
 }
 
 @mixin moreMenu() {
@@ -51,6 +51,7 @@
   position: relative;
   height: 35px;
   width: 16.66%;
+  overflow: visible !important;
 }
 
 @mixin moreMenuVisible() {
@@ -83,15 +84,20 @@
 }
 
 @mixin moreLinkSvg() {
-  fill: $navy;
+  height: 13px;
+  width: 13px;
+  transition: transform 0.5s ease;
+  transform: rotate(0);
+  transform-origin: center;
 }
 
 @mixin moreItems() {
   display: none;
   position: absolute;
   top: 35px;
-  left: 0;
   right: 0;
+  min-width: 100%;
+  max-width: 250px;
   z-index: 2;
   background: white;
   box-shadow: 0 0 2px 0 rgba(0,0,0,0.75);

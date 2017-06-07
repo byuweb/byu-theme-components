@@ -1,16 +1,15 @@
 @import "byu-user-info-common";
 
-img {
-  @include userInfoImages();
-}
-
-
 .slot-wrapper ::slotted(*) {
   @include userInfoSlotted();
 }
 
 .has-user, .no-user {
   @include userPresent();
+}
+
+.user-info-image {
+  @include userInfoImage();
 }
 
 /* NON MOBILE */
@@ -41,8 +40,9 @@ img {
       @include nonMobileUsername();
     }
   }
-  img {
+  .user-info-image {
     @include userInfoNotMobileImages();
+    @include nonMobileUserImage();
   }
 }
 
@@ -54,10 +54,14 @@ img {
     @include userInfoNotMobileDisplay();
   }
 
+  .slot-wrapper ::slotted(*) {
+    @include mobileSlotted();
+  }
+
   .has-user {
-    img {
+    /* img {
       @include hasUserImage();
-    }
+    } */
 
     .logout {
       @include hasUserLogout();
@@ -72,14 +76,14 @@ img {
     }
   }
 
-  .no-user {
-    img {
-      @include noUserImage();
-    }
+  .user-info-image {
+    @include mobileUserImage();
   }
 
-  .slot-wrapper ::slotted(*) {
-    @include mobileSlotted();
+  .no-user {
+    /* img {
+      @include noUserImage();
+    } */
   }
 }
 

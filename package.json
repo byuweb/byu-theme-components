@@ -1,6 +1,6 @@
 {
   "name": "byuweb-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Components to be used for byu web pages and applications.",
   "main": "",
   "scripts": {
@@ -17,8 +17,9 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.6",
-    "byu-web-component-build": "^0.2.1",
+    "byu-web-component-build": "^0.2.3",
     "byu-web-component-utils": "^0.2.0",
+    "git-revision-webpack-plugin": "^2.5.1",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2"
   }

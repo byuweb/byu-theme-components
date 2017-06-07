@@ -1,4 +1,8 @@
-# One-Line Summary
+# Description
+
+*Tell us all about your problem or feature proposal.*
+
+**If the issue is with styling, please include screenshots!**
 
 
 
@@ -51,11 +55,5 @@ plus Internet Explorer 11.**
 - [ ] Wordpress
 - [ ] Custom Site
 - [ ] Don't Know
-
-# Detailed Description
-
-*Tell us all about your problem or feature proposal.*
-
-**If the issue is with styling, please include screenshots!**
 
 

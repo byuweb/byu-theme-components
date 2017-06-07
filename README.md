@@ -16,7 +16,7 @@ In order for a BYU website to be considered compliant with current branding stan
 ## Important links
 [brand.byu.edu](http://brand.byu.edu) contains a full description of the BYU website branding guidelines
 
-[theme.byu.edu](http://theme.byu.edu) contains implementation guidelines for the current BYU theme, as well as a list of optional components created by the BYU web community that can improve and simplify your website.
+[theme-dev.byu.edu](http://theme-dev.byu.edu) contains implementation guidelines for the current BYU theme, as well as a list of optional components created by the BYU web community that can improve and simplify your website. This site is currently under construction, so please let us know if there are things you'd like on it.
 
 [web.byu.edu](http://web.byu.edu) is the central hub for communication, events, and news relating to the BYU Web Community. It includes a calendar with upcoming events (including WebFests and user group meetings), the proceedings and latest decisions of the Web Advisory Board, and info on the various working groups creating community resources. It also has info on how to join the BYU Web Slack channels.
 
@@ -39,6 +39,9 @@ Our goal is to implement flexible, well-structured web components according to t
 * Internet Explorer 11
 
 In addition, every component must be responsive, providing a first-class experience to phone and tablet users.
+
+## Favicon
+All BYU Websites are encouraged to use the official favicon. This is likely to be located on brand.byu.edu in the future, but it is available now in github: [https://github.com/byuweb/byu-assets/blob/master/favicon.png](https://github.com/byuweb/byu-assets/blob/master/favicon.png).
 
 ### Using Github
 There's plenty of documentation online about how to work with Github and the Git source control system, and there are excellent Git plugins available for most IDEs. If you've never worked with Github before, github has provided some good documentation at [guides.github.com](http://guides.github.com). You can also join the [slack channel](http://byu-web.slack.com) and connect with other developers from the project.
