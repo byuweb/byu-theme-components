@@ -372,12 +372,10 @@ byu-menu:not(.byu-component-rendered) > * {
     background: #e5e5e5 !important; }
   byu-menu:not(.byu-component-rendered) > *.long-link {
     max-width: 300px;
-    flex: 2;
-    padding: 0 12px !important; }
+    flex: 2; }
   byu-menu:not(.byu-component-rendered) > *.extra-long-link {
     max-width: 400px;
-    flex: 3;
-    padding: 0 12px !important; }
+    flex: 3; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
