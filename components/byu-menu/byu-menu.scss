@@ -12,6 +12,12 @@
   @include outerNav();
 }
 
+@media screen and (max-width: 1200px) {
+  .outer-nav {
+    @include outerNavNotMaxWidth();
+  }
+}
+
 .slot-container ::slotted(*) {
   @include navItemSlotted();
 }

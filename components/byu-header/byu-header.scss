@@ -17,9 +17,8 @@
     @include headerContent();
   }
 
-  .byu-logo {
-    @include headerLogo();
-
+  img.byu-logo {
+    @include headerLogoMargin();
   }
 
   button {
@@ -73,7 +72,7 @@
       }
     }
 
-    .byu-logo {
+    .byu-logo, .byu-logo-link {
       @include byuLogo();
     }
   }
