@@ -1039,7 +1039,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     module.exports = {
         "name": "byuweb-components",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "description": "Components to be used for byu web pages and applications.",
         "main": "",
         "scripts": {
