@@ -15,11 +15,17 @@
   justify-content: center;
   flex: 1;
   flex-basis: 100%;
-  margin: 0 16px;
+  padding: $pageContentPadding;
   box-sizing: border-box;
 }
 
-@mixin headerLogo() {
+@mixin headerContentNotMaxWidth() {
+    padding: 0;
+    margin: $pageContentPadding;
+    box-sizing: border-box;
+}
+
+@mixin headerLogoMargin() {
   margin-right: 16px;
 }
 

@@ -328,7 +328,8 @@ byu-menu:not(.byu-component-rendered) {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
-  padding: 0;
+  padding: 0 16px;
+  box-sizing: border-box;
   height: 35px;
   position: relative;
   max-width: 1200px;

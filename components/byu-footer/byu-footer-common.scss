@@ -52,7 +52,8 @@
 
 @mixin secondaryFooterContent() {
   width: 1200px !important;
-  margin: 0 15px;
+  padding: $pageContentPadding;
+  box-sizing: border-box;
 }
 
 @mixin secondaryFooterContentFullWidth() {

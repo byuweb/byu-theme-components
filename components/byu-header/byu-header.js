@@ -55,6 +55,10 @@ class BYUHeader extends HTMLElement {
         if (menuSlot.assignedNodes().length < 4) {
             this.setAttribute('left-align', '');
         }
+        else
+        {
+            this.removeAttribute('left-align');
+        }
     }
 
     _checkIfFullWidth() {

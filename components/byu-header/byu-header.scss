@@ -17,9 +17,8 @@
     @include headerContent();
   }
 
-  .byu-logo {
-    @include headerLogo();
-
+  img.byu-logo {
+    @include headerLogoMargin();
   }
 
   button {
@@ -73,9 +72,17 @@
       }
     }
 
-    .byu-logo {
+    .byu-logo, .byu-logo-link {
       @include byuLogo();
     }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .byu-header-root {
+      .byu-header-content {
+        @include headerContentNotMaxWidth();
+      }
   }
 }
 
