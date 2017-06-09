@@ -75,15 +75,17 @@ function toggleClass(el, className, value) {
 
 function updateMoreMenuState(component) {
     var children = component.shadowRoot.querySelector('.byu-menu-items').assignedNodes();
+    var moreChildren = component.shadowRoot.querySelector('.byu-menu-more-slot').assignedNodes();
     var filteredChildren = children.filter(function(node) { return node instanceof HTMLElement });
-    const length = filteredChildren.length;
+    var filteredMoreChildren = moreChildren.filter(function(node) { return node instanceof HTMLElement });
+    const length = filteredChildren.length + filteredMoreChildren.length;
     const hasOverflow = length > 6;
     const nav = component.shadowRoot.querySelector('.outer-nav');
 
     if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
-
+    
     if (hasOverflow) {
-        for (let i = 5; i < length; i++) {
+        for (let i = 5; i < filteredChildren.length; i++) {
             filteredChildren[i].setAttribute('slot', 'more');
         }
     } else if (length === 6) {

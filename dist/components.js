@@ -592,15 +592,17 @@ function toggleClass(el, className, value) {
 
 function updateMoreMenuState(component) {
     var children = component.shadowRoot.querySelector('.byu-menu-items').assignedNodes();
+    var moreChildren = component.shadowRoot.querySelector('.byu-menu-more-slot').assignedNodes();
     var filteredChildren = children.filter(function(node) { return node instanceof HTMLElement });
-    const length = filteredChildren.length;
+    var filteredMoreChildren = moreChildren.filter(function(node) { return node instanceof HTMLElement });
+    const length = filteredChildren.length + filteredMoreChildren.length;
     const hasOverflow = length > 6;
     const nav = component.shadowRoot.querySelector('.outer-nav');
 
     if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
-
+    
     if (hasOverflow) {
-        for (let i = 5; i < length; i++) {
+        for (let i = 5; i < filteredChildren.length; i++) {
             filteredChildren[i].setAttribute('slot', 'more');
         }
     } else if (length === 6) {
@@ -1645,7 +1647,7 @@ module.exports = "<style>" + __webpack_require__(16) + "</style> <div class=\"se
 /* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(18) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <img class=\"more-open-button\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg\" alt=\"Open\"> </a> <div class=\"byu-menu-more-items slot-container\"> <slot name=\"more\"></slot> </div> </div> </nav>";
+module.exports = "<style>" + __webpack_require__(18) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <img class=\"more-open-button\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg\" alt=\"Open\"> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
 
 /***/ }),
 /* 31 */
