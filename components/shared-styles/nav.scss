@@ -38,6 +38,7 @@
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  transition: background 0.3s;
 
   &:hover {
     @include navItemHover();
