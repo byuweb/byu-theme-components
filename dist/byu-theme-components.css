@@ -364,6 +364,7 @@ byu-menu:not(.byu-component-rendered) > * {
   white-space: nowrap !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
+  transition: background 0.3s;
   flex: 1; }
   byu-menu:not(.byu-component-rendered) > *:hover {
     background: #c5c5c5 !important; }
