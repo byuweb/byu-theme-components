@@ -10,6 +10,10 @@
   }
 }
 
+.contact-phone { 
+  @include contactPhone();
+}
+
 .inner-wrapper {
   @include footerInnerWrapper();
 }

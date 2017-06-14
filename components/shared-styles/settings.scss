@@ -22,7 +22,9 @@ $siteSuperTitleSize: 14px;
 $mobileSiteSubTitleSize: 12px;
 $mobileSiteSuperTitleSize: 12px;
 
-$pageContentPadding: 0 16px;
+$pageContentTopBottomPadding: 0;
+$pageContentLeftRightPadding: 16px;
+$pageContentPadding: $pageContentTopBottomPadding $pageContentLeftRightPadding;
 
 $headerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 $headerContentFontWeight: 500;

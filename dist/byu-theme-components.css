@@ -381,6 +381,13 @@ byu-menu:not(.byu-component-rendered) > * {
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
+/* --- Color variable names are all lower case. Other variables are camel-case --- */
+/* --- Color variable names are all lower case. Other variables are camel-case --- */
+/* -- breakpoint settings ----- */
+/* --- header settings ------- */
+/* --- search settings -------- */
+/* ---------  general text settings ----- */
+/* ------ footer settings ------------- */
 byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 32px;
