@@ -24,12 +24,13 @@ byu-search:not(.byu-component-rendered):after {
 
 // Helpers for styling search elements.
 
-byu-search .__byu-search-selected-input {
-  @include searchContainerInput();
+byu-search input.__byu-search-selected-input {
+  @include searchInput();
+  @include searchInputPlaceholderRules();
 }
 
-byu-search.mobile-view .__byu-search-selected-input {
-  @include searchContainerInputMobile();
+byu-search.mobile-view input.__byu-search-selected-input {
+  @include searchInputMobile();
 }
 
 byu-search {

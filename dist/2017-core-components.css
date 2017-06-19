@@ -410,7 +410,7 @@ byu-search:not(.byu-component-rendered):after {
   width: 35px;
   float: right; }
 
-byu-search .__byu-search-selected-input {
+byu-search input.__byu-search-selected-input {
   padding: 5px 10px;
   border: none;
   height: 30px;
@@ -423,20 +423,16 @@ byu-search .__byu-search-selected-input {
   font-weight: 500 !important;
   color: #002E5D !important;
   width: 100%; }
+  byu-search input.__byu-search-selected-input::placeholder {
+    color: #666; }
+  byu-search input.__byu-search-selected-input::-webkit-input-placeholder {
+    color: #666; }
+  byu-search input.__byu-search-selected-input:-ms-input-placeholder {
+    color: #666; }
+  byu-search input.__byu-search-selected-input::-ms-input-placeholder {
+    color: #666; }
 
-byu-search.mobile-view .__byu-search-selected-input {
-  padding: 5px 10px;
-  border: none;
-  height: 30px;
-  -webkit-appearance: none;
-  border-radius: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  color: #002E5D !important;
-  width: 100%;
+byu-search.mobile-view input.__byu-search-selected-input {
   padding-left: 16px;
   width: 100%;
   height: 35px;
