@@ -10,8 +10,8 @@
   }
 }
 
-.contact-phone { 
-  @include contactPhone();
+.footer-text { 
+  @include footerTextSection();
 }
 
 .inner-wrapper {
