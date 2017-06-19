@@ -10,6 +10,10 @@
   }
 }
 
+.footer-text { 
+  @include footerTextSection();
+}
+
 .inner-wrapper {
   @include footerInnerWrapper();
 }
