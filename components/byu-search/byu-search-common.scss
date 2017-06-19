@@ -33,7 +33,27 @@
   flex: 1;
 }
 
-@mixin searchContainerInput() {
+@mixin searchInputPlaceholder() {
+  color: $medgray;
+}
+
+@mixin searchInputPlaceholderRules() {
+  //Comma-joining these doesn't work.
+   &::placeholder {
+    @include searchInputPlaceholder();
+  }
+  &::-webkit-input-placeholder {
+    @include searchInputPlaceholder();
+  }
+  &:-ms-input-placeholder {
+    @include searchInputPlaceholder();
+  }
+  &::-ms-input-placeholder {
+    @include searchInputPlaceholder();
+  }
+}
+
+@mixin searchInput() {
   padding: 5px 10px;
   border: none;
   height: 30px;
@@ -56,8 +76,7 @@
   margin: 0;
 }
 
-@mixin searchContainerInputMobile() {
-  @include searchContainerInput();
+@mixin searchInputMobile() {
   padding-left: $pageContentHorizontalPadding;
   width: 100%;
   height: 35px;

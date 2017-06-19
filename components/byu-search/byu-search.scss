@@ -20,9 +20,32 @@ button {
   @include searchContainer();
 }
 
-#search-form #search-container input,
-#search-form #search-container ::slotted(input) {
-  @include searchContainerInput();
+#search-form #search-container {
+  //Comma-joining these messes up the the placeholder styles
+  input {
+    @include searchInput();
+    @include searchInputPlaceholderRules();
+  }
+  ::slotted(input) {
+    @include searchInput();
+  }
+
+  //Comma-joining these doesn't work.
+  ::slotted(input::placeholder) {
+    @include searchInputPlaceholder();
+  }
+
+  ::slotted(input:-ms-input-placeholder) {
+    @include searchInputPlaceholder();
+  }
+
+  ::slotted(input::-ms-input-placeholder) {
+    @include searchInputPlaceholder();
+  }
+
+  ::slotted(input::-webkit-input-placeholder) {
+    @include searchInputPlaceholder();
+  }
 }
 
 :host(.mobile-view) {
@@ -34,7 +57,7 @@ button {
 
   #search-form #search-container input,
   #search-form #search-container ::slotted(input) {
-    @include searchContainerInputMobile();
+    @include searchInputMobile();
   }
 
   #search-button {
