@@ -1,19 +1,23 @@
 <style>
     ${require('./byu-footer.scss')}
 </style>
-<div class="secondary-footer">
-    <div class="secondary-footer-content needs-width-setting">
+<div class="site-footer">
+    <div class="site-footer-content needs-width-setting">
         <slot id="slot"></slot>
     </div>
 </div>
-<div class="blue-footer">
-    <div class="inner-wrapper needs-width-setting">
-        <a href="https://home.byu.edu/home/" target="_blank"><img src="https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg" alt="Brigham Young University" class="university-logo"></a>
-        <div class="copyright-contact">
-            <span class="footer-text">&copy;<span id="currentYear"></span> All Rights Reserved</span> | 
-            <span class="footer-text">Provo, UT 84602, USA</span> | 
-            <span class="footer-text"><a class="contact-phone" href="tel:18014224636">801-422-4636</a></span>
-        </div>
+<div class="university-footer">
+    <div class="university-logo-wrapper needs-width-setting">
+        <a href="https://home.byu.edu/home/" target="_blank">
+            <img
+                    src="https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg"
+                    alt="Brigham Young University"
+                    class="university-logo"></a>
+    </div>
+    <div class="university-info needs-width-setting">
+        <span class="info-text">&copy;<span id="currentYear"></span> All Rights Reserved</span>
+        <span class="info-text">Provo, UT 84602, USA</span>
+        <span class="info-text"><a class="contact-phone" href="tel:18014224636">801-422-4636</a></span>
     </div>
 </div>
   

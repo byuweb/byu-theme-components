@@ -1,7 +1,8 @@
 @import "byu-footer-column-common";
 
 :host {
-    @include footerColumn();
+    //@include footerColumn();
+    flex-grow: 1;
 }
 
 .header {
