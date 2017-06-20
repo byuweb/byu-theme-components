@@ -280,15 +280,14 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   flex: 1;
   display: flex;
   flex-direction: column;
-  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   font-size: 22px;
+  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   color: #fff !important;
+  text-decoration: none;
   padding-left: 16px;
   flex-direction: row;
   height: 40px;
   align-items: center; }
-  byu-header:not(.byu-component-rendered) > [slot="site-title"] a {
-    color: #fff !important; }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU";
@@ -297,6 +296,11 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   padding-right: 16px;
   font-weight: 800 !important;
   letter-spacing: 2px; }
+
+byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
+  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
+  color: #fff !important;
+  text-decoration: none; }
 
 /* MOBILE */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
