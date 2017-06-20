@@ -87,6 +87,29 @@
             </template>
         </demo-snippet>
 
+        <h2>Header with Links for Title</h2>
+        <demo-snippet>
+            <template>
+                <byu-header mobile-max-width="1024px" home-url="http://web.byu.edu">
+                    <!-- If no URL is specified, home-url will default to byu.edu -->
+                    <a slot="site-title" href="#">Components Demo Site</a>
+                    <a slot="site-title" class="subtitle">Example Sub-Title</a>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h2>Header with Nested Links for Title</h2>
+        <demo-snippet>
+            <template>
+                <byu-header mobile-max-width="1024px" home-url="http://web.byu.edu">
+                    <!-- If no URL is specified, home-url will default to byu.edu -->
+                    <span slot="site-title"><a href="#">Components Demo Site</a></span>
+                    <span slot="site-title" class="subtitle"><a href="#">Example Sub-Title</a></span>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+
         <h2>Header with sub-title</h2>
         <demo-snippet>
             <template>

@@ -77,6 +77,12 @@
   box-sizing: border-box;
 }
 
+@mixin headerTitleText() {
+  font-family: $siteNameFont !important;
+  color: #fff!important;
+  text-decoration: none;
+}
+
 @mixin headerTitles() {
   overflow: hidden;
   -ms-text-overflow: ellipsis;
@@ -84,12 +90,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  font-family: $siteNameFont !important;
   font-size: $siteTitleSize;
-  color: #fff!important;
-  a {
-    color: #fff!important;
-  }
+  @include headerTitleText();
 }
 
 @mixin titleSlotted() {

@@ -39,6 +39,11 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   font-weight: 800 !important;
   letter-spacing: 2px;
 }
+
+
+byu-header a {
+  @include headerTitleText();
+}
 /* MOBILE */
 //#mobileMenu {
 //  @include mobileMenu();
