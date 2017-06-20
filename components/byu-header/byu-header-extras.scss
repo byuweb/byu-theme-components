@@ -41,8 +41,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 }
 
 
-byu-header a {
-  @include headerTitleText();
+byu-header a[slot="site-title"], byu-header [slot="site-title"] {
+  @include headerTitles
 }
 /* MOBILE */
 //#mobileMenu {

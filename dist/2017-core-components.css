@@ -297,7 +297,14 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   font-weight: 800 !important;
   letter-spacing: 2px; }
 
-byu-header a {
+byu-header a[slot="site-title"], byu-header [slot="site-title"] {
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 22px;
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   color: #fff !important;
   text-decoration: none; }
