@@ -688,7 +688,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     function addSlotListeners(component) {
         component.shadowRoot.querySelector('slot').addEventListener('slotchange', function (e) {
-            return updateMoreMenuState(component);
+            //Run on microtask timing to let polyfilled shadow DOM changes to propagate
+            setTimeout(function () {
+                return updateMoreMenuState(component);
+            });
         });
     }
 
