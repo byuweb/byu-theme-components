@@ -604,7 +604,10 @@ class BYUMenu extends HTMLElement {
 
 function addSlotListeners(component) {
     component.shadowRoot.querySelector('slot')
-        .addEventListener('slotchange', e => updateMoreMenuState(component));
+        .addEventListener('slotchange', e => {
+            //Run on microtask timing to let polyfilled shadow DOM changes to propagate
+            setTimeout(() =>  updateMoreMenuState(component));
+        });
 }
 
 function enableHideClick(component) {
