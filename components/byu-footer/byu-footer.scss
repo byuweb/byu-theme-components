@@ -65,6 +65,63 @@
   }
 }
 
+.site-footer-wrapper {
+  background-color: $footerBackground;
+}
+
+.site-footer {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100vw;
+  height: auto;
+  box-sizing: border-box;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  ::slotted(*) {
+    flex-grow: 1;
+  }
+
+  ::slotted(.double-wide) {
+    flex-grow: 2;
+  }
+}
+
+@media (min-width: 600px) {
+  .site-footer {
+    flex-direction: row;
+
+    ::slotted(*) {
+      //min-width: 250px - 8px;
+      width: calc(50% - 16px);
+    }
+
+    ::slotted(.double-wide) {
+      width: calc(100% - 16px);
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-footer {
+    flex-wrap: nowrap;
+    ::slotted(*) {
+      width: calc(25% - 16px);
+    }
+    ::slotted(.double-wide) {
+      width: calc(50% - 16px);
+    }
+  }
+}
+
+.site-footer ::slotted(*) {
+  //display: inline-block;
+  margin: 0 8px;
+}
+
+
 //.footer-text {
 //  @include footerTextSection();
 //}
