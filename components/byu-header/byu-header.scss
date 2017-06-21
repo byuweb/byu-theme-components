@@ -78,7 +78,8 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+:host([below-max-width]) {
+
   .byu-header-root {
       .byu-header-content {
         @include headerContentNotMaxWidth();

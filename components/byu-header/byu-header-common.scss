@@ -10,7 +10,7 @@
 }
 
 @mixin headerContent() {
-  max-width: 1200px;
+  // max-width: 1200px;
   display: flex;
   justify-content: center;
   flex: 1;
@@ -182,7 +182,7 @@
 }
 
 @mixin mobileHeaderPrimary() {
-  margin-left: 16px;
+  margin-left: $pageContentHorizontalPadding;
 }
 
 @mixin mobileMenuOverflow() {
@@ -193,7 +193,7 @@
   padding-top: ($headerHeight - $byuLogoHeight)/2;
   padding-bottom: ($headerHeight - $byuLogoHeight)/2;
   min-height: $byuLogoHeight;
-  padding-right: 14px !important;
+  padding-right: $pageContentHorizontalPadding !important;
   align-items: baseline;
 }
 
