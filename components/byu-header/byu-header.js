@@ -4,7 +4,7 @@ import * as templateFn from "./byu-header.ejs.html";
 
 import * as equal from "deep-equal";
 import * as util from "byu-web-component-utils";
-import {revert as revertIcon, transform as transformIcon} from "./icons/transformicons";
+import { revert as revertIcon, transform as transformIcon } from "./icons/transformicons";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MAX_WIDTH = 'max-width';
@@ -15,14 +15,14 @@ const ATTR_NO_MENU = 'no-menu';
 const ATTR_HOME_URL = 'home-url';
 
 const DEFAULT_MOBILE_WIDTH = '1023px';
-const DEFAULT_MAX_WIDTH = '1200px;'
+const DEFAULT_MAX_WIDTH = '1200px';
 const DEFAULT_HOME_URL = 'https://byu.edu/';
 
 class BYUHeader extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({ mode: 'open' });
     }
 
     _render() {
@@ -37,12 +37,11 @@ class BYUHeader extends HTMLElement {
                 this._notifyChildrenOfMobileState();
                 this._addButtonListeners();
                 this._checkIfMenuIsNeeded();
-                this._checkIfFullWidth();
+                this._notifyMenuOfWidthAttributes();
                 this._applyHomeUrl();
             });
         }
         let headerContent = this.shadowRoot.querySelector('.byu-header-content');
-        console.log(headerContent);
         headerContent.style.maxWidth = this.maxWidth;
     }
 
@@ -62,21 +61,27 @@ class BYUHeader extends HTMLElement {
         if (menuSlot.assignedNodes().length < 4) {
             this.setAttribute('left-align', '');
         }
-        else
-        {
+        else {
             this.removeAttribute('left-align');
         }
     }
 
-    _checkIfFullWidth() {
+    _notifyMenuOfWidthAttributes() {
         var menuSlot = this.shadowRoot.querySelector('#navbarMenu');
         if (menuSlot.assignedNodes().length > 0) {
             var menu = menuSlot.assignedNodes()[0];
+
             if (this.hasAttribute('full-width')) {
                 menu.setAttribute('full-width', '');
             } else {
                 menu.removeAttribute('full-width');
             }
+            if (this.hasAttribute('max-width')) {
+                menu.setAttribute('max-width', this.maxWidth);
+            } else {
+                menu.setAttribute('max-width', DEFAULT_MAX_WIDTH);
+            }
+
         }
     }
 
@@ -98,6 +103,7 @@ class BYUHeader extends HTMLElement {
             each.addEventListener('slotchange', event => {
                 this._notifyChildrenOfMobileState();
                 this._checkIfMenuIsNeeded();
+                this._notifyMenuOfWidthAttributes();
             });
         })
     }
@@ -206,7 +212,7 @@ class BYUHeader extends HTMLElement {
         }
     }
 
-     get maxWidth() {
+    get maxWidth() {
         return this.getAttribute(ATTR_MAX_WIDTH);
     }
 
@@ -230,7 +236,7 @@ class BYUHeader extends HTMLElement {
         }
     }
 
-     get belowMaxWidth() {
+    get belowMaxWidth() {
         return this.hasAttribute(ATTR_BELOW_MAX_WIDTH);
     }
 
@@ -301,7 +307,7 @@ class BYUHeader extends HTMLElement {
         return `(max-width: ${this.mobileMaxWidth})`;
     }
 
-     _applyMaxWidth() {
+    _applyMaxWidth() {
         let desiredQuery = this.maxWidthMediaQuery;
         let q = this._maxWidthQuery;
         if (q) {

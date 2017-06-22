@@ -10,7 +10,6 @@
 }
 
 @mixin headerContent() {
-  // max-width: 1200px;
   display: flex;
   justify-content: center;
   flex: 1;
@@ -179,6 +178,7 @@
 @mixin mobileHeaderContent() {
   display: block;
   margin: 0;
+  padding: 0;
 }
 
 @mixin mobileHeaderPrimary() {

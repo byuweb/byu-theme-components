@@ -135,10 +135,105 @@
                 </byu-footer>
             </template>
         </demo-snippet>
+
+        <h2>Social Media Links</h2>
+        <p>
+            The <code>byu-social-media-links</code> component displays nice, consistent icons for a list of social media
+            links. Simply provide the links you want, with a class specifying the social network to which it belongs.
+            <code>byu-social-media-links</code> will then add the appropriate icon and add a tooltip identifying the social
+            network (unless you already have a tooltip), which aids in accessibility.
+        </p>
+        <p>
+            This demo includes the full list of currently-supported social media icons:
+        </p>
+        <demo-snippet>
+            <template>
+                <byu-social-media-links>
+                    <!--These links should be actual links to your social media sites-->
+                    <a class="facebook" href="#">Facebook</a>
+                    <a class="instagram" href="#">Instagram</a>
+                    <a class="twitter" href="#">Twitter</a>
+                    <a class="gplus" href="#">Google Plus</a>
+                    <a class="linkedin" href="#">Linkedin</a>
+                    <a class="youtube" href="#">YouTube</a>
+                    <a class="rss" href="#">RSS</a>
+                    <a class="snapchat" href="#">Snapchat</a>
+                </byu-social-media-links>
+            </template>
+        </demo-snippet>
+
+<h2>Full Footer with Links and max-width Attribute</h2>
+<p>
+    Note that the footer will look first for its own max-width attribute, then for the
+    header's max-width attribute. If neither has one, it falls back to the default width.
+</p>
+        <demo-snippet>
+            <template>
+                <byu-footer max-width="800px">
+                    <byu-footer-column>
+                        <span slot="header">Contact</span>
+                        <p>
+                            BYU Speeches
+                            <br /> 701 East University Parkway
+                            <br /> Provo, Utah 84602
+                            <br /> 888-888-8888
+                        </p>
+                        <byu-footer-action-button>
+                            <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+                        </byu-footer-action-button>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Other Speeches</span>
+                        <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+                        <br />
+                        <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+                        <br />
+                        <a href="https://womensconference.byu.edu">Women's Conference</a>
+                        <br />
+                        <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+                        <br />
+                        <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Related Links</span>
+                        <a>LDS.org</a>
+                        <br />
+                        <a>BYU Alumni</a>
+                        <br />
+                        <a>BYU Today</a>
+                        <br />
+                        <a>BYU Magazine</a>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Connect With Us</span>
+                        <a>Feedback</a>
+                        <br />
+                        <a>Help</a>
+                        <br />
+                        <a>Follow BYU Speeches</a>
+                        <br />
+                        <byu-social-media-links>
+                            <!--Note: These all have text that will be hidden. The text should be there to help screen readers.-->
+                            <a class="facebook" href="https://www.facebook.com">Facebook</a>
+                            <a class="instagram" href="https://www.instagram.com">Instagram</a>
+                            <a class="twitter" href="https://www.twitter.com">Twitter</a>
+                            <a class="gplus" href="https://plus.google.com">Google Plus</a>
+                            <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
+                            <a class="youtube" href="https://www.youtube.com">YouTube</a>
+                        </byu-social-media-links>
+                        <br />
+                        <a>Subscribe</a>
+                    </byu-footer-column>
+                </byu-footer>
+            </template>
+        </demo-snippet>
+
+
     </div>
     <h2>Full Footer with links and full-width attribute</h2>
     <p>By default the header and footer have a width of 1200px. To get around this just add a "full-width" attribute to the
-        footer:</p>
+        footer:
+    </p>
     <demo-snippet>
         <template>
             <byu-footer full-width>
@@ -196,32 +291,6 @@
                     <a>Subscribe</a>
                 </byu-footer-column>
             </byu-footer>
-        </template>
-    </demo-snippet>
-
-    <h2>Social Media Links</h2>
-    <p>
-        The <code>byu-social-media-links</code> component displays nice, consistent icons for a list of social media links.
-        Simply provide the links you want, with a class specifying the social network to which it belongs.
-        <code>byu-social-media-links</code> will then add the appropriate icon and add a tooltip identifying the social
-        network (unless you already have a tooltip), which aids in accessibility.
-    </p>
-    <p>
-        This demo includes the full list of currently-supported social media icons:
-    </p>
-    <demo-snippet>
-        <template>
-            <byu-social-media-links>
-                <!--These links should be actual links to your social media sites-->
-                <a class="facebook" href="#">Facebook</a>
-                <a class="instagram" href="#">Instagram</a>
-                <a class="twitter" href="#">Twitter</a>
-                <a class="gplus" href="#">Google Plus</a>
-                <a class="linkedin" href="#">Linkedin</a>
-                <a class="youtube" href="#">YouTube</a>
-                <a class="rss" href="#">RSS</a>
-                <a class="snapchat" href="#">Snapchat</a>
-            </byu-social-media-links>
         </template>
     </demo-snippet>
 

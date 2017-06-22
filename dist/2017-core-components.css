@@ -336,7 +336,6 @@ byu-menu:not(.byu-component-rendered) {
   box-sizing: border-box;
   height: 35px;
   position: relative;
-  max-width: 1200px;
   flex: 1;
   flex-basis: 100%;
   color: #002E5D !important;
