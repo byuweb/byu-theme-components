@@ -36,10 +36,13 @@ class BYUMenu extends HTMLElement {
 
             //This is a hack to ensure that the right defaults get applied.
             this.maxWidth = this.maxWidth;
-            
-            let outerNav = this.shadowRoot.querySelector('.outer-nav');
-            outerNav.style.maxWidth = this.maxWidth;
+
+            this._applyMaxWidth();
         });
+    }
+
+    static get observedAttributes() {
+        return [ATTR_MAX_WIDTH];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -47,6 +50,14 @@ class BYUMenu extends HTMLElement {
             case ATTR_MAX_WIDTH:
                 this._applyMaxWidth();
                 return;
+        }
+    }
+
+    _applyMaxWidth() {
+        var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
+        for (var i = 0; i < needsWidthSetting.length; i++) {
+            needsWidthSetting[i].style.maxWidth = this.maxWidth;
+            needsWidthSetting[i].style.width = this.maxWidth;
         }
     }
 

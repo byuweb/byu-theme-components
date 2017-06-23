@@ -293,6 +293,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_footer_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_footer_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
+    var ATTR_FULL_WIDTH = 'full-width';
+    var ATTR_MAX_WIDTH = 'max-width';
+    var DEFAULT_MAX_WIDTH = '1200px';
+
     var BYUFooter = function (_HTMLElement3) {
         _inherits(BYUFooter, _HTMLElement3);
 
@@ -308,36 +312,45 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         _createClass(BYUFooter, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this4 = this;
-
                 var component = this;
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](component, 'byu-footer', __WEBPACK_IMPORTED_MODULE_0__byu_footer_html___default.a, function () {
                     // always show the current year in the copyright message
                     var currentYear = component.shadowRoot.querySelector("#currentYear");
                     currentYear.innerHTML = new Date().getFullYear();
 
-                    // check the header for full-width or max-width attributes
                     var header = document.querySelector('byu-header');
-                    if (header.hasAttribute('full-width')) {
-                        _this4.setAttribute('full-width', '');
-                    } else if (header.hasAttribute('max-width') && !_this4.hasAttribute('max-width')) {
-                        var w = header.getAttribute('max-width');
-                        _this4.setAttribute('max-width', w);
-                    }
-                    // if the header has a max-width attribute, or if the footer
-                    // has it, then apply the max width. Otherwise default to 1200px
-                    var w = "1200px";
-                    if (_this4.hasAttribute('max-width')) {
-                        w = _this4.getAttribute('max-width');
-                    }
-                    var innerWrapper = _this4.shadowRoot.querySelector('.inner-wrapper');
-                    var secondaryFooterContent = _this4.shadowRoot.querySelector('.secondary-footer-content');
+                    var observer = new MutationObserver(function (mutations) {
+                        component.updateWithHeaderAttributes(header);
+                    });
 
-                    innerWrapper.style.maxWidth = w;
-                    innerWrapper.style.width = w;
-                    secondaryFooterContent.style.maxWidth = w;
-                    secondaryFooterContent.style.width = w;
+                    // configuration of the observer:
+                    var config = { attributes: true };
+                    observer.observe(header, config);
+                    component.updateWithHeaderAttributes(header); // run it once to get the initial values
                 });
+            }
+        }, {
+            key: 'updateWithHeaderAttributes',
+            value: function updateWithHeaderAttributes(header) {
+
+                // check the header for full-width or max-width attributes
+                if (header.hasAttribute(ATTR_FULL_WIDTH)) {
+                    this.setAttribute(ATTR_FULL_WIDTH, '');
+                } else {
+                    this.removeAttribute(ATTR_FULL_WIDTH);
+                }
+
+                var w = DEFAULT_MAX_WIDTH;
+                if (header.hasAttribute(ATTR_MAX_WIDTH)) {
+                    w = header.getAttribute(ATTR_MAX_WIDTH);
+                }
+                this.setAttribute(ATTR_MAX_WIDTH, w);
+
+                var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
+                for (var i = 0; i < needsWidthSetting.length; i++) {
+                    needsWidthSetting[i].style.maxWidth = w;
+                    needsWidthSetting[i].style.maxWidth = w;
+                }
             }
         }]);
 
@@ -363,9 +376,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__);
 
     var ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
+    var ATTR_FULL_WIDTH = 'full-width';
     var ATTR_MAX_WIDTH = 'max-width';
     var ATTR_MOBILE_VIEW = 'mobile-view';
-    var ATTR_BELOW_MAX_WIDTH = 'below-max-width';
     var ATTR_MENU_OPEN = 'menu-open';
     var ATTR_NO_MENU = 'no-menu';
     var ATTR_HOME_URL = 'home-url';
@@ -380,34 +393,32 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         function BYUHeader() {
             _classCallCheck(this, BYUHeader);
 
-            var _this5 = _possibleConstructorReturn(this, (BYUHeader.__proto__ || Object.getPrototypeOf(BYUHeader)).call(this));
+            var _this4 = _possibleConstructorReturn(this, (BYUHeader.__proto__ || Object.getPrototypeOf(BYUHeader)).call(this));
 
-            _this5.attachShadow({ mode: 'open' });
-            return _this5;
+            _this4.attachShadow({ mode: 'open' });
+            return _this4;
         }
 
         _createClass(BYUHeader, [{
             key: '_render',
             value: function _render() {
-                var _this6 = this;
+                var _this5 = this;
 
                 var state = {
-                    mobile: this.inMobileView,
-                    belowMaxWidth: this.belowMaxWidth
+                    mobile: this.inMobileView
                 };
                 if (!__WEBPACK_IMPORTED_MODULE_1_deep_equal__(state, this._renderState)) {
                     __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-header', __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__(state), function () {
-                        _this6._renderState = state;
-                        _this6._addSlotListeners();
-                        _this6._notifyChildrenOfMobileState();
-                        _this6._addButtonListeners();
-                        _this6._checkIfMenuIsNeeded();
-                        _this6._notifyMenuOfWidthAttributes();
-                        _this6._applyHomeUrl();
+                        _this5._renderState = state;
+                        _this5._addSlotListeners();
+                        _this5._notifyChildrenOfMobileState();
+                        _this5._addButtonListeners();
+                        _this5._checkIfMenuIsNeeded();
+                        _this5._notifyMenuOfWidthAttributes();
+                        _this5._applyHomeUrl();
+                        _this5._applyMaxWidth();
                     });
                 }
-                var headerContent = this.shadowRoot.querySelector('.byu-header-content');
-                headerContent.style.maxWidth = this.maxWidth;
             }
         }, {
             key: '_checkIfMenuIsNeeded',
@@ -437,22 +448,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 if (menuSlot.assignedNodes().length > 0) {
                     var menu = menuSlot.assignedNodes()[0];
 
-                    if (this.hasAttribute('full-width')) {
-                        menu.setAttribute('full-width', '');
+                    if (this.hasAttribute(ATTR_FULL_WIDTH)) {
+                        menu.setAttribute(ATTR_FULL_WIDTH, '');
                     } else {
-                        menu.removeAttribute('full-width');
+                        menu.removeAttribute(ATTR_FULL_WIDTH);
                     }
-                    if (this.hasAttribute('max-width')) {
-                        menu.setAttribute('max-width', this.maxWidth);
+                    if (this.hasAttribute(ATTR_MAX_WIDTH)) {
+                        menu.setAttribute(ATTR_MAX_WIDTH, this.maxWidth);
                     } else {
-                        menu.setAttribute('max-width', DEFAULT_MAX_WIDTH);
+                        menu.setAttribute(ATTR_MAX_WIDTH, DEFAULT_MAX_WIDTH);
                     }
                 }
             }
         }, {
             key: '_addButtonListeners',
             value: function _addButtonListeners() {
-                var _this7 = this;
+                var _this6 = this;
 
                 if (!this.inMobileView) {
                     this.menuOpen = false;
@@ -460,7 +471,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 }
                 var menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
                 menuButton.addEventListener('click', function () {
-                    return _this7._toggleMenu();
+                    return _this6._toggleMenu();
                 });
             }
         }, {
@@ -471,13 +482,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }, {
             key: '_addSlotListeners',
             value: function _addSlotListeners() {
-                var _this8 = this;
+                var _this7 = this;
 
                 this._findAllSlots().forEach(function (each) {
                     each.addEventListener('slotchange', function (event) {
-                        _this8._notifyChildrenOfMobileState();
-                        _this8._checkIfMenuIsNeeded();
-                        _this8._notifyMenuOfWidthAttributes();
+                        _this7._notifyChildrenOfMobileState();
+                        _this7._checkIfMenuIsNeeded();
+                        _this7._notifyMenuOfWidthAttributes();
                     });
                 });
             }
@@ -494,17 +505,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     kids.forEach(function (each) {
                         each.removeAttribute(ATTR_MOBILE_VIEW);
                         each.classList.remove(ATTR_MOBILE_VIEW);
-                    });
-                }
-                if (this.belowMaxWidth) {
-                    kids.forEach(function (each) {
-                        each.setAttribute(ATTR_BELOW_MAX_WIDTH, '');
-                        each.classList.add(ATTR_BELOW_MAX_WIDTH);
-                    });
-                } else {
-                    kids.forEach(function (each) {
-                        each.removeAttribute(ATTR_BELOW_MAX_WIDTH);
-                        each.classList.remove(ATTR_BELOW_MAX_WIDTH);
                     });
                 }
             }
@@ -535,9 +535,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 //This is a hack to ensure that the right defaults get applied.
                 this.mobileMaxWidth = this.mobileMaxWidth;
                 this._applyMobileWidth();
-                this.maxWidth = this.maxWidth;
-                this._applyMaxWidth();
                 this._render();
+                this.maxWidth = this.maxWidth;
             }
         }, {
             key: 'attributeChangedCallback',
@@ -610,27 +609,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }, {
             key: '_applyMaxWidth',
             value: function _applyMaxWidth() {
-                var desiredQuery = this.maxWidthMediaQuery;
-                var q = this._maxWidthQuery;
-                if (q) {
-                    if (q.media === desiredQuery) {
-                        //Nothing has changed, bail!
-                        return;
-                    } else {
-                        q.removeListener(this._maxWidthQueryListener);
-                        this._maxWidthQuery = null;
+
+                if (!this.inMobileView) {
+                    var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
+                    for (var i = 0; i < needsWidthSetting.length; i++) {
+                        needsWidthSetting[i].style.maxWidth = this.maxWidth;
                     }
                 }
-                this._maxWidthQuery = q = window.matchMedia(desiredQuery);
-                this._maxWidthQueryListener = this._handleMaxWidthChange.bind(this);
-
-                q.addListener(this._maxWidthQueryListener);
-                this._maxWidthQueryListener(q);
-            }
-        }, {
-            key: '_handleMaxWidthChange',
-            value: function _handleMaxWidthChange(mql) {
-                this.belowMaxWidth = mql.matches;
             }
         }, {
             key: 'mobileMaxWidth',
@@ -666,18 +651,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     this.setAttribute(ATTR_MOBILE_VIEW, '');
                 } else {
                     this.removeAttribute(ATTR_MOBILE_VIEW);
-                }
-            }
-        }, {
-            key: 'belowMaxWidth',
-            get: function get() {
-                return this.hasAttribute(ATTR_BELOW_MAX_WIDTH);
-            },
-            set: function set(val) {
-                if (val) {
-                    this.setAttribute(ATTR_BELOW_MAX_WIDTH, '');
-                } else {
-                    this.removeAttribute(ATTR_BELOW_MAX_WIDTH);
                 }
             }
         }, {
@@ -717,15 +690,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             get: function get() {
                 return '(max-width: ' + this.mobileMaxWidth + ')';
             }
-        }, {
-            key: 'maxWidthMediaQuery',
-            get: function get() {
-                return '(max-width: ' + this.maxWidth + ')';
-            }
         }], [{
             key: 'observedAttributes',
             get: function get() {
-                return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL];
+                return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_FULL_WIDTH, ATTR_MAX_WIDTH];
             }
         }]);
 
@@ -768,33 +736,32 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             _classCallCheck(this, BYUMenu);
 
             // always call super first
-            var _this9 = _possibleConstructorReturn(this, (BYUMenu.__proto__ || Object.getPrototypeOf(BYUMenu)).call(this));
+            var _this8 = _possibleConstructorReturn(this, (BYUMenu.__proto__ || Object.getPrototypeOf(BYUMenu)).call(this));
 
-            _this9.attachShadow({ mode: 'open' });
-            return _this9;
+            _this8.attachShadow({ mode: 'open' });
+            return _this8;
         }
 
         _createClass(BYUMenu, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this10 = this;
+                var _this9 = this;
 
                 var component = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default.a, function () {
-                    updateMoreMenuState(_this10);
-                    addSlotListeners(_this10);
+                    updateMoreMenuState(_this9);
+                    addSlotListeners(_this9);
 
                     // when the more button is clicked then show the more menu
-                    _this10.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
+                    _this9.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                         component.showMore = true;
                     });
 
                     //This is a hack to ensure that the right defaults get applied.
-                    _this10.maxWidth = _this10.maxWidth;
+                    _this9.maxWidth = _this9.maxWidth;
 
-                    var outerNav = _this10.shadowRoot.querySelector('.outer-nav');
-                    outerNav.style.maxWidth = _this10.maxWidth;
+                    _this9._applyMaxWidth();
                 });
             }
         }, {
@@ -804,6 +771,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     case ATTR_MAX_WIDTH:
                         this._applyMaxWidth();
                         return;
+                }
+            }
+        }, {
+            key: '_applyMaxWidth',
+            value: function _applyMaxWidth() {
+                var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
+                for (var i = 0; i < needsWidthSetting.length; i++) {
+                    needsWidthSetting[i].style.maxWidth = this.maxWidth;
+                    needsWidthSetting[i].style.width = this.maxWidth;
                 }
             }
         }, {
@@ -817,6 +793,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 } else {
                     this.setAttribute(ATTR_MAX_WIDTH, DEFAULT_MAX_WIDTH);
                 }
+            }
+        }], [{
+            key: 'observedAttributes',
+            get: function get() {
+                return [ATTR_MAX_WIDTH];
             }
         }]);
 
@@ -957,26 +938,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             _classCallCheck(this, ByuSearch);
 
             // always call super first
-            var _this11 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
+            var _this10 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
 
-            _this11.attachShadow({ mode: 'open' });
-            return _this11;
+            _this10.attachShadow({ mode: 'open' });
+            return _this10;
         }
 
         _createClass(ByuSearch, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this12 = this;
+                var _this11 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__byu_search_html___default.a, function () {
-                    _this12._initialized = true;
+                    _this11._initialized = true;
 
-                    _this12._input = lookupAndConfigureInputElement(_this12, _this12.searchInputSelector);
+                    _this11._input = lookupAndConfigureInputElement(_this11, _this11.searchInputSelector);
 
-                    setupButtonSearchDispatcher(_this12);
-                    setupSearchListeners(_this12);
+                    setupButtonSearchDispatcher(_this11);
+                    setupSearchListeners(_this11);
 
-                    setupSlotListener(_this12);
+                    setupSlotListener(_this11);
                 });
             }
         }, {
@@ -1329,29 +1310,29 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         function BYUSocialMediaLinks() {
             _classCallCheck(this, BYUSocialMediaLinks);
 
-            var _this13 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
+            var _this12 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
 
-            _this13.attachShadow({ mode: 'open' });
-            return _this13;
+            _this12.attachShadow({ mode: 'open' });
+            return _this12;
         }
 
         _createClass(BYUSocialMediaLinks, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this14 = this;
+                var _this13 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-social-media-links', __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html___default.a, function () {
-                    var main = _this14.shadowRoot.querySelector('#social-main');
+                    var main = _this13.shadowRoot.querySelector('#social-main');
                     applyTitleToChildren(main);
 
                     SOCIAL_IDS.forEach(function (id) {
-                        var slot = _this14.shadowRoot.querySelector('#social-deprecated-' + id);
+                        var slot = _this13.shadowRoot.querySelector('#social-deprecated-' + id);
                         if (!slot) return;
 
                         applyTitleToChildren(slot);
                         //We're still supporting the old way, but it's deprecated and people should move on.
                         if (slot.assignedNodes().length > 0) {
-                            console.log('[WARNING] byu-social-media-links: deprecated usage of slot="' + id + '". Replace with class="' + id + '":', _this14);
+                            console.log('[WARNING] byu-social-media-links: deprecated usage of slot="' + id + '". Replace with class="' + id + '":', _this13);
                         }
                     });
                 });
@@ -1413,11 +1394,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         function ByuUserInfo() {
             _classCallCheck(this, ByuUserInfo);
 
-            var _this15 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
+            var _this14 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
 
-            var shadowRoot = _this15.attachShadow({ mode: 'open' });
+            var shadowRoot = _this14.attachShadow({ mode: 'open' });
 
-            return _this15;
+            return _this14;
         }
 
         _createClass(ByuUserInfo, [{
@@ -1432,22 +1413,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }, {
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this16 = this;
+                var _this15 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html___default.a, function () {
-                    _this16._addSlotListeners();
-                    _this16._addAriaAttributes();
+                    _this15._addSlotListeners();
+                    _this15._addAriaAttributes();
                 });
             }
         }, {
             key: '_addSlotListeners',
             value: function _addSlotListeners() {
-                var _this17 = this;
+                var _this16 = this;
 
                 this._setHasUser();
                 var userSlot = this.shadowRoot.querySelector('#user-name');
                 userSlot.addEventListener('slotchange', function (e) {
-                    _this17._setHasUser();
+                    _this16._setHasUser();
                 });
             }
         }, {
@@ -1957,7 +1938,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
     // module
-    exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:24px;transition:.15s;user-select:none;width:17px;background:transparent;outline:none;-webkit-tap-highlight-color:transparent;padding:0!important}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:24px;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;border-radius:1px;height:3px;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:24px;content:\"\";position:absolute;left:0;transform-origin:1.71429px center;width:100%}.tcon-menu__lines:before{top:6px}.tcon-menu__lines:after{top:-6px}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:24px}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header-actions{display:flex;align-items:center;height:34px}.byu-header-actions ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important}.byu-header-root{background-color:#002e5d;width:100%;font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header-root .byu-header-content{display:flex;justify-content:center;flex:1;flex-basis:100%;padding:0 16px;box-sizing:border-box}.byu-header-root img.byu-logo{margin-right:16px}.byu-header-root button{background-color:#666;color:#fff;border:none;cursor:pointer}.byu-header-root .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;flex:1;min-height:55px;box-sizing:border-box}.byu-header-root .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;display:flex;flex-direction:column;font-size:22px;font-family:Vitesse A,Vitesse B,Georgia,serif!important;color:#fff!important;text-decoration:none}.byu-header-root .byu-header-primary .byu-header-title ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:400;font-size:22px;line-height:normal}.byu-header-root .byu-header-primary .byu-header-title ::slotted(.subtitle){font-size:14px;line-height:14px;margin:0;margin-top:-1px;margin-bottom:3px}.byu-header-root .byu-header-primary .byu-header-title ::slotted(.subtitle:first-child){font-size:14px;line-height:14px;margin-bottom:-1px;margin-top:2px}.byu-header-root .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header-root .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header-root .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header-root .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header-root .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-logo,.byu-header-root .byu-header-primary .byu-logo-link{height:34px}:host([below-max-width]) .byu-header-root .byu-header-content{padding:0;margin:0 16px;box-sizing:border-box}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-root .byu-header-content{display:block;margin:0;padding:0}:host([mobile-view]) .byu-header-root .byu-logo{align-self:flex-start}:host([mobile-view]) .byu-header-root .byu-header-primary{margin-left:16px;padding-top:10.5px;padding-bottom:10.5px;min-height:34px;padding-right:16px!important;align-items:baseline}:host([mobile-view]) .byu-header-root .byu-header-actions{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding:0!important;background-color:#e6e6e6;color:#002e5d!important;border-top:1px solid #c5c5c5;width:100%;display:flex;flex-direction:column;align-items:flex-start;line-height:12px!important}:host([mobile-view]) .byu-header-root .byu-header-actions:hover{background:#c5c5c5!important}:host([mobile-view]) .byu-header-root .byu-header-actions.active,:host([mobile-view]) .byu-header-root .byu-header-actions.selected{background:#e5e5e5!important}:host([mobile-view]) .byu-header-root .byu-header-actions.long-link{max-width:300px;flex:2}:host([mobile-view]) .byu-header-root .byu-header-actions.extra-long-link{max-width:400px;flex:3}:host([mobile-view]) .byu-header-root #actions a{color:#002e5d!important;font-weight:500!important}:host([mobile-view]) .byu-header-root #actions p{margin:0!important}:host([mobile-view]) .byu-header-root .byu-header-actions ::slotted(*){color:#002e5d!important;padding:18px 50px!important}:host([mobile-view]) .byu-header-root>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header-root .byu-header-title{align-items:flex-start;align-self:center;font-size:16px!important}:host([mobile-view]) .byu-header-root .byu-header-title ::slotted(*){font-size:16px!important}:host([mobile-view]) .byu-header-root .byu-header-title ::slotted(.subtitle){font-size:12px!important;margin-top:3px}:host([mobile-view]) .byu-header-root .byu-header-title ::slotted(.subtitle:first-child){margin-top:0!important;margin-bottom:4px}:host([mobile-view]) .byu-header-root button.mobile-menu-button{background-color:transparent;margin-top:5px;margin-bottom:5px}:host([no-menu]) .mobile-menu-button{display:none}:host(:not([mobile-view])) .byu-header-root{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center}:host(:not([mobile-view])) .byu-header-root .byu-header-actions ::slotted(*){margin-left:4px;margin-right:4px}:host(:not([mobile-view])) .byu-header-root .byu-header-actions a{color:#fff!important}:host(:not([mobile-view])) .byu-header-root.no-nav{height:48px}:host(:not([mobile-view])) .byu-header-root .nav-expand{display:none}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary,:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-menu-button{display:none}:host([full-width]) .byu-header-content{max-width:100%!important}", ""]);
+    exports.push([module.i, ".tcon{appearance:none;border:none;cursor:pointer;display:flex;justify-content:center;align-items:center;height:24px;transition:.15s;user-select:none;width:17px;background:transparent;outline:none;-webkit-tap-highlight-color:transparent;padding:0!important}.tcon>*{display:block}.tcon:focus,.tcon:hover{outline:none}.tcon::-moz-focus-inner{border:0}.tcon-menu__lines{width:24px;position:relative}.tcon-menu__lines,.tcon-menu__lines:after,.tcon-menu__lines:before{display:inline-block;border-radius:1px;height:3px;transition:.15s;background:#fff}.tcon-menu__lines:after,.tcon-menu__lines:before{width:24px;content:\"\";position:absolute;left:0;transform-origin:1.71429px center;width:100%}.tcon-menu__lines:before{top:6px}.tcon-menu__lines:after{top:-6px}.tcon-transform .tcon-menu__lines{transform:scale3d(.8,.8,.8)}.tcon-menu--xbutterfly{width:auto}.tcon-menu--xbutterfly .tcon-menu__lines:after,.tcon-menu--xbutterfly .tcon-menu__lines:before{transform-origin:50% 50%;transition:top .3s ease .6s,transform .3s ease}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines{background:transparent}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after,.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{top:0;transition:top .3s ease,transform .3s ease .5s;width:24px}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:before{transform:rotate(45deg)}.tcon-menu--xbutterfly.tcon-transform .tcon-menu__lines:after{transform:rotate(-45deg)}.tcon-visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.tcon-visuallyhidden:active,.tcon-visuallyhidden:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.byu-header-actions{display:flex;align-items:center;height:34px}.byu-header-actions ::slotted(*){text-decoration:none!important;font-size:13px!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;text-transform:uppercase!important;color:#fff!important}.byu-header-root{background-color:#002e5d;width:100%;font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-size:18px}.byu-header-root .byu-header-content{display:flex;justify-content:center;flex:1;flex-basis:100%;padding:0 16px;box-sizing:border-box}.byu-header-root img.byu-logo{margin-right:16px}.byu-header-root button{background-color:#666;color:#fff;border:none;cursor:pointer}.byu-header-root .byu-header-primary{background-color:#002e5d;color:#fff;display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center;flex:1;min-height:55px;box-sizing:border-box}.byu-header-root .byu-header-primary .byu-header-title{overflow:hidden;-ms-text-overflow:ellipsis;text-overflow:ellipsis;flex:1;display:flex;flex-direction:column;font-size:22px;font-family:Vitesse A,Vitesse B,Georgia,serif!important;color:#fff!important;text-decoration:none}.byu-header-root .byu-header-primary .byu-header-title ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:400;font-size:22px;line-height:normal}.byu-header-root .byu-header-primary .byu-header-title ::slotted(.subtitle){font-size:14px;line-height:14px;margin:0;margin-top:-1px;margin-bottom:3px}.byu-header-root .byu-header-primary .byu-header-title ::slotted(.subtitle:first-child){font-size:14px;line-height:14px;margin-bottom:-1px;margin-top:2px}.byu-header-root .byu-header-primary .byu-header-user button{background-color:transparent;position:relative}.byu-header-root .byu-header-primary .byu-header-user button .icon{width:20px;height:20px;font-size:20px;vertical-align:middle}.byu-header-root .byu-header-primary .byu-header-user button .label{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;text-transform:uppercase}.byu-header-root .byu-header-primary .byu-header-search #search-input{font-family:Gotham A,Gotham B,Helvetica,sans-serif;font-weight:500;font-size:13px;color:#002e5d}.byu-header-root .byu-header-primary .byu-header-search #search-input::-webkit-input-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-header-search #search-input::-ms-input-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-header-search #search-input::-moz-placeholder{color:#c5c5c5;opacity:1}.byu-header-root .byu-header-primary .byu-logo,.byu-header-root .byu-header-primary .byu-logo-link{height:34px}#mobileMenu{max-height:0;transition:.5s cubic-bezier(.4,0,.2,1);overflow:hidden}:host([mobile-view]) .byu-header-root .byu-header-content{display:block;margin:0;padding:0}:host([mobile-view]) .byu-header-root .byu-logo{align-self:flex-start}:host([mobile-view]) .byu-header-root .byu-header-primary{margin-left:16px;padding-top:10.5px;padding-bottom:10.5px;min-height:34px;padding-right:16px!important;align-items:baseline}:host([mobile-view]) .byu-header-root .byu-header-actions{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;height:35px!important;display:inline-block;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;display:block;box-sizing:border-box;padding:18px 33px!important;line-height:12px;text-align:left!important;height:auto!important;padding:0!important;background-color:#e6e6e6;color:#002e5d!important;border-top:1px solid #c5c5c5;width:100%;display:flex;flex-direction:column;align-items:flex-start;line-height:12px!important}:host([mobile-view]) .byu-header-root .byu-header-actions:hover{background:#c5c5c5!important}:host([mobile-view]) .byu-header-root .byu-header-actions.active,:host([mobile-view]) .byu-header-root .byu-header-actions.selected{background:#e5e5e5!important}:host([mobile-view]) .byu-header-root .byu-header-actions.long-link{max-width:300px;flex:2}:host([mobile-view]) .byu-header-root .byu-header-actions.extra-long-link{max-width:400px;flex:3}:host([mobile-view]) .byu-header-root #actions a{color:#002e5d!important;font-weight:500!important}:host([mobile-view]) .byu-header-root #actions p{margin:0!important}:host([mobile-view]) .byu-header-root .byu-header-actions ::slotted(*){color:#002e5d!important;padding:18px 50px!important}:host([mobile-view]) .byu-header-root>div>:not(.byu-logo){margin-right:0}:host([mobile-view]) .byu-header-root .byu-header-title{align-items:flex-start;align-self:center;font-size:16px!important}:host([mobile-view]) .byu-header-root .byu-header-title ::slotted(*){font-size:16px!important}:host([mobile-view]) .byu-header-root .byu-header-title ::slotted(.subtitle){font-size:12px!important;margin-top:3px}:host([mobile-view]) .byu-header-root .byu-header-title ::slotted(.subtitle:first-child){margin-top:0!important;margin-bottom:4px}:host([mobile-view]) .byu-header-root button.mobile-menu-button{background-color:transparent;margin-top:5px;margin-bottom:5px}:host([no-menu]) .mobile-menu-button{display:none}:host(:not([mobile-view])) .byu-header-root{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center}:host(:not([mobile-view])) .byu-header-root .byu-header-actions ::slotted(*){margin-left:4px;margin-right:4px}:host(:not([mobile-view])) .byu-header-root .byu-header-actions a{color:#fff!important}:host(:not([mobile-view])) .byu-header-root.no-nav{height:48px}:host(:not([mobile-view])) .byu-header-root .nav-expand{display:none}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary{background-color:#002e5d;color:#fff;height:55px}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary,:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search{display:flex;flex-direction:row;flex-wrap:nowrap;justify-content:space-between;align-items:center}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search input{border:1px solid #002e5d;border-right:none;height:20px;padding:4px 6px;flex:1;width:217px;box-sizing:content-box}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-search button{height:28px;width:30px;text-align:center}:host(:not([mobile-view])) .byu-header-root .byu-header-secondary .byu-header-menu-button{display:none}:host([full-width]) .byu-header-content{max-width:100%!important}", ""]);
 
     // exports
 
@@ -2181,15 +2162,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             __append = __output.push.bind(__output);
         __append("<style>\n");
         __append(__webpack_require__(20));
-        __append('</style>\n<div id="header" class="byu-header-root">\n<div class="byu-header-content">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="" target="_blank">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a>\n<div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
+        __append('</style><div id="header" class="byu-header-root"><div class="byu-header-content needs-width-setting">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="" target="_blank">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a><div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
         if (locals.mobile) {
             __append('<button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">\n<span class="tcon-menu__lines" aria-hidden="true"></span>\n<span class="tcon-visuallyhidden">toggle menu</span>\n</button>\n');
         }
-        __append('</div>\n<div id="secondary" class="byu-header-secondary">\n');
+        __append('</div><div id="secondary" class="byu-header-secondary">\n');
         if (!locals.mobile) {
             __append('<div class="byu-header-actions">\n<slot id="actions" name="actions"></slot>\n</div>\n<div class="byu-header-user">\n<slot id="user" name="user"></slot>\n</div>\n');
         }
-        __append('<div class="byu-header-search">\n<slot id="search" name="search"></slot>\n</div>\n</div>\n</div>\n');
+        __append('<div class="byu-header-search">\n<slot id="search" name="search"></slot>\n</div></div>\n</div>');
         if (locals.mobile) {
             __append('<div id="mobileMenu">\n<slot id="user" name="user"></slot>\n<slot id="navbarMenu" name="nav"></slot>\n<div class="byu-header-actions">\n<slot id="actions" name="actions"></slot>\n</div>\n</div>\n');
         } else {
@@ -2282,14 +2263,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* 32 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(19) + "</style> <div class=\"secondary-footer\"> <div class=\"secondary-footer-content\"> <slot id=\"slot\"></slot> </div> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper\"> <a href=\"https://home.byu.edu/home/\" target=\"_blank\"><img src=\"https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg\" alt=\"Brigham Young University\" class=\"university-logo\"></a> <div class=\"copyright-contact\"> <span class=\"footer-text\">&copy;<span id=\"currentYear\"></span> All Rights Reserved</span> | <span class=\"footer-text\">Provo, UT 84602, USA</span> | <span class=\"footer-text\"><a class=\"contact-phone\" href=\"tel:18014224636\">801-422-4636</a></span> </div> </div> </div>";
+    module.exports = "<style>" + __webpack_require__(19) + "</style> <div class=\"secondary-footer\"> <div class=\"secondary-footer-content needs-width-setting\"> <slot id=\"slot\"></slot> </div> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper needs-width-setting\"> <a href=\"https://home.byu.edu/home/\" target=\"_blank\"><img src=\"https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg\" alt=\"Brigham Young University\" class=\"university-logo\"></a> <div class=\"copyright-contact\"> <span class=\"footer-text\">&copy;<span id=\"currentYear\"></span> All Rights Reserved</span> | <span class=\"footer-text\">Provo, UT 84602, USA</span> | <span class=\"footer-text\"><a class=\"contact-phone\" href=\"tel:18014224636\">801-422-4636</a></span> </div> </div> </div>";
 
     /***/
 },
 /* 33 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(21) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <img class=\"more-open-button\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg\" alt=\"Open\"> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
+    module.exports = "<style>" + __webpack_require__(21) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container needs-width-setting\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <img class=\"more-open-button\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg\" alt=\"Open\"> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
 
     /***/
 },
