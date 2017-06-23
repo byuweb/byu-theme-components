@@ -9,6 +9,7 @@ import {revert as revertIcon, transform as transformIcon} from "./icons/transfor
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
+const ATTR_MENU_KEEP_OPEN = 'menu-keep-open';
 const ATTR_NO_MENU = 'no-menu';
 const ATTR_HOME_URL = 'home-url';
 
@@ -133,7 +134,7 @@ class BYUHeader extends HTMLElement {
         // close the mobile menu if a link within it is clicked
         const header = this;
         this.shadowRoot.querySelector('#navbarMenu').addEventListener('click', () => {
-            if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN)) {
+            if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN) && !header.hasAttribute(ATTR_MENU_KEEP_OPEN)) {
                 header.removeAttribute(ATTR_MENU_OPEN);
             }
         });
@@ -212,6 +213,18 @@ class BYUHeader extends HTMLElement {
             this.setAttribute(ATTR_MENU_OPEN, '');
         } else {
             this.removeAttribute(ATTR_MENU_OPEN);
+        }
+    }
+
+    get keepMenuOpen() {
+        return this.hasAttribute(ATTR_MENU_KEEP_OPEN);
+    }
+
+    set keepMenuOpen(val) {
+        if (val) {
+            this.setAttribute(ATTR_MENU_KEEP_OPEN, '');
+        } else {
+            this.removeAttribute(ATTR_MENU_KEEP_OPEN);
         }
     }
 
