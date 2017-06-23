@@ -2,9 +2,6 @@
 import template from "./byu-menu.html";
 import * as util from 'byu-web-component-utils';
 
-const ATTR_MAX_WIDTH = 'max-width';
-const DEFAULT_MAX_WIDTH = '1200px';
-
 class BYUMenu extends HTMLElement {
 
     get showMore() {
@@ -33,44 +30,7 @@ class BYUMenu extends HTMLElement {
             this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                 component.showMore = true;
             });
-
-            //This is a hack to ensure that the right defaults get applied.
-            this.maxWidth = this.maxWidth;
-
-            this._applyMaxWidth();
         });
-    }
-
-    static get observedAttributes() {
-        return [ATTR_MAX_WIDTH];
-    }
-
-    attributeChangedCallback(attr, oldValue, newValue) {
-        switch (attr) {
-            case ATTR_MAX_WIDTH:
-                this._applyMaxWidth();
-                return;
-        }
-    }
-
-    _applyMaxWidth() {
-        var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
-        for (var i = 0; i < needsWidthSetting.length; i++) {
-            needsWidthSetting[i].style.maxWidth = this.maxWidth;
-            needsWidthSetting[i].style.width = this.maxWidth;
-        }
-    }
-
-    get maxWidth() {
-        return this.getAttribute(ATTR_MAX_WIDTH);
-    }
-
-    set maxWidth(val) {
-        if (val) {
-            this.setAttribute(ATTR_MAX_WIDTH, val);
-        } else {
-            this.setAttribute(ATTR_MAX_WIDTH, DEFAULT_MAX_WIDTH);
-        }
     }
 }
 

@@ -36,7 +36,6 @@ class BYUHeader extends HTMLElement {
                 this._notifyChildrenOfMobileState();
                 this._addButtonListeners();
                 this._checkIfMenuIsNeeded();
-                this._notifyMenuOfWidthAttributes();
                 this._applyHomeUrl();
                 this._applyMaxWidth();
             });
@@ -61,25 +60,6 @@ class BYUHeader extends HTMLElement {
         }
         else {
             this.removeAttribute('left-align');
-        }
-    }
-
-    _notifyMenuOfWidthAttributes() {
-        var menuSlot = this.shadowRoot.querySelector('#navbarMenu');
-        if (menuSlot.assignedNodes().length > 0) {
-            var menu = menuSlot.assignedNodes()[0];
-
-            if (this.hasAttribute(ATTR_FULL_WIDTH)) {
-                menu.setAttribute(ATTR_FULL_WIDTH, '');
-            } else {
-                menu.removeAttribute(ATTR_FULL_WIDTH);
-            }
-            if (this.hasAttribute(ATTR_MAX_WIDTH)) {
-                menu.setAttribute(ATTR_MAX_WIDTH, this.maxWidth);
-            } else {
-                menu.setAttribute(ATTR_MAX_WIDTH, DEFAULT_MAX_WIDTH);
-            }
-
         }
     }
 
@@ -199,7 +179,7 @@ class BYUHeader extends HTMLElement {
     }
 
     get maxWidth() {
-        return this.getAttribute(ATTR_MAX_WIDTH);
+        return this.getAttribute(ATTR_MAX_WIDTH) || DEFAULT_MAX_WIDTH;
     }
 
     set maxWidth(val) {
@@ -289,7 +269,38 @@ class BYUHeader extends HTMLElement {
                 needsWidthSetting[i].style.maxWidth = this.maxWidth;
             }
         }
+        let desiredQuery = this.maxWidthMediaQuery;
+        let q = this._maxWidthQuery;
+        if (q) {
+            if (q.media === desiredQuery) {
+                //Nothing has changed, bail!
+                return;
+            } else {
+                q.removeListener(this._maxWidthQueryListener);
+                this._maxWidthQuery = null;
+            }
+        }
+        this._maxWidthQuery = q = window.matchMedia(desiredQuery);
+        this._maxWidthQueryListener = this._handleMaxWidthChange.bind(this);
+
+        q.addListener(this._maxWidthQueryListener);
+        this._maxWidthQueryListener(q);
     }
+
+    _handleMaxWidthChange(mql) {
+        if (mql.matches) {
+            this.classList.add('below-max-width');
+        }
+        else {
+            this.classList.remove('below-max-width');
+        }
+    }
+
+    get maxWidthMediaQuery() {
+        return `(max-width: ${this.maxWidth})`;
+    }
+
+
 }
 
 window.customElements.define('byu-header', BYUHeader);

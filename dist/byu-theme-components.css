@@ -326,13 +326,11 @@ byu-menu:not(.byu-component-rendered) {
   width: 100%;
   height: auto;
   background: #fff;
-  border-bottom: 1px solid #ccc;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 16px;
   box-sizing: border-box;
   height: 35px;
   position: relative;

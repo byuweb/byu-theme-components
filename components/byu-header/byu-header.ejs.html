@@ -45,7 +45,12 @@
                 <slot id="actions" name="actions"></slot>
             </div>
         </div>
-        <% } else { -%>
-           <slot id="navbarMenu" name="nav"></slot>
         <% } -%>
 </div>
+<% if (!locals.mobile) { -%>
+<div class="menu-outer-wrapper">
+    <div class="menu-inner-wrapper slot-wrapper needs-width-setting">
+        <slot id="navbarMenu" name="nav"></slot>
+    </div>
+</div>
+    <% } -%>

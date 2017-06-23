@@ -77,6 +77,21 @@
     }
   }
 }
+.menu-outer-wrapper {
+  border-bottom: 1px solid #ccc;
+}
+
+.menu-inner-wrapper {
+  margin: 0 auto;
+  padding: $pageContentPadding;
+  box-sizing: border-box;
+}
+
+:host(.below-max-width) {
+  .menu-inner-wrapper {
+    padding: 0;
+  }
+}
 
 /* MOBILE */
 #mobileMenu {
@@ -191,5 +206,9 @@
 :host([full-width]) {
   .byu-header-content {
     @include headerContentFullWidth();
+  }
+  .menu-inner-wrapper {
+    @include headerContentFullWidth();
+    padding: 0;
   }
 }
