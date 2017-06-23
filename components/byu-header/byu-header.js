@@ -129,6 +129,14 @@ class BYUHeader extends HTMLElement {
         this.mobileMaxWidth = this.mobileMaxWidth;
         this._applyMobileWidth();
         this._render();
+
+        // close the mobile menu if a link within it is clicked
+        const header = this;
+        this.shadowRoot.querySelector('#navbarMenu').addEventListener('click', () => {
+            if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN)) {
+                header.removeAttribute(ATTR_MENU_OPEN);
+            }
+        });
     }
 
     static get observedAttributes() {
