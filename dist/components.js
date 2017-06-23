@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -307,6 +307,7 @@ window.BYUFooter = BYUFooter;
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
+const ATTR_MENU_KEEP_OPEN = 'menu-keep-open';
 const ATTR_NO_MENU = 'no-menu';
 const ATTR_HOME_URL = 'home-url';
 
@@ -427,6 +428,14 @@ class BYUHeader extends HTMLElement {
         this.mobileMaxWidth = this.mobileMaxWidth;
         this._applyMobileWidth();
         this._render();
+
+        // close the mobile menu if a link within it is clicked
+        const header = this;
+        this.shadowRoot.querySelector('#navbarMenu').addEventListener('click', () => {
+            if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN) && !header.hasAttribute(ATTR_MENU_KEEP_OPEN)) {
+                header.removeAttribute(ATTR_MENU_OPEN);
+            }
+        });
     }
 
     static get observedAttributes() {
@@ -502,6 +511,18 @@ class BYUHeader extends HTMLElement {
             this.setAttribute(ATTR_MENU_OPEN, '');
         } else {
             this.removeAttribute(ATTR_MENU_OPEN);
+        }
+    }
+
+    get keepMenuOpen() {
+        return this.hasAttribute(ATTR_MENU_KEEP_OPEN);
+    }
+
+    set keepMenuOpen(val) {
+        if (val) {
+            this.setAttribute(ATTR_MENU_KEEP_OPEN, '');
+        } else {
+            this.removeAttribute(ATTR_MENU_KEEP_OPEN);
         }
     }
 
@@ -1533,8 +1554,8 @@ function createEvent(name, detail) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
 /* harmony export (immutable) */ __webpack_exports__["a"] = querySelectorSlot;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
 /*
  *  @license
  *    Copyright 2017 Brigham Young University
@@ -1579,9 +1600,9 @@ function querySelectorSlot(slot, selector) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /*
  *  @license
  *    Copyright 2017 Brigham Young University

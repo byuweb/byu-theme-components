@@ -24,9 +24,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /******/function __webpack_require__(moduleId) {
         /******/
         /******/ // Check if module is in cache
-        /******/if (installedModules[moduleId])
+        /******/if (installedModules[moduleId]) {
             /******/return installedModules[moduleId].exports;
-        /******/
+            /******/
+        }
         /******/ // Create a new module (and put it into the cache)
         /******/var module = installedModules[moduleId] = {
             /******/i: moduleId,
@@ -341,6 +342,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     var ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
     var ATTR_MOBILE_VIEW = 'mobile-view';
     var ATTR_MENU_OPEN = 'menu-open';
+    var ATTR_MENU_KEEP_OPEN = 'menu-keep-open';
     var ATTR_NO_MENU = 'no-menu';
     var ATTR_HOME_URL = 'home-url';
 
@@ -488,6 +490,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 this.mobileMaxWidth = this.mobileMaxWidth;
                 this._applyMobileWidth();
                 this._render();
+
+                // close the mobile menu if a link within it is clicked
+                var header = this;
+                this.shadowRoot.querySelector('#navbarMenu').addEventListener('click', function () {
+                    if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN) && !header.hasAttribute(ATTR_MENU_KEEP_OPEN)) {
+                        header.removeAttribute(ATTR_MENU_OPEN);
+                    }
+                });
             }
         }, {
             key: 'attributeChangedCallback',
@@ -588,6 +598,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     this.setAttribute(ATTR_MENU_OPEN, '');
                 } else {
                     this.removeAttribute(ATTR_MENU_OPEN);
+                }
+            }
+        }, {
+            key: 'keepMenuOpen',
+            get: function get() {
+                return this.hasAttribute(ATTR_MENU_KEEP_OPEN);
+            },
+            set: function set(val) {
+                if (val) {
+                    this.setAttribute(ATTR_MENU_KEEP_OPEN, '');
+                } else {
+                    this.removeAttribute(ATTR_MENU_KEEP_OPEN);
                 }
             }
         }, {
@@ -1639,9 +1661,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
-    /* harmony export (immutable) */__webpack_exports__["a"] = querySelectorSlot;
+    /* harmony export (immutable) */
+    __webpack_exports__["a"] = querySelectorSlot;
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -1683,10 +1705,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(29);
+    /* harmony export (immutable) */
+    __webpack_exports__["a"] = applyTemplate;
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(29);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
-    /* harmony export (immutable) */__webpack_exports__["a"] = applyTemplate;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
