@@ -4,27 +4,30 @@ import * as templateFn from "./byu-header.ejs.html";
 
 import * as equal from "deep-equal";
 import * as util from "byu-web-component-utils";
-import {revert as revertIcon, transform as transformIcon} from "./icons/transformicons";
+import { revert as revertIcon, transform as transformIcon } from "./icons/transformicons";
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
+const ATTR_FULL_WIDTH = 'full-width';
+const ATTR_MAX_WIDTH = 'max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
 const ATTR_NO_MENU = 'no-menu';
 const ATTR_HOME_URL = 'home-url';
 
 const DEFAULT_MOBILE_WIDTH = '1023px';
+const DEFAULT_MAX_WIDTH = '1200px';
 const DEFAULT_HOME_URL = 'https://byu.edu/';
 
 class BYUHeader extends HTMLElement {
 
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
+        this.attachShadow({ mode: 'open' });
     }
 
     _render() {
         let state = {
-            mobile: this.inMobileView
+            mobile: this.inMobileView,
         };
         if (!equal(state, this._renderState)) {
             util.applyTemplate(this, 'byu-header', templateFn(state), () => {
@@ -33,8 +36,8 @@ class BYUHeader extends HTMLElement {
                 this._notifyChildrenOfMobileState();
                 this._addButtonListeners();
                 this._checkIfMenuIsNeeded();
-                this._checkIfFullWidth();
                 this._applyHomeUrl();
+                this._applyMaxWidth();
             });
         }
     }
@@ -55,21 +58,8 @@ class BYUHeader extends HTMLElement {
         if (menuSlot.assignedNodes().length < 4) {
             this.setAttribute('left-align', '');
         }
-        else
-        {
+        else {
             this.removeAttribute('left-align');
-        }
-    }
-
-    _checkIfFullWidth() {
-        var menuSlot = this.shadowRoot.querySelector('#navbarMenu');
-        if (menuSlot.assignedNodes().length > 0) {
-            var menu = menuSlot.assignedNodes()[0];
-            if (this.hasAttribute('full-width')) {
-                menu.setAttribute('full-width', '');
-            } else {
-                menu.removeAttribute('full-width');
-            }
         }
     }
 
@@ -91,6 +81,7 @@ class BYUHeader extends HTMLElement {
             each.addEventListener('slotchange', event => {
                 this._notifyChildrenOfMobileState();
                 this._checkIfMenuIsNeeded();
+                this._notifyMenuOfWidthAttributes();
             });
         })
     }
@@ -129,16 +120,20 @@ class BYUHeader extends HTMLElement {
         this.mobileMaxWidth = this.mobileMaxWidth;
         this._applyMobileWidth();
         this._render();
+        this.maxWidth = this.maxWidth;
     }
 
     static get observedAttributes() {
-        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL];
+        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_FULL_WIDTH, ATTR_MAX_WIDTH];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
         switch (attr) {
             case ATTR_MOBILE_MAX_WIDTH:
                 this._applyMobileWidth();
+                return;
+            case ATTR_MAX_WIDTH:
+                this._applyMaxWidth();
                 return;
             case ATTR_MOBILE_VIEW:
                 this._render();
@@ -180,6 +175,18 @@ class BYUHeader extends HTMLElement {
             this.setAttribute(ATTR_MOBILE_MAX_WIDTH, val);
         } else {
             this.setAttribute(ATTR_MOBILE_MAX_WIDTH, DEFAULT_MOBILE_WIDTH);
+        }
+    }
+
+    get maxWidth() {
+        return this.getAttribute(ATTR_MAX_WIDTH) || DEFAULT_MAX_WIDTH;
+    }
+
+    set maxWidth(val) {
+        if (val) {
+            this.setAttribute(ATTR_MAX_WIDTH, val);
+        } else {
+            this.setAttribute(ATTR_MAX_WIDTH, DEFAULT_MAX_WIDTH);
         }
     }
 
@@ -253,6 +260,46 @@ class BYUHeader extends HTMLElement {
     get mobileMediaQuery() {
         return `(max-width: ${this.mobileMaxWidth})`;
     }
+
+    _applyMaxWidth() {
+
+        if (!this.inMobileView) {
+            var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
+            for (var i = 0; i < needsWidthSetting.length; i++) {
+                needsWidthSetting[i].style.maxWidth = this.maxWidth;
+            }
+        }
+        let desiredQuery = this.maxWidthMediaQuery;
+        let q = this._maxWidthQuery;
+        if (q) {
+            if (q.media === desiredQuery) {
+                //Nothing has changed, bail!
+                return;
+            } else {
+                q.removeListener(this._maxWidthQueryListener);
+                this._maxWidthQuery = null;
+            }
+        }
+        this._maxWidthQuery = q = window.matchMedia(desiredQuery);
+        this._maxWidthQueryListener = this._handleMaxWidthChange.bind(this);
+
+        q.addListener(this._maxWidthQueryListener);
+        this._maxWidthQueryListener(q);
+    }
+
+    _handleMaxWidthChange(mql) {
+        if (mql.matches) {
+            this.classList.add('below-max-width');
+        }
+        else {
+            this.classList.remove('below-max-width');
+        }
+    }
+
+    get maxWidthMediaQuery() {
+        return `(max-width: ${this.maxWidth})`;
+    }
+
 
 }
 

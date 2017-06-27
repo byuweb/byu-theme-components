@@ -25,12 +25,12 @@
 }
 
 @mixin footerInnerWrapper() {
-  max-width: 1200px;
   margin-top: -10px;
 }
 
 @mixin footerInnerWrapperFullWidth() {
-  max-width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 @mixin universityLogo() {
@@ -51,13 +51,13 @@
 }
 
 @mixin secondaryFooterContent() {
-  width: 1200px !important;
   padding: $pageContentPadding;
   box-sizing: border-box;
 }
 
 @mixin secondaryFooterContentFullWidth() {
-  width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 @mixin secondaryFooterSlotted() {
