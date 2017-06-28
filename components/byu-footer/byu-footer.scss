@@ -1,15 +1,15 @@
 @import "byu-footer-common";
 
 .university-footer {
-  background-color: $navy;
+  background-color: $universityFooterBgColor;
   text-align: center;
-  font-family: $blueFooterFont;
-  font-weight: $blueFooterFontWeight;
+  font-family: $universityFooterFont;
+  font-weight: $universityFooterFontWeight;
   font-size: 12px;
-  color: white;
+  color: $universityFooterTextColor;
   width: 100%;
 
-  padding: 21px 0;
+  padding: $universityFooterVerticalPadding 0;
 
   display: flex;
   justify-content: center;
@@ -17,7 +17,7 @@
   flex-direction: column;
 
   a {
-    color: white;
+    color: $universityFooterTextColor;
     text-decoration: none;
 
     &:hover {
@@ -34,9 +34,9 @@
 
 .university-logo {
   max-width: 100%;
-  width: 450px;
-  height: 40px;
-  margin: -10px 0;
+  width: $universityFooterLogoWidth;
+  height: $universityFooterLogoHeight;
+  margin: -$universityFooterLogoVerticalOffset 0;
 }
 
 .university-info {
@@ -66,7 +66,7 @@
 }
 
 .site-footer-wrapper {
-  background-color: $footerBackground;
+  background-color: $siteFooterBackground;
 }
 
 .site-footer {
@@ -75,19 +75,26 @@
   width: 100vw;
   height: auto;
   box-sizing: border-box;
-  padding: 8px;
+  padding: $siteFooterPadding;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 
   ::slotted(*) {
     flex-grow: 1;
+    margin: 0 $siteFooterPadding;
   }
 
   ::slotted(.double-wide) {
     flex-grow: 2;
   }
+
+  ::slotted(.triple-wide) {
+    flex-grow: 3;
+  }
 }
+
+$calcSubtractWidth: $siteFooterPadding * 2;
 
 @media (min-width: 600px) {
   .site-footer {
@@ -95,117 +102,35 @@
 
     ::slotted(*) {
       //min-width: 250px - 8px;
-      width: calc(50% - 16px);
+      width: calc(50% - #{$calcSubtractWidth});
     }
 
     ::slotted(.double-wide) {
-      width: calc(100% - 16px);
+      width: calc(100% - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.triple-wide) {
+      width: calc(100% - #{$calcSubtractWidth});
     }
   }
 }
+
+$columnBaseWidth: 20%;
 
 @media (min-width: 1024px) {
   .site-footer {
     flex-wrap: nowrap;
+
     ::slotted(*) {
-      width: calc(25% - 16px);
+      width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth});
     }
+
     ::slotted(.double-wide) {
-      width: calc(50% - 16px);
+      width: calc(#{$columnBaseWidth * 2} - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.triple-wide) {
+      width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
     }
   }
 }
-
-.site-footer ::slotted(*) {
-  //display: inline-block;
-  margin: 0 8px;
-}
-
-
-//.footer-text {
-//  @include footerTextSection();
-//}
-//
-//.inner-wrapper {
-//  @include footerInnerWrapper();
-//}
-//
-//.university-logo {
-// @include universityLogo();
-//}
-//
-//.secondary-footer {
-//  @include secondaryFooter();
-//}
-//
-//.secondary-footer-content ::slotted(*) {
-//  @include secondaryFooterSlotted();
-//}
-//
-//.secondary-footer-content {
-//  @include secondaryFooterContent();
-//}
-//
-//:host([full-width]) {
-//  .inner-wrapper{
-//    @include footerInnerWrapperFullWidth();
-//  }
-//  .secondary-footer-content {
-//    @include secondaryFooterContentFullWidth();
-//  }
-//}
-//
-//@media (max-width: 767px) {
-//  .secondary-footer-content ::slotted(*) {
-//    @include secondaryFooterMobile();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:last-child) {
-//    @include secondaryFooterMobileLast();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:first-child) {
-//    @include secondaryFooterMobileFirst();
-//  }
-//
-//  .secondary-footer-content ::slotted(*) {
-//    @include secondaryFooterNoLeftPad();
-//    @include secondaryFooterNoRightPad();
-//  }
-//}
-//
-//@media (min-width: 768px) and (max-width: 1199px) {
-//  .secondary-footer-content ::slotted(*) {
-//    @include secondaryFooterTablet();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:nth-child(n+3)) {
-//    @include secondaryFooterTabletBottomColumns();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:nth-child(-n+2)) {
-//    @include secondaryFooterTabletTopColumns();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:nth-child(odd)) {
-//    @include secondaryFooterNoLeftPad();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:nth-child(even)) {
-//    @include secondaryFooterNoRightPad();
-//  }
-//}
-//
-//@media (min-width: 1200px) {
-//  .secondary-footer-content ::slotted(*) {
-//    @include secondaryFooterDesktop();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:first-child) {
-//    @include secondaryFooterNoLeftPad();
-//  }
-//
-//  .secondary-footer-content ::slotted(*:last-child) {
-//    @include secondaryFooterNoRightPad();
-//  }
-//}
