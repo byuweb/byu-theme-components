@@ -24,9 +24,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /******/function __webpack_require__(moduleId) {
         /******/
         /******/ // Check if module is in cache
-        /******/if (installedModules[moduleId])
+        /******/if (installedModules[moduleId]) {
             /******/return installedModules[moduleId].exports;
-        /******/
+            /******/
+        }
         /******/ // Create a new module (and put it into the cache)
         /******/var module = installedModules[moduleId] = {
             /******/i: moduleId,
@@ -93,7 +94,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /******/__webpack_require__.p = "";
     /******/
     /******/ // Load entry module and return exports
-    /******/return __webpack_require__(__webpack_require__.s = 13);
+    /******/return __webpack_require__(__webpack_require__.s = 12);
     /******/
 })(
 /************************************************************************/
@@ -103,19 +104,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(16);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__lib_matchesSelector__ = __webpack_require__(2);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_2__lib_querySelectorSlot__ = __webpack_require__(15);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__lib_createEvent__ = __webpack_require__(14);
+    var __WEBPACK_IMPORTED_MODULE_0__lib_templating__ = __webpack_require__(13);
     /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "a", function () {
         return __WEBPACK_IMPORTED_MODULE_0__lib_templating__["a"];
-    });
-    /* unused harmony reexport matchesSelector */
-    /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "c", function () {
-        return __WEBPACK_IMPORTED_MODULE_2__lib_querySelectorSlot__["a"];
-    });
-    /* harmony reexport (binding) */__webpack_require__.d(__webpack_exports__, "b", function () {
-        return __WEBPACK_IMPORTED_MODULE_3__lib_createEvent__["a"];
     });
     /**
      * Created by ThatJoeMoore on 2/14/17
@@ -181,43 +172,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony export (immutable) */
-    __webpack_exports__["a"] = matchesSelector;
-    /*
-     *  @license
-     *    Copyright 2017 Brigham Young University
-     *
-     *    Licensed under the Apache License, Version 2.0 (the "License");
-     *    you may not use this file except in compliance with the License.
-     *    You may obtain a copy of the License at
-     *
-     *        http://www.apache.org/licenses/LICENSE-2.0
-     *
-     *    Unless required by applicable law or agreed to in writing, software
-     *    distributed under the License is distributed on an "AS IS" BASIS,
-     *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     *    See the License for the specific language governing permissions and
-     *    limitations under the License.
-     */
-
-    function matchesSelector(el, selector) {
-        var proto = Element.prototype;
-        var actual = proto.matches || proto.matchesSelector || proto.mozMatchesSelector || proto.msMatchesSelector || proto.oMatchesSelector || proto.webkitMatchesSelector || function (s) {
-            var doc = this.document || this.ownerDocument;
-            return doc.querySelectorAll(s).indexOf(this) !== -1;
-        };
-
-        return actual.call(el, selector);
-    }
-
-    /***/
-},
-/* 3 */
-/***/function (module, __webpack_exports__, __webpack_require__) {
-
-    "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html__ = __webpack_require__(30);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html__ = __webpack_require__(27);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_footer_action_button_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
@@ -248,12 +204,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 4 */
+/* 3 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html__ = __webpack_require__(31);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html__ = __webpack_require__(28);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_footer_column_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
@@ -284,12 +240,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 5 */
+/* 4 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_html__ = __webpack_require__(32);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_footer_html__ = __webpack_require__(29);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_footer_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_footer_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
@@ -362,17 +318,17 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 6 */
+/* 5 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__ = __webpack_require__(28);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__ = __webpack_require__(25);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_header_ejs_html__);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal__ = __webpack_require__(25);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal__ = __webpack_require__(22);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_deep_equal___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_deep_equal__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_2_byu_web_component_utils__ = __webpack_require__(0);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons__ = __webpack_require__(12);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons__ = __webpack_require__(11);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__icons_transformicons___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__icons_transformicons__);
 
     var ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
@@ -715,12 +671,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 7 */
+/* 6 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__byu_menu_html__ = __webpack_require__(33);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_menu_html__ = __webpack_require__(30);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_menu_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
@@ -849,7 +805,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 8 */
+/* 7 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
@@ -857,7 +813,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     var _DEFAULT_ACTION_TARGE;
 
-    var __WEBPACK_IMPORTED_MODULE_0__byu_search_html__ = __webpack_require__(34);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_search_html__ = __webpack_require__(31);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_search_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_search_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
     /**
@@ -946,7 +902,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 var value = el.value;
                 if (!value) return;
 
-                var event = __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["b" /* createEvent */](EVENT_TYPE, { search: value });
+                var event = __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["createEvent"](EVENT_TYPE, { search: value });
 
                 var cancelled = !this.dispatchEvent(event);
                 if (cancelled) return;
@@ -1056,7 +1012,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     }
 
     function lookupSearchInput(search, selector) {
-        return __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["c" /* querySelectorSlot */](search._searchSlot, selector);
+        return __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["querySelectorSlot"](search._searchSlot, selector);
     }
 
     function lookupAndConfigureInputElement(search, selector) {
@@ -1103,7 +1059,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     function runSubmitFormAction(search, value) {
         var target = search.actionTarget;
 
-        var form = __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["c" /* querySelectorSlot */](search._searchSlot, target);
+        var form = __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["querySelectorSlot"](search._searchSlot, target);
 
         if (!form) {
             throw new Error('Unable to find target for \'submit-form\' action using selector \'' + target + '\'');
@@ -1119,7 +1075,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     function runClickAction(search, value) {
         var target = search.actionTarget;
 
-        var button = __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["c" /* querySelectorSlot */](search._searchSlot, target);
+        var button = __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["querySelectorSlot"](search._searchSlot, target);
 
         if (!button) {
             throw new Error('Unable to find target for \'click\' action using selector \'' + target + '\'');
@@ -1246,12 +1202,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 9 */
+/* 8 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html__ = __webpack_require__(35);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html__ = __webpack_require__(32);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
 
@@ -1343,12 +1299,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 10 */
+/* 9 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
     /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html__ = __webpack_require__(36);
+    var __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html__ = __webpack_require__(33);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__byu_user_info_html__);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__ = __webpack_require__(0);
     /**
@@ -1428,7 +1384,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 11 */
+/* 10 */
 /***/function (module, exports) {
 
     module.exports = {
@@ -1459,7 +1415,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 12 */
+/* 11 */
 /***/function (module, exports, __webpack_require__) {
 
     "use strict";
@@ -1654,21 +1610,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 13 */
+/* 12 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
 
     Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_header_byu_header_js__ = __webpack_require__(6);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__byu_menu_byu_menu_js__ = __webpack_require__(7);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_2__byu_search_byu_search_js__ = __webpack_require__(8);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_byu_user_info_js__ = __webpack_require__(10);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_4__byu_footer_byu_footer_js__ = __webpack_require__(5);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js__ = __webpack_require__(4);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js__ = __webpack_require__(3);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js__ = __webpack_require__(9);
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_8__package_json__ = __webpack_require__(11);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__byu_header_byu_header_js__ = __webpack_require__(5);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_1__byu_menu_byu_menu_js__ = __webpack_require__(6);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_2__byu_search_byu_search_js__ = __webpack_require__(7);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_3__byu_user_info_byu_user_info_js__ = __webpack_require__(9);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_4__byu_footer_byu_footer_js__ = __webpack_require__(4);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_5__byu_footer_column_byu_footer_column_js__ = __webpack_require__(3);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_6__byu_footer_action_button_byu_footer_action_button_js__ = __webpack_require__(2);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_7__byu_social_media_links_byu_social_media_links_js__ = __webpack_require__(8);
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_8__package_json__ = __webpack_require__(10);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_8__package_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__package_json__);
     /**
      * Created by ThatJoeMoore on 2/18/17
@@ -1686,92 +1642,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 14 */
+/* 13 */
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
     /* harmony export (immutable) */
-    __webpack_exports__["a"] = createEvent;
-    /*
-     *  @license
-     *    Copyright 2017 Brigham Young University
-     *
-     *    Licensed under the Apache License, Version 2.0 (the "License");
-     *    you may not use this file except in compliance with the License.
-     *    You may obtain a copy of the License at
-     *
-     *        http://www.apache.org/licenses/LICENSE-2.0
-     *
-     *    Unless required by applicable law or agreed to in writing, software
-     *    distributed under the License is distributed on an "AS IS" BASIS,
-     *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     *    See the License for the specific language governing permissions and
-     *    limitations under the License.
-     */
-
-    function createEvent(name, detail) {
-        if (typeof window.CustomEvent === 'function') {
-            return new CustomEvent(name, { detail: detail, cancelable: true, bubbles: true });
-        }
-        var evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(name, true, true, detail);
-        return evt;
-    }
-
-    /***/
-},
-/* 15 */
-/***/function (module, __webpack_exports__, __webpack_require__) {
-
-    "use strict";
-    /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
-    /* harmony export (immutable) */__webpack_exports__["a"] = querySelectorSlot;
-    /*
-     *  @license
-     *    Copyright 2017 Brigham Young University
-     *
-     *    Licensed under the Apache License, Version 2.0 (the "License");
-     *    you may not use this file except in compliance with the License.
-     *    You may obtain a copy of the License at
-     *
-     *        http://www.apache.org/licenses/LICENSE-2.0
-     *
-     *    Unless required by applicable law or agreed to in writing, software
-     *    distributed under the License is distributed on an "AS IS" BASIS,
-     *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     *    See the License for the specific language governing permissions and
-     *    limitations under the License.
-     */
-
-    function querySelectorSlot(slot, selector) {
-        var roots = slot.assignedNodes({ flatten: true }).filter(function (n) {
-            return n.nodeType === Node.ELEMENT_NODE;
-        });
-
-        for (var i = 0, len = roots.length; i < len; i++) {
-            var each = roots[i];
-            if (__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__["a" /* default */])(each, selector)) {
-                return each;
-            }
-            var child = each.querySelector(selector);
-            if (child) {
-                return child;
-            }
-        }
-        return null;
-    }
-
-    /***/
-},
-/* 16 */
-/***/function (module, __webpack_exports__, __webpack_require__) {
-
-    "use strict";
-    /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(29);
+    __webpack_exports__["a"] = applyTemplate;
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(26);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
-    /* harmony export (immutable) */__webpack_exports__["a"] = applyTemplate;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -1852,7 +1730,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 17 */
+/* 14 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1867,7 +1745,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 18 */
+/* 15 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1882,7 +1760,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 19 */
+/* 16 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1897,7 +1775,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 20 */
+/* 17 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1912,7 +1790,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 21 */
+/* 18 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1920,14 +1798,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
     // module
-    exports.push([module.i, ":host{display:flex;justify-content:center;width:100%;height:auto;background:#fff}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;box-sizing:border-box;height:35px;position:relative;flex:1;flex-basis:100%}.slot-container ::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;flex:1}.slot-container ::slotted(*):hover{background:#c5c5c5!important}.slot-container ::slotted(*).active,.slot-container ::slotted(*).selected{background:#e5e5e5!important}.slot-container ::slotted(*).long-link{max-width:300px;flex:2}.slot-container ::slotted(*).extra-long-link{max-width:400px;flex:3}.slot-container ::slotted(:hover){background:#c5c5c5!important}.slot-container ::slotted(.active),.slot-container ::slotted(.selected){background:#e5e5e5!important}.slot-container ::slotted(.long-link){max-width:300px;flex:2}.slot-container ::slotted(.extra-long-link){max-width:400px;flex:3}.byu-menu-more-menu{display:none;position:relative;height:35px;width:16.66%;overflow:visible!important}.byu-menu-more-menu .byu-menu-more{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;position:relative;flex:1;display:block}.byu-menu-more-menu .byu-menu-more:hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more.active,.byu-menu-more-menu .byu-menu-more.selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more.long-link{max-width:300px;flex:2}.byu-menu-more-menu .byu-menu-more.extra-long-link{max-width:400px;flex:3}.byu-menu-more-menu .byu-menu-more .more-open-button{height:13px;width:13px;transition:transform .5s ease;transform:rotate(0);transform-origin:center}.byu-menu-more-menu .byu-menu-more-items{display:none;position:absolute;top:35px;right:0;min-width:100%;max-width:250px;z-index:2;background:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-menu .byu-menu-more-items ::slotted(*){width:100%;text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;display:block;text-align:left!important;padding-left:12px!important;padding-right:12px!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*):hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).active,.byu-menu-more-menu .byu-menu-more-items ::slotted(*).selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).long-link{max-width:300px;flex:2}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).extra-long-link{max-width:400px;flex:3}.byu-menu-more-visible .byu-menu-more-menu{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded{background:#e5e5e5;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-more-items{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .more-open-button{transform:rotate(180deg)}:host(.mobile-view) .outer-nav{display:block;height:auto}:host(.mobile-view) .byu-menu-more{display:none!important}:host(.mobile-view) .slot-container ::slotted(*){display:block!important;text-align:left!important;padding:18px 18px 18px 50px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;line-height:12px!important}:host(.mobile-view) .slot-container ::slotted(*).byu-menu-more-menu{padding:0!important}:host(.mobile-view) .byu-menu-more-menu{display:block;width:100%;box-shadow:none;position:static;height:auto}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items{display:block;box-shadow:none;padding:0;position:static!important}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items ::slotted(*){display:block!important;text-align:left!important;padding:18px 50px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;line-height:12px!important}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded{box-shadow:none}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{display:none!important}:host([left-align]) .outer-nav ::slotted(*){min-width:200px;flex:0;padding:0 16px}", ""]);
+    exports.push([module.i, ":host{display:flex;justify-content:center;width:100%;height:auto;background:#fff}:host(.transparent){opacity:.88}.outer-nav{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:flex-start;box-sizing:border-box;height:35px;position:relative;flex:1;flex-basis:100%}.slot-container ::slotted(*){text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;flex:1}.slot-container ::slotted(*):hover{background:#c5c5c5!important}.slot-container ::slotted(*).active,.slot-container ::slotted(*).selected{background:#e5e5e5!important}.slot-container ::slotted(*).long-link{max-width:300px;flex:2}.slot-container ::slotted(*).extra-long-link{max-width:400px;flex:3}.slot-container ::slotted(:hover){background:#c5c5c5!important}.slot-container ::slotted(.active),.slot-container ::slotted(.selected){background:#e5e5e5!important}.slot-container ::slotted(.long-link){max-width:300px;flex:2}.slot-container ::slotted(.extra-long-link){max-width:400px;flex:3}.byu-menu-more-menu{display:none;position:relative;height:35px;width:16.66%;overflow:visible!important}.byu-menu-more-menu .byu-menu-more{text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;position:relative;flex:1;display:block}.byu-menu-more-menu .byu-menu-more:hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more.active,.byu-menu-more-menu .byu-menu-more.selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more.long-link{max-width:300px;flex:2}.byu-menu-more-menu .byu-menu-more.extra-long-link{max-width:400px;flex:3}.byu-menu-more-menu .byu-menu-more .more-open-button{height:13px;width:13px;position:relative;top:.5px}.byu-menu-more-menu .byu-menu-more-items{display:none;position:absolute;top:35px;right:0;min-width:100%;max-width:250px;z-index:2;background:#fff;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-menu .byu-menu-more-items ::slotted(*){width:100%;text-decoration:none!important;font-size:13px!important;text-transform:uppercase!important;color:#fff!important;font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-weight:500!important;color:#002e5d!important;height:35px!important;display:inline-block;box-sizing:border-box;text-align:center!important;padding:0 6px!important;line-height:35px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;transition:background .3s;display:block;text-align:left!important;padding-left:12px!important;padding-right:12px!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*):hover{background:#c5c5c5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).active,.byu-menu-more-menu .byu-menu-more-items ::slotted(*).selected{background:#e5e5e5!important}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).long-link{max-width:300px;flex:2}.byu-menu-more-menu .byu-menu-more-items ::slotted(*).extra-long-link{max-width:400px;flex:3}.byu-menu-more-visible .byu-menu-more-menu{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded{background:#e5e5e5;box-shadow:0 0 2px 0 rgba(0,0,0,.75)}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-more-items{display:block}.byu-menu-more-visible .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{position:fixed;top:0;bottom:0;left:0;right:0;z-index:1}:host(.mobile-view) .outer-nav{display:block;height:auto}:host(.mobile-view) .byu-menu-more{display:none!important}:host(.mobile-view) .slot-container ::slotted(*){display:block!important;text-align:left!important;padding:18px 18px 18px 50px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;line-height:12px!important}:host(.mobile-view) .slot-container ::slotted(*).byu-menu-more-menu{padding:0!important}:host(.mobile-view) .byu-menu-more-menu{display:block;width:100%;box-shadow:none;position:static;height:auto}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items{display:block;box-shadow:none;padding:0;position:static!important}:host(.mobile-view) .byu-menu-more-menu .byu-menu-more-items ::slotted(*){display:block!important;text-align:left!important;padding:18px 50px!important;height:auto!important;width:100%;position:static;box-sizing:border-box;line-height:12px!important}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded{box-shadow:none}:host(.mobile-view) .byu-menu-more-menu.byu-menu-more-expanded .byu-menu-fixed-overlay{display:none!important}:host([left-align]) .outer-nav ::slotted(*){min-width:200px;flex:0;padding:0 16px}", ""]);
 
     // exports
 
 
     /***/
 },
-/* 22 */
+/* 19 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1942,7 +1820,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 23 */
+/* 20 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1957,7 +1835,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 24 */
+/* 21 */
 /***/function (module, exports, __webpack_require__) {
 
     exports = module.exports = __webpack_require__(1)();
@@ -1972,12 +1850,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 25 */
+/* 22 */
 /***/function (module, exports, __webpack_require__) {
 
     var pSlice = Array.prototype.slice;
-    var objectKeys = __webpack_require__(27);
-    var isArguments = __webpack_require__(26);
+    var objectKeys = __webpack_require__(24);
+    var isArguments = __webpack_require__(23);
 
     var deepEqual = module.exports = function (actual, expected, opts) {
         if (!opts) opts = {};
@@ -2069,7 +1947,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 26 */
+/* 23 */
 /***/function (module, exports) {
 
     var supportsArgumentsClass = function () {
@@ -2090,7 +1968,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 27 */
+/* 24 */
 /***/function (module, exports) {
 
     exports = module.exports = typeof Object.keys === 'function' ? Object.keys : shim;
@@ -2105,7 +1983,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 28 */
+/* 25 */
 /***/function (module, exports, __webpack_require__) {
 
     module.exports = function anonymous(locals, escapeFn, include, rethrow) {
@@ -2128,7 +2006,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         var __output = [],
             __append = __output.push.bind(__output);
         __append("<style>\n");
-        __append(__webpack_require__(20));
+        __append(__webpack_require__(17));
         __append('</style><div id="header" class="byu-header-root"><div class="byu-header-content needs-width-setting">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="" target="_blank">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a><div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
         if (locals.mobile) {
             __append('<button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">\n<span class="tcon-menu__lines" aria-hidden="true"></span>\n<span class="tcon-visuallyhidden">toggle menu</span>\n</button>\n');
@@ -2150,7 +2028,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
-/* 29 */
+/* 26 */
 /***/function (module, exports, __webpack_require__) {
 
     "use strict";
@@ -2214,52 +2092,52 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     /***/
 },
+/* 27 */
+/***/function (module, exports, __webpack_require__) {
+
+    module.exports = "<style>" + __webpack_require__(14) + "</style> <div class=\"wrapper\"> <slot name=\"actiontext\"></slot> </div>";
+
+    /***/
+},
+/* 28 */
+/***/function (module, exports, __webpack_require__) {
+
+    module.exports = "<style>" + __webpack_require__(15) + "</style> <h2 class=\"header\"> <slot name=\"header\"></slot> </h2> <div class=\"content\"> <slot></slot> </div>";
+
+    /***/
+},
+/* 29 */
+/***/function (module, exports, __webpack_require__) {
+
+    module.exports = "<style>" + __webpack_require__(16) + "</style> <div class=\"secondary-footer\"> <div class=\"secondary-footer-content needs-width-setting\"> <slot id=\"slot\"></slot> </div> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper needs-width-setting\"> <a href=\"https://home.byu.edu/home/\" target=\"_blank\"><img src=\"https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg\" alt=\"Brigham Young University\" class=\"university-logo\"></a> <div class=\"copyright-contact\"> <span class=\"footer-text\">&copy;<span id=\"currentYear\"></span> All Rights Reserved</span> | <span class=\"footer-text\">Provo, UT 84602, USA</span> | <span class=\"footer-text\"><a class=\"contact-phone\" href=\"tel:18014224636\">801-422-4636</a></span> </div> </div> </div>";
+
+    /***/
+},
 /* 30 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(17) + "</style> <div class=\"wrapper\"> <slot name=\"actiontext\"></slot> </div>";
+    module.exports = "<style>" + __webpack_require__(18) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container needs-width-setting\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <img class=\"more-open-button\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg\" alt=\"Open\"> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
 
     /***/
 },
 /* 31 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(18) + "</style> <h2 class=\"header\"> <slot name=\"header\"></slot> </h2> <div class=\"content\"> <slot></slot> </div>";
+    module.exports = "<style>" + __webpack_require__(19) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/search-white.svg\" alt=\"Run Search\"> </button> </div>";
 
     /***/
 },
 /* 32 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(19) + "</style> <div class=\"secondary-footer\"> <div class=\"secondary-footer-content needs-width-setting\"> <slot id=\"slot\"></slot> </div> </div> <div class=\"blue-footer\"> <div class=\"inner-wrapper needs-width-setting\"> <a href=\"https://home.byu.edu/home/\" target=\"_blank\"><img src=\"https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg\" alt=\"Brigham Young University\" class=\"university-logo\"></a> <div class=\"copyright-contact\"> <span class=\"footer-text\">&copy;<span id=\"currentYear\"></span> All Rights Reserved</span> | <span class=\"footer-text\">Provo, UT 84602, USA</span> | <span class=\"footer-text\"><a class=\"contact-phone\" href=\"tel:18014224636\">801-422-4636</a></span> </div> </div> </div>";
+    module.exports = "<style>" + __webpack_require__(20) + "</style> <div class=\"slot-wrapper\"> <slot id=\"social-main\"></slot> <slot id=\"social-deprecated-facebook\" name=\"facebook\"></slot> <slot id=\"social-deprecated-twitter\" name=\"twitter\"></slot> <slot id=\"social-deprecated-instagram\" name=\"instagram\"></slot> <slot id=\"social-deprecated-youtube\" name=\"youtube\"></slot> <slot id=\"social-deprecated-pinterest\" name=\"pinterest\"></slot> <slot id=\"social-deprecated-googleplus\" name=\"googleplus\"></slot> <slot id=\"social-deprecated-linkedin\" name=\"linkedin\"></slot> <slot id=\"social-deprecated-rss\" name=\"rss\"></slot> <slot id=\"social-deprecated-snapchat\" name=\"snapchat\"></slot> </div>";
 
     /***/
 },
 /* 33 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(21) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container needs-width-setting\"> <slot class=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <img class=\"more-open-button\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg\" alt=\"Open\"> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
-
-    /***/
-},
-/* 34 */
-/***/function (module, exports, __webpack_require__) {
-
-    module.exports = "<style>" + __webpack_require__(22) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/search-white.svg\" alt=\"Run Search\"> </button> </div>";
-
-    /***/
-},
-/* 35 */
-/***/function (module, exports, __webpack_require__) {
-
-    module.exports = "<style>" + __webpack_require__(23) + "</style> <div class=\"slot-wrapper\"> <slot id=\"social-main\"></slot> <slot id=\"social-deprecated-facebook\" name=\"facebook\"></slot> <slot id=\"social-deprecated-twitter\" name=\"twitter\"></slot> <slot id=\"social-deprecated-instagram\" name=\"instagram\"></slot> <slot id=\"social-deprecated-youtube\" name=\"youtube\"></slot> <slot id=\"social-deprecated-pinterest\" name=\"pinterest\"></slot> <slot id=\"social-deprecated-googleplus\" name=\"googleplus\"></slot> <slot id=\"social-deprecated-linkedin\" name=\"linkedin\"></slot> <slot id=\"social-deprecated-rss\" name=\"rss\"></slot> <slot id=\"social-deprecated-snapchat\" name=\"snapchat\"></slot> </div>";
-
-    /***/
-},
-/* 36 */
-/***/function (module, exports, __webpack_require__) {
-
-    module.exports = "<style>" + __webpack_require__(24) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <div class=\"user-info-image\"> </div> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <div class=\"user-info-image\"> </div> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
+    module.exports = "<style>" + __webpack_require__(21) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <div class=\"user-info-image\"> </div> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <div class=\"user-info-image\"> </div> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
     /***/
 }]);
