@@ -80,9 +80,11 @@
 @mixin moreLinkSvg() {
   height: 13px;
   width: 13px;
-  transition: transform 0.5s ease;
-  transform: rotate(0);
-  transform-origin: center;
+  //transition: transform 0.5s ease;
+  //transform: rotate(0);
+  //transform-origin: center;
+  position: relative;
+  top: 0.5px;
 }
 
 @mixin moreItems() {
