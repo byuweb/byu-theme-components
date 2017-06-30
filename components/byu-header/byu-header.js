@@ -81,7 +81,6 @@ class BYUHeader extends HTMLElement {
             each.addEventListener('slotchange', event => {
                 this._notifyChildrenOfMobileState();
                 this._checkIfMenuIsNeeded();
-                this._notifyMenuOfWidthAttributes();
             });
         })
     }
