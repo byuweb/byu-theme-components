@@ -38,7 +38,7 @@ function addSlotListeners(component) {
     component.shadowRoot.querySelector('slot')
         .addEventListener('slotchange', e => {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
-            setTimeout(() =>  updateMoreMenuState(component));
+            setTimeout(() => updateMoreMenuState(component));
         });
 }
 
@@ -79,14 +79,14 @@ function toggleClass(el, className, value) {
 function updateMoreMenuState(component) {
     var children = component.shadowRoot.querySelector('.byu-menu-items').assignedNodes();
     var moreChildren = component.shadowRoot.querySelector('.byu-menu-more-slot').assignedNodes();
-    var filteredChildren = children.filter(function(node) { return node instanceof HTMLElement });
-    var filteredMoreChildren = moreChildren.filter(function(node) { return node instanceof HTMLElement });
+    var filteredChildren = children.filter(function (node) { return node instanceof HTMLElement });
+    var filteredMoreChildren = moreChildren.filter(function (node) { return node instanceof HTMLElement });
     const length = filteredChildren.length + filteredMoreChildren.length;
     const hasOverflow = length > 6;
     const nav = component.shadowRoot.querySelector('.outer-nav');
 
     if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
-    
+
     if (hasOverflow) {
         for (let i = 5; i < filteredChildren.length; i++) {
             filteredChildren[i].setAttribute('slot', 'more');
@@ -98,8 +98,7 @@ function updateMoreMenuState(component) {
     if (length < 4) {
         component.setAttribute('left-align', '');
     }
-    else
-    {
+    else {
         component.removeAttribute('left-align');
     }
 

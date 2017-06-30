@@ -12,12 +12,6 @@
   @include outerNav();
 }
 
-@media screen and (max-width: 1200px) {
-  .outer-nav {
-    @include outerNavNotMaxWidth();
-  }
-}
-
 .slot-container ::slotted(*) {
   @include navItemSlotted();
 }
@@ -71,7 +65,7 @@
       @include menuFixedOverlay();
     }
     .more-open-button {
-      transform: rotate(180deg);
+      //transform: rotate(180deg);
     }
   }
 }
@@ -119,11 +113,5 @@
 :host([left-align]) {
   .outer-nav ::slotted(*) {
     @include navItemsSlottedSetWidth();
-  }
-}
-
-:host([full-width]) {
-  .outer-nav {
-    @include outerNavFullWidth();
   }
 }

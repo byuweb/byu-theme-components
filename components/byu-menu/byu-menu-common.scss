@@ -9,7 +9,6 @@
   height: auto;
   background: #fff;
   // opacity used to be set here, but now it is an option.
-  border-bottom: 1px solid #ccc;
 }
 
 @mixin bgTransparent() {
@@ -23,21 +22,11 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
-  padding: $pageContentPadding;
   box-sizing: border-box;
   height: 35px;
   position: relative;
-  max-width: 1200px;
   flex: 1;
   flex-basis: 100%;
-}
-
-@mixin outerNavNotMaxWidth() {
-  padding: 0px;
-}
-
-@mixin outerNavFullWidth() {
-  max-width: 100%;
 }
 
 @mixin navItemSlotted() {
@@ -91,9 +80,9 @@
 @mixin moreLinkSvg() {
   height: 13px;
   width: 13px;
-  transition: transform 0.5s ease;
-  transform: rotate(0);
-  transform-origin: center;
+  //transition: transform 0.5s ease;
+  //transform: rotate(0);
+  //transform-origin: center;
 }
 
 @mixin moreItems() {
