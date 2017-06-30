@@ -24,10 +24,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /******/function __webpack_require__(moduleId) {
         /******/
         /******/ // Check if module is in cache
-        /******/if (installedModules[moduleId]) {
+        /******/if (installedModules[moduleId])
             /******/return installedModules[moduleId].exports;
-            /******/
-        }
+        /******/
         /******/ // Create a new module (and put it into the cache)
         /******/var module = installedModules[moduleId] = {
             /******/i: moduleId,
@@ -470,7 +469,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     each.addEventListener('slotchange', function (event) {
                         _this7._notifyChildrenOfMobileState();
                         _this7._checkIfMenuIsNeeded();
-                        _this7._notifyMenuOfWidthAttributes();
                     });
                 });
             }
@@ -1749,9 +1747,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony export (immutable) */
-    __webpack_exports__["a"] = querySelectorSlot;
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
+    /* harmony export (immutable) */__webpack_exports__["a"] = querySelectorSlot;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -1793,10 +1791,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony export (immutable) */
-    __webpack_exports__["a"] = applyTemplate;
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(29);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(29);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
+    /* harmony export (immutable) */__webpack_exports__["a"] = applyTemplate;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -2287,8 +2285,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     module.exports = "<style>" + __webpack_require__(24) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <div class=\"user-info-image\"> </div> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <div class=\"user-info-image\"> </div> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
     /***/
-}]
-/******/);
+}]);
 }());
 
 //# sourceMappingURL=components-compat.js.map
