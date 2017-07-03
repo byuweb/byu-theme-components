@@ -170,12 +170,12 @@
   display: none;
 }
 
-:host([mobile-view]) #search-form {
+:host([mobile-view]) .byu-header-search {
   transition: transform 0.5s ease-in-out;
   transform: scaleX(1);
 }
 
-:host([menu-open][mobile-view]) #search-form {
+:host([menu-open][mobile-view]) .byu-header-search {
   transform: scaleX(0);
 }
 
