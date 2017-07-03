@@ -172,11 +172,11 @@
 
 :host([mobile-view]) .byu-header-search {
   transition: transform 0.5s ease-in-out;
-  transform: scaleX(1);
+  transform: scaleY(1);
 }
 
 :host([menu-open][mobile-view]) .byu-header-search {
-  transform: scaleX(0);
+  transform: scaleY(0);
 }
 
 
