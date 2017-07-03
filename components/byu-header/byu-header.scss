@@ -163,6 +163,16 @@
   display: none;
 }
 
+:host([mobile-view]) #search-form {
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(1);
+}
+
+:host([menu-open][mobile-view]) #search-form {
+  transform: scaleX(0);
+}
+
+
 /* FULL SIZE */
 :host(:not([mobile-view])) {
   .byu-header-root {
