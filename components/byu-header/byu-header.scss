@@ -164,12 +164,16 @@
 }
 
 :host([mobile-view]) .byu-header-search {
-  transition: transform 0.5s ease-in-out;
+  //transition: transform .5s ease-in-out;
   transform: scaleY(1);
+  transition: height .5s ease-in-out;
+  height: 35px !important;
+  transform-origin: bottom;
 }
 
 :host([menu-open][mobile-view]) .byu-header-search {
   transform: scaleY(0);
+  height: 0 !important;
 }
 
 
