@@ -48,6 +48,7 @@
         html {
             height: 100%;
         }
+
         body {
             min-height: 100%;
             margin: 0;
@@ -63,39 +64,9 @@
             max-width: 900px;
         }
     </style>
-    <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all"/>
 
-</head>
-
-<body>
-    <byu-header mobile-max-width="700px" home-url="http://web.byu.edu" max-width="900px">
-        <span slot="site-title">Component Demos</span>
-        <span slot="site-sub-title">Sub-Title</span>
-        <!--<span slot="site-title" class="subtitle">Every Single Feature</span>-->
-
-        <a href="#action-1" slot="actions">Action 1</a>
-        <a href="#action-2" slot="actions">Action 2</a>
-
-        <byu-user-info slot="user" id="user-info">
-            <a slot="login" id="sign-in" href="#login">Sign In</a>
-            <a slot="logout" id="sign-out" href="#logout">Sign Out</a>
-        </byu-user-info>
-
-        <byu-menu slot="nav">
-            <a href="docs/index.html">Main Docs</a>
-            <a href="#nav1" class="current">Nav Item 1</a>
-            <!--<a href="#nav2">Nav Item 2</a>-->
-            <!--<a href="#nav3">Nav Item 3</a>-->
-            <!--<a href="#nav4">Nav Item 4</a>-->
-            <!--<a href="#nav5">Nav Item 5</a>-->
-        </byu-menu>
-
-    </byu-header>
-    <article class="page-content">
-        <h1>Hey there,</h1>
-        <p>this is a big test of all of the features of the current BYU theme components.</p>
-    </article>
-    <byu-footer>
+    <template id="footer-col-contact">
         <byu-footer-column>
             <span slot="header">Contact</span>
             <p>
@@ -108,6 +79,8 @@
                 <a href="#give" slot="actiontext">GIVE to Speeches</a>
             </byu-footer-action-button>
         </byu-footer-column>
+    </template>
+    <template id="footer-col-affiliates">
         <byu-footer-column>
             <span slot="header">Affiliates</span>
             <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
@@ -116,6 +89,8 @@
             <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
             <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
         </byu-footer-column>
+    </template>
+    <template id="footer-col-related">
         <byu-footer-column>
             <span slot="header">Related Links</span>
             <a>LDS.org</a>
@@ -123,6 +98,8 @@
             <a>BYU Today</a>
             <a>BYU Magazine</a>
         </byu-footer-column>
+    </template>
+    <template id="footer-col-social">
         <byu-footer-column>
             <span slot="header">Connect With Us</span>
             <a>Feedback</a>
@@ -140,7 +117,115 @@
             </byu-social-media-links>
             <a>Subscribe</a>
         </byu-footer-column>
-    </byu-footer>
+    </template>
+    <template id="footer-col-extras">
+        <byu-footer-column>
+            <span slot="header">Extra Stuff</span>
+            <a>Awesome Stuff</a>
+            <a>Amazing Stuff</a>
+            <a>Wonderful Stuff</a>
+        </byu-footer-column>
+    </template>
+
+</head>
+
+<body>
+<byu-header mobile-max-width="700px" home-url="http://web.byu.edu" max-width="900px">
+    <span slot="site-title">Component Demos</span>
+    <span slot="site-sub-title">Sub-Title</span>
+    <!--<span slot="site-title" class="subtitle">Every Single Feature</span>-->
+
+    <a href="#action-1" slot="actions">Action 1</a>
+    <a href="#action-2" slot="actions">Action 2</a>
+
+    <byu-user-info slot="user" id="user-info">
+        <a slot="login" id="sign-in" href="#login">Sign In</a>
+        <a slot="logout" id="sign-out" href="#logout">Sign Out</a>
+    </byu-user-info>
+
+    <byu-menu slot="nav">
+        <a href="docs/index.html">Main Docs</a>
+        <a href="#nav1" class="current">Nav Item 1</a>
+        <!--<a href="#nav2">Nav Item 2</a>-->
+        <!--<a href="#nav3">Nav Item 3</a>-->
+        <!--<a href="#nav4">Nav Item 4</a>-->
+        <!--<a href="#nav5">Nav Item 5</a>-->
+    </byu-menu>
+
+</byu-header>
+<article class="page-content">
+    <h1>Hey there,</h1>
+    <p>this is a big test of all of the features of the current BYU theme components.</p>
+    <h3>Footer Column Control</h3>
+    <div>
+        <input id="fc-contact" checked type="checkbox" class="footer-column-control" data-template="contact"
+               data-order="1">
+        <label for="fc-contact">Contact</label>
+    </div>
+    <div>
+        <input id="fc-affiliates" checked type="checkbox" class="footer-column-control" data-template="affiliates"
+               data-order="2">
+        <label for="fc-affiliates">Affiliates</label>
+    </div>
+    <div>
+        <input id="fc-related" checked type="checkbox" class="footer-column-control" data-template="related"
+               data-order="3">
+        <label for="fc-related">Related</label>
+    </div>
+    <div>
+        <input id="fc-social" checked type="checkbox" class="footer-column-control" data-template="social"
+               data-order="4">
+        <label for="fc-social">Social</label>
+    </div>
+    <div>
+        <input id="fc-extras" type="checkbox" class="footer-column-control" data-template="extras"
+               data-order="5">
+        <label for="fc-extras">Extras</label>
+
+</article>
+<byu-footer></byu-footer>
+
+<script>
+    (function () {
+        var footer = document.querySelector('byu-footer');
+        var controls = document.querySelectorAll('input.footer-column-control');
+
+        controls.forEach(function (it) {
+            it.addEventListener('change', function (e) {
+                applyTemplateState(this);
+            });
+        });
+
+        //Set up initial state
+        controls.forEach(applyTemplateState);
+
+        function applyTemplateState(input) {
+            var name = input.dataset.template;
+            var order = input.dataset.order;
+
+            var cls = "__demo-added-" + name;
+
+            var shouldShow = input.checked;
+
+            var current = footer.querySelector('.' + cls);
+
+            if (shouldShow) {
+                if (current) return;
+
+                var template = document.querySelector('template#footer-col-' + name);
+                var clone = document.importNode(template.content, true);
+
+                clone.firstElementChild.classList.add(cls);
+
+                footer.appendChild(clone);
+            } else {
+                if (!current) return;
+
+                footer.removeChild(current);
+            }
+        }
+    })();
+</script>
 
 </body>
 

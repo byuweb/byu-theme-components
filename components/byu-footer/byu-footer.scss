@@ -80,7 +80,7 @@
 
   ::slotted(*) {
     flex-grow: 1;
-    margin: 0 $siteFooterPadding;
+    margin: $siteFooterPadding;
   }
 
   ::slotted(.double-wide) {
@@ -99,7 +99,6 @@ $calcSubtractWidth: $siteFooterHorizontalPadding * 2;
     flex-direction: row;
 
     ::slotted(*) {
-      //min-width: 250px - 8px;
       width: calc(50% - #{$calcSubtractWidth});
     }
 
@@ -114,22 +113,27 @@ $calcSubtractWidth: $siteFooterHorizontalPadding * 2;
 }
 
 $columnBaseWidth: 20%;
+$columnMaxWidth: 30%;
 
 @media (min-width: 1024px) {
   .site-footer {
     flex-wrap: nowrap;
+    justify-content: center;
 
     ::slotted(*) {
       width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth});
       margin: $large-siteFooterContentMargin;
+      max-width: calc(#{$columnMaxWidth} - #{$calcSubtractWidth});
     }
 
     ::slotted(.double-wide) {
       width: calc(#{$columnBaseWidth * 2} - #{$calcSubtractWidth});
+      max-width: calc(#{$columnMaxWidth * 2} - #{$calcSubtractWidth});
     }
 
     ::slotted(.triple-wide) {
       width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
+      max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth});
     }
 
     ::slotted(*:first-child) {
