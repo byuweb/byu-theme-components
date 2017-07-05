@@ -13,7 +13,14 @@ $universityFooterLogoVerticalOffset: 10px;
 
 $universityFooterVerticalPadding: 21px;
 
-$siteFooterPadding: 8px;
+$siteFooterHorizontalPadding: 8px;
+$siteFooterVerticalPadding: 0;
+$siteFooterPadding: $siteFooterVerticalPadding $siteFooterHorizontalPadding;
+
+$large-siteFooterContentTopMargin: 30px;
+$large-siteFooterContentBottomMargin: 40px;
+
+$large-siteFooterContentMargin: $large-siteFooterContentTopMargin $siteFooterHorizontalPadding $large-siteFooterContentBottomMargin;
 
 $siteFooterBackground: $lightgray;
 $siteFooterContentColor: $medgray;

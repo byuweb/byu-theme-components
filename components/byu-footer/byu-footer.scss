@@ -71,8 +71,6 @@
 
 .site-footer {
   margin: 0 auto;
-  max-width: 1200px;
-  width: 100vw;
   height: auto;
   box-sizing: border-box;
   padding: $siteFooterPadding;
@@ -94,7 +92,7 @@
   }
 }
 
-$calcSubtractWidth: $siteFooterPadding * 2;
+$calcSubtractWidth: $siteFooterHorizontalPadding * 2;
 
 @media (min-width: 600px) {
   .site-footer {
@@ -123,6 +121,7 @@ $columnBaseWidth: 20%;
 
     ::slotted(*) {
       width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth});
+      margin: $large-siteFooterContentMargin;
     }
 
     ::slotted(.double-wide) {
@@ -132,5 +131,14 @@ $columnBaseWidth: 20%;
     ::slotted(.triple-wide) {
       width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
     }
+
+    ::slotted(*:first-child) {
+      margin-left: 0;
+    }
+    ::slotted(*:last-child) {
+      margin-right: 0;
+    }
   }
 }
+
+

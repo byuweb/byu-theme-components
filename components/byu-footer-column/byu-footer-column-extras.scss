@@ -25,7 +25,7 @@ byu-footer-column:not(.byu-component-rendered) {
     }
 }
 
-byu-footer-column [slot="header"]:not(.byu-component-rendered) {
+byu-footer-column:not(.byu-component-rendered) [slot="header"] {
     font-family: serif;
     font-size: 20px;
     text-transform: uppercase;
