@@ -253,6 +253,34 @@
             </template>
         </demo-snippet>
 
+        <p>
+            You can also add custom links.  Just add a link that gets the desired icon set as the
+            <code>background-image</code>, and <code>byu-social-media-links</code> will do the rest (SVG images work the
+            best).
+        </p>
+
+        <demo-snippet>
+            <template>
+                <style>
+                    byu-social-media-links .empire-net {
+                        background-image: url('img/galactic-empire.svg');
+                    }
+                    byu-social-media-links .rebel-comms {
+                        background-image: url('img/rebel-alliance.svg');
+                    }
+                </style>
+                <byu-social-media-links>
+                    <!--These links should be actual links to your social media sites-->
+                    <a class="facebook" href="#">Facebook</a>
+                    <a class="twitter" href="#">Twitter</a>
+                    <a class="youtube" href="#">YouTube</a>
+                    <!--Here's a custom link!-->
+                    <a class="empire-net" href="#">EmpireNet</a>
+                    <a class="rebel-comms" href="#">Rebel Comms</a>
+                </byu-social-media-links>
+            </template>
+        </demo-snippet>
+
         <h2>Custom Content</h2>
         <p>
             You don't have to use <code>byu-footer-column</code> inside of <code>byu-footer</code>.
