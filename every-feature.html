@@ -46,11 +46,11 @@
     </script>
     <style>
         html {
-            height: 100%;
+            height: 100vh;
         }
 
         body {
-            min-height: 100%;
+            min-height: 100vh;
             margin: 0;
             padding: 0;
             display: flex;
@@ -58,7 +58,7 @@
         }
 
         .page-content {
-            flex: 1;
+            flex-grow: 1;
             width: 100%;
             align-self: center;
             max-width: 900px;
@@ -189,15 +189,21 @@
 <byu-footer></byu-footer>
 
 <script>
-    (function () {
+    document.addEventListener('WebComponentsReady', function(e) {
+        console.log('WebComponentsReady', e);
+    });
+
+    setTimeout(
+    function () {
         var footer = document.querySelector('byu-footer');
         var controls = document.querySelectorAll('input.footer-column-control');
 
-        controls.forEach(function (it) {
+        for (var i = 0, len = controls.length; i < len; i++) {
+            var it = controls[i];
             it.addEventListener('change', function (e) {
                 applyTemplateState(this);
             });
-        });
+        }
 
         //Set up initial state
         controls.forEach(applyTemplateState);
@@ -218,7 +224,14 @@
                 var template = document.querySelector('template#footer-col-' + name);
                 var clone = document.importNode(template.content, true);
 
-                clone.firstElementChild.classList.add(cls);
+                //Hooray for IE compatibility!  All of this COULD be solved with clone.firstChildElement....
+                var kids = clone.childNodes;
+                for (var i = 0, len = kids.length; i < len; i++) {
+                    if (kids[i].nodeType === Node.ELEMENT_NODE) {
+                        kids[i].classList.add(cls);
+                        break;
+                    }
+                }
 
                 footer.appendChild(clone);
             } else {
@@ -227,7 +240,8 @@
                 footer.removeChild(current);
             }
         }
-    })();
+        //This is a temporary hack to allow the polyfills to load until we can get them firing WebComponentsReady properly
+    }, 2000);
 </script>
 
 </body>
