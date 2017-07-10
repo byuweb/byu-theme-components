@@ -464,6 +464,8 @@ byu-social-media-links:not(.byu-component-rendered) {
   byu-social-media-links:not(.byu-component-rendered) > .googleplus, byu-social-media-links:not(.byu-component-rendered) > [slot="googleplus"],
   byu-social-media-links:not(.byu-component-rendered) > .google-plus, byu-social-media-links:not(.byu-component-rendered) > [slot="google-plus"] {
     background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/gp.svg"); }
+  byu-social-media-links:not(.byu-component-rendered) > .podcast {
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/po.svg"); }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
