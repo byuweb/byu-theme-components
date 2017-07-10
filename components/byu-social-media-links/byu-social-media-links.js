@@ -13,7 +13,8 @@ const SOCIAL_NAMES = {
     'gplus': 'Google+',
     'linkedin': 'LinkedIn',
     'rss': 'RSS',
-    'snapchat': 'Snapchat'
+    'snapchat': 'Snapchat',
+    'podcast': 'Podcast'
 };
 
 const SOCIAL_IDS = Object.getOwnPropertyNames(SOCIAL_NAMES);
