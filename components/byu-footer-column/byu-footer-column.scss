@@ -1,7 +1,9 @@
 @import "byu-footer-column-common";
 
 :host {
-    @include footerColumn();
+    //@include footerColumn();
+    //flex-grow: 1;
+
 }
 
 .header {
@@ -10,6 +12,11 @@
 
 .header ::slotted(*) {
     @include headerSlotted();
+}
+
+// This is a hack to deal with the old examples which had <br>s everywhere, which is unnecessary now.
+.header ::slotted(br) {
+    display: none;
 }
 
 .content ::slotted(:not(byu-footer-action-button)) {

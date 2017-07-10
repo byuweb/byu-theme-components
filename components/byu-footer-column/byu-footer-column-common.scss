@@ -9,6 +9,7 @@
 
 @mixin header() {
     width: 100%;
+    margin-bottom: 8px;
 }
 
 @mixin headerSlotted() {
@@ -18,7 +19,6 @@
     font-size: 20px !important;
     border-bottom: 1px solid $gray !important;
     padding-bottom: 3px !important;
-    white-space: nowrap !important;
     font-weight: $footerContentFontWeight !important;
     width: 100%;
     display: inline-block;
@@ -29,13 +29,11 @@
     font-size: $footerContentFontSize !important;
     font-weight: $footerContentFontWeight !important;
     color: $footerContentColor !important;
-    position: relative;
-    top: -11px;
-    line-height: 1.42857143;
+    display: block;
+    padding: 11px 0;
 }
 
 @mixin defaultContentLink() {
-    line-height: 35px;
     text-decoration: none !important;
     outline: none !important;
 }

@@ -67,14 +67,24 @@
     </byu-header>
 
     <div class="page-content">
-        <h1>Footer Demo</h1>
-        <h2>Blue Bar Only</h2>
+        <h1><code>byu-footer</code></h1>
+        <h2>University Footer</h2>
+        <p>
+            All sites should at least have this footer.
+        </p>
         <demo-snippet>
             <template>
                 <byu-footer></byu-footer>
             </template>
         </demo-snippet>
-        <h2>Full Footer with Links</h2>
+
+        <h2>Site Footer</h2>
+        <p>
+            Some sites may need to embed their own links and content in the footer.  You can accomplish this by placing
+            <code>byu-footer-column</code> elements in the footer, which will add a footer area above the university
+            footer.
+        </p>
+
         <demo-snippet>
             <template>
                 <byu-footer>
@@ -93,33 +103,23 @@
                     <byu-footer-column>
                         <span slot="header">Affiliated Speeches</span>
                         <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
-                        <br />
                         <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
-                        <br />
                         <a href="https://womensconference.byu.edu">Women's Conference</a>
-                        <br />
                         <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
-                        <br />
                         <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
                     </byu-footer-column>
                     <byu-footer-column>
                         <span slot="header">Related Links</span>
                         <a>LDS.org</a>
-                        <br />
                         <a>BYU Alumni</a>
-                        <br />
                         <a>BYU Today</a>
-                        <br />
                         <a>BYU Magazine</a>
                     </byu-footer-column>
                     <byu-footer-column>
                         <span slot="header">Connect With Us</span>
                         <a>Feedback</a>
-                        <br />
                         <a>Help</a>
-                        <br />
                         <a>Follow BYU Speeches</a>
-                        <br />
                         <byu-social-media-links>
                             <!--Note: These all have text that will be hidden. The text should be there to help screen readers.-->
                             <a class="facebook" href="https://www.facebook.com">Facebook</a>
@@ -129,14 +129,105 @@
                             <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
                             <a class="youtube" href="https://www.youtube.com">YouTube</a>
                         </byu-social-media-links>
-                        <br />
                         <a>Subscribe</a>
                     </byu-footer-column>
                 </byu-footer>
             </template>
         </demo-snippet>
 
-        <h2>Social Media Links</h2>
+        <h3>Double and triple-wide columns</h3>
+        <p>
+            You can have columns which span twice or three times the normal column width, using the
+            <code>double-wide</code> and <code>triple-wide</code> classes.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-footer>
+                    <byu-footer-column>
+                        <span slot="header">Contact</span>
+                        <p>
+                            BYU Speeches
+                            <br /> 701 East University Parkway
+                            <br /> Provo, Utah 84602
+                            <br /> 888-888-8888
+                        </p>
+                        <byu-footer-action-button>
+                            <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+                        </byu-footer-action-button>
+                    </byu-footer-column>
+                    <byu-footer-column class="double-wide">
+                        <span slot="header">Affiliated Speeches</span>
+                        <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+                        <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+                        <a href="https://womensconference.byu.edu">Women's Conference</a>
+                        <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+                        <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Connect With Us</span>
+                        <a>Feedback</a>
+                        <a>Help</a>
+                        <a>Follow BYU Speeches</a>
+                        <byu-social-media-links>
+                            <!--Note: These all have text that will be hidden. The text should be there to help screen readers.-->
+                            <a class="facebook" href="https://www.facebook.com">Facebook</a>
+                            <a class="instagram" href="https://www.instagram.com">Instagram</a>
+                            <a class="twitter" href="https://www.twitter.com">Twitter</a>
+                            <a class="gplus" href="https://plus.google.com">Google Plus</a>
+                            <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
+                            <a class="youtube" href="https://www.youtube.com">YouTube</a>
+                        </byu-social-media-links>
+                        <a>Subscribe</a>
+                    </byu-footer-column>
+                </byu-footer>
+            </template>
+        </demo-snippet>
+
+        <demo-snippet>
+            <template>
+                <byu-footer>
+                    <byu-footer-column>
+                        <span slot="header">Contact</span>
+                        <p>
+                            BYU Speeches
+                            <br /> 701 East University Parkway
+                            <br /> Provo, Utah 84602
+                            <br /> 888-888-8888
+                        </p>
+                        <byu-footer-action-button>
+                            <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+                        </byu-footer-action-button>
+                    </byu-footer-column>
+                    <byu-footer-column class="triple-wide">
+                        <span slot="header">Connect With Us</span>
+                        <a>Feedback</a>
+                        <a>Help</a>
+                        <a>Follow BYU Speeches</a>
+                        <byu-social-media-links>
+                            <!--Note: These all have text that will be hidden. The text should be there to help screen readers.-->
+                            <a class="facebook" href="https://www.facebook.com">Facebook</a>
+                            <a class="instagram" href="https://www.instagram.com">Instagram</a>
+                            <a class="twitter" href="https://www.twitter.com">Twitter</a>
+                            <a class="gplus" href="https://plus.google.com">Google Plus</a>
+                            <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
+                            <a class="youtube" href="https://www.youtube.com">YouTube</a>
+                        </byu-social-media-links>
+                        <a>Subscribe</a>
+                    </byu-footer-column>
+                    <byu-footer-column>
+                        <span slot="header">Related Links</span>
+                        <a>LDS.org</a>
+                        <a>BYU Alumni</a>
+                        <a>BYU Today</a>
+                        <a>BYU Magazine</a>
+                    </byu-footer-column>
+                </byu-footer>
+            </template>
+        </demo-snippet>
+
+
+        <h3>Social Media Links</h3>
         <p>
             The <code>byu-social-media-links</code> component displays nice, consistent icons for a list of social media
             links. Simply provide the links you want, with a class specifying the social network to which it belongs.
@@ -162,14 +253,79 @@
             </template>
         </demo-snippet>
 
-<h2>Full Footer with Links and max-width Attribute</h2>
-<p>
-    Note that the footer will look first for its own max-width attribute, then for the
-    header's max-width attribute. If neither has one, it falls back to the default width.
-</p>
+        <p>
+            You can also add custom links.  Just add a link that gets the desired icon set as the
+            <code>background-image</code>, and <code>byu-social-media-links</code> will do the rest (SVG images work the
+            best).
+        </p>
+
         <demo-snippet>
             <template>
-                <byu-footer max-width="800px">
+                <style>
+                    byu-social-media-links .empire-net {
+                        background-image: url('img/galactic-empire.svg');
+                    }
+                    byu-social-media-links .rebel-comms {
+                        background-image: url('img/rebel-alliance.svg');
+                    }
+                </style>
+                <byu-social-media-links>
+                    <!--These links should be actual links to your social media sites-->
+                    <a class="facebook" href="#">Facebook</a>
+                    <a class="twitter" href="#">Twitter</a>
+                    <a class="youtube" href="#">YouTube</a>
+                    <!--Here's a custom link!-->
+                    <a class="empire-net" href="#">EmpireNet</a>
+                    <a class="rebel-comms" href="#">Rebel Comms</a>
+                </byu-social-media-links>
+            </template>
+        </demo-snippet>
+
+        <h2>Custom Content</h2>
+        <p>
+            You don't have to use <code>byu-footer-column</code> inside of <code>byu-footer</code>.
+            We highly recommend that you stick to using <code>byu-footer-column</code>, though, as it implements
+            the official theme with no work on your part.
+        </p>
+        <p>
+            If you absolutely need to customize the content of your footer, you can add arbitrary content to
+            <code>byu-footer</code>.  Each child element will be treated and styled as a footer column.
+        </p>
+
+         <demo-snippet>
+            <template>
+                <byu-footer>
+                    <byu-footer-column>
+                        <span slot="header">Contact</span>
+                        <p>
+                            BYU Speeches
+                            <br /> 701 East University Parkway
+                            <br /> Provo, Utah 84602
+                            <br /> 888-888-8888
+                        </p>
+                        <byu-footer-action-button>
+                            <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+                        </byu-footer-action-button>
+                    </byu-footer-column>
+                    <div class="my-custom-footer">
+                        <img src="img/dont-go-alone.png"/>
+                    </div>
+                </byu-footer>
+            </template>
+        </demo-snippet>
+
+        <h2>Maximum Width</h2>
+        <p>
+            By default, if you have set a <code>max-width</code> or <code>full-width</code> attribute on
+            <code>byu-header</code>,  <code>byu-footer</code> will discover and use that setting.
+            If you wish to override the header's setting, you can specify the attributes on byu-footer.
+            If a <code>max-width</code> is not set on the header nor on the footer, the default value (1200px) will
+            be used.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-footer max-width="500px">
                     <byu-footer-column>
                         <span slot="header">Contact</span>
                         <p>
@@ -185,44 +341,17 @@
                     <byu-footer-column>
                         <span slot="header">Other Speeches</span>
                         <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
-                        <br />
                         <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
-                        <br />
                         <a href="https://womensconference.byu.edu">Women's Conference</a>
-                        <br />
                         <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
-                        <br />
                         <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
                     </byu-footer-column>
                     <byu-footer-column>
                         <span slot="header">Related Links</span>
                         <a>LDS.org</a>
-                        <br />
                         <a>BYU Alumni</a>
-                        <br />
                         <a>BYU Today</a>
-                        <br />
                         <a>BYU Magazine</a>
-                    </byu-footer-column>
-                    <byu-footer-column>
-                        <span slot="header">Connect With Us</span>
-                        <a>Feedback</a>
-                        <br />
-                        <a>Help</a>
-                        <br />
-                        <a>Follow BYU Speeches</a>
-                        <br />
-                        <byu-social-media-links>
-                            <!--Note: These all have text that will be hidden. The text should be there to help screen readers.-->
-                            <a class="facebook" href="https://www.facebook.com">Facebook</a>
-                            <a class="instagram" href="https://www.instagram.com">Instagram</a>
-                            <a class="twitter" href="https://www.twitter.com">Twitter</a>
-                            <a class="gplus" href="https://plus.google.com">Google Plus</a>
-                            <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
-                            <a class="youtube" href="https://www.youtube.com">YouTube</a>
-                        </byu-social-media-links>
-                        <br />
-                        <a>Subscribe</a>
                     </byu-footer-column>
                 </byu-footer>
             </template>
@@ -252,42 +381,33 @@
                 <byu-footer-column>
                     <span slot="header">Affiliated Speeches</span>
                     <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
-                    <br />
                     <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
-                    <br />
                     <a href="https://womensconference.byu.edu">Women's Conference</a>
-                    <br />
                     <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
-                    <br />
                     <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
                 </byu-footer-column>
                 <byu-footer-column>
                     <span slot="header">Related Links</span>
                     <a>LDS.org</a>
-                    <br />
                     <a>BYU Alumni</a>
-                    <br />
                     <a>BYU Today</a>
-                    <br />
                     <a>BYU Magazine</a>
                 </byu-footer-column>
                 <byu-footer-column>
                     <span slot="header">Connect With Us</span>
                     <a>Feedback</a>
-                    <br />
                     <a>Help</a>
-                    <br />
-                    <a>Follow BYU Speeches</a>
-                    <br />
-                    <byu-social-media-links>
-                        <a class="facebook" href="https://www.facebook.com"></a>
-                        <a class="instagram" href="https://www.instagram.com"></a>
-                        <a class="twitter" href="https://www.twitter.com"></a>
-                        <a class="gplus" href="https://plus.google.com"></a>
-                        <a class="linkedin" href="https://www.linkedin.com"></a>
-                        <div class="youtube" href="https://www.youtube.com"></div>
-                    </byu-social-media-links>
-                    <br />
+                    <div>
+                        <div>Follow BYU Speeches</div>
+                        <byu-social-media-links>
+                            <a class="facebook" href="https://www.facebook.com"></a>
+                            <a class="instagram" href="https://www.instagram.com"></a>
+                            <a class="twitter" href="https://www.twitter.com"></a>
+                            <a class="gplus" href="https://plus.google.com"></a>
+                            <a class="linkedin" href="https://www.linkedin.com"></a>
+                            <a class="youtube" href="https://www.youtube.com"></a>
+                        </byu-social-media-links>
+                    </div>
                     <a>Subscribe</a>
                 </byu-footer-column>
             </byu-footer>

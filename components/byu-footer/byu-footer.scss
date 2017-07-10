@@ -1,99 +1,148 @@
 @import "byu-footer-common";
 
-.blue-footer {
-  @include blueFooter();
+.university-footer {
+  background-color: $universityFooterBgColor;
+  text-align: center;
+  font-family: $universityFooterFont;
+  font-weight: $universityFooterFontWeight;
+  font-size: 12px;
+  color: $universityFooterTextColor;
+  width: 100%;
+
+  padding: $universityFooterVerticalPadding 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
   a {
-    @include blueFooterLinks();
-  }
-  a:hover {
-    @include blueFooterLinksHover();
+    color: $universityFooterTextColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
 
-.footer-text { 
-  @include footerTextSection();
-}
-
-.inner-wrapper {
-  @include footerInnerWrapper();
+.university-logo-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 8px;
 }
 
 .university-logo {
- @include universityLogo();
+  max-width: 100%;
+  width: $universityFooterLogoWidth;
+  height: $universityFooterLogoHeight;
+  margin: -$universityFooterLogoVerticalOffset 0;
 }
 
-.secondary-footer {
-  @include secondaryFooter();
-}
+.university-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-.secondary-footer-content ::slotted(*) {
-  @include secondaryFooterSlotted();
-}
-
-.secondary-footer-content {
-  @include secondaryFooterContent();
-}
-
-:host([full-width]) {
-  .inner-wrapper{
-    @include footerInnerWrapperFullWidth();
-  }
-  .secondary-footer-content {
-    @include secondaryFooterContentFullWidth();
+  > :not(:first-of-type) {
+    margin-top: 0.25em;
   }
 }
 
-@media (max-width: 767px) {
-  .secondary-footer-content ::slotted(*) {
-    @include secondaryFooterMobile();
-  }
-
-  .secondary-footer-content ::slotted(*:last-child) {
-    @include secondaryFooterMobileLast();
-  }
-
-  .secondary-footer-content ::slotted(*:first-child) {
-    @include secondaryFooterMobileFirst();
-  }
-
-  .secondary-footer-content ::slotted(*) {
-    @include secondaryFooterNoLeftPad();
-    @include secondaryFooterNoRightPad();
+@media (min-width: 425px) {
+  .university-info {
+    flex-direction: row;
+    > :not(:first-of-type) {
+      margin-top: 0;
+      &::before {
+        display: inline-block;
+        color: white;
+        content: '|';
+        text-align: center;
+        width: 1em;
+      }
+    }
   }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
-  .secondary-footer-content ::slotted(*) {
-    @include secondaryFooterTablet();
+.site-footer-wrapper {
+  background-color: $siteFooterBackground;
+}
+
+.site-footer {
+  margin: 0 auto;
+  height: auto;
+  box-sizing: border-box;
+  padding: $siteFooterPadding;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  ::slotted(*) {
+    flex-grow: 1;
+    margin: $siteFooterPadding;
   }
 
-  .secondary-footer-content ::slotted(*:nth-child(n+3)) {
-    @include secondaryFooterTabletBottomColumns();
+  ::slotted(.double-wide) {
+    flex-grow: 2;
   }
 
-  .secondary-footer-content ::slotted(*:nth-child(-n+2)) {
-    @include secondaryFooterTabletTopColumns();
-  }
-
-  .secondary-footer-content ::slotted(*:nth-child(odd)) {
-    @include secondaryFooterNoLeftPad();
-  }
-
-  .secondary-footer-content ::slotted(*:nth-child(even)) {
-    @include secondaryFooterNoRightPad();
+  ::slotted(.triple-wide) {
+    flex-grow: 3;
   }
 }
 
-@media (min-width: 1200px) {
-  .secondary-footer-content ::slotted(*) {
-    @include secondaryFooterDesktop();
-  }
+$calcSubtractWidth: $siteFooterHorizontalPadding * 2;
 
-  .secondary-footer-content ::slotted(*:first-child) {
-    @include secondaryFooterNoLeftPad();
-  }
-  
-  .secondary-footer-content ::slotted(*:last-child) {
-    @include secondaryFooterNoRightPad();
+@media (min-width: 600px) {
+  .site-footer {
+    flex-direction: row;
+
+    ::slotted(*) {
+      width: calc(50% - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.double-wide) {
+      width: calc(100% - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.triple-wide) {
+      width: calc(100% - #{$calcSubtractWidth});
+    }
   }
 }
+
+$columnBaseWidth: 20%;
+$columnMaxWidth: 30%;
+
+@media (min-width: 1024px) {
+  .site-footer {
+    flex-wrap: nowrap;
+    justify-content: center;
+
+    ::slotted(*) {
+      width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth});
+      margin: $large-siteFooterContentMargin;
+      max-width: calc(#{$columnMaxWidth} - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.double-wide) {
+      width: calc(#{$columnBaseWidth * 2} - #{$calcSubtractWidth});
+      max-width: calc(#{$columnMaxWidth * 2} - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.triple-wide) {
+      width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
+      max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth});
+    }
+
+    ::slotted(*:first-child) {
+      margin-left: 0;
+    }
+    ::slotted(*:last-child) {
+      margin-right: 0;
+    }
+  }
+}
+
+

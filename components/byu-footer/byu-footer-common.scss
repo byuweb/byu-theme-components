@@ -1,109 +1,31 @@
 @import "../shared-styles/colors.scss";
 @import "../shared-styles/settings.scss";
 
-@mixin blueFooter() {
-  background-color: $navy;
-  text-align: center;
-  font-family: $blueFooterFont;
-  font-weight: $blueFooterFontWeight;
-  font-size: 12px;
-  color: white;
-  height: $blueFooterHeight;
-  width: 100%;
+$universityFooterBgColor: $navy;
+$universityFooterTextColor: white;
+$universityFooterFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$universityFooterFontWeight: 400;
+$universityFooterHeight: 80px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-@mixin blueFooterLinks() {
-  text-decoration: none;
-  color: #fff;
-}
-@mixin blueFooterLinksHover() {
-  //text-decoration: none;
-  color: #fff;
-}
+$universityFooterLogoHeight: 40px;
+$universityFooterLogoWidth: 450px;
+$universityFooterLogoVerticalOffset: 10px;
 
-@mixin footerInnerWrapper() {
-  margin-top: -10px;
-}
+$universityFooterVerticalPadding: 21px;
 
-@mixin footerInnerWrapperFullWidth() {
-  width: 100% !important;
-  max-width: 100% !important;
-}
+$siteFooterHorizontalPadding: 8px;
+$siteFooterVerticalPadding: 0;
+$siteFooterPadding: $siteFooterVerticalPadding $siteFooterHorizontalPadding;
 
-@mixin universityLogo() {
-  width: 450px;
-  max-width: 100vw;
-  box-sizing: border-box;
-  margin-bottom: -10px;
-  height: 40px;
-}
+$large-siteFooterContentTopMargin: 30px;
+$large-siteFooterContentBottomMargin: 40px;
 
-@mixin secondaryFooter() {
-  height: auto;
-  background-color: $footerBackground;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex: 1;
-}
+$large-siteFooterContentMargin: $large-siteFooterContentTopMargin $siteFooterHorizontalPadding $large-siteFooterContentBottomMargin;
 
-@mixin secondaryFooterContent() {
-  padding: $pageContentPadding;
-  box-sizing: border-box;
-}
+$siteFooterBackground: $lightgray;
+$siteFooterContentColor: $medgray;
+$siteFooterColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
+$siteFooterContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$siteFooterContentFontWeight: 400;
+$siteFooterContentFontSize: 13px;
 
-@mixin secondaryFooterContentFullWidth() {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-@mixin secondaryFooterSlotted() {
-  display: inline-block;
-  text-align: left;
-  vertical-align: top;
-}
-
-@mixin secondaryFooterMobile() {
-  width: 100%;
-}
-
-@mixin secondaryFooterMobileLast() {
-  padding-bottom: 30px;
-}
-
-@mixin secondaryFooterMobileFirst() {
-  padding-top: 10px;
-}
-
-@mixin secondaryFooterTablet() {
-  width: 50%;
-}
-
-@mixin secondaryFooterTabletBottomColumns() {
-  padding-bottom: 30px;
-}
-
-@mixin secondaryFooterTabletTopColumns() {
-  padding-top: 10px;
-}
-
-@mixin secondaryFooterDesktop() {
-  width: 25%;
-  padding-top: 10px;
-  padding-bottom: 30px;
-}
-
-@mixin secondaryFooterNoLeftPad() {
-  padding-left: 0 !important;
-}
-
-@mixin secondaryFooterNoRightPad() {
-  padding-right: 0 !important;
-}
-
-@mixin footerTextSection() {
-   white-space: nowrap;
-}

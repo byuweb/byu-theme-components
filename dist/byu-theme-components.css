@@ -30,26 +30,14 @@ byu-footer:not(.byu-component-rendered) {
     padding: 0; }
 
 byu-footer:not(.byu-component-rendered):after {
-  background-color: #002E5D;
-  text-align: center;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  color: white;
-  height: 80px;
-  width: 100%;
+  background: #002E5D url("https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg") no-repeat center 11px;
+  background-size: 450px 40px;
+  height: 90px;
+  width: 100vw;
+  content: ' ';
   display: flex;
   justify-content: center;
-  align-items: center;
-  content: "BRIGHAM YOUNG UNIVERSITY";
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  font-weight: 100;
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-family: serif; }
+  align-items: center; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -104,7 +92,8 @@ byu-footer-column:not(.byu-component-rendered) {
   box-sizing: border-box;
   float: left; }
   byu-footer-column:not(.byu-component-rendered) .header {
-    width: 100%; }
+    width: 100%;
+    margin-bottom: 8px; }
   byu-footer-column:not(.byu-component-rendered) .header > * {
     font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
     text-transform: uppercase !important;
@@ -112,7 +101,6 @@ byu-footer-column:not(.byu-component-rendered) {
     font-size: 20px !important;
     border-bottom: 1px solid #c5c5c5 !important;
     padding-bottom: 3px !important;
-    white-space: nowrap !important;
     font-weight: 400 !important;
     width: 100%;
     display: inline-block; }
@@ -121,23 +109,22 @@ byu-footer-column:not(.byu-component-rendered) {
     font-size: 13px !important;
     font-weight: 400 !important;
     color: #666 !important;
-    position: relative;
-    top: -11px;
-    line-height: 1.42857143; }
+    display: block;
+    padding: 11px 0; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a {
-    line-height: 35px;
     text-decoration: none !important;
     outline: none !important; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a:hover {
     cursor: pointer;
     color: #002E5D !important; }
 
-byu-footer-column [slot="header"]:not(.byu-component-rendered) {
+byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   font-family: serif;
   font-size: 20px;
   text-transform: uppercase;
   color: #002E5D;
-  font-weight: 600; }
+  font-weight: 600;
+  display: block; }
 
 byu-footer-column a {
   color: #666 !important; }
@@ -456,7 +443,7 @@ byu-social-media-links:not(.byu-component-rendered) {
     background-repeat: no-repeat;
     background-clip: content-box;
     background-position: center;
-    margin: 10px 15px 10px 0 !important; }
+    margin: 8px 8px 8px 0 !important; }
   byu-social-media-links:not(.byu-component-rendered) > .facebook, byu-social-media-links:not(.byu-component-rendered) > [slot="facebook"] {
     background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/fa.svg"); }
   byu-social-media-links:not(.byu-component-rendered) > .twitter, byu-social-media-links:not(.byu-component-rendered) > [slot="twitter"] {

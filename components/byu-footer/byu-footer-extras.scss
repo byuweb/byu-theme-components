@@ -1,7 +1,6 @@
 
 @import "byu-footer-common";
 
-//byu-footer:not(:defined) {
 byu-footer:not(.byu-component-rendered) {
   background: $lightgray;
   min-height: 200px;
@@ -19,51 +18,13 @@ byu-footer:not(.byu-component-rendered) {
   }
 }
 
-//byu-footer:not(:defined):after {
 byu-footer:not(.byu-component-rendered):after {
-  @include blueFooter();
-  content: "BRIGHAM YOUNG UNIVERSITY";
-  //background: $navy;
-  //color: white;
-  //width: 100%;
-  //height: 80px;
+  background: $navy url('https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg') no-repeat center 11px;
+  background-size: 450px 40px;
+  height: 90px;
+  width: 100vw;
+  content: ' ';
   display: flex;
-  //font-size: 20px;
   justify-content: center;
   align-items: center;
-  position: relative;
-  //top: 200px;
-  font-weight: 100;
-  font-size: 22px;
-  letter-spacing: 2px;
-  font-family: serif;
 }
-
-
-
-//@media (max-width: 767px) {
-//  .secondary-footer byu-footer-column {
-//    @include secondaryFooterMobile();
-//  }
-//
-//  .secondary-footer byu-footer-column:last-child {
-//    @include secondaryFooterMobileLast();
-//  }
-//
-//  .secondary-footer byu-footer-column:first-child {
-//    @include secondaryFooterMobileFirst();
-//  }
-//}
-//
-//@media (min-width: 768px) and (max-width: 1199px) {
-//  .secondary-footer byu-footer-column {
-//    @include secondaryFooterTablet();
-//  }
-//
-//  .secondary-footer byu-footer-column:nth-child(n+3) {
-//    @include secondaryFooterTabletBottomColumns();
-//  }
-//
-//  .secondary-footer byu-footer-column:nth-child(-n+2) {
-//    @include secondaryFooterTabletTopColumns();
-//  }

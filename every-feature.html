@@ -46,10 +46,11 @@
     </script>
     <style>
         html {
-            height: 100%;
+            height: 100vh;
         }
+
         body {
-            min-height: 100%;
+            min-height: 100vh;
             margin: 0;
             padding: 0;
             display: flex;
@@ -57,42 +58,15 @@
         }
 
         .page-content {
-            flex: 1;
+            flex-grow: 1;
+            width: 100%;
+            align-self: center;
+            max-width: 900px;
         }
     </style>
-    <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all"/>
 
-</head>
-
-<body>
-    <byu-header mobile-max-width="700px" home-url="http://web.byu.edu" max-width="900px">
-        <span slot="site-title">Component Demos</span>
-        <span slot="site-sub-title">Sub-Title</span>
-        <!--<span slot="site-title" class="subtitle">Every Single Feature</span>-->
-
-        <a href="#action-1" slot="actions">Action 1</a>
-        <a href="#action-2" slot="actions">Action 2</a>
-
-        <byu-user-info slot="user" id="user-info">
-            <a slot="login" id="sign-in" href="#login">Sign In</a>
-            <a slot="logout" id="sign-out" href="#logout">Sign Out</a>
-        </byu-user-info>
-
-        <byu-menu slot="nav">
-            <a href="docs/index.html">Main Docs</a>
-            <a href="#nav1" class="current">Nav Item 1</a>
-            <!--<a href="#nav2">Nav Item 2</a>-->
-            <!--<a href="#nav3">Nav Item 3</a>-->
-            <!--<a href="#nav4">Nav Item 4</a>-->
-            <!--<a href="#nav5">Nav Item 5</a>-->
-        </byu-menu>
-
-    </byu-header>
-    <article class="page-content">
-        <h1>Hey there,</h1>
-        <p>this is a big test of all of the features of the current BYU theme components.</p>
-    </article>
-    <byu-footer>
+    <template id="footer-col-contact">
         <byu-footer-column>
             <span slot="header">Contact</span>
             <p>
@@ -105,50 +79,170 @@
                 <a href="#give" slot="actiontext">GIVE to Speeches</a>
             </byu-footer-action-button>
         </byu-footer-column>
+    </template>
+    <template id="footer-col-affiliates">
         <byu-footer-column>
-            <span slot="header">Affiliated Speeches</span>
+            <span slot="header">Affiliates</span>
             <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
-            <br/>
             <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
-            <br/>
             <a href="https://womensconference.byu.edu">Women's Conference</a>
-            <br/>
             <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
-            <br/>
             <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
         </byu-footer-column>
+    </template>
+    <template id="footer-col-related">
         <byu-footer-column>
             <span slot="header">Related Links</span>
             <a>LDS.org</a>
-            <br/>
             <a>BYU Alumni</a>
-            <br/>
             <a>BYU Today</a>
-            <br/>
             <a>BYU Magazine</a>
         </byu-footer-column>
+    </template>
+    <template id="footer-col-social">
         <byu-footer-column>
             <span slot="header">Connect With Us</span>
             <a>Feedback</a>
-            <br/>
             <a>Help</a>
-            <br/>
-            <a>Follow BYU Speeches</a>
-            <br/>
-            <byu-social-media-links>
-                <a class="facebook" href="https://www.facebook.com">Facebook</a>
-                <a class="instagram" href="https://www.instagram.com">Insta</a>
-                <a class="twitter" href="https://www.twitter.com">Twitter</a>
-                <a class="gplus" href="https://plus.google.com">GPlus</a>
-                <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
-                <a class="youtube" href="https://www.youtube.com">YouTube</a>
-                <a class="rss" href="#">RSS</a>
-                <a class="snapchat" href="#">Snap</a>
-            </byu-social-media-links>
-            <br/>
+            <div>
+                <div>Follow BYU Speeches</div>
+                <byu-social-media-links>
+                    <a class="facebook" href="https://www.facebook.com">Facebook</a>
+                    <a class="instagram" href="https://www.instagram.com">Insta</a>
+                    <a class="twitter" href="https://www.twitter.com">Twitter</a>
+                    <a class="gplus" href="https://plus.google.com">GPlus</a>
+                    <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
+                    <a class="youtube" href="https://www.youtube.com">YouTube</a>
+                    <a class="rss" href="#">RSS</a>
+                    <a class="snapchat" href="#">Snap</a>
+                </byu-social-media-links>
+            </div>
             <a>Subscribe</a>
         </byu-footer-column>
-    </byu-footer>
+    </template>
+    <template id="footer-col-extras">
+        <byu-footer-column>
+            <span slot="header">Extra Stuff</span>
+            <a>Awesome Stuff</a>
+            <a>Amazing Stuff</a>
+            <a>Wonderful Stuff</a>
+        </byu-footer-column>
+    </template>
+
+</head>
+
+<body>
+<byu-header mobile-max-width="700px" home-url="http://web.byu.edu" max-width="900px">
+    <span slot="site-title">Component Demos</span>
+    <span slot="site-sub-title">Sub-Title</span>
+    <!--<span slot="site-title" class="subtitle">Every Single Feature</span>-->
+
+    <a href="#action-1" slot="actions">Action 1</a>
+    <a href="#action-2" slot="actions">Action 2</a>
+
+    <byu-user-info slot="user" id="user-info">
+        <a slot="login" id="sign-in" href="#login">Sign In</a>
+        <a slot="logout" id="sign-out" href="#logout">Sign Out</a>
+    </byu-user-info>
+
+    <byu-menu slot="nav">
+        <a href="docs/index.html">Main Docs</a>
+        <a href="#nav1" class="current">Nav Item 1</a>
+        <!--<a href="#nav2">Nav Item 2</a>-->
+        <!--<a href="#nav3">Nav Item 3</a>-->
+        <!--<a href="#nav4">Nav Item 4</a>-->
+        <!--<a href="#nav5">Nav Item 5</a>-->
+    </byu-menu>
+
+</byu-header>
+<article class="page-content">
+    <h1>Hey there,</h1>
+    <p>this is a big test of all of the features of the current BYU theme components.</p>
+    <h3>Footer Column Control</h3>
+    <div>
+        <input id="fc-contact" checked type="checkbox" class="footer-column-control" data-template="contact"
+               data-order="1">
+        <label for="fc-contact">Contact</label>
+    </div>
+    <div>
+        <input id="fc-affiliates" checked type="checkbox" class="footer-column-control" data-template="affiliates"
+               data-order="2">
+        <label for="fc-affiliates">Affiliates</label>
+    </div>
+    <div>
+        <input id="fc-related" checked type="checkbox" class="footer-column-control" data-template="related"
+               data-order="3">
+        <label for="fc-related">Related</label>
+    </div>
+    <div>
+        <input id="fc-social" checked type="checkbox" class="footer-column-control" data-template="social"
+               data-order="4">
+        <label for="fc-social">Social</label>
+    </div>
+    <div>
+        <input id="fc-extras" type="checkbox" class="footer-column-control" data-template="extras"
+               data-order="5">
+        <label for="fc-extras">Extras</label>
+    </div>
+
+</article>
+<byu-footer></byu-footer>
+
+<script>
+    document.addEventListener('WebComponentsReady', function(e) {
+        console.log('WebComponentsReady', e);
+    });
+
+    setTimeout(
+    function () {
+        var footer = document.querySelector('byu-footer');
+        var controls = document.querySelectorAll('input.footer-column-control');
+
+        for (var i = 0, len = controls.length; i < len; i++) {
+            var it = controls[i];
+            it.addEventListener('change', function (e) {
+                applyTemplateState(this);
+            });
+        }
+
+        //Set up initial state
+        controls.forEach(applyTemplateState);
+
+        function applyTemplateState(input) {
+            var name = input.dataset.template;
+            var order = input.dataset.order;
+
+            var cls = "__demo-added-" + name;
+
+            var shouldShow = input.checked;
+
+            var current = footer.querySelector('.' + cls);
+
+            if (shouldShow) {
+                if (current) return;
+
+                var template = document.querySelector('template#footer-col-' + name);
+                var clone = document.importNode(template.content, true);
+
+                //Hooray for IE compatibility!  All of this COULD be solved with clone.firstChildElement....
+                var kids = clone.childNodes;
+                for (var i = 0, len = kids.length; i < len; i++) {
+                    if (kids[i].nodeType === Node.ELEMENT_NODE) {
+                        kids[i].classList.add(cls);
+                        break;
+                    }
+                }
+
+                footer.appendChild(clone);
+            } else {
+                if (!current) return;
+
+                footer.removeChild(current);
+            }
+        }
+        //This is a temporary hack to allow the polyfills to load until we can get them firing WebComponentsReady properly
+    }, 2000);
+</script>
 
 </body>
 
