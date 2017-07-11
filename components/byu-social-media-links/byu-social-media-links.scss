@@ -7,6 +7,7 @@
     @include allSocialIcons();
   }
 
+  //These all have a [slot] selector for backwards-compatibility. New icons don't need it.
   ::slotted(.facebook), ::slotted([slot="facebook"]) {
     @include facebook();
   }
@@ -43,6 +44,10 @@
 
   ::slotted(.snapchat), ::slotted([slot="snapchat"]) {
     @include snapchat();
+  }
+
+  ::slotted(.podcast) {
+    @include podcast();
   }
 
 }

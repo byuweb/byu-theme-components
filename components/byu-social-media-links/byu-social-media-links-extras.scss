@@ -44,4 +44,8 @@ byu-social-media-links:not(.byu-component-rendered) {
     > .google-plus, > [slot="google-plus"] {
         @include google-plus();
     }
+
+    > .podcast {
+        @include podcast();
+    }
 }
