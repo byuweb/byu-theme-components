@@ -1468,7 +1468,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         "author": "",
         "license": "Apache-2.0",
         "dependencies": {
-            "byu-web-component-utils": "^0.4.0",
+            "byu-web-component-utils": "^0.4.2",
             "deep-equal": "^1.0.1"
         },
         "devDependencies": {
@@ -1824,7 +1824,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }
         elSettings.templateHash = sum;
 
-        if (window.ShadyCSS) {
+        if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
             applyTemplateShady(element, elementName, template, callback, sum);
         } else {
             applyTemplateNative(element, template, callback);
@@ -2152,7 +2152,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             __append = __output.push.bind(__output);
         __append("<style>\n");
         __append(__webpack_require__(20));
-        __append('</style><div id="header" class="byu-header-root"><div class="byu-header-content needs-width-setting">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="" target="_blank">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a><div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
+        __append('</style><div id="header" class="byu-header-root"><div class="byu-header-content needs-width-setting">\n<div class="byu-header-primary">\n<a class="byu-logo" id="home-url" name="home-url" href="">\n<img class="byu-logo" alt="BYU" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg">\n</a><div class="byu-header-title">\n<slot id="site-title" name="site-title"></slot>\n</div>\n');
         if (locals.mobile) {
             __append('<button type="button" class="mobile-menu-button tcon tcon-menu--xbutterfly" aria-label="toggle menu">\n<span class="tcon-menu__lines" aria-hidden="true"></span>\n<span class="tcon-visuallyhidden">toggle menu</span>\n</button>\n');
         }
