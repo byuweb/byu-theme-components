@@ -1268,9 +1268,9 @@ byu-web-component-loader-generator@^0.1.8:
     through2 "^2.0.3"
     vinyl "^2.0.1"
 
-byu-web-component-utils@^0.4.0:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/byu-web-component-utils/-/byu-web-component-utils-0.4.1.tgz#2611d114709a74f169c78c98c096eaac7b128378"
+byu-web-component-utils@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/byu-web-component-utils/-/byu-web-component-utils-0.4.2.tgz#7a5c624380d2948eecca2abb6a739a881fbd95e5"
   dependencies:
     hash-sum "^1.0.2"
 
