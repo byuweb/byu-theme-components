@@ -31,25 +31,25 @@
     var root = '//cdn.byu.edu/byu-theme-components/';
     var min = true;
 
+    var storedVersion = window.sessionStorage.getItem('version');
 
     // allow user to set a version or branch in the querystring
     var version = getParameterByName('version');
-    if (!version)
-    {
-        version = 'latest';
+    if (!version) {
+        version = storedVersion || 'latest';
     }
-    var branch = getParameterByName('branch');
 
-    if (branch)
-    {
+    var branch = getParameterByName('branch');
+    if (branch) {
         version = 'experimental/' + branch;
     }
+    window.sessionStorage.setItem('version', version);
     root = root + version;
 
     var isLocalhost = checkIfLocalhost();
 
     // allow testing other branches from localhost
-    if (version != 'latest')
+    if (version !== 'latest')
         isLocalhost = false;
 
     var isForced = window.location.search && window.location.search.indexOf('load-local=true') >= 0;
