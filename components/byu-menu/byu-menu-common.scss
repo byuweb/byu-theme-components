@@ -78,8 +78,11 @@
 }
 
 @mixin moreLinkSvg() {
+  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg');
   height: 13px;
   width: 13px;
+  display: inline;
+  background-size: 100%;
   //transition: transform 0.5s ease;
   //transform: rotate(0);
   //transform-origin: center;
