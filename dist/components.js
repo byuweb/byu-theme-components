@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
+/******/ 		if(installedModules[moduleId]) {
 /******/ 			return installedModules[moduleId].exports;
-/******/
+/******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -1338,7 +1338,7 @@ window.ByuUserInfo = ByuUserInfo;
 
 module.exports = {
 	"name": "byuweb-components",
-	"version": "1.0.3",
+	"version": "1.1.0",
 	"description": "Components to be used for byu web pages and applications.",
 	"main": "",
 	"scripts": {
@@ -1351,7 +1351,8 @@ module.exports = {
 	"license": "Apache-2.0",
 	"dependencies": {
 		"byu-web-component-utils": "^0.4.2",
-		"deep-equal": "^1.0.1"
+		"deep-equal": "^1.0.1",
+		"sass-loader": "^6.0.6"
 	},
 	"devDependencies": {
 		"browser-sync": "^2.18.6",
@@ -1642,8 +1643,8 @@ function createEvent(name, detail) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
 /* harmony export (immutable) */ __webpack_exports__["a"] = querySelectorSlot;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
 /*
  *  @license
  *    Copyright 2017 Brigham Young University
@@ -1688,9 +1689,9 @@ function querySelectorSlot(slot, selector) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(29);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /*
  *  @license
  *    Copyright 2017 Brigham Young University
@@ -1723,7 +1724,7 @@ function applyTemplate(element, elementName, template, callback) {
     }
     elSettings.templateHash = sum;
 
-    if (window.ShadyCSS) {
+    if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
         applyTemplateShady(element, elementName, template, callback, sum);
     } else {
         applyTemplateNative(element, template, callback);
