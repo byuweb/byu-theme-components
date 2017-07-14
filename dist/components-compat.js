@@ -796,15 +796,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         return BYUMenu;
     }(HTMLElement);
 
-    function addTransparency(item) {
-        item.classList.add('menu-transparent');
-    }
-
     function checkTransparency(component) {
         var isTransparent = component.classList.contains('transparent');
         if (isTransparent) {
-            var elements = document.getElementsByClassName('menu-outer-wrapper');
-            elements.forEach(addTransparency);
+            var byuHeader = document.getElementsByTagName('byu-header');
+            var element = byuHeader[0].shadowRoot.querySelector('.menu-outer-wrapper');
+            console.log(element);
+            element.classList.add('menu-transparent');
         }
     }
 
