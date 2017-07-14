@@ -800,9 +800,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         var isTransparent = component.classList.contains('transparent');
         if (isTransparent) {
             var byuHeader = document.getElementsByTagName('byu-header');
-            var element = byuHeader[0].shadowRoot.querySelector('.menu-outer-wrapper');
-            console.log(element);
-            element.classList.add('menu-transparent');
+            byuHeader[0].classList.add('menu-transparent');
         }
     }
 

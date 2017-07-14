@@ -716,9 +716,7 @@ function checkTransparency(component) {
     let isTransparent = component.classList.contains('transparent');
     if (isTransparent) {
         let byuHeader = document.getElementsByTagName('byu-header');
-        let element = byuHeader[0].shadowRoot.querySelector('.menu-outer-wrapper');
-        console.log(element);
-        element.classList.add('menu-transparent');
+        byuHeader[0].classList.add('menu-transparent');
     }
 }
 
