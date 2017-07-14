@@ -79,12 +79,19 @@
 }
 .menu-outer-wrapper {
   border-bottom: 1px solid #ccc;
+  background-color: #fff;
 }
 
 .menu-inner-wrapper {
   margin: 0 auto;
   padding: $pageContentPadding;
   box-sizing: border-box;
+}
+
+:host(.menu-transparent) {
+  .menu-outer-wrapper {
+    @include menuTransparent();
+  }
 }
 
 :host(.below-max-width) {
