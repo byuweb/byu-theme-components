@@ -1,5 +1,7 @@
 @import "byu-footer-common";
-
+html, body{
+width:100%;
+}
 .university-footer {
   background-color: $universityFooterBgColor;
   text-align: center;
@@ -27,16 +29,15 @@
 }
 
 .university-logo-wrapper {
-  max-width: 1200px;
-  width: 100%;
-  padding: 0 8px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0; 
 }
-
 .university-logo {
-  max-width: 100%;
-  width: $universityFooterLogoWidth;
-  height: $universityFooterLogoHeight;
-  margin: -$universityFooterLogoVerticalOffset 0;
+    max-width: 450px;
+    width: 100%;
+    height: 40px;
+    margin: -10px 0;
 }
 
 .university-info {
