@@ -783,6 +783,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default.a, function () {
                     updateMoreMenuState(_this9);
                     addSlotListeners(_this9);
+                    checkTransparency(_this9);
 
                     // when the more button is clicked then show the more menu
                     _this9.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
@@ -794,6 +795,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
         return BYUMenu;
     }(HTMLElement);
+
+    function addTransparency(item) {
+        item.classList.add('menu-transparent');
+    }
+
+    function checkTransparency(component) {
+        var isTransparent = component.classList.contains('transparent');
+        if (isTransparent) {
+            var elements = document.getElementsByClassName('menu-outer-wrapper');
+            elements.forEach(addTransparency);
+        }
+    }
 
     function addSlotListeners(component) {
         component.shadowRoot.querySelector('slot').addEventListener('slotchange', function (e) {

@@ -25,12 +25,25 @@ class BYUMenu extends HTMLElement {
         util.applyTemplate(this, 'byu-menu', template, () => {
             updateMoreMenuState(this);
             addSlotListeners(this);
+            checkTransparency(this);
 
             // when the more button is clicked then show the more menu
             this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                 component.showMore = true;
             });
         });
+    }
+}
+
+function addTransparency(item) {
+    item.classList.add('menu-transparent');
+}
+
+function checkTransparency(component) {
+    let isTransparent = component.classList.contains('transparent');
+    if (isTransparent) {
+        let elements = document.getElementsByClassName('menu-outer-wrapper');
+        elements.forEach(addTransparency);
     }
 }
 
