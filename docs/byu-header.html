@@ -164,6 +164,8 @@
             </template>
         </demo-snippet>
 
+        <h2>Active State</h2>
+        <p>Anytime the menu is showing, the current/active page's menu link must have the "selected" class.</p>
         <h2>Header with search, sign-in, and nav</h2>
         <demo-snippet>
             <template>
@@ -175,7 +177,7 @@
                         <a slot="logout" href="#logout">Sign Out</a>
                     </byu-user-info>
                     <byu-menu slot="nav" collapsed>
-                        <a href="javascript: void 0">Link 1</a>
+                        <a href="javascript: void 0" class="selected">Link 1</a>
                         <a href="javascript: void 0">Link 2</a>
                         <a href="javascript: void 0">Link 3</a>
                         <a href="javascript: void 0">Link 4</a>
@@ -201,7 +203,7 @@
                         <span slot="user-name">UserFirstName</span>
                     </byu-user-info>
                     <byu-menu slot="nav" collapsed>
-                        <a href="javascript: void 0">Link 1</a>
+                        <a href="javascript: void 0" class="selected">Link 1</a>
                         <a href="javascript: void 0">Link 2</a>
                         <a href="javascript: void 0">Link 3</a>
                         <a href="javascript: void 0">Link 4</a>
@@ -213,30 +215,6 @@
                         <a href="javascript: void 0">Link 10</a>
                     </byu-menu>
                 </byu-header>
-            </template>
-        </demo-snippet>
-
-        <h2>Header + Nav with active state</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
-                    <span slot="site-title">Components Demo Site</span>
-                    <byu-menu slot="nav" collapsed>
-                        <a href="javascript: void 0">Link 1</a>
-                        <a class="selected" href="javascript: void 0">Link 2</a>
-                        <a href="javascript: void 0">Link 3</a>
-                        <a href="javascript: void 0">Link 4</a>
-                        <a href="javascript: void 0">Link 5</a>
-                        <a href="javascript: void 0">Link 6</a>
-                        <a href="javascript: void 0">Link 7</a>
-                        <a href="javascript: void 0">Link 8</a>
-                        <a href="javascript: void 0">Link 9</a>
-                        <a href="javascript: void 0">Link 10</a>
-                    </byu-menu>
-                </byu-header>
-                <div style="margin: 10px">
-                    Here we have some content so you can see what that might look like.
-                </div>
             </template>
         </demo-snippet>
 
