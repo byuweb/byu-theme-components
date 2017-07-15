@@ -36,6 +36,8 @@
 @mixin defaultContentLink() {
     text-decoration: none !important;
     outline: none !important;
+    color: #666666;
+    font-size: 14px;
 }
 
 @mixin defaultContentLinkHover() {
