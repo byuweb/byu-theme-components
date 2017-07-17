@@ -81,7 +81,7 @@
 
   ::slotted(*) {
     flex-grow: 1;
-    margin: $siteFooterPadding;
+    margin: $siteFooterMobilePadding;
   }
 
   ::slotted(.double-wide) {
