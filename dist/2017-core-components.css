@@ -93,7 +93,7 @@ byu-footer-column:not(.byu-component-rendered) {
   float: left; }
   byu-footer-column:not(.byu-component-rendered) .header {
     width: 100%;
-    margin-bottom: 8px; }
+    margin: 0 0 8px; }
   byu-footer-column:not(.byu-component-rendered) .header > * {
     font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
     text-transform: uppercase !important;
