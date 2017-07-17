@@ -23,16 +23,16 @@
     @include contentNotButton();
 }
 
+.content ::slotted(*) {
+    @include clearParagraphMargins();
+}
+
 .content ::slotted(a) {
     @include defaultContentLink();
 }
 
 .content ::slotted(a:hover) {
     @include defaultContentLinkHover();
-}
-
-.content ::slotted(p) {
-    @include clearParagraphMargins();
 }
 
 .content a {
