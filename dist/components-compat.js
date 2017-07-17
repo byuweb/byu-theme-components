@@ -418,6 +418,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                         _this5._checkIfMenuIsNeeded();
                         _this5._applyHomeUrl();
                         _this5._applyMaxWidth();
+                        _this5._applyMenuTransparencyListeners();
                     });
                 }
             }
@@ -470,6 +471,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     each.addEventListener('slotchange', function (event) {
                         _this7._notifyChildrenOfMobileState();
                         _this7._checkIfMenuIsNeeded();
+                        _this7._applyMenuTransparencyListeners();
                     });
                 });
             }
@@ -635,6 +637,41 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 }
             }
         }, {
+            key: '_applyMenuTransparencyListeners',
+            value: function _applyMenuTransparencyListeners() {
+                var _this8 = this;
+
+                var navSlot = this.shadowRoot.querySelector('#navbarMenu');
+                var assigned = navSlot.assignedNodes().filter(function (n) {
+                    return n.nodeType === Node.ELEMENT_NODE;
+                });
+                if (assigned.length === 0) {
+                    this._applyMenuTransparency(null);
+                    return;
+                }
+                var menu = assigned[0];
+                if (!menu.__byu_header_transparency_listener) {
+                    var obs = new MutationObserver(function (e) {
+                        _this8._applyMenuTransparency(menu);
+                    });
+                    //noinspection JSCheckFunctionSignatures
+                    obs.observe(menu, { attributes: true, attributeFilter: ['class'] });
+                    menu.__byu_header_transparency_listener = obs;
+                }
+                this._applyMenuTransparency(menu);
+            }
+        }, {
+            key: '_applyMenuTransparency',
+            value: function _applyMenuTransparency(element) {
+                var transparent = element && element.classList.contains('transparent');
+                if (transparent) {
+                    //Can't use .toggle thanks to IE 11. Thanks, IE!
+                    this.classList.add('menu-transparent');
+                } else {
+                    this.classList.remove('menu-transparent');
+                }
+            }
+        }, {
             key: 'mobileMaxWidth',
             get: function get() {
                 return this.getAttribute(ATTR_MOBILE_MAX_WIDTH);
@@ -767,26 +804,25 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             _classCallCheck(this, BYUMenu);
 
             // always call super first
-            var _this8 = _possibleConstructorReturn(this, (BYUMenu.__proto__ || Object.getPrototypeOf(BYUMenu)).call(this));
+            var _this9 = _possibleConstructorReturn(this, (BYUMenu.__proto__ || Object.getPrototypeOf(BYUMenu)).call(this));
 
-            _this8.attachShadow({ mode: 'open' });
-            return _this8;
+            _this9.attachShadow({ mode: 'open' });
+            return _this9;
         }
 
         _createClass(BYUMenu, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this9 = this;
+                var _this10 = this;
 
                 var component = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default.a, function () {
-                    updateMoreMenuState(_this9);
-                    addSlotListeners(_this9);
-                    checkTransparency(_this9);
+                    updateMoreMenuState(_this10);
+                    addSlotListeners(_this10);
 
                     // when the more button is clicked then show the more menu
-                    _this9.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
+                    _this10.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                         component.showMore = true;
                     });
                 });
@@ -795,14 +831,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
         return BYUMenu;
     }(HTMLElement);
-
-    function checkTransparency(component) {
-        var isTransparent = component.classList.contains('transparent');
-        if (isTransparent) {
-            var byuHeader = document.getElementsByTagName('byu-header');
-            byuHeader[0].classList.add('menu-transparent');
-        }
-    }
 
     function addSlotListeners(component) {
         component.shadowRoot.querySelector('slot').addEventListener('slotchange', function (e) {
@@ -938,26 +966,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             _classCallCheck(this, ByuSearch);
 
             // always call super first
-            var _this10 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
+            var _this11 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
 
-            _this10.attachShadow({ mode: 'open' });
-            return _this10;
+            _this11.attachShadow({ mode: 'open' });
+            return _this11;
         }
 
         _createClass(ByuSearch, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this11 = this;
+                var _this12 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__byu_search_html___default.a, function () {
-                    _this11._initialized = true;
+                    _this12._initialized = true;
 
-                    _this11._input = lookupAndConfigureInputElement(_this11, _this11.searchInputSelector);
+                    _this12._input = lookupAndConfigureInputElement(_this12, _this12.searchInputSelector);
 
-                    setupButtonSearchDispatcher(_this11);
-                    setupSearchListeners(_this11);
+                    setupButtonSearchDispatcher(_this12);
+                    setupSearchListeners(_this12);
 
-                    setupSlotListener(_this11);
+                    setupSlotListener(_this12);
                 });
             }
         }, {
@@ -1311,29 +1339,29 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         function BYUSocialMediaLinks() {
             _classCallCheck(this, BYUSocialMediaLinks);
 
-            var _this12 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
+            var _this13 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
 
-            _this12.attachShadow({ mode: 'open' });
-            return _this12;
+            _this13.attachShadow({ mode: 'open' });
+            return _this13;
         }
 
         _createClass(BYUSocialMediaLinks, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this13 = this;
+                var _this14 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-social-media-links', __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html___default.a, function () {
-                    var main = _this13.shadowRoot.querySelector('#social-main');
+                    var main = _this14.shadowRoot.querySelector('#social-main');
                     applyTitleToChildren(main);
 
                     SOCIAL_IDS.forEach(function (id) {
-                        var slot = _this13.shadowRoot.querySelector('#social-deprecated-' + id);
+                        var slot = _this14.shadowRoot.querySelector('#social-deprecated-' + id);
                         if (!slot) return;
 
                         applyTitleToChildren(slot);
                         //We're still supporting the old way, but it's deprecated and people should move on.
                         if (slot.assignedNodes().length > 0) {
-                            console.log('[WARNING] byu-social-media-links: deprecated usage of slot="' + id + '". Replace with class="' + id + '":', _this13);
+                            console.log('[WARNING] byu-social-media-links: deprecated usage of slot="' + id + '". Replace with class="' + id + '":', _this14);
                         }
                     });
                 });
@@ -1395,11 +1423,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         function ByuUserInfo() {
             _classCallCheck(this, ByuUserInfo);
 
-            var _this14 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
+            var _this15 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
 
-            var shadowRoot = _this14.attachShadow({ mode: 'open' });
+            var shadowRoot = _this15.attachShadow({ mode: 'open' });
 
-            return _this14;
+            return _this15;
         }
 
         _createClass(ByuUserInfo, [{
@@ -1414,22 +1442,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }, {
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this15 = this;
+                var _this16 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html___default.a, function () {
-                    _this15._addSlotListeners();
-                    _this15._addAriaAttributes();
+                    _this16._addSlotListeners();
+                    _this16._addAriaAttributes();
                 });
             }
         }, {
             key: '_addSlotListeners',
             value: function _addSlotListeners() {
-                var _this16 = this;
+                var _this17 = this;
 
                 this._setHasUser();
                 var userSlot = this.shadowRoot.querySelector('#user-name');
                 userSlot.addEventListener('slotchange', function (e) {
-                    _this16._setHasUser();
+                    _this17._setHasUser();
                 });
             }
         }, {

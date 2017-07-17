@@ -376,6 +376,7 @@ class BYUHeader extends HTMLElement {
                 this._checkIfMenuIsNeeded();
                 this._applyHomeUrl();
                 this._applyMaxWidth();
+                this._applyMenuTransparencyListeners();
             });
         }
     }
@@ -419,6 +420,7 @@ class BYUHeader extends HTMLElement {
             each.addEventListener('slotchange', event => {
                 this._notifyChildrenOfMobileState();
                 this._checkIfMenuIsNeeded();
+                this._applyMenuTransparencyListeners();
             });
         })
     }
@@ -660,6 +662,34 @@ class BYUHeader extends HTMLElement {
         return `(max-width: ${this.maxWidth})`;
     }
 
+    _applyMenuTransparencyListeners() {
+        let navSlot = this.shadowRoot.querySelector('#navbarMenu');
+        let assigned = navSlot.assignedNodes().filter(n => n.nodeType === Node.ELEMENT_NODE);
+        if (assigned.length === 0) {
+            this._applyMenuTransparency(null);
+            return
+        }
+        let menu = assigned[0];
+        if (!menu.__byu_header_transparency_listener) {
+            let obs = new MutationObserver((e) => {
+                this._applyMenuTransparency(menu);
+            });
+            //noinspection JSCheckFunctionSignatures
+            obs.observe(menu, {attributes: true, attributeFilter: ['class']});
+            menu.__byu_header_transparency_listener = obs;
+        }
+        this._applyMenuTransparency(menu);
+    }
+
+    _applyMenuTransparency(element) {
+        let transparent = element && element.classList.contains('transparent');
+        if (transparent) {
+            //Can't use .toggle thanks to IE 11. Thanks, IE!
+            this.classList.add('menu-transparent');
+        } else {
+            this.classList.remove('menu-transparent');
+        }
+    }
 
 }
 
@@ -702,21 +732,12 @@ class BYUMenu extends HTMLElement {
         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default.a, () => {
             updateMoreMenuState(this);
             addSlotListeners(this);
-            checkTransparency(this);
 
             // when the more button is clicked then show the more menu
             this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                 component.showMore = true;
             });
         });
-    }
-}
-
-function checkTransparency(component) {
-    let isTransparent = component.classList.contains('transparent');
-    if (isTransparent) {
-        let byuHeader = document.getElementsByTagName('byu-header');
-        byuHeader[0].classList.add('menu-transparent');
     }
 }
 
