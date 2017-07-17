@@ -162,6 +162,10 @@
   height: $byuLogoHeight;
 }
 
+@mixin menuTransparent() {
+  opacity: 0.88;
+}
+
 /* MOBILE */
 
 @mixin mobileMenu() {

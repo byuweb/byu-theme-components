@@ -69,6 +69,25 @@
     <div class="page-content">
         <h1>Menu Demo</h1>
 
+        <h2>Translucent Menu Bar</h2>
+        <p>This is for use with large hero images and other fancy transparency-wanting content. Just add a
+            <code>transparent</code> class to your nav menu.</p>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-menu slot="nav" class="transparent">
+                        <a class="selected" href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
         <h3>Active State</h3>
         <p>The active/current page should always have the class "selected" attached to its menu link.
             It will appear darker than the other links.</p>
