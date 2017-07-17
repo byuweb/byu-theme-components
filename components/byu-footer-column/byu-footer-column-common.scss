@@ -36,11 +36,16 @@
 @mixin defaultContentLink() {
     text-decoration: none !important;
     outline: none !important;
-    color: #666666;
+    color: #666;
     font-size: 14px;
 }
 
 @mixin defaultContentLinkHover() {
     cursor: pointer;
     color: $navy !important;
+    font-size: 14px;
+}
+
+@mixin clearParagraphMargins() {
+    margin: 0;
 }

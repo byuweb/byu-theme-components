@@ -30,3 +30,15 @@
 .content ::slotted(a:hover) {
     @include defaultContentLinkHover();
 }
+
+.content ::slotted(p) {
+    @include clearParagraphMargins();
+}
+
+.content a {
+    @include defaultContentLink();
+}
+
+.content a:hover {
+    @include defaultContentLinkHover();
+}
