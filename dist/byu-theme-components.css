@@ -106,7 +106,7 @@ byu-footer-column:not(.byu-component-rendered) {
     display: inline-block; }
   byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-    font-size: 13px !important;
+    font-size: 14px !important;
     font-weight: 400 !important;
     color: #666 !important;
     display: block;
@@ -114,11 +114,12 @@ byu-footer-column:not(.byu-component-rendered) {
   byu-footer-column:not(.byu-component-rendered) #defaultContent a {
     text-decoration: none !important;
     outline: none !important;
-    color: #666666;
+    color: #666;
     font-size: 14px; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a:hover {
     cursor: pointer;
-    color: #002E5D !important; }
+    color: #002E5D !important;
+    font-size: 14px; }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   font-family: serif;
@@ -129,7 +130,8 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   display: block; }
 
 byu-footer-column a {
-  color: #666 !important; }
+  color: #666 !important;
+  text-decoration: none !important; }
 
 byu-footer-column a:hover {
   color: #002E5D !important; }

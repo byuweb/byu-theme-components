@@ -36,6 +36,7 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
 
 byu-footer-column a {
     color: $footerContentColor !important;
+    text-decoration: none !important;
 }
 
 byu-footer-column a:hover {
