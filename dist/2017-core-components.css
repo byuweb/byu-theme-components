@@ -113,7 +113,9 @@ byu-footer-column:not(.byu-component-rendered) {
     padding: 11px 0; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a {
     text-decoration: none !important;
-    outline: none !important; }
+    outline: none !important;
+    color: #666666;
+    font-size: 14px; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a:hover {
     cursor: pointer;
     color: #002E5D !important; }
