@@ -43,4 +43,5 @@
 @mixin defaultContentLinkHover() {
     cursor: pointer;
     color: $navy !important;
+    font-size: 14px;
 }
