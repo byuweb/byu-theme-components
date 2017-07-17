@@ -9,7 +9,7 @@
 
 @mixin header() {
     width: 100%;
-    margin-bottom: 8px;
+    margin: 0 0 8px;
 }
 
 @mixin headerSlotted() {
