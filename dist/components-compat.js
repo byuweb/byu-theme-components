@@ -2204,11 +2204,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         if (!locals.mobile) {
             __append('<div class="byu-header-actions">\n<slot id="actions" name="actions"></slot>\n</div>\n<div class="byu-header-user">\n<slot id="user" name="user"></slot>\n</div>\n');
         }
-        __append('<div class="byu-header-search">\n<slot id="search" name="search"></slot>\n</div></div>\n</div><!--');
-        if (locals.mobile) {
-            __append('-->\n<!--<div id="mobileMenu">-->\n<!--<slot id="user" name="user"></slot>-->\n<!--<slot id="navbarMenu" name="nav"></slot>-->\n<!--<div class="byu-header-actions">-->\n<!--<slot id="actions" name="actions"></slot>-->\n<!--</div>-->\n<!--</div>-->\n<!--');
-        }
-        __append("-->\n</div>\n");
+        __append('<div class="byu-header-search">\n<slot id="search" name="search"></slot>\n</div></div>\n</div>\n</div>\n');
         if (!locals.mobile) {
             __append('<div class="menu-outer-wrapper">\n<div class="menu-inner-wrapper slot-wrapper needs-width-setting">\n<slot id="navbarMenu" name="nav"></slot>\n</div>\n</div>\n');
         }
