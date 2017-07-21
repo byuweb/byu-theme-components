@@ -12,14 +12,9 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-<<<<<<< HEAD
     "byu-web-component-utils": "^0.4.2",
     "deep-equal": "^1.0.1",
     "sass-loader": "^6.0.6"
-=======
-    "byu-web-component-utils": "^0.4.1",
-    "deep-equal": "^1.0.1"
->>>>>>> d4c396c0fb24611cc9d6e4cbd56335d4b1ac3712
   },
   "devDependencies": {
     "browser-sync": "^2.18.6",
