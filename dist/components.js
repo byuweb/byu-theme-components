@@ -746,7 +746,7 @@ class BYUMenu extends HTMLElement {
         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default.a, () => {
             updateMoreMenuState(this);
             addSlotListeners(this);
-            setTimeout(() => applyActiveSelector(this));
+            applyActiveSelector(this);
             // when the more button is clicked then show the more menu
             this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                 component.showMore = true;
@@ -757,7 +757,7 @@ class BYUMenu extends HTMLElement {
     attributeChangedCallback(attr, oldValue, newValue) {
         switch (attr) {
             case ATTR_ACTIVE_SELECTOR:
-               setTimeout(() => applyActiveSelector(this));
+               applyActiveSelector(this);
                return;
         }
     }
@@ -779,9 +779,10 @@ function addSlotListeners(component) {
     component.shadowRoot.querySelector('slot')
         .addEventListener('slotchange', e => {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
-            setTimeout(() => updateMoreMenuState(component));
-            setTimeout(() => applyActiveSelector(component));
-
+            setTimeout(() => function() {
+                updateMoreMenuState(component);
+                applyActiveSelector(component);
+            });
         });
 }
 

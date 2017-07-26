@@ -834,9 +834,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-menu', __WEBPACK_IMPORTED_MODULE_0__byu_menu_html___default.a, function () {
                     updateMoreMenuState(_this10);
                     addSlotListeners(_this10);
-                    setTimeout(function () {
-                        return applyActiveSelector(_this10);
-                    });
+                    applyActiveSelector(_this10);
                     // when the more button is clicked then show the more menu
                     _this10.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                         component.showMore = true;
@@ -846,13 +844,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }, {
             key: 'attributeChangedCallback',
             value: function attributeChangedCallback(attr, oldValue, newValue) {
-                var _this11 = this;
-
                 switch (attr) {
                     case ATTR_ACTIVE_SELECTOR:
-                        setTimeout(function () {
-                            return applyActiveSelector(_this11);
-                        });
+                        applyActiveSelector(this);
                         return;
                 }
             }
@@ -880,10 +874,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         component.shadowRoot.querySelector('slot').addEventListener('slotchange', function (e) {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
             setTimeout(function () {
-                return updateMoreMenuState(component);
-            });
-            setTimeout(function () {
-                return applyActiveSelector(component);
+                return function () {
+                    updateMoreMenuState(component);
+                    applyActiveSelector(component);
+                };
             });
         });
     }
@@ -1021,26 +1015,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             _classCallCheck(this, ByuSearch);
 
             // always call super first
-            var _this12 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
+            var _this11 = _possibleConstructorReturn(this, (ByuSearch.__proto__ || Object.getPrototypeOf(ByuSearch)).call(this));
 
-            _this12.attachShadow({ mode: 'open' });
-            return _this12;
+            _this11.attachShadow({ mode: 'open' });
+            return _this11;
         }
 
         _createClass(ByuSearch, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this13 = this;
+                var _this12 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-search', __WEBPACK_IMPORTED_MODULE_0__byu_search_html___default.a, function () {
-                    _this13._initialized = true;
+                    _this12._initialized = true;
 
-                    _this13._input = lookupAndConfigureInputElement(_this13, _this13.searchInputSelector);
+                    _this12._input = lookupAndConfigureInputElement(_this12, _this12.searchInputSelector);
 
-                    setupButtonSearchDispatcher(_this13);
-                    setupSearchListeners(_this13);
+                    setupButtonSearchDispatcher(_this12);
+                    setupSearchListeners(_this12);
 
-                    setupSlotListener(_this13);
+                    setupSlotListener(_this12);
                 });
             }
         }, {
@@ -1394,29 +1388,29 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         function BYUSocialMediaLinks() {
             _classCallCheck(this, BYUSocialMediaLinks);
 
-            var _this14 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
+            var _this13 = _possibleConstructorReturn(this, (BYUSocialMediaLinks.__proto__ || Object.getPrototypeOf(BYUSocialMediaLinks)).call(this));
 
-            _this14.attachShadow({ mode: 'open' });
-            return _this14;
+            _this13.attachShadow({ mode: 'open' });
+            return _this13;
         }
 
         _createClass(BYUSocialMediaLinks, [{
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this15 = this;
+                var _this14 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-social-media-links', __WEBPACK_IMPORTED_MODULE_0__byu_social_media_links_html___default.a, function () {
-                    var main = _this15.shadowRoot.querySelector('#social-main');
+                    var main = _this14.shadowRoot.querySelector('#social-main');
                     applyTitleToChildren(main);
 
                     SOCIAL_IDS.forEach(function (id) {
-                        var slot = _this15.shadowRoot.querySelector('#social-deprecated-' + id);
+                        var slot = _this14.shadowRoot.querySelector('#social-deprecated-' + id);
                         if (!slot) return;
 
                         applyTitleToChildren(slot);
                         //We're still supporting the old way, but it's deprecated and people should move on.
                         if (slot.assignedNodes().length > 0) {
-                            console.log('[WARNING] byu-social-media-links: deprecated usage of slot="' + id + '". Replace with class="' + id + '":', _this15);
+                            console.log('[WARNING] byu-social-media-links: deprecated usage of slot="' + id + '". Replace with class="' + id + '":', _this14);
                         }
                     });
                 });
@@ -1478,11 +1472,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         function ByuUserInfo() {
             _classCallCheck(this, ByuUserInfo);
 
-            var _this16 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
+            var _this15 = _possibleConstructorReturn(this, (ByuUserInfo.__proto__ || Object.getPrototypeOf(ByuUserInfo)).call(this));
 
-            var shadowRoot = _this16.attachShadow({ mode: 'open' });
+            var shadowRoot = _this15.attachShadow({ mode: 'open' });
 
-            return _this16;
+            return _this15;
         }
 
         _createClass(ByuUserInfo, [{
@@ -1497,22 +1491,22 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }, {
             key: 'connectedCallback',
             value: function connectedCallback() {
-                var _this17 = this;
+                var _this16 = this;
 
                 __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](this, 'byu-user-info', __WEBPACK_IMPORTED_MODULE_0__byu_user_info_html___default.a, function () {
-                    _this17._addSlotListeners();
-                    _this17._addAriaAttributes();
+                    _this16._addSlotListeners();
+                    _this16._addAriaAttributes();
                 });
             }
         }, {
             key: '_addSlotListeners',
             value: function _addSlotListeners() {
-                var _this18 = this;
+                var _this17 = this;
 
                 this._setHasUser();
                 var userSlot = this.shadowRoot.querySelector('#user-name');
                 userSlot.addEventListener('slotchange', function (e) {
-                    _this18._setHasUser();
+                    _this17._setHasUser();
                 });
             }
         }, {
