@@ -20,7 +20,7 @@
 }
 .slot-container {
   // we need to include the old default classes of selected and active for backwards compatibility
-  ::slotted(.byu-menu-active-link), ::slotted(.selected), ::slotted(.active) {
+  ::slotted(.selected), ::slotted(.active) {
     @include navItemSelected();
   }
 }

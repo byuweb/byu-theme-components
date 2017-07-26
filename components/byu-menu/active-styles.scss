@@ -1,0 +1,6 @@
+@import "byu-menu-common";
+.slot-container {
+  ::slotted(__byu-menu-active-placeholder__) {
+    @include navItemSelected();
+  }
+}

@@ -1,6 +1,7 @@
 "use strict";
 import template from "./byu-menu.html";
 import * as util from 'byu-web-component-utils';
+import activeCss from './active-styles.scss';
 
 const ATTR_ACTIVE_SELECTOR = "active-selector";
 const DEFAULT_ACTIVE_SELECTOR = ".active";
@@ -34,23 +35,13 @@ class BYUMenu extends HTMLElement {
     }
 
     connectedCallback() {
-        const component = this;
-
-        util.applyTemplate(this, 'byu-menu', template, () => {
-            updateMoreMenuState(this);
-            addSlotListeners(this);
-            applyActiveSelector(this);
-            // when the more button is clicked then show the more menu
-            this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
-                component.showMore = true;
-            });
-        });
+        render(this, true);
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
         switch (attr) {
             case ATTR_ACTIVE_SELECTOR:
-               applyActiveSelector(this);
+               render(this, false);
                return;
         }
     }
@@ -68,13 +59,33 @@ class BYUMenu extends HTMLElement {
     }
 }
 
+function render(component, force) {
+    let activeSelector = component.activeSelector;
+    if (!force && activeSelector === component._renderedActiveSelector) {
+        return;
+    }
+
+    let css = activeCss.toString().replace('__byu-menu-active-placeholder__', activeSelector);
+    let tmpl = `<style>${css}</style>${template}`;
+
+    util.applyTemplate(component, 'byu-menu', tmpl, () => {
+        console.log('here');
+        component._renderedActiveSelector = activeSelector;
+        updateMoreMenuState(component);
+        addSlotListeners(component);
+        // when the more button is clicked then show the more menu
+        this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
+            component.showMore = true;
+        });
+    });
+}
+
 function addSlotListeners(component) {
     component.shadowRoot.querySelector('slot')
         .addEventListener('slotchange', e => {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
             setTimeout(() => function() {
                 updateMoreMenuState(component);
-                applyActiveSelector(component);
             });
         });
 }
@@ -137,18 +148,6 @@ function updateMoreMenuState(component) {
     }
     else {
         component.removeAttribute('left-align');
-    }
-
-}
-
-function applyActiveSelector(component) {
-    var activeLink = util.querySelectorSlot(component._menuSlot, component.activeSelector);
-    if (activeLink)
-        activeLink.classList.add('byu-menu-active-link');
-    else {
-        activeLink = util.querySelectorSlot(component._menuMoreSlot, component.activeSelector);
-        if (activeLink)
-            activeLink.classList.add('byu-menu-active-link');
     }
 }
 
