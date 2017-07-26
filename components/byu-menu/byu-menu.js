@@ -69,12 +69,11 @@ function render(component, force) {
     let tmpl = `<style>${css}</style>${template}`;
 
     util.applyTemplate(component, 'byu-menu', tmpl, () => {
-        console.log('here');
         component._renderedActiveSelector = activeSelector;
         updateMoreMenuState(component);
         addSlotListeners(component);
         // when the more button is clicked then show the more menu
-        this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
+        component.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
             component.showMore = true;
         });
     });
