@@ -2,7 +2,21 @@
 import template from "./byu-menu.html";
 import * as util from 'byu-web-component-utils';
 
+const ATTR_ACTIVE_SELECTOR = "active-selector";
+const DEFAULT_ACTIVE_SELECTOR = ".active";
 class BYUMenu extends HTMLElement {
+
+    get activeSelector() {
+        return this.getAttribute(ATTR_ACTIVE_SELECTOR) || DEFAULT_ACTIVE_SELECTOR;
+    }
+
+    set activeSelector(val) {
+        if (val) {
+            this.setAttribute(ATTR_ACTIVE_SELECTOR, val);
+        } else {
+            this.setAttribute(ATTR_ACTIVE_SELECTOR, DEFAULT_ACTIVE_SELECTOR);
+        }
+    }
 
     get showMore() {
         return isShowingMoreMenu(this);
@@ -25,12 +39,32 @@ class BYUMenu extends HTMLElement {
         util.applyTemplate(this, 'byu-menu', template, () => {
             updateMoreMenuState(this);
             addSlotListeners(this);
-
+            setTimeout(() => applyActiveSelector(this));
             // when the more button is clicked then show the more menu
             this.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
                 component.showMore = true;
             });
         });
+    }
+
+    attributeChangedCallback(attr, oldValue, newValue) {
+        switch (attr) {
+            case ATTR_ACTIVE_SELECTOR:
+               setTimeout(() => applyActiveSelector(this));
+               return;
+        }
+    }
+
+    static get observedAttributes() {
+        return [ATTR_ACTIVE_SELECTOR];
+    }
+
+    get _menuSlot() {
+        return this.shadowRoot.querySelector('#byu-menu-items');
+    }
+
+    get _menuMoreSlot() {
+        return this.shadowRoot.querySelector('#byu-menu-more-slot');
     }
 }
 
@@ -39,6 +73,8 @@ function addSlotListeners(component) {
         .addEventListener('slotchange', e => {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
             setTimeout(() => updateMoreMenuState(component));
+            setTimeout(() => applyActiveSelector(component));
+
         });
 }
 
@@ -102,6 +138,17 @@ function updateMoreMenuState(component) {
         component.removeAttribute('left-align');
     }
 
+}
+
+function applyActiveSelector(component) {
+    var activeLink = util.querySelectorSlot(component._menuSlot, component.activeSelector);
+    if (activeLink)
+        activeLink.classList.add('byu-menu-active-link');
+    else {
+        activeLink = util.querySelectorSlot(component._menuMoreSlot, component.activeSelector);
+        if (activeLink)
+            activeLink.classList.add('byu-menu-active-link');
+    }
 }
 
 window.customElements.define('byu-menu', BYUMenu);
