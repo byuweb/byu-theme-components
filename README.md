@@ -26,6 +26,9 @@ To begin using the components you can visit [the components demo site](http://20
 ## CDN Integration
 This repository is integrated with the BYU Web Content Delivery Network (cdn) at cdn.byu.edu. This means that every update to the master branch of the repository will be pushed immediately to the cdn, allowing websites across campus to receive the latest updates immediately. More documentation can be found on the [CDN Project Page](https://github.com/byuweb/web-cdn).  
 
+## Release Process and Timelines
+A new version of these components will be released every two weeks unless there are no new issues to address. These bi-weekly releases will be either bug-fix releases or minor releases that introduce new features. In addition, if a major bug is discovered we may make an unscheduled release to address it. Releases will use [semver standards](http://semver.org/). Minor and bug-fix releases will maintain backwards compatibility, while major releases could potentially include breaking changes. As of this writing there are no major releases on our release timeline. If a major release is proposed and accepted we will ensure that the BYU web community is given ample time to prepare for any breaking changes and migrate their code accordingly. 
+
 ## How to contribute:
 This project is open to the community, and we welcome contributions. You can start by [forking this repo](https://help.github.com/articles/fork-a-repo/) and submitting a pull request, though we strongly recommend you also join the slack channel at [byu-web.slack.com](http://byu-web.slack.com) so you can be part of the discussion.
 
