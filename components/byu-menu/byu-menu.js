@@ -70,7 +70,9 @@ function render(component, force) {
 
     util.applyTemplate(component, 'byu-menu', tmpl, () => {
         component._renderedActiveSelector = activeSelector;
-        updateMoreMenuState(component);
+        setTimeout(() => function() {
+            updateMoreMenuState(component);
+        });
         addSlotListeners(component);
         // when the more button is clicked then show the more menu
         component.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
@@ -143,6 +145,7 @@ function updateMoreMenuState(component) {
     }
 
     if (length < 4) {
+        console.log(length);
         component.setAttribute('left-align', '');
     }
     else {
