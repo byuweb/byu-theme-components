@@ -783,9 +783,7 @@ function render(component, force) {
 
     __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](component, 'byu-menu', tmpl, () => {
         component._renderedActiveSelector = activeSelector;
-        setTimeout(() => function() {
-            updateMoreMenuState(component);
-        });
+        updateMoreMenuState(component);
         addSlotListeners(component);
         // when the more button is clicked then show the more menu
         component.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {

@@ -875,11 +875,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](component, 'byu-menu', tmpl, function () {
             component._renderedActiveSelector = activeSelector;
-            setTimeout(function () {
-                return function () {
-                    updateMoreMenuState(component);
-                };
-            });
+            updateMoreMenuState(component);
             addSlotListeners(component);
             // when the more button is clicked then show the more menu
             component.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
