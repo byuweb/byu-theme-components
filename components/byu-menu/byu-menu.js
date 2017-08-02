@@ -143,6 +143,7 @@ function updateMoreMenuState(component) {
     }
 
     if (length < 4) {
+        console.log(length);
         component.setAttribute('left-align', '');
     }
     else {

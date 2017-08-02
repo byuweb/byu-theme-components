@@ -46,14 +46,14 @@
             margin: 0 auto;
             max-width: 1200px;
             width: 100%;
-            padding: 16px;
+            padding: 16px; 
             box-sizing: border-box;
         }
     </style>
 </head>
 
 <body>
-    <byu-header full-width>
+    <byu-header>
         <span slot="site-title">Components Demo Site</span>
         <byu-menu slot="nav" collapsed>
             <a href="index.html">Home</a>
@@ -257,46 +257,11 @@
         </template>
     </demo-snippet>
 
-        <h2>Full Width</h2>
-        <p>To extend the header to the full width of the page add a "full-width" attribute to
-            the header:</p>
+         <h2>Full-width attribute</h2>
+        <p>Previous versions of the components allowed for a full-width attribute on the header and footer. 
+            This has been deprecated as of version 1.2.0 of the BYU Theme Components and is not recommeneded.
+        </p>
     </div>
-
-    <h2>Header only with full-width attribute</h2>
-    <demo-snippet>
-        <template>
-            <byu-header full-width>
-                <span slot="site-title">Components Demo Site</span>
-            </byu-header>
-        </template>
-    </demo-snippet>
-
-    <h2>Header with search, sign-in, nav, and full-width attribute</h2>
-    <demo-snippet>
-        <template>
-            <byu-header full-width>
-                <span slot="site-title">Components Demo Site</span>
-                <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
-                <byu-user-info slot="user">
-                    <a slot="login" href="#login">Sign In</a>
-                    <a slot="logout" href="#logout">Sign Out</a>
-                </byu-user-info>
-                <byu-menu slot="nav" collapsed>
-                    <a href="javascript: void 0">Link 1</a>
-                    <a href="javascript: void 0">Link 2</a>
-                    <a href="javascript: void 0">Link 3</a>
-                    <a href="javascript: void 0">Link 4</a>
-                    <a href="javascript: void 0">Link 5</a>
-                    <a href="javascript: void 0">Link 6</a>
-                    <a href="javascript: void 0">Link 7</a>
-                    <a href="javascript: void 0">Link 8</a>
-                    <a href="javascript: void 0">Link 9</a>
-                    <a href="javascript: void 0">Link 10</a>
-                </byu-menu>
-            </byu-header>
-        </template>
-    </demo-snippet>
-
     <footer>
         <byu-footer></byu-footer>
     </footer>
