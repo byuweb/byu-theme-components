@@ -13,17 +13,21 @@
 @mixin navItemHover() {
   background: $gray !important;
 }
+
 @mixin navItemSelected() {
   background: $lightgray !important;
 }
-@mixin navItemLongLink() {
-  max-width: 300px;
-  flex: 2;
-}
-@mixin navItemExtraLongLink() {
-  max-width: 400px;
-  flex: 3;
-}
+
+//@mixin navItemLongLink() {
+//  max-width: 300px;
+//  flex: 2;
+//}
+//
+//@mixin navItemExtraLongLink() {
+//  max-width: 400px;
+//  flex: 3;
+//}
+
 @mixin navItem() {
   @include headerLink();
   font-family: $menuFont !important;
@@ -47,18 +51,18 @@
   &.selected {
     @include navItemSelected();
   }
+
   &.active {
     @include navItemSelected();
   }
-  
 
-  &.long-link {
-    @include navItemLongLink();
-  }
-
-  &.extra-long-link {
-    @include navItemExtraLongLink();
-  }
+  //&.long-link {
+  //  @include navItemLongLink();
+  //}
+  //
+  //&.extra-long-link {
+  //  @include navItemExtraLongLink();
+  //}
 }
 
 @mixin dropdownNavItem() {

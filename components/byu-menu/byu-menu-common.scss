@@ -32,12 +32,14 @@
 @mixin navItemSlotted() {
   @include navItem();
   flex: 1;
+  flex-basis: auto;
 }
 
 @mixin navItemsSlottedSetWidth() {
   min-width: 200px;
   flex: 0;
   padding: 0 16px;
+  flex-basis: auto;
 }
 
 @mixin moreMenu() {
