@@ -5,7 +5,7 @@
 
 /* GENERAL STYLING */
 @mixin headerRoot() {
-  background-color: $navy;
+  //background-color: $navy;
   width: 100%;
 }
 
@@ -14,7 +14,7 @@
   justify-content: center;
   flex: 1;
   flex-basis: 100%;
-  padding: $pageContentPadding;
+  //padding: $pageContentPadding;
   box-sizing: border-box;
 }
 
@@ -68,6 +68,7 @@
   flex: 1;
   min-height: $headerHeight;
   box-sizing: border-box;
+  padding-left: 16px;
 }
 
 @mixin headerTitleText() {
@@ -309,6 +310,7 @@
   justify-content: space-between;
   align-items: center;
   height: $headerHeight;
+  padding-right: 16px;
 }
 
 @mixin searchNotMobile() {
