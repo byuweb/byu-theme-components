@@ -50,7 +50,9 @@
             box-sizing: border-box;
         }
     </style>
-
+    <link rel="stylesheet" href="lib/prism/themes/prism.css">
+    <script src="lib/prism/prism.js"></script>
+    <script src="lib/prism/plugins/normalize-whitespace/prism-normalize-whitespace.js"></script>
 </head>
 
 <body>
@@ -81,10 +83,55 @@
         <h2>Sticky Footer</h3>
         <p>We strongly recommend adding some code to make the footer "stick" to the bottom of the window 
             even when there is little or no page content. Unfortunately due to some of the limitations 
-            of web components this can't be built into the footer component, but an example of how to 
-            do this can be found here on the docs home page: <a href="index.html#sticky-footer">Docs Home Page</a></p>
+            of web components this can't be built into the footer component. However, you can do this with 
+            flexbox as follows:
+            <ul>
+                <li>The byu-header, page-content div, and byu-footer should all be children of the same containing element</li>
+                <li>The containing element should be have the styles <code>height: 100%</code>, <code>display: flex</code>, and <code>flex-direction: column</code></li>
+                <li>The page-content div should have a style of <code>flex-grow: 1</code></li>
+                <li>The height of any ancestors of the containing element should also be set to 100%.</li>
+            </ul>
+        </p>
+        
+        Here's a simple example:
 
+        <pre><code class="language-html">
+            &lt;style&gt;
+                html, body {
+                    height: 100%;
+                }
+                
+                containing-element {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                }
 
+                .page-content {
+                    flex-grow: 1;
+                }
+            &lt;/style&gt;
+            
+            &lt;html&gt;
+                &lt;body&gt;
+                    &lt;div class="containing-element"&gt;
+                        
+                        &lt;byu-header&gt;
+                            &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
+                        &lt;/byu-header&gt;
+                
+                        &lt;div class="page-content"&gt;
+                            &lt;!-- Put your site content here --&gt;
+                        &lt;/div&gt;
+
+                        &lt;byu-footer&gt;&lt;/byu-footer&gt;
+
+                    &lt;/div&gt;
+                &lt;/body&gt;
+            &lt;/html&gt;
+
+        </code></pre>        
+        
         <h2>Site Footer</h2>
         <p>
             Some sites may need to embed their own links and content in the footer.  You can accomplish this by placing

@@ -132,45 +132,13 @@
         </code></pre>        
 
         <h2 id="sticky-footer">Sticky Footer</h2>
-        <p>We strongly recommend adding some code to make the footer "stick" to the bottom of the window even when there is little or no page content. There are several ways to accomplish this, but here's a simple one using flexbox:</p>
+        <p>We strongly recommend adding some code to make the footer "stick" to the bottom of the window even when there is little or no 
+            page content. A discussion of how to do this can be found on <a href="byu-footer.html">the footer docs page</a>.</p>
 
-        <pre><code class="language-html">
-            &lt;style&gt;
-                html {
-                    height: 100%;
-                }
-                
-                body {
-                    display: flex;
-                    flex-direction: column;
-                    height: 100%;
-                }
-
-                .page-content {
-                    flex-grow: 1;
-                }
-            &lt;/style&gt;
-            
-            &lt;html&gt;
-                &lt;body&gt;        
-                    &lt;byu-header&gt;
-                        &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
-                    &lt;/byu-header&gt;
-            
-                    &lt;div class="page-content"&gt;
-                        &lt;!-- Put your site content here --&gt;
-                    &lt;/div&gt;
-
-                    &lt;byu-footer&gt;&lt;/byu-footer&gt;
-                &lt;/body&gt;
-            &lt;/html&gt;
-
-        </code></pre>        
-
-
-
+        <h2>More Updates Coming Soon</h2>
         <p>
-            Feel free to check back here for updates. While the code needed to use the core components is not expected to change, the look and feel of
+            A new version of these components is scheduled to be released every two weeks, so feel free to check back here for updates. 
+            While the code needed to use the core components is not expected to change, the look and feel of
             each component may change over time, and new features may be added.
         </p>
         <p>
