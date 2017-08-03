@@ -357,19 +357,14 @@ byu-menu:not(.byu-component-rendered) > * {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   transition: background 0.3s;
-  flex: 1; }
+  flex: 1;
+  flex-basis: auto; }
   byu-menu:not(.byu-component-rendered) > *:hover {
     background: #c5c5c5 !important; }
   byu-menu:not(.byu-component-rendered) > *.selected {
     background: #e5e5e5 !important; }
   byu-menu:not(.byu-component-rendered) > *.active {
     background: #e5e5e5 !important; }
-  byu-menu:not(.byu-component-rendered) > *.long-link {
-    max-width: 300px;
-    flex: 2; }
-  byu-menu:not(.byu-component-rendered) > *.extra-long-link {
-    max-width: 400px;
-    flex: 3; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */

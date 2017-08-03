@@ -134,7 +134,11 @@ class BYUHeader extends HTMLElement {
                 }
             });
         }, 0);
-    }
+
+        if (this.hasAttribute('full-width')) {
+            console.log("[byu-header] The 'full-width' attribute has been deprecated as of version 1.2.0 of the BYU Theme Components and is not recommended");
+        }
+    } 
 
     static get observedAttributes() {
         return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_MAX_WIDTH];
