@@ -264,6 +264,7 @@
   background-color: transparent;
   margin-top: ($byuLogoHeight - $tcon-size)/2;
   margin-bottom: ($byuLogoHeight - $tcon-size)/2;
+  margin-left: ($byuLogoHeight - $tcon-size)/2;
 }
 
 @mixin mobileMenuButton() {
