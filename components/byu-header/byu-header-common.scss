@@ -5,7 +5,7 @@
 
 /* GENERAL STYLING */
 @mixin headerRoot() {
-  background-color: $navy;
+  //background-color: $navy;
   width: 100%;
 }
 
@@ -14,7 +14,7 @@
   justify-content: center;
   flex: 1;
   flex-basis: 100%;
-  padding: $pageContentPadding;
+  //padding: $pageContentPadding;
   box-sizing: border-box;
 }
 
@@ -68,6 +68,7 @@
   flex: 1;
   min-height: $headerHeight;
   box-sizing: border-box;
+  padding-left: 16px;
 }
 
 @mixin headerTitleText() {
@@ -96,10 +97,6 @@
 
 @mixin mobileSiteTitleSlotted() {
   font-size: $mobileSiteTitleSize !important;
-}
-
-@mixin headerSiteTitle() {
- 
 }
 
 @mixin headerSubTitle() {
@@ -162,9 +159,25 @@
   height: $byuLogoHeight;
 }
 
+@mixin menuOuterWrapper() {
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+}
+
+@mixin menuInnerWrapper() {
+  margin: 0 auto;
+  padding: $pageContentPadding;
+  box-sizing: border-box;
+}
+
 @mixin menuTransparent() {
   opacity: 0.88;
 }
+
+@mixin belowMaxMenuInnerWrapper() {
+    padding: 0;
+}
+
 
 /* MOBILE */
 
@@ -180,7 +193,7 @@
 }
 
 @mixin mobileHeaderPrimary() {
-  margin-left: $pageContentHorizontalPadding;
+  //margin-left: $pageContentHorizontalPadding;
 }
 
 @mixin mobileMenuOverflow() {
@@ -251,8 +264,24 @@
   background-color: transparent;
   margin-top: ($byuLogoHeight - $tcon-size)/2;
   margin-bottom: ($byuLogoHeight - $tcon-size)/2;
-  
 }
+
+@mixin mobileMenuButton() {
+  display: none;
+}
+
+@mixin searchTransition() {
+  transform: scaleY(1);
+  transition: height .1s ease-in-out;
+  height: 35px!important;
+  transform-origin: top;
+}
+
+@mixin searchTransformed() {
+  transform: scaleY(0);
+  height: 0 !important;
+}
+
 
 /* FULL SIZE */
 
@@ -262,6 +291,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  background-color: $navy;
 }
 
 @mixin headerNotMobileNoNav() {
@@ -281,6 +311,7 @@
   justify-content: space-between;
   align-items: center;
   height: $headerHeight;
+  padding-right: 16px;
 }
 
 @mixin searchNotMobile() {

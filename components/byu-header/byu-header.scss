@@ -32,7 +32,6 @@
         
       ::slotted(*) {
         @include titleSlotted();
-        @include headerSiteTitle();
       }
 
       ::slotted(.subtitle) {
@@ -77,15 +76,13 @@
     }
   }
 }
+
 .menu-outer-wrapper {
-  border-bottom: 1px solid #ccc;
-  background-color: #fff;
+  @include menuOuterWrapper();
 }
 
 .menu-inner-wrapper {
-  margin: 0 auto;
-  padding: $pageContentPadding;
-  box-sizing: border-box;
+  @include menuInnerWrapper();
 }
 
 :host(.menu-transparent) {
@@ -96,7 +93,7 @@
 
 :host(.below-max-width) {
   .menu-inner-wrapper {
-    padding: 0;
+    @include belowMaxMenuInnerWrapper();
   }
 }
 
@@ -167,8 +164,17 @@
 }
 
 :host([no-menu]) .mobile-menu-button {
-  display: none;
+  @include mobileMenuButton();
 }
+
+:host([mobile-view]) .byu-header-search {
+  @include searchTransition();
+}
+
+:host([menu-open][mobile-view]) .byu-header-search {
+  @include searchTransformed();
+}
+
 
 /* FULL SIZE */
 :host(:not([mobile-view])) {
