@@ -41,7 +41,9 @@ plus Internet Explorer 11.**
 
 ## Mobile Browsers
 
-- [ ] Any browser on iOS
+- [ ] Safari for iOS
+- [ ] Chrome for iOS
+- [ ] Firefox Mobile for Safari
 - [ ] Chrome for Android
 - [ ] Firefox Mobile for Android
 - [ ] Other (please specify)
