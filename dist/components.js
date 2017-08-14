@@ -405,6 +405,10 @@ class BYUHeader extends HTMLElement {
     _addButtonListeners() {
         if (!this.inMobileView) {
             this.menuOpen = false;
+
+            let searchParent = this.shadowRoot.querySelector('.byu-header-secondary');
+            searchParent.removeAttribute(ATTR_MENU_OPEN);
+
             return;
         }
         let menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
@@ -413,6 +417,17 @@ class BYUHeader extends HTMLElement {
 
     _toggleMenu() {
         this.menuOpen = !this.menuOpen;
+
+        let searchParent = this.shadowRoot.querySelector('.byu-header-secondary');
+        let search = this.shadowRoot.querySelector('.byu-header-search');
+        if (searchParent.hasAttribute(ATTR_MENU_OPEN)) {
+            searchParent.removeAttribute(ATTR_MENU_OPEN);
+            search.setAttribute('style', 'height: 35px !important;')
+        }
+        else {
+            searchParent.setAttribute(ATTR_MENU_OPEN, '');
+          search.setAttribute('style', 'height: 0 !important;')
+        }
     }
 
     _addSlotListeners() {
@@ -464,10 +479,14 @@ class BYUHeader extends HTMLElement {
         const header = this;
         setTimeout(function() {
             const menu = header.shadowRoot.querySelector('#mobileMenu');
+            const searchParent = header.shadowRoot.querySelector('.byu-header-secondary');
             if (menu) menu.addEventListener('click', function openMenuClickHandler() {
                 console.log(menu.innerHTML);
                 if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN) && !header.hasAttribute(ATTR_MENU_KEEP_OPEN)) {
                     header.removeAttribute(ATTR_MENU_OPEN);
+                }
+                if (searchParent.hasAttribute(ATTR_MENU_OPEN)) {
+                    searchParent.removeAttribute(ATTR_MENU_OPEN);
                 }
             });
         }, 0);
