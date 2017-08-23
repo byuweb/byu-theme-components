@@ -24,10 +24,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /******/function __webpack_require__(moduleId) {
         /******/
         /******/ // Check if module is in cache
-        /******/if (installedModules[moduleId]) {
+        /******/if (installedModules[moduleId])
             /******/return installedModules[moduleId].exports;
-            /******/
-        }
+        /******/
         /******/ // Create a new module (and put it into the cache)
         /******/var module = installedModules[moduleId] = {
             /******/i: moduleId,
@@ -450,6 +449,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
                 if (!this.inMobileView) {
                     this.menuOpen = false;
+
+                    var searchParent = this.shadowRoot.querySelector('.byu-header-secondary');
+                    searchParent.removeAttribute(ATTR_MENU_OPEN);
+
                     return;
                 }
                 var menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
@@ -461,6 +464,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             key: '_toggleMenu',
             value: function _toggleMenu() {
                 this.menuOpen = !this.menuOpen;
+
+                var searchParent = this.shadowRoot.querySelector('.byu-header-secondary');
+                var search = this.shadowRoot.querySelector('.byu-header-search');
+                if (searchParent.hasAttribute(ATTR_MENU_OPEN)) {
+                    searchParent.removeAttribute(ATTR_MENU_OPEN);
+                    search.setAttribute('style', 'height: 35px !important;');
+                } else {
+                    searchParent.setAttribute(ATTR_MENU_OPEN, '');
+                    search.setAttribute('style', 'height: 0 !important;');
+                }
             }
         }, {
             key: '_addSlotListeners',
@@ -524,10 +537,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 var header = this;
                 setTimeout(function () {
                     var menu = header.shadowRoot.querySelector('#mobileMenu');
+                    var searchParent = header.shadowRoot.querySelector('.byu-header-secondary');
                     if (menu) menu.addEventListener('click', function openMenuClickHandler() {
                         console.log(menu.innerHTML);
                         if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN) && !header.hasAttribute(ATTR_MENU_KEEP_OPEN)) {
                             header.removeAttribute(ATTR_MENU_OPEN);
+                        }
+                        if (searchParent.hasAttribute(ATTR_MENU_OPEN)) {
+                            searchParent.removeAttribute(ATTR_MENU_OPEN);
                         }
                     });
                 }, 0);
@@ -1843,9 +1860,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony export (immutable) */
-    __webpack_exports__["a"] = querySelectorSlot;
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
+    /* harmony export (immutable) */__webpack_exports__["a"] = querySelectorSlot;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -1887,10 +1904,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony export (immutable) */
-    __webpack_exports__["a"] = applyTemplate;
-    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(30);
+    /* harmony import */
+    var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(30);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
+    /* harmony export (immutable) */__webpack_exports__["a"] = applyTemplate;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -2396,8 +2413,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     module.exports = "<style>" + __webpack_require__(25) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
     /***/
-}]
-/******/);
+}]);
 }());
 
 //# sourceMappingURL=components-compat.js.map

@@ -6,9 +6,9 @@
 /******/ 	function __webpack_require__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
+/******/ 		if(installedModules[moduleId])
 /******/ 			return installedModules[moduleId].exports;
-/******/ 		}
+/******/
 /******/ 		// Create a new module (and put it into the cache)
 /******/ 		var module = installedModules[moduleId] = {
 /******/ 			i: moduleId,
@@ -405,6 +405,10 @@ class BYUHeader extends HTMLElement {
     _addButtonListeners() {
         if (!this.inMobileView) {
             this.menuOpen = false;
+
+            let searchParent = this.shadowRoot.querySelector('.byu-header-secondary');
+            searchParent.removeAttribute(ATTR_MENU_OPEN);
+
             return;
         }
         let menuButton = this.shadowRoot.querySelector('.mobile-menu-button');
@@ -413,6 +417,17 @@ class BYUHeader extends HTMLElement {
 
     _toggleMenu() {
         this.menuOpen = !this.menuOpen;
+
+        let searchParent = this.shadowRoot.querySelector('.byu-header-secondary');
+        let search = this.shadowRoot.querySelector('.byu-header-search');
+        if (searchParent.hasAttribute(ATTR_MENU_OPEN)) {
+            searchParent.removeAttribute(ATTR_MENU_OPEN);
+            search.setAttribute('style', 'height: 35px !important;')
+        }
+        else {
+            searchParent.setAttribute(ATTR_MENU_OPEN, '');
+          search.setAttribute('style', 'height: 0 !important;')
+        }
     }
 
     _addSlotListeners() {
@@ -464,10 +479,14 @@ class BYUHeader extends HTMLElement {
         const header = this;
         setTimeout(function() {
             const menu = header.shadowRoot.querySelector('#mobileMenu');
+            const searchParent = header.shadowRoot.querySelector('.byu-header-secondary');
             if (menu) menu.addEventListener('click', function openMenuClickHandler() {
                 console.log(menu.innerHTML);
                 if (header.hasAttribute(ATTR_MOBILE_VIEW) && header.hasAttribute(ATTR_MENU_OPEN) && !header.hasAttribute(ATTR_MENU_KEEP_OPEN)) {
                     header.removeAttribute(ATTR_MENU_OPEN);
+                }
+                if (searchParent.hasAttribute(ATTR_MENU_OPEN)) {
+                    searchParent.removeAttribute(ATTR_MENU_OPEN);
                 }
             });
         }, 0);
@@ -1726,8 +1745,8 @@ function createEvent(name, detail) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = querySelectorSlot;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
+/* harmony export (immutable) */ __webpack_exports__["a"] = querySelectorSlot;
 /*
  *  @license
  *    Copyright 2017 Brigham Young University
@@ -1772,9 +1791,9 @@ function querySelectorSlot(slot, selector) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
+/* harmony export (immutable) */ __webpack_exports__["a"] = applyTemplate;
 /*
  *  @license
  *    Copyright 2017 Brigham Young University
