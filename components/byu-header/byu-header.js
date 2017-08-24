@@ -169,9 +169,11 @@ class BYUHeader extends HTMLElement {
         if (!menu) return;
         if (this.menuOpen) {
             menu.style.maxHeight = menu.scrollHeight + 'px';
+            this.classList.add('byu-header-menu-open');
             transformIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
         } else {
             menu.style.maxHeight = null;
+            this.classList.remove('byu-header-menu-open');
             revertIcon(this.shadowRoot.querySelector('.mobile-menu-button'));
         }
     }
