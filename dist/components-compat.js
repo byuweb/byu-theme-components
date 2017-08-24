@@ -1919,7 +1919,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }
         elSettings.templateHash = sum;
 
-        if (window.ShadyCSS) {
+        if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
             applyTemplateShady(element, elementName, template, callback, sum);
         } else {
             applyTemplateNative(element, template, callback);
