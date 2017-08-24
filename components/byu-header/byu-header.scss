@@ -171,7 +171,7 @@
   @include searchTransition();
 }
 
-:host([menu-open][mobile-view]) .byu-header-search {
+:host(.byu-header-menu-open[mobile-view]) .byu-header-search {
   @include searchTransformed();
 }
 
