@@ -178,12 +178,15 @@
     padding: 0;
 }
 
+$menuTransitionTiming: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+$menuTransition: max-height $menuTransitionTiming;
 
 /* MOBILE */
 
 @mixin mobileMenu() {
   max-height: 0;
-  transition: 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: $menuTransition;
+  will-change: max-height;
 }
 
 @mixin mobileHeaderContent() {
@@ -272,17 +275,19 @@
 }
 
 @mixin searchTransition() {
-  transform: scaleY(1);
-  transition: height .1s ease-in-out;
-  height: 35px!important;
+  max-height: 35px;
+  transition: $menuTransition, transform $menuTransitionTiming;
+  will-change: max-height, transform;
+  overflow: hidden;
+  transform: scale(1, 1);
   transform-origin: top;
 }
 
 @mixin searchTransformed() {
-  transform: scaleY(0);
-  height: 0 !important;
-}
+  max-height: 0;
+  transform: scale(1, 0);
 
+}
 
 /* FULL SIZE */
 
