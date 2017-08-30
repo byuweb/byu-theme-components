@@ -351,5 +351,4 @@ $menuTransition: max-height $menuTransitionTiming;
 /* FULL WIDTH (NOT DEFAULT WIDTH OF 1200px) */
 @mixin headerContentFullWidth() {
   max-width: 100% !important;
-  width: 100% !important;
 }

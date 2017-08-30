@@ -8,6 +8,7 @@ import { revert as revertIcon, transform as transformIcon } from "./icons/transf
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_FULL_WIDTH = 'full-width';
+const ATTR_STRETCH_TOP_BAR = 'stretch-top-bar';
 const ATTR_MAX_WIDTH = 'max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
@@ -134,14 +135,10 @@ class BYUHeader extends HTMLElement {
                 }
             });
         }, 0);
-
-        if (this.hasAttribute('full-width')) {
-            console.log("[byu-header] The 'full-width' attribute has been deprecated as of version 1.2.0 of the BYU Theme Components and is not recommended");
-        }
-    } 
+    }
 
     static get observedAttributes() {
-        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_MAX_WIDTH];
+        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_MAX_WIDTH, ATTR_STRETCH_TOP_BAR];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -149,6 +146,7 @@ class BYUHeader extends HTMLElement {
             case ATTR_MOBILE_MAX_WIDTH:
                 this._applyMobileWidth();
                 return;
+            case ATTR_STRETCH_TOP_BAR:
             case ATTR_MAX_WIDTH:
                 this._applyMaxWidth();
                 return;
@@ -265,6 +263,18 @@ class BYUHeader extends HTMLElement {
         this.setAttribute(ATTR_HOME_URL, val);
     }
 
+    get stretchTopBar() {
+        return this.hasAttribute(ATTR_STRETCH_TOP_BAR);
+    }
+
+    set stretchTopBar(value) {
+        if (value) {
+            this.setAttribute(ATTR_STRETCH_TOP_BAR, '');
+        } else {
+            this.removeAttribute(ATTR_STRETCH_TOP_BAR);
+        }
+    }
+
     _applyMobileWidth() {
         let desiredQuery = this.mobileMediaQuery;
         let q = this._mobileQuery;
@@ -293,12 +303,17 @@ class BYUHeader extends HTMLElement {
     }
 
     _applyMaxWidth() {
-
         if (!this.inMobileView) {
-            var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
-            for (var i = 0; i < needsWidthSetting.length; i++) {
-                needsWidthSetting[i].style.maxWidth = this.maxWidth;
-            }
+            let stretch = this.stretchTopBar;
+            let maxWidth = this.maxWidth;
+            let needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
+            needsWidthSetting.forEach(element => {
+               if (element.classList.contains('stretches') && stretch) {
+                   element.style.maxWidth = null;
+                   return;
+               }
+               element.style.maxWidth = maxWidth;
+            });
         }
         let desiredQuery = this.maxWidthMediaQuery;
         let q = this._maxWidthQuery;
