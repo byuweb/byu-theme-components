@@ -80,7 +80,7 @@
             </template>
         </demo-snippet>
 
-        <h2>Sticky Footer</h3>
+        <h2>Sticky Footer</h2>
         <p>We strongly recommend adding some code to make the footer "stick" to the bottom of the window 
             even when there is little or no page content. Unfortunately due to some of the limitations  
             of web components this can't be built into the footer component. However, you can do this with 
@@ -412,16 +412,64 @@
             </template>
         </demo-snippet>
 
-        <h2>Full-width attribute</h2>
-        <p>Previous versions of the components allowed for a full-width attribute on the header and footer. 
-            This has been deprecated as of version 1.2.0 of the BYU Theme Components and is not recommeneded.
-        </p>
-
+    <h2>Full Footer with links and full-width attribute</h2>
+    <p>By default, the footer uses the same <code>max-width</code> setting as the header, which defaults to 1200px.
+        To make the footer span the width of the page, you can set the <code>max-width</code> attribute.
+    </p>
     </div>
-    
-    <footer>
-        <byu-footer></byu-footer>
-    </footer>
+    <demo-snippet>
+        <template>
+            <byu-footer full-width>
+                <byu-footer-column>
+                    <span slot="header">Contact</span>
+                    <p>
+                        BYU Speeches
+                        <br/> 701 East University Parkway
+                        <br/> Provo, Utah 84602
+                        <br/> 888-888-8888
+                    </p>
+                    <byu-footer-action-button>
+                        <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+                    </byu-footer-action-button>
+                </byu-footer-column>
+                <byu-footer-column>
+                    <span slot="header">Affiliated Speeches</span>
+                    <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+                    <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+                    <a href="https://womensconference.byu.edu">Women's Conference</a>
+                    <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+                    <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
+                </byu-footer-column>
+                <byu-footer-column>
+                    <span slot="header">Related Links</span>
+                    <a>LDS.org</a>
+                    <a>BYU Alumni</a>
+                    <a>BYU Today</a>
+                    <a>BYU Magazine</a>
+                </byu-footer-column>
+                <byu-footer-column>
+                    <span slot="header">Connect With Us</span>
+                    <a>Feedback</a>
+                    <a>Help</a>
+                    <div>
+                        <div>Follow BYU Speeches</div>
+                        <byu-social-media-links>
+                            <a class="facebook" href="https://www.facebook.com"></a>
+                            <a class="instagram" href="https://www.instagram.com"></a>
+                            <a class="twitter" href="https://www.twitter.com"></a>
+                            <a class="gplus" href="https://plus.google.com"></a>
+                            <a class="linkedin" href="https://www.linkedin.com"></a>
+                            <a class="youtube" href="https://www.youtube.com"></a>
+                        </byu-social-media-links>
+                    </div>
+                    <a>Subscribe</a>
+                </byu-footer-column>
+            </byu-footer>
+        </template>
+    </demo-snippet>
+<footer>
+    <byu-footer></byu-footer>
+</footer>
 </body>
 
 </html>
