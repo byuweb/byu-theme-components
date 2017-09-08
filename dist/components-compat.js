@@ -1173,7 +1173,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     function handleSlotChange(search, event) {
         var oldInput = search._input;
-        var newInput = lookupSearchInput(search);
+        var newInput = lookupSearchInput(search, search.searchInputSelector);
 
         if (oldInput === newInput) return;
 

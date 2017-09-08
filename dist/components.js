@@ -1064,7 +1064,7 @@ function setupSlotListener(search) {
 
 function handleSlotChange(search, event) {
     let oldInput = search._input;
-    let newInput = lookupSearchInput(search);
+    let newInput = lookupSearchInput(search, search.searchInputSelector);
 
     if (oldInput === newInput) return;
 
