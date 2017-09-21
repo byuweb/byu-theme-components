@@ -137,12 +137,12 @@ $columnMaxWidth: 30%;
       max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth});
     }
 
-    ::slotted(*:first-child) {
-      margin-left: 0;
-    }
-    ::slotted(*:last-child) {
-      margin-right: 0;
-    }
+    //::slotted(*:first-child) {
+    //  margin-left: 0;
+    //}
+    //::slotted(*:last-child) {
+    //  margin-right: 0;
+    //}
   }
 }
 
