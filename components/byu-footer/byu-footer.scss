@@ -136,14 +136,14 @@ $columnMaxWidth: 30%;
       width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
       max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth});
     }
-
-    //::slotted(*:first-child) {
-    //  margin-left: 0;
-    //}
-    //::slotted(*:last-child) {
-    //  margin-right: 0;
-    //}
   }
 }
 
-
+:host([full-width]) {
+  ::slotted(*:first-child) {
+    margin-left: 0;
+  }
+  ::slotted(*:last-child) {
+    margin-right: 0;
+  }
+}
