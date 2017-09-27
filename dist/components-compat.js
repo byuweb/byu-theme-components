@@ -1937,7 +1937,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }
         elSettings.templateHash = sum;
 
-        if (window.ShadyCSS) {
+        if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
             applyTemplateShady(element, elementName, template, callback, sum);
         } else {
             applyTemplateNative(element, template, callback);
@@ -2389,7 +2389,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* 34 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(22) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container needs-width-setting\"> <slot class=\"byu-menu-items\" id=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <div class=\"more-open-button\" aria-label=\"More\"> </div> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" id=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
+    module.exports = "<style>" + __webpack_require__(22) + "</style> <nav class=\"outer-nav slot-container needs-width-setting\"> <slot class=\"byu-menu-items\" id=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <div class=\"more-open-button\" aria-label=\"More\"> </div> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" id=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
 
     /***/
 },
@@ -2413,7 +2413,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     module.exports = "<style>" + __webpack_require__(25) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
     /***/
-}]);
+}]
+/******/);
 }());
 
 //# sourceMappingURL=components-compat.js.map
