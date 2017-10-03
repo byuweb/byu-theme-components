@@ -1824,7 +1824,7 @@ function applyTemplate(element, elementName, template, callback) {
     }
     elSettings.templateHash = sum;
 
-    if (window.ShadyCSS) {
+    if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
         applyTemplateShady(element, elementName, template, callback, sum);
     } else {
         applyTemplateNative(element, template, callback);
@@ -2270,7 +2270,7 @@ module.exports = "<style>" + __webpack_require__(19) + "</style> <div class=\"si
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(22) + "</style> <link type=\"text/css\" rel=\"stylesheet\" href=\"https://cloud.typography.com/75214/6517752/css/fonts.css\" media=\"all\"> <nav class=\"outer-nav slot-container needs-width-setting\"> <slot class=\"byu-menu-items\" id=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <div class=\"more-open-button\" aria-label=\"More\"> </div> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" id=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
+module.exports = "<style>" + __webpack_require__(22) + "</style> <nav class=\"outer-nav slot-container needs-width-setting\"> <slot class=\"byu-menu-items\" id=\"byu-menu-items\"></slot> <div class=\"byu-menu-more-menu\"> <a href=\"javascript: void 0\" class=\"byu-menu-more\"> More <div class=\"more-open-button\" aria-label=\"More\"> </div> </a> <div class=\"byu-menu-more-items slot-container\"> <slot class=\"byu-menu-more-slot\" id=\"byu-menu-more-slot\" name=\"more\"></slot> </div> </div> </nav>";
 
 /***/ }),
 /* 35 */
