@@ -378,7 +378,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     var ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
     var ATTR_FULL_WIDTH = 'full-width';
-    var ATTR_STRETCH_TOP_BAR = 'stretch-top-bar';
+    var ATTR_CONSTRAIN_TOP_BAR = 'constrain-top-bar';
     var ATTR_MAX_WIDTH = 'max-width';
     var ATTR_MOBILE_VIEW = 'mobile-view';
     var ATTR_MENU_OPEN = 'menu-open';
@@ -540,7 +540,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                     case ATTR_MOBILE_MAX_WIDTH:
                         this._applyMobileWidth();
                         return;
-                    case ATTR_STRETCH_TOP_BAR:
+                    case ATTR_CONSTRAIN_TOP_BAR:
                     case ATTR_MAX_WIDTH:
                         this._applyMaxWidth();
                         return;
@@ -608,11 +608,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             key: '_applyMaxWidth',
             value: function _applyMaxWidth() {
                 if (!this.inMobileView) {
-                    var stretch = this.stretchTopBar;
+                    var constrain = this.constrainTopBar;
                     var maxWidth = this.maxWidth;
                     var needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
                     needsWidthSetting.forEach(function (element) {
-                        if (element.classList.contains('stretches') && stretch) {
+                        if (element.classList.contains('stretches') && !constrain) {
                             element.style.maxWidth = null;
                             return;
                         }
@@ -761,15 +761,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 this.setAttribute(ATTR_HOME_URL, val);
             }
         }, {
-            key: 'stretchTopBar',
+            key: 'constrainTopBar',
             get: function get() {
-                return this.hasAttribute(ATTR_STRETCH_TOP_BAR);
+                return this.hasAttribute(ATTR_CONSTRAIN_TOP_BAR);
             },
             set: function set(value) {
                 if (value) {
-                    this.setAttribute(ATTR_STRETCH_TOP_BAR, '');
+                    this.setAttribute(ATTR_CONSTRAIN_TOP_BAR, '');
                 } else {
-                    this.removeAttribute(ATTR_STRETCH_TOP_BAR);
+                    this.removeAttribute(ATTR_CONSTRAIN_TOP_BAR);
                 }
             }
         }, {
@@ -785,7 +785,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }], [{
             key: 'observedAttributes',
             get: function get() {
-                return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_MAX_WIDTH, ATTR_STRETCH_TOP_BAR];
+                return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_MAX_WIDTH, ATTR_CONSTRAIN_TOP_BAR];
             }
         }]);
 

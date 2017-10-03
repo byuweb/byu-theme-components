@@ -345,7 +345,7 @@ window.BYUFooter = BYUFooter;
 
 const ATTR_MOBILE_MAX_WIDTH = 'mobile-max-width';
 const ATTR_FULL_WIDTH = 'full-width';
-const ATTR_STRETCH_TOP_BAR = 'stretch-top-bar';
+const ATTR_CONSTRAIN_TOP_BAR = 'constrain-top-bar';
 const ATTR_MAX_WIDTH = 'max-width';
 const ATTR_MOBILE_VIEW = 'mobile-view';
 const ATTR_MENU_OPEN = 'menu-open';
@@ -475,7 +475,7 @@ class BYUHeader extends HTMLElement {
     }
 
     static get observedAttributes() {
-        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_MAX_WIDTH, ATTR_STRETCH_TOP_BAR];
+        return [ATTR_MOBILE_MAX_WIDTH, ATTR_MOBILE_VIEW, ATTR_MENU_OPEN, ATTR_HOME_URL, ATTR_MAX_WIDTH, ATTR_CONSTRAIN_TOP_BAR];
     }
 
     attributeChangedCallback(attr, oldValue, newValue) {
@@ -483,7 +483,7 @@ class BYUHeader extends HTMLElement {
             case ATTR_MOBILE_MAX_WIDTH:
                 this._applyMobileWidth();
                 return;
-            case ATTR_STRETCH_TOP_BAR:
+            case ATTR_CONSTRAIN_TOP_BAR:
             case ATTR_MAX_WIDTH:
                 this._applyMaxWidth();
                 return;
@@ -600,15 +600,15 @@ class BYUHeader extends HTMLElement {
         this.setAttribute(ATTR_HOME_URL, val);
     }
 
-    get stretchTopBar() {
-        return this.hasAttribute(ATTR_STRETCH_TOP_BAR);
+    get constrainTopBar() {
+        return this.hasAttribute(ATTR_CONSTRAIN_TOP_BAR);
     }
 
-    set stretchTopBar(value) {
+    set constrainTopBar(value) {
         if (value) {
-            this.setAttribute(ATTR_STRETCH_TOP_BAR, '');
+            this.setAttribute(ATTR_CONSTRAIN_TOP_BAR, '');
         } else {
-            this.removeAttribute(ATTR_STRETCH_TOP_BAR);
+            this.removeAttribute(ATTR_CONSTRAIN_TOP_BAR);
         }
     }
 
@@ -641,11 +641,11 @@ class BYUHeader extends HTMLElement {
 
     _applyMaxWidth() {
         if (!this.inMobileView) {
-            let stretch = this.stretchTopBar;
+            let constrain = this.constrainTopBar;
             let maxWidth = this.maxWidth;
             let needsWidthSetting = this.shadowRoot.querySelectorAll('.needs-width-setting');
             needsWidthSetting.forEach(element => {
-               if (element.classList.contains('stretches') && stretch) {
+               if (element.classList.contains('stretches') && !constrain) {
                    element.style.maxWidth = null;
                    return;
                }
