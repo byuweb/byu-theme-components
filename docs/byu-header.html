@@ -219,7 +219,7 @@
         </demo-snippet>
 
         <h2>Max Width</h2>
-        <p>By default the header and footer have a width of 1200px. To get around this just add a "max-width" attribute to
+        <p>By default the menu and footer have a width of 1200px. To get around this just add a "max-width" attribute to
             the header. Note that this value should be larger than the "mobile-max-width" attribute or the mobile view may 
             not display properly</p>
 <h2>Header only with max-width attribute</h2>
@@ -258,7 +258,7 @@
     </demo-snippet>
 
         <h2>Full Width</h2>
-        <p>To extend the header to the full width of the page add a "full-width" attribute to
+        <p>To extend the menu to the full width of the page add a "full-width" attribute to
             the header:</p>
     </div>
 
@@ -299,13 +299,13 @@
     </demo-snippet>
 
     <p>
-        To only cause the the blue top bar to span the page and keep the menu centered, use
-        the <code>stretch-top-bar</code> attribute instead:
+        To cause the the blue top bar to stay centered instead of stretching to fill the page, use
+        the <code>constrain-top-bar</code> attribute instead:
     </p>
 
     <demo-snippet>
         <template>
-            <byu-header stretch-top-bar>
+            <byu-header constrain-top-bar>
                 <span slot="site-title">Components Demo Site</span>
                 <byu-search slot="search" action='https://www.google.com/#q=$1' method='get' placeholder='Search'></byu-search>
                 <byu-user-info slot="user">
