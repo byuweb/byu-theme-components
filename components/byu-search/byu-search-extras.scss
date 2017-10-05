@@ -3,7 +3,7 @@
 @import "byu-search-common";
 
 byu-search:not(.byu-component-rendered) {
-  background: #fff;
+  background: $white;
   height: 32px;
   width: 216px;
   margin-right: 30px;

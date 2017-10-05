@@ -37,7 +37,7 @@
 }
 
 @mixin actionsNotMobileLinks() {
-  color: #fff !important;
+  color: $white !important;
 }
 
 @mixin actionsWrapper() {
@@ -52,14 +52,14 @@
 
 @mixin headerButton(){
   background-color: $medgray;
-  color: #ffffff;
+  color: $white;
   border: none;
   cursor: pointer;
 }
 
 @mixin headerPrimary() {
   background-color: $navy;
-  color: #ffffff;
+  color: $white;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -73,7 +73,7 @@
 
 @mixin headerTitleText() {
   font-family: $siteNameFont !important;
-  color: #fff!important;
+  color: $white !important;
   text-decoration: none;
 }
 
@@ -102,9 +102,7 @@
 @mixin headerSubTitle() {
   font-size: $siteSubTitleSize;
   line-height: $siteSubTitleSize;
-  margin: 0;
-  margin-top: -1px;
-  margin-bottom: 3px;
+  margin: -1px 0 3px;
 }
 
 @mixin headerSuperTitle() {
@@ -160,8 +158,8 @@
 }
 
 @mixin menuOuterWrapper() {
-  border-bottom: 1px solid #ccc;
-  background-color: #fff;
+  border-bottom: 1px solid $gray;
+  background-color: $white;
 }
 
 @mixin menuInnerWrapper() {
@@ -218,7 +216,7 @@ $menuTransition: max-height $menuTransitionTiming;
 @mixin actionsMobile() {
   @include dropdownNavItem();
   padding: 0 !important;
-  background-color: $lightergray;
+  background-color: $lightgray;
   color: $navy !important;
   border-top: 1px solid $gray;
   width: 100%;
@@ -310,7 +308,7 @@ $menuTransition: max-height $menuTransitionTiming;
 
 @mixin headerSecondaryNotMobile() {
   background-color: $navy;
-  color: #ffffff;
+  color: $white;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;

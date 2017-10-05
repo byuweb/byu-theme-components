@@ -1,50 +1,12 @@
-
-
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
-
-//$byu_blue: #002e5d; // replacing this to just $navy
-$navy: #002e5d;
-//$menuHoverGray: $gray; // need to go replace
-//$menuActiveGray: $lightgray;  // need to go replace
-
 // blues
 $navy: #002E5D;
-$medblue: #869DB5;
-$lightBlue: #e0f0cc;
 $xlightblue: #C3DDF9;
-$brightBlue: #0057B8;
+$royal: #005EB8;
 
-$royal: #003DA5;
-$lightRoyal: #114BAD;
-
-// There are 6 grays right now..
-$xlightgray: #f2f2f2;
-$lightgray: #e5e5e5;
-$lightergray: #e6e6e6;
-//$medgray: #9b9b9b; // extra
-$gray: #c5c5c5;
+// grays
+$darkgray: #141414;
 $medgray: #666;
-$darkgray: #6a6a6b; // least used gray
-$darkestgray: #141414;  // this should be used for body & default text.
-
-
-// other colors
-$red: #B3041A;
-
-$yellow: #FCC015;
-$lightyellow: #fef2d0;
-
-$teal: #84DCB4;
-$lightteal: #e5f7ef;
-
-$green: #66B200; // doesn't work with accessibility
-$lightgreen: #e0f0cc;
-//$green: #4D8501; // was #6EAE17;
-//$greendarkened: #498000 ; // was #6AA816;
-
-// other blues Aleni has used:
-//$lightestblue: #C4CFDA;
-//$lightblue: #A6B6C7;
-//$lightmedblue: #889FB7;
-//$medblue: #697F96;  // was #889FB7  but it couldn't have white on it with enough contrast
-//$darkmedblue: #5B728A;  // #5B728A is enough contrast for small white text
+$gray: #C5C5C5;
+$lightgray: #E6E6E6;
+$white: #FFF;
+$white88: rgba(255, 255, 255, 0.88);

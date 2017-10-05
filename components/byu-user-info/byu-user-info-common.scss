@@ -12,8 +12,7 @@
 @mixin userInfoImage() {
   height: 20px;
   width: 20px;
-  margin: 5px;
-  margin-right: 11px;
+  margin: 5px 11px 5px 5px;
   background-size: contain;
 }
 
@@ -67,7 +66,7 @@
   @include dropdownNavItem();
   border-bottom: solid 1px $gray;
   padding: 10px 14px !important;
-  background-color: #fff !important;
+  background-color: $white !important;
   line-height: 12px !important;
 }
 
@@ -82,7 +81,7 @@
 
 @mixin hasUserNameSlotted() {
   text-transform: capitalize !important;
-  color: $brightBlue !important;
+  color: $xlightblue !important;
 }
 
 /* @mixin hasUserImage() {

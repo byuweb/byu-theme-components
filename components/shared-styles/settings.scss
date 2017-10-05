@@ -10,7 +10,7 @@ $mobile_main_width: 100% - $mobile_sidebar_width;
 $headerHeight: 55px;
 $siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
 
-$byuLogoHeight: 34px;
+$byuLogoHeight: 33px;
 
 $siteTitleSize: 22px;
 $mobileSiteTitleSize: 16px;
@@ -25,20 +25,17 @@ $pageContentPadding: $pageContentVerticalPadding $pageContentHorizontalPadding;
 
 $headerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 $headerContentFontWeight: 500;
+
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
+$searchActiveColor: $navy;
 
 // menu settings
 $menuHeight: 35px;
 $menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 $menuFontWeight: 500;
-//headerContentFont and menuFont are currently same, but might change later
-
-$nav_gradient: 10%;
-$nav_gradient_2: 5%;
-
-$menuHover: $gray; // need to go replace
-$menuActive: $lightgray;  // need to go replace$hover_color
+$menuHover: $gray;
+$menuActive: $lightgray;
 
 /* ---------  general text settings ----- */
 
@@ -48,11 +45,11 @@ $menuActive: $lightgray;  // need to go replace$hover_color
 
 
 $footerBackground: $lightgray;
-$footerContentColor: $medgray;
+$footerContentColor: $darkgray;
 $footerColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
 $footerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
 $footerContentFontWeight: 400;
 $footerContentFontSize: 14px;
 
-$footerButtonColor: $medgray; // change this to one of the colors
+$footerButtonColor: $medgray;
 $footerButtonFont: "Vitesse A", "Vitesse B", Georgia, serif;
