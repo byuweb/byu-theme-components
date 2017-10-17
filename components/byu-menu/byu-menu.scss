@@ -5,7 +5,7 @@
 }
 // transparent background option
 :host(.transparent) {
-  @include bgTransparent();
+  //@include bgTransparent();
 }
 
 .outer-nav {
