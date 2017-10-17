@@ -4,9 +4,9 @@
   @include menuGeneral();
 }
 // transparent background option
-:host(.transparent) {
-  //@include bgTransparent();
-}
+//:host(.transparent) {
+//  //@include bgTransparent();
+//}
 
 .outer-nav {
   @include outerNav();
