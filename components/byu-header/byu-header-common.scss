@@ -171,7 +171,7 @@
 }
 
 @mixin menuTransparent() {
-  opacity: 0.88;
+  background: rgba(255,255,255,0.88);
 }
 
 @mixin belowMaxMenuInnerWrapper() {
