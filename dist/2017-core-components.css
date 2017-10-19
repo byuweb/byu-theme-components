@@ -370,6 +370,14 @@ byu-menu:not(.byu-component-rendered) > * {
   byu-menu:not(.byu-component-rendered) > *.active {
     background: #e5e5e5 !important; }
 
+byu-menu:not(.byu-component-rendered) > *:nth-child(7),
+byu-menu:not(.byu-component-rendered) > *:nth-child(8),
+byu-menu:not(.byu-component-rendered) > *:nth-child(9),
+byu-menu:not(.byu-component-rendered) > *:nth-child(10),
+byu-menu:not(.byu-component-rendered) > *:nth-child(11),
+byu-menu:not(.byu-component-rendered) > *:nth-child(12) {
+  display: none; }
+
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
