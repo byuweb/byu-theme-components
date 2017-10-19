@@ -46,7 +46,9 @@ byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
   display: none;
 }
 
-
+byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle:before {
+  display: none;
+}
 
 
 
