@@ -265,7 +265,7 @@ byu-header:not(.byu-component-rendered) {
     font-size: 13px;
     margin-top: 1px; }
 
-byu-header:not(.byu-component-rendered) > [slot="site-title"] {
+byu-header:not(.byu-component-rendered) > #site-name {
   overflow: hidden;
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;

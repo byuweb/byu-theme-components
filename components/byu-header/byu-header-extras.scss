@@ -21,7 +21,8 @@ byu-header:not(.byu-component-rendered) {
 }
 
 //byu-header:not(:defined) > [slot="site-title"] {
-byu-header:not(.byu-component-rendered) > [slot="site-title"] {
+//byu-header:not(.byu-component-rendered) > [slot="site-title"] {  //makes sub/supertitles appear as a second site-title
+byu-header:not(.byu-component-rendered) > #site-name {
   @include headerTitles();
   padding-left: 16px;
   flex-direction: row;
