@@ -1,6 +1,5 @@
 @import "byu-header-common";
 
-//byu-header:not(:defined) {
 byu-header:not(.byu-component-rendered) {
   @include headerPrimary();
   flex-wrap: wrap;
@@ -20,9 +19,7 @@ byu-header:not(.byu-component-rendered) {
   }
 }
 
-//byu-header:not(:defined) > [slot="site-title"] {
-byu-header:not(.byu-component-rendered) > [slot="site-title"] {  //makes sub/supertitles appear as a second site-title
-//byu-header:not(.byu-component-rendered) > #site-name {
+byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   @include headerTitles();
   padding-left: 16px;
   flex-direction: row;
@@ -31,9 +28,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {  //makes sub/sup
 }
 
 // byu icon
-//byu-header:not(:defined) > [slot="site-title"]:before {
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
-//byu-header:not(.byu-component-rendered) > #site-name:before {
   content: "BYU"; // make sure the space is the exact same size
   font-size: 40px;
   font-family: "Arial", sans-serif;
@@ -46,12 +41,9 @@ byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
   display: none;
 }
 
-byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle:before {
-  display: none;
-}
 
 
-
+//Overriding styling
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   @include headerTitleText();
 }

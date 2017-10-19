@@ -292,9 +292,6 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
   display: none; }
 
-byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle:before {
-  display: none; }
-
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   color: #fff !important;
