@@ -32,7 +32,8 @@ byu-header:not(.byu-component-rendered) > #site-name {
 
 // byu icon
 //byu-header:not(:defined) > [slot="site-title"]:before {
-byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
+//byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
+byu-header:not(.byu-component-rendered) > #site-name:before {
   content: "BYU"; // make sure the space is the exact same size
   font-size: 40px;
   font-family: "Arial", sans-serif;
@@ -44,6 +45,10 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   @include headerTitleText();
+}
+
+byu-header .subtitle {
+  display: none;
 }
 /* MOBILE */
 //#mobileMenu {

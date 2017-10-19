@@ -281,7 +281,7 @@ byu-header:not(.byu-component-rendered) > #site-name {
   height: 40px;
   align-items: center; }
 
-byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
+byu-header:not(.byu-component-rendered) > #site-name:before {
   content: "BYU";
   font-size: 40px;
   font-family: "Arial", sans-serif;
@@ -293,6 +293,9 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   color: #fff !important;
   text-decoration: none; }
+
+byu-header .subtitle {
+  display: none; }
 
 /* MOBILE */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
