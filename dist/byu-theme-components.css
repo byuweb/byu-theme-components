@@ -330,6 +330,7 @@ byu-menu:not(.byu-component-rendered) {
   position: relative;
   flex: 1;
   flex-basis: 100%;
+  background-color: #fff;
   color: #002E5D !important;
   height: 35px;
   justify-content: flex-start;
@@ -381,6 +382,7 @@ byu-menu:not(.byu-component-rendered) > * {
 byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 32px;
+  width: 216px;
   margin-right: 30px;
   margin-left: 16px;
   display: flex;
@@ -397,7 +399,7 @@ byu-search:not(.byu-component-rendered):after {
   align-items: center;
   box-sizing: border-box;
   height: 32px;
-  width: 35px;
+  width: 32px;
   float: right; }
 
 byu-search input.__byu-search-selected-input {
@@ -496,6 +498,9 @@ byu-user-info:not(.byu-component-rendered) > * {
   font-weight: 500 !important;
   text-transform: uppercase !important;
   color: white !important; }
+
+byu-user-info:not(.byu-component-rendered) > *:first-child {
+  display: none; }
 
 /* NON MOBILE */
 byu-user-info:not(.byu-component-rendered):not([mobile-view]) {

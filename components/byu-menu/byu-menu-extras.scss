@@ -3,6 +3,7 @@
 byu-menu:not(.byu-component-rendered) {
   @include menuGeneral();
   @include outerNav();
+  background-color: #fff;
   color: $navy !important;
   height: $menuHeight;
   justify-content: flex-start;
