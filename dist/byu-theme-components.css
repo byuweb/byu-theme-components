@@ -297,6 +297,16 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
 byu-header .subtitle {
   display: none; }
 
+.menu-inner-wrapper {
+  max-width: 1200px; }
+
+byu-header:not(.byu-component-rendered) [full-width] .byu-header-content {
+  max-width: 100% !important; }
+
+byu-header:not(.byu-component-rendered) [full-width] .menu-inner-wrapper {
+  max-width: 100% !important;
+  padding: 0; }
+
 /* MOBILE */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -375,7 +385,15 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(8),
 byu-menu:not(.byu-component-rendered) > *:nth-child(9),
 byu-menu:not(.byu-component-rendered) > *:nth-child(10),
 byu-menu:not(.byu-component-rendered) > *:nth-child(11),
-byu-menu:not(.byu-component-rendered) > *:nth-child(12) {
+byu-menu:not(.byu-component-rendered) > *:nth-child(12),
+byu-menu:not(.byu-component-rendered) > *:nth-child(13),
+byu-menu:not(.byu-component-rendered) > *:nth-child(14),
+byu-menu:not(.byu-component-rendered) > *:nth-child(15),
+byu-menu:not(.byu-component-rendered) > *:nth-child(16),
+byu-menu:not(.byu-component-rendered) > *:nth-child(17),
+byu-menu:not(.byu-component-rendered) > *:nth-child(18),
+byu-menu:not(.byu-component-rendered) > *:nth-child(19),
+byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
   display: none; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */

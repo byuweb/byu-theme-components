@@ -50,6 +50,22 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
 byu-header .subtitle {
   display: none;
 }
+
+.menu-inner-wrapper {
+  max-width: 1200px;
+}
+
+byu-header:not(.byu-component-rendered) [full-width] {
+  .byu-header-content {
+    @include headerContentFullWidth();
+  }
+  .menu-inner-wrapper {
+    @include headerContentFullWidth();
+    padding: 0;
+  }
+}
+
+
 /* MOBILE */
 //#mobileMenu {
 //  @include mobileMenu();

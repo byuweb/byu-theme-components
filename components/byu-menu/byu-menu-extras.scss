@@ -25,6 +25,14 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(8),
 byu-menu:not(.byu-component-rendered) > *:nth-child(9),
 byu-menu:not(.byu-component-rendered) > *:nth-child(10),
 byu-menu:not(.byu-component-rendered) > *:nth-child(11),
-byu-menu:not(.byu-component-rendered) > *:nth-child(12) {
+byu-menu:not(.byu-component-rendered) > *:nth-child(12),
+byu-menu:not(.byu-component-rendered) > *:nth-child(13),
+byu-menu:not(.byu-component-rendered) > *:nth-child(14),
+byu-menu:not(.byu-component-rendered) > *:nth-child(15),
+byu-menu:not(.byu-component-rendered) > *:nth-child(16),
+byu-menu:not(.byu-component-rendered) > *:nth-child(17),
+byu-menu:not(.byu-component-rendered) > *:nth-child(18),
+byu-menu:not(.byu-component-rendered) > *:nth-child(19),
+byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
   display: none;
 }
