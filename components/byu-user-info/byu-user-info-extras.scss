@@ -6,20 +6,6 @@ byu-user-info:not(.byu-component-rendered) > * {
   @include userInfoSlotted();
 }
 
-//byu-user-info:not(.byu-component-rendered) > *:first-child {
-//  display: none
-//}
-
-byu-user-info:not(.byu-component-rendered) {
-  [slot="login"] {
-    display: none;
-  }
-  [slot="user-name"] ~ [slot="login"] {
-    display: inline;
-  }
-}
-
-
 
 /* NON MOBILE */
 //byu-user-info:not(:defined):not([mobile-view]) {
