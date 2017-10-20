@@ -289,6 +289,9 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   font-weight: 800 !important;
   letter-spacing: 2px; }
 
+byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
+  display: none; }
+
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
   color: #fff !important;
@@ -327,6 +330,7 @@ byu-menu:not(.byu-component-rendered) {
   position: relative;
   flex: 1;
   flex-basis: 100%;
+  background-color: #fff;
   color: #002E5D !important;
   height: 35px;
   justify-content: flex-start;
@@ -366,6 +370,22 @@ byu-menu:not(.byu-component-rendered) > * {
   byu-menu:not(.byu-component-rendered) > *.active {
     background: #e5e5e5 !important; }
 
+byu-menu:not(.byu-component-rendered) > *:nth-child(7),
+byu-menu:not(.byu-component-rendered) > *:nth-child(8),
+byu-menu:not(.byu-component-rendered) > *:nth-child(9),
+byu-menu:not(.byu-component-rendered) > *:nth-child(10),
+byu-menu:not(.byu-component-rendered) > *:nth-child(11),
+byu-menu:not(.byu-component-rendered) > *:nth-child(12),
+byu-menu:not(.byu-component-rendered) > *:nth-child(13),
+byu-menu:not(.byu-component-rendered) > *:nth-child(14),
+byu-menu:not(.byu-component-rendered) > *:nth-child(15),
+byu-menu:not(.byu-component-rendered) > *:nth-child(16),
+byu-menu:not(.byu-component-rendered) > *:nth-child(17),
+byu-menu:not(.byu-component-rendered) > *:nth-child(18),
+byu-menu:not(.byu-component-rendered) > *:nth-child(19),
+byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
+  display: none; }
+
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -378,6 +398,7 @@ byu-menu:not(.byu-component-rendered) > * {
 byu-search:not(.byu-component-rendered) {
   background: #fff;
   height: 32px;
+  width: 216px;
   margin-right: 30px;
   margin-left: 16px;
   display: flex;
@@ -394,7 +415,7 @@ byu-search:not(.byu-component-rendered):after {
   align-items: center;
   box-sizing: border-box;
   height: 32px;
-  width: 35px;
+  width: 32px;
   float: right; }
 
 byu-search input.__byu-search-selected-input {

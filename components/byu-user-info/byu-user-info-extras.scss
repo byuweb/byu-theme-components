@@ -6,6 +6,7 @@ byu-user-info:not(.byu-component-rendered) > * {
   @include userInfoSlotted();
 }
 
+
 /* NON MOBILE */
 //byu-user-info:not(:defined):not([mobile-view]) {
 byu-user-info:not(.byu-component-rendered):not([mobile-view]) {

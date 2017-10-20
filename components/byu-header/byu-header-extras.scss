@@ -1,6 +1,6 @@
 @import "byu-header-common";
 
-//byu-header:not(:defined) {
+// FOUC Styling
 byu-header:not(.byu-component-rendered) {
   @include headerPrimary();
   flex-wrap: wrap;
@@ -20,7 +20,6 @@ byu-header:not(.byu-component-rendered) {
   }
 }
 
-//byu-header:not(:defined) > [slot="site-title"] {
 byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   @include headerTitles();
   padding-left: 16px;
@@ -30,7 +29,6 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
 }
 
 // byu icon
-//byu-header:not(:defined) > [slot="site-title"]:before {
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: "BYU"; // make sure the space is the exact same size
   font-size: 40px;
@@ -40,10 +38,19 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   letter-spacing: 2px;
 }
 
+// Hiding the sub/super-title that creates a duplicate site-title (with the BYU icon)
+byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
+  display: none;
+}
 
+
+
+// Overriding styling
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   @include headerTitleText();
 }
+
+
 /* MOBILE */
 //#mobileMenu {
 //  @include mobileMenu();
