@@ -420,9 +420,6 @@ byu-search input.__byu-search-selected-input {
   byu-search input.__byu-search-selected-input:-ms-input-placeholder {
     color: #666 !important;
     opacity: 1; }
-  byu-search input.__byu-search-selected-input::-ms-input-placeholder {
-    color: #666 !important;
-    opacity: 1; }
 
 byu-search.mobile-view input.__byu-search-selected-input {
   padding-left: 16px;
