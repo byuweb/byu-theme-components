@@ -49,9 +49,6 @@
   &:-ms-input-placeholder {
     @include searchInputPlaceholder();
   }
-  &::-ms-input-placeholder {
-    @include searchInputPlaceholder();
-  }
 }
 
 @mixin searchInput() {
