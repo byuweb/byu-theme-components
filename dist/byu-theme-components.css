@@ -121,11 +121,11 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   display: block; }
 
 byu-footer-column a {
-  color: #141414 !important;
+  color: #666 !important;
   text-decoration: none !important; }
 
 byu-footer-column a:hover {
-  color: #002E5D !important; }
+  color: #005EB8 !important; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* -- breakpoint settings ----- */
@@ -412,13 +412,17 @@ byu-search input.__byu-search-selected-input {
   color: #002E5D !important;
   width: 100%; }
   byu-search input.__byu-search-selected-input::placeholder {
-    color: #666 !important; }
+    color: #666 !important;
+    opacity: 1; }
   byu-search input.__byu-search-selected-input::-webkit-input-placeholder {
-    color: #666 !important; }
+    color: #666 !important;
+    opacity: 1; }
   byu-search input.__byu-search-selected-input:-ms-input-placeholder {
-    color: #666 !important; }
+    color: #666 !important;
+    opacity: 1; }
   byu-search input.__byu-search-selected-input::-ms-input-placeholder {
-    color: #666 !important; }
+    color: #666 !important;
+    opacity: 1; }
 
 byu-search.mobile-view input.__byu-search-selected-input {
   padding-left: 16px;
