@@ -35,6 +35,7 @@
 
 @mixin searchInputPlaceholder() {
   color: $medgray !important;
+  opacity: 1;
 }
 
 @mixin searchInputPlaceholderRules() {
