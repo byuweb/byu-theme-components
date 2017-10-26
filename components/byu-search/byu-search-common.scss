@@ -12,9 +12,9 @@
 }
 
 @mixin searchButton() {
-  background-color: var(--byu-search-color, $medgray);
-  border: 1px solid var(--byu-search-color, $medgray);
-  color: #FFF;
+  background-color: $medgray;
+  border: 1px solid $medgray;
+  color: $white;
   width: 30px;
   height: 30px;
   display: flex;
@@ -34,7 +34,8 @@
 }
 
 @mixin searchInputPlaceholder() {
-  color: $medgray;
+  color: $medgray !important;
+  opacity: 1;
 }
 
 @mixin searchInputPlaceholderRules() {
@@ -46,9 +47,6 @@
     @include searchInputPlaceholder();
   }
   &:-ms-input-placeholder {
-    @include searchInputPlaceholder();
-  }
-  &::-ms-input-placeholder {
     @include searchInputPlaceholder();
   }
 }

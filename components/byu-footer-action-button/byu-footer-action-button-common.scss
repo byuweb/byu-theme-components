@@ -6,7 +6,7 @@
     background-color: $footerButtonColor;
     font-family: $footerButtonFont;
     font-size: 20px !important;
-    color: #fff;
+    color: $white;
     display: inline-block;
     text-align: center;
     line-height: 2.1em;
@@ -14,9 +14,9 @@
     width: auto;
     min-width: 125px;
     margin: 10px 0 20px 0;
-    -webkit-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
-    -moz-box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
-    box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.35);
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(20,20,20,0.35);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(20,20,20,0.35);
+    box-shadow: 0px 3px 5px 0px rgba(20,20,20,0.35);
 }
 
 // Use this to change how the button looks when active
@@ -29,7 +29,7 @@
 @mixin footerActionButtonSlotted() {
     font-family: $footerButtonFont !important;
     font-weight: $footerContentFontWeight !important;
-    color: #fff !important;
+    color: $white !important;
     display: inline-block !important;
     position: relative !important;
     height: 100% !important;

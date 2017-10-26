@@ -6,7 +6,7 @@
   font-family: $universityFooterFont;
   font-weight: $universityFooterFontWeight;
   font-size: 12px;
-  color: $universityFooterTextColor;
+  color: $universityFooterTextColor !important;
   width: 100%;
 
   padding: $universityFooterVerticalPadding 0;
@@ -17,7 +17,7 @@
   flex-direction: column;
 
   a {
-    color: $universityFooterTextColor;
+    color: $universityFooterTextColor !important;
     text-decoration: none;
 
     &:hover {
@@ -57,7 +57,7 @@
       margin-top: 0;
       &::before {
         display: inline-block;
-        color: white;
+        color: white !important;
         content: '|';
         text-align: center;
         width: 1em;

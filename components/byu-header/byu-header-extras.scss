@@ -6,10 +6,10 @@ byu-header:not(.byu-component-rendered) {
   flex-wrap: wrap;
   width: 100%;
   height: 90px;
-  color: #fff!important;
+  color: $white!important;
   padding: 0;
   a {
-    color: #fff!important;
+    color: $white!important;
   }
   [slot="actions"] {
     text-transform: uppercase;
