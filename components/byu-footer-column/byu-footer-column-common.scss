@@ -17,6 +17,7 @@
     text-transform: uppercase !important;
     color: $navy !important;
     font-size: 20px !important;
+    line-height: 20px !important;
     border-bottom: 1px solid $gray !important;
     padding-bottom: 3px !important;
     font-weight: $footerContentFontWeight !important;
@@ -27,6 +28,7 @@
 @mixin contentNotButton() {
     font-family: $footerContentFont !important;
     font-size: $footerContentFontSize !important;
+    line-height: $footerContentFontSize !important;
     font-weight: $footerContentFontWeight !important;
     color: $footerContentColor;
     display: block;
@@ -37,13 +39,14 @@
     text-decoration: none !important;
     outline: none !important;
     color: $medgray !important;
-    font-size: 14px;
+    font-size: $footerContentFontSize;
 }
 
 @mixin defaultContentLinkHover() {
     cursor: pointer;
     color: $royal !important;
-    font-size: 14px;
+    font-size: $footerContentFontSize;
+    line-height: $footerContentFontSize;
 }
 
 @mixin clearParagraphMargins() {
