@@ -47,8 +47,8 @@ byu-footer-action-button:not(.byu-component-rendered) {
   color: #FFF;
   display: inline-block;
   text-align: center;
-  line-height: 2.1em;
-  height: 45px;
+  line-height: 20px;
+  padding: 13px 0;
   width: auto;
   min-width: 125px;
   margin: 10px 0 20px 0;
