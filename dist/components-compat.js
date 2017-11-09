@@ -1566,35 +1566,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* 11 */
 /***/function (module, exports) {
 
-    module.exports = {
-        "name": "byuweb-components",
-        "version": "1.2.1",
-        "description": "Components to be used for byu web pages and applications.",
-        "main": "",
-        "scripts": {
-            "build": "gulp build",
-            "serve": "gulp watch",
-            "test": "echo \"Error: no test specified\" && exit 1"
-        },
-        "private": true,
-        "author": "",
-        "license": "Apache-2.0",
-        "dependencies": {
-            "byu-web-component-utils": "^0.4.2",
-            "deep-equal": "^1.0.1",
-            "sass-loader": "^6.0.6"
-        },
-        "devDependencies": {
-            "browser-sync": "^2.18.6",
-            "byu-web-component-build": "^0.2.3",
-            "git-revision-webpack-plugin": "^2.5.1",
-            "gulp": "^3.9.1",
-            "gulp-install": "^1.1.0",
-            "gulp-rename": "^1.2.2"
-        }
-    };
+    module.exports = { "name": "byuweb-components", "version": "1.2.1", "description": "Components to be used for byu web pages and applications.", "main": "", "scripts": { "build": "gulp build", "serve": "gulp watch", "test": "echo \"Error: no test specified\" && exit 1" }, "private": true, "author": "", "license": "Apache-2.0", "dependencies": { "byu-web-component-utils": "^0.4.2", "deep-equal": "^1.0.1", "sass-loader": "^6.0.6" }, "devDependencies": { "browser-sync": "^2.18.6", "byu-web-component-build": "^0.2.3", "git-revision-webpack-plugin": "^2.5.1", "gulp": "^3.9.1", "gulp-rename": "^1.2.2" }
 
-    /***/
+        /***/ };
 },
 /* 12 */
 /***/function (module, exports, __webpack_require__) {
@@ -1997,7 +1971,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
     // module
-    exports.push([module.i, ":host{background-color:#666;font-family:Vitesse A,Vitesse B,Georgia,serif;font-size:20px!important;color:#fff;display:inline-block;text-align:center;line-height:2.1em;height:45px;width:auto;min-width:125px;margin:10px 0 20px;-webkit-box-shadow:0 3px 5px 0 hsla(0,0%,8%,.35);-moz-box-shadow:0 3px 5px 0 hsla(0,0%,8%,.35);box-shadow:0 3px 5px 0 hsla(0,0%,8%,.35)}.wrapper ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:400!important;color:#fff!important;display:inline-block!important;position:relative!important;height:100%!important;width:100%!important;margin:0 20px!important;left:-20px!important;cursor:pointer!important;vertical-align:middle!important}.wrapper ::slotted(a){text-decoration:none!important}", ""]);
+    exports.push([module.i, ":host{background-color:#666;font-family:Vitesse A,Vitesse B,Georgia,serif;font-size:20px!important;color:#fff;display:inline-block;text-align:center;line-height:20px;padding:13px 0;width:auto;min-width:125px;margin:10px 0 20px;-webkit-box-shadow:0 3px 5px 0 hsla(0,0%,8%,.35);-moz-box-shadow:0 3px 5px 0 hsla(0,0%,8%,.35);box-shadow:0 3px 5px 0 hsla(0,0%,8%,.35)}.wrapper ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;font-weight:400!important;color:#fff!important;display:inline-block!important;position:relative!important;height:100%!important;width:100%!important;margin:0 20px!important;left:-20px!important;cursor:pointer!important;vertical-align:middle!important}.wrapper ::slotted(a){text-decoration:none!important}", ""]);
 
     // exports
 
