@@ -397,6 +397,9 @@ byu-search:not(.byu-component-rendered):after {
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
   height: 32px;
   width: 32px;
   float: right; }
