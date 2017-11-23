@@ -20,6 +20,9 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
 }
 
 @mixin searchForm() {
