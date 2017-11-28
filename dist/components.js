@@ -1436,7 +1436,32 @@ window.ByuUserInfo = ByuUserInfo;
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = {"name":"byuweb-components","version":"1.2.1","description":"Components to be used for byu web pages and applications.","main":"","scripts":{"build":"gulp build","serve":"gulp watch","test":"echo \"Error: no test specified\" && exit 1"},"private":true,"author":"","license":"Apache-2.0","dependencies":{"byu-web-component-utils":"^0.4.2","deep-equal":"^1.0.1","sass-loader":"^6.0.6"},"devDependencies":{"browser-sync":"^2.18.6","byu-web-component-build":"^0.2.3","git-revision-webpack-plugin":"^2.5.1","gulp":"^3.9.1","gulp-rename":"^1.2.2"}}
+module.exports = {
+	"name": "byuweb-components",
+	"version": "1.2.2",
+	"description": "Components to be used for byu web pages and applications.",
+	"main": "",
+	"scripts": {
+		"build": "gulp build",
+		"serve": "gulp watch",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"private": true,
+	"author": "",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"byu-web-component-utils": "^0.4.2",
+		"deep-equal": "^1.0.1",
+		"sass-loader": "^6.0.6"
+	},
+	"devDependencies": {
+		"browser-sync": "^2.18.6",
+		"byu-web-component-build": "^0.2.3",
+		"git-revision-webpack-plugin": "^2.5.1",
+		"gulp": "^3.9.1",
+		"gulp-rename": "^1.2.2"
+	}
+};
 
 /***/ }),
 /* 12 */
