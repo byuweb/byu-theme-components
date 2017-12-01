@@ -50,13 +50,13 @@
 
 @-moz-document url-prefix() {
   .byu-menu-more-menu {
-    @include moreMenuFFIE();
+    @include moreMenuFFIExplorer();
   }
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .byu-menu-more-menu {
-    @include moreMenuFFIE();
+    @include moreMenuFFIExplorer();
   }
 }
 
