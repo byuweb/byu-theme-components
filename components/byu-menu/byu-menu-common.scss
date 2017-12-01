@@ -45,8 +45,8 @@
   padding: 0 !important;
 }
 
-// Fix for Firefox more menu
-@mixin moreMenuFF() {
+// Fix for Firefox/IE more menu
+@mixin moreMenuFFIE() {
   width: initial;
 }
 
