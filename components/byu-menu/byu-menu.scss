@@ -48,6 +48,12 @@
   }
 }
 
+@-moz-document url-prefix() {
+  .byu-menu-more-menu {
+    @include moreMenuFF();
+  }
+}
+
 .byu-menu-more-visible .byu-menu-more-menu {
   @include moreMenuVisible();
 
