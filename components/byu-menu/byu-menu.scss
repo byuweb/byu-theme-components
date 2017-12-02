@@ -60,6 +60,12 @@
   }
 }
 
+@supports (-ms-ime-align: auto) {
+  .byu-menu-more-menu {
+    @include moreMenuFFIExplorer();
+  }
+}
+
 .byu-menu-more-visible .byu-menu-more-menu {
   @include moreMenuVisible();
 
