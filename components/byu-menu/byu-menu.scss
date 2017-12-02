@@ -50,19 +50,19 @@
 
 @-moz-document url-prefix() {
   .byu-menu-more-menu {
-    @include moreMenuFFIExplorer();
+    @include moreMenuFFIExplorerEdge();
   }
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .byu-menu-more-menu {
-    @include moreMenuFFIExplorer();
+    @include moreMenuFFIExplorerEdge();
   }
 }
 
 @supports (-ms-ime-align: auto) {
   .byu-menu-more-menu {
-    @include moreMenuFFIExplorer();
+    @include moreMenuFFIExplorerEdge();
   }
 }
 
