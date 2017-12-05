@@ -48,6 +48,24 @@
   }
 }
 
+@-moz-document url-prefix() {
+  .byu-menu-more-menu {
+    @include moreMenuFirefoxIExplorerEdge();
+  }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .byu-menu-more-menu {
+    @include moreMenuFirefoxIExplorerEdge();
+  }
+}
+
+@supports (-ms-ime-align: auto) {
+  .byu-menu-more-menu {
+    @include moreMenuFirefoxIExplorerEdge();
+  }
+}
+
 .byu-menu-more-visible .byu-menu-more-menu {
   @include moreMenuVisible();
 
