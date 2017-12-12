@@ -45,6 +45,11 @@
   padding: 0 !important;
 }
 
+// Fix for Firefox/IE/Edge more menu
+@mixin moreMenuFirefoxIExplorerEdge() {
+  width: initial;
+}
+
 @mixin moreMenuVisible() {
   display: block;
 }
