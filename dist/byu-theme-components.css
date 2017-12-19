@@ -62,7 +62,6 @@ byu-footer-action-button:not(.byu-component-rendered) > * {
   color: #FFF !important;
   display: inline-block !important;
   position: relative !important;
-  height: 100% !important;
   width: 100% !important;
   margin: 0 20px !important;
   left: -20px !important;
