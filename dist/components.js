@@ -1438,7 +1438,7 @@ window.ByuUserInfo = ByuUserInfo;
 
 module.exports = {
 	"name": "byuweb-components",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "Components to be used for byu web pages and applications.",
 	"main": "",
 	"scripts": {
@@ -1824,7 +1824,7 @@ function applyTemplate(element, elementName, template, callback) {
     }
     elSettings.templateHash = sum;
 
-    if (window.ShadyCSS) {
+    if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
         applyTemplateShady(element, elementName, template, callback, sum);
     } else {
         applyTemplateNative(element, template, callback);
@@ -1898,11 +1898,7 @@ exports = module.exports = __webpack_require__(0)();
 
 
 // module
-<<<<<<< HEAD
 exports.push([module.i, ".header{width:100%;margin:0 0 8px}.header ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:20px!important;line-height:20px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;font-weight:400!important;width:100%;display:inline-block}.header ::slotted(br){display:none}.content ::slotted(:not(byu-footer-action-button)){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:14px!important;line-height:14px!important;font-weight:400!important;color:#141414!important;display:block;padding:11px 0}.content ::slotted(*){margin:0}.content ::slotted(a){text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content ::slotted(a:hover){cursor:pointer;color:#005eb8!important;font-size:14px;line-height:14px}.content a{text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content a:hover{cursor:pointer;color:#005eb8!important;font-size:14px;line-height:14px}", ""]);
-=======
-exports.push([module.i, ".header{width:100%;margin:0 0 8px}.header ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:20px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;font-weight:400!important;width:100%;display:inline-block}.header ::slotted(br){display:none}.content ::slotted(:not(byu-footer-action-button)){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:14px!important;font-weight:400!important;color:#141414!important;display:block;padding:11px 0}.content ::slotted(*){margin:0}.content ::slotted(a){text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content ::slotted(a:hover){cursor:pointer;color:#005eb8!important;font-size:14px}.content a{text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content a:hover{cursor:pointer;color:#005eb8!important;font-size:14px}", ""]);
->>>>>>> 31812ed4db1be0fb0a5410453ef8227e83c93405
 
 // exports
 
