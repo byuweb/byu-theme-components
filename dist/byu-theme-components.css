@@ -100,7 +100,7 @@ byu-footer-column:not(.byu-component-rendered) {
     font-size: 14px !important;
     line-height: 14px !important;
     font-weight: 400 !important;
-    color: #141414;
+    color: #141414 !important;
     display: block;
     padding: 11px 0; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a {
