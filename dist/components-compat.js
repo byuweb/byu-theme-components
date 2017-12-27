@@ -24,9 +24,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     /******/function __webpack_require__(moduleId) {
         /******/
         /******/ // Check if module is in cache
-        /******/if (installedModules[moduleId])
+        /******/if (installedModules[moduleId]) {
             /******/return installedModules[moduleId].exports;
-        /******/
+            /******/
+        }
         /******/ // Create a new module (and put it into the cache)
         /******/var module = installedModules[moduleId] = {
             /******/i: moduleId,
@@ -1859,9 +1860,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
-    /* harmony export (immutable) */__webpack_exports__["a"] = querySelectorSlot;
+    /* harmony export (immutable) */
+    __webpack_exports__["a"] = querySelectorSlot;
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0__matchesSelector_js__ = __webpack_require__(2);
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -1903,10 +1904,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /***/function (module, __webpack_exports__, __webpack_require__) {
 
     "use strict";
-    /* harmony import */
-    var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(30);
+    /* harmony export (immutable) */
+    __webpack_exports__["a"] = applyTemplate;
+    /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum__ = __webpack_require__(30);
     /* harmony import */var __WEBPACK_IMPORTED_MODULE_0_hash_sum___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hash_sum__);
-    /* harmony export (immutable) */__webpack_exports__["a"] = applyTemplate;
     /*
      *  @license
      *    Copyright 2017 Brigham Young University
@@ -2010,7 +2011,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
     // module
-    exports.push([module.i, ".header{width:100%;margin:0 0 8px}.header ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:20px!important;line-height:20px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;font-weight:400!important;width:100%;display:inline-block}.header ::slotted(br){display:none}.content ::slotted(:not(byu-footer-action-button)){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:14px!important;line-height:14px!important;font-weight:400!important;color:#141414;display:block;padding:11px 0}.content ::slotted(*){margin:0}.content ::slotted(a){text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content ::slotted(a:hover){cursor:pointer;color:#005eb8!important;font-size:14px;line-height:14px}.content a{text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content a:hover{cursor:pointer;color:#005eb8!important;font-size:14px;line-height:14px}", ""]);
+<<<<<<< HEAD
+    exports.push([module.i, ".header{width:100%;margin:0 0 8px}.header ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:20px!important;line-height:20px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;font-weight:400!important;width:100%;display:inline-block}.header ::slotted(br){display:none}.content ::slotted(:not(byu-footer-action-button)){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:14px!important;line-height:14px!important;font-weight:400!important;color:#141414!important;display:block;padding:11px 0}.content ::slotted(*){margin:0}.content ::slotted(a){text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content ::slotted(a:hover){cursor:pointer;color:#005eb8!important;font-size:14px;line-height:14px}.content a{text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content a:hover{cursor:pointer;color:#005eb8!important;font-size:14px;line-height:14px}", ""]);
+=======
+    exports.push([module.i, ".header{width:100%;margin:0 0 8px}.header ::slotted(*){font-family:Vitesse A,Vitesse B,Georgia,serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:20px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;font-weight:400!important;width:100%;display:inline-block}.header ::slotted(br){display:none}.content ::slotted(:not(byu-footer-action-button)){font-family:Gotham A,Gotham B,Helvetica,sans-serif!important;font-size:14px!important;font-weight:400!important;color:#141414!important;display:block;padding:11px 0}.content ::slotted(*){margin:0}.content ::slotted(a){text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content ::slotted(a:hover){cursor:pointer;color:#005eb8!important;font-size:14px}.content a{text-decoration:none!important;outline:none!important;color:#666!important;font-size:14px}.content a:hover{cursor:pointer;color:#005eb8!important;font-size:14px}", ""]);
+>>>>>>> 31812ed4db1be0fb0a5410453ef8227e83c93405
 
     // exports
 
