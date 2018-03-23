@@ -1937,7 +1937,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }
         elSettings.templateHash = sum;
 
-        if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
+        if (window.ShadyCSS) {
             applyTemplateShady(element, elementName, template, callback, sum);
         } else {
             applyTemplateNative(element, template, callback);
@@ -2413,8 +2413,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     module.exports = "<style>" + __webpack_require__(25) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
     /***/
-}]
-/******/);
+}]);
 }());
 
 //# sourceMappingURL=components-compat.js.map
