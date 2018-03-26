@@ -30,10 +30,14 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
 
 // byu icon
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
-  content: "BYU"; // make sure the space is the exact same size
+  //content: "BYU"; // make sure the space is the exact same size
+  content: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
+  width: 114px;
+  height: 33px;
   font-size: 40px;
   font-family: "Arial", sans-serif;
-  padding-right: 16px;
+  //padding-right: 16px;
+  margin-right: 16px;
   font-weight: 800 !important;
   letter-spacing: 2px;
 }
