@@ -273,7 +273,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   padding-left: 16px;
   flex-direction: row;
   height: 40px;
-  align-items: center; }
+  align-items: center;
+  font-weight: 400; }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
