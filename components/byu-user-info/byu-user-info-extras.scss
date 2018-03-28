@@ -4,11 +4,11 @@
 //byu-user-info:not(:defined) > * {
 byu-user-info:not(.byu-component-rendered) > * {
   @include userInfoSlotted();
-  [slot="user-name"] {
-    color: #c3ddf9!important;
-  }
 }
 
+byu-user-info:not(.byu-component-rendered) [slot=user-name] {
+  color: #c3ddf9!important;
+}
 
 /* NON MOBILE */
 //byu-user-info:not(:defined):not([mobile-view]) {
