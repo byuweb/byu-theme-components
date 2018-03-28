@@ -257,7 +257,8 @@ byu-header:not(.byu-component-rendered) {
     margin-top: 1px;
     order: 0;
     margin-left: 4px;
-    margin-right: 4px; }
+    margin-right: 4px;
+    text-decoration: none; }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   overflow: hidden;
@@ -505,12 +506,14 @@ byu-user-info:not(.byu-component-rendered) > * {
   font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
   font-weight: 500 !important;
   text-transform: uppercase !important;
-  color: white !important;
-  order: 1; }
+  color: white !important; }
+  byu-user-info:not(.byu-component-rendered) > * [slot="user-name"] {
+    color: #c3ddf9 !important; }
 
 /* NON MOBILE */
 byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
-  color: white; }
+  color: white;
+  order: 1; }
   byu-user-info:not(.byu-component-rendered):not([mobile-view]) > * {
     text-decoration: none !important;
     font-size: 13px !important;
