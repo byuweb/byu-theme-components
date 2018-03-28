@@ -11,6 +11,7 @@ byu-menu:not(.byu-component-rendered) {
   margin-bottom: -5px;
   max-width: 100%;
   flex-basis: 100%;
+  border-bottom: 1px solid #c5c5c5;
   a {
     color: $navy !important;
   }

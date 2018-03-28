@@ -4,6 +4,7 @@
 //byu-user-info:not(:defined) > * {
 byu-user-info:not(.byu-component-rendered) > * {
   @include userInfoSlotted();
+  order: 1;
 }
 
 
