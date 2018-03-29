@@ -10,6 +10,7 @@ byu-search:not(.byu-component-rendered) {
   margin-left: 16px;
   display: flex;
   justify-content: flex-end;
+  order: 2;
 }
 
 // should be 25px height to account for
