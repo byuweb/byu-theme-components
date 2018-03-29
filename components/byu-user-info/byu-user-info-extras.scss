@@ -3,7 +3,12 @@
 
 //byu-user-info:not(:defined) > * {
 byu-user-info:not(.byu-component-rendered) > * {
-  @include userInfoSlotted();
+  text-decoration: none !important;
+  font-size: 13px!important;
+  font-family: $headerContentFont !important;
+  font-weight: $headerContentFontWeight!important;
+  text-transform: uppercase!important;
+  color: white;
 }
 
 byu-user-info:not(.byu-component-rendered) [slot=user-name] {
@@ -14,8 +19,10 @@ byu-user-info:not(.byu-component-rendered) [slot=user-name]:after {
   height: 20px;
   width: 20px;
   background-size: contain;
-  content: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
-  margin: 7px;
+  background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
+  margin: -7px 7px;
+  content: "";
+  display: inline-flex;
 }
 
 /* NON MOBILE */
