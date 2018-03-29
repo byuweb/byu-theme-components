@@ -518,7 +518,9 @@ byu-user-info:not(.byu-component-rendered) [slot=user-name]:after {
   background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
   margin: -7px 7px;
   content: "";
-  display: inline-flex; }
+  display: inline-flex;
+  position: relative;
+  top: 5px; }
 
 /* NON MOBILE */
 byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
@@ -530,7 +532,7 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
     font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
     font-weight: 500 !important;
     text-transform: uppercase !important;
-    color: white !important; }
+    color: white; }
   byu-user-info:not(.byu-component-rendered):not([mobile-view]) .mobile {
     display: none; }
   byu-user-info:not(.byu-component-rendered):not([mobile-view]) img {

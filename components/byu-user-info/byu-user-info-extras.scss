@@ -23,6 +23,8 @@ byu-user-info:not(.byu-component-rendered) [slot=user-name]:after {
   margin: -7px 7px;
   content: "";
   display: inline-flex;
+  position: relative;
+  top: 5px;
 }
 
 /* NON MOBILE */
@@ -32,7 +34,12 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
   order: 1;
 
   & > * {
-    @include userInfoNotMobileSlotted();
+    text-decoration: none !important;
+    font-size: 13px!important;
+    font-family: $headerContentFont !important;
+    font-weight: $headerContentFontWeight!important;
+    text-transform: uppercase!important;
+    color: white;
   }
 
   .mobile {
