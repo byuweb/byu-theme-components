@@ -1566,34 +1566,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* 11 */
 /***/function (module, exports) {
 
-    module.exports = {
-        "name": "byuweb-components",
-        "version": "1.2.3",
-        "description": "Components to be used for byu web pages and applications.",
-        "main": "",
-        "scripts": {
-            "build": "gulp build",
-            "serve": "gulp watch",
-            "test": "echo \"Error: no test specified\" && exit 1"
-        },
-        "private": true,
-        "author": "",
-        "license": "Apache-2.0",
-        "dependencies": {
-            "byu-web-component-utils": "^0.4.2",
-            "deep-equal": "^1.0.1",
-            "sass-loader": "^6.0.6"
-        },
-        "devDependencies": {
-            "browser-sync": "^2.18.6",
-            "byu-web-component-build": "^0.2.3",
-            "git-revision-webpack-plugin": "^2.5.1",
-            "gulp": "^3.9.1",
-            "gulp-rename": "^1.2.2"
-        }
-    };
+    module.exports = { "name": "byuweb-components", "version": "1.2.4", "description": "Components to be used for byu web pages and applications.", "main": "", "scripts": { "build": "gulp build", "serve": "gulp watch", "test": "echo \"Error: no test specified\" && exit 1" }, "private": true, "author": "", "license": "Apache-2.0", "dependencies": { "byu-web-component-utils": "^0.4.2", "deep-equal": "^1.0.1", "sass-loader": "^6.0.6" }, "devDependencies": { "browser-sync": "^2.18.6", "byu-web-component-build": "^0.2.3", "git-revision-webpack-plugin": "^2.5.1", "gulp": "^3.9.1", "gulp-rename": "^1.2.2" }
 
-    /***/
+        /***/ };
 },
 /* 12 */
 /***/function (module, exports, __webpack_require__) {
@@ -1937,7 +1912,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         }
         elSettings.templateHash = sum;
 
-        if (window.ShadyCSS) {
+        if (window.ShadyCSS && !window.ShadyCSS.nativeShadow) {
             applyTemplateShady(element, elementName, template, callback, sum);
         } else {
             applyTemplateNative(element, template, callback);
@@ -2413,7 +2388,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     module.exports = "<style>" + __webpack_require__(25) + "</style> <div class=\"byu-user-wrapper\"> <div class=\"no-user slot-wrapper\"> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"text slot-wrapper\"> <slot name=\"login\">Sign In</slot> </span> </div> <div class=\"has-user\"> <span class=\"name slot-wrapper\"> <slot name=\"user-name\" id=\"user-name\"></slot> </span> <div class=\"user-info-image\" aria-label=\"User Icon\"> </div> <span class=\"logout slot-wrapper\"> <slot name=\"logout\">Sign Out</slot> </span> </div> </div>";
 
     /***/
-}]);
+}]
+/******/);
 }());
 
 //# sourceMappingURL=components-compat.js.map
