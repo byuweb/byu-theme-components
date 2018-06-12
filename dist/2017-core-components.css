@@ -154,7 +154,7 @@ byu-footer-column a:hover {
   width: 17px;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   padding: 0 !important; }
   .tcon > * {
