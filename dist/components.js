@@ -836,10 +836,6 @@ function hasClass(el, className) {
     return classes.indexOf(className) !== -1;
 }
 
-function isHtmlElement(node) {
-  return node instanceof HTMLElement;
-}
-
 function isShowingMoreMenu(component) {
     return hasClass(component.shadowRoot.querySelector('.byu-menu-more-menu'), 'byu-menu-more-expanded');
 }

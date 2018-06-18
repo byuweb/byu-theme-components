@@ -928,10 +928,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         return classes.indexOf(className) !== -1;
     }
 
-    function isHtmlElement(node) {
-        return node instanceof HTMLElement;
-    }
-
     function isShowingMoreMenu(component) {
         return hasClass(component.shadowRoot.querySelector('.byu-menu-more-menu'), 'byu-menu-more-expanded');
     }
