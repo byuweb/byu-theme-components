@@ -83,7 +83,7 @@ function addSlotListeners(component) {
     component.shadowRoot.querySelector('slot')
         .addEventListener('slotchange', e => {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
-            setTimeout(() => function() {
+            setTimeout(function() {
                 updateMoreMenuState(component);
             });
         });
