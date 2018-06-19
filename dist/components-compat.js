@@ -893,7 +893,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
         __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](component, 'byu-menu', tmpl, function () {
             component._renderedActiveSelector = activeSelector;
-            updateMoreMenuState(component);
+            updateMenuItemsLayout(component);
             addSlotListeners(component);
             // when the more button is clicked then show the more menu
             component.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
@@ -906,9 +906,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         component.shadowRoot.querySelector('slot').addEventListener('slotchange', function (e) {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
             setTimeout(function () {
-                return function () {
-                    updateMoreMenuState(component);
-                };
+                updateMenuItemsLayout(component);
             });
         });
     }
@@ -947,31 +945,21 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         el.className = classes.join(' ');
     }
 
-    function updateMoreMenuState(component) {
-        var children = component.shadowRoot.querySelector('.byu-menu-items').assignedNodes();
-        var moreChildren = component.shadowRoot.querySelector('.byu-menu-more-slot').assignedNodes();
-        var filteredChildren = children.filter(function (node) {
-            return node instanceof HTMLElement;
-        });
-        var filteredMoreChildren = moreChildren.filter(function (node) {
-            return node instanceof HTMLElement;
-        });
-        var length = filteredChildren.length + filteredMoreChildren.length;
+    function updateMenuItemsLayout(component) {
+        var links = component.children;
+        var length = links.length;
         var hasOverflow = length > 6;
-        var nav = component.shadowRoot.querySelector('.outer-nav');
+        var limit = hasOverflow ? 5 : 6;
 
-        if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
-
-        if (hasOverflow) {
-            for (var i = 5; i < filteredChildren.length; i++) {
-                filteredChildren[i].setAttribute('slot', 'more');
-            }
-        } else if (length === 6) {
-            filteredChildren[5].setAttribute('slot', '');
+        for (var index = 0; index < length; index++) {
+            var link = links[index];
+            link.setAttribute('slot', index < limit ? '' : 'more');
         }
 
+        var nav = component.shadowRoot.querySelector('.outer-nav');
+        if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
+
         if (length < 4) {
-            console.log(length);
             component.setAttribute('left-align', '');
         } else {
             component.removeAttribute('left-align');

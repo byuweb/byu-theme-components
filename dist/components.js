@@ -800,7 +800,7 @@ function render(component, force) {
 
     __WEBPACK_IMPORTED_MODULE_1_byu_web_component_utils__["a" /* applyTemplate */](component, 'byu-menu', tmpl, () => {
         component._renderedActiveSelector = activeSelector;
-        updateMoreMenuState(component);
+        updateMenuItemsLayout(component);
         addSlotListeners(component);
         // when the more button is clicked then show the more menu
         component.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
@@ -813,8 +813,8 @@ function addSlotListeners(component) {
     component.shadowRoot.querySelector('slot')
         .addEventListener('slotchange', e => {
             //Run on microtask timing to let polyfilled shadow DOM changes to propagate
-            setTimeout(() => function() {
-                updateMoreMenuState(component);
+            setTimeout(function() {
+              updateMenuItemsLayout(component);
             });
         });
 }
@@ -853,30 +853,23 @@ function toggleClass(el, className, value) {
     el.className = classes.join(' ');
 }
 
-function updateMoreMenuState(component) {
-    var children = component.shadowRoot.querySelector('.byu-menu-items').assignedNodes();
-    var moreChildren = component.shadowRoot.querySelector('.byu-menu-more-slot').assignedNodes();
-    var filteredChildren = children.filter(function (node) { return node instanceof HTMLElement });
-    var filteredMoreChildren = moreChildren.filter(function (node) { return node instanceof HTMLElement });
-    const length = filteredChildren.length + filteredMoreChildren.length;
+function updateMenuItemsLayout(component) {
+    const links = component.children;
+    const length = links.length;
     const hasOverflow = length > 6;
-    const nav = component.shadowRoot.querySelector('.outer-nav');
+    const limit = hasOverflow ? 5 : 6;
 
+    for (let index = 0; index < length; index++) {
+        const link = links[index];
+        link.setAttribute('slot', index < limit ? '' : 'more');
+    }
+
+    const nav = component.shadowRoot.querySelector('.outer-nav');
     if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
 
-    if (hasOverflow) {
-        for (let i = 5; i < filteredChildren.length; i++) {
-            filteredChildren[i].setAttribute('slot', 'more');
-        }
-    } else if (length === 6) {
-        filteredChildren[5].setAttribute('slot', '');
-    }
-
     if (length < 4) {
-        console.log(length);
         component.setAttribute('left-align', '');
-    }
-    else {
+    } else {
         component.removeAttribute('left-align');
     }
 }
