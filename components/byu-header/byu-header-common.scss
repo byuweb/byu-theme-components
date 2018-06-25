@@ -90,7 +90,7 @@
 
 @mixin titleSlotted() {
   font-family: $siteNameFont !important;
-  font-weight: normal;
+  font-weight: 400;
   font-size: $siteTitleSize;
   line-height: initial;
 }

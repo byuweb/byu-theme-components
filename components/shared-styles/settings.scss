@@ -8,7 +8,7 @@ $mobile_main_width: 100% - $mobile_sidebar_width;
 
 /* --- header settings ------- */
 $headerHeight: 55px;
-$siteNameFont: "Vitesse A", "Vitesse B", Georgia, serif;
+$siteNameFont: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;
 
 $byuLogoHeight: 33px;
 
@@ -23,8 +23,8 @@ $pageContentVerticalPadding: 0;
 $pageContentHorizontalPadding: 16px;
 $pageContentPadding: $pageContentVerticalPadding $pageContentHorizontalPadding;
 
-$headerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
-$headerContentFontWeight: 500;
+$headerContentFont: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;
+$headerContentFontWeight: 600;
 
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
@@ -32,7 +32,7 @@ $searchActiveColor: $navy;
 
 // menu settings
 $menuHeight: 35px;
-$menuFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
+$menuFont: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;
 $menuFontWeight: 500;
 $menuHover: $gray;
 $menuActive: $lightgray;
@@ -46,10 +46,11 @@ $menuActive: $lightgray;
 
 $footerBackground: $lightgray;
 $footerContentColor: $darkgray;
-$footerColumnTitleFont: "Vitesse A", "Vitesse B", Georgia, serif;
-$footerContentFont: "Gotham A", "Gotham B", Helvetica, sans-serif;
-$footerContentFontWeight: 400;
-$footerContentFontSize: 14px;
+$footerColumnTitleFont: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;
+$footerContentFont: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;
+$footerHeaderFontWeight: 600;
+$footerContentFontWeight: 500;
+$footerContentFontSize: 15px;
 
 $footerButtonColor: $medgray;
-$footerButtonFont: "Vitesse A", "Vitesse B", Georgia, serif;
+$footerButtonFont: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;

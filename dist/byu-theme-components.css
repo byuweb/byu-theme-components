@@ -42,7 +42,7 @@ byu-footer:not(.byu-component-rendered):after {
 /* ------ footer settings ------------- */
 byu-footer-action-button:not(.byu-component-rendered) {
   background-color: #666;
-  font-family: "Vitesse A", "Vitesse B", Georgia, serif;
+  font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;
   font-size: 20px !important;
   color: #FFF;
   display: inline-block;
@@ -57,8 +57,8 @@ byu-footer-action-button:not(.byu-component-rendered) {
   box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35); }
 
 byu-footer-action-button:not(.byu-component-rendered) > * {
-  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
-  font-weight: 400 !important;
+  font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
+  font-weight: 500 !important;
   color: #FFF !important;
   display: inline-block !important;
   position: relative !important;
@@ -85,21 +85,21 @@ byu-footer-column:not(.byu-component-rendered) {
     width: 100%;
     margin: 0 0 8px; }
   byu-footer-column:not(.byu-component-rendered) .header > * {
-    font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
+    font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
     text-transform: uppercase !important;
     color: #002E5D !important;
-    font-size: 20px !important;
+    font-size: 16px !important;
     line-height: 20px !important;
     border-bottom: 1px solid #C5C5C5 !important;
     padding-bottom: 3px !important;
-    font-weight: 400 !important;
+    font-weight: 600 !important;
     width: 100%;
     display: inline-block; }
   byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
-    font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-    font-size: 14px !important;
-    line-height: 14px !important;
-    font-weight: 400 !important;
+    font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
+    font-size: 15px !important;
+    line-height: 15px !important;
+    font-weight: 500 !important;
     color: #141414 !important;
     display: block;
     padding: 11px 0; }
@@ -107,12 +107,12 @@ byu-footer-column:not(.byu-component-rendered) {
     text-decoration: none !important;
     outline: none !important;
     color: #666 !important;
-    font-size: 14px; }
+    font-size: 15px; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a:hover {
     cursor: pointer;
     color: #005EB8 !important;
-    font-size: 14px;
-    line-height: 14px; }
+    font-size: 15px;
+    line-height: 15px; }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   font-family: serif;
@@ -124,7 +124,9 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
 
 byu-footer-column a {
   color: #666 !important;
-  text-decoration: none !important; }
+  text-decoration: none !important;
+  font-size: 15px;
+  font-weight: 600; }
 
 byu-footer-column a:hover {
   color: #005EB8 !important; }
@@ -154,7 +156,7 @@ byu-footer-column a:hover {
   width: 17px;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: transparent;
   padding: 0 !important; }
   .tcon > * {
@@ -268,7 +270,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   display: flex;
   flex-direction: column;
   font-size: 22px;
-  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
+  font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
   color: #FFF !important;
   text-decoration: none;
   padding-left: 16px;
@@ -291,7 +293,7 @@ byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
   display: none; }
 
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
-  font-family: "Vitesse A", "Vitesse B", Georgia, serif !important;
+  font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
   color: #FFF !important;
   text-decoration: none; }
 
@@ -338,12 +340,12 @@ byu-menu:not(.byu-component-rendered) {
 
 byu-menu:not(.byu-component-rendered) > * {
   text-decoration: none !important;
-  font-size: 13px !important;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 500 !important;
+  font-size: 15px !important;
+  font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
+  font-weight: 600 !important;
   text-transform: uppercase !important;
   color: white !important;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
   font-weight: 500 !important;
   color: #002E5D !important;
   height: 35px !important;
@@ -422,9 +424,9 @@ byu-search input.__byu-search-selected-input {
   border-radius: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
+  font-family: Arial, sans-serif !important;
   font-size: 13px !important;
-  font-weight: 500 !important;
+  font-weight: 700 !important;
   color: #002E5D !important;
   width: 100%; }
   byu-search input.__byu-search-selected-input::placeholder {
@@ -503,8 +505,8 @@ byu-social-media-links:not(.byu-component-rendered) {
 byu-user-info:not(.byu-component-rendered) > * {
   text-decoration: none !important;
   font-size: 13px !important;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-weight: 500 !important;
+  font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
+  font-weight: 600 !important;
   text-transform: uppercase !important;
   color: white; }
 
@@ -529,8 +531,8 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
   byu-user-info:not(.byu-component-rendered):not([mobile-view]) > * {
     text-decoration: none !important;
     font-size: 13px !important;
-    font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-    font-weight: 500 !important;
+    font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
+    font-weight: 600 !important;
     text-transform: uppercase !important;
     color: white; }
   byu-user-info:not(.byu-component-rendered):not([mobile-view]) .mobile {

@@ -5,8 +5,8 @@
   text-align: center;
   font-family: $universityFooterFont;
   font-weight: $universityFooterFontWeight;
-  font-size: 12px;
-  line-height: 12px;
+  font-size: 14px;
+  line-height: 14px;
   color: $universityFooterTextColor !important;
   width: 100%;
 
@@ -111,6 +111,11 @@ $calcSubtractWidth: $siteFooterHorizontalPadding * 2;
     ::slotted(.triple-wide) {
       width: calc(100% - #{$calcSubtractWidth});
     }
+  }
+
+  .university-footer {
+    font-size: 15px;
+    line-height: 15px;  
   }
 }
 

@@ -37,6 +37,8 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
 byu-footer-column a {
     color: $medgray !important;
     text-decoration: none !important;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 byu-footer-column a:hover {
