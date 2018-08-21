@@ -19,7 +19,7 @@
 }
 
 @mixin headerLogoMargin() {
-  margin-right: 16px;
+  margin-right: 8px;
 }
 
 @mixin headerDefaultFont(){
@@ -47,7 +47,18 @@
 }
 
 @mixin actions(){
-  @include headerLink();
+  //@include headerLink();
+  background-color: #32538D;
+  height: 27px;
+  font-family: $headerContentFont;
+  font-weight: $headerContentFontWeight;
+  font-size: 11px;
+  margin: 5px;
+  padding: 0 24px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 @mixin headerButton(){
@@ -90,9 +101,10 @@
 
 @mixin titleSlotted() {
   font-family: $siteNameFont !important;
-  font-weight: 400;
+  font-weight: 700;
   font-size: $siteTitleSize;
   line-height: initial;
+  margin-bottom: 3px;
 }
 
 @mixin mobileSiteTitleSlotted() {
