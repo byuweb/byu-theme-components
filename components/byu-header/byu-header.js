@@ -45,6 +45,15 @@ class BYUHeader extends HTMLElement {
         }
     }
 
+    _isIe11() {
+        //Template strings are a good stand-in for class syntax detection
+        if (!String.raw) return false;
+
+        //And, we'll fall back to hacky IE detection, just in case.
+        var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+        return !isIE11;
+    }
+
     _checkIfMenuIsNeeded() {
         // check whether to show the mobile menu button
         let userSlot = this.shadowRoot.querySelector("#user");
@@ -118,6 +127,22 @@ class BYUHeader extends HTMLElement {
             .reduce((agg, each) => agg.concat(each), []);
     }
 
+    _showOutdatedBrowserMessage(show) {
+        const container = this.shadowRoot.querySelector('.menu-ie11-outdated');
+        if (container) {
+            const classes = container.className.split(/ +/);
+            const index = classes.indexOf('ie11-outdated-hidden');
+            if (!show && index === -1) {
+                container.style.marginTop = '-' + container.offsetHeight + 'px';
+                classes.push('ie11-outdated-hidden');
+            } else if (show && index !== -1) {
+                container.style.marginTop = '0';
+                classes.splice(index, 1);
+            }
+            container.className = classes.join(' ');
+        }
+    }
+
     connectedCallback() {
         //This is a hack to ensure that the right defaults get applied.
         this.mobileMaxWidth = this.mobileMaxWidth;
@@ -134,6 +159,13 @@ class BYUHeader extends HTMLElement {
                     header.removeAttribute(ATTR_MENU_OPEN);
                 }
             });
+
+            const ie11Button = header.shadowRoot.querySelector('#ie11OutdatedButton');
+            if (ie11Button) {
+                ie11Button.addEventListener('click', function() {
+                    header._showOutdatedBrowserMessage(false);
+                });
+            }
         }, 0);
     }
 
