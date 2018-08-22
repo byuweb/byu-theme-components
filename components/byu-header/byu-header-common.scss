@@ -31,23 +31,12 @@
   margin-right: 16px;
 }
 
-@mixin actionsNotMobile() {
-  margin-left: 4px;
-  margin-right: 4px;
-}
-
-@mixin actionsNotMobileLinks() {
-  color: $white !important;
-}
-
 @mixin actionsWrapper() {
   display: flex;
   align-items: center;
-  height: $byuLogoHeight;
 }
 
 @mixin actions(){
-  //@include headerLink();
   background-color: #32538D;
   height: 27px;
   font-family: $headerContentFont;
@@ -59,6 +48,12 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  text-transform: uppercase;
+}
+
+@mixin actionsHover {
+  color: #002E5D;
+  background-color: white;
 }
 
 @mixin headerButton(){
@@ -226,21 +221,14 @@ $menuTransition: max-height $menuTransitionTiming;
 }
 
 @mixin actionsMobile() {
-  @include dropdownNavItem();
-  padding: 0 !important;
-  background-color: $lightgray;
-  color: $navy !important;
-  border-top: 1px solid $gray;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  line-height: 12px !important;
 }
 
 @mixin actionsMobileSlotted() {
-  color: $navy !important;
-  padding: 18px 50px !important;
+  margin-left: 50px;
 }
 
 @mixin mobileActionsLinks() {
