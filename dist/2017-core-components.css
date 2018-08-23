@@ -289,9 +289,6 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   font-weight: 800 !important;
   letter-spacing: 2px; }
 
-byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
-  display: none; }
-
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
   color: #FFF !important;

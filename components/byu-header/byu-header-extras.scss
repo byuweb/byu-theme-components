@@ -49,13 +49,6 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   letter-spacing: 2px;
 }
 
-// Hiding the sub/super-title that creates a duplicate site-title (with the BYU icon)
-byu-header:not(.byu-component-rendered) [slot="site-title"].subtitle {
-  display: none;
-}
-
-
-
 // Overriding styling
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   @include headerTitleText();

@@ -104,19 +104,7 @@
 
 @mixin mobileSiteTitleSlotted() {
   font-size: $mobileSiteTitleSize !important;
-}
-
-@mixin headerSubTitle() {
-  font-size: $siteSubTitleSize;
-  line-height: $siteSubTitleSize;
-  margin: -1px 0 3px;
-}
-
-@mixin headerSuperTitle() {
-  font-size: $siteSuperTitleSize;
-  line-height: $siteSuperTitleSize;
-  margin-bottom: -1px;
-  margin-top: 2px;
+  margin-bottom: 1px;
 }
 
 @mixin headerUserButton() {
@@ -201,7 +189,7 @@ $menuTransition: max-height $menuTransitionTiming;
 }
 
 @mixin mobileHeaderPrimary() {
-  //margin-left: $pageContentHorizontalPadding;
+  min-height: 45px;
 }
 
 @mixin mobileMenuOverflow() {
@@ -209,15 +197,13 @@ $menuTransition: max-height $menuTransitionTiming;
 }
 
 @mixin mobileHeaderAlign() {
-  padding-top: ($headerHeight - $byuLogoHeight)/2;
-  padding-bottom: ($headerHeight - $byuLogoHeight)/2;
-  min-height: $byuLogoHeight;
   padding-right: $pageContentHorizontalPadding !important;
-  align-items: baseline;
+  align-items: center;
 }
 
-@mixin mobileLogoAlign() {
-  align-self: flex-start;
+@mixin mobileLogo() {
+  height: $mobileByuLogoHeight;
+  display: block;
 }
 
 @mixin actionsMobile() {
@@ -250,22 +236,12 @@ $menuTransition: max-height $menuTransitionTiming;
   font-size: $mobileSiteTitleSize !important;
 }
 
-@mixin mobileSubTitle() {
-  font-size: $mobileSiteSubTitleSize !important;
-  margin-top: 3px;
-}
-
-@mixin mobileSuperTitle() {
-  margin-top: 0 !important;
-  margin-bottom: $mobileSiteTitleSize - $mobileSiteSubTitleSize;
-}
-
 
 @mixin headerButtonMobile() {
   background-color: transparent;
-  margin-top: ($byuLogoHeight - $tcon-size)/2;
-  margin-bottom: ($byuLogoHeight - $tcon-size)/2;
-  margin-left: ($byuLogoHeight - $tcon-size)/2;
+  margin-top: ($mobileHeaderHeight - $tcon-size)/2;
+  margin-bottom: ($mobileHeaderHeight - $tcon-size)/2;
+  margin-left: ($mobileHeaderHeight - $tcon-size)/2;
 }
 
 @mixin mobileMenuButton() {
