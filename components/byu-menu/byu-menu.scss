@@ -45,6 +45,10 @@
     ::slotted(*) {
       @include moreItemsSlotted();
     }
+
+    ::slotted(*:hover) {
+      @include moreItemsSlottedHover();
+    }
   }
 }
 

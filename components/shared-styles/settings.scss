@@ -22,11 +22,13 @@ $pageContentHorizontalPadding: 16px;
 $pageContentPadding: $pageContentVerticalPadding $pageContentHorizontalPadding;
 
 $headerContentFont: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif;
-$headerContentFontWeight: 600;
+$headerContentFontWeight: 500;
 
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
 $searchActiveColor: $navy;
+$searchHeight: 27px;
+$searchWidth: 41px;
 
 // menu settings
 $menuHeight: 35px;

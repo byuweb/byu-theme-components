@@ -27,6 +27,7 @@
   @include navItem();
   flex: 1;
   flex-basis: auto;
+  text-transform: uppercase;
 }
 
 @mixin navItemsSlottedSetWidth() {
@@ -109,6 +110,10 @@
   text-align: left !important;
   padding-left: 12px !important;
   padding-right: 12px !important;
+}
+
+@mixin moreItemsSlottedHover() {
+  color: #ffffff !important;
 }
 
 /* MOBILE */

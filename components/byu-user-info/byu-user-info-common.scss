@@ -6,18 +6,24 @@
 }
 
 @mixin mobileUserImage() {
-  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-navy.svg')
+  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-navy.svg');
+  margin-left: 0;
 }
 
 @mixin userInfoImage() {
-  height: 20px;
-  width: 20px;
+  height: 14px;
+  width: 14px;
   margin: 5px 11px 5px 5px;
   background-size: contain;
 }
 
 @mixin userInfoSlotted() {
-  @include headerLink();
+  text-decoration: none !important;
+  font-size: 11px!important;
+  font-family: $headerContentFont !important;
+  font-weight: $headerContentFontWeight!important;
+  text-transform: uppercase!important;
+  color: white !important;
 }
 
 @mixin userPresent() {
@@ -33,18 +39,14 @@
 
 /* NON MOBILE */
 @mixin userInfoNotMobile() {
-  color: white;
-}
-
-@mixin userInfoNotMobileSlotted() {
-  @include headerLink();
+  color: #D8D8D8;
 }
 
 @mixin userInfoNotMobileDisplay() {
   display: none;
 }
 @mixin nonMobileUsername() {
-  color: $xlightblue !important;
+  color: $userNameGray !important;
   text-transform: uppercase !important;
   max-width: 130px;
   white-space: nowrap;
@@ -63,10 +65,10 @@
 /* MOBILE */
 @mixin userInfoMobile() {
   @include dropdownNavItem();
-  border-bottom: solid 1px $gray;
-  padding: 10px 14px !important;
-  background-color: $white !important;
+  padding: 10px 14px 10px 50px !important;
+  background-color:#EDEDED !important;
   line-height: 12px !important;
+  
 }
 
 @mixin userInfoMobileNotDisplay() {
@@ -79,8 +81,7 @@
 }
 
 @mixin hasUserNameSlotted() {
-  text-transform: capitalize !important;
-  color: $xlightblue !important;
+  text-transform: uppercase !important
 }
 
 /* @mixin hasUserImage() {
@@ -100,6 +101,7 @@
 
 @mixin mobileSlotted() {
   color: $navy !important;
+  font-size: 10px;
 }
 
 @mixin notHasUserMobile() {
