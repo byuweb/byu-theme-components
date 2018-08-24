@@ -102,6 +102,10 @@
 
 $calcSubtractWidth: ($siteFooterHorizontalPadding) * 2;
 
+.university-footer {
+  font-size: 9px;
+  line-height: 9px;  
+}
 
 @media (min-width: 600px) {
   .site-footer {
@@ -121,10 +125,7 @@ $calcSubtractWidth: ($siteFooterHorizontalPadding) * 2;
     }
   }
 
-  .university-footer {
-    font-size: 15px;
-    line-height: 15px;  
-  }
+  
 }
 
 $columnBaseWidth: 20%;
@@ -151,6 +152,10 @@ $columnMaxWidth: 30%;
       width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
       max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth});
     }
+  }
+  .university-footer {
+    font-size: 12px;
+    line-height: 12px;  
   }
 }
 
