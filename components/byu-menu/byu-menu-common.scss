@@ -81,18 +81,17 @@
 }
 
 @mixin moreLinkSvg() {
-  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg');
-  height: 13px;
-  width: 13px;
+  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/arrow-navy.svg');
+  height: 4px;
+  width: 7px;
   display: inline-block;
   background-size: 100%;
-  //transition: transform 0.5s ease;
-  //transform: rotate(0);
-  //transform-origin: center;
+  margin-bottom: 2px;
+  margin-left: 4px;
 }
 
 @mixin moreLinkHoverSvg() {
-  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-white.svg');
+  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/arrow-white.svg');
   
 }
 
