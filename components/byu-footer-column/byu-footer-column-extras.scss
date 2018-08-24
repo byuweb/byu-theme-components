@@ -35,12 +35,15 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
 }
 
 byu-footer-column a {
-    color: $medgray !important;
-    text-decoration: none !important;
-    font-size: 15px;
-    font-weight: 600;
+    @include defaultContentLink();
 }
 
 byu-footer-column a:hover {
-    color: $royal !important;
+    @include defaultContentLinkHover();
+}
+
+@media (max-width: 1024px) {
+    byu-footer-column a {
+        @include mobileContentLink();
+    }
 }

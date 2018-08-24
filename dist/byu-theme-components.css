@@ -88,31 +88,28 @@ byu-footer-column:not(.byu-component-rendered) {
     font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
     text-transform: uppercase !important;
     color: #002E5D !important;
-    font-size: 16px !important;
-    line-height: 20px !important;
+    font-size: 14px !important;
+    line-height: 17px !important;
     border-bottom: 1px solid #C5C5C5 !important;
     padding-bottom: 3px !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
     width: 100%;
     display: inline-block; }
   byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
     font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
-    font-size: 15px !important;
-    line-height: 15px !important;
+    font-size: 14px !important;
+    line-height: 14px !important;
     font-weight: 500 !important;
     color: #141414 !important;
     display: block;
-    padding: 11px 0; }
+    padding: 7px 0; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a {
     text-decoration: none !important;
     outline: none !important;
-    color: #666 !important;
-    font-size: 15px; }
+    color: #0057B8 !important;
+    font-size: 14px; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a:hover {
-    cursor: pointer;
-    color: #005EB8 !important;
-    font-size: 15px;
-    line-height: 15px; }
+    color: #002E5D !important; }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   font-family: serif;
@@ -123,13 +120,17 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   display: block; }
 
 byu-footer-column a {
-  color: #666 !important;
   text-decoration: none !important;
-  font-size: 15px;
-  font-weight: 600; }
+  outline: none !important;
+  color: #0057B8 !important;
+  font-size: 14px; }
 
 byu-footer-column a:hover {
-  color: #005EB8 !important; }
+  color: #002E5D !important; }
+
+@media (max-width: 1024px) {
+  byu-footer-column a {
+    font-size: 12px; } }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* -- breakpoint settings ----- */

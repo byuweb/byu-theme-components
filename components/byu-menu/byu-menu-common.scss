@@ -91,6 +91,11 @@
   //transform-origin: center;
 }
 
+@mixin moreLinkHoverSvg() {
+  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-white.svg');
+  
+}
+
 @mixin moreItems() {
   display: none;
   position: absolute;

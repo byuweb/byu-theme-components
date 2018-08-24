@@ -94,11 +94,19 @@
   }
 }
 
-$calcSubtractWidth: $siteFooterHorizontalPadding * 2;
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 0 52px;
+  }
+}
+
+$calcSubtractWidth: ($siteFooterHorizontalPadding) * 2;
+
 
 @media (min-width: 600px) {
   .site-footer {
     flex-direction: row;
+    padding: 0 (134 - $calcSubtractWidth); 
 
     ::slotted(*) {
       width: calc(50% - #{$calcSubtractWidth});
@@ -126,6 +134,7 @@ $columnMaxWidth: 30%;
   .site-footer {
     flex-wrap: nowrap;
     justify-content: center;
+    padding: 0;
 
     ::slotted(*) {
       width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth});

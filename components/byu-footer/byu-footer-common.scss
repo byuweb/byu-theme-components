@@ -19,10 +19,10 @@ $siteFooterPadding: $siteFooterVerticalPadding $siteFooterHorizontalPadding;
 
 $siteFooterMobilePadding: 16px $siteFooterHorizontalPadding 0;
 
-$large-siteFooterContentTopMargin: 30px;
+$large-siteFooterContentTopMargin: 33px;
 $large-siteFooterContentBottomMargin: 40px;
 
-$large-siteFooterContentMargin: $large-siteFooterContentTopMargin $siteFooterHorizontalPadding $large-siteFooterContentBottomMargin;
+$large-siteFooterContentMargin: $large-siteFooterContentTopMargin 8px $large-siteFooterContentBottomMargin;
 
 $siteFooterBackground: $lightgray;
 $siteFooterContentColor: $darkgray;
