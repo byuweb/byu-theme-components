@@ -36,9 +36,15 @@
 
 .university-logo {
   max-width: 100%;
-  width: $universityFooterLogoWidth;
+  width: $universityFooterLogoMobileWidth;
   height: $universityFooterLogoHeight;
   margin: -$universityFooterLogoVerticalOffset 0;
+}
+
+@media (min-width: 1024px) {
+  .university-logo {
+    width: $universityFooterLogoWidth;
+  }
 }
 
 .university-info {
