@@ -352,6 +352,8 @@ byu-menu:not(.byu-component-rendered) > * {
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   transition: background 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
   flex: 1;
   flex-basis: auto;
   text-transform: uppercase; }
@@ -425,7 +427,8 @@ byu-search input.__byu-search-selected-input {
   font-size: 12px !important;
   font-weight: 500 !important;
   color: #002E5D !important;
-  width: 100%; }
+  width: 100%;
+  letter-spacing: 0.3px; }
   byu-search input.__byu-search-selected-input::placeholder {
     color: #666 !important;
     opacity: 1; }

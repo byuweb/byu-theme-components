@@ -36,6 +36,8 @@
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   transition: background 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 
   &:hover {
     @include navItemHover();

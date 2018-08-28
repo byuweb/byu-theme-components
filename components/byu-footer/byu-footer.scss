@@ -20,7 +20,6 @@
   a {
     color: $universityFooterTextColor !important;
     text-decoration: none;
-
     &:hover {
       text-decoration: underline;
     }
@@ -51,6 +50,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  letter-spacing: 0.3px;
 
   > :not(:first-of-type) {
     margin-top: 0.25em;

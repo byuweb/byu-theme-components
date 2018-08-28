@@ -43,13 +43,14 @@
   font-family: $headerContentFont;
   font-weight: $headerContentFontWeight;
   font-size: 11px;
-  margin: 5px;
   padding: 0 24px;
   color: #ffffff;
   display: flex;
   align-items: center;
   text-decoration: none;
   text-transform: uppercase;
+  margin-left: 10px;
+
 }
 
 @mixin actionsHover {

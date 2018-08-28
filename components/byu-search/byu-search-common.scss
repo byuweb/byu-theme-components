@@ -3,7 +3,7 @@
 
 @mixin byuSearch() {
   //display: inline-block;
-  margin-left: 20px;
+  margin-left: 29px;
 }
 
 @mixin searchIcon() {
@@ -71,6 +71,7 @@
   font-weight: 500 !important;
   color: $navy !important;
   width: 100%;
+  letter-spacing: 0.3px;
 }
 
 @mixin searchMobile() {
