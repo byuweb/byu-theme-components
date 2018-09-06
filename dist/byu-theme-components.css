@@ -157,7 +157,7 @@ byu-footer-column a:hover {
   width: 17px;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: transparent;
   padding: 0 !important; }
   .tcon > * {
@@ -270,7 +270,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   flex: 1;
   display: flex;
   flex-direction: column;
-  font-size: 25px;
+  font-size: 25px !important;
   font-family: Ringside Narrow A, Ringside Narrow B, Arial Narrow, Arial, sans-serif !important;
   color: #FFF !important;
   text-decoration: none;
