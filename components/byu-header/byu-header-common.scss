@@ -100,7 +100,7 @@
   font-family: $siteNameFont !important;
   font-weight: 400;
   font-size: $siteTitleSize !important;
-  line-height: initial;
+  line-height: initial; 
 }
 
 @mixin mobileSiteTitleSlotted() {
