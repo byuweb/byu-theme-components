@@ -213,10 +213,12 @@ $menuTransition: max-height $menuTransitionTiming;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin: 10px 0 13px 0;
 }
 
 @mixin actionsMobileSlotted() {
-  margin-left: 50px;
+  margin: 0px 0 10px 50px;
+  min-width: 55px;
 }
 
 @mixin mobileActionsLinks() {
