@@ -32,7 +32,7 @@
 @mixin contentNotButton() {
     font-family: $footerContentFont !important;
     font-size: $footerContentFontSize !important;
-    line-height: $footerContentFontSize !important;
+    line-height: $footerContentLineHeight !important;
     font-weight: $footerContentFontWeight !important;
     color: $footerContentColor !important;
     display: block;
