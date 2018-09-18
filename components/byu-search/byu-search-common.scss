@@ -25,6 +25,7 @@
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  z-index: 1;
 }
 
 @mixin searchForm() {

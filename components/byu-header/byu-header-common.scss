@@ -20,6 +20,8 @@
 
 @mixin headerLogoMargin() {
   margin-right: 8px;
+  padding-top:19.5px;
+  padding-bottom: 19.5px;
 }
 
 @mixin headerDefaultFont(){
@@ -72,7 +74,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex: 1;
   min-height: $headerHeight;
   box-sizing: border-box;
@@ -83,6 +85,8 @@
   font-family: $siteNameFont !important;
   color: $white !important;
   text-decoration: none;
+  padding-top: 13.5px;
+  padding-bottom: 13.5px;
 }
 
 @mixin headerTitles() {
@@ -105,7 +109,6 @@
 
 @mixin mobileSiteTitleSlotted() {
   font-size: $mobileSiteTitleSize !important;
-  margin-bottom: 1px;
 }
 
 @mixin headerUserButton() {
@@ -200,12 +203,16 @@ $menuTransition: max-height $menuTransitionTiming;
 
 @mixin mobileHeaderAlign() {
   padding-right: $pageContentHorizontalPadding !important;
-  align-items: center;
 }
 
 @mixin mobileLogo() {
-  height: $mobileByuLogoHeight;
+  height: $mobileByuLogoHeight !important;
   display: block;
+}
+
+@mixin mobileLogoImage() {
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 @mixin actionsMobile() {
@@ -238,6 +245,8 @@ $menuTransition: max-height $menuTransitionTiming;
   align-items: flex-start;
   align-self: center;
   font-size: $mobileSiteTitleSize !important;
+  padding-bottom: 10.5px;
+  padding-top: 10.5px;
 }
 
 

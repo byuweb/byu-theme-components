@@ -239,7 +239,7 @@ byu-header:not(.byu-component-rendered) {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   flex: 1;
   min-height: 58px;
   box-sizing: border-box;
@@ -271,10 +271,12 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   flex: 1;
   display: flex;
   flex-direction: column;
-  font-size: 25px !important;
+  font-size: 26px !important;
   font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
   color: #FFF !important;
   text-decoration: none;
+  padding-top: 13.5px;
+  padding-bottom: 13.5px;
   padding-left: 16px;
   flex-direction: row;
   height: 40px;
@@ -294,7 +296,9 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
   color: #FFF !important;
-  text-decoration: none; }
+  text-decoration: none;
+  padding-top: 13.5px;
+  padding-bottom: 13.5px; }
 
 /* MOBILE */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
@@ -412,6 +416,7 @@ byu-search:not(.byu-component-rendered):after {
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  z-index: 1;
   height: 32px;
   width: 32px;
   float: right; }
