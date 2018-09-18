@@ -109,6 +109,7 @@
 
 @mixin mobileSiteTitleSlotted() {
   font-size: $mobileSiteTitleSize !important;
+  font-weight: 700;
 }
 
 @mixin headerUserButton() {
