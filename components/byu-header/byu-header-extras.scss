@@ -52,6 +52,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
 // Overriding styling
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   @include headerTitleText();
+  padding: 0;
 }
 
 

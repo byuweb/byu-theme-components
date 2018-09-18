@@ -298,7 +298,8 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   color: #FFF !important;
   text-decoration: none;
   padding-top: 13.5px;
-  padding-bottom: 13.5px; }
+  padding-bottom: 13.5px;
+  padding: 0; }
 
 /* MOBILE */
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
