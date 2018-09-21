@@ -2,6 +2,7 @@
 
 .slot-wrapper ::slotted(*) {
   @include userInfoSlotted();
+  letter-spacing: 0.5px;
 }
 
 .has-user, .no-user {

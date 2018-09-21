@@ -14,15 +14,15 @@ $siteNameFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
 $byuLogoHeight: 19px;
 $mobileByuLogoHeight: 13px;
 
-$siteTitleSize: 26px;
-$mobileSiteTitleSize: 19px;
+$siteTitleSize: 24px;
+$mobileSiteTitleSize: 17.5px;
 
 $pageContentVerticalPadding: 0;
 $pageContentHorizontalPadding: 16px;
 $pageContentPadding: $pageContentVerticalPadding $pageContentHorizontalPadding;
 
 $headerContentFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
-$headerContentFontWeight: 500;
+$headerContentFontWeight: 400;
 
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
@@ -33,7 +33,7 @@ $searchWidth: 41px;
 // menu settings
 $menuHeight: 35px;
 $menuFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
-$menuFontWeight: 500;
+$menuFontWeight: 400;
 $menuHover: $gray;
 $menuActive: $lightgray;
 

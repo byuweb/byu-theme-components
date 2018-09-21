@@ -134,13 +134,14 @@
 @mixin mobileMenuSlotted() {
   display: block !important;
   text-align: left !important;
-  padding: 18px 18px 18px 50px !important;
+  padding: 18px 18px 18px 25px !important;
   height: auto !important;
   width: 100%;
   max-width: 100%;
   position: static;
   box-sizing: border-box;
   line-height: 12px !important;
+  font-size: 12px !important;
 }
 
 @mixin mobileMenuMoreMenuSlotted() {
@@ -165,7 +166,7 @@
 @mixin mobileMenuMoreItemsSlotted() {
   display: block !important;
   text-align: left !important;
-  padding: 18px 50px !important;
+  padding: 18px 25px !important;
   height: auto !important;
   width: 100%;
   position: static;

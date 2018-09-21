@@ -72,7 +72,6 @@
   font-weight: 500 !important;
   color: $navy !important;
   width: 100%;
-  letter-spacing: 0.3px;
 }
 
 @mixin searchMobile() {
@@ -96,4 +95,6 @@
 @mixin searchIconMobile() {
   width: 20px;
   height: 20px;
+  padding-bottom: 6.5px;
+  padding-top: 6.5px;
 }

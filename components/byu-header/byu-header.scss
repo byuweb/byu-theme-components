@@ -1,6 +1,10 @@
 @import "byu-header-common";
 
 /* GENERAL STYLING */
+:host {
+  box-shadow: 0 0 10px rgba(0,0,0,.16);
+}
+
 .byu-header-actions {
   @include actionsWrapper();
 
