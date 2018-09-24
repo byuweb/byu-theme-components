@@ -8,7 +8,7 @@
   ::slotted(*) {
       @include actions();
   }
-} 
+}
 .byu-header-root {
   @include headerRoot();
   @include headerDefaultFont();
@@ -29,7 +29,7 @@
     @include headerPrimary();
     .byu-header-title {
       @include headerTitles();
-        
+
       ::slotted(*) {
         @include titleSlotted();
       }
@@ -40,7 +40,7 @@
       ::slotted(.subtitle:first-child) {
         @include headerSuperTitle();
       }
-    } 
+    }
 
     .byu-header-user {
       button {
@@ -164,11 +164,11 @@
       }
 
       ::slotted(.subtitle) {
-        @include mobileSubTitle();  
+        @include mobileSubTitle();
       }
 
       ::slotted(.subtitle:first-child) {
-        @include mobileSuperTitle();  
+        @include mobileSuperTitle();
       }
     }
     button {

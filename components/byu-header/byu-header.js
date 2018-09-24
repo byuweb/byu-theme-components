@@ -45,7 +45,7 @@ class BYUHeader extends HTMLElement {
         }
     }
 
-    _isIe11() {
+    _canDoEs6() {
         //Template strings are a good stand-in for class syntax detection
         if (!String.raw) return false;
 
@@ -128,7 +128,26 @@ class BYUHeader extends HTMLElement {
     }
 
     _showOutdatedBrowserMessage(show) {
-        const container = this.shadowRoot.querySelector('.menu-ie11-outdated');
+        const header = this;
+        let container = header.shadowRoot.querySelector('.menu-ie11-outdated');
+        if (!container && show) {
+            container = document.createElement('div');
+            container.className = 'menu-ie11-outdated ie11-outdated-hidden';
+            container.innerHTML = '<div class="menu-ie11-outdated-label">' +
+                '  You are using an out-dated browser. BYU support for this browser is ending. Please <a href="http://webcommunity.byu.edu/supported-browsers" target="_blank">download a new browser</a>.' +
+                '</div>';
+
+            const closeButton = document.createElement('button');
+            closeButton.innerHTML = '&times;'
+            closeButton.addEventListener('click', function() {
+                document.cookie = 'ie11outdated=true; max-age=3600'
+                header._showOutdatedBrowserMessage(false)
+            });
+            container.appendChild(closeButton);
+
+            header.shadowRoot.appendChild(container);
+            container.style.marginTop = '-' + container.offsetHeight + 'px';
+        }
         if (container) {
             const classes = container.className.split(/ +/);
             const index = classes.indexOf('ie11-outdated-hidden');
@@ -144,6 +163,7 @@ class BYUHeader extends HTMLElement {
     }
 
     connectedCallback() {
+
         //This is a hack to ensure that the right defaults get applied.
         this.mobileMaxWidth = this.mobileMaxWidth;
         this._applyMobileWidth();
@@ -160,11 +180,9 @@ class BYUHeader extends HTMLElement {
                 }
             });
 
-            const ie11Button = header.shadowRoot.querySelector('#ie11OutdatedButton');
-            if (ie11Button) {
-                ie11Button.addEventListener('click', function() {
-                    header._showOutdatedBrowserMessage(false);
-                });
+            // detect whether to show ie 11 outdated message
+            if (!header._canDoEs6() && document.cookie.replace(/(?:(?:^|.*;\s*)ie11outdated\s*=\s*([^;]*).*$)|^.*$/, "$1") !== "true") {
+                header._showOutdatedBrowserMessage(true);
             }
         }, 0);
     }
