@@ -103,7 +103,8 @@
 
 @media (max-width: 600px) {
   .site-footer {
-    padding: 0 52px;
+    padding-right: 25px;
+    padding-left: 25px;
   }
 }
 
@@ -117,8 +118,7 @@ $calcSubtractWidth: ($siteFooterHorizontalPadding) * 2;
 @media (min-width: 600px) {
   .site-footer {
     flex-direction: row;
-    padding: 0 (134 - $calcSubtractWidth); 
-
+    
     ::slotted(*) {
       width: calc(50% - #{$calcSubtractWidth});
     }

@@ -4,7 +4,7 @@
 $universityFooterBgColor: $navy;
 $universityFooterTextColor: white;
 $universityFooterFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
-$universityFooterFontWeight: 500;
+$universityFooterFontWeight: 400;
 $universityFooterHeight: 80px;
 
 $universityFooterLogoHeight: 40px;
@@ -17,8 +17,9 @@ $universityFooterLogoMobileWidth: 280px;
 $universityFooterVerticalPadding: 21px;
 
 $siteFooterHorizontalPadding: 8px;
-$siteFooterVerticalPadding: 0;
-$siteFooterPadding: $siteFooterVerticalPadding $siteFooterHorizontalPadding;
+$siteFooterTopPadding: 0;
+$siteFooterBottomPadding: 50px;
+$siteFooterPadding: $siteFooterTopPadding $siteFooterHorizontalPadding $siteFooterBottomPadding $siteFooterHorizontalPadding;
 
 $siteFooterMobilePadding: 16px $siteFooterHorizontalPadding 0;
 

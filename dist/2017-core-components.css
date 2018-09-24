@@ -99,7 +99,7 @@ byu-footer-column:not(.byu-component-rendered) {
   byu-footer-column:not(.byu-component-rendered) .content *:not(byu-footer-action-button) {
     font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
     font-size: 14px !important;
-    line-height: 18px !important;
+    line-height: 16px !important;
     font-weight: 400 !important;
     color: #141414 !important;
     display: block;
@@ -131,7 +131,7 @@ byu-footer-column a:hover {
 
 @media (max-width: 1024px) {
   byu-footer-column a {
-    font-size: 12px; } }
+    font-size: 11px; } }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* -- breakpoint settings ----- */
