@@ -23,6 +23,7 @@
     font-weight: $footerHeaderFontWeight !important;
     width: 100%;
     display: inline-block;
+    max-width: $footerColumnMaxWidth;
 }
 
 @mixin mobileHeaderSlotted() {
@@ -36,7 +37,7 @@
     font-weight: $footerContentFontWeight !important;
     color: $footerContentColor !important;
     display: block;
-    padding: 7px 0;
+    max-width: $footerColumnMaxWidth;
 }
 
 @mixin mobileContentNotButton() {
@@ -48,10 +49,12 @@
     outline: none !important;
     color: $royal !important;
     font-size: $footerContentFontSize;
+    height: $footerLinkLineHeight;
 }
 
 @mixin mobileContentLink {
     font-size: $mobileFooterContentFontSize;
+    height: $mobileFooterLinkLineHeight;
 }
 
 @mixin defaultContentLinkHover() {

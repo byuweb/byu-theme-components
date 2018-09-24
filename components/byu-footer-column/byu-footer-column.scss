@@ -34,11 +34,11 @@
   @include defaultContentLinkHover();
 }
 
-.content a {
+.content > a {
   @include defaultContentLink();
 }
 
-.content a:hover {
+.content > a:hover {
   @include defaultContentLinkHover();
 }
 
