@@ -55,7 +55,8 @@ byu-footer-action-button:not(.byu-component-rendered) {
   margin: 10px 0 20px 0;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35);
   -moz-box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35);
-  box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35); }
+  box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35);
+  letter-spacing: 0.5px; }
 
 byu-footer-action-button:not(.byu-component-rendered) > * {
   font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;

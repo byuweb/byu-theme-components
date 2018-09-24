@@ -17,6 +17,7 @@
     -webkit-box-shadow: 0px 3px 5px 0px rgba(20,20,20,0.35);
     -moz-box-shadow: 0px 3px 5px 0px rgba(20,20,20,0.35);
     box-shadow: 0px 3px 5px 0px rgba(20,20,20,0.35);
+    letter-spacing: 0.5px;
 }
 
 // Use this to change how the button looks when active
@@ -42,4 +43,10 @@
 
 @mixin footerActionButtonSlottedLink() {
     text-decoration: none !important;
+}
+
+@mixin mobileFooterActionButton() {
+    padding: 6.5px 0;
+    font-size: 11px;
+    line-height: 13px;
 }
