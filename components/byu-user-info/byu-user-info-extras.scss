@@ -19,7 +19,7 @@ byu-user-info:not(.byu-component-rendered) [slot=user-name] {
   color: #c3ddf9!important;
 }
 
-byu-user-info:not(.byu-component-rendered) [slot=login]:after {
+byu-user-info:not(.byu-component-rendered) [slot=login]:before {
   background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
   content: "";
   display: inline-flex;
@@ -41,7 +41,7 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
 
   & > * {
     text-decoration: none !important;
-    font-size: 13px!important;
+    font-size: 11px!important;
     font-family: $headerContentFont !important;
     font-weight: $headerContentFontWeight!important;
     text-transform: uppercase!important;

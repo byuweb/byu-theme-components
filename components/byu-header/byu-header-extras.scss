@@ -37,6 +37,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   font-weight: 400;
   padding: 0;
   padding-left: 16px;
+  position: relative;
+  top: -1px;
 }
 
 // byu icon
@@ -46,6 +48,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   width: 66px;
   margin: 19.5px 0;
   margin-right: 8px;
+  position: relative;
+  top: 1px;
 }
 
 // Overriding styling
