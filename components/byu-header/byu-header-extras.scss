@@ -16,37 +16,36 @@ byu-header:not(.byu-component-rendered) {
   [slot="actions"] {
     text-transform: uppercase;
     font-family: 'HCo Ringside Narrow SSm', Helvetica, sans-serif;
-    font-weight: 500;
-    font-size: 13px;
-    margin-top: 1px;
     order: 0;
-    margin-left: 4px;
-    margin-right: 4px;
     text-decoration: none;
+    background-color: #32538d;
+    height: 29px;
+    font-weight: 400;
+    font-size: 11px;
+    padding: 0 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin: auto 9px auto 10px;
   }
 }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   @include headerTitles();
-  padding-left: 16px;
   flex-direction: row;
-  height: 40px;
   align-items: center;
   font-weight: 400;
+  padding: 0;
+  padding-left: 16px;
 }
 
 // byu icon
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
-  //content: "BYU"; // make sure the space is the exact same size
   content: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
-  width: 114px;
-  height: 33px;
-  font-size: 40px;
-  font-family: "Arial", sans-serif;
-  //padding-right: 16px;
-  margin-right: 16px;
-  font-weight: 800 !important;
-  letter-spacing: 2px;
+  height: 19px;
+  width: 66px;
+  margin: 19.5px 0;
+  margin-right: 8px;
 }
 
 // Overriding styling
