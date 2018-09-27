@@ -14,26 +14,46 @@
 byu-footer:not(.byu-component-rendered) {
   background: #EDEDED;
   min-height: 200px;
-  display: flex;
   width: 100%;
   font-family: sans-serif;
   font-weight: 600;
   flex-wrap: wrap;
   padding-top: 30px;
-  justify-content: space-around; }
+  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr repeat(4, 300px) 1fr;
+  grid-template-rows: 1fr 76px; }
   byu-footer:not(.byu-component-rendered):empty {
     min-height: 0;
     padding: 0; }
 
 byu-footer:not(.byu-component-rendered):after {
-  background: #002E5D url("https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg") no-repeat center 11px;
-  background-size: 450px 40px;
-  height: 90px;
+  background: url(https://cdn.byu.edu/shared-icons/latest/logos/BYU-Footer-Ringside.svg) center 11px no-repeat #002E5D;
+  background-size: 390px 40px;
+  height: 76px;
   width: 100vw;
   content: ' ';
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  grid-row: 2/3;
+  grid-column: 1/7; }
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(1) {
+  grid-row: 1/2;
+  grid-column: 2/3; }
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(2) {
+  grid-row: 1/2;
+  grid-column: 3/4; }
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(3) {
+  grid-row: 1/2;
+  grid-column: 4/5; }
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(4) {
+  grid-row: 1/2;
+  grid-column: 5/6; }
 
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* -- breakpoint settings ----- */
@@ -117,14 +137,50 @@ byu-footer-column:not(.byu-component-rendered) {
     color: #002E5D !important; }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
-  font-family: serif;
-  font-size: 20px;
-  text-transform: uppercase;
-  color: #002E5D;
-  font-weight: 600;
+  font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
+  text-transform: uppercase !important;
+  color: #002E5D !important;
+  font-size: 14px !important;
+  line-height: 17px !important;
+  border-bottom: 1px solid #C5C5C5 !important;
+  padding-bottom: 3px !important;
+  font-weight: 500 !important;
+  width: 100%;
+  display: inline-block;
+  max-width: 230px;
   display: block; }
 
+byu-footer-column:not(.byu-component-rendered) a {
+  font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
+  font-weight: 400 !important;
+  color: #141414 !important;
+  display: block;
+  max-width: 230px;
+  text-decoration: none !important;
+  outline: none !important;
+  color: #0057B8 !important;
+  font-size: 14px;
+  height: 35px; }
+
+byu-footer-column:not(.byu-component-rendered) p, byu-footer-column:not(.byu-component-rendered) div {
+  font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
+  font-weight: 400 !important;
+  color: #141414 !important;
+  display: block;
+  max-width: 230px; }
+
 byu-footer-column a {
+  font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
+  font-size: 14px !important;
+  line-height: 16px !important;
+  font-weight: 400 !important;
+  color: #141414 !important;
+  display: block;
+  max-width: 230px;
   text-decoration: none !important;
   outline: none !important;
   color: #0057B8 !important;

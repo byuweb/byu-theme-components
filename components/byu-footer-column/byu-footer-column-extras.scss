@@ -26,15 +26,21 @@ byu-footer-column:not(.byu-component-rendered) {
 }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
-    font-family: serif;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: $navy;
-    font-weight: 600;
+    @include headerSlotted();
     display: block;
 }
 
+byu-footer-column:not(.byu-component-rendered) a {
+    @include contentNotButton();
+    @include defaultContentLink();
+}
+
+byu-footer-column:not(.byu-component-rendered) p, byu-footer-column:not(.byu-component-rendered) div {
+    @include contentNotButton();
+}
+
 byu-footer-column a {
+    @include contentNotButton();
     @include defaultContentLink();
 }
 
