@@ -103,7 +103,9 @@ byu-footer-action-button:not(.byu-component-rendered) a {
 byu-footer-column:not(.byu-component-rendered) {
   padding: 0 15px;
   box-sizing: border-box;
-  float: left; }
+  float: left;
+  margin: 0 8px 40px;
+  padding: 0; }
   byu-footer-column:not(.byu-component-rendered) .header {
     width: 100%;
     margin: 0 0 8px; }
@@ -148,7 +150,8 @@ byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   width: 100%;
   display: inline-block;
   max-width: 230px;
-  display: block; }
+  display: block;
+  margin-bottom: 10px; }
 
 byu-footer-column:not(.byu-component-rendered) a {
   font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
@@ -163,6 +166,9 @@ byu-footer-column:not(.byu-component-rendered) a {
   color: #0057B8 !important;
   font-size: 14px;
   height: 35px; }
+
+byu-footer-column:not(.byu-component-rendered) byu-footer-action-button a {
+  color: #fff !important; }
 
 byu-footer-column:not(.byu-component-rendered) p, byu-footer-column:not(.byu-component-rendered) div {
   font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
