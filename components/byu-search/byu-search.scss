@@ -58,10 +58,12 @@ button {
   #search-form #search-container input,
   #search-form #search-container ::slotted(input) {
     @include searchInputMobile();
+    border-bottom: 1px solid $gray;
   }
 
   #search-button {
     @include searchButtonMobile();
+    border-bottom: 1px solid $gray;
   }
 
   #search-icon {

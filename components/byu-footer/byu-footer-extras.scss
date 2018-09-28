@@ -4,13 +4,15 @@
 byu-footer:not(.byu-component-rendered) {
   background: $lightgray;
   min-height: 200px;
-  display: flex;
   width: 100%;
   font-family: sans-serif;
   font-weight: 600;
   flex-wrap: wrap;
   padding-top: 30px;
   justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr repeat(4, 300px) 1fr;
+  grid-template-rows: 1fr 76px;
 
   &:empty {
     min-height: 0;
@@ -19,12 +21,34 @@ byu-footer:not(.byu-component-rendered) {
 }
 
 byu-footer:not(.byu-component-rendered):after {
-  background: $navy url('https://cdn.byu.edu/shared-icons/latest/logos/word-mark-wide-white.svg') no-repeat center 11px;
-  background-size: 450px 40px;
-  height: 90px;
+  background: url(https://cdn.byu.edu/shared-icons/latest/logos/BYU-Footer-Ringside.svg) center 11px no-repeat $navy;
+  background-size: 390px 40px;
+  height: 76px;
   width: 100vw;
   content: ' ';
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-row: 2/3;
+  grid-column: 1/7;
+}
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(1) {
+  grid-row: 1/2;
+  grid-column: 2/3;
+}
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(2) {
+  grid-row: 1/2;
+  grid-column: 3/4;
+}
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(3) {
+  grid-row: 1/2;
+  grid-column: 4/5;
+}
+
+byu-footer:not(.byu-component-rendered) > *:nth-child(4) {
+  grid-row: 1/2;
+  grid-column: 5/6;
 }

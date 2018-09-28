@@ -3,6 +3,8 @@
 //byu-footer-column:not(:defined) {
 byu-footer-column:not(.byu-component-rendered) {
     @include footerColumn();
+    margin: 0 8px 40px;
+    padding: 0;
 
     .header {
         @include header();
@@ -26,19 +28,35 @@ byu-footer-column:not(.byu-component-rendered) {
 }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
-    font-family: serif;
-    font-size: 20px;
-    text-transform: uppercase;
-    color: $navy;
-    font-weight: 600;
+    @include headerSlotted();
     display: block;
+    margin-bottom: 10px;
+}
+
+byu-footer-column:not(.byu-component-rendered) a {
+    @include contentNotButton();
+    @include defaultContentLink();
+}
+
+byu-footer-column:not(.byu-component-rendered) byu-footer-action-button a {
+    color: #fff !important;
+}
+
+byu-footer-column:not(.byu-component-rendered) p, byu-footer-column:not(.byu-component-rendered) div {
+    @include contentNotButton();
 }
 
 byu-footer-column a {
-    color: $medgray !important;
-    text-decoration: none !important;
+    @include contentNotButton();
+    @include defaultContentLink();
 }
 
 byu-footer-column a:hover {
-    color: $royal !important;
+    @include defaultContentLinkHover();
+}
+
+@media (max-width: 1024px) {
+    byu-footer-column a {
+        @include mobileContentLink();
+    }
 }

@@ -27,6 +27,7 @@
   @include navItem();
   flex: 1;
   flex-basis: auto;
+  text-transform: uppercase;
 }
 
 @mixin navItemsSlottedSetWidth() {
@@ -80,14 +81,18 @@
 }
 
 @mixin moreLinkSvg() {
-  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/down-open-navy.svg');
-  height: 13px;
-  width: 13px;
+  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/arrow-navy.svg');
+  height: 4px;
+  width: 7px;
   display: inline-block;
   background-size: 100%;
-  //transition: transform 0.5s ease;
-  //transform: rotate(0);
-  //transform-origin: center;
+  margin-bottom: 2px;
+  margin-left: 4px;
+}
+
+@mixin moreLinkHoverSvg() {
+  background-image: url('https://cdn.byu.edu/shared-icons/latest/fontawesome/arrow-white.svg');
+  
 }
 
 @mixin moreItems() {
@@ -111,6 +116,10 @@
   padding-right: 12px !important;
 }
 
+@mixin moreItemsSlottedHover() {
+  color: #ffffff !important;
+}
+
 /* MOBILE */
 
 @mixin mobileOuterNav() {
@@ -125,13 +134,14 @@
 @mixin mobileMenuSlotted() {
   display: block !important;
   text-align: left !important;
-  padding: 18px 18px 18px 50px !important;
+  padding: 18px 18px 18px 25px !important;
   height: auto !important;
   width: 100%;
   max-width: 100%;
   position: static;
   box-sizing: border-box;
   line-height: 12px !important;
+  font-size: 12px !important;
 }
 
 @mixin mobileMenuMoreMenuSlotted() {
@@ -156,7 +166,7 @@
 @mixin mobileMenuMoreItemsSlotted() {
   display: block !important;
   text-align: left !important;
-  padding: 18px 50px !important;
+  padding: 18px 25px !important;
   height: auto !important;
   width: 100%;
   position: static;

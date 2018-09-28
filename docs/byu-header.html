@@ -28,7 +28,6 @@
     <script async src="lib/html-imports/html-imports.min.js"></script>
 
     <link rel="import" href="lib/iron-demo-helpers/demo-snippet.html">
-    <link type="text/css" rel="stylesheet" href="//cloud.typography.com/75214/6517752/css/fonts.css" media="all" />
     <style>
         html {
             height: 100%;
@@ -76,24 +75,12 @@
             </template>
         </demo-snippet>
 
-        <h2>Header with custom Home URL</h2>
-        <demo-snippet>
-            <template>
-                <byu-header mobile-max-width="1024px" home-url="http://web.byu.edu">
-                    <!-- If no URL is specified, home-url will default to byu.edu -->
-                    <span slot="site-title">Components Demo Site</span>
-                    <span slot="site-title" class="subtitle">Example Sub-Title</span>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
         <h2>Header with Links for Title</h2>
         <demo-snippet>
             <template>
                 <byu-header mobile-max-width="1024px" home-url="http://web.byu.edu">
                     <!-- If no URL is specified, home-url will default to byu.edu -->
                     <a slot="site-title" href="#">Components Demo Site</a>
-                    <a slot="site-title" href="#" class="subtitle">Example Sub-Title</a>
                 </byu-header>
             </template>
         </demo-snippet>
@@ -104,38 +91,6 @@
                 <byu-header mobile-max-width="1024px" home-url="http://web.byu.edu">
                     <!-- If no URL is specified, home-url will default to byu.edu -->
                     <span slot="site-title"><a href="#">Components Demo Site</a></span>
-                    <span slot="site-title" class="subtitle"><a href="#">Example Sub-Title</a></span>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
-
-        <h2>Header with sub-title</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
-                    <span slot="site-title">Components Demo Site</span>
-                    <span slot="site-title" class="subtitle">Example Sub-Title</span>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
-        <h2>Header with super-title</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
-                    <span slot="site-title" class="subtitle">Example Super-Title</span>
-                    <span slot="site-title">Components Demo Site</span>
-                </byu-header>
-            </template>
-        </demo-snippet>
-
-        <h2>Header with Italicized sub-title</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
-                    <span slot="site-title">Components Demo Site</span>
-                    <span slot="site-title" class="subtitle" style="font-style: italic">Italic Sub-Title</span>
                 </byu-header>
             </template>
         </demo-snippet>

@@ -1,45 +1,51 @@
 @import "byu-user-info-common";
 
 
-//byu-user-info:not(:defined) > * {
 byu-user-info:not(.byu-component-rendered) > * {
   text-decoration: none !important;
-  font-size: 13px!important;
   font-family: $headerContentFont !important;
   font-weight: $headerContentFontWeight!important;
   text-transform: uppercase!important;
-  color: white;
+  font-size: 11px!important;
+  color: #fff!important;
+  letter-spacing: .5px;
+}
+
+byu-user-info:not(.byu-component-rendered) [slot=logout] {
+  display: none;
 }
 
 byu-user-info:not(.byu-component-rendered) [slot=user-name] {
   color: #c3ddf9!important;
 }
 
-byu-user-info:not(.byu-component-rendered) [slot=user-name]:after {
-  height: 20px;
-  width: 20px;
-  background-size: contain;
+byu-user-info:not(.byu-component-rendered) [slot=login]:before {
   background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
-  margin: -7px 7px;
   content: "";
   display: inline-flex;
   position: relative;
-  top: 5px;
+  height: 14px;
+  width: 14px;
+  background-size: cover;
+  margin: 0 7px;
+  top: 2px;
 }
 
 /* NON MOBILE */
-//byu-user-info:not(:defined):not([mobile-view]) {
 byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
   @include userInfoNotMobile();
   order: 1;
+  margin: auto 13px;
+  position: relative;
+  top: -1px;
 
   & > * {
     text-decoration: none !important;
-    font-size: 13px!important;
+    font-size: 11px!important;
     font-family: $headerContentFont !important;
     font-weight: $headerContentFontWeight!important;
     text-transform: uppercase!important;
-    color: white;
+    color: #fff;
   }
 
   .mobile {
