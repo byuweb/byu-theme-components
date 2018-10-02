@@ -2,6 +2,7 @@
 
 .slot-wrapper ::slotted(*) {
   @include userInfoSlotted();
+  letter-spacing: 0.5px;
 }
 
 .has-user, .no-user {
@@ -15,11 +16,6 @@
 /* NON MOBILE */
 :host(:not([mobile-view])) {
   @include userInfoNotMobile();
-
-  // this was removed in master, leaving as a comment in case it is needed later
-  //::slotted(*) {
-  //  @include userInfoNotMobileSlotted();
-  //}
 
   .mobile {
     @include userInfoNotMobileDisplay();
@@ -59,12 +55,13 @@
   }
 
   .has-user {
-    /* img {
-      @include hasUserImage();
-    } */
 
     .logout {
       @include hasUserLogout();
+
+      ::slotted(*) {
+        color:#666666 !important;
+      }
     }
 
     .name  {

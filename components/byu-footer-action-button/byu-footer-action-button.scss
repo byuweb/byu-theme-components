@@ -3,7 +3,11 @@
 :host {
     @include footerActionButton();
 }
-
+@media (max-width: 1024px) {
+    :host {
+        @include mobileFooterActionButton();
+    }
+}
 // Use this to change how the button looks when active
 // :host(:active) {
 //     -webkit-box-shadow: none;

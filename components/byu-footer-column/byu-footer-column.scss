@@ -1,44 +1,55 @@
 @import "byu-footer-column-common";
 
 :host {
-    //@include footerColumn();
-    //flex-grow: 1;
-
+  //@include footerColumn();
+  //flex-grow: 1;
 }
 
 .header {
-    @include header();
+  @include header();
 }
 
 .header ::slotted(*) {
-    @include headerSlotted();
+  @include headerSlotted();
 }
 
 // This is a hack to deal with the old examples which had <br>s everywhere, which is unnecessary now.
 .header ::slotted(br) {
-    display: none;
+  display: none;
 }
 
 .content ::slotted(:not(byu-footer-action-button)) {
-    @include contentNotButton();
+  @include contentNotButton();
 }
 
 .content ::slotted(*) {
-    @include clearParagraphMargins();
+  @include clearParagraphMargins();
 }
 
 .content ::slotted(a) {
-    @include defaultContentLink();
+  @include defaultContentLink();
 }
 
 .content ::slotted(a:hover) {
-    @include defaultContentLinkHover();
+  @include defaultContentLinkHover();
 }
 
-.content a {
-    @include defaultContentLink();
+.content > a {
+  @include defaultContentLink();
 }
 
-.content a:hover {
-    @include defaultContentLinkHover();
+.content > a:hover {
+  @include defaultContentLinkHover();
+}
+
+@media (max-width: 1024px) {
+  .content {
+    ::slotted(:not(byu-footer-action-button)) {
+      @include mobileContentNotButton();
+    }
+    
+  } 
+  .header ::slotted(*) {
+    @include mobileHeaderSlotted();
+  }  
 }

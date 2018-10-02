@@ -3,26 +3,29 @@
 
 @mixin byuSearch() {
   //display: inline-block;
-  margin-left: 20px;
+  margin-left: 29px;
 }
 
 @mixin searchIcon() {
   width: 17px;
   height: 17px;
+  display: flex;
 }
 
 @mixin searchButton() {
-  background-color: $medgray;
-  border: 1px solid $medgray;
+  background-color: $lightgray;
+  border: 1px solid $lightgray;
   color: $white;
-  width: 30px;
-  height: 30px;
+  width: $searchWidth;
+  height: $searchHeight;
   display: flex;
+  justify-content: center;
   align-items: center;
   box-sizing: border-box;
   border-radius: 0;
   -moz-border-radius: 0;
   -webkit-border-radius: 0;
+  z-index: 1;
 }
 
 @mixin searchForm() {
@@ -57,15 +60,15 @@
 @mixin searchInput() {
   padding: 5px 10px;
   border: none;
-  height: 30px;
+  height: $searchHeight;
   // Fixes issues on Safari with type=search
   -webkit-appearance: none;
   border-radius: 0;
   margin: 0;
   // END: Safari fixes
   box-sizing: border-box;
-  font-family: "Gotham A", "Gotham B", Helvetica, sans-serif !important;
-  font-size: 13px !important;
+  font-family: 'HCo Ringside Narrow SSm', sans-serif !important;
+  font-size: 12px !important;
   font-weight: 500 !important;
   color: $navy !important;
   width: 100%;
@@ -81,7 +84,6 @@
   padding-left: $pageContentHorizontalPadding;
   width: 100%;
   height: 35px;
-  border-bottom: 1px solid $gray;
 }
 
 @mixin searchButtonMobile() {
@@ -93,4 +95,6 @@
 @mixin searchIconMobile() {
   width: 20px;
   height: 20px;
+  padding-bottom: 6.5px;
+  padding-top: 6.5px;
 }

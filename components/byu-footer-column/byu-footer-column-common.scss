@@ -16,37 +16,49 @@
     font-family: $footerColumnTitleFont !important;
     text-transform: uppercase !important;
     color: $navy !important;
-    font-size: 20px !important;
-    line-height: 20px !important;
+    font-size: 14px !important;
+    line-height: 17px !important;
     border-bottom: 1px solid $gray !important;
     padding-bottom: 3px !important;
-    font-weight: $footerContentFontWeight !important;
+    font-weight: $footerHeaderFontWeight !important;
     width: 100%;
     display: inline-block;
+    max-width: $footerColumnMaxWidth;
+}
+
+@mixin mobileHeaderSlotted() {
+    font-size: 12px !important;
 }
 
 @mixin contentNotButton() {
     font-family: $footerContentFont !important;
     font-size: $footerContentFontSize !important;
-    line-height: $footerContentFontSize !important;
+    line-height: $footerContentLineHeight !important;
     font-weight: $footerContentFontWeight !important;
     color: $footerContentColor !important;
     display: block;
-    padding: 11px 0;
+    max-width: $footerColumnMaxWidth;
+}
+
+@mixin mobileContentNotButton() {
+    font-size: $mobileFooterContentFontSize !important;
 }
 
 @mixin defaultContentLink() {
     text-decoration: none !important;
     outline: none !important;
-    color: $medgray !important;
+    color: $royal !important;
     font-size: $footerContentFontSize;
+    height: $footerLinkLineHeight;
+}
+
+@mixin mobileContentLink {
+    font-size: $mobileFooterContentFontSize;
+    height: $mobileFooterLinkLineHeight;
 }
 
 @mixin defaultContentLinkHover() {
-    cursor: pointer;
-    color: $royal !important;
-    font-size: $footerContentFontSize;
-    line-height: $footerContentFontSize;
+    color: $navy !important;
 }
 
 @mixin clearParagraphMargins() {

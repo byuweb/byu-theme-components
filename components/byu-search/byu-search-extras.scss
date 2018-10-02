@@ -4,24 +4,22 @@
 
 byu-search:not(.byu-component-rendered) {
   background: $white;
-  height: 32px;
   width: 216px;
-  margin-right: 30px;
-  margin-left: 16px;
   display: flex;
   justify-content: flex-end;
   order: 2;
+  margin: auto 16px;
+  height: 27px;
 }
 
-// should be 25px height to account for
-// added border from searchButton OR
-// add border to byu-search
 byu-search:not(.byu-component-rendered):after {
-  content: " "; // placeholder for search icon
   @include searchButton();
-  height: 32px;
-  width: 32px;
   float: right;
+  height: 27px;
+  width: 39px;
+  content: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/search-navy.svg);
+  padding: 5px 10.5px;
+  display: block;
 }
 
 // Helpers for styling search elements.

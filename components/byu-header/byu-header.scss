@@ -1,12 +1,16 @@
 @import "byu-header-common";
 
 /* GENERAL STYLING */
-.byu-header-actions {
+:host {
+  box-shadow: 0 0 10px rgba(0,0,0,.16);
+  display: block;
+}
 
+.byu-header-actions {
   @include actionsWrapper();
 
   ::slotted(*) {
-      @include actions();
+    @include actions();
   }
 }
 .byu-header-root {
@@ -32,13 +36,6 @@
 
       ::slotted(*) {
         @include titleSlotted();
-      }
-
-      ::slotted(.subtitle) {
-        @include headerSubTitle();
-      }
-      ::slotted(.subtitle:first-child) {
-        @include headerSuperTitle();
       }
     }
 
@@ -71,7 +68,8 @@
       }
     }
 
-    .byu-logo, .byu-logo-link {
+    .byu-logo,
+    .byu-logo-link {
       @include byuLogo();
     }
   }
@@ -120,13 +118,18 @@
 }
 
 :host([mobile-view]) {
-  .byu-header-root { // needed to give correct precedence in Firefox
+  .byu-header-root {
+    // needed to give correct precedence in Firefox
 
     .byu-header-content {
       @include mobileHeaderContent();
     }
     .byu-logo {
-      @include mobileLogoAlign();
+      @include mobileLogo();
+
+      &.byu-logo-image {
+        @include mobileLogoImage();
+      }
     }
     .byu-header-primary {
       @include mobileHeaderPrimary();
@@ -136,39 +139,22 @@
     .byu-header-actions {
       @include actionsMobile();
 
-      ::slotted(*) {
+      & ::slotted(*) {
         @include actionsMobileSlotted();
       }
-    }
-
-    #actions a {
-      @include mobileActionsLinks();
-    }
-
-    #actions p {
-      @include mobileActionsLinksP();
-    }
-
-    .byu-header-actions ::slotted(*) {
-      @include actionsMobileSlotted();
     }
 
     & > div > :not(.byu-logo) {
       @include headerInnerMarginMobile();
     }
-    .byu-header-title {
-      @include mobileSiteTitle();
 
-      ::slotted(*) {
-        @include mobileSiteTitleSlotted();
-      }
+    .byu-header-primary {
+      .byu-header-title {
+        @include mobileSiteTitle();
 
-      ::slotted(.subtitle) {
-        @include mobileSubTitle();
-      }
-
-      ::slotted(.subtitle:first-child) {
-        @include mobileSuperTitle();
+        ::slotted(*) {
+          @include mobileSiteTitleSlotted();
+        }
       }
     }
     button {
@@ -191,19 +177,10 @@
   @include searchTransformed();
 }
 
-
 /* FULL SIZE */
 :host(:not([mobile-view])) {
   .byu-header-root {
     @include headerNotMobile();
-
-    .byu-header-actions ::slotted(*) {
-      @include actionsNotMobile();
-    }
-
-    .byu-header-actions a {
-      @include actionsNotMobileLinks();
-    }
 
     &.no-nav {
       @include headerNotMobileNoNav();
@@ -211,6 +188,12 @@
     .nav-expand {
       @include headerNotMobileNavExpand();
     }
+
+    //only use hover styles for actions link if we're not in mobile view.
+    .byu-header-actions ::slotted(*:hover) {
+      @include actionsHover();
+    }
+
     .byu-header-secondary {
       @include headerSecondaryNotMobile();
 
