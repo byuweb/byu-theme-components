@@ -131,6 +131,45 @@
   text-transform: uppercase;
 }
 
+@mixin ie11Outdated() {
+  position: relative;
+  box-sizing: border-box;
+  background: #FCC014;
+  width: 1200px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 15px 60px;
+  transition: opacity ease-in-out 500ms, margin-top ease-in-out 200ms 300ms;
+}
+
+@mixin ie11OutdatedButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  width: 20px;
+  line-height: 20px;
+  font-size: 30px;
+  padding: 0;
+  font-weight: bold;
+  background: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+@mixin ie11OutdatedHidden() {
+  opacity: 0;
+  z-index: -1;
+}
+
+@mixin ie11OutdatedLabel() {
+  font-family: $headerContentFont;
+  font-weight: $headerContentFontWeight;
+  font-size: 22px;
+  text-align: center;
+  color: #000000;
+}
+
 @mixin searchInput() {
   font-family: $headerContentFont;
   font-weight: $headerContentFontWeight;

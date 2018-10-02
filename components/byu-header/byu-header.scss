@@ -83,9 +83,25 @@
   @include menuInnerWrapper();
 }
 
+.menu-ie11-outdated {
+  &.ie11-outdated-hidden {
+    @include ie11OutdatedHidden();
+  }
+  @include ie11Outdated();
+  .menu-ie11-outdated-label {
+    @include ie11OutdatedLabel();
+  }
+  .menu-ie11-outdated-button {
+    @include ie11OutdatedButton();
+  }
+}
+
 :host(.menu-transparent) {
   .menu-outer-wrapper {
     @include menuTransparent();
+  }
+  button {
+    @include ie11OutdatedButton();
   }
 }
 

@@ -45,6 +45,15 @@ class BYUHeader extends HTMLElement {
         }
     }
 
+    _canDoEs6() {
+        //Template strings are a good stand-in for class syntax detection
+        if (!String.raw) return false;
+
+        //And, we'll fall back to hacky IE detection, just in case.
+        var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+        return !isIE11;
+    }
+
     _checkIfMenuIsNeeded() {
         // check whether to show the mobile menu button
         let userSlot = this.shadowRoot.querySelector("#user");
@@ -118,7 +127,43 @@ class BYUHeader extends HTMLElement {
             .reduce((agg, each) => agg.concat(each), []);
     }
 
+    _showOutdatedBrowserMessage(show) {
+        const header = this;
+        let container = header.shadowRoot.querySelector('.menu-ie11-outdated');
+        if (!container && show) {
+            container = document.createElement('div');
+            container.className = 'menu-ie11-outdated ie11-outdated-hidden';
+            container.innerHTML = '<div class="menu-ie11-outdated-label">' +
+                '  You are using an out-dated browser. BYU support for this browser is ending. Please <a href="http://webcommunity.byu.edu/supported-browsers" target="_blank">download a new browser</a>.' +
+                '</div>';
+
+            const closeButton = document.createElement('button');
+            closeButton.innerHTML = '&times;'
+            closeButton.addEventListener('click', function() {
+                document.cookie = 'ie11outdated=true; max-age=3600'
+                header._showOutdatedBrowserMessage(false)
+            });
+            container.appendChild(closeButton);
+
+            header.shadowRoot.appendChild(container);
+            container.style.marginTop = '-' + container.offsetHeight + 'px';
+        }
+        if (container) {
+            const classes = container.className.split(/ +/);
+            const index = classes.indexOf('ie11-outdated-hidden');
+            if (!show && index === -1) {
+                container.style.marginTop = '-' + container.offsetHeight + 'px';
+                classes.push('ie11-outdated-hidden');
+            } else if (show && index !== -1) {
+                container.style.marginTop = '0';
+                classes.splice(index, 1);
+            }
+            container.className = classes.join(' ');
+        }
+    }
+
     connectedCallback() {
+
         //This is a hack to ensure that the right defaults get applied.
         this.mobileMaxWidth = this.mobileMaxWidth;
         this._applyMobileWidth();
@@ -134,6 +179,11 @@ class BYUHeader extends HTMLElement {
                     header.removeAttribute(ATTR_MENU_OPEN);
                 }
             });
+
+            // detect whether to show ie 11 outdated message
+            if (!header._canDoEs6() && document.cookie.replace(/(?:(?:^|.*;\s*)ie11outdated\s*=\s*([^;]*).*$)|^.*$/, "$1") !== "true") {
+                header._showOutdatedBrowserMessage(true);
+            }
         }, 0);
     }
 
