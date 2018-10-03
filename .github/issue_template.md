@@ -27,8 +27,7 @@ we can see the issue.*
 *Add an x in all the boxes that apply. Please mark desktop and mobile
 browsers separately.*
 
-**We support the last two versions of Chrome, Firefox, Safari, and Edge,
-plus Internet Explorer 11.**
+**We support the last two versions of Chrome, Firefox, Safari, and Edge.**
 
 ## Desktop Browsers
 
@@ -36,14 +35,11 @@ plus Internet Explorer 11.**
 - [ ] Mozilla Firefox
 - [ ] Apple Safari
 - [ ] Microsoft Edge
-- [ ] Microsoft Internet Explorer 11
 - [ ] Other (please specify)
 
 ## Mobile Browsers
 
-- [ ] Safari for iOS
-- [ ] Chrome for iOS
-- [ ] Firefox Mobile for Safari
+- [ ] Any browser on iOS
 - [ ] Chrome for Android
 - [ ] Firefox Mobile for Android
 - [ ] Other (please specify)
