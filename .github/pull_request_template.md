@@ -20,7 +20,6 @@ browsers separately.*
 - [ ] Mozilla Firefox
 - [ ] Apple Safari
 - [ ] Microsoft Edge
-- [ ] Microsoft Internet Explorer 11
 - [ ] Other (please specify)
 
 ## Mobile Browsers
@@ -30,8 +29,7 @@ browsers separately.*
 - [ ] Firefox Mobile for Android
 - [ ] Other (please specify)
 
-**We support the last two versions of Chrome, Firefox, Safari, and Edge,
-plus Internet Explorer 11.**
+**We support the last two versions of Chrome, Firefox, Safari, and Edge.**
 
 
 
