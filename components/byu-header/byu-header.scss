@@ -4,6 +4,12 @@
 :host {
   box-shadow: 0 0 10px rgba(0,0,0,.16);
   display: block;
+
+  .menu-ie11-outdated {
+    button {
+      @include ie11OutdatedButton();
+    }
+  }
 }
 
 .byu-header-actions {
@@ -99,9 +105,6 @@
 :host(.menu-transparent) {
   .menu-outer-wrapper {
     @include menuTransparent();
-  }
-  button {
-    @include ie11OutdatedButton();
   }
 }
 
