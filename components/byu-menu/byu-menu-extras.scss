@@ -59,3 +59,49 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(19),
 byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
   display: none;
 }
+
+
+/****** RESPONSIVE FOUC STYLING ******/
+
+@media (min-width: 1024px) {
+
+  byu-menu:not(.byu-component-rendered) {
+    order: 1;
+    border-radius: 1px;
+    height: 3px;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    margin: 15px 16px;
+    flex-direction: column;
+    box-shadow: unset;
+    grid-template-columns: unset;
+  }
+
+  byu-menu:not(.byu-component-rendered):before {
+    border-radius: 1px;
+    height: 3px;
+    background: #fff;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    content: " ";
+    margin: 6px 0;
+  }
+
+  byu-menu:not(.byu-component-rendered):after {
+    border-radius: 1px;
+    height: 3px;
+    background: #fff;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    content: " ";
+    margin: -3px 0;
+  }
+
+  byu-menu:not(.byu-component-rendered) > * {
+    display: none;
+  }
+
+}

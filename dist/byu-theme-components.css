@@ -226,7 +226,7 @@ byu-footer-column a:hover {
   width: 17px;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   padding: 0 !important; }
   .tcon > * {
@@ -374,7 +374,24 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   padding-bottom: 13.5px;
   padding: 0; }
 
-/* MOBILE */
+/****** RESPONSIVE FOUC STYLING ******/
+@media (min-width: 1024px) {
+  byu-header:not(.byu-component-rendered) {
+    height: 80px;
+    min-height: 80px;
+    max-height: 80px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16); }
+    byu-header:not(.byu-component-rendered) [slot="actions"] {
+      display: none; }
+  byu-header:not(.byu-component-rendered) > [slot="site-title"] {
+    font-size: 17.5px !important;
+    top: 0; }
+  byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
+    height: 13px;
+    width: 45px;
+    margin: 16px 8px 16px 0;
+    top: 0; } }
+
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* -- breakpoint settings ----- */
 /* --- header settings ------- */
@@ -476,42 +493,46 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(19),
 byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
   display: none; }
 
+/****** RESPONSIVE FOUC STYLING ******/
+@media (min-width: 1024px) {
+  byu-menu:not(.byu-component-rendered) {
+    order: 1;
+    border-radius: 1px;
+    height: 3px;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    margin: 15px 16px;
+    flex-direction: column;
+    box-shadow: unset;
+    grid-template-columns: unset; }
+  byu-menu:not(.byu-component-rendered):before {
+    border-radius: 1px;
+    height: 3px;
+    background: #fff;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    content: " ";
+    margin: 6px 0; }
+  byu-menu:not(.byu-component-rendered):after {
+    border-radius: 1px;
+    height: 3px;
+    background: #fff;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    content: " ";
+    margin: -3px 0; }
+  byu-menu:not(.byu-component-rendered) > * {
+    display: none; } }
+
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* -- breakpoint settings ----- */
 /* --- header settings ------- */
 /* --- search settings -------- */
 /* ---------  general text settings ----- */
 /* ------ footer settings ------------- */
-byu-search:not(.byu-component-rendered) {
-  background: #FFF;
-  width: 216px;
-  display: flex;
-  justify-content: flex-end;
-  order: 2;
-  margin: auto 16px;
-  height: 27px; }
-
-byu-search:not(.byu-component-rendered):after {
-  background-color: #EDEDED;
-  border: 1px solid #EDEDED;
-  color: #FFF;
-  width: 41px;
-  height: 27px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-sizing: border-box;
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  z-index: 1;
-  float: right;
-  height: 27px;
-  width: 39px;
-  content: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/search-navy.svg);
-  padding: 5px 10.5px;
-  display: block; }
-
 byu-search input.__byu-search-selected-input {
   padding: 5px 10px;
   border: none;
@@ -542,6 +563,49 @@ byu-search.mobile-view input.__byu-search-selected-input {
 
 byu-search input:not(.__byu-search-selected-input), byu-search button {
   display: none; }
+
+/****** FOUC STYLING ******/
+byu-search:not(.byu-component-rendered) {
+  background: #FFF;
+  width: 216px;
+  display: flex;
+  justify-content: flex-end;
+  order: 2;
+  margin: auto 16px;
+  height: 27px; }
+
+byu-search:not(.byu-component-rendered):after {
+  background-color: #EDEDED;
+  border: 1px solid #EDEDED;
+  color: #FFF;
+  width: 41px;
+  height: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  z-index: 1;
+  float: right;
+  height: 27px;
+  width: 39px;
+  content: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/search-navy.svg);
+  padding: 5px 10.5px;
+  display: block; }
+
+/****** RESPONSIVE FOUC STYLING ******/
+@media (min-width: 1024px) {
+  byu-search:not(.byu-component-rendered) {
+    width: 100%;
+    height: 34px;
+    margin: 0;
+    border-bottom: 1px solid #c5c5c5; }
+  byu-search:not(.byu-component-rendered):after {
+    height: 33px;
+    width: 53px;
+    padding: 6.5px 15.5px; } }
 
 byu-social-media-links:not(.byu-component-rendered) {
   display: flex;
@@ -642,7 +706,11 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
   byu-user-info:not(.byu-component-rendered):not([mobile-view]) img {
     margin: 7px; }
 
-/* MOBILE */
+/****** RESPONSIVE FOUC STYLING ******/
+@media (min-width: 1024px) {
+  byu-user-info:not(.byu-component-rendered) {
+    display: none; } }
+
 body {
   margin: 0; }
 
