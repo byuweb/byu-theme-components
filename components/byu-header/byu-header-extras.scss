@@ -61,7 +61,7 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
 
 /****** RESPONSIVE FOUC STYLING ******/
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
 
   byu-header:not(.byu-component-rendered) {
     height: 80px;

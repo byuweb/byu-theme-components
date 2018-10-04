@@ -63,7 +63,7 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
 
 /****** RESPONSIVE FOUC STYLING ******/
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
 
   byu-menu:not(.byu-component-rendered) {
     order: 1;

@@ -45,7 +45,7 @@ byu-search:not(.byu-component-rendered):after {
 
 /****** RESPONSIVE FOUC STYLING ******/
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
 
   byu-search:not(.byu-component-rendered) {
     width: 100%;

@@ -60,7 +60,7 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
 
 /****** RESPONSIVE FOUC STYLING ******/
 
-@media (min-width: 1024px) {
+@media (max-width: 1023px) {
 
   byu-user-info:not(.byu-component-rendered) {
     display: none;
