@@ -45,5 +45,5 @@ In addition, every component must be responsive, providing a first-class experie
 ## Favicon
 All BYU Websites are encouraged to use the official favicon. This is likely to be located on brand.byu.edu in the future, but it is available now in github: [https://github.com/byuweb/byu-assets/blob/master/favicon.png](https://github.com/byuweb/byu-assets/blob/master/favicon.png).
 
-### Using Github
+## Using Github
 There's plenty of documentation online about how to work with GitHub and the Git source control system, and there are excellent Git plugins available for most IDEs. If you've never worked with Github before, GitHub has provided some good documentation at [guides.github.com](http://guides.github.com). You can also join the [slack channel](http://byu-web.slack.com) and connect with other developers from the project.
