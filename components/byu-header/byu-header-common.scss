@@ -94,6 +94,7 @@
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
   flex: 1;
+  display: flex; /* Needed for IE 11 Compatibility since IE 11 doesn't support grid. We can remove this once we get rid of IE 11 support */
   display: grid;
   flex-direction: column;
   font-size: $siteTitleSize !important;
