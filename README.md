@@ -30,7 +30,7 @@ This repository is integrated with the BYU Web Content Delivery Network (cdn) at
 A new version of these components will be released monthly unless there are no new issues to address. These monthly releases will be either bug-fix releases or minor releases that introduce new features. In addition, if a major bug is discovered we may make an unscheduled release to address it. Releases will use [semver standards](http://semver.org/). Minor and bug-fix releases will maintain backwards compatibility, while major releases could potentially include breaking changes. If a major release is proposed and accepted we will ensure that the BYU web community is given ample time to prepare for any breaking changes and migrate their code accordingly. 
 
 ## How to contribute:
-This project is open to the community, and we welcome contributions. You can start by [forking this repo](https://help.github.com/articles/fork-a-repo/) and submitting a pull request, though we strongly recommend you also join the slack channel at [byu-web.slack.com](http://byu-web.slack.com) so you can be part of the discussion.
+This project is open to the community and we welcome contributions. You can start by [forking this repo](https://help.github.com/articles/fork-a-repo/) and submitting a pull request, though we strongly recommend you also join the slack channel at [byu-web.slack.com](http://byu-web.slack.com) so you can be part of the discussion.
 
 ### Our coding standards
 Our goal is to implement flexible, well-structured web components according to the latest brand guidelines. Every pull request must be peer-reviewed by one of the project administrators before it can be merged with the master branch. As of this writing we require that any components work properly in at least the 2 latest versions of the following browsers:
@@ -39,7 +39,6 @@ Our goal is to implement flexible, well-structured web components according to t
 * Firefox
 * Safari (Desktop and iOS versions)
 * Microsoft Edge
-* Internet Explorer 11
 
 In addition, every component must be responsive, providing a first-class experience to phone and tablet users.
 
@@ -47,4 +46,4 @@ In addition, every component must be responsive, providing a first-class experie
 All BYU Websites are encouraged to use the official favicon. This is likely to be located on brand.byu.edu in the future, but it is available now in github: [https://github.com/byuweb/byu-assets/blob/master/favicon.png](https://github.com/byuweb/byu-assets/blob/master/favicon.png).
 
 ### Using Github
-There's plenty of documentation online about how to work with Github and the Git source control system, and there are excellent Git plugins available for most IDEs. If you've never worked with Github before, github has provided some good documentation at [guides.github.com](http://guides.github.com). You can also join the [slack channel](http://byu-web.slack.com) and connect with other developers from the project.
+There's plenty of documentation online about how to work with GitHub and the Git source control system, and there are excellent Git plugins available for most IDEs. If you've never worked with Github before, GitHub has provided some good documentation at [guides.github.com](http://guides.github.com). You can also join the [slack channel](http://byu-web.slack.com) and connect with other developers from the project.
