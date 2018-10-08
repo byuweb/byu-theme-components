@@ -123,6 +123,7 @@
 
 @mixin mobileSubTitle() {
   font-size: $mobileSiteSubTitleSize !important;
+  line-height: $mobileSiteSubtitleLineHeight !important;
 }
 
 @mixin headerUserButton() {
