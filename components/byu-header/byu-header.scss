@@ -43,6 +43,10 @@
       ::slotted(*) {
         @include titleSlotted();
       }
+
+      ::slotted(.subtitle) {
+        @include headerSubTitle();
+      }
     }
 
     .byu-header-user {
@@ -157,6 +161,10 @@
 
         ::slotted(*) {
           @include mobileSiteTitleSlotted();
+        }
+
+        ::slotted(.subtitle) {
+          @include mobileSubTitle();  
         }
       }
     }
