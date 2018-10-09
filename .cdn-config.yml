@@ -1,12 +1,24 @@
 ---
-name: 2017 Theme Core Components
+name: Theme Header/Footer Components
 description: Header and Footer components for 2017 Theme
 resources:
   - src: dist/**
     dest: ./
-entrypoints:
-  byu-theme-components.js: 'Examines browser support and downloads the appropriate component bundle'
-  byu-theme-components.min.js: 'Minified - Examines browser support and downloads the appropriate component bundle'
-  byu-theme-components.css: 'Main CSS file'
-  byu-theme-components.min.css: 'Main CSS file'
 docs: https://github.com/byuweb/byu-theme-components
+type: 'web-component'
+preload:
+  byu-theme-components.min.css:
+  - lib: shared-icons
+    version: latest
+    file: logos/monogram-white.svg
+  - lib: theme-fonts
+    version: latest
+    file: ringside/fonts.css
+  byu-theme-components.min.js:
+  - ./components.min.js
+  - lib: shared-icons
+    version: latest
+    file: logos/monogram-white.svg
+  - lib: theme-fonts
+    version: latest
+    file: ringside/fonts.css
