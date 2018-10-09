@@ -60,7 +60,7 @@
 @mixin searchInput() {
   padding: 5px 10px;
   border: none;
-  height: $searchHeight;
+  height: $searchHeight!important;
   // Fixes issues on Safari with type=search
   -webkit-appearance: none;
   border-radius: 0;
