@@ -1,6 +1,8 @@
 
 @import "byu-footer-common";
 
+/****** FOUC STYLING ******/
+
 byu-footer:not(.byu-component-rendered) {
   background: $lightgray;
   min-height: 200px;
@@ -51,4 +53,77 @@ byu-footer:not(.byu-component-rendered) > *:nth-child(3) {
 byu-footer:not(.byu-component-rendered) > *:nth-child(4) {
   grid-row: 1/2;
   grid-column: 5/6;
+}
+
+
+/****** RESPONSIVE FOUC STYLING ******/
+
+@media (max-width: 1024px) {
+
+  byu-footer:not(.byu-component-rendered) {
+    display: grid;
+    grid-template-columns: 1fr repeat(2, 300px) 1fr;
+    grid-template-rows: 1fr 1fr 76px;
+  }
+
+  byu-footer:not(.byu-component-rendered):after {
+    grid-row: 3/4;
+    grid-column: 1/5;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(1) {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(2) {
+    grid-row: 1/2;
+    grid-column: 3/4;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(3) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(4) {
+    grid-row: 2/3;
+    grid-column: 3/4;
+  }
+
+}
+
+@media (max-width: 599px) {
+
+  byu-footer:not(.byu-component-rendered) {
+    display: grid;
+    grid-template-columns: 1fr 300px 1fr;
+    grid-template-rows: repeat(4, 1fr) 76px;
+  }
+
+  byu-footer:not(.byu-component-rendered):after {
+    grid-row: 5/6;
+    grid-column: 1/4;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(1) {
+    grid-row: 1/2;
+    grid-column: 2/3;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(2) {
+    grid-row: 2/3;
+    grid-column: 2/3;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(3) {
+    grid-row: 3/4;
+    grid-column: 2/3;
+  }
+
+  byu-footer:not(.byu-component-rendered) > *:nth-child(4) {
+    grid-row: 4/5;
+    grid-column: 2/3;
+  }
+
 }
