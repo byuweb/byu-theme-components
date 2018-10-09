@@ -3,6 +3,9 @@
 @import "../shared-styles/nav.scss";
 @import "icons/transformicons.scss";
 
+$action-text-color: #FFFFFF;
+$action-text-hover-color: #002E5D;
+
 /* GENERAL STYLING */
 @mixin headerRoot() {
   //background-color: $navy;
@@ -46,7 +49,7 @@
   font-weight: $headerContentFontWeight;
   font-size: 11px;
   padding: 0 24px;
-  color: #ffffff;
+  color: $action-text-color;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -56,8 +59,8 @@
 }
 
 @mixin actionsHover {
-  color: #002E5D;
-  background-color: white;
+  color: $action-text-hover-color;
+  background-color: #EDEDED;
 }
 
 @mixin headerButton(){

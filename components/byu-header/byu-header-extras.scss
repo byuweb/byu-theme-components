@@ -9,10 +9,10 @@ byu-header:not(.byu-component-rendered) {
   height: 90px;
   min-height: 90px;
   max-height: 90px;
-  color: $white!important;
+  color: $white !important;
   padding: 0;
   a {
-    color: $white!important;
+    color: $white !important;
   }
   [slot="actions"] {
     text-transform: uppercase;
@@ -66,6 +66,19 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   padding: 0;
 }
 
+byu-header > [slot="actions"] {
+  color: $action-text-color;
+  a {
+    color: $action-text-color;
+    text-decoration: none;
+  }
+  &:hover {
+    color: $action-text-hover-color;
+    a {
+      color: $action-text-hover-color;
+    }
+  }
+}
 
 //BYU-HEADER FULL-WIDTH ATTRIBUTE
 
@@ -96,7 +109,6 @@ byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(5) {
 byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(6) {
   grid-column: 6/7;
 }
-
 
 //CONSTRAINED-TOP-BAR ATTRIBUTE
 
@@ -137,8 +149,6 @@ byu-header[constrain-top-bar] byu-menu:not(.byu-component-rendered) {
   grid-row: 2/3;
 }
 
-
-
 /****** RESPONSIVE FOUC STYLING ******/
 
 @media (max-width: 1023px) {
@@ -147,7 +157,7 @@ byu-header[constrain-top-bar] byu-menu:not(.byu-component-rendered) {
     //height: 80px;
     //min-height: 80px;
     //max-height: 80px;
-    box-shadow: 0 0 10px rgba(0,0,0,.16);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .16);
     height: unset;
     min-height: unset;
     max-height: unset;
