@@ -9,7 +9,7 @@ $mobile_main_width: 100% - $mobile_sidebar_width;
 /* --- header settings ------- */
 $headerHeight: 58px;
 $mobileHeaderHeight: 45px;
-$siteNameFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
+$siteNameFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 
 $byuLogoHeight: 19px;
 $mobileByuLogoHeight: 13px;
@@ -24,7 +24,7 @@ $pageContentVerticalPadding: 0;
 $pageContentHorizontalPadding: 16px;
 $pageContentPadding: $pageContentVerticalPadding $pageContentHorizontalPadding;
 
-$headerContentFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
+$headerContentFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 $headerContentFontWeight: 400;
 
 /* --- search settings -------- */
@@ -35,7 +35,7 @@ $searchWidth: 41px;
 
 // menu settings
 $menuHeight: 35px;
-$menuFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
+$menuFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 $menuFontWeight: 400;
 $menuHover: $gray;
 $menuActive: $lightgray;
@@ -49,8 +49,8 @@ $menuActive: $lightgray;
 
 $footerBackground: $lightgray;
 $footerContentColor: $darkgray;
-$footerColumnTitleFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
-$footerContentFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
+$footerColumnTitleFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
+$footerContentFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 $footerHeaderFontWeight: 500;
 $footerContentFontWeight: 400;
 $footerContentFontSize: 14px;
@@ -59,7 +59,7 @@ $footerContentLineHeight: 16px;
 $mobileFooterContentFontSize: 12px;
 
 $footerButtonColor: $hoverBlue;
-$footerButtonFont: 'HCo Ringside Narrow SSm', Arial Narrow, Arial, sans-serif;
+$footerButtonFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 
 $footerColumnMaxWidth: 230px;
 $footerLinkLineHeight: 35px;
