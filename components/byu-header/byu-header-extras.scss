@@ -40,6 +40,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   padding-left: 16px;
   position: relative;
   top: -1px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 // BYU icon
