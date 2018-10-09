@@ -441,6 +441,16 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   padding-bottom: 13.5px;
   padding: 0; }
 
+byu-header > [slot="actions"] {
+  color: #FFFFFF; }
+  byu-header > [slot="actions"] a {
+    color: #FFFFFF;
+    text-decoration: none; }
+  byu-header > [slot="actions"]:hover {
+    color: #002E5D; }
+    byu-header > [slot="actions"]:hover a {
+      color: #002E5D; }
+
 byu-header[full-width] byu-menu:not(.byu-component-rendered) {
   grid-template-columns: repeat(6, 1fr); }
 
