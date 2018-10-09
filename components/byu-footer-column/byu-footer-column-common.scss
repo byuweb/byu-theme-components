@@ -38,6 +38,7 @@
     color: $footerContentColor !important;
     display: block;
     max-width: $footerColumnMaxWidth;
+    margin: 0;
 }
 
 @mixin mobileContentNotButton() {
@@ -59,8 +60,4 @@
 
 @mixin defaultContentLinkHover() {
     color: $navy !important;
-}
-
-@mixin clearParagraphMargins() {
-    margin: 0;
 }

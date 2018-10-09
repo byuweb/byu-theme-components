@@ -107,6 +107,8 @@
   font-size: $siteTitleSize !important;
   line-height: normal !important; 
   grid-row: 1;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 @mixin mobileSiteTitleSlotted() {
@@ -244,6 +246,7 @@ $menuTransition: max-height $menuTransitionTiming;
   display: block;
   margin: 0;
   padding: 0;
+  background-color: $white;
 }
 
 @mixin mobileHeaderPrimary() {
