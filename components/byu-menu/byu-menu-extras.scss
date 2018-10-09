@@ -60,36 +60,6 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
   display: none;
 }
 
-//FULL-WIDTH ATTRIBUTE
-
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(1) {
-  grid-column: 1/2;
-}
-
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(2) {
-  grid-column: 2/3;
-}
-
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(3) {
-  grid-column: 3/4;
-}
-
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(4) {
-  grid-column: 4/5;
-}
-
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(5) {
-  grid-column: 5/6;
-}
-
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(6) {
-  grid-column: 6/7;
-}
-
 
 
 /****** RESPONSIVE FOUC STYLING ******/

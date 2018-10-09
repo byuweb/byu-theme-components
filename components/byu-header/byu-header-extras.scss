@@ -1,6 +1,7 @@
 @import "byu-header-common";
 
-// FOUC Styling
+/****** FOUC STYLING ******/
+
 byu-header:not(.byu-component-rendered) {
   @include headerPrimary();
   flex-wrap: wrap;
@@ -41,7 +42,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   top: -1px;
 }
 
-// byu icon
+// BYU icon
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
   height: 19px;
@@ -57,6 +58,78 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   @include headerTitleText();
   padding: 0;
 }
+
+
+//BYU-HEADER FULL-WIDTH ATTRIBUTE
+
+byu-header([full-width]) byu-menu:not(.byu-component-rendered) {
+  grid-template-columns: repeat(6, 1fr);
+}
+
+byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(1) {
+  grid-column: 1/2;
+}
+
+byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(2) {
+  grid-column: 2/3;
+}
+
+byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(3) {
+  grid-column: 3/4;
+}
+
+byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(4) {
+  grid-column: 4/5;
+}
+
+byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(5) {
+  grid-column: 5/6;
+}
+
+byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(6) {
+  grid-column: 6/7;
+}
+
+
+//CONSTRAINED-TOP-BAR ATTRIBUTE
+
+byu-header([constrain-top-bar]):not(.byu-component-rendered) {
+  display: grid;
+  grid-template-columns: 1fr 645px 555px 1fr;
+  grid-template-rows: 58px 35px;
+  [slot="actions"] {
+    grid-column: 3/4;
+    grid-row: 1/2;
+    justify-self: flex-start;
+  }
+  [slot="actions"]:nth-of-type(2) {
+    margin-left: 103px;
+  }
+}
+
+byu-header([constrain-top-bar]):not(.byu-component-rendered) > [slot="site-title"] {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+byu-header([constrain-top-bar]):not(.byu-component-rendered) byu-search:not(.byu-component-rendered) {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  justify-self: flex-end;
+}
+
+byu-header([constrain-top-bar]):not(.byu-component-rendered) byu-user-info:not(.byu-component-rendered) {
+  grid-column: 3/4;
+  grid-row: 1/2;
+  justify-self: center;
+  margin-right: 50px;
+}
+
+byu-header([constrain-top-bar]):not(.byu-component-rendered) byu-menu:not(.byu-component-rendered) {
+  grid-column: 1/5;
+  grid-row: 2/3;
+}
+
 
 
 /****** RESPONSIVE FOUC STYLING ******/
