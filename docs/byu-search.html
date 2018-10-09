@@ -441,6 +441,18 @@
         );
     </script>
 
+    <h2><code>oninput</code> Event</h2>
+    <p>It is possible to be notified when the search input value has changed using the standard <code>input</code> event. This can be useful for external scripts such as AJAX suggestions.</p>
+
+    <demo-snippet>
+        <template>
+            <byu-header>
+                <byu-search slot="search">
+                    <input type="search" oninput="searchChanged()">
+                </byu-search>
+            </byu-header>
+        </template>
+    </demo-snippet>
 
 </div>
 <footer>

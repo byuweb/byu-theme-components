@@ -94,7 +94,8 @@
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
   flex: 1;
-  display: flex;
+  display: flex; /* Needed for IE 11 Compatibility since IE 11 doesn't support grid. We can remove this once we get rid of IE 11 support */
+  display: grid;
   flex-direction: column;
   font-size: $siteTitleSize !important;
   @include headerTitleText();
@@ -105,11 +106,24 @@
   font-weight: 400;
   font-size: $siteTitleSize !important;
   line-height: normal !important; 
+  grid-row: 1;
 }
 
 @mixin mobileSiteTitleSlotted() {
   font-size: $mobileSiteTitleSize !important;
   font-weight: 400;
+}
+
+@mixin headerSubTitle() {
+  font-size: $siteSubTitleSize !important;
+  line-height: $siteSubTitleSize !important;
+  font-style: italic;
+  grid-row: 2;
+}
+
+@mixin mobileSubTitle() {
+  font-size: $mobileSiteSubTitleSize !important;
+  line-height: $mobileSiteSubtitleLineHeight !important;
 }
 
 @mixin headerUserButton() {
