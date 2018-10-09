@@ -59,3 +59,87 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(19),
 byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
   display: none;
 }
+
+
+
+/****** RESPONSIVE FOUC STYLING ******/
+
+@media (max-width: 1023px) {
+
+  byu-menu:not(.byu-component-rendered) {
+    height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  byu-menu:not(.byu-component-rendered) > * {
+    width: 100%;
+    text-align: left !important;
+    padding: 0 20px !important;
+  }
+
+  byu-menu:not(.byu-component-rendered) > *:nth-child(7),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(8),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(9),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(10),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(11),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(12),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(13),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(14),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(15),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(16),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(17),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(18),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(19),
+  byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
+    display: block;
+  }
+
+}
+
+/*** HAMBURGER ICON VERSION
+
+@media (max-width: 1023px) {
+
+  byu-menu:not(.byu-component-rendered) {
+    order: 1;
+    border-radius: 1px;
+    height: 3px;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    margin: 15px 16px;
+    flex-direction: column;
+    box-shadow: unset;
+    grid-template-columns: unset;
+  }
+
+  byu-menu:not(.byu-component-rendered):before {
+    border-radius: 1px;
+    height: 3px;
+    background: #fff;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    content: " ";
+    margin: 6px 0;
+  }
+
+  byu-menu:not(.byu-component-rendered):after {
+    border-radius: 1px;
+    height: 3px;
+    background: #fff;
+    width: 24px;
+    flex: unset;
+    flex-basis: unset;
+    content: " ";
+    margin: -3px 0;
+  }
+
+  byu-menu:not(.byu-component-rendered) > * {
+    display: none;
+  }
+}
+
+***/

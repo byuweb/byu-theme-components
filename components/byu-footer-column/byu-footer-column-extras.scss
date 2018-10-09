@@ -1,6 +1,7 @@
 @import "byu-footer-column-common";
 
-//byu-footer-column:not(:defined) {
+/****** FOUC STYLING ******/
+
 byu-footer-column:not(.byu-component-rendered) {
     @include footerColumn();
     margin: 0 8px 40px;
@@ -59,4 +60,24 @@ byu-footer-column a:hover {
     byu-footer-column a {
         @include mobileContentLink();
     }
+}
+
+
+/****** RESPONSIVE FOUC STYLING ******/
+
+@media (max-width: 1024px) {
+
+    byu-footer-column:not(.byu-component-rendered) [slot="header"] {
+        font-size: 12px !important;
+    }
+
+    byu-footer-column:not(.byu-component-rendered) a {
+        font-size: 12px !important;
+        height: 25px;
+    }
+
+    byu-footer-column:not(.byu-component-rendered) p, byu-footer-column:not(.byu-component-rendered) div {
+        font-size: 12px !important;
+    }
+
 }

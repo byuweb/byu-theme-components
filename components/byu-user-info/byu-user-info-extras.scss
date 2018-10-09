@@ -57,29 +57,13 @@ byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
   }
 }
 
-/* MOBILE */
-//byu-user-info:not(:defined)[mobile-view] {
-//  @include userInfoMobile();
-//
-//  .not-mobile {
-//    @include userInfoMobileDisplay();
-//  }
-//
-//  .has-user {
-//
-//    .name {
-//      @include hasUserName();
-//    }
-//
-//    img {
-//      @include hasUserImage();
-//    }
-//
-//    .logout {
-//      @include hasUserLogout();
-//    }
-//  }
-//
-//  & > * {
-//    @include mobileSlotted();
-//  }
+
+/****** RESPONSIVE FOUC STYLING ******/
+
+@media (max-width: 1023px) {
+
+  byu-user-info:not(.byu-component-rendered) {
+    display: none;
+  }
+
+}

@@ -1623,7 +1623,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             "sass-loader": "^6.0.6"
         },
         "devDependencies": {
-            "browser-sync": "^2.24.7",
+            "browser-sync": "^2.26.0",
             "byu-web-component-build": "^0.2.3",
             "git-revision-webpack-plugin": "^2.5.1",
             "gulp": "^3.9.1",
