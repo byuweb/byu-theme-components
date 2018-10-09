@@ -363,8 +363,8 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
   color: #FFF !important;
   text-decoration: none;
-  padding-top: 13.5px;
-  padding-bottom: 13.5px;
+  padding-top: 13px;
+  padding-bottom: 13px;
   padding: 0; }
 
 byu-header [slot="actions"] {
@@ -427,8 +427,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
   color: #FFF !important;
   text-decoration: none;
-  padding-top: 13.5px;
-  padding-bottom: 13.5px;
+  padding-top: 13px;
+  padding-bottom: 13px;
   flex-direction: row;
   align-items: center;
   font-weight: 400;
