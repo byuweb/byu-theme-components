@@ -42,6 +42,11 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   top: -1px;
   margin-top: 0;
   margin-bottom: 0;
+  display: flex;
+}
+
+byu-header:not(.byu-component-rendered) > [slot="site-title"].subtitle {
+  display: none;
 }
 
 // BYU icon
