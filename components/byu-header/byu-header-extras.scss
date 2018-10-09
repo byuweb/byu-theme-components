@@ -1,5 +1,25 @@
 @import "byu-header-common";
 
+/****** Slot Style Patching ******/
+byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
+  @include headerTitleText();
+  padding: 0;
+}
+
+byu-header > [slot="actions"] {
+  color: $action-text-color;
+  a {
+    color: $action-text-color;
+    text-decoration: none;
+  }
+  &:hover {
+    color: $action-text-hover-color;
+    a {
+      color: $action-text-hover-color;
+    }
+  }
+}
+
 /****** FOUC STYLING ******/
 
 byu-header:not(.byu-component-rendered) {
@@ -58,26 +78,6 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   margin-right: 8px;
   position: relative;
   top: 1px;
-}
-
-// Overriding styling
-byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
-  @include headerTitleText();
-  padding: 0;
-}
-
-byu-header > [slot="actions"] {
-  color: $action-text-color;
-  a {
-    color: $action-text-color;
-    text-decoration: none;
-  }
-  &:hover {
-    color: $action-text-hover-color;
-    a {
-      color: $action-text-hover-color;
-    }
-  }
 }
 
 //BYU-HEADER FULL-WIDTH ATTRIBUTE
