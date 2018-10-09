@@ -23,8 +23,8 @@ $action-text-hover-color: #002E5D;
 
 @mixin headerLogoMargin() {
   margin-right: 8px;
-  padding-top:19.5px;
-  padding-bottom: 19.5px;
+  padding-top: 18px;
+  padding-bottom: 19px;
 }
 
 @mixin headerDefaultFont(){
@@ -88,8 +88,8 @@ $action-text-hover-color: #002E5D;
   font-family: $siteNameFont !important;
   color: $white !important;
   text-decoration: none;
-  padding-top: 13.5px;
-  padding-bottom: 13.5px;
+  padding-top: 13px;
+  padding-bottom: 13px;
 }
 
 @mixin headerTitles() {
