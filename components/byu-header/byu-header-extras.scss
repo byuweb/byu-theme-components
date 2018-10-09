@@ -163,4 +163,8 @@ byu-header[constrain-top-bar] byu-menu:not(.byu-component-rendered) {
     top: 0;
   }
 
+  byu-header[constrain-top-bar]:not(.byu-component-rendered) {
+    display: block;
+  }
+
 }
