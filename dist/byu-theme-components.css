@@ -444,13 +444,11 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"].subtitle {
   display: none; }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
-  content: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
+  background-image: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
   height: 19px;
   width: 66px;
-  margin: 19.5px 0;
-  margin-right: 8px;
-  position: relative;
-  top: 1px; }
+  margin: 19.5px 8px 19.5px 0;
+  content: ' '; }
 
 byu-header[full-width] byu-menu:not(.byu-component-rendered) {
   grid-template-columns: repeat(6, 1fr); }
