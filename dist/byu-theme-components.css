@@ -115,7 +115,7 @@ byu-footer-action-button:not(.byu-component-rendered) {
   padding: 10px 0;
   width: auto;
   min-width: 125px;
-  margin: 10px 0 20px 0;
+  margin: 20px 0;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35);
   -moz-box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35);
   box-shadow: 0px 3px 5px 0px rgba(20, 20, 20, 0.35);
@@ -172,7 +172,8 @@ byu-footer-column:not(.byu-component-rendered) {
     font-weight: 400 !important;
     color: #141414 !important;
     display: block;
-    max-width: 230px; }
+    max-width: 230px;
+    margin: 0; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a {
     text-decoration: none !important;
     outline: none !important;
@@ -205,6 +206,7 @@ byu-footer-column:not(.byu-component-rendered) a {
   color: #141414 !important;
   display: block;
   max-width: 230px;
+  margin: 0;
   text-decoration: none !important;
   outline: none !important;
   color: #0057B8 !important;
@@ -221,7 +223,8 @@ byu-footer-column:not(.byu-component-rendered) p, byu-footer-column:not(.byu-com
   font-weight: 400 !important;
   color: #141414 !important;
   display: block;
-  max-width: 230px; }
+  max-width: 230px;
+  margin: 0; }
 
 byu-footer-column a {
   font-family: "HCo Ringside Narrow SSm", Arial Narrow, Arial, sans-serif !important;
@@ -231,6 +234,7 @@ byu-footer-column a {
   color: #141414 !important;
   display: block;
   max-width: 230px;
+  margin: 0;
   text-decoration: none !important;
   outline: none !important;
   color: #0057B8 !important;
