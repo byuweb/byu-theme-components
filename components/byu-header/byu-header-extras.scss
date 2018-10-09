@@ -62,38 +62,38 @@ byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
 
 //BYU-HEADER FULL-WIDTH ATTRIBUTE
 
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) {
+byu-header[full-width] byu-menu:not(.byu-component-rendered) {
   grid-template-columns: repeat(6, 1fr);
 }
 
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(1) {
+byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(1) {
   grid-column: 1/2;
 }
 
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(2) {
+byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(2) {
   grid-column: 2/3;
 }
 
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(3) {
+byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(3) {
   grid-column: 3/4;
 }
 
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(4) {
+byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(4) {
   grid-column: 4/5;
 }
 
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(5) {
+byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(5) {
   grid-column: 5/6;
 }
 
-byu-header([full-width]) byu-menu:not(.byu-component-rendered) > *:nth-child(6) {
+byu-header[full-width] byu-menu:not(.byu-component-rendered) > *:nth-child(6) {
   grid-column: 6/7;
 }
 
 
 //CONSTRAINED-TOP-BAR ATTRIBUTE
 
-byu-header([constrain-top-bar]):not(.byu-component-rendered) {
+byu-header[constrain-top-bar]:not(.byu-component-rendered) {
   display: grid;
   grid-template-columns: 1fr 645px 555px 1fr;
   grid-template-rows: 58px 35px;
@@ -107,25 +107,25 @@ byu-header([constrain-top-bar]):not(.byu-component-rendered) {
   }
 }
 
-byu-header([constrain-top-bar]):not(.byu-component-rendered) > [slot="site-title"] {
+byu-header[constrain-top-bar]:not(.byu-component-rendered) > [slot="site-title"] {
   grid-column: 2/3;
   grid-row: 1/2;
 }
 
-byu-header([constrain-top-bar]):not(.byu-component-rendered) byu-search:not(.byu-component-rendered) {
+byu-header[constrain-top-bar] byu-search:not(.byu-component-rendered) {
   grid-column: 3/4;
   grid-row: 1/2;
   justify-self: flex-end;
 }
 
-byu-header([constrain-top-bar]):not(.byu-component-rendered) byu-user-info:not(.byu-component-rendered) {
+byu-header[constrain-top-bar] byu-user-info:not(.byu-component-rendered) {
   grid-column: 3/4;
   grid-row: 1/2;
   justify-self: center;
   margin-right: 50px;
 }
 
-byu-header([constrain-top-bar]):not(.byu-component-rendered) byu-menu:not(.byu-component-rendered) {
+byu-header[constrain-top-bar] byu-menu:not(.byu-component-rendered) {
   grid-column: 1/5;
   grid-row: 2/3;
 }
@@ -137,10 +137,14 @@ byu-header([constrain-top-bar]):not(.byu-component-rendered) byu-menu:not(.byu-c
 @media (max-width: 1023px) {
 
   byu-header:not(.byu-component-rendered) {
-    height: 80px;
-    min-height: 80px;
-    max-height: 80px;
+    //height: 80px;
+    //min-height: 80px;
+    //max-height: 80px;
     box-shadow: 0 0 10px rgba(0,0,0,.16);
+    height: unset;
+    min-height: unset;
+    max-height: unset;
+    display: block;
     [slot="actions"] {
       display: none;
     }
