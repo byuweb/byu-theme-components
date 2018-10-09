@@ -414,7 +414,11 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   position: relative;
   top: -1px;
   margin-top: 0;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  display: flex; }
+
+byu-header:not(.byu-component-rendered) > [slot="site-title"].subtitle {
+  display: none; }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
