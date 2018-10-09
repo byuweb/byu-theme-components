@@ -706,7 +706,7 @@ byu-menu:not(.byu-component-rendered) > *:nth-child(20) {
 byu-search input.__byu-search-selected-input {
   padding: 5px 10px;
   border: none;
-  height: 27px;
+  height: 27px !important;
   -webkit-appearance: none;
   border-radius: 0;
   margin: 0;
