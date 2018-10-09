@@ -280,7 +280,7 @@ byu-footer-column a:hover {
   width: 17px;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   padding: 0 !important; }
   .tcon > * {
@@ -412,7 +412,9 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"] {
   padding: 0;
   padding-left: 16px;
   position: relative;
-  top: -1px; }
+  top: -1px;
+  margin-top: 0;
+  margin-bottom: 0; }
 
 byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   content: url(https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg);
