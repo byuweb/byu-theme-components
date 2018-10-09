@@ -23,7 +23,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Every Feature Demo</title>
 
-    <script src="docs/load-components.js"></script>
+    <link rel="stylesheet" href="./dist/byu-theme-components.min.css">
+    <script async src="./dist/byu-theme-components.min.js"></script>
+    <!--<script src="docs/load-components.js"></script>-->
     <script>
         (function () {
             window.addEventListener('load', function () {
@@ -133,8 +135,7 @@
 <body>
 <byu-header mobile-max-width="900px" home-url="http://web.byu.edu" max-width="900px">
     <span slot="site-title"><a href="#">Brand Component Demos with a long title that will wrap.</a></span>
-    <span slot="site-sub-title">Sub-Title</span>
-    <!--<span slot="site-title" class="subtitle">Every Single Feature</span>-->
+    <span slot="site-title" class="subtitle">Every Single Feature</span>
 
     <a href="#action-1" slot="actions">Action</a>
     <span slot="actions"><a href="#action-2">Nested</a></span>
