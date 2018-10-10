@@ -268,8 +268,7 @@ $menuTransition: max-height $menuTransitionTiming;
 }
 
 @mixin mobileLogoImage() {
-  padding-top: 16px;
-  padding-bottom: 16px;
+  margin: 16px 8px 19px 0;
 }
 
 @mixin actionsMobile() {
