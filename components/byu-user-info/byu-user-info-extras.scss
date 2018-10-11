@@ -1,69 +1,68 @@
 @import "byu-user-info-common";
 
+byu-user-info:not(.byu-component-rendered) {
+  &.byu-user-info__has_user {
 
-byu-user-info:not(.byu-component-rendered) > * {
-  text-decoration: none !important;
-  font-family: $headerContentFont !important;
-  font-weight: $headerContentFontWeight!important;
-  text-transform: uppercase!important;
-  font-size: 11px!important;
-  color: #fff!important;
-  letter-spacing: .5px;
-}
-
-byu-user-info:not(.byu-component-rendered) [slot=logout] {
-  display: none;
-}
-
-byu-user-info:not(.byu-component-rendered) [slot=user-name] {
-  color: #c3ddf9!important;
-}
-
-byu-user-info:not(.byu-component-rendered) [slot=login]:before {
-  background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
-  content: "";
-  display: inline-flex;
-  position: relative;
-  height: 14px;
-  width: 14px;
-  background-size: cover;
-  margin: 0 7px;
-  top: 2px;
-}
-
-/* NON MOBILE */
-byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
-  @include userInfoNotMobile();
-  order: 1;
-  margin: auto 13px;
-  position: relative;
-  top: -1px;
-
-  & > * {
+  }
+  > * {
     text-decoration: none !important;
-    font-size: 11px!important;
     font-family: $headerContentFont !important;
-    font-weight: $headerContentFontWeight!important;
-    text-transform: uppercase!important;
-    color: #fff;
+    font-weight: $headerContentFontWeight !important;
+    text-transform: uppercase !important;
+    font-size: 11px !important;
+    color: #fff !important;
+    letter-spacing: .5px;
   }
 
-  .mobile {
-    @include userInfoNotMobileDisplay();
-  }
-
-  img {
-    @include userInfoNotMobileImages();
-  }
-}
-
-
-/****** RESPONSIVE FOUC STYLING ******/
-
-@media (max-width: 1023px) {
-
-  byu-user-info:not(.byu-component-rendered) {
+  [slot=logout] {
     display: none;
   }
 
+  [slot=user-name] {
+    color: #c3ddf9 !important;
+  }
+
+  [slot=login]:before {
+    background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
+    content: "";
+    display: inline-flex;
+    position: relative;
+    height: 14px;
+    width: 14px;
+    background-size: cover;
+    margin: 0 7px;
+    top: 2px;
+  }
+
+  /* NON MOBILE */
+  &:not([mobile-view]) {
+    @include userInfoNotMobile();
+    order: 1;
+    margin: auto 13px;
+    position: relative;
+    top: -1px;
+
+    & > * {
+      text-decoration: none !important;
+      font-size: 11px !important;
+      font-family: $headerContentFont !important;
+      font-weight: $headerContentFontWeight !important;
+      text-transform: uppercase !important;
+      color: #fff;
+    }
+
+    .mobile {
+      @include userInfoNotMobileDisplay();
+    }
+
+    img {
+      @include userInfoNotMobileImages();
+    }
+  }
+
+  /****** RESPONSIVE FOUC STYLING ******/
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
 }
