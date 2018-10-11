@@ -1,8 +1,35 @@
 @import "byu-user-info-common";
 
 byu-user-info:not(.byu-component-rendered) {
-  &.byu-user-info__has_user {
+  &.byu-user-info_has_user {
+    display: flex;
+    align-items: center;
 
+    [slot=logout] {
+      display: unset;
+      order: 2;
+    }
+
+    [slot=login] {
+      display: none;
+    }
+
+    [slot=logout]:before {
+      background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
+      content: "";
+      display: inline-flex;
+      position: relative;
+      height: 14px;
+      width: 14px;
+      background-size: cover;
+      margin: 0 7px;
+      top: 2px;
+    }
+
+    [slot=user-name] {
+      order: 0;
+      margin-top: 3px;
+    }
   }
   > * {
     text-decoration: none !important;
