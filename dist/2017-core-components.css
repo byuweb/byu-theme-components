@@ -863,7 +863,7 @@ byu-user-info:not(.byu-component-rendered) {
       top: 2px; }
     byu-user-info:not(.byu-component-rendered).byu-user-info_has_user [slot=user-name] {
       order: 0;
-      margin-top: 3px; }
+      margin-top: 4px; }
   byu-user-info:not(.byu-component-rendered) > * {
     text-decoration: none !important;
     font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
