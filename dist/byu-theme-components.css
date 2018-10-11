@@ -727,7 +727,7 @@ byu-search input.__byu-search-selected-input {
 byu-search.mobile-view input.__byu-search-selected-input {
   padding-left: 16px;
   width: 100%;
-  height: 35px; }
+  height: 35px !important; }
 
 byu-search input:not(.__byu-search-selected-input), byu-search button {
   display: none; }
