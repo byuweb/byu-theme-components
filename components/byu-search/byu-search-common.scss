@@ -60,6 +60,7 @@
 @mixin searchInput() {
   padding: 5px 10px;
   border: none;
+  // !important needed to override bad CMS styling: #388
   height: $searchHeight!important;
   // Fixes issues on Safari with type=search
   -webkit-appearance: none;
@@ -83,7 +84,8 @@
 @mixin searchInputMobile() {
   padding-left: $pageContentHorizontalPadding;
   width: 100%;
-  height: 35px;
+  // !important needed to override bad CMS styling: #388
+  height: 35px!important;
 }
 
 @mixin searchButtonMobile() {
