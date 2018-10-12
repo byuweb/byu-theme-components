@@ -1481,7 +1481,7 @@ window.ByuUserInfo = ByuUserInfo;
 
 module.exports = {
 	"name": "byuweb-components",
-	"version": "1.3.2",
+	"version": "1.3.3",
 	"description": "Components to be used for byu web pages and applications.",
 	"main": "",
 	"scripts": {
