@@ -2,7 +2,7 @@
 
 /* GENERAL STYLING */
 :host {
-  box-shadow: 0 0 10px rgba(0,0,0,.16);
+  box-shadow: 0 0 10px rgba(0, 0, 0, .16);
   display: block;
 
   .menu-ie11-outdated {
@@ -19,6 +19,7 @@
     @include actions();
   }
 }
+
 .byu-header-root {
   @include headerRoot();
   @include headerDefaultFont();
@@ -146,7 +147,7 @@
     .byu-header-actions {
       @include actionsMobile();
 
-      & ::slotted(*) {
+      ::slotted(*) {
         @include actionsMobileSlotted();
       }
     }
@@ -164,7 +165,7 @@
         }
 
         ::slotted(.subtitle) {
-          @include mobileSubTitle();  
+          @include mobileSubTitle();
         }
       }
     }
