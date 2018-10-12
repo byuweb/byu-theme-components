@@ -31,6 +31,10 @@
     max-width: $footerColumnHeaderMaxWidth;
 }
 
+@mixin allContent() {
+    max-width: 100%;
+}
+
 @mixin contentNotButton() {
     font-family: $footerContentFont !important;
     font-size: $footerContentFontSize !important;
