@@ -277,14 +277,10 @@ $menuTransition: max-height $menuTransitionTiming;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  //align-items: flex-start;
 }
 
 @mixin actionsMobileSlotted() {
-  margin-top: 8px;
-  margin-right: 0;
-  margin-left: 25px;
-  margin-bottom: 28px;
+  margin: 25px 0 45px 25px;
   min-width: 55px;
 }
 
