@@ -448,7 +448,8 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   height: 19px;
   width: 66px;
   margin: 19.5px 8px 19.5px 0;
-  content: ' '; }
+  content: ' ';
+  background-repeat: no-repeat; }
 
 byu-header[full-width] byu-menu:not(.byu-component-rendered) {
   grid-template-columns: repeat(6, 1fr); }
@@ -839,55 +840,72 @@ byu-social-media-links:not(.byu-component-rendered) {
   margin: 0 !important;
   padding: 0 14px 0 0 !important;
 } */
-byu-user-info:not(.byu-component-rendered) > * {
-  text-decoration: none !important;
-  font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
-  font-weight: 400 !important;
-  text-transform: uppercase !important;
-  font-size: 11px !important;
-  color: #fff !important;
-  letter-spacing: .5px; }
-
-byu-user-info:not(.byu-component-rendered) [slot=logout] {
-  display: none; }
-
-byu-user-info:not(.byu-component-rendered) [slot=user-name] {
-  color: #c3ddf9 !important; }
-
-byu-user-info:not(.byu-component-rendered) [slot=login]:before {
-  background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
-  content: "";
-  display: inline-flex;
-  position: relative;
-  height: 14px;
-  width: 14px;
-  background-size: cover;
-  margin: 0 7px;
-  top: 2px; }
-
-/* NON MOBILE */
-byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
-  color: #D8D8D8;
-  order: 1;
-  margin: auto 13px;
-  position: relative;
-  top: -1px; }
-  byu-user-info:not(.byu-component-rendered):not([mobile-view]) > * {
+byu-user-info:not(.byu-component-rendered) {
+  /* NON MOBILE */
+  /****** RESPONSIVE FOUC STYLING ******/ }
+  byu-user-info:not(.byu-component-rendered).byu-user-info_has_user {
+    display: flex;
+    align-items: center; }
+    byu-user-info:not(.byu-component-rendered).byu-user-info_has_user [slot=logout] {
+      display: unset;
+      order: 2; }
+    byu-user-info:not(.byu-component-rendered).byu-user-info_has_user [slot=login] {
+      display: none; }
+    byu-user-info:not(.byu-component-rendered).byu-user-info_has_user [slot=logout]:before {
+      background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
+      content: "";
+      display: inline-flex;
+      position: relative;
+      height: 14px;
+      width: 14px;
+      background-size: cover;
+      margin: 0 7px;
+      top: 2px; }
+    byu-user-info:not(.byu-component-rendered).byu-user-info_has_user [slot=user-name] {
+      order: 0;
+      margin-top: 4px; }
+  byu-user-info:not(.byu-component-rendered) > * {
     text-decoration: none !important;
-    font-size: 11px !important;
     font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
     font-weight: 400 !important;
     text-transform: uppercase !important;
-    color: #fff; }
-  byu-user-info:not(.byu-component-rendered):not([mobile-view]) .mobile {
+    font-size: 11px !important;
+    color: #fff !important;
+    letter-spacing: .5px; }
+  byu-user-info:not(.byu-component-rendered) [slot=logout] {
     display: none; }
-  byu-user-info:not(.byu-component-rendered):not([mobile-view]) img {
-    margin: 7px; }
-
-/****** RESPONSIVE FOUC STYLING ******/
-@media (max-width: 1023px) {
-  byu-user-info:not(.byu-component-rendered) {
-    display: none; } }
+  byu-user-info:not(.byu-component-rendered) [slot=user-name] {
+    color: #c3ddf9 !important; }
+  byu-user-info:not(.byu-component-rendered) [slot=login]:before {
+    background-image: url(https://cdn.byu.edu/shared-icons/latest/fontawesome/user-circle-o-white.svg);
+    content: "";
+    display: inline-flex;
+    position: relative;
+    height: 14px;
+    width: 14px;
+    background-size: cover;
+    margin: 0 7px;
+    top: 2px; }
+  byu-user-info:not(.byu-component-rendered):not([mobile-view]) {
+    color: #D8D8D8;
+    order: 1;
+    margin: auto 13px;
+    position: relative;
+    top: -1px; }
+    byu-user-info:not(.byu-component-rendered):not([mobile-view]) > * {
+      text-decoration: none !important;
+      font-size: 11px !important;
+      font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
+      font-weight: 400 !important;
+      text-transform: uppercase !important;
+      color: #fff; }
+    byu-user-info:not(.byu-component-rendered):not([mobile-view]) .mobile {
+      display: none; }
+    byu-user-info:not(.byu-component-rendered):not([mobile-view]) img {
+      margin: 7px; }
+  @media (max-width: 1023px) {
+    byu-user-info:not(.byu-component-rendered) {
+      display: none; } }
 
 body {
   margin: 0; }

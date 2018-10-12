@@ -76,6 +76,7 @@ byu-header:not(.byu-component-rendered) > [slot="site-title"]:before {
   width: 66px;
   margin: 19.5px 8px 19.5px 0;
   content: ' ';
+  background-repeat: no-repeat;
 }
 
 //BYU-HEADER FULL-WIDTH ATTRIBUTE
