@@ -18,6 +18,10 @@
   display: none;
 }
 
+.content ::slotted(*) {
+  @include allContent();
+}
+
 .content ::slotted(:not(byu-footer-action-button)) {
   @include contentNotButton();
 }
