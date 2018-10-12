@@ -23,11 +23,12 @@
     font-weight: $footerHeaderFontWeight !important;
     width: 100%;
     display: inline-block;
-    max-width: $footerColumnMaxWidth;
+    max-width: $footerColumnHeaderMaxWidth;
 }
 
 @mixin mobileHeaderSlotted() {
     font-size: 12px !important;
+    max-width: $footerColumnHeaderMaxWidth;
 }
 
 @mixin contentNotButton() {
@@ -37,7 +38,6 @@
     font-weight: $footerContentFontWeight !important;
     color: $footerContentColor !important;
     display: block;
-    max-width: $footerColumnMaxWidth;
     margin: 0;
 }
 
