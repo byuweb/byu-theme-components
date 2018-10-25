@@ -4,6 +4,7 @@
 :host {
   box-shadow: 0 0 10px rgba(0, 0, 0, .16);
   display: block;
+  z-index: 1000;
 
   .menu-ie11-outdated {
     button {
