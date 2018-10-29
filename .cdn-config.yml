@@ -12,7 +12,7 @@ preload:
     version: latest
     file: logos/monogram-white.svg
   - lib: theme-fonts
-    version: latest
+    version: 1.x.x
     file: ringside/fonts.css
   byu-theme-components.min.js:
   - ./components.min.js
