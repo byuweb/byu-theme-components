@@ -1604,34 +1604,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* 11 */
 /***/function (module, exports) {
 
-    module.exports = {
-        "name": "byuweb-components",
-        "version": "1.3.4",
-        "description": "Components to be used for byu web pages and applications.",
-        "main": "",
-        "scripts": {
-            "build": "gulp build",
-            "serve": "gulp watch",
-            "test": "echo \"Error: no test specified\" && exit 1"
-        },
-        "private": true,
-        "author": "",
-        "license": "Apache-2.0",
-        "dependencies": {
-            "byu-web-component-utils": "^0.4.2",
-            "deep-equal": "^1.0.1",
-            "sass-loader": "^6.0.6"
-        },
-        "devDependencies": {
-            "browser-sync": "^2.26.0",
-            "byu-web-component-build": "^0.2.3",
-            "git-revision-webpack-plugin": "^2.5.1",
-            "gulp": "^3.9.1",
-            "gulp-rename": "^1.2.2"
-        }
-    };
+    module.exports = { "name": "byuweb-components", "version": "1.3.4", "description": "Components to be used for byu web pages and applications.", "main": "", "scripts": { "build": "gulp build", "serve": "gulp watch", "test": "echo \"Error: no test specified\" && exit 1" }, "private": true, "author": "", "license": "Apache-2.0", "dependencies": { "byu-web-component-utils": "^0.4.2", "deep-equal": "^1.0.1", "sass-loader": "^6.0.6" }, "devDependencies": { "browser-sync": "^2.26.0", "byu-web-component-build": "^0.2.3", "git-revision-webpack-plugin": "^2.5.1", "gulp": "^3.9.1", "gulp-rename": "^1.2.2" }
 
-    /***/
+        /***/ };
 },
 /* 12 */
 /***/function (module, exports, __webpack_require__) {
@@ -2049,7 +2024,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 
     // module
-    exports.push([module.i, ".header{width:100%;margin:0 0 8px}.header ::slotted(*){font-family:HCo Ringside Narrow SSm,Arial,sans-serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:14px!important;line-height:17px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;font-weight:500!important;width:100%;display:inline-block;max-width:230px}.header ::slotted(br){display:none}.content ::slotted(*){max-width:100%}.content ::slotted(:not(byu-footer-action-button)){font-family:HCo Ringside Narrow SSm,Arial,sans-serif!important;font-size:14px!important;line-height:16px!important;font-weight:400!important;color:#141414!important;display:block;margin:0}.content ::slotted(a){text-decoration:none!important;outline:none!important;color:#0057b8!important;font-size:14px;height:35px}.content ::slotted(a:hover){color:#002e5d!important}.content>a{text-decoration:none!important;outline:none!important;color:#0057b8!important;font-size:14px;height:35px}.content>a:hover{color:#002e5d!important}@media (max-width:1024px){.content ::slotted(:not(byu-footer-action-button)),.header ::slotted(*){font-size:12px!important}.header ::slotted(*){max-width:230px}}", ""]);
+    exports.push([module.i, ".header{width:100%;margin:0 0 8px}.header ::slotted(*){font-family:HCo Ringside Narrow SSm,Arial,sans-serif!important;text-transform:uppercase!important;color:#002e5d!important;font-size:14px!important;line-height:17px!important;border-bottom:1px solid #c5c5c5!important;padding-bottom:3px!important;font-weight:500!important;width:100%;display:inline-block;max-width:230px}.header ::slotted(br){display:none}.content ::slotted(*){max-width:100%}.content ::slotted(:not(byu-footer-action-button)){font-family:HCo Ringside Narrow SSm,Arial,sans-serif!important;font-size:14px!important;line-height:16px!important;font-weight:400!important;color:#141414!important;display:block;margin:0}.content ::slotted(a){color:#0057b8!important;height:35px}.content ::slotted(a),.content ::slotted(div),.content ::slotted(p){text-decoration:none!important;outline:none!important;font-size:14px}.content ::slotted(div),.content ::slotted(p){min-height:35px}.content ::slotted(a:hover){color:#002e5d!important}.content>a{color:#0057b8!important;height:35px}.content>a,.content>div,.content>p{text-decoration:none!important;outline:none!important;font-size:14px}.content>div,.content>p{min-height:35px}.content>a:hover{color:#002e5d!important}@media (max-width:1024px){.content ::slotted(:not(byu-footer-action-button)),.header ::slotted(*){font-size:12px!important}.header ::slotted(*){max-width:230px}}", ""]);
 
     // exports
 
