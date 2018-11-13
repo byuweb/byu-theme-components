@@ -82,7 +82,6 @@
   margin: 0 auto;
   height: auto;
   box-sizing: border-box;
-  padding: $siteFooterPadding;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -90,6 +89,11 @@
   ::slotted(*) {
     flex-grow: 1;
     margin: $siteFooterMobilePadding;
+    padding: 0 16px;
+  }
+
+  ::slotted(*:last-child) {
+    padding-bottom: 50px
   }
 
   ::slotted(.double-wide) {
@@ -102,7 +106,7 @@
 }
 
 @media (max-width: 600px) {
-  .site-footer {
+  .site-footer::slotted {
     padding-right: 25px;
     padding-left: 25px;
   }
