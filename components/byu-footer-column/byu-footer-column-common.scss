@@ -57,6 +57,13 @@
     height: $footerLinkLineHeight;
 }
 
+@mixin defaultContentDivOrParagraph() {
+    text-decoration: none !important;
+    outline: none !important;
+    font-size: $footerContentFontSize;
+    min-height: $footerLinkLineHeight;
+}
+
 @mixin mobileContentLink {
     font-size: $mobileFooterContentFontSize;
     height: $mobileFooterLinkLineHeight;
