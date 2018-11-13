@@ -20,7 +20,7 @@ const gulp = require('gulp');
 const rename = require('gulp-rename');
 const initWcBuild = require('byu-web-component-build').gulp;
 
-gulp.task('build', ['wc:build', 'temp:copy-files'], function() {
+gulp.task('build', ['wc:build', 'demo:build'], function() {
     browserSync.reload();
 });
 
@@ -35,19 +35,6 @@ initWcBuild(gulp, {
     }
 });
 
-/*
- * This needs to go away once we've confirmed that everyone has moved from 2017-core-components to byu-theme-components.
- * NOTE: This breaks sourcemaps support.
- */
-gulp.task('temp:copy-files', ['wc:build'], function() {
-    gulp.src(['dist/*.js', 'dist/*.css'])
-        .pipe(rename(function(path) {
-            path.basename = path.basename.replace(/byu-theme-components/, '2017-core-components')
-        }))
-        .pipe(gulp.dest('dist'));
-});
-// END: Stuff that needs to go away
-
 gulp.task('watch', ['build'], function (done) {
     browserSync.init({
         server: {
@@ -59,6 +46,11 @@ gulp.task('watch', ['build'], function (done) {
 
     gulp.watch(['index.html', './components/**', './css/*.scss'], ['build']);
 });
+
+gulp.task('demo:build', function() {
+    gulp.src('./docs/**')
+          .pipe(gulp.dest('./dist/demo/'));
+  });
 
 gulp.task('default', ['watch']);
 

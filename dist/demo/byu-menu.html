@@ -1,0 +1,208 @@
+<!--
+  ~  @license
+  ~    Copyright 2016 Brigham Young University
+  ~
+  ~    Licensed under the Apache License, Version 2.0 (the "License");
+  ~    you may not use this file except in compliance with the License.
+  ~    You may obtain a copy of the License at
+  ~
+  ~        http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~    Unless required by applicable law or agreed to in writing, software
+  ~    distributed under the License is distributed on an "AS IS" BASIS,
+  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~    See the License for the specific language governing permissions and
+  ~    limitations under the License.
+  -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="load-components.js"></script>
+
+    <script async src="lib/html-imports/html-imports.min.js"></script>
+
+    <link rel="import" href="lib/iron-demo-helpers/demo-snippet.html">
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        /* wrap the page in this for an easy sticky footer and max-width */
+        .page-content {
+            flex: 1;
+            margin: 0 auto;
+            max-width: 1200px;
+            width: 100%; 
+            padding: 16px;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+
+<body>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <byu-menu slot="nav">
+            <a href="index.html">Home</a>
+            <a href="byu-header.html">Header</a>
+            <a class="active" href="byu-menu.html">Menu</a>
+            <a href="byu-search.html">Search</a>
+            <a href="byu-user-info.html">User Info</a>
+            <a href="byu-footer.html">Footer</a>
+        </byu-menu>
+        <byu-search slot="search"></byu-search>
+    </byu-header>
+
+    <div class="page-content">
+        <h1>Menu Demo</h1>
+
+        <h2>Translucent Menu Bar</h2>
+        <p>This is for use with large hero images and other fancy transparency-wanting content. Just add a
+            <code>transparent</code> class to your nav menu.</p>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-menu slot="nav" class="transparent">
+                        <a class="active" href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h2>Active State</h2>
+        <p>The active/current page should always have the class "active" attached to its menu link.
+            It will appear darker than the other links. Alternatively, you can specify a different
+            css selector to apply the active state. In Drupal 8 all the links use the "is-active" class, so
+            you would use the active-selector attribute to change which element gets the darker styling. 
+            Note that this is a css selector, not a class name, so if you're using a class name you'll need to 
+            prefix it with a '.'</p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Site Title</span>
+                    <byu-menu slot="nav" active-selector=".is-active">
+                        <a class="is-active" href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a href="javascript: void 0">Link 3</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+
+
+        <h2>Three Links</h2>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Site Title</span>
+                    <byu-menu slot="nav">
+                        <a class="active" href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a href="javascript: void 0">Link 3</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h2>Four Links</h2>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-menu slot="nav">
+                        <a class="active" href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h2>Five links</h2>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-menu slot="nav" collapsed>
+                        <a href="javascript: void 0" class="active">Link 1</a>
+                        <a href="javascript: void 0">Link 2</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h2>Six Links</h2>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-menu slot="nav">
+                        <a class="active" href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+
+
+        <h2>More than Six Links</h2>
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-user-info slot="user" login-url="#login">
+                        <a slot="login" href="#login">Sign In</a>
+                        <a slot="logout" href="#logout">Sign Out</a>
+                    </byu-user-info>
+                    <byu-menu slot="nav">
+                        <a href="javascript: void 0">Link 1</a>
+                        <a class="long-link" href="javascript: void 0">A Link with a Very Long Title</a>
+                        <a class="active" href="javascript: void 0">Link 3</a>
+                        <a href="javascript: void 0">Link 4</a>
+                        <a href="javascript: void 0">Link 5</a>
+                        <a href="javascript: void 0">Link 6</a>
+                        <a href="javascript: void 0">Link 7</a>
+                        <a href="javascript: void 0">Link 8</a>
+                        <a href="javascript: void 0">Another link with an overly long title</a>
+                        <a href="javascript: void 0">Link 10</a>
+                    </byu-menu>
+                </byu-header>
+                <p>Content Area</p>
+            </template>
+        </demo-snippet>
+    </div>
+    <footer>
+        <byu-footer></byu-footer>
+    </footer>
+</body>
+
+</html>
