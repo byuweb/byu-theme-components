@@ -964,6 +964,7 @@ const ATTR_SEARCH_HANDLER = 'onbyusearch';
 const ATTR_SEARCH_INPUT_SELECTOR = 'search-input-selector';
 const ATTR_ACTION = 'action';
 const ATTR_ACTION_TARGET = 'action-target';
+const ATTR_PLACEHOLDER = 'placeholder';
 
 const ACTION_SUBMIT_FORM = 'submit-form';
 const ACTION_CLICK = 'click';
@@ -971,6 +972,7 @@ const ACTION_NAVIGATE = 'navigate';
 
 const DEFAULT_ACTION_TARGET_SUBMIT_FORM = 'form';
 const DEFAULT_ACTION_TARGET_CLICK = 'button, input[type="submit"], input[type="button"]';
+const DEFAULT_PLACEHOLDER = 'Search';
 
 const EVENT_TYPE = 'byu-search';
 
@@ -1088,6 +1090,14 @@ class ByuSearch extends HTMLElement {
     get actionTarget() {
         //Default depends on action target value
         return this.getAttribute(ATTR_ACTION_TARGET) || defaultActionTarget(this.action);
+    }
+
+    get customPlaceholder() {
+        return this.getAttribute(ATTR_PLACEHOLDER) || DEFAULT_PLACEHOLDER;
+    }
+
+    set customPlaceholder(value) {
+        this.setAttribute(ATTR_PLACEHOLDER, value);
     }
 
     get _searchSlot() {
@@ -1225,13 +1235,14 @@ function applyA11yHelpers(search, input) {
     let helped = [];
 
     if (!input.title && !input.placeholder) {
-        input.title = input.placeholder = 'Search';
+        input.title = input.placeholder = search.customPlaceholder;
         helped.push('title', 'placeholder');
-    } else if (input.title) {
+    } else if (input.title && !this.customPlaceholder) {
         input.placeholder = input.title;
         helped.push('placeholder');
-    } else {
-        input.title = input.placeholder;
+    }
+    else {
+        input.title = this.placeholder;
         helped.push('title');
     }
 
@@ -2294,7 +2305,7 @@ module.exports = "<style>" + __webpack_require__(22) + "</style> <nav class=\"ou
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(23) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/search-navy.svg\" alt=\"Run Search\"> </button> </div>";
+module.exports = "<style>" + __webpack_require__(23) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/search-navy.svg\" alt=\"Run Search\"> </button> </div>";
 
 /***/ }),
 /* 36 */

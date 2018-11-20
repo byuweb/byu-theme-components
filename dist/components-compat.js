@@ -1056,6 +1056,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
     var ATTR_SEARCH_INPUT_SELECTOR = 'search-input-selector';
     var ATTR_ACTION = 'action';
     var ATTR_ACTION_TARGET = 'action-target';
+    var ATTR_PLACEHOLDER = 'placeholder';
 
     var ACTION_SUBMIT_FORM = 'submit-form';
     var ACTION_CLICK = 'click';
@@ -1063,6 +1064,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
     var DEFAULT_ACTION_TARGET_SUBMIT_FORM = 'form';
     var DEFAULT_ACTION_TARGET_CLICK = 'button, input[type="submit"], input[type="button"]';
+    var DEFAULT_PLACEHOLDER = 'Search';
 
     var EVENT_TYPE = 'byu-search';
 
@@ -1184,6 +1186,14 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
             get: function get() {
                 //Default depends on action target value
                 return this.getAttribute(ATTR_ACTION_TARGET) || defaultActionTarget(this.action);
+            }
+        }, {
+            key: 'customPlaceholder',
+            get: function get() {
+                return this.getAttribute(ATTR_PLACEHOLDER) || DEFAULT_PLACEHOLDER;
+            },
+            set: function set(value) {
+                this.setAttribute(ATTR_PLACEHOLDER, value);
             }
         }, {
             key: '_searchSlot',
@@ -1329,13 +1339,13 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
         var helped = [];
 
         if (!input.title && !input.placeholder) {
-            input.title = input.placeholder = 'Search';
+            input.title = input.placeholder = search.customPlaceholder;
             helped.push('title', 'placeholder');
-        } else if (input.title) {
+        } else if (input.title && !this.customPlaceholder) {
             input.placeholder = input.title;
             helped.push('placeholder');
         } else {
-            input.title = input.placeholder;
+            input.title = this.placeholder;
             helped.push('title');
         }
 
@@ -2409,7 +2419,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 /* 35 */
 /***/function (module, exports, __webpack_require__) {
 
-    module.exports = "<style>" + __webpack_require__(23) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\" placeholder=\"Search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/search-navy.svg\" alt=\"Run Search\"> </button> </div>";
+    module.exports = "<style>" + __webpack_require__(23) + "</style> <div id=\"search-form\"> <div id=\"search-container\"> <slot id=\"search\"><input type=\"search\"></slot> </div> <button id=\"search-button\" type=\"submit\"> <img id=\"search-icon\" src=\"https://cdn.byu.edu/shared-icons/latest/fontawesome/search-navy.svg\" alt=\"Run Search\"> </button> </div>";
 
     /***/
 },
