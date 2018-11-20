@@ -26,6 +26,7 @@ const ATTR_SEARCH_HANDLER = 'onbyusearch';
 const ATTR_SEARCH_INPUT_SELECTOR = 'search-input-selector';
 const ATTR_ACTION = 'action';
 const ATTR_ACTION_TARGET = 'action-target';
+const ATTR_PLACEHOLDER = 'placeholder';
 
 const ACTION_SUBMIT_FORM = 'submit-form';
 const ACTION_CLICK = 'click';
@@ -33,6 +34,7 @@ const ACTION_NAVIGATE = 'navigate';
 
 const DEFAULT_ACTION_TARGET_SUBMIT_FORM = 'form';
 const DEFAULT_ACTION_TARGET_CLICK = 'button, input[type="submit"], input[type="button"]';
+const DEFAULT_PLACEHOLDER = 'Search';
 
 const EVENT_TYPE = 'byu-search';
 
@@ -150,6 +152,14 @@ class ByuSearch extends HTMLElement {
     get actionTarget() {
         //Default depends on action target value
         return this.getAttribute(ATTR_ACTION_TARGET) || defaultActionTarget(this.action);
+    }
+
+    get customPlaceholder() {
+        return this.getAttribute(ATTR_PLACEHOLDER) || DEFAULT_PLACEHOLDER;
+    }
+
+    set customPlaceholder(value) {
+        this.setAttribute(ATTR_PLACEHOLDER, value);
     }
 
     get _searchSlot() {
@@ -287,13 +297,14 @@ function applyA11yHelpers(search, input) {
     let helped = [];
 
     if (!input.title && !input.placeholder) {
-        input.title = input.placeholder = 'Search';
+        input.title = input.placeholder = search.customPlaceholder;
         helped.push('title', 'placeholder');
-    } else if (input.title) {
+    } else if (input.title && !this.customPlaceholder) {
         input.placeholder = input.title;
         helped.push('placeholder');
-    } else {
-        input.title = input.placeholder;
+    }
+    else {
+        input.title = this.placeholder;
         helped.push('title');
     }
 
