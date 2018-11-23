@@ -354,6 +354,9 @@ byu-footer-column a:hover {
 /* MOBILE */
 /* FULL SIZE */
 /* FULL WIDTH (NOT DEFAULT WIDTH OF 1200px) */
+byu-header {
+  z-index: 1; }
+
 /****** Slot Style Patching ******/
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
