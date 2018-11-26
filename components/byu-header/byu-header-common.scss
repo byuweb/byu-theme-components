@@ -54,7 +54,7 @@ $action-text-hover-color: #002E5D;
   text-decoration: none;
   text-transform: uppercase;
   margin-left: 10px;
-
+  overflow: hidden;
 }
 
 @mixin actionsHover {
@@ -107,7 +107,7 @@ $action-text-hover-color: #002E5D;
   font-family: $siteNameFont !important;
   font-weight: 400;
   font-size: $siteTitleSize !important;
-  line-height: normal !important; 
+  line-height: normal !important;
   grid-row: 1;
   margin-top: 0;
   margin-bottom: 0;
