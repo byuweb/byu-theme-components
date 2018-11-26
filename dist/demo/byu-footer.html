@@ -233,6 +233,25 @@
             </template>
         </demo-snippet>
 
+        <p>
+            Remember that the footer shifts in tablet and mobile views to stack in a 2x2 and 1x4 block.
+            If you use a double-wide column in the middle (columns 2 & 3), it will stack strangely in tablet-width.
+            To adjust for this, you can add the following snippet to your CSS to place your double-wide column in
+            the second row underneath your 1st and 4th columns.
+        </p>
+
+        <pre><code class="language-css">
+            @media (min-width: 600px) {
+                byu-footer-column.double-wide {
+                    order: 1;
+                }
+
+                .site-footer ::slotted(*) {
+                    width: unset;
+                }
+            }
+        </code></pre>
+
         <demo-snippet>
             <template>
                 <byu-footer>
