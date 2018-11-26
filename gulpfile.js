@@ -44,7 +44,7 @@ gulp.task('watch', ['build'], function (done) {
         notify: false
     }, done);
 
-    gulp.watch(['index.html', './components/**', './css/*.scss'], ['build']);
+    gulp.watch(['index.html', './components/**', './docs/*.html', './css/*.scss'], ['build']);
 });
 
 gulp.task('demo:build', function() {
