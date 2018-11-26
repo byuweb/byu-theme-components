@@ -11,6 +11,9 @@ byu-header [slot="actions"] {
   a {
     color: $action-text-color;
     text-decoration: none;
+    display: block;
+    padding: 100px 24px;
+    margin: 0 -24px;
   }
   &:hover {
     color: $action-text-hover-color;
