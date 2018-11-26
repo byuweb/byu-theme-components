@@ -367,7 +367,10 @@ byu-header [slot="actions"] {
   color: #FFFFFF; }
   byu-header [slot="actions"] a {
     color: #FFFFFF;
-    text-decoration: none; }
+    text-decoration: none;
+    display: block;
+    padding: 100px 24px;
+    margin: 0 -24px; }
   byu-header [slot="actions"]:hover {
     color: #002E5D; }
     byu-header [slot="actions"]:hover a {
