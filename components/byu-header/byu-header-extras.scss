@@ -1,5 +1,9 @@
 @import "byu-header-common";
 
+byu-header {
+  z-index: 1;
+}
+
 /****** Slot Style Patching ******/
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   @include headerTitleText();

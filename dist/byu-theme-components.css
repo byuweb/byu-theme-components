@@ -280,7 +280,7 @@ byu-footer-column a:hover {
   width: 17px;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   padding: 0 !important; }
   .tcon > * {
@@ -354,6 +354,9 @@ byu-footer-column a:hover {
 /* MOBILE */
 /* FULL SIZE */
 /* FULL WIDTH (NOT DEFAULT WIDTH OF 1200px) */
+byu-header {
+  z-index: 1; }
+
 /****** Slot Style Patching ******/
 byu-header a[slot="site-title"], byu-header [slot="site-title"] a {
   font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
