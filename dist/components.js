@@ -2307,7 +2307,7 @@ module.exports = "<style>" + __webpack_require__(18) + "</style> <h2 class=\"hea
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "<style>" + __webpack_require__(19) + "</style> <div class=\"site-footer-wrapper\"> <div class=\"site-footer needs-width-setting\"> <slot id=\"slot\"></slot> </div> </div> <div class=\"university-footer\"> <div class=\"university-logo-wrapper needs-width-setting\"> <a href=\"https://home.byu.edu/home/\" target=\"_blank\"> <img src=\"http://cdn.byu.edu/product-logos/latest/staging/footer-logo.svg\"> </a> </div> <div class=\"university-info needs-width-setting\"> <span class=\"info-text\">Provo, UT 84602, USA</span> <span class=\"info-text\"><a class=\"contact-phone\" href=\"tel:18014224636\">801-422-4636</a></span> <span class=\"info-text\">&copy;&nbsp;<span id=\"currentYear\"></span> All Rights Reserved</span> </div> </div>";
+module.exports = "<style>" + __webpack_require__(19) + "</style> <div class=\"site-footer-wrapper\"> <div class=\"site-footer needs-width-setting\"> <slot id=\"slot\"></slot> </div> </div> <div class=\"university-footer\"> <div class=\"university-logo-wrapper needs-width-setting\"> <a href=\"https://home.byu.edu/home/\" target=\"_blank\"> <img src=\"http://cdn.byu.edu/product-logos/latest/staging/footer-logo.svg\" class=\"university-logo\"> </a> </div> <div class=\"university-info needs-width-setting\"> <span class=\"info-text\">Provo, UT 84602, USA</span> <span class=\"info-text\"><a class=\"contact-phone\" href=\"tel:18014224636\">801-422-4636</a></span> <span class=\"info-text\">&copy;&nbsp;<span id=\"currentYear\"></span> All Rights Reserved</span> </div> </div>";
 
 /***/ }),
 /* 34 */
