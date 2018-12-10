@@ -84,7 +84,9 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  @media screen and (min-width: 600px) {
+    flex-wrap: wrap;
+  }
 
   ::slotted(*) {
     flex-grow: 1;
