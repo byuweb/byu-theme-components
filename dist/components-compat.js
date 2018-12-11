@@ -1188,9 +1188,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 return this.getAttribute(ATTR_ACTION_TARGET) || defaultActionTarget(this.action);
             }
         }, {
-            key: 'customPlaceholder',
+            key: 'placeholder',
             get: function get() {
-                return this.getAttribute(ATTR_PLACEHOLDER) || DEFAULT_PLACEHOLDER;
+                return this.getAttribute(ATTR_PLACEHOLDER);
             },
             set: function set(value) {
                 this.setAttribute(ATTR_PLACEHOLDER, value);
@@ -1338,14 +1338,12 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
         var helped = [];
 
-        if (!input.title && !input.placeholder) {
-            input.title = input.placeholder = search.customPlaceholder;
-            helped.push('title', 'placeholder');
-        } else if (input.title && !this.customPlaceholder) {
-            input.placeholder = input.title;
+        if (!input.placeholder) {
+            input.placeholder = search.placeholder || input.title || DEFAULT_PLACEHOLDER;
             helped.push('placeholder');
-        } else {
-            input.title = this.placeholder;
+        }
+        if (!input.title) {
+            input.title = input.placeholder || search.placeholder || DEFAULT_PLACEHOLDER;
             helped.push('title');
         }
 
