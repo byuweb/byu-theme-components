@@ -85,13 +85,23 @@
     <p>
         You can either provide an input element for <code>byu-search</code> to style, or you can let
         <code>byu-search</code>
-        provide one for you.
+        provide one for you. It is preferred that you provide an input element, as this enables
+        <a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">graceful degredation</a>
+        if something goes wrong while downloading and executing the Javascript which powers <code>byu-search</code>.
     </p>
 
     <demo-snippet>
         <template>
             <byu-header>
                 <byu-search slot="search"></byu-search>
+            </byu-header>
+        </template>
+    </demo-snippet>
+
+    <demo-snippet>
+        <template>
+            <byu-header>
+                <byu-search slot="search" placeholder="Site Search"></byu-search>
             </byu-header>
         </template>
     </demo-snippet>
