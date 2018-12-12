@@ -531,7 +531,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                 if (!container && show) {
                     container = document.createElement('div');
                     container.className = 'menu-ie11-outdated ie11-outdated-hidden';
-                    container.innerHTML = '<div class="menu-ie11-outdated-label">' + '  You are using an out-dated browser. BYU support for this browser is ending. Please <a href="http://webcommunity.byu.edu/supported-browsers" target="_blank">download a new browser</a>.' + '</div>';
+                    container.innerHTML = '<div class="menu-ie11-outdated-label">' + '  You are using an out-dated browser. BYU support for this browser has ended. Please <a href="http://webcommunity.byu.edu/supported-browsers" target="_blank">download a new browser</a>.' + '</div>';
 
                     var closeButton = document.createElement('button');
                     closeButton.innerHTML = '&times;';
