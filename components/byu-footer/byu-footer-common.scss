@@ -16,12 +16,14 @@ $universityFooterLogoMobileWidth: 280px;
 
 $universityFooterVerticalPadding: 21px;
 
-$siteFooterHorizontalPadding: 8px;
+$siteFooterHorizontalMargin: 8px;
 $siteFooterTopPadding: 0;
 $siteFooterBottomPadding: 50px;
-$siteFooterPadding: $siteFooterTopPadding $siteFooterHorizontalPadding $siteFooterBottomPadding $siteFooterHorizontalPadding;
 
-$siteFooterMobilePadding: 16px $siteFooterHorizontalPadding 0;
+$footerHorizontalPadding: 16px;
+
+$footerColumnMargin: 16px $siteFooterHorizontalMargin 0;
+$footerColumnPadding: 0 16px;
 
 $large-siteFooterContentTopMargin: 33px;
 $large-siteFooterContentBottomMargin: 40px;
