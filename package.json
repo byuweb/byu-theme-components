@@ -1,0 +1,30 @@
+{
+    "name": "byuweb-components",
+    "version": "2.0.0",
+    "description": "Components to be used for byu web pages and applications.",
+    "license": "Apache-2.0",
+    "main": "",
+    "module": "",
+    "scripts": {
+        "serve": "rm -rf build && mkdir build && rollup --watch -c"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "@babel/plugin-proposal-class-properties": "^7.2.3",
+        "@babel/plugin-proposal-decorators": "^7.2.3",
+        "@webcomponents/webcomponentsjs": "^2.2.4",
+        "lit-element": "^2.1.0",
+        "rollup": "^1.1.0",
+        "rollup-plugin-babel": "^4.3.0",
+        "rollup-plugin-babel-minify": "^8.0.0",
+        "rollup-plugin-livereload": "^1.0.0",
+        "rollup-plugin-node-resolve": "^4.0.0",
+        "rollup-plugin-serve": "^1.0.1",
+        "serve": "^10.1.1"
+    },
+    "dependencies": {
+        "babel-cli": "^6.26.0",
+        "rollup-plugin-lit-html-style": "^0.1.15",
+        "rollup-plugin-multi-entry": "^2.1.0"
+    }
+}
