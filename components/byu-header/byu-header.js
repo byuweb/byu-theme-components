@@ -20,6 +20,7 @@ export class BYUHeader extends LitElement {
         <div class="byu-titles">
 
             <h1 class="byu-site-title">
+                <p> Brandon </p>
                 <a href="/">Mission &amp; Aims</a>
             </h1>
 
