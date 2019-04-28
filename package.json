@@ -6,7 +6,8 @@
     "main": "",
     "module": "",
     "scripts": {
-        "serve": "rm -rf build && mkdir build && rollup --watch -c"
+        "serve": "rm -rf dist && mkdir dist && rollup --watch -c rollup-dev.config.js",
+        "build": "rm -rf dist && mkdir dist && rollup -c"
     },
     "devDependencies": {
         "@babel/core": "^7.2.2",
