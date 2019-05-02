@@ -1,5 +1,517 @@
-.byu-site-banner {
-  .byu-link {
-    color: red;
+/** Corner Radius*/
+$cornerRadius: 2px; /** Colors*/
+$byuNavy: #002e5d;
+$byuRoyal: #0057b8;
+$white: #fff;
+$navy: $byuNavy;
+$royal: $byuRoyal;
+$royal100: $byuRoyal;
+$royal50: #5199e1;
+$royal20: #afd6fe;
+$royalWeb: #136cba;
+$yellow: #fcc015;
+$yellow100: $yellow;
+$yellow50: #ffda73;
+$yellow20: #fff0c5;
+$purple: #500e7c;
+$purple100: $purple;
+$purple50: #af88ca;
+$purple20: #d6bde7;
+$green: #38870c;
+$green100: $green;
+$green50: #94c576;
+$green20: #cee0c3;
+$orange: #d8580c;
+$orange100: $orange;
+$orange50: #f7a883;
+$orange20: #ffdacf;
+$red: #a60318;
+$red100: $red;
+$red50: #f5acb6;
+$red20: #fde3e6;
+$grey90: #141414;
+$grey70: #666;
+$grey50: #8f8f8f;
+$grey30: #c5c5c5;
+$grey20: #d8d8d8;
+$grey10: #e6e6e6;
+$grey05: #f4f4f4;
+$grey02: #fafafa;
+$textcolor: $grey90;
+$textblue: $byuNavy;
+$textgrey: $grey50;
+$textwhite: $white;
+$colorInfo: $royal;
+$colorInfoLight: $royal20;
+$colorWarning: $yellow;
+$colorWarningLight: $yellow20;
+$colorConfirm: $green;
+$colorConfirmLight: $green20;
+$colorDanger: $red;
+$colorDangerLight: $red20;
+$colorLine: $grey10;
+$colorLineDark: $grey30; /** Fonts*/
+$baseFontMultiplier: 1.125;
+$baseFontSize: 1em * $baseFontMultiplier;
+$fontSize14: 0.875em / $baseFontMultiplier;
+$fontSize15: 0.9375em / $baseFontMultiplier;
+$fontSize16: 1em / $baseFontMultiplier;
+$fontSize18: 1.125em / $baseFontMultiplier;
+$fontSize20: 1.25em / $baseFontMultiplier;
+$fontSize24: 1.5em / $baseFontMultiplier;
+$fontSize36: 2.25em / $baseFontMultiplier;
+$fontSize48: 3em / $baseFontMultiplier;
+$fontSize64: 4em / $baseFontMultiplier; /** Spacing*/
+$font-heading: "HCo Ringside Narrow SSm", 'Noto Sans', 'Open Sans', Helvetica, Arial, sans-serif;
+$spacing1: 0.25em;
+$spacing2: 0.5em;
+$spacing3: 0.75em;
+$spacing4: 1.25em;
+$spacing5: 2em;
+$spacing6: 3.25em;
+$spacing7: 5.25em;
+$spacing8: 8.5em; /** Breakpoints*/
+$break0: 0.0625rem;
+$breakSm: 21rem;
+$breakMdSm: 28rem;
+$breakMd: 50rem;
+$breakMdLg: 60rem;
+$breakLg: 75rem;
+$breakXl: 90rem; /** Foundations*/
+/** Foundations*/
+%button-reset{
+	display: inline-block;
+	border: none;
+	margin: 0;
+	text-decoration: none;
+	background: #fff;
+	color: #fff;
+	font-size: inherit;
+	cursor: pointer;
+	text-align: center;
+	transition: background 200ms ease, color 200ms ease, border 200ms ease, transform 150ms ease;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+
+	&:active{ 
+    transform: scale(0.99);
+  }  
+} 
+
+.visually-hidden {/* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: visible;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+}
+%card {
+  list-style-type: none;
+  border-radius: 2px;
+  border: 1px solid $grey10;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+$dividerColor: mix(#fff, $byuNavy, 20%);
+.byu-header {
+z-index: 10;
+font-size: 1.125rem;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
+border-bottom: 1px solid #ddd;
+font-family: $font-heading;
+a,
+a:link,
+a:visited {
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 200ms ease;
+}
+@media (min-width: $breakMdSm) {
+  font-size: 1.3125rem;
+}
+@media (min-width: $breakMdLg) {
+  font-size: 1.5rem;
+}
+.byu-site-banner,
+.actionsHeightWrapper {
+  background: $byuNavy;
+  @supports (display: grid) {
+    @media (min-width: $breakSm) {
+      display: grid;
+      grid-template-columns: 4em auto;
+    }
+    @media (min-width: $breakMdSm) {
+      grid-template-columns: 4.75em auto;
+    }
+    @media (min-width: $breakMd) {
+      grid-template-columns: 4.75em auto min-content;
+    }
   }
 }
+.byu-link {
+  background: $byuNavy url("../img/byu-monogram-white.png") 0.6em center / 3em auto no-repeat;
+  background-image: url("../img/byu-monogram-white.svg");
+  display: block;
+  height: 2em;
+  width: 4em;
+  @supports (display: grid) {
+    @media (min-width: $breakSm) {
+      height: auto;
+    }
+    @media (min-width: $breakMdSm) {
+      width: 4.75em;
+      background-position: 1em center;
+    }
+  }
+}
+.byu-titles {
+  padding: 0.5em 0.75em;
+  flex-grow: 1;
+  &:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 94%;
+    height: 1px;
+    right: 3%;
+    top: 0;
+    background: $dividerColor;
+  }
+  @supports (display: grid) {
+    @media (min-width: $breakSm) {
+      align-self: center;
+      &:before {
+        width: 1px;
+        height: 74%;
+        right: auto;
+        left: 0;
+        top: 13%;
+      }
+    }
+    @media (min-width: $breakMdSm) {
+      padding: 0.5em 1em;
+    }
+  }
+}
+.byu-site-title {
+  color: #fff;
+  font-size: inherit;
+  font-weight: 400;
+  margin: $spacing1 0;
+  bottom: 1px;
+}
+.byu-site-subtitle {
+  color: #fff;
+  font-size: 0.67em;
+  font-weight: 400;
+  margin: $spacing1 0;
+}
+.byu-breadcrumb {
+  line-height: 1.4;
+  font-size: 0.67em;
+  a {
+    opacity: 0.75;
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+}
+}
+.byu-action-id-search {
+font-size: $fontSize16;
+a,
+svg {
+  font-size: 1rem;
+}
+@supports (display: grid) {
+  @media (min-width: $breakSm) {
+    grid-column: 1 / 3;
+    display: grid;
+    grid-template-columns: auto min-content;
+  }
+  @media (min-width: $breakMd) {
+    grid-column: 3 / 4;
+    display: flex;
+    flex-direction: row;
+    font-size: 0.9375rem;
+    align-items: center;
+    background: transparent none;
+  }
+  @media (min-width: $breakMdLg) {
+    font-size: 1rem;
+  }
+}
+}
+.byu-search {
+@supports (display: grid) {
+  @media (min-width: $breakSm) {
+    grid-column: 1 / 3;
+  }
+  @media (min-width: $breakMd) {
+    min-width: 9em;
+    order: 3;
+    margin: 0 1em 0 0.5em;
+  }
+  @media (min-width: $breakLg) {
+    margin: 0 1em;
+    min-width: 13em;
+  }
+}
+.byu-search-label {
+  @extend .visually-hidden;
+}
+#byu-site-search {
+  padding: $spacing3 0.65em;
+  width: 100%;
+  margin-right: 2em;
+  display: block;
+  line-height: 1.2;
+  border: 1px solid #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
+  @media (min-width: $breakMdSm) {
+    padding: $spacing3 1.25em;
+  }
+  @supports (display: grid) {
+    @media (min-width: $breakMd) {
+      padding: 0.4em 1em;
+      border-radius: 0.9625em;
+    }
+  }
+}
+.byu-search-btn {
+  @extend %button-reset;
+  color: $byuNavy;
+  display: block;
+  position: absolute;
+  top: $spacing1;
+  right: 0;
+  height: $spacing2 + $spacing2 + 1em;
+  width: $spacing2 + $spacing2 + 1em;
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 1rem;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  &:hover,
+  &:focus {
+    background: $grey10;
+    color: $byuNavy;
+  }
+  &:focus {
+    border: 1px solid #ccc;
+  }
+  @supports (display: grid) {
+    @media (min-width: $breakMd) {
+      width: 1.8em;
+      height: 1.8em;
+      top: 0;
+    }
+  }
+}
+}
+.byu-id {
+background: $grey05;
+background-image: linear-gradient($grey10, #fff 4px, #fff 100%);
+padding: 0.25em 0.65em;
+color: $byuNavy;
+text-align: right;
+@media (min-width: $breakMdSm) {
+  padding: 0.25em 1.1em;
+}
+a,
+a:link,
+a:visited {
+  color: $byuNavy;
+  display: inline-block;
+  padding: 0.5em 0 0.6em;
+}
+svg {
+  width: 1.25em;
+  height: 1.25em;
+  display: inline-block;
+  vertical-align: baseline;
+  top: 0.25em;
+  margin: 0 0.25em;
+}
+@supports (display: grid) {
+  @media (min-width: $breakSm) {
+    white-space: nowrap;
+  }
+  @media (min-width: $breakMd) {
+    background: transparent;
+    order: 2;
+    color: #fff;
+    padding: 0 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    svg {
+      top: 0;
+      margin: 0 0.5em;
+    }
+    a,
+    a:link,
+    a:visited {
+      color: #fff;
+      white-space: nowrap;
+    }
+  }
+  @media (min-width: $breakMdLg) {
+    padding: 0 1em;
+  }
+}
+}
+.byu-action-btn {
+padding: 0.25em 0.4em;
+white-space: nowrap;
+background: #fff;
+a {
+  background: $royalWeb;
+  padding: 0.4em 1.5em;
+  display: inline-block;
+  font-size: 1rem;
+  transition: background 250ms ease;
+  &:hover,
+  &:focus {
+    background: mix($royalWeb, #fff, 90%);
+    text-shadow: 0 0 $spacing2 rgba($byuNavy, 0.75);
+  }
+}
+@media (min-width: $breakMdSm) {
+  padding: 0.25em 0.85em;
+}
+@supports (display: grid) {
+  @media (min-width: $breakSm) {
+    padding: 0.5em;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background-image: linear-gradient($grey10, #fff 5px, #fff 100%);
+  }
+  @media (min-width: $breakMd) {
+    background: transparent;
+    order: 1;
+    padding: 0 0.5em;
+    a {
+      background: $royalWeb;
+      padding: 0.25em 1em;
+    }
+  }
+  @media (min-width: $breakMdLg) {
+    padding: 0 1em;
+    a {
+      padding: 0.25em 1.5em;
+    }
+  }
+}
+}
+.byu-site-navigation {
+margin: 0;
+padding: 0;
+font-size: $fontSize16;
+letter-spacing: 0;
+border-top: 1px solid $grey05;
+background: #fff;
+a {
+  &,
+  &:link,
+  &:visited {
+    color: $byuNavy;
+    display: block;
+    padding: 0.5em 0.75em;
+    font-size: 1rem;
+    transition: background 250ms ease;
+  }
+  &:hover,
+  &:focus {
+    background: $grey10;
+  }
+}
+@media (min-width: $breakMdSm) {
+  padding: 0 0.5em;
+}
+@media (min-width: $breakMd) {
+  padding-left: 5.5em;
+  background: transparent;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  li {
+    margin: 0;
+    padding: 0;
+  }
+  @media (min-width: $breakMd) {
+    display: block;
+    li {
+      display: inline-block;
+    }
+    a,
+    a:link,
+    a:visited {
+      padding: 0.5em 1.35em;
+      white-space: nowrap;
+    }
+  }
+}
+}
+$menuButtonSize: 1.8em;
+.byu-menu-button {
+border-radius: $cornerRadius;
+display: none;
+height: $menuButtonSize;
+margin-top: $menuButtonSize * -0.5;
+overflow: hidden;
+padding: 0;
+position: absolute;
+right: 0.5rem;
+text-indent: 50em;
+top: 50%;
+width: $menuButtonSize;
+border: 1px solid $dividerColor;
+background: transparent;
+transition: background 200ms ease;
+background-position: center center;
+color: #fff;
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M2 3h6M2 5h6M2 7h6"/></svg>');
+&:hover {
+  background-color: mix($byuNavy, $royalWeb);
+}
+&:focus {
+  border-color: mix($byuNavy, #fff);
+  outline: none;
+}
+&[aria-expanded="true"] {
+  background-color: $royalWeb;
+}
+}
+.byu-header.js-enabled {
+@media (max-width: ($breakMd - $break0)) {
+  .byu-action-id-search,
+  .byu-site-navigation {
+    height: 0;
+    overflow: hidden;
+  }
+  .byu-titles {
+    padding-right: 2em;
+  }
+  .byu-menu-button {
+    display: block;
+  }
+}
+}
+.byu-header.js-enabled.menu-open {
+@media (max-width: ($breakMd - $break0)) {
+  .byu-action-id-search,
+  .byu-site-navigation {
+    height: auto;
+  }
+}
+}
+
+
