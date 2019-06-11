@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <script type="module" src="dist/byu-theme-components.min.js"></script>
+<head>
+  <script type="module" src="dist/byu-theme-components.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
+  <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: "Public Sans", Arial, sans-serif;
+    }
 
-    </head>
-    <body>
-        <byu-header></byu-header>
-        <byu-footer></byu-footer>
-    </body>
+    .containing-element {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .page-content {
+      flex-grow: 1;
+    }
+  </style>
+  <title>BYU Theme Components</title>
+</head>
+<body>
+<div class="containing-element">
+  <byu-header></byu-header>
+  <div class="page-content">
+        <p>This is the page.</p>
+  </div>
+  <byu-footer></byu-footer>
+</div>
+</body>
 </html>

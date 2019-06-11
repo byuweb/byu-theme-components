@@ -7,14 +7,15 @@ export class BYUFooter extends LitElement {
   static styles = style;
 
   render() {
+    let date = new Date();
     return html`
     <div class="site-footer-wrapper">
-        <div class="site-footer needs-width-setting">
+        <div class="site-footer">
             <slot id="slot"></slot>
         </div>
     </div>
     <div class="university-footer">
-        <div class="university-logo-wrapper needs-width-setting">
+        <div class="university-logo-wrapper">
             <a href="https://home.byu.edu/home/" target="_blank">
                 <svg class="university-logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                         viewBox="0 0 389.8 14" style="enable-background:new 0 0 389.8 14;" xml:space="preserve">
@@ -65,7 +66,7 @@ export class BYUFooter extends LitElement {
         <div class="university-info needs-width-setting">
             <span class="info-text">Provo, UT 84602, USA</span>
             <span class="info-text"><a class="contact-phone" href="tel:18014224636">801-422-4636</a></span>
-            <span class="info-text">&copy;&nbsp;<span id="currentYear"></span> All Rights Reserved</span>
+            <span class="info-text">${date.getFullYear()} &copy;<span id="currentYear"></span> All Rights Reserved</span>
             
         </div>
     </div>
