@@ -44,14 +44,7 @@ export class BYUHeader extends LitElement {
         </div>
 
         <nav class="byu-site-navigation">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/programs">Majors &amp; Programs</a></li>
-                <li><a href="/students">Students</a></li>
-                <li><a href="/alumni">Alumni</a></li>
-                <li><a href="/giving">Giving</a></li>
-            </ul>
+            <slot name="nav"></slot>
         </nav>
 
     </header>
