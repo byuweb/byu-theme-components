@@ -166,12 +166,13 @@ a:visited {
   }
 }
 .byu-titles {
+
   padding: 0.5em 0.75em;
   flex-grow: 1;
   &:before {
     content: " ";
     display: block;
-    position: absolute;
+    position: relative;
     width: 94%;
     height: 1px;
     right: 3%;
