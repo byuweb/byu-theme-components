@@ -1,5 +1,5 @@
 import { LitElement, html, customElement, property } from 'lit-element';
-import style from './byu-header.scss';
+import style from './byu-menu.scss';
 
 @customElement('byu-header')
 export class BYUMenu extends LitElement {
