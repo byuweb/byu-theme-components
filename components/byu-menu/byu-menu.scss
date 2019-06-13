@@ -12,12 +12,16 @@
 ::slotted(a:hover), ::slotted(a:focus) {
     background: $grey10;   
 }
+
+::slotted(a.active), ::slotted(a.selected) {
+  background: $grey10;
+}
 .byu-site-navigation {
     margin: 0;
     padding: 0;
     font-size: $fontSize16;
     letter-spacing: 0;
-    border-top: 1px solid $grey05;
+    border-top: 1px solid $grey10;
     background: #fff;
     display:flex;
 
