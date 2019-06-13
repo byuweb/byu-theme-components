@@ -1,6 +1,67 @@
-@import "colors.scss";
+/** Colors*/
+// blues
+$xlightblue: #C3DDF9;
+$hoverBlue: #32538D;
+$byuNavy: #002e5d;
+$byuRoyal: #0057b8;
+$white: #fff;
+$royal: $byuRoyal;
+$royal100: $byuRoyal;
+$royal50: #5199e1;
+$royal20: #afd6fe;
+$royalWeb: #136cba;
 
-/* --- Color variable names are all lower case. Other variables are camel-case --- */
+// grays
+$darkgray: #141414;
+$medgray: #666;
+$userNameGray: #D8D8D8;
+$gray: #C5C5C5;
+$lightgray: #EDEDED;
+$white: #FFF;
+$white88: rgba(255, 255, 255, 0.88);
+
+$yellow: #fcc015;
+$yellow100: $yellow;
+$yellow50: #ffda73;
+$yellow20: #fff0c5;
+$purple: #500e7c;
+$purple100: $purple;
+$purple50: #af88ca;
+$purple20: #d6bde7;
+$green: #38870c;
+$green100: $green;
+$green50: #94c576;
+$green20: #cee0c3;
+$orange: #d8580c;
+$orange100: $orange;
+$orange50: #f7a883;
+$orange20: #ffdacf;
+$red: #a60318;
+$red100: $red;
+$red50: #f5acb6;
+$red20: #fde3e6;
+$grey90: #141414;
+$grey70: #666;
+$grey50: #8f8f8f;
+$grey30: #c5c5c5;
+$grey20: #d8d8d8;
+$grey10: #e6e6e6;
+$grey05: #f4f4f4;
+$grey02: #fafafa;
+$textcolor: $grey90;
+$textblue: $byuNavy;
+$textgrey: $grey50;
+$textwhite: $white;
+$colorInfo: $royal;
+$colorInfoLight: $royal20;
+$colorWarning: $yellow;
+$colorWarningLight: $yellow20;
+$colorConfirm: $green;
+$colorConfirmLight: $green20;
+$colorDanger: $red;
+$colorDangerLight: $red20;
+$colorLine: $grey10;
+
 
 /* -- breakpoint settings ----- */
 $mobile_sidebar_width: 20%;
@@ -29,7 +90,7 @@ $headerContentFontWeight: 400;
 
 /* --- search settings -------- */
 $searchPlaceholderColor: $gray;
-$searchActiveColor: $navy;
+$searchActiveColor: $byuNavy;
 $searchHeight: 27px;
 $searchWidth: 41px;
 
@@ -41,7 +102,36 @@ $menuHover: $gray;
 $menuActive: $lightgray;
 
 /* ---------  general text settings ----- */
+/** Variables **/
 
+$colorLineDark: $grey30; /** Fonts*/
+$baseFontMultiplier: 1.125;
+$baseFontSize: 1em * $baseFontMultiplier;
+$fontSize14: 0.875em / $baseFontMultiplier;
+$fontSize15: 0.9375em / $baseFontMultiplier;
+$fontSize16: 1em / $baseFontMultiplier;
+$fontSize18: 1.125em / $baseFontMultiplier;
+$fontSize20: 1.25em / $baseFontMultiplier;
+$fontSize24: 1.5em / $baseFontMultiplier;
+$fontSize36: 2.25em / $baseFontMultiplier;
+$fontSize48: 3em / $baseFontMultiplier;
+$fontSize64: 4em / $baseFontMultiplier; /** Spacing*/
+$font-heading: "HCo Ringside Narrow SSm", "Noto Sans", "Open Sans", Helvetica, Arial, sans-serif;
+$spacing1: 0.25em;
+$spacing2: 0.5em;
+$spacing3: 0.75em;
+$spacing4: 1.25em;
+$spacing5: 2em;
+$spacing6: 3.25em;
+$spacing7: 5.25em;
+$spacing8: 8.5em; /** Breakpoints*/
+$break0: 0.0625rem;
+$breakSm: 21rem;
+$breakMdSm: 28rem;
+$breakMd: 50rem;
+$breakMdLg: 60rem;
+$breakLg: 75rem;
+$breakXl: 90rem; /** Foundations*/
 
 
 /* ------ footer settings ------------- */

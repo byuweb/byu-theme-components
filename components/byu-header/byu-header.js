@@ -43,10 +43,8 @@ export class BYUHeader extends LitElement {
             </div>
         </div>
 
-        <nav class="byu-site-navigation">
-            <slot name="nav"></slot>
-        </nav>
-
+        <slot name="nav"></slot>
+        
     </header>
 
     `;

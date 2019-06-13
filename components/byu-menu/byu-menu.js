@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, property } from 'lit-element';
 import style from './byu-menu.scss';
 
-@customElement('byu-header')
+@customElement('byu-menu')
 export class BYUMenu extends LitElement {
 
     static styles = style;
@@ -9,10 +9,7 @@ export class BYUMenu extends LitElement {
         return html`
 
     <nav class="byu-site-navigation">
-        <ul>
-            <slot></slot>
-            
-        </ul>
+        <slot></slot>
     </nav>
 
     `;
