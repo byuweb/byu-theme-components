@@ -5,7 +5,7 @@ import style from './byu-header.scss';
 export class BYUHeader extends LitElement {
 
   @property()
-  foo = 'header property';
+  title = 'Site Title';
 
   static styles = style;
   render(){
@@ -20,7 +20,7 @@ export class BYUHeader extends LitElement {
             <div class="byu-titles">
 
                 <h1 class="byu-site-title">
-                    <a href="/">Life Sciences</a>
+                    <slot id="site-title" name="site-title"><a href="/">${this.title}</a></slot>
                 </h1>
 
                 <button class="byu-menu-button" aria-expanded="false">Menu</button>
@@ -43,17 +43,8 @@ export class BYUHeader extends LitElement {
             </div>
         </div>
 
-        <nav class="byu-site-navigation">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About</a></li>
-                <li><a href="/programs">Majors &amp; Programs</a></li>
-                <li><a href="/students">Students</a></li>
-                <li><a href="/alumni">Alumni</a></li>
-                <li><a href="/giving">Giving</a></li>
-            </ul>
-        </nav>
-
+        <slot name="nav"></slot>
+        
     </header>
 
     `;
