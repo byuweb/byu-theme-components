@@ -28,7 +28,7 @@
   overflow: visible;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
-}
+} 
 %card {
   list-style-type: none;
   border-radius: 2px;
@@ -306,14 +306,14 @@ $dividerColor: mix(#fff, $byuNavy, 20%);
   white-space: nowrap;
   background: #fff;
   a {
-    background: $royalWeb;
+    background: $byuRoyal;
     padding: 0.4em 1.5em;
     display: inline-block;
     font-size: 1rem;
     transition: background 250ms ease;
     &:hover,
     &:focus {
-      background: mix($royalWeb, #fff, 90%);
+      background: mix($byuRoyal, #fff, 90%);
       text-shadow: 0 0 $spacing2 rgba($byuNavy, 0.75);
     }
   }
@@ -332,7 +332,7 @@ $dividerColor: mix(#fff, $byuNavy, 20%);
       order: 1;
       padding: 0 0.5em;
       a {
-        background: $royalWeb;
+        background: $byuRoyal;
         padding: 0.25em 1em;
       }
     }
@@ -365,14 +365,14 @@ $menuButtonSize: 1.8em;
   color: #fff;
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M2 3h6M2 5h6M2 7h6"/></svg>');
   &:hover {
-    background-color: mix($byuNavy, $royalWeb);
+    background-color: mix($byuNavy, $byuRoyal);
   }
   &:focus {
     border-color: mix($byuNavy, #fff);
     outline: none;
   }
   &[aria-expanded="true"] {
-    background-color: $royalWeb;
+    background-color: $byuRoyal;
   }
 }
 .byu-header.js-enabled {
