@@ -43,9 +43,9 @@ $dividerColor: mix(#fff, $byuNavy, 20%);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
   border-bottom: 1px solid #ddd;
   font-family: $font-heading;
-  a,
-  a:link,
-  a:visited {
+  ::slotted(a),
+  ::slotted(a:link),
+  ::slotted(a:visited) {
     color: #fff;
     text-decoration: none;
     transition: opacity 200ms ease;
