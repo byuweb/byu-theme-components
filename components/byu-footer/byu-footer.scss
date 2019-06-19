@@ -3,17 +3,12 @@
 
 $universityFooterBgColor: $navy;
 $universityFooterTextColor: white;
-$universityFooterFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 $universityFooterFontWeight: 400;
 $universityFooterHeight: 80px;
-
 $universityFooterLogoHeight: 40px;
 $universityFooterLogoWidth: 390px;
 $universityFooterLogoVerticalOffset: 10px;
-
 $universityFooterLogoMobileWidth: 280px;
-
-
 $universityFooterVerticalPadding: 21px;
 
 $siteFooterHorizontalMargin: 8px;
@@ -21,204 +16,204 @@ $siteFooterTopPadding: 0;
 $siteFooterBottomPadding: 50px;
 
 $footerHorizontalPadding: 16px;
-
 $footerColumnMargin: 16px $siteFooterHorizontalMargin 0;
 $footerColumnPadding: 0 16px;
 
 $large-siteFooterContentTopMargin: 33px;
 $large-siteFooterContentBottomMargin: 40px;
-
 $large-siteFooterContentMargin: $large-siteFooterContentTopMargin 8px $large-siteFooterContentBottomMargin;
 
 $siteFooterBackground: $lightgray;
 $siteFooterContentColor: $darkgray;
-$siteFooterColumnTitleFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 $siteFooterContentFont: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 $siteFooterContentFontWeight: 400;
-$siteFooterContentFontSize: 13px;
+
 
 .university-footer {
-    background-color: $universityFooterBgColor;
-    text-align: center;
-    font-family: $universityFooterFont;
-    font-weight: $universityFooterFontWeight;
-    font-size: 14px;
-    line-height: 14px;
+  background-color: $universityFooterBgColor;
+  text-align: center;
+  font-family: $universityFooterFont;
+  font-weight: $universityFooterFontWeight;
+  font-size: 14px;
+  line-height: 14px;
+  color: $universityFooterTextColor !important;
+  width: 100%;
+  padding: $universityFooterVerticalPadding 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  a {
     color: $universityFooterTextColor !important;
-    width: 100%;
-  
-    padding: $universityFooterVerticalPadding 0;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  
-    a {
-      color: $universityFooterTextColor !important;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
     }
   }
-  
-  .university-logo-wrapper {
-    max-width: 1200px;
-    width: 100%;
-    padding: 0 8px;
-    box-sizing: border-box;
-  }
-  
+}
+
+.university-logo-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+}
+
+.university-logo {
+  max-width: 100%;
+  width: $universityFooterLogoMobileWidth;
+  height: $universityFooterLogoHeight;
+  margin: -$universityFooterLogoVerticalOffset 0;
+}
+
+@media (min-width: 1024px) {
   .university-logo {
-    max-width: 100%;
-    width: $universityFooterLogoMobileWidth;
-    height: $universityFooterLogoHeight;
-    margin: -$universityFooterLogoVerticalOffset 0;
+    width: $universityFooterLogoWidth;
   }
-  
-  @media (min-width: 1024px) {
-    .university-logo {
-      width: $universityFooterLogoWidth;
-    }
+}
+
+.university-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  letter-spacing: -0.6px;
+  text-transform: uppercase;
+
+  > :not(:first-of-type) {
+    margin-top: 0.25em;
   }
-  
+}
+
+@media (min-width: 425px) {
   .university-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    letter-spacing: -0.6px;
-    text-transform: uppercase;
-    
+    flex-direction: row;
+
     > :not(:first-of-type) {
-      margin-top: 0.25em;
-    }
-  }
-  
-  @media (min-width: 425px) {
-    .university-info {
-      flex-direction: row;
-      > :not(:first-of-type) {
-        margin-top: 0;
-        &::before {
-          display: inline-block;
-          color: white !important;
-          content: '|';
-          text-align: center;
-          width: 1em;
-        }
+      margin-top: 0;
+
+      &::before {
+        display: inline-block;
+        color: white !important;
+        content: '|';
+        text-align: center;
+        width: 1em;
       }
     }
   }
-  
-  .site-footer-wrapper {
-    background-color: $siteFooterBackground;
+}
+
+.site-footer-wrapper {
+  background-color: $siteFooterBackground;
+}
+
+.site-footer {
+  margin: 0 auto;
+  height: auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  @media screen and (min-width: 600px) {
+    flex-wrap: wrap;
   }
-  
+
+  ::slotted(*) {
+    flex-grow: 1;
+    margin: $footerColumnMargin;
+    padding: $footerColumnPadding;
+  }
+
+  ::slotted(*:last-child) {
+    padding-bottom: 50px
+  }
+
+  ::slotted(.double-wide) {
+    flex-grow: 2;
+  }
+
+  ::slotted(.triple-wide) {
+    flex-grow: 3;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-footer::slotted {
+    padding-right: 25px;
+    padding-left: 25px;
+  }
+}
+
+$calcSubtractWidth: ($siteFooterHorizontalMargin + $footerHorizontalPadding) * 2;
+
+.university-footer {
+  font-size: 9px;
+  line-height: 9px;
+}
+
+@media (min-width: 600px) {
   .site-footer {
-    margin: 0 auto;
-    height: auto;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    @media screen and (min-width: 600px) {
-      flex-wrap: wrap;
-    }
-  
+    flex-direction: row;
+
     ::slotted(*) {
-      flex-grow: 1;
-      margin: $footerColumnMargin;
-      padding: $footerColumnPadding;
+      width: calc(50% - #{$calcSubtractWidth});
     }
-  
-    ::slotted(*:last-child) {
-      padding-bottom: 50px
-    }
-  
+
     ::slotted(.double-wide) {
-      flex-grow: 2;
+      width: calc(100% - #{$calcSubtractWidth});
     }
-  
+
     ::slotted(.triple-wide) {
-      flex-grow: 3;
+      width: calc(100% - #{$calcSubtractWidth});
     }
   }
-  
-  @media (max-width: 600px) {
-    .site-footer::slotted {
-      padding-right: 25px;
-      padding-left: 25px;
+
+
+}
+
+$columnBaseWidth: 20%;
+$columnMaxWidth: 30%;
+
+@media (min-width: 1024px) {
+  .site-footer {
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 0;
+
+    ::slotted(*) {
+      width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth});
+      margin: $large-siteFooterContentMargin;
+      max-width: calc(#{$columnMaxWidth} - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.double-wide) {
+      width: calc(#{$columnBaseWidth * 2} - #{$calcSubtractWidth});
+      max-width: calc(#{$columnMaxWidth * 2} - #{$calcSubtractWidth});
+    }
+
+    ::slotted(.triple-wide) {
+      width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
+      max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth});
     }
   }
-  
-  $calcSubtractWidth: ($siteFooterHorizontalMargin + $footerHorizontalPadding) * 2;
-  
   .university-footer {
-    font-size: 9px;
-    line-height: 9px;  
+    font-size: 11px;
+    line-height: 11px;
   }
-  
-  @media (min-width: 600px) {
-    .site-footer {
-      flex-direction: row;
-      
-      ::slotted(*) {
-        width: calc(50% - #{$calcSubtractWidth});
-      }
-  
-      ::slotted(.double-wide) {
-        width: calc(100% - #{$calcSubtractWidth});
-      }
-  
-      ::slotted(.triple-wide) {
-        width: calc(100% - #{$calcSubtractWidth});
-      }
-    }
-  
-    
+
+  .university-info {
+    padding-top: 3px;
+    letter-spacing: 0;
   }
-  
-  $columnBaseWidth: 20%;
-  $columnMaxWidth: 30%;
-  
-  @media (min-width: 1024px) {
-    .site-footer {
-      flex-wrap: nowrap;
-      justify-content: center;
-      padding: 0;
-  
-      ::slotted(*) {
-        width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth});
-        margin: $large-siteFooterContentMargin;
-        max-width: calc(#{$columnMaxWidth} - #{$calcSubtractWidth});
-      }
-  
-      ::slotted(.double-wide) {
-        width: calc(#{$columnBaseWidth * 2} - #{$calcSubtractWidth});
-        max-width: calc(#{$columnMaxWidth * 2} - #{$calcSubtractWidth});
-      }
-  
-      ::slotted(.triple-wide) {
-        width: calc(#{$columnBaseWidth * 3} - #{$calcSubtractWidth});
-        max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth});
-      }
-    }
-    .university-footer {
-      font-size: 11px;
-      line-height: 11px;  
-    }
-  
-    .university-info {
-      padding-top: 3px;
-      letter-spacing: 0;
-    }
+}
+
+:host([full-width]) {
+  ::slotted(*:first-child) {
+    margin-left: 0;
   }
-  
-  :host([full-width]) {
-    ::slotted(*:first-child) {
-      margin-left: 0;
-    }
-    ::slotted(*:last-child) {
-      margin-right: 0;
-    }
+
+  ::slotted(*:last-child) {
+    margin-right: 0;
   }
+}
