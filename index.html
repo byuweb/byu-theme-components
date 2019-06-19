@@ -1,51 +1,81 @@
 <!DOCTYPE html>
 
 <html>
-
 <head>
-    <script type="module" src="dist/byu-theme-components.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
-    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
-    <style>
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: "Public Sans", Arial, sans-serif;
-        }
+  <script type="module" src="dist/byu-theme-components.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
+  <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: "Public Sans", Arial, sans-serif;
+    }
 
-        .containing-element {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+    .containing-element {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
 
-        .page-content {
-            flex-grow: 1;
-        }
-    </style>
-    <title>BYU Theme Components</title>
+    .page-content {
+      flex-grow: 1;
+    }
+  </style>
+  <title>BYU Theme Components</title>
 </head>
-
 <body>
-    <div class="containing-element">
-        <byu-header>
-            <a slot="site-title" href="/">University Theme Components</a>
-            <byu-menu slot="nav">
-                <a href="/" class="selected">Home</a>
-                <a href="/about">About</a>
-                <a href="/programs">Majors &amp; Programs</a>
-                <a href="/students">Students</a>
-                <a href="/alumni">Alumni</a>
-                <a href="/giving">Giving</a>
-            </byu-menu>
-        </byu-header>
-        <div class="page-content">
-            <p>This is the page.</p>
-        </div>
-        <byu-footer></byu-footer>
-    </div>
+<div class="containing-element">
+  <byu-header></byu-header>
+  <div class="page-content">
+        <p>This is the page.</p>
+  </div>
+  <byu-footer>
+    <byu-footer-column>
+      <span slot="header">Contact</span>
+      <p>
+        BYU Speeches
+        <br> 701 East University Parkway
+        <br> Provo, Utah 84602
+        <br> 888-888-8888
+      </p>
+      <byu-footer-action-button>
+        <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+      </byu-footer-action-button>
+    </byu-footer-column>
+    <byu-footer-column>
+      <span slot="header">Affiliated Speeches</span>
+      <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+      <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+      <a href="https://womensconference.byu.edu">Women's Conference</a>
+      <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+      <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
+    </byu-footer-column>
+    <byu-footer-column>
+      <span slot="header">Related Links</span>
+      <a>LDS.org</a>
+      <a>BYU Alumni</a>
+      <a>BYU Today</a>
+      <a>BYU Magazine</a>
+    </byu-footer-column>
+    <byu-footer-column>
+      <span slot="header">Connect With Us</span>
+      <a>Feedback</a>
+      <a>Help</a>
+      <a>Follow BYU Speeches</a>
+      <byu-social-media-links>
+        <!--Note: These all have text that will be hidden. The text should be there to help screen readers.-->
+        <a class="facebook" href="https://www.facebook.com">Facebook</a>
+        <a class="instagram" href="https://www.instagram.com">Instagram</a>
+        <a class="twitter" href="https://www.twitter.com">Twitter</a>
+        <a class="gplus" href="https://plus.google.com">Google Plus</a>
+        <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
+        <a class="youtube" href="https://www.youtube.com">YouTube</a>
+      </byu-social-media-links>
+      <a>Subscribe</a>
+    </byu-footer-column>
+  </byu-footer>
+</div>
 </body>
-
 </html>
