@@ -1,8 +1,8 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import minify from 'rollup-plugin-babel-minify';
-import multiEntry from 'rollup-plugin-multi-entry'
-import style from 'rollup-plugin-lit-html-style'
+import multiEntry from 'rollup-plugin-multi-entry';
+import style from 'rollup-plugin-lit-html-style';
 
 const esmodules = true;
 export default {
@@ -16,9 +16,12 @@ export default {
 	},
 	plugins: [
     resolve(),
-    babel(),
-    multiEntry(),
     style({ esmodules }),
+    babel({
+      exclude: 'node_modules/**',
+      extensions: ['.js', '.scss']
+    }),
+    multiEntry(),
     minify({
       'mangle': { "exclude": [] },
       "comments": false,
