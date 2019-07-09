@@ -6,8 +6,8 @@ As of this writing this repo contains stubs for the byu-footer and byu-header, b
 
 To build and develop for this repo, clone it to your local machine, create a git branch (if desired), and run the following commands:
 
-- yarn install
-- yarn serve
+- `npm ci`
+- `npm run serve`
 
 # Future Enhancements
 
