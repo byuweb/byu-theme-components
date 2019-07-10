@@ -20,6 +20,7 @@ export class BYUHeader extends LitElement {
             <slot name="site-title"></slot>
           </a>
         </div>
+        <slot name="nav"></slot>
       </div>
     </header>
     `

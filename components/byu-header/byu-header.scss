@@ -1,4 +1,6 @@
 @import "../shared-styles/colors";
+@import "../shared-styles/breakpoints";
+@import "../shared-styles/misc";
 
 header.byu-header {
   background-color: $navy;
@@ -7,7 +9,7 @@ header.byu-header {
   grid-gap: 0;
   grid-template-columns: 72px auto;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: $tablet) {
     grid-template-columns: 115px auto min-content;
   }
 
@@ -26,7 +28,7 @@ header.byu-header {
       max-width: 50px;
       height: auto;
 
-      @media only screen and (min-width: 768px) {
+      @media only screen and (min-width: $tablet) {
         max-width: 70px;
       }
     }
@@ -35,8 +37,9 @@ header.byu-header {
   div.byu-header-titles {
     position: relative;
     padding: 9px 36px 9px 13px;
+    font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: $tablet) {
       padding: 12px 24px;
     }
 
