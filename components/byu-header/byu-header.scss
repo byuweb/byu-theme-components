@@ -1,5 +1,75 @@
 @import "../shared-styles/colors";
 
 header.byu-header {
-  background-color: $navy
+  background-color: $navy;
+  padding: 0;
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 72px auto;
+
+  @media only screen and (min-width: 768px) {
+    grid-template-columns: 115px auto min-content;
+  }
+
+  div.byu-header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+
+    a {
+      text-decoration: none;
+      color: $royal;
+    }
+
+    img.byu-logo {
+      max-width: 50px;
+      height: auto;
+
+      @media only screen and (min-width: 768px) {
+        max-width: 70px;
+      }
+    }
+  }
+
+  div.byu-header-titles {
+    position: relative;
+    padding: 9px 36px 9px 13px;
+
+    @media only screen and (min-width: 768px) {
+      padding: 12px 24px;
+    }
+
+    ::before {
+      content: " ";
+      display: block;
+      position: absolute;
+      background-color: $royal;
+      width: 1px;
+      height: 74%;
+      right: auto;
+      left: 0;
+      top: 13%;
+    }
+
+    div.byu-header-title {
+      color: $white;
+      font-size: 18px;
+      line-height: 1.4;
+      margin: 6px 0;
+      bottom: 1px;
+
+      @media only screen and (min-width: 768px) {
+        font-size: 21px;
+      }
+
+      a.byu-site-title {
+        text-decoration: none;
+      }
+
+      slot[name="site-title"] {
+        color: $white;
+      }
+    }
+  }
 }
