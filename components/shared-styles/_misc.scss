@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
+img {
+  border-style: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
