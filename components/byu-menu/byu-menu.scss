@@ -19,36 +19,40 @@ nav.byu-menu {
     transition: background-color .2s ease, transform .2s ease;
     background: transparent 50%;
     color: $white;
-
-    :focus {
-      border-color: $fadedBlue;
-      outline: none;
+    
+    @media only screen and (min-width: 768px) {
+      display: none;
     }
+  }
 
-    :hover {
-      background-color: $blue;
-    }
+  button.byu-header-menu-button::before, button.byu-header-menu-button::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 34px;
+    background-position: 50%;
+    transition: background-color .2s ease, transform .2s ease;
+  }
 
-    :before, :after {
-      content: " ";
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      width: 34px;
-      height: 34px;
-      background-position: 50%;
-      transition: background-color .2s ease, transform .2s ease;
-    }
+  button.byu-header-menu-button::before {
+    opacity: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><path fill='none' stroke='white' stroke-width='0.75' d='M2 3h6M2 5h6M2 7h6'/></svg>");
+  }
 
-    :before {
-      opacity: 1;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 …l='none' stroke='white' stroke-width='0.75' d='M2 3h6M2 5h6M2 7h6'/></svg>");
-    }
+  button.byu-header-menu-button::after {
+    opacity: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'><path fill='none' stroke='white' stroke-width='0.75' d='M 2.5,2.5 L 7.5,7.5'/><path fill='none' stroke='white' stroke-width='0.75' d='M 2.5,7.5 L 7.5,2.5'/></svg>");
+  }
 
-    :after {
-      opacity: 0;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox=' …='none' stroke='white' stroke-width='0.75' d='M 2.5,7.5 L 7.5,2.5'/></svg>");
-    }
+  button.byu-header-menu-button:focus {
+    border-color: $fadedBlue;
+    outline: none;
+  }
+
+  button.byu-header-menu-button:hover {
+    background-color: $blue;
   }
 }

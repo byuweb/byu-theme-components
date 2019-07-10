@@ -27,6 +27,7 @@ header.byu-header {
     img.byu-logo {
       max-width: 50px;
       height: auto;
+      vertical-align: middle;
 
       @media only screen and (min-width: $tablet) {
         max-width: 70px;
