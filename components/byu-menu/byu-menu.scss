@@ -1,0 +1,54 @@
+@import "../shared-styles/colors";
+@import "../shared-styles/breakpoints";
+@import "../shared-styles/misc";
+
+nav.byu-menu {
+  button.byu-header-menu-button {
+    border-radius: 0;
+    display: block;
+    height: 34px;
+    margin: -17px 0 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: 1rem;
+    text-indent: 50em;
+    top: 50%;
+    width: 34px;
+    border: 1px solid $royal;
+    transition: background-color .2s ease, transform .2s ease;
+    background: transparent 50%;
+    color: $white;
+
+    :focus {
+      border-color: $fadedBlue;
+      outline: none;
+    }
+
+    :hover {
+      background-color: $blue;
+    }
+
+    :before, :after {
+      content: " ";
+      position: absolute;
+      display: block;
+      top: 0;
+      left: 0;
+      width: 34px;
+      height: 34px;
+      background-position: 50%;
+      transition: background-color .2s ease, transform .2s ease;
+    }
+
+    :before {
+      opacity: 1;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 …l='none' stroke='white' stroke-width='0.75' d='M2 3h6M2 5h6M2 7h6'/></svg>");
+    }
+
+    :after {
+      opacity: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox=' …='none' stroke='white' stroke-width='0.75' d='M 2.5,7.5 L 7.5,2.5'/></svg>");
+    }
+  }
+}

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
 <head>
   <script type="module" src="dist/byu-theme-components.min.js"></script>
   <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
@@ -11,7 +11,6 @@
       height: 100%;
       margin: 0;
       padding: 0;
-      font-family: "Public Sans", Arial, sans-serif;
     }
 
     .containing-element {
@@ -30,9 +29,10 @@
 <div class="containing-element">
   <byu-header>
     <span slot="site-title">Demo Site</span>
+    <byu-menu slot="nav"></byu-menu>
   </byu-header>
   <div class="page-content">
-        <p>This is the page.</p>
+    <p>This is the page.</p>
   </div>
 </div>
 </body>
