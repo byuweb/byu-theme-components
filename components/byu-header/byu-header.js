@@ -37,6 +37,7 @@ export class BYUHeader extends LitElement {
             <slot name="user"></slot>
         </div>
     </div>
+    <slot name="nav"></slot>
 </header>
     `
   }

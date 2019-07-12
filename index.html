@@ -28,17 +28,24 @@
 <body>
 <div class="containing-element">
     <byu-header>
-        <a href="//humanities.byu.edu" slot="breadcrumb">Humanities</a>
+<!--        <a href="//humanities.byu.edu" slot="breadcrumb">Humanities</a>-->
         <span slot="site-title">Demo Site</span>
         <!-- TODO: Implement subititle class -->
-        <span slot="site-subtitle">This is a very cool demo site.</span>
+<!--        <span slot="site-subtitle">This is a very cool demo site.</span>-->
         <a href="//donate.byu.edu" slot="actions">Donate</a>
         <byu-search slot="search"></byu-search>
         <byu-user-info slot="user">
             <a slot="user-name" href="https://my.byu.edu">pparker</a>
             <a slot="logout" href="http://cas.byu.edu/cas/logout">Sign out</a>
         </byu-user-info>
-        <byu-menu slot="nav"></byu-menu>
+        <byu-menu slot="nav">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/programs">Majors &amp; Programs</a>
+            <a href="/students">Students</a>
+            <a href="/alumni">Alumni</a>
+            <a href="/giving">Giving</a>
+        </byu-menu>
     </byu-header>
     <div class="page-content">
         <p>This is the page.</p>
