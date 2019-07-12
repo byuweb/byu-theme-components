@@ -1,28 +1,42 @@
-import { html, customElement, LitElement } from 'lit-element'
-import style from './byu-header.scss'
+import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
+import style from './byu-header.sass'
 
 @customElement('byu-header')
 export class BYUHeader extends LitElement {
 
-  static styles = style
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
 
   render () {
     return html`
-    <header class="byu-header">
-      <div class="byu-header-logo">
-        <a href="https://www.byu.edu/" target="_blank">
-          <img src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg" alt="BYU Logo" class="byu-logo" width="188" height="66">
+<header role="banner" class="byu-header">
+    <div class="byu-site-banner">
+        <a class="byu-link" href="https://byu.edu">
+            <span class="visually-hidden">BYU</span>
         </a>
-      </div>
-      <div class="byu-header-titles">
-        <div class="byu-header-title">
-          <a href="/" class="byu-site-title">
-            <slot name="site-title"></slot>
-          </a>
+        <div class="byu-titles">
+            <nav class="byu-breadcrumb">
+                <slot name="breadcrumb"></slot>
+            </nav>
+            <h1 class="byu-site-title">
+                <a href="/">
+                    <slot name="site-title"></slot>
+                </a>
+            </h1>
+            <h2 class="byu-site-subtitle">
+                <slot name="site-subtitle"></slot>
+            </h2>
+            <button class="byu-menu-button" aria-expanded="false">Menu</button>
         </div>
-        <slot name="nav"></slot>
-      </div>
-    </header>
+        <div class="byu-action-id-search">
+            <div class="byu-action-btn">
+                <slot name="actions"></slot>
+            </div>
+            <slot name="search"></slot>
+        </div>
+    </div>
+</header>
     `
   }
 }

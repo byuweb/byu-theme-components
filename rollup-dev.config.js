@@ -4,9 +4,8 @@ import minify from 'rollup-plugin-babel-minify';
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
 import multiEntry from 'rollup-plugin-multi-entry'
-import style from 'rollup-plugin-lit-html-style'
+import postcss from 'rollup-plugin-postcss'
 
-const esmodules = true;
 export default {
   // If using any exports from a symlinked project, uncomment the following:
   // preserveSymlinks: true,
@@ -22,7 +21,9 @@ export default {
     serve('.'),
     livereload(),
     multiEntry(),
-    style({ esmodules }),
+    postcss({
+      plugins: []
+    }),
     minify({
       'mangle': { "exclude": [] },
       "comments": false,

@@ -1,0 +1,72 @@
+@import '../shared-styles/helpers'
+@import '../shared-styles/vars'
+
+//********************
+// Search
+//********************
+
+.byu-search
+
+  @supports(display: grid)
+    @media(min-width: $breakSm)
+      grid-column: 1 / 3
+
+    @media(min-width: $breakMd)
+      min-width: 9em
+      order: 3
+      margin: 0 0 0 0.5em
+
+    @media(min-width: $breakLg)
+      margin: 0 1em
+      min-width: 13em
+
+  .byu-search-label
+    @extend .visually-hidden
+
+  #byu-site-search
+    padding: $spacing3 0.65em
+    width: 100%
+    margin-right: em
+    display: block
+    line-height: 1.2
+    border: 1px solid #fff
+    font-size: 1rem
+    box-sizing: border-box
+
+    @media(min-width: $breakMdSm)
+      padding: $spacing3 1.25em
+
+    @supports(display: grid)
+      @media(min-width: $breakMd)
+        padding: 0.4em 1em
+        border-radius: 0.9625em
+
+  .byu-search-btn
+    @extend %button-reset
+    color: $byuNavy
+    display: block
+    position: absolute
+    top: $spacing1
+    right: 0
+    height: $spacing2 + $spacing2 + 1em
+    width: $spacing2 + $spacing2 + 1em
+    background: transparent
+    border: 1px solid transparent
+    font-size: 1rem
+
+    svg
+      width: 100%
+      height: 100%
+
+    &:hover, &:focus
+      background: $grey10
+      color: $byuNavy
+
+    &:focus
+      border: 1px solid #ccc
+
+    @supports(display: grid)
+      @media(min-width: $breakMd)
+        width: 1.8em
+        height: 1.8em
+        top: 0
