@@ -15,17 +15,18 @@
         "@babel/plugin-proposal-decorators": "^7.4.4",
         "@webcomponents/webcomponentsjs": "^2.2.4",
         "lit-element": "^2.2.0",
+        "node-sass": "^4.12.0",
         "rollup": "^1.16.7",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-babel-minify": "^8.0.0",
         "rollup-plugin-livereload": "^1.0.1",
         "rollup-plugin-node-resolve": "^4.2.4",
+        "rollup-plugin-postcss": "^2.0.3",
         "rollup-plugin-serve": "^1.0.1",
         "serve": "^10.1.1"
     },
     "dependencies": {
         "babel-cli": "^6.26.0",
-        "rollup-plugin-lit-html-style": "^0.1.15",
         "rollup-plugin-multi-entry": "^2.1.0"
     }
 }
