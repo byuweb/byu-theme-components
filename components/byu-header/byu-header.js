@@ -34,6 +34,7 @@ export class BYUHeader extends LitElement {
                 <slot name="actions"></slot>
             </div>
             <slot name="search"></slot>
+            <slot name="user"></slot>
         </div>
     </div>
 </header>
