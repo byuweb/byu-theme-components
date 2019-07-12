@@ -1,19 +1,15 @@
 import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
-import style from './byu-menu.sass'
+import style from './byu-footer.sass'
 
-@customElement('byu-menu')
-export class BYUMenu extends LitElement {
+@customElement('byu-footer')
+export class BYUFooter extends LitElement {
 
   static get styles () {
     return css`${unsafeCSS(style)}`
   }
 
-  // TODO: Show menu items
-
   render () {
     return html`
-<nav class="byu-site-navigation">
-</nav>
     `
   }
 }
