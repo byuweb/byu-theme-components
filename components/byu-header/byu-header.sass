@@ -165,29 +165,7 @@ $dividerColor: mix(#fff, $byuNavy, 20%)
 //********************
 
 
-.byu-id
-  background: $grey05
-  background-image: linear-gradient($grey10, #fff 4px, #fff 100%)
-  padding: 0.25em 0.65em
-  color: $byuNavy
-  text-align: right
-
-  @media(min-width: $breakMdSm)
-    padding: 0.25em 1.1em
-
-  a, a:link, a:visited
-    color: $byuNavy
-    display: inline-block
-    padding: 0.5em 0 0.6em
-
-  svg
-    width: 1.25em
-    height: 1.25em
-    display: inline-block
-    vertical-align: baseline
-    top: 0.25em
-    margin: 0 0.25em
-
+::slotted(byu-user-info)
   @supports(display: grid)
 
     @media(min-width: $breakSm)
