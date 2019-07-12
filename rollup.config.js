@@ -1,10 +1,9 @@
 import resolve from 'rollup-plugin-node-resolve';
 import babel from 'rollup-plugin-babel';
 import minify from 'rollup-plugin-babel-minify';
-import multiEntry from 'rollup-plugin-multi-entry'
-import style from 'rollup-plugin-lit-html-style'
+import multiEntry from 'rollup-plugin-multi-entry';
+import postcss from './rollup-dev.config'
 
-const esmodules = true;
 export default {
   // If using any exports from a symlinked project, uncomment the following:
   // preserveSymlinks: true,
@@ -18,7 +17,9 @@ export default {
     resolve(),
     babel(),
     multiEntry(),
-    style({ esmodules }),
+    postcss({
+      plugins: []
+    }),
     minify({
       'mangle': { "exclude": [] },
       "comments": false,

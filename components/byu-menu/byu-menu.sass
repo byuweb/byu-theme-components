@@ -1,0 +1,47 @@
+@import '../shared-styles/helpers'
+@import '../shared-styles/vars'
+
+//********************
+// Navigation Menu
+//********************
+
+
+.byu-site-navigation
+  margin: 0
+  padding: 0
+  font-size: $fontSize16
+  letter-spacing: 0
+  border-top: 1px solid $grey05
+  background: #fff
+  // height: 0
+  // overflow: hidden
+  a
+    &, &:link, &:visited
+      color: $byuNavy
+      display: block
+      padding: 0.5em 0.75em
+      font-size: 1rem
+      transition: background 250ms ease
+
+    &:hover, &:focus
+      background: $grey10
+
+  @media(min-width: $breakMdSm)
+    padding: 0 0.5em
+
+  @media(min-width: $breakMd)
+    padding-left: 5.5em
+    background: transparent
+
+    // @supports(display: grid)
+    // 	display: grid
+    // 	grid-template-columns: repeat(auto-fill, minmax(6em, auto))
+    // 	grid-gap: 0.25em
+    // 	align-items: center
+
+    @media(min-width: $breakMd)
+      display: block
+
+      a, a:link, a:visited
+        padding: 0.5em 1.35em
+        white-space: nowrap

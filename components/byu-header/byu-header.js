@@ -1,52 +1,44 @@
-import { LitElement, html, customElement, property } from 'lit-element';
-import style from './byu-header.scss';
+import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
+import style from './byu-header.sass'
 
 @customElement('byu-header')
 export class BYUHeader extends LitElement {
 
-  @property()
-  title = 'Site Title';
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
 
-  static styles = style;
-  render(){
+  render () {
     return html`
-   <header role="banner" class="byu-header">
-        <div class="byu-site-banner">
-
-            <a class="byu-link" href="https://byu.edu">
-                <span class="visually-hidden">BYU</span>
-            </a>
-
-            <div class="byu-titles">
-
-                <h1 class="byu-site-title">
-                    <slot id="site-title" name="site-title"><a href="/">${this.title}</a></slot>
-                </h1>
-
-                <button class="byu-menu-button" aria-expanded="false">Menu</button>
-
-            </div>
-
-            <div class="byu-action-id-search">
-
-                <form class="byu-search" action="/">
-                    <label class="byu-search-label" for="site-search">Search</label>
-                    <input type="search" id="byu-site-search" name="q" aria-label="Site search" placeholder="Search">
-                    <button class="byu-search-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                            <style>.st{stroke-width:10;fill:none;stroke:currentColor;stroke-linecap:round;}</style>
-                            <circle class="st" cx="45.5" cy="45.5" r="24.5"/><path class="st" d="M63 63l16 16"/>
-                        </svg>
-                    </button>
-                </form>
-
-            </div>
+<header role="banner" class="byu-header">
+    <div class="byu-site-banner">
+        <a class="byu-link" href="https://byu.edu">
+            <span class="visually-hidden">BYU</span>
+        </a>
+        <div class="byu-titles">
+            <nav class="byu-breadcrumb">
+                <slot name="breadcrumb"></slot>
+            </nav>
+            <h1 class="byu-site-title">
+                <a href="/">
+                    <slot name="site-title"></slot>
+                </a>
+            </h1>
+            <h2 class="byu-site-subtitle">
+                <slot name="site-subtitle"></slot>
+            </h2>
+            <button class="byu-menu-button" aria-expanded="false">Menu</button>
         </div>
-
-        <slot name="nav"></slot>
-        
-    </header>
-
-    `;
+        <div class="byu-action-id-search">
+            <div class="byu-action-btn">
+                <slot name="actions"></slot>
+            </div>
+            <slot name="search"></slot>
+            <slot name="user"></slot>
+        </div>
+    </div>
+    <slot name="nav"></slot>
+</header>
+    `
   }
 }
