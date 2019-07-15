@@ -1,0 +1,59 @@
+@import "../shared-styles/vars"
+
+.slot-wrapper
+  display: flex
+  flex-direction: row
+
+  ::slotted(*)
+    height: 28px
+    width: 28px
+    display: block
+
+    color: transparent!important
+    overflow: hidden
+    background-size: contain
+    background-repeat: no-repeat
+    background-clip: content-box
+    background-position: center
+
+    margin: $spacing2 $spacing2 $spacing2 0 !important
+
+
+  //These all have a [slot] selector for backwards-compatibility. New icons don't need it.
+  ::slotted(.facebook), ::slotted([slot="facebook"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/fa.svg')
+
+
+  ::slotted(.twitter), ::slotted([slot="twitter"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/tw.svg')
+
+
+  ::slotted(.instagram), ::slotted([slot="instagram"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/in.svg')
+
+
+  ::slotted(.youtube), ::slotted([slot="youtube"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/yo.svg')
+
+
+  ::slotted(.pinterest), ::slotted([slot="pinterest"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/pi.svg')
+
+
+  ::slotted(.linkedin), ::slotted([slot="linkedin"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/li.svg')
+
+
+  ::slotted(.rss), ::slotted([slot="rss"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/rs.svg')
+
+
+  ::slotted(.snapchat), ::slotted([slot="snapchat"])
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/sn.svg')
+
+
+  ::slotted(.podcast)
+    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/po.svg')
+
+
+

@@ -6,6 +6,7 @@ import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
 import multiEntry from 'rollup-plugin-multi-entry'
 import postcss from 'rollup-plugin-postcss'
+import bundleSize from 'rollup-plugin-bundle-size'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 
@@ -36,6 +37,7 @@ export default {
     minify({
       'mangle': { 'exclude': [] },
       'comments': false
-    })
+    }),
+    bundleSize()
   ]
 }

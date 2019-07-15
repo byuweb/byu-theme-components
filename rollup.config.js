@@ -4,6 +4,7 @@ import babel from 'rollup-plugin-babel'
 import minify from 'rollup-plugin-babel-minify'
 import multiEntry from 'rollup-plugin-multi-entry'
 import postcss from 'rollup-plugin-postcss'
+import bundleSize from 'rollup-plugin-bundle-size'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
 
@@ -32,6 +33,7 @@ export default {
     minify({
       'mangle': { 'exclude': [] },
       'comments': false
-    })
+    }),
+    bundleSize()
   ]
 }

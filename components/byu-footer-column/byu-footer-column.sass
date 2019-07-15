@@ -1,0 +1,145 @@
+@import "../shared-styles/vars"
+
+.column-title
+  font-family: $font-heading
+  text-transform: uppercase
+  color: $navy
+  font-size: $fontSize14
+  line-height: $fontSize18
+  border-bottom: 1px solid $grey70
+  padding-bottom: $spacing1
+  font-weight: $font-weight-semi-bold
+  width: 100%
+  display: inline-block
+  max-width: 230px
+
+
+@media (max-width: $breakMdLg)
+  .column-title
+    font-size: $fontSize12
+    padding-bottom: $spacing0
+
+
+
+.header
+  width: 100%
+  margin: 0 0 $spacing2
+
+
+.header ::slotted(*)
+  font-family: $font-heading
+  text-transform: uppercase
+  color: $navy
+  font-size: $fontSize14
+  line-height: $fontSize18
+  border-bottom: 1px solid $grey70
+  padding-bottom: $spacing1
+  font-weight: $font-weight-semi-bold
+  width: 100%
+  display: inline-block
+  max-width: 230px
+
+
+.header ::slotted(br)
+  display: none
+
+
+.content ::slotted(*)
+  max-width: 100%
+
+
+.content ::slotted(:not(byu-footer-action-button))
+  font-family: $font-heading
+  font-size: $fontSize16
+  line-height: $fontSize18
+  font-weight: $font-weight-normal
+  color: $grey90
+  display: block
+  margin: 0
+
+
+.content ::slotted(a)
+  text-decoration: none
+  outline: none
+  color: $royal
+  font-size: $fontSize16
+  height: $fontSize18
+  margin: 0 0 $spacing4
+
+
+.content ::slotted(p), .content ::slotted(div)
+  text-decoration: none
+  outline: none
+  font-size: $fontSize16
+  min-height: $fontSize18
+
+
+.content ::slotted(a:hover)
+  color: $navy
+
+
+.content > a
+  text-decoration: none
+  outline: none
+  color: $royal
+  font-size: $fontSize16
+  height: $fontSize18
+
+
+.content > div, .content > p
+  text-decoration: none
+  outline: none
+  font-size: $fontSize16
+  min-height: $fontSize18
+
+
+.content > a:hover
+  color: $navy
+
+
+@media (max-width: $breakMdLg)
+  .content
+    ::slotted(:not(byu-footer-action-button))
+      font-size: $fontSize12
+
+
+
+  .header ::slotted(*)
+    font-size: $fontSize12
+    max-width: 230px
+
+
+
+.footerActionButton
+  background-color: $royal
+  font-size: $fontSize12
+  color: $white
+  display: inline-block
+  text-align: center
+  line-height: $fontSize16
+  padding: $spacing3 $spacing2
+  width: auto
+  min-width: 125px
+  margin: $spacing4 0
+  -webkit-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
+  -moz-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
+  box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
+  letter-spacing: 0.5px
+
+
+.social-media-links
+  display: grid
+  grid-template-columns: repeat(6, 1fr)
+  color: transparent
+  background-size: contain
+  background-repeat: no-repeat
+  background-clip: content-box
+  background-position: center
+  margin: $spacing2 $spacing2 0 0
+  align-items: center
+
+
+.social-media-links > a > img
+  height: 28px
+  width: 28px
+
