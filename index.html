@@ -28,19 +28,21 @@
 <body>
 <div class="containing-element">
     <byu-header>
-        <!-- TODO: Add support for multiple breadcrumbs -->
-        <a href="//humanities.byu.edu" slot="breadcrumb">Humanities</a>
+        <byu-breadcrumbs slot="breadcrumbs">
+            <a href="#">Test 1</a>
+            <a href="#">Child of Test 1</a>
+        </byu-breadcrumbs>
         <span slot="site-title">Demo Site</span>
-        <!-- TODO: Implement subititle class -->
         <span slot="site-subtitle">This is a very cool demo site.</span>
         <a href="//donate.byu.edu" slot="actions">Donate</a>
-        <byu-search slot="search"></byu-search>
+        <byu-search slot="search" onbyusearch="searchCallback" id="onsearch-demo"></byu-search>
         <byu-user-info slot="user">
             <a slot="user-name" href="https://my.byu.edu">pparker</a>
+            <a slot="login" href="#login">Sign In</a>
             <a slot="logout" href="http://cas.byu.edu/cas/logout">Sign out</a>
         </byu-user-info>
         <byu-menu slot="nav">
-            <a href="/">Home</a>
+            <a href="/" class="active">Home</a>
             <a href="/about">About</a>
             <a href="/programs">Majors &amp; Programs</a>
             <a href="/students">Students</a>
@@ -52,5 +54,10 @@
         <p>This is the page.</p>
     </div>
 </div>
+<script>
+function searchCallback(event) {
+    alert('Searched for ' + event.detail.search + ' using ' + this.id);
+}
+</script>
 </body>
 </html>

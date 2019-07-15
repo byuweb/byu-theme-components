@@ -1,6 +1,25 @@
 @import '../shared-styles/helpers'
 @import '../shared-styles/vars'
 
+@mixin siteSearchSelectedInput()
+  padding: $spacing3 0.65em
+  display: block
+  line-height: 1.2
+  border: 1px solid #fff
+  font-size: 1rem
+  box-sizing: border-box
+
+  @media(max-width: $breakMdLg)
+    width: 100%
+
+  @media(min-width: $breakMdSm)
+    padding: $spacing3 1.25em
+
+  @supports(display: grid)
+    @media(min-width: $breakMd)
+      padding: 0.4em 1em
+      border-radius: 0.9625em
+
 //********************
 // Search
 //********************
@@ -24,22 +43,7 @@
     @extend .visually-hidden
 
   #byu-site-search
-    padding: $spacing3 0.65em
-    width: 100%
-    margin-right: em
-    display: block
-    line-height: 1.2
-    border: 1px solid #fff
-    font-size: 1rem
-    box-sizing: border-box
-
-    @media(min-width: $breakMdSm)
-      padding: $spacing3 1.25em
-
-    @supports(display: grid)
-      @media(min-width: $breakMd)
-        padding: 0.4em 1em
-        border-radius: 0.9625em
+    @include siteSearchSelectedInput()
 
   .byu-search-btn
     @extend %button-reset
@@ -58,7 +62,7 @@
       width: 100%
       height: 100%
 
-    &:hover, &:focus
+    &:focus
       background: $grey10
       color: $byuNavy
 
@@ -68,5 +72,8 @@
     @supports(display: grid)
       @media(min-width: $breakMd)
         width: 1.8em
-        height: 1.8em
+        height: 1.85em
         top: 0
+
+input.__byu-search-selected-input
+  @include siteSearchSelectedInput()

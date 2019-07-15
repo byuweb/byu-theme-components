@@ -1,8 +1,6 @@
 @import '../shared-styles/helpers'
 @import '../shared-styles/vars'
 
-$dividerColor: mix(#fff, $byuNavy, 20%)
-
 .byu-header
   z-index: 10
   font-size: 1.125rem
@@ -100,15 +98,9 @@ $dividerColor: mix(#fff, $byuNavy, 20%)
 
 
   // Breadcrumb above the titles
-  .byu-breadcrumb
+  .byu-site-breadcrumbs
     line-height: 1.4
     font-size: 0.67em
-    ::slotted(*)
-      opacity: 0.75
-      text-decoration: none
-      color: #fff
-    ::slotted(*:hover), ::slotted(*:focus)
-      opacity: 1
 
 
 //********************
@@ -155,7 +147,7 @@ $dividerColor: mix(#fff, $byuNavy, 20%)
       margin: 0 1em 0 0.5em
 
     @media(min-width: $breakLg)
-      margin: 0 1em
+      margin: 0 1em 0 0
       min-width: 13em
 
 
@@ -240,71 +232,6 @@ $dividerColor: mix(#fff, $byuNavy, 20%)
         padding: 0.25em 1.5em
 
 
-
-
-
-
-
-//********************
-// Navigation Menu
-//********************
-
-
-.byu-site-navigation
-  margin: 0
-  padding: 0
-  font-size: $fontSize16
-  letter-spacing: 0
-  border-top: 1px solid $grey05
-  background: #fff
-  // height: 0
-  // overflow: hidden
-  a
-    &, &:link, &:visited
-      color: $byuNavy
-      display: block
-      padding: 0.5em 0.75em
-      font-size: 1rem
-      transition: background 250ms ease
-
-    &:hover, &:focus
-      background: $grey10
-
-  @media(min-width: $breakMdSm)
-    padding: 0 0.5em
-
-  @media(min-width: $breakMd)
-    padding-left: 5.5em
-    background: transparent
-
-  ul
-    margin: 0
-    padding: 0
-    list-style: none
-
-    li
-      margin: 0
-      padding: 0
-
-    // @supports(display: grid)
-    // 	display: grid
-    // 	grid-template-columns: repeat(auto-fill, minmax(6em, auto))
-    // 	grid-gap: 0.25em
-    // 	align-items: center
-
-    @media(min-width: $breakMd)
-      display: block
-
-      li
-        display: inline-block
-
-      a, a:link, a:visited
-        padding: 0.5em 1.35em
-        white-space: nowrap
-
-
-
-
 //********************
 // JS-Enabled Header Styles
 //********************
@@ -356,7 +283,7 @@ $menuButtonSize: 1.8em
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,2.5 L 7.5,7.5"/><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,7.5 L 7.5,2.5"/></svg>')
   &[aria-expanded=true]:after, &[aria-expanded=true]:before
     transform: rotate(360deg)
-    &[aria-expanded=true]:before
+  &[aria-expanded=true]:before
     opacity: 0
   &[aria-expanded=true]:after
     opacity: 1
@@ -368,6 +295,7 @@ $menuButtonSize: 1.8em
     .byu-action-id-search, .byu-site-navigation
       height: 0
       overflow: hidden
+      display: none
 
     .byu-titles
       padding-right: 2em
@@ -382,3 +310,4 @@ $menuButtonSize: 1.8em
 
     .byu-action-id-search, .byu-site-navigation
       height: auto
+      display: inherit

@@ -1,10 +1,10 @@
 'use strict'
 
 import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
-import style from './byu-menu.sass'
+import style from './byu-breadcrumbs.sass'
 
-@customElement('byu-menu')
-export class BYUMenu extends LitElement {
+@customElement('byu-breadcrumbs')
+export class BYUBreadcrumbs extends LitElement {
 
   static get styles () {
     return css`${unsafeCSS(style)}`
@@ -12,8 +12,8 @@ export class BYUMenu extends LitElement {
 
   render () {
     return html`
-<nav class="byu-menu">
-    <slot class="byu-menu-items"></slot>
+<nav class="byu-breadcrumbs">
+    <slot class="byu-breadcrumbs-items"></slot>
 </nav>
     `
   }
