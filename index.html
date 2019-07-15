@@ -1,21 +1,106 @@
 <!DOCTYPE html>
-<html>
 
+<html lang="en">
 <head>
-<title></title>
-    <meta charset="utf-8" />
+    <script type="module" src="dist/byu-theme-components.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-        // Redirect to the docs pages. This page exists just so that we have a default document
-        // in the main directory so that when browsersync loads it sends you to an actual 
-        // page rather than an error screen
-        window.location.href = "./docs/index.html";
-    </script>
+        .containing-element {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .page-content {
+            flex-grow: 1;
+        }
+    </style>
+    <title>BYU Theme Components</title>
 </head>
-
 <body>
-    Redirecting to docs page
+<div class="containing-element">
+    <byu-header>
+        <byu-breadcrumbs slot="breadcrumbs">
+            <a href="#">Test 1</a>
+            <a href="#">Child of Test 1</a>
+        </byu-breadcrumbs>
+        <span slot="site-title">Demo Site</span>
+        <span slot="site-subtitle">This is a very cool demo site.</span>
+        <a href="//donate.byu.edu" slot="actions">Donate</a>
+        <byu-search slot="search" onbyusearch="searchCallback" id="onsearch-demo"></byu-search>
+        <byu-user-info slot="user">
+            <a slot="user-name" href="https://my.byu.edu">pparker</a>
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="http://cas.byu.edu/cas/logout">Sign out</a>
+        </byu-user-info>
+        <byu-menu slot="nav">
+            <a href="/" class="active">Home</a>
+            <a href="/about">About</a>
+            <a href="/programs">Majors &amp; Programs</a>
+            <a href="/students">Students</a>
+            <a href="/alumni">Alumni</a>
+            <a href="/giving">Giving</a>
+        </byu-menu>
+    </byu-header>
+    <div class="page-content">
+        <p>This is the page.</p>
+    </div>
+    <byu-footer>
+        <byu-footer-column>
+            <span slot="header">Contact</span>
+            <p>
+                BYU Speeches
+                <br> 701 East University Parkway
+                <br> Provo, Utah 84602
+                <br> 888-888-8888
+            </p>
+            <byu-footer-action-button>
+                <a href="https://www.google.com" slot="actiontext">GIVE to Speeches</a>
+            </byu-footer-action-button>
+        </byu-footer-column>
+        <byu-footer-column>
+            <span slot="header">Affiliated Speeches</span>
+            <a href="https://www.byui.edu">BYU-Idaho Speeches</a>
+            <a href="https://www.byuh.edu">BYU-Hawaii Speeches</a>
+            <a href="https://womensconference.byu.edu">Women's Conference</a>
+            <a href="https://kennedy.byu.edu/lectures">Kennedy Center Lectures</a>
+            <a href="https://wheatley.byu.edu/">Wheatley Institution</a>
+        </byu-footer-column>
+        <byu-footer-column>
+            <span slot="header">Related Links</span>
+            <a>LDS.org</a>
+            <a>BYU Alumni</a>
+            <a>BYU Today</a>
+            <a>BYU Magazine</a>
+        </byu-footer-column>
+        <byu-footer-column>
+            <span slot="header">Connect With Us</span>
+            <a>Feedback</a>
+            <a>Help</a>
+            <a>Follow BYU Speeches</a>
+            <byu-social-media-links>
+                <!--Note: These all have text that will be hidden. The text should be there to help screen readers.-->
+                <a class="facebook" href="https://www.facebook.com">Facebook</a>
+                <a class="instagram" href="https://www.instagram.com">Instagram</a>
+                <a class="twitter" href="https://www.twitter.com">Twitter</a>
+                <a class="linkedin" href="https://www.linkedin.com">Linkedin</a>
+                <a class="youtube" href="https://www.youtube.com">YouTube</a>
+            </byu-social-media-links>
+        </byu-footer-column>
+    </byu-footer>
+</div>
+<script>
+function searchCallback(event) {
+    alert('Searched for ' + event.detail.search + ' using ' + this.id);
+}
+</script>
 </body>
-
 </html>

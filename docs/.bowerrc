@@ -1,7 +1,0 @@
-{
-  "directory": "lib",
-  "ignoredDependencies": [
-    "webcomponentsjs",
-    "shadycss"
-  ]
-}

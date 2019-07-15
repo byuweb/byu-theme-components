@@ -1,0 +1,18 @@
+@import "../shared-styles/vars"
+@import "../shared-styles/helpers"
+
+// Breadcrumb above the titles
+.byu-breadcrumbs
+  ::slotted(*)
+    opacity: 0.75
+    text-decoration: none
+    color: #fff
+    margin-right: $spacing2
+    padding-right: $spacing3
+    border-right: solid 1px $dividerColor
+
+  ::slotted(*:hover), ::slotted(*:focus)
+    opacity: 1
+
+  ::slotted(*:last-child)
+    border: none

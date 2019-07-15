@@ -1,0 +1,31 @@
+.visually-hidden /* https://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+  position: absolute !important
+  height: 1px
+  width: 1px
+  overflow: hidden
+  clip: rect(1px, 1px, 1px, 1px)
+
+*, *:before, *:after
+  -webkit-box-sizing: inherit
+  box-sizing: inherit
+  position: relative
+
+%button-reset
+  display: inline-block
+  border: none
+  margin: 0
+  text-decoration: none
+  background: #fff
+  color: #fff
+  font-size: inherit
+  cursor: pointer
+  text-align: center
+  transition: background 200ms ease, color 200ms ease, border 200ms ease, transform 150ms ease
+  -webkit-appearance: none
+  -moz-appearance: none
+
+  &:active
+    transform: scale(0.99)
+
+.hidden
+  display: none !important

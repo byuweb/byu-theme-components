@@ -1,21 +1,18 @@
-'use strict';
+import { LitElement, html, customElement, css, unsafeCSS } from 'lit-element'
+import style from './byu-footer-action-button.sass'
 
-import template from './byu-footer-action-button.html';
-import * as util from "byu-web-component-utils";
+@customElement('byu-footer-action-button')
+export class BYUFooterActionButton extends LitElement {
 
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
 
-class BYUFooterActionButton extends HTMLElement {
-
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-    }
-
-    connectedCallback() {
-        util.applyTemplate(this, 'byu-footer-action-button', template);
-    }
+  render () {
+    return html`
+    <div class="wrapper">
+      <slot name="actiontext"></slot>
+    </div>
+    `
+  }
 }
-
-window.customElements.define('byu-footer-action-button', BYUFooterActionButton);
-window.BYUFooterActionButton = BYUFooterActionButton;
-

@@ -1,75 +1,28 @@
-'use strict';
-import template from "./byu-social-media-links.html";
-import * as util from "byu-web-component-utils";
+import { LitElement, html, customElement, css, unsafeCSS } from 'lit-element'
+import style from './byu-social-media-links.sass'
 
-const SOCIAL_NAMES = {
-    'facebook': 'Facebook',
-    'twitter': 'Twitter',
-    'instagram': 'Instagram',
-    'youtube': 'YouTube',
-    'pinterest': 'Pinterest',
-    'google-plus': 'Google+',
-    'googleplus': 'Google+',
-    'gplus': 'Google+',
-    'linkedin': 'LinkedIn',
-    'rss': 'RSS',
-    'snapchat': 'Snapchat',
-    'podcast': 'Podcast'
-};
+@customElement('byu-social-media-links')
+export class BYUSocialMediaLinks extends LitElement {
 
-const SOCIAL_IDS = Object.getOwnPropertyNames(SOCIAL_NAMES);
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
 
-class BYUSocialMediaLinks extends HTMLElement {
-
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-    }
-
-    connectedCallback() {
-        util.applyTemplate(this, 'byu-social-media-links', template, () => {
-            let main = this.shadowRoot.querySelector('#social-main');
-            applyTitleToChildren(main);
-
-            SOCIAL_IDS.forEach(id => {
-                const slot = this.shadowRoot.querySelector('#social-deprecated-' + id);
-                if (!slot) return;
-
-                applyTitleToChildren(slot);
-                //We're still supporting the old way, but it's deprecated and people should move on.
-                if (slot.assignedNodes().length > 0) {
-                    console.log(`[WARNING] byu-social-media-links: deprecated usage of slot="${id}". Replace with class="${id}":`, this);
-                }
-            });
-        });
-    }
-}
-
-window.customElements.define('byu-social-media-links', BYUSocialMediaLinks);
-window.BYUSocialMediaLinks = BYUSocialMediaLinks;
-
-function applyTitleToChildren(slotElement) {
-    let kids = slotElement.assignedNodes();
-    kids.filter(k => k instanceof HTMLElement)
-    //Only grab the ones that don't already have a title
-        .filter(k => !k.title)
-        .forEach(kid => {
-            let kind = detectSocialKind(kid);
-            if (!kind) {
-                return;
-            }
-            //The spaces are a hack to avoid triggering adblockplus.
-            kid.title = ' ' + SOCIAL_NAMES[kind] + ' ';
-        });
-}
-
-function detectSocialKind(element) {
-    if (element.hasAttribute('slot')) return element.getAttribute('slot');
-    for (let i = 0; i < SOCIAL_IDS.length; i++) {
-        let id = SOCIAL_IDS[i];
-        if (element.classList.contains(id)) {
-            return id;
-        }
-    }
-    return null;
+  render () {
+    return html`
+    <div class="slot-wrapper">
+        <slot id="social-main"></slot>
+        <!--These others are deprecated, and are here for backwards-compatibility-->
+        <slot id="social-deprecated-facebook" name="facebook"></slot>
+        <slot id="social-deprecated-twitter" name="twitter"></slot>
+        <slot id="social-deprecated-instagram" name="instagram"></slot>
+        <slot id="social-deprecated-youtube" name="youtube"></slot>
+        <slot id="social-deprecated-pinterest" name="pinterest"></slot>
+        <slot id="social-deprecated-googleplus" name="googleplus"></slot>
+        <slot id="social-deprecated-linkedin" name="linkedin"></slot>
+        <slot id="social-deprecated-rss" name="rss"></slot>
+        <slot id="social-deprecated-snapchat" name="snapchat"></slot>
+    </div>
+    `
+  }
 }

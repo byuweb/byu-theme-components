@@ -1,19 +1,21 @@
-'use strict';
+import { LitElement, html, customElement, css, unsafeCSS } from 'lit-element'
+import style from './byu-footer-column.sass'
 
-import template from './byu-footer-column.html';
-import * as util from "byu-web-component-utils";
+@customElement('byu-footer-column')
+export class BYUFooterColumn extends LitElement {
 
-class BYUFooterColumn extends HTMLElement {
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
 
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-    }
-
-    connectedCallback() {
-        util.applyTemplate(this, 'byu-footer-column', template);
-    }
+  render () {
+    return html`
+    <h2 class="column-title">
+        <slot name="header"></slot>
+    </h2>
+    <div class="content">
+        <slot></slot>
+    </div>
+    `
+  }
 }
-
-window.customElements.define('byu-footer-column', BYUFooterColumn);
-window.BYUFooterColumn = BYUFooterColumn;
