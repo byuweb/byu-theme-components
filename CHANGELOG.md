@@ -11,15 +11,18 @@ In addition to a new design to match the design of sites hosted with BYU website
 - The `max-width` attribute has been removed.
 - The `full-width` attribute has been removed.
 - The `constrain-top-bar` attribute has been removed.
+- The `home-url` attribute has been removed.
+- Rather than nest links in the header slot, you should use the `sitehome` attribute to change where the title points.
 
 ### `byu-menu`
 
 - The `transparent` class has been removed.
+- The `active-selector` attribute is now one word as opposed to ke-bab case. To define a custom active selector, use the `activeselector` attribute.
 - Regardless of the number of menu items, they will always be left aligned.
 - The more menu has been removed.
 
 ### `byu-search`
 
-- The `search-input-selector` attribute is now camelCase as opposed to ke-bab case. To define a custom search input selector, use the `searchInputSelector` attribute.
-- The `action-target` attribute is now camelCase as opposed to ke-bab case. To define an action target, use the `actionTarget` attribute.
+- The `search-input-selector` attribute is now one word as opposed to ke-bab case. To define a custom search input selector, use the `searchinputselector` attribute.
+- The `action-target` attribute is now one word as opposed to ke-bab case. To define an action target, use the `actiontarget` attribute.
 - Removed the deprecated `onsearch` attribute.
