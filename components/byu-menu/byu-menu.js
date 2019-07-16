@@ -1,10 +1,24 @@
 'use strict'
 
-import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
+import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-element'
 import style from './byu-menu.sass'
+
+const ACTIVE_MENU_ATTR = 'active'
 
 @customElement('byu-menu')
 export class BYUMenu extends LitElement {
+  @property ({ type: String }) activeSelector = ''
+
+  firstUpdated (_changedProperties) {
+    if (this.activeSelector !== '') {
+      this._updateActiveSelector(this)
+    }
+  }
+
+  _updateActiveSelector(menu) {
+    const el = menu.querySelector(this.activeSelector)
+    el.classList.add(ACTIVE_MENU_ATTR)
+  }
 
   static get styles () {
     return css`${unsafeCSS(style)}`

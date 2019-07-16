@@ -1,6 +1,6 @@
 'use strict'
 
-import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
+import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-element'
 import style from './byu-header.sass'
 
 const JS_INIT_CLASS = 'js-enabled'
@@ -11,6 +11,7 @@ const SITE_ACTION_CLASS = 'byu-action-id-search'
 
 @customElement('byu-header')
 export class BYUHeader extends LitElement {
+  @property({ type: String }) siteHome = '/'
 
   firstUpdated (_changedProperties) {
     const headerEls = this.shadowRoot.querySelectorAll('.byu-header')
@@ -92,7 +93,7 @@ export class BYUHeader extends LitElement {
         <div class="byu-titles">
             <slot name="breadcrumbs" class="byu-site-breadcrumbs"></slot>
             <h1 class="byu-site-title">
-                <a href="/">
+                <a href="${this.siteHome}">
                     <slot name="site-title"></slot>
                 </a>
             </h1>

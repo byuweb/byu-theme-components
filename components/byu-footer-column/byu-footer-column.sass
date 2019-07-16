@@ -3,12 +3,11 @@
 .column-title
   font-family: $font-heading
   text-transform: uppercase
-  color: $navy
-  font-size: $fontSize14
+  color: $grey90
+  font-size: $fontSize16
   line-height: $fontSize18
-  border-bottom: 1px solid $grey70
-  padding-bottom: $spacing1
-  font-weight: $font-weight-semi-bold
+  padding-bottom: $spacing3
+  font-weight: $font-weight-bold
   width: 100%
   display: inline-block
   max-width: 230px
@@ -29,10 +28,8 @@
 .header ::slotted(*)
   font-family: $font-heading
   text-transform: uppercase
-  color: $navy
   font-size: $fontSize14
-  line-height: $fontSize18
-  border-bottom: 1px solid $grey70
+  line-height: $fontSize32
   padding-bottom: $spacing1
   font-weight: $font-weight-semi-bold
   width: 100%
@@ -49,9 +46,9 @@
 
 
 .content ::slotted(:not(byu-footer-action-button))
-  font-family: $font-heading
-  font-size: $fontSize16
-  line-height: $fontSize18
+  font-family: $font-text
+  font-size: $fontSize14
+  line-height: $fontSize24
   font-weight: $font-weight-normal
   color: $grey90
   display: block
@@ -62,7 +59,7 @@
   text-decoration: none
   outline: none
   color: $royal
-  font-size: $fontSize16
+  font-size: $fontSize14
   height: $fontSize18
   margin: 0 0 $spacing4
 
@@ -70,27 +67,31 @@
 .content ::slotted(p), .content ::slotted(div)
   text-decoration: none
   outline: none
-  font-size: $fontSize16
-  min-height: $fontSize18
+  font-size: $fontSize14
+  min-height: $fontSize24
+  line-height: $fontSize32
 
 
 .content ::slotted(a:hover)
   color: $navy
 
+.content ::slotted(a:focus)
+  color: $navy
+  text-decoration: underline
 
 .content > a
   text-decoration: none
   outline: none
   color: $royal
-  font-size: $fontSize16
+  font-size: $fontSize14
   height: $fontSize18
 
 
 .content > div, .content > p
   text-decoration: none
   outline: none
-  font-size: $fontSize16
-  min-height: $fontSize18
+  font-size: $fontSize14
+  min-height: $fontSize24
 
 
 .content > a:hover
