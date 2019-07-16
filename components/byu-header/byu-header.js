@@ -11,7 +11,6 @@ const SITE_ACTION_CLASS = 'byu-action-id-search'
 
 @customElement('byu-header')
 export class BYUHeader extends LitElement {
-  @property({ type: String }) siteHome = '/'
 
   firstUpdated (_changedProperties) {
     const headerEls = this.shadowRoot.querySelectorAll('.byu-header')
@@ -92,14 +91,7 @@ export class BYUHeader extends LitElement {
         </a>
         <div class="byu-titles">
             <slot name="breadcrumbs" class="byu-site-breadcrumbs"></slot>
-            <h1 class="byu-site-title">
-                <a href="${this.siteHome}">
-                    <slot name="site-title"></slot>
-                </a>
-            </h1>
-            <h2 class="byu-site-subtitle">
-                <slot name="site-subtitle"></slot>
-            </h2>
+            <slot id="byu-titles-slot" name="site-title"></slot>
             <button class="byu-menu-button" aria-expanded="false">Menu</button>
         </div>
         <div class="byu-action-id-search">

@@ -13,7 +13,8 @@
   "scripts": {
     "serve": "rm -rf dist && mkdir dist && rollup --watch -c rollup-dev.config.js",
     "build": "rm -rf dist && mkdir dist && rollup -c",
-    "lint": "eslint components/**/*.js"
+    "lint": "eslint components/**/*.js",
+    "docs": "rm -rf docs/lib/bundle.js && cd docs && rollup -c rollup-docs.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
@@ -41,6 +42,7 @@
     "serve": "^10.1.1"
   },
   "dependencies": {
+    "@polymer/iron-demo-helpers": "^3.1.0",
     "babel-cli": "^6.26.0"
   },
   "husky": {

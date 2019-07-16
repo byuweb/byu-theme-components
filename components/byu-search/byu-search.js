@@ -24,9 +24,9 @@ const EVENT_TYPE = 'byu-search'
 @customElement('byu-search')
 export class BYUSearch extends LitElement {
   @property({ type: String }) placeholder = 'Search'
-  @property({ type: String }) searchInputSelector = DEFAULT_SEARCH_INPUT_SELECTOR
+  @property({ type: String, attribute: 'search-input-selector' }) searchInputSelector = DEFAULT_SEARCH_INPUT_SELECTOR
   @property({ type: String }) action = null
-  @property({ type: String }) actionTarget = null
+  @property({ type: String, attribute: 'action-target' }) actionTarget = null
   @property({ type: String }) onbyusearch = null
 
   get _searchSlot() {

@@ -6,11 +6,11 @@ In addition to a new design to match the design of sites hosted with BYU website
 
 ### `byu-header`
 
-- The `subtitle` class is no longer supported. To create a subtitle, place an element in the `subtitle` slot.
 - Previously deprecated supertitles have been removed.
 - The `max-width` attribute has been removed.
 - The `full-width` attribute has been removed.
 - The `constrain-top-bar` attribute has been removed.
+- The `home-url` attribute has been removed.
 
 ### `byu-menu`
 
@@ -20,6 +20,4 @@ In addition to a new design to match the design of sites hosted with BYU website
 
 ### `byu-search`
 
-- The `search-input-selector` attribute is now camelCase as opposed to ke-bab case. To define a custom search input selector, use the `searchInputSelector` attribute.
-- The `action-target` attribute is now camelCase as opposed to ke-bab case. To define an action target, use the `actionTarget` attribute.
 - Removed the deprecated `onsearch` attribute.

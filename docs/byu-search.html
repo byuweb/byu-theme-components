@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+<html lang="en" id="html">
+<head>
+    <script async type="module" src="https://cdn.byu.edu/byu-theme-components/experimental/v2/byu-theme-components.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
+    <link rel="stylesheet" href="lib/prism/prism.css" media="all">
+    <script type="text/javascript" src="lib/prism/prism.js"></script>
+    <script type="text/javascript" src="lib/bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Public Sans', Arial, sans-serif;
+            background-color: #FAFAFA
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif;
+        }
+
+        .containing-element {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .page-content {
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hidden {
+            display: none
+        }
+    </style>
+    <script>
+    const el = document.getElementById('html')
+    el.classList.add('hidden')
+    window.onload = function () {
+        el.classList.remove('hidden')
+    }
+    </script>
+    <title>Components - v2</title>
+</head>
+<body>
+<div class="containing-element">
+    <byu-header>
+        <span slot="site-title">Components v2</span>
+        <span slot="site-subtitle">Still in development and subject to change.</span>
+        <byu-menu slot="nav">
+            <a href="index.html">Home</a>
+            <a href="byu-header.html">Header</a>
+            <a href="byu-menu.html">Menu</a>
+            <a href="byu-search.html" class="active">Search</a>
+            <a href="byu-user-info.html">User Login</a>
+            <a href="byu-footer.html">Footer</a>
+            <a href="changes.html">Changes</a>
+        </byu-menu>
+    </byu-header>
+    <div class="page-content">
+        <h1><code>byu-search</code></h1>
+
+        <p>
+            Because there are as many ways to perform a search as there are webpages, <code>byu-search</code> has
+            several
+            built-in search options, with hooks to provide your own implementation with Javascript.
+        </p>
+
+        <h1>Styling</h1>
+
+        <p style="font-style: italic;">
+            <strong>Note:</strong> None of the styling search examples will actually run a search. The actual search
+            action
+            will be covered later.
+        </p>
+
+        <p>
+            You can either provide an input element for <code>byu-search</code> to style, or you can let
+            <code>byu-search</code>
+            provide one for you. It is preferred that you provide an input element, as this enables
+            <a href="https://www.w3.org/wiki/Graceful_degradation_versus_progressive_enhancement">graceful
+                degredation</a>
+            if something goes wrong while downloading and executing the Javascript which powers <code>byu-search</code>.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search"></byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" placeholder="Site Search"></byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search">
+                        <input type="search" placeholder="Site Search" />
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <p>
+            In many cases, your input will need to be nested in another element, such as a <code>form</code>:
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search">
+                        <form>
+                            <input type="search" placeholder="Nested Search" />
+                        </form>
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <p>
+            By default, <code>byu-search</code> will search for the first child input and style it. If you need to
+            customize
+            which element will be styled by <code>byu-search</code>, you can set the <code>searchInputSelector</code>
+            attribute to a CSS selector which will match your input:
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" search-input-selector=".this-is-my-real-input">
+                        <!--This input will get hidden and won't be styled-->
+                        <input type="text" placeholder="I shouldn't be showing" />
+
+                        <!--This one will get styled-->
+                        <input type="text" class="this-is-my-real-input" placeholder="Real Search">
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <p>
+            Beware, though, because this is a two-edged sword! If your <code>searchInputSelector</code> value doesn't
+            match an input, the search bar won't render properly! We will, however, emit a helpful error message into
+            the
+            developer console to warn you about what's happening:
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" search-input-selector=".this-wont-match-anything">
+                        <input type="text" placeholder="Real Search">
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h1>Handling Searches</h1>
+
+        <p>
+            When the user clicks the search button or hits the enter key while focused on the search element,
+            <code>byu-search</code> will take some action to actually perform the search. You can use a pre-defined
+            action
+            to run the search, or you can take a custom action using Javascript.
+        </p>
+
+        <h2>Pre-built Actions</h2>
+
+        <p>
+            Out of the box, <code>byu-search</code> supports different pre-defined actions to perform the search. You
+            can
+            use the <code>action</code> attribute to specify which action to take, and the <code>actionTarget</code>
+            attribute to modify that action.
+        </p>
+        <p>You can:</p>
+        <ul>
+            <li>Submit a form (<code>submit-form</code>)</li>
+            <li>Simulate a button click (<code>click</code>)</li>
+            <li>Navigate to a web page (<code>navigate</code>)</li>
+        </ul>
+
+        <a id="action-submit-form"></a>
+        <h3><code>action="submit-form"</code></h3>
+
+        <p>
+            A common way to handle searches is to simply use a form. It's straightforward, easy, and is built right in
+            to
+            HTML! Using <code>action="submit-form"</code>, you can enclose your search element in a form.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" action="submit-form">
+                        <!-- When you run this search, the page will reload and you should see the query in the URL. -->
+                        <form method="get" action="#action-submit-form">
+                            <input type="search" name="searchTerms" />
+                            <input type="hidden" name="hiddenValue" value="Some hidden value that your form needs" />
+                        </form>
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <a id="action-click"></a>
+        <h3><code>action="click"</code></h3>
+
+        <p>
+            <code>action="click"</code> will simulate a click on an element. The element MUST be a child of
+            <code>byu-search</code>.
+        </p>
+        <p>
+            By default, <code>byu-search</code> will find the first <code>button</code>, <code>input
+            type="submit"</code>,
+            or <code>input type="button"</code>, and call <code>click()</code> on it:
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" action="click">
+                        <div>
+                            <input type="search" />
+                            <button onclick="alert('simulated a click on My Search Button')">My Search Button</button>
+                        </div>
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <p>
+            If you need to customize the element that is clicked, you can pass a CSS selector as the
+            <code>actionTarget</code> attribute.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" action="click" action-target=".real">
+                        <div>
+                            <input type="search" />
+                            <button onclick="alert('this shouldn\'t ever run')">Bad Button</button>
+                            <button class="real" onclick="alert('the second button was clicked')">real button</button>
+                        </div>
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h4>Caveats/Limitations</h4>
+
+        <p>
+            For security reasons, <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/click">browsers
+            do not allow clicks to be simulated on <code>&lt;a&gt;</code> tags</a>. So, if you use
+            <code>actionTarget</code>
+            to select an <code>&lt;a&gt;</code> tag, a search may not do anything (depending on the browser
+            implementation).
+            If you want to send the user to a URL, use a <code>form</code> with <code>action="submit-form"</code> or use
+            <code>action="navigate"</code>.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" action="click" action-target=".link">
+                        <div>
+                            <input type="search" />
+                            <a class="link" href="https://example.com/potentially-malicious-page"></a>
+                        </div>
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h3><code>action="navigate"</code></h3>
+
+        <p>
+            If you just want to redirect the user to a certain page and embed the search query in the URL, you can use
+            <code>action="navigate"</code>. If you use this action, you MUST specify an <code>actionTarget</code> value
+            which contains a URL pattern to which the user will be sent. <code>byu-search</code> will look for the
+            string
+            <code>'${search}'</code> in the URL pattern. For example, to perform a Google search, you would set
+            <code>actionTarget</code> to <code>"https://google.com/search?q=${search}"</code>.
+        </p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search" action="navigate"
+                                action-target="https://google.com/search?q=${search}"></byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <h2>Custom Actions</h2>
+
+        <p>
+            If none of the built in actions fit your needs, <code>byu-search</code> fires a <code>byu-search</code>
+            event that
+            you can use to perform some custom action. You can listen for this event in two ways: via
+            an <code>onbyusearch</code> attribute or by adding an event handler using Javascript.
+        </p>
+
+        <p>
+            The event that is fired will have a type of '<code>byu-search</code>' and will have a <code>details</code>
+            object
+            containing <code>search</code>, which contains the user-entered search text.
+        </p>
+
+        <h4>Why <code>event.detail.search</code>?</h4>
+
+        <p>
+            This matches the <a
+            href="https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent"><code>CustomEvent</code>
+            specification</a>.
+        </p>
+
+        <a id="onbyusearch-callback"></a>
+        <h3><code>onbyusearch</code> attribute</h3>
+        <p>
+            You can specify a Javascript function to call using <code>onbyusearch</code>. Unlike a normal HTML event
+            handler,
+            like <code>onclick</code>, you cannot specify arbitrary Javascript. The value MUST be a globally-available
+            function name.
+        </p>
+        <p>
+            Within the callback function, <code>this</code> will be bound to the <code>byu-search</code> element. The
+            callback function will be passed a single parameter, the <code>byu-search</code> event.
+        </p>
+
+        <script>
+        //I'm using document.write here to circumvent a Chrome bug dealing with the interaction between scripts and templates.
+        //  I'm pretty sure it's related to https://bugs.chromium.org/p/chromium/issues/detail?id=572693
+        document.write('' +
+            '<demo-snippet>' +
+            '<template>' +
+            '<byu-header>\n' +
+            '    <byu-search slot="search" onbyusearch="searchCallback" id="onsearch-demo"></byu-search>\n' +
+            '</byu-header>\n' +
+            '<scr' + 'ipt>\n' +
+            '    function searchCallback(event) {\n' +
+            '        alert(\'Searched for \' + event.detail.search + \' using \' + this.id);\n' +
+            '    }\n' +
+            '</scr' + 'ipt>\n' +
+            '</template>' +
+            '</demo-snippet>'
+        )
+        </script>
+
+
+        <h3>Event Listener</h3>
+
+        <p>
+            Instead of using <code>onbyusearch</code>, you can also use Javascript to set up listeners for the
+            <code>search</code>
+            event, using <code>addEventListener()</code>.
+        </p>
+
+        <script>
+        //I'm using document.write here to circumvent a Chrome bug dealing with the interaction between scripts and templates.
+        //  I'm pretty sure it's related to https://bugs.chromium.org/p/chromium/issues/detail?id=572693
+        document.write(
+            '<demo-snippet>' +
+            '<template>\n' +
+            '<byu-header>\n' +
+            '    <byu-search slot="search" id="add-listener-demo"></byu-search>\n' +
+            '</byu-header>\n' +
+            '<scr' + 'ipt>\n' +
+            '    var searchElement = document.getElementById(\'add-listener-demo\');\n' +
+            '    searchElement.addEventListener(\'byu-search\', function(event) {\n' +
+            '        alert(\'Searched for \' + event.detail.search + \' using \' + this.id + \' and addEventListener\');\n' +
+            '    });\n' +
+            '</scr' + 'ipt>\n' +
+            '</template>' +
+            '</demo-snippet>')
+        </script>
+
+        <p>
+            You can also use <code>addEventListener</code> and <code>onbyusearch</code> to prevent the predefined
+            actions from
+            firing by calling <code>preventDefault()</code> on the event. This is useful, for example, if you want to
+            restrict searching to a list of predefined terms.
+        </p>
+
+        <p>
+            In this example, if you search for most terms, the button will be clicked and you'll see an alert saying
+            "Searched using a click." If you enter "Utah Football Rocks", you'll see an alert saying "No, it doesn't,"
+            and
+            the default click action will not be performed.
+        </p>
+
+        <script>
+        //I'm using document.write here to circumvent a Chrome bug dealing with the interaction between scripts and templates.
+        //  I'm pretty sure it's related to https://bugs.chromium.org/p/chromium/issues/detail?id=572693
+        document.write(
+            '<demo-snippet>' +
+            '<template>\n' +
+            '<byu-header>\n' +
+            '    <byu-search slot="search" id="cancel-event-demo" action="click">\n' +
+            '        <input type="search"/>\n' +
+            '        <button onclick="alert(\'Searched using a click\')"></button>\n' +
+            '    </byu-search>\n' +
+            '</byu-header>\n' +
+            '<scr' + 'ipt>\n' +
+            '    var searchElement = document.getElementById(\'cancel-event-demo\');\n' +
+            '    searchElement.addEventListener(\'byu-search\', function(event) {\n' +
+            '        if(event.detail.search === "Utah Football Rocks") {\n' +
+            '            event.preventDefault();\n' +
+            '            alert("No, it doesn\'t");\n' +
+            '        }\n' +
+            '    });\n' +
+            '</scr' + 'ipt>\n' +
+            '</template>' +
+            '</demo-snippet>')
+        </script>
+
+        <h2><code>oninput</code> Event</h2>
+        <p>It is possible to be notified when the search input value has changed using the standard <code>input</code>
+            event. This can be useful for external scripts such as AJAX suggestions.</p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <byu-search slot="search">
+                        <input type="search" oninput="searchChanged()">
+                    </byu-search>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+
+    </div>
+    <byu-footer></byu-footer>
+</div>
+</body>
+</html>
