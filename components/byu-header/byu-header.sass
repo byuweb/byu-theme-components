@@ -88,6 +88,10 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
 
 
   // Main site title
+  #byu-titles-slot
+    display: flex
+    flex-direction: column
+
   #byu-titles-slot::slotted(*)
     color: #fff
     display: inline-block
@@ -96,6 +100,8 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
     bottom: 1px
     text-decoration: none
     clear: right
+    order: 1
+    margin: $spacing1 0
 
   // Subtitle AND supertitle (only difference is placement)
   #byu-titles-slot::slotted(*.subtitle)
@@ -104,6 +110,7 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
     font-weight: 400
     margin: 0
     bottom: 0
+    order: 2
 
 
   // Breadcrumb above the titles

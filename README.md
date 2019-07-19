@@ -12,4 +12,3 @@ To build and develop for this repo, clone it to your local machine, create a git
 This repo can be improved in several ways, including:
 
 - CSS/SCSS for Flash of Unstyled Content (FOUC)
-- Fallback support for Edge (at least until the Chromium version comes out)

@@ -11,16 +11,18 @@
   "main": "",
   "module": "",
   "scripts": {
-    "serve": "rm -rf dist && mkdir dist && rollup --watch -c rollup-dev.config.js",
-    "build": "rm -rf dist && mkdir dist && rollup -c",
+    "clean": "rm -rf dist && mkdir dist",
+    "serve": "npm run clean && npm run bundle && rollup -c rollup/rollup-dev.config.js",
+    "build": "npm run clean && npm run bundle && rollup -c rollup/rollup.config.js",
     "lint": "eslint components/**/*.js",
-    "docs": "rm -rf docs/lib/bundle.js && cd docs && rollup -c rollup-docs.config.js"
+    "docs": "rm -rf docs/lib/bundle.js && cd docs && rollup -c ../rollup/rollup-docs.config.js",
+    "bundle": "rollup -c rollup/rollup-bundle.config.js"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "@babel/plugin-proposal-decorators": "^7.4.4",
-    "@webcomponents/webcomponentsjs": "^2.2.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "autoprefixer": "^9.6.1",
     "babel-eslint": "^10.0.2",
     "byu-web-component-utils": "^0.4.2",
@@ -34,6 +36,7 @@
     "rollup-plugin-babel-minify": "^8.0.0",
     "rollup-plugin-bundle-size": "^1.0.3",
     "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-livereload": "^1.0.1",
     "rollup-plugin-multi-entry": "^2.1.0",
     "rollup-plugin-node-resolve": "^4.2.4",
@@ -42,6 +45,7 @@
     "serve": "^10.1.1"
   },
   "dependencies": {
+    "@byuweb/web-components-loader": "^0.2.0",
     "@polymer/iron-demo-helpers": "^3.1.0",
     "babel-cli": "^6.26.0"
   },
