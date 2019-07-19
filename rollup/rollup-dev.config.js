@@ -5,10 +5,7 @@ import minify from 'rollup-plugin-babel-minify'
 import json from 'rollup-plugin-json'
 import serve from 'rollup-plugin-serve'
 import multiEntry from 'rollup-plugin-multi-entry'
-import postcss from 'rollup-plugin-postcss'
 import bundleSize from 'rollup-plugin-bundle-size'
-import autoprefixer from 'autoprefixer'
-import cssnano from 'cssnano'
 
 export default {
   input: [
@@ -34,12 +31,6 @@ export default {
     }),
     serve('.'),
     multiEntry(),
-    postcss({
-      plugins: [
-        autoprefixer,
-        cssnano
-      ]
-    }),
     minify({
       'mangle': { 'exclude': [] },
       'comments': false

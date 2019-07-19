@@ -6,16 +6,17 @@
   "contributors": [
     "Blake Morgan <blake_morgan@byu.edu>",
     "Kevin Bauer <kevin_bauer@byu.edu>",
-    "James Speirs <james_speirs@byu.edu>"
+    "James Speirs <james_speirs@byu.edu>",
+    "Joseph Moore <joseph_moore@byu.edu>"
   ],
   "main": "",
   "module": "",
   "scripts": {
-    "clean": "rm -rf dist && mkdir dist",
+    "clean": "del-cli dist && make-dir dist",
     "serve": "npm run clean && npm run bundle && rollup -c rollup/rollup-dev.config.js",
     "build": "npm run clean && npm run bundle && rollup -c rollup/rollup.config.js",
     "lint": "eslint components/**/*.js",
-    "docs": "rm -rf docs/lib/bundle.js && cd docs && rollup -c ../rollup/rollup-docs.config.js",
+    "docs": "del-cli docs/lib/bundle.js && cd docs && rollup -c ../rollup/rollup-docs.config.js",
     "bundle": "rollup -c rollup/rollup-bundle.config.js"
   },
   "devDependencies": {
@@ -27,9 +28,11 @@
     "babel-eslint": "^10.0.2",
     "byu-web-component-utils": "^0.4.2",
     "cssnano": "^4.1.10",
+    "del-cli": "^2.0.0",
     "eslint": "^6.0.1",
     "eslint-plugin-lit": "^1.1.1",
     "lit-element": "^2.2.0",
+    "make-dir-cli": "^2.0.0",
     "node-sass": "^4.12.0",
     "rollup": "^1.17.0",
     "rollup-plugin-babel": "^4.3.3",
@@ -46,8 +49,7 @@
   },
   "dependencies": {
     "@byuweb/web-components-loader": "^0.2.0",
-    "@polymer/iron-demo-helpers": "^3.1.0",
-    "babel-cli": "^6.26.0"
+    "@polymer/iron-demo-helpers": "^3.1.0"
   },
   "husky": {
     "hooks": {

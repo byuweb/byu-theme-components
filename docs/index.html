@@ -51,6 +51,11 @@
     <byu-header>
         <span slot="site-title">Components v2</span>
         <span slot="site-subtitle">Still in development and subject to change.</span>
+        <byu-user-info slot="user">
+            <a slot="user-name" href="https://my.byu.edu">Demo User</a>
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="http://cas.byu.edu/cas/logout">Sign out</a>
+        </byu-user-info>
         <byu-menu slot="nav">
             <a href="index.html" class="active">Home</a>
             <a href="byu-header.html">Header</a>
@@ -68,7 +73,7 @@
             Add the following to your <code class="language-html">&lt;head&gt;</code>:
         </p>
         <pre><code class="language-html">
-            &lt;script async type="module" src="https://cdn.byu.edu/byu-theme-components/experimental/v2/byu-theme-components.min.js"&gt;&lt;/script&gt;
+            &lt;script async src="https://cdn.byu.edu/byu-theme-components/experimental/v2/byu-theme-components.min.js"&gt;&lt;/script&gt;
             &lt;!-- TODO: Add FOUC styles --&gt;
             &lt;!-- &lt;link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/experimental/v2/byu-theme-components.min.css" media="all"&gt; --&gt;
             &lt;link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all"&gt;

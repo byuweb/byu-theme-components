@@ -218,7 +218,7 @@ export class BYUSearch extends LitElement {
   render () {
     return html`
 <div id="search-form">
-    <div class="byu-search">
+    <div class="byu-search-el">
         <slot id="search">
             <label class="byu-search-label" for="site-search" id="byu-site-search-label">Search</label>
             <input type="text" id="byu-site-search" name="q" aria-label="Site search" placeholder="${this.placeholder}">

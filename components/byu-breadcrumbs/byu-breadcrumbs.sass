@@ -2,7 +2,7 @@
 @import "../shared-styles/helpers"
 
 // Breadcrumb above the titles
-.byu-breadcrumbs
+.byu-breadcrumbs-el
   ::slotted(*)
     opacity: 0.75
     text-decoration: none
@@ -16,3 +16,7 @@
 
   ::slotted(*:last-child)
     border: none
+
+// Hax for Edge
+.byu-breadcrumbs-el.style-scope
+  font-size: $fontSize14

@@ -12,7 +12,7 @@ export class BYUBreadcrumbs extends LitElement {
 
   render () {
     return html`
-<nav class="byu-breadcrumbs">
+<nav class="byu-breadcrumbs-el">
     <slot class="byu-breadcrumbs-items"></slot>
 </nav>
     `

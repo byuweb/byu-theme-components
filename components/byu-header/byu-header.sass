@@ -1,5 +1,6 @@
 @import '../shared-styles/helpers'
 @import '../shared-styles/vars'
+@import 'mixins'
 
 byu-header [slot=site-title] a, byu-header a[slot=site-title]
   color: $white
@@ -7,7 +8,7 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
 
 
 
-.byu-header
+.byu-header-el
   z-index: 10
   font-size: 1.125rem
   box-shadow: 0 0 10px rgba(0,0,0,.16)
@@ -86,31 +87,23 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
       @media(min-width: $breakMdSm)
         padding: 0.5em 1em
 
+  // Title slots
+  .byu-titles .subtitle[slot="site-title"]
+    @include siteSubTitle()
 
-  // Main site title
-  #byu-titles-slot
+  .byu-titles [slot="site-title"]
+    @include siteTitle()
+
+  #byu-titles-slot, .byu-titles-slot-wrapper
     display: flex
     flex-direction: column
 
   #byu-titles-slot::slotted(*)
-    color: #fff
-    display: inline-block
-    font-size: inherit
-    font-weight: 400
-    bottom: 1px
-    text-decoration: none
-    clear: right
-    order: 1
-    margin: $spacing1 0
+    @include siteTitle()
 
   // Subtitle AND supertitle (only difference is placement)
   #byu-titles-slot::slotted(*.subtitle)
-    color: #fff
-    font-size: 0.67em
-    font-weight: 400
-    margin: 0
-    bottom: 0
-    order: 2
+    @include siteSubTitle()
 
 
   // Breadcrumb above the titles
