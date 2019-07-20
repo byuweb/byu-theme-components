@@ -10,14 +10,15 @@ const ACTION_SUBMIT_FORM = 'submit-form'
 const ACTION_CLICK = 'click'
 const ACTION_NAVIGATE = 'navigate'
 
-const DEFAULT_ACTION_TARGET_SUBMIT_FORM = 'form';
-const DEFAULT_ACTION_TARGET_CLICK = 'button, input[type="submit"], input[type="button"]';
+const DEFAULT_ACTION_TARGET_SUBMIT_FORM = 'form'
+const DEFAULT_ACTION_TARGET_CLICK = 'button, input[type="submit"], input[type="button"]'
 const DEFAULT_SEARCH_INPUT_SELECTOR = 'input[type="search"], input[type="text"]'
+const DEFAULT_SEARCH_FORM_CLASS = 'default-byu-search-form'
 const DEFAULT_PLACEHOLDER = 'Search'
 const DEFAULT_ACTION_TARGET = {
   [ACTION_SUBMIT_FORM]: DEFAULT_ACTION_TARGET_SUBMIT_FORM,
   [ACTION_CLICK]: DEFAULT_ACTION_TARGET_CLICK
-};
+}
 
 const EVENT_TYPE = 'byu-search'
 
@@ -29,15 +30,29 @@ export class BYUSearch extends LitElement {
   @property({ type: String, attribute: 'action-target' }) actionTarget = null
   @property({ type: String }) onbyusearch = null
 
-  get _searchSlot() {
-    return this.shadowRoot.querySelector('#search');
+  get _searchSlot () {
+    return this.shadowRoot.querySelector('#search')
   }
 
   firstUpdated (_changedProperties) {
     const searchElSlot = this.shadowRoot.querySelector('#search')
-    if (searchElSlot.assignedNodes().length > 0) {
-      this.shadowRoot.querySelector('#byu-site-search-label').remove()
-      this.shadowRoot.querySelector('#byu-site-search').remove()
+    const assignedNodesLength = searchElSlot.assignedNodes().length
+
+    if (assignedNodesLength > 0) {
+      let isDefaultForm = true
+
+      for (let i = 0; i < assignedNodesLength; i++) {
+        if (searchElSlot.assignedNodes()[i].nodeType !== 3 &&
+          !searchElSlot.assignedNodes()[i].classList.contains(DEFAULT_SEARCH_FORM_CLASS)) {
+          isDefaultForm = false
+          break
+        }
+      }
+
+      if (!isDefaultForm) {
+        this.shadowRoot.querySelector('#byu-site-search-label').remove()
+        this.shadowRoot.querySelector('#byu-site-search').remove()
+      }
     }
 
     this._input = this._lookupAndConfigureInputElement(this, this.searchInputSelector)
@@ -72,18 +87,18 @@ export class BYUSearch extends LitElement {
     }
   }
 
-  _setupSearchListeners(search) {
+  _setupSearchListeners (search) {
     let handler = search.__onbyusearchHandler = function (event) {
-      let name = search.onbyusearch;
-      if (!name) return;
-      let handler = window[name];
+      let name = search.onbyusearch
+      if (!name) return
+      let handler = window[name]
       if (!handler) {
-        throw new Error(`Unable to find a global function named '${name}'`);
+        throw new Error(`Unable to find a global function named '${name}'`)
       }
-      handler.call(search, event);
-    };
+      handler.call(search, event)
+    }
 
-    search.addEventListener(EVENT_TYPE, handler, false);
+    search.addEventListener(EVENT_TYPE, handler, false)
   }
 
   _runPredefinedAction (search, value) {
@@ -204,9 +219,9 @@ export class BYUSearch extends LitElement {
     input.__byu_search_a11yHelpersApplied = helped
   }
 
-  _defaultActionTarget(action) {
-    if (!action) return null;
-    return DEFAULT_ACTION_TARGET[action];
+  _defaultActionTarget (action) {
+    if (!action) return null
+    return DEFAULT_ACTION_TARGET[action]
   }
 
   /* --- RENDER COMPONENT --- */
@@ -217,11 +232,10 @@ export class BYUSearch extends LitElement {
 
   render () {
     return html`
-<div id="search-form">
     <div class="byu-search-el">
         <slot id="search">
-            <label class="byu-search-label" for="site-search" id="byu-site-search-label">Search</label>
-            <input type="text" id="byu-site-search" name="q" aria-label="Site search" placeholder="${this.placeholder}">
+            <label class="byu-search-label default-byu-search-form" for="site-search" id="byu-site-search-label">Search</label>
+            <input type="text" id="byu-site-search" class="default-byu-search-form" name="q" aria-label="Site search" placeholder="${this.placeholder}">
         </slot>
         <button class="byu-search-btn" @click="${this.search}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
@@ -230,7 +244,6 @@ export class BYUSearch extends LitElement {
             </svg>
         </button>
     </div>
-</div>
     `
   }
 }

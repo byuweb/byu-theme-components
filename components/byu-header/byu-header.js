@@ -13,10 +13,8 @@ const SITE_ACTION_CLASS = 'byu-action-id-search'
 export class BYUHeader extends LitElement {
 
   firstUpdated (_changedProperties) {
-    const headerEls = this.shadowRoot.querySelectorAll('.byu-header-el')
-    Array.prototype.forEach.call(headerEls, (el) => {
-      this._enableMobileMenu(el)
-    })
+    const headerEl = this.shadowRoot.querySelector('.byu-header-el')
+    this._enableMobileMenu(headerEl)
   }
 
   _enableMobileMenu (headerEl) {

@@ -5,16 +5,15 @@ import style from './byu-user-info.sass'
 
 @customElement('byu-user-info')
 export class BYUUserInfo extends LitElement {
-
   firstUpdated (_changedProperties) {
     const userSlot = this.shadowRoot.querySelector('#user-name')
     const logoutSlot = this.shadowRoot.querySelector('#logout')
     const loginSlot = this.shadowRoot.querySelector('#login')
     if (userSlot.assignedNodes().length === 0 || userSlot.assignedNodes()[0].innerHTML === '') {
-      userSlot.classList.add('hidden')
-      logoutSlot.classList.add('hidden')
+      userSlot.assignedNodes()[0].classList.add('hidden')
+      logoutSlot.assignedNodes()[0].classList.add('hidden')
     } else {
-      loginSlot.classList.add('hidden')
+      loginSlot.assignedNodes()[0].classList.add('hidden')
     }
   }
 
