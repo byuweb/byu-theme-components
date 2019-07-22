@@ -1,6 +1,6 @@
 'use strict'
 
-import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-element'
+import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
 import style from './byu-header.sass'
 
 const JS_INIT_CLASS = 'js-enabled'
@@ -18,17 +18,18 @@ export class BYUHeader extends LitElement {
   }
 
   _enableMobileMenu (headerEl) {
-    headerEl.hasNav = headerEl.getElementsByClassName(SITE_NAV_CLASS).length > 0
-    headerEl.hasActions = headerEl.getElementsByClassName(SITE_ACTION_CLASS).length > 0
+    headerEl.hasNav = headerEl.querySelector('#byu-nav-slot').assignedNodes().length > 0
+    headerEl.hasAction = headerEl.querySelector('#byu-action-slot').assignedNodes().length > 0
+    headerEl.hasSearch = headerEl.querySelector('#byu-search-slot').assignedNodes().length > 0
+    headerEl.hasUserId = headerEl.querySelector('#byu-user-slot').assignedNodes().length > 0
 
-    const showMenuButton = headerEl.hasNav || headerEl.hasActions
+    const showMenuButton = headerEl.hasNav || headerEl.hasAction || headerEl.hasSearch || headerEl.hasUserId
 
     if (showMenuButton) {
       headerEl.classList.add(JS_INIT_CLASS)
       this._initMenuButton(headerEl)
-
-      headerEl.navEl = headerEl.getElementsByClassName(SITE_NAV_CLASS)[0]
-      headerEl.actionsEl = headerEl.getElementsByClassName(SITE_ACTION_CLASS)[0]
+    } else {
+      headerEl.querySelector('.byu-action-id-search').style.display = 'none'
     }
   }
 
@@ -96,13 +97,13 @@ export class BYUHeader extends LitElement {
         </div>
         <div class="byu-action-id-search">
             <div class="byu-action-btn">
-                <slot name="actions"></slot>
+                <slot name="actions" id="byu-action-slot"></slot>
             </div>
-            <slot name="search"></slot>
-            <slot name="user"></slot>
+            <slot name="search" id="byu-search-slot"></slot>
+            <slot name="user" id="byu-user-slot"></slot>
         </div>
     </div>
-    <slot name="nav" class="byu-site-navigation"></slot>
+    <slot name="nav" class="byu-site-navigation" id="byu-nav-slot"></slot>
 </header>
     `
   }
