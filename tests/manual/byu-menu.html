@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BYU Menu Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://cdn.byu.edu/byu-theme-components/experimental/v2/byu-theme-components.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
+</head>
+
+<body>
+    <h1>BYU Menu Tests</h1>
+
+    <h2>Menu appears</h2>
+    <byu-header>
+        <span slot="site-title">Site Title</span>
+        <byu-menu slot="nav">
+            <a href="javascript: void 0">Link 1</a>
+            <a href="javascript: void 0">Link 2</a>
+            <a href="javascript: void 0">Link 3</a>
+        </byu-menu>
+    </byu-header>
+
+    <h2>Active class works</h2>
+    <byu-header>
+        <span slot="site-title">Site Title</span>
+        <byu-menu slot="nav">
+            <a href="javascript: void 0" class="active">Link 1</a>
+            <a href="javascript: void 0">Link 2</a>
+            <a href="javascript: void 0">Link 3</a>
+        </byu-menu>
+    </byu-header>
+
+    <h2>Active-selector attribute works</h2>
+    <byu-header>
+        <span slot="site-title">Site Title</span>
+        <byu-menu slot="nav" active-selector=".is-active">
+            <a class="is-active" href="javascript: void 0">Link 1</a>
+            <a href="javascript: void 0">Link 2</a>
+            <a href="javascript: void 0">Link 3</a>
+        </byu-menu>
+    </byu-header>
+</body>
+
+</html>

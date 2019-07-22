@@ -33,6 +33,45 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            z-index: 10;
+        }
+        .dropdown-btn {
+            border: none;
+            color: #002E5D;
+            background-color: white;
+            font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif;
+            font-size: 16px;
+            height: 32px;
+        }
+        .dropdown-btn:hover {
+            background-color: #e6e6e6;
+        }
+        .dropdown-child {
+            display: none;
+            min-width: 200px;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 8px #c5c5c5;
+        }
+        .dropdown-child a {
+            color: #002e5d;
+            font-size: 16px;
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-child a:hover {
+            background-color: #e6e6e6;
+        }
+        .dropdown:hover .dropdown-child {
+            display: block;
+            background-color: white;
+        }
+
         .hidden {
             display: none
         }
@@ -101,6 +140,80 @@
                 </byu-header>
             </template>
         </demo-snippet>
+
+        <h2>Dropdown Menus</h2>
+        <p>This version of the <code>byu-menu</code> does not restrict the usage of dropdown menus. Though, because
+            these elements would be in the light DOM, we do not style them with the provided package of components. It
+            is up to the end user to style them in a way compliant with the <a href="https://brand.byu.edu">BYU brand
+                standards</a>.</p>
+        <p>The following code is an example of a dropdown menu with our components. <strong>This code is a
+            proof-of-concept and not accessible or mobile friendly</strong>. Do not copy this code without the
+            appropriate edits.</p>
+
+        <demo-snippet>
+            <template>
+                <byu-header>
+                    <span slot="site-title">Components Demo Site</span>
+                    <byu-menu slot="nav" active-selector=".is-active">
+                        <a class="is-active" href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                        <div class="dropdown">
+                            <button class="dropdown-btn">Dropdown</button>
+                            <div class="dropdown-child">
+                                <a href="http://wwww.yourdonain.com/page1.html">Child menu 1</a>
+                                <a href="http://wwww.yourdonain.com/page2.html">Child menu 2</a>
+                                <a href="http://wwww.yourdonain.com/page3.html">Child menu 3</a>
+                                <a href="http://wwww.yourdonain.com/page4.html">Child menu 4</a>
+                                <a href="http://wwww.yourdonain.com/page5.html">Child menu 5</a>
+                            </div>
+                        </div>
+                    </byu-menu>
+                </byu-header>
+            </template>
+        </demo-snippet>
+
+        <p>This is the CSS we've included on this page to make the dropdown function. This example required no Javascript.</p>
+
+        <pre><code class="language-css">
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            z-index: 10;
+        }
+        .dropdown-btn {
+            border: none;
+            color: #002E5D;
+            background-color: white;
+            font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif;
+            font-size: 16px;
+            height: 32px;
+        }
+        .dropdown-btn:hover {
+            background-color: #e6e6e6;
+        }
+        .dropdown-child {
+            display: none;
+            min-width: 200px;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 4px 8px #c5c5c5;
+        }
+        .dropdown-child a {
+            color: #002e5d;
+            font-size: 16px;
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-child a:hover {
+            background-color: #e6e6e6;
+        }
+        .dropdown:hover .dropdown-child {
+            display: block;
+            background-color: white;
+        }
+        </code></pre>
 
     </div>
     <byu-footer></byu-footer>

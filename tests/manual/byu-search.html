@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BYU Search Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://cdn.byu.edu/byu-theme-components/experimental/v2/byu-theme-components.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
+</head>
+
+<body>
+    <h1>BYU Search Tests</h1>
+
+    <h2>Search appears</h2>
+    <byu-header>
+        <byu-search slot="search"></byu-search>
+    </byu-header>
+
+    <h2>Placeholder attribute works</h2>
+    <byu-header>
+        <byu-search slot="search" placeholder="Site Search"></byu-search>
+    </byu-header>
+
+    <h2>Search contains input</h2>
+    <byu-header>
+        <byu-search slot="search">
+            <input type="search" placeholder="Site Search">
+        </byu-search>
+    </byu-header>
+
+    <h2>Search contains nested input (two examples)</h2>
+    <byu-header>
+        <byu-search slot="search">
+            <form>
+                <input type="search" placeholder="Nested Search">
+            </form>
+        </byu-search>
+    </byu-header>
+    <byu-header>
+        <byu-search slot="search">
+            <div id="form-wrapper">
+                <form>
+                    <input type="search" placeholder="Nested Search">
+                </form>
+            </div>
+        </byu-search>
+    </byu-header>
+
+    <h2>Search-input-selector attribute works</h2>
+    <byu-header>
+        <byu-search slot="search" search-input-selector=".this-is-my-real-input">
+            <!--This input will get hidden and won't be styled-->
+            <input type="text" placeholder="I shouldn't be showing">
+
+            <!--This one will get styled-->
+            <input type="text" class="this-is-my-real-input" placeholder="Real Search">
+        </byu-search>
+    </byu-header>
+
+    <h2>Search-input-selector attributre fails gracefully</h2>
+    <byu-header>
+        <byu-search slot="search" search-input-selector=".this-wont-match-anything">
+            <input type="text" placeholder="Real Search">
+        </byu-search>
+    </byu-header>
+
+    <h2>action="submit-form" works</h2>
+    <p>When you run this search, the page will reload and you should see the query in the URL.</p>
+    <byu-header>
+        <byu-search slot="search" action="submit-form">
+            <!-- When you run this search, the page will reload and you should see the query in the URL. -->
+            <form method="get" action="#action-submit-form">
+                <input type="search" name="searchTerms">
+                <input type="hidden" name="hiddenValue" value="Some hidden value that your form needs">
+            </form>
+        </byu-search>
+    </byu-header>
+
+    <h2>action="click" works</h2>
+    <byu-header>
+        <byu-search slot="search" action="click">
+            <div>
+                <input type="search">
+                <button onclick="alert('simulated a click on My Search Button')">My Search Button</button>
+            </div>
+        </byu-search>
+    </byu-header>
+
+    <h2>action-target-attribute works</h2>
+    <byu-header>
+        <byu-search slot="search" action="click" action-target=".real">
+            <div>
+                <input type="search">
+                <button onclick="alert('this shouldn\'t ever run')">Bad Button</button>
+                <button class="real" onclick="alert('the second button was clicked')">real button</button>
+            </div>
+        </byu-search>
+    </byu-header>
+
+    <h2>action="navigate" works</h2>
+    <byu-header>
+        <byu-search slot="search" action="navigate" action-target="https://google.com/search?q=${search}"></byu-search>
+    </byu-header>
+
+    <h2>onbyusearch works</h2>
+    <byu-header>
+        <byu-search slot="search" onbyusearch="searchCallback" id="onsearch-demo"></byu-search>
+    </byu-header>
+    <script>
+        function searchCallback(event) {
+            alert('Searched for ' + event.detail.search + ' using ' + this.id);
+        }
+    </script>
+
+    <h2>byu-search event listener works</h2>
+    <byu-header>
+        <byu-search slot="search" id="add-listener-demo"></byu-search>
+    </byu-header>
+    <script>
+        var searchElement = document.getElementById('add-listener-demo');
+        searchElement.addEventListener('byu-search', function (event) {
+            alert('Searched for ' + event.detail.search + ' using ' + this.id + ' and addEventListener');
+        });
+    </script>
+</body>
+
+</html>

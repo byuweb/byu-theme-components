@@ -7,8 +7,11 @@ To build and develop for this repo, clone it to your local machine, create a git
 - `npm ci`
 - `npm run serve`
 
-## Future Enhancements
+## TODO
 
-This repo can be improved in several ways, including:
+Tasks that need to be complete before releasing:
 
 - CSS/SCSS for Flash of Unstyled Content (FOUC)
+- Bundle fonts
+- Test
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BYU Header Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://cdn.byu.edu/byu-theme-components/experimental/v2/byu-theme-components.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/ringside/fonts.css" media="all">
+    <link rel="stylesheet" href="https://cdn.byu.edu/theme-fonts/1.x.x/public-sans/fonts.css" media="all">
+</head>
+
+<body>
+    <h1>BYU Header Tests</h1>
+    <!-- Header displays with no title -->
+    <h2>Header displays with no title</h2>
+    <byu-header></byu-header>
+
+    <!-- Header renders different tags in site-title slot -->
+    <h2>Header renders different tags in site-title slot</h2>
+    <byu-header>
+        <span slot="site-title">Testing</span>
+    </byu-header>
+    <byu-header>
+        <h1 slot="site-title">Testing</h1>
+    </byu-header>
+    <byu-header>
+        <h2 slot="site-title">Testing</h2>
+    </byu-header>
+
+    <!-- Header renders nested link in site-title slot -->
+    <h2>Header renders nested link in site-title slot</h2>
+    <byu-header>
+        <span slot="site-title"><a href="#">Components Demo Site</a></span>
+    </byu-header>
+
+    <!-- Header renders title and breadcrumb -->
+    <h2>Header renders title and breadcrumb</h2>
+    <byu-header>
+        <byu-breadcrumbs slot="breadcrumbs">
+            <a href="#">College of Fine Arts and Communication</a>
+        </byu-breadcrumbs>
+        <span slot="site-title">Components Demo Site</span>
+    </byu-header>
+
+    <!-- Header renders title and multiple breadcrubms -->
+    <h2>Header renders title and multiple breadcrubms</h2>
+    <byu-header>
+        <byu-breadcrumbs slot="breadcrumbs">
+            <a href="#">College of Fine Arts and Communication</a>
+            <a href="#">School of Music</a>
+        </byu-breadcrumbs>
+        <span slot="site-title">Components Demo Site</span>
+    </byu-header>
+
+    <!-- Header renders title and subtitle -->
+    <h2>Header renders title and subtitle</h2>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <span slot="site-title" class="subtitle">Example Sub-Title</span>
+    </byu-header>
+
+    <!-- Header renders breadcrumbs, subtitle, and title -->
+    <h2>Header renders breadcrumbs, subtitle, and title</h2>
+    <byu-header>
+        <byu-breadcrumbs slot="breadcrumbs">
+            <a href="#">College of Fine Arts and Communication</a>
+            <a href="#">School of Music</a>
+        </byu-breadcrumbs>
+        <span slot="site-title">Components Demo Site</span>
+        <span slot="site-title" class="subtitle">Example Sub-Title</span>
+    </byu-header>
+
+    <!-- Header renders just search -->
+    <h2>Header renders just search</h2>
+    <byu-header>
+        <span slot="site-title">Testing</span>
+        <byu-search slot="search"></byu-search>
+    </byu-header>
+
+    <!-- Header renders just action button -->
+    <h2>Header renders just action button</h2>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <a slot="actions" href="https://www.byu.edu/" target="_blank">Apply</a>
+    </byu-header>
+
+    <h2>Header renders just user info</h2>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <byu-user-info slot="user">
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="#logout">Sign Out</a>
+        </byu-user-info>
+    </byu-header>
+
+    <h2>Header renders search and action button</h2>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <a slot="actions" href="https://www.byu.edu/" target="_blank">Apply</a>
+        <byu-search slot="search"></byu-search>
+    </byu-header>
+
+    <h2>Header renders search and user info</h2>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <byu-search slot="search"></byu-search>
+        <byu-user-info slot="user">
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="#logout">Sign Out</a>
+        </byu-user-info>
+    </byu-header>
+
+    <h2>Header renders action button and user info</h2>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <a slot="actions" href="https://www.byu.edu/" target="_blank">Apply</a>
+        <byu-user-info slot="user">
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="#logout">Sign Out</a>
+        </byu-user-info>
+    </byu-header>
+
+    <h2>Header renders action button, user info, and search</h2>
+    <byu-header>
+        <span slot="site-title">Components Demo Site</span>
+        <byu-search slot="search"></byu-search>
+        <a slot="actions" href="https://www.byu.edu/" target="_blank">Apply</a>
+        <byu-user-info slot="user">
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="#logout">Sign Out</a>
+        </byu-user-info>
+    </byu-header>
+
+    <h2>Action button, user info, and search order doesn't matter</h2>
+    <p>If all the above tests passed, then this test passed.</p>
+</body>
+
+</html>

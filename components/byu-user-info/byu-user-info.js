@@ -10,7 +10,7 @@ export class BYUUserInfo extends LitElement {
     const logoutSlot = this.shadowRoot.querySelector('#logout')
     const loginSlot = this.shadowRoot.querySelector('#login')
     if (userSlot.assignedNodes().length === 0 || userSlot.assignedNodes()[0].innerHTML === '') {
-      userSlot.assignedNodes()[0].classList.add('hidden')
+      userSlot.classList.add('hidden')
       logoutSlot.assignedNodes()[0].classList.add('hidden')
     } else {
       loginSlot.assignedNodes()[0].classList.add('hidden')
