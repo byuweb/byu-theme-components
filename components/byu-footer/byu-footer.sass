@@ -74,7 +74,7 @@
   display: flex
   flex-direction: column
   max-width: 1200px
-  @media screen and (min-width: $breakMd)
+  @media screen and (min-width: $breakMdSm)
     flex-wrap: wrap
 
 
@@ -96,7 +96,7 @@
 
 
 
-@media (max-width: $breakMd)
+@media (max-width: $breakMdSm)
   .site-footer::slotted
     padding: 0 $spacing4
 
@@ -108,7 +108,7 @@ $calcSubtractWidth: ($spacing2 + $spacing3) * 2
   line-height: $fontSize9
 
 
-@media (min-width: $breakMd)
+@media (min-width: $breakMdSm)
   .site-footer
     flex-direction: row
 
@@ -157,15 +157,3 @@ $columnMaxWidth: 30%
   .university-info
     padding-top: $spacing1
     letter-spacing: 0
-
-
-
-\:host([full-width])
-  ::slotted(*:first-child)
-    margin-left: 0
-
-
-  ::slotted(*:last-child)
-    margin-right: 0
-
-
