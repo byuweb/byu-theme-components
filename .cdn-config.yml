@@ -12,3 +12,9 @@ preload:
   - lib: shared-icons
     version: latest
     file: logos/monogram-white.svg
+  - lib: theme-fonts
+    version: latest
+    file: ringside/fonts.css
+  - lib: theme-fonts
+    version: latest
+    file: publicsans/fonts.css
