@@ -41,15 +41,19 @@ export class BYUSearch extends LitElement {
     if (assignedNodesLength > 0) {
       let isDefaultForm = true
 
+      console.log(searchElSlot.assignedNodes())
+      console.log(assignedNodesLength)
       for (let i = 0; i < assignedNodesLength; i++) {
-        if (searchElSlot.assignedNodes()[i].nodeType !== 3 &&
-          !searchElSlot.assignedNodes()[i].classList.contains(DEFAULT_SEARCH_FORM_CLASS)) {
+        console.log('in for loop', i)
+        const type = searchElSlot.assignedNodes()[i].nodeType
+        if (!(type === 3 || type === 8) && !searchElSlot.assignedNodes()[i].classList.contains(DEFAULT_SEARCH_FORM_CLASS)) {
           isDefaultForm = false
-          break
         }
       }
+      console.log('past for loop')
 
       if (!isDefaultForm) {
+        console.log('is not default form')
         this.shadowRoot.querySelector('#byu-site-search-label').remove()
         this.shadowRoot.querySelector('#byu-site-search').remove()
       }
@@ -162,6 +166,7 @@ export class BYUSearch extends LitElement {
   }
 
   _lookupAndConfigureInputElement (search, selector) {
+    console.log('looking up el')
     let input = this.querySelector(selector) || this.shadowRoot.querySelector(selector)
 
     if (input) {
@@ -174,6 +179,7 @@ export class BYUSearch extends LitElement {
   }
 
   _hideExtraElements () {
+    console.log('hiding extra els')
     const inputs = this.querySelectorAll(DEFAULT_SEARCH_INPUT_SELECTOR + ', button')
     inputs.forEach((el) => {
       if (!el.classList.contains(CLASS_SELECTED_INPUT)) {
