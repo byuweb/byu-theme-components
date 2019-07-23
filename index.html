@@ -29,7 +29,12 @@
 <div class="containing-element">
     <byu-header>
         <span slot="site-title">Components Demo Site</span>
-        <a slot="actions" href="#">Apply</a>
+        <byu-search slot="search"></byu-search>
+        <a slot="actions" href="https://www.byu.edu/" target="_blank">Apply</a>
+        <byu-user-info slot="user">
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="#logout" class="hidden">Sign Out</a>
+        </byu-user-info>
     </byu-header>
     <div class="page-content">
         <p>This is the page.</p>

@@ -25,11 +25,13 @@ export class BYUHeader extends LitElement {
 
     const showMenuButton = headerEl.hasNav || headerEl.hasAction || headerEl.hasSearch || headerEl.hasUserId
 
+    if (!headerEl.hasAction) {
+      headerEl.querySelector('.byu-action-btn').style.display = 'none'
+    }
+
     if (showMenuButton) {
       headerEl.classList.add(JS_INIT_CLASS)
       this._initMenuButton(headerEl)
-    } else {
-      headerEl.querySelector('.byu-action-id-search').style.display = 'none'
     }
   }
 
