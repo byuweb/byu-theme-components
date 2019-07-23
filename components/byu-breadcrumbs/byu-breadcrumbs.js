@@ -6,6 +6,10 @@ import style from './byu-breadcrumbs.sass'
 @customElement('byu-breadcrumbs')
 export class BYUBreadcrumbs extends LitElement {
 
+  firstUpdated (_changedProperties) {
+    this.classList.add('byu-component-rendered')
+  }
+
   static get styles () {
     return css`${unsafeCSS(style)}`
   }

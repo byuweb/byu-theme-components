@@ -13,6 +13,7 @@ export class BYUMenu extends LitElement {
     if (this.activeSelector !== '') {
       this._updateActiveSelector(this)
     }
+    this.classList.add('byu-component-rendered')
   }
 
   _updateActiveSelector(menu) {

@@ -65,6 +65,7 @@ export class BYUSearch extends LitElement {
       this.actionTarget = this._defaultActionTarget(this.action)
     }
     this._setupSearchListeners(this)
+    this.classList.add('byu-component-rendered')
   }
 
   search () {

@@ -4,6 +4,10 @@ import style from './byu-social-media-links.sass'
 @customElement('byu-social-media-links')
 export class BYUSocialMediaLinks extends LitElement {
 
+  firstUpdated (_changedProperties) {
+    this.classList.add('byu-component-rendered')
+  }
+
   static get styles () {
     return css`${unsafeCSS(style)}`
   }

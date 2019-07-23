@@ -4,6 +4,10 @@ import style from './byu-footer-column.sass'
 @customElement('byu-footer-column')
 export class BYUFooterColumn extends LitElement {
 
+  firstUpdated (_changedProperties) {
+    this.classList.add('byu-component-rendered')
+  }
+
   static get styles () {
     return css`${unsafeCSS(style)}`
   }

@@ -6,6 +6,10 @@ import style from './byu-footer.sass';
 @customElement('byu-footer')
 export class BYUFooter extends LitElement {
 
+  firstUpdated (_changedProperties) {
+    this.classList.add('byu-component-rendered')
+  }
+
   static get styles () {
     return css`${unsafeCSS(style)}`
   }
