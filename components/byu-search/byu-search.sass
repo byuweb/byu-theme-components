@@ -2,6 +2,7 @@
 @import '../shared-styles/vars'
 
 @mixin siteSearchSelectedInput()
+  appearance: none
   padding: $spacing3 0.65em
   display: block
   line-height: 1.2
@@ -78,6 +79,9 @@
         width: 1.8em
         height: 1.85em
         top: 0
+
+  #search::slotted(*)
+    @include siteSearchSelectedInput()
 
 input.__byu-search-selected-input
   @include siteSearchSelectedInput()

@@ -29,12 +29,8 @@
 <div class="containing-element">
     <byu-header>
         <span slot="site-title">Demo Site</span>
-        <byu-search slot="search" search-input-selector=".this-is-my-real-input">
-            <!--This input will get hidden and won't be styled-->
-            <input type="text" placeholder="I shouldn't be showing">
-
-            <!--This one will get styled-->
-            <input type="text" class="this-is-my-real-input" placeholder="Real Search">
+        <byu-search slot="search">
+            <input type="search" placeholder="Site Search">
         </byu-search>
     </byu-header>
     <div class="page-content">
