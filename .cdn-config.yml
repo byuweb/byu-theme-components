@@ -17,4 +17,4 @@ preload:
     file: ringside/fonts.css
   - lib: theme-fonts
     version: latest
-    file: publicsans/fonts.css
+    file: public-sans/fonts.css
