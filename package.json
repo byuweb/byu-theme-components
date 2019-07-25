@@ -53,7 +53,7 @@
     "serve": "^10.1.1"
   },
   "dependencies": {
-    "@byuweb/web-components-loader": "^0.2.0",
+    "@byuweb/web-components-loader": "^0.2.1",
     "@polymer/iron-demo-helpers": "^3.1.0"
   },
   "husky": {
