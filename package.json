@@ -18,7 +18,7 @@
     "lint": "eslint components",
     "docs": "del-cli docs/lib/bundle.js && cd docs && rollup -c ../rollup/rollup-docs.config.js",
     "bundle": "rollup -c rollup/rollup-bundle.config.js",
-    "compile-fouc": "node-sass components/byu-theme-components-fouc.sass dist/byu-theme-components.css",
+    "compile-fouc": "node-sass components/byu-theme-components.sass dist/byu-theme-components.css",
     "minify-fouc": "postcss dist/byu-theme-components.css -o dist/byu-theme-components.min.css -m -u autoprefixer cssnano && rm dist/byu-theme-components.css",
     "fouc": "npm run compile-fouc && npm run minify-fouc"
   },
@@ -53,7 +53,7 @@
     "serve": "^10.1.1"
   },
   "dependencies": {
-    "@byuweb/web-components-loader": "^0.2.2",
+    "@byuweb/web-components-loader": "^0.2.1",
     "@polymer/iron-demo-helpers": "^3.1.0"
   },
   "husky": {

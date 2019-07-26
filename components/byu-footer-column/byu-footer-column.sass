@@ -1,92 +1,51 @@
 /*!
- /    Copyright 2019 Brigham Young University
- /
- /    Licensed under the Apache License, Version 2.0 (the "License");
- /    you may not use this file except in compliance with the License.
- /    You may obtain a copy of the License at
- /
- /        http://www.apache.org/licenses/LICENSE-2.0
- /
- /    Unless required by applicable law or agreed to in writing, software
- /    distributed under the License is distributed on an "AS IS" BASIS,
- /    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- /    See the License for the specific language governing permissions and
- /    limitations under the License.
- /
+ * /    Copyright 2019 Brigham Young University
+ * /
+ * /    Licensed under the Apache License, Version 2.0 (the "License");
+ * /    you may not use this file except in compliance with the License.
+ * /    You may obtain a copy of the License at
+ * /
+ * /        http://www.apache.org/licenses/LICENSE-2.0
+ * /
+ * /    Unless required by applicable law or agreed to in writing, software
+ * /    distributed under the License is distributed on an "AS IS" BASIS,
+ * /    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * /    See the License for the specific language governing permissions and
+ * /    limitations under the License.
+ * /
 
-@import "../shared-styles/vars"
+@import ../shared-styles/vars
+@import byu-footer-column-mixins
 
 .column-title
-  font-family: $font-heading
-  text-transform: uppercase
-  color: $grey90
-  font-size: $fontSize16
-  line-height: $fontSize18
-  padding-bottom: $spacing3
-  font-weight: $font-weight-bold
-  width: 100%
-  display: inline-block
-  max-width: 230px
-
+  +footerColunmTitle
 
 @media (max-width: $breakMdLg)
   .column-title
     font-size: $fontSize12
     padding-bottom: $spacing0
 
-
-
 .header
   width: 100%
   margin: 0 0 $spacing2
 
+  \::slotted(*)
+    +footerColumnHeader
 
-.header ::slotted(*)
-  font-family: $font-heading
-  text-transform: uppercase
-  font-size: $fontSize14
-  line-height: $fontSize32
-  padding-bottom: $spacing1
-  font-weight: $font-weight-semi-bold
-  width: 100%
-  display: inline-block
-  max-width: 230px
+  \::slotted(br)
+    display: none
 
-
-.header ::slotted(br)
-  display: none
-
-
-.content ::slotted(*)
-  max-width: 100%
-
+  \::slotted(*)
+    max-width: 100%
 
 .content ::slotted(:not(byu-footer-action-button))
-  font-family: $font-text
-  font-size: $fontSize14
-  line-height: $fontSize24
-  font-weight: $font-weight-normal
-  color: $grey90
-  display: block
-  margin: 0
-
+  +baseColumnContent
 
 .content ::slotted(a)
-  text-decoration: none
-  outline: none
-  color: $royal
-  font-size: $fontSize14
-  height: $fontSize18
-  margin: 0 0 $spacing4
-
+  +columnContentLink
 
 .content ::slotted(p), .content ::slotted(div)
-  text-decoration: none
-  outline: none
-  font-size: $fontSize14
-  min-height: $fontSize24
-  line-height: $fontSize32
-
+  +columnContentNotLink
 
 .content ::slotted(a:hover)
   color: $navy
@@ -96,36 +55,22 @@
   text-decoration: underline
 
 .content > a
-  text-decoration: none
-  outline: none
-  color: $royal
-  font-size: $fontSize14
-  height: $fontSize18
-
+  +columnContentLink
 
 .content > div, .content > p
-  text-decoration: none
-  outline: none
-  font-size: $fontSize14
-  min-height: $fontSize24
-
+  +columnContentNotLink
 
 .content > a:hover
   color: $navy
 
-
 @media (max-width: $breakMdLg)
   .content
-    ::slotted(:not(byu-footer-action-button))
+    \::slotted(:not(byu-footer-action-button))
       font-size: $fontSize12
-
-
 
   .header ::slotted(*)
     font-size: $fontSize12
     max-width: 230px
-
-
 
 .footerActionButton
   background-color: $royal
@@ -143,7 +88,6 @@
   box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
   letter-spacing: 0.5px
 
-
 .social-media-links
   display: grid
   grid-template-columns: repeat(6, 1fr)
@@ -155,8 +99,6 @@
   margin: $spacing2 $spacing2 0 0
   align-items: center
 
-
 .social-media-links > a > img
   height: 28px
   width: 28px
-

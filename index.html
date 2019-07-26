@@ -24,10 +24,25 @@
 <body>
 <div class="containing-element">
     <byu-header>
+        <byu-breadcrumbs slot="breadcrumbs">
+            <a href="#">College of Fine Arts and Communication</a>
+            <a href="#">School of Music</a>
+        </byu-breadcrumbs>
         <span slot="site-title">Demo Site</span>
+        <span slot="site-title" class="subtitle">Example Sub-Title</span>
+        <a slot="actions" href="https://www.byu.edu/" target="_blank">Apply</a>
+        <byu-user-info slot="user">
+            <a slot="login" href="#login">Sign In</a>
+            <a slot="logout" href="#logout">Sign Out</a>
+        </byu-user-info>
         <byu-search slot="search">
                 <input type="search" placeholder="Nested Search">
         </byu-search>
+        <byu-menu slot="nav" active-selector=".is-active">
+            <a class="is-active" href="javascript: void 0">Link 1</a>
+            <a href="javascript: void 0">Link 2</a>
+            <a href="javascript: void 0">Link 3</a>
+        </byu-menu>
     </byu-header>
     <div class="page-content">
         <p>This is the page.</p>

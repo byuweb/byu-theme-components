@@ -1,75 +1,53 @@
 /*!
- /    Copyright 2019 Brigham Young University
- /
- /    Licensed under the Apache License, Version 2.0 (the "License");
- /    you may not use this file except in compliance with the License.
- /    You may obtain a copy of the License at
- /
- /        http://www.apache.org/licenses/LICENSE-2.0
- /
- /    Unless required by applicable law or agreed to in writing, software
- /    distributed under the License is distributed on an "AS IS" BASIS,
- /    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- /    See the License for the specific language governing permissions and
- /    limitations under the License.
- /
+ * /    Copyright 2019 Brigham Young University
+ * /
+ * /    Licensed under the Apache License, Version 2.0 (the "License");
+ * /    you may not use this file except in compliance with the License.
+ * /    You may obtain a copy of the License at
+ * /
+ * /        http://www.apache.org/licenses/LICENSE-2.0
+ * /
+ * /    Unless required by applicable law or agreed to in writing, software
+ * /    distributed under the License is distributed on an "AS IS" BASIS,
+ * /    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * /    See the License for the specific language governing permissions and
+ * /    limitations under the License.
+ * /
 
-@import "../shared-styles/vars"
+@import ../shared-styles/vars
+@import byu-social-media-links-mixins
 
 .slot-wrapper
   display: flex
   flex-direction: row
 
-  ::slotted(*)
-    height: 18px
-    width: 18px
-    display: block
-
-    color: transparent!important
-    overflow: hidden
-    background-size: contain
-    background-repeat: no-repeat
-    background-clip: content-box
-    background-position: center
-
-    margin: $spacing2 $spacing2 $spacing2 0 !important
-
+  \::slotted(*)
+    +socialMediaIcon
 
   //These all have a [slot] selector for backwards-compatibility. New icons don't need it.
-  ::slotted(.facebook), ::slotted([slot="facebook"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/fa.svg')
+  \::slotted(.facebook), ::slotted([slot="facebook"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/fa.svg")
 
+  \::slotted(.twitter), ::slotted([slot="twitter"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/tw.svg")
 
-  ::slotted(.twitter), ::slotted([slot="twitter"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/tw.svg')
+  \::slotted(.instagram), ::slotted([slot="instagram"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/in.svg")
 
+  \::slotted(.youtube), ::slotted([slot="youtube"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/yo.svg")
 
-  ::slotted(.instagram), ::slotted([slot="instagram"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/in.svg')
+  \::slotted(.pinterest), ::slotted([slot="pinterest"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/pi.svg")
 
+  \::slotted(.linkedin), ::slotted([slot="linkedin"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/li.svg")
 
-  ::slotted(.youtube), ::slotted([slot="youtube"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/yo.svg')
+  \::slotted(.rss), ::slotted([slot="rss"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/rs.svg")
 
+  \::slotted(.snapchat), ::slotted([slot="snapchat"])
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/sn.svg")
 
-  ::slotted(.pinterest), ::slotted([slot="pinterest"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/pi.svg')
-
-
-  ::slotted(.linkedin), ::slotted([slot="linkedin"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/li.svg')
-
-
-  ::slotted(.rss), ::slotted([slot="rss"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/rs.svg')
-
-
-  ::slotted(.snapchat), ::slotted([slot="snapchat"])
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/sn.svg')
-
-
-  ::slotted(.podcast)
-    background-image: url('https://cdn.byu.edu/shared-icons/latest/social/obfuscated/po.svg')
-
-
-
+  \::slotted(.podcast)
+    background-image: url("https://cdn.byu.edu/shared-icons/latest/social/obfuscated/po.svg")

@@ -1,22 +1,22 @@
 /*!
- /    Copyright 2019 Brigham Young University
- /
- /    Licensed under the Apache License, Version 2.0 (the "License");
- /    you may not use this file except in compliance with the License.
- /    You may obtain a copy of the License at
- /
- /        http://www.apache.org/licenses/LICENSE-2.0
- /
- /    Unless required by applicable law or agreed to in writing, software
- /    distributed under the License is distributed on an "AS IS" BASIS,
- /    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- /    See the License for the specific language governing permissions and
- /    limitations under the License.
- /
+ * /    Copyright 2019 Brigham Young University
+ * /
+ * /    Licensed under the Apache License, Version 2.0 (the "License");
+ * /    you may not use this file except in compliance with the License.
+ * /    You may obtain a copy of the License at
+ * /
+ * /        http://www.apache.org/licenses/LICENSE-2.0
+ * /
+ * /    Unless required by applicable law or agreed to in writing, software
+ * /    distributed under the License is distributed on an "AS IS" BASIS,
+ * /    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * /    See the License for the specific language governing permissions and
+ * /    limitations under the License.
+ * /
 
-@import '../shared-styles/helpers'
-@import '../shared-styles/vars'
-@import 'mixins'
+@import ../shared-styles/helpers
+@import ../shared-styles/vars
+@import byu-header-mixins
 
 byu-header [slot=site-title] a, byu-header a[slot=site-title]
   color: $white
@@ -25,7 +25,7 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
 .byu-header-el
   z-index: 10
   font-size: 1.125rem
-  box-shadow: 0 0 10px rgba(0,0,0,.16)
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
   border-bottom: 1px solid #ddd
   font-family: $font-heading
 
@@ -33,7 +33,6 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
     color: #fff
     text-decoration: none
     transition: opacity 200ms ease
-
 
   @media( min-width: $breakMdSm )
     font-size: 1.3125rem
@@ -44,6 +43,7 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
   .byu-site-banner, .actionsHeightWrapper
     background: $byuNavy
     min-height: $fontSize48
+
     @supports(display: grid)
       @media(min-width: $break0)
         display: grid
@@ -56,7 +56,7 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
         grid-template-columns: 4.75em auto min-content
 
   .byu-link
-    background: $byuNavy url('https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg') 0.6em center / 3em auto  no-repeat
+    background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 3em) auto no-repeat
     display: block
     height: 2em
     width: 4em
@@ -104,28 +104,30 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
 
   // Title slots
   .byu-titles .subtitle[slot="site-title"]
-    @include siteSubTitle()
+    +siteSubTitle
 
   .byu-titles [slot="site-title"]
-    @include siteTitle()
+    +siteTitle
 
   #byu-titles-slot, .byu-titles-slot-wrapper
     display: flex
     flex-direction: column
 
   #byu-titles-slot::slotted(*)
-    @include siteTitle()
+    +siteTitle
 
   // Subtitle AND supertitle (only difference is placement)
   #byu-titles-slot::slotted(*.subtitle)
-    @include siteSubTitle()
+    +siteSubTitle
+
+    @media(max-width: $breakMdSm)
+      font-size: 14px
 
 
   // Breadcrumb above the titles
   .byu-site-breadcrumbs
     line-height: 1.4
     font-size: 0.67em
-
 
 //********************
 // Action Button, Sign-in and Search Section
@@ -154,7 +156,6 @@ byu-header [slot=site-title] a, byu-header a[slot=site-title]
     @media(min-width: $breakMdLg)
       font-size: 1rem
 
-
 //********************
 // Search
 //********************
@@ -173,16 +174,12 @@ byu-search
       margin: 0 1em 0 0
       min-width: 13em
 
-
-
 //********************
 // Sign in
 //********************
 
-
 byu-user-info
   @supports(display: grid)
-
     @media(min-width: $break0)
       white-space: nowrap
 
@@ -206,7 +203,6 @@ byu-user-info
     @media(min-width: $breakMdLg)
       padding: 0 1em
 
-
 //********************
 // Action Button
 //********************
@@ -216,18 +212,11 @@ byu-user-info
   white-space: nowrap
   background: #fff
 
+  \::slotted(*)
+    +actionButtonText
 
-  ::slotted(*)
-    background: $royalWeb
-    padding: 0.4em 1.5em
-    display: inline-block
-    font-size: 1rem
-    transition: background 250ms ease
-    color: #fff
-    text-decoration: none
-
-  ::slotted(*:hover), ::slotted(*:focus)
-    background: mix( $royalWeb, #fff, 90% )
+  \::slotted(*:hover), ::slotted(*:focus)
+    background: mix($royalWeb, #fff, 90%)
     text-shadow: 0 0 $spacing2 rgba($byuNavy, 0.75)
 
   @media(min-width: $breakMdSm)
@@ -244,12 +233,14 @@ byu-user-info
       background: transparent
       order: 1
       padding: 0 0.5em
+
       a
         background: $royalWeb
         padding: 0.25em 1em
 
     @media(min-width: $breakMdLg)
       padding: 0 1em
+
       a
         padding: 0.25em 1.5em
 
@@ -275,13 +266,15 @@ $menuButtonSize: 1.8em
   background: transparent
   transition: background 200ms ease, transform 200ms ease
   background-position: center center
-
   color: #fff
+
   &:hover
     background-color: mix($byuNavy, $royalWeb)
+
   &:focus
     border-color: mix($byuNavy, #fff)
     outline: none
+
   &[aria-expanded=true]
     background-color: $royalWeb
 
@@ -299,16 +292,19 @@ $menuButtonSize: 1.8em
   &:before
     opacity: 1
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M2 3h6M2 5h6M2 7h6"/></svg>')
+
   &:after
     opacity: 0
     background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,2.5 L 7.5,7.5"/><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,7.5 L 7.5,2.5"/></svg>')
+
   &[aria-expanded=true]:after, &[aria-expanded=true]:before
     transform: rotate(360deg)
+
   &[aria-expanded=true]:before
     opacity: 0
+
   &[aria-expanded=true]:after
     opacity: 1
-
 
 .byu-header-el.js-enabled
   @media( max-width: ($breakMd - $break0) )
@@ -322,7 +318,6 @@ $menuButtonSize: 1.8em
 
     .byu-menu-button
       display: block
-
 
 .byu-header-el.js-enabled.menu-open
   @media( max-width: ($breakMd - $break0) )

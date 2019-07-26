@@ -16,16 +16,12 @@
 
 @import "../shared-styles/vars"
 @import "../shared-styles/helpers"
+@import byu-breadcrumbs-mixins
 
 // Breadcrumb above the titles
 .byu-breadcrumbs-el
   ::slotted(*)
-    opacity: 0.75
-    text-decoration: none
-    color: #fff
-    margin-right: $spacing2
-    padding-right: $spacing3
-    border-right: solid 1px $dividerColor
+    +breadcrumbLink()
 
   ::slotted(*:hover), ::slotted(*:focus)
     opacity: 1
