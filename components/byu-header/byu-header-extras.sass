@@ -1,0 +1,23 @@
+@import byu-header-mixins
+
+byu-header
+  z-index: 1
+
+  a[slot="site-title"], [slot="site-title"] a
+    @include siteTitle()
+
+  [slot="actions"]
+    color: $white
+
+    a
+      color: $white
+      text-decoration: none
+      display: block
+      padding: 100px 24px
+      margin: 0 -24px
+
+    &:hover
+      color: $navy
+
+      a
+        color: $navy
