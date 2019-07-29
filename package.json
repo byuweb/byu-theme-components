@@ -49,8 +49,7 @@
     "rollup-plugin-multi-entry": "^2.1.0",
     "rollup-plugin-node-resolve": "^4.2.4",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-serve": "^1.0.1",
-    "serve": "^10.1.1"
+    "rollup-plugin-serve": "^1.0.1"
   },
   "dependencies": {
     "@byuweb/web-components-loader": "^0.2.1",

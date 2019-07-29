@@ -61,11 +61,13 @@
   var scriptPath = url(root, 'byu-theme-components', min, 'js');
   var stylePath = url(root, 'byu-theme-components', min, 'css');
 
+  // TODO: Change to document.write()
   var style = document.createElement('link');
   style.href = stylePath;
   style.rel = 'stylesheet';
   document.head.appendChild(style);
 
+  // TODO: Change to document.write()
   var script = document.createElement('script');
   script.async = true;
   script.src = scriptPath;
