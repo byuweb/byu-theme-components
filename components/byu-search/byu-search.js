@@ -1,6 +1,5 @@
-/**
- *  @license
- *    Copyright 2016 Brigham Young University
+/*
+ *    Copyright 2019 Brigham Young University
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -13,373 +12,254 @@
  *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  *    See the License for the specific language governing permissions and
  *    limitations under the License.
- **/
-'use strict';
+ */
 
-import template from "./byu-search.html";
-import * as util from "byu-web-component-utils";
+'use strict'
 
-const CLASS_SELECTED_INPUT = '__byu-search-selected-input';
+import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-element'
+import style from './byu-search.sass'
+import * as util from 'byu-web-component-utils'
 
-const ATTR_OLD_SEARCH_HANDLER = 'onsearch';
-const ATTR_SEARCH_HANDLER = 'onbyusearch';
-const ATTR_SEARCH_INPUT_SELECTOR = 'search-input-selector';
-const ATTR_ACTION = 'action';
-const ATTR_ACTION_TARGET = 'action-target';
-const ATTR_PLACEHOLDER = 'placeholder';
+const CLASS_SELECTED_INPUT = '__byu-search-selected-input'
 
-const ACTION_SUBMIT_FORM = 'submit-form';
-const ACTION_CLICK = 'click';
-const ACTION_NAVIGATE = 'navigate';
+const ACTION_SUBMIT_FORM = 'submit-form'
+const ACTION_CLICK = 'click'
+const ACTION_NAVIGATE = 'navigate'
 
-const DEFAULT_ACTION_TARGET_SUBMIT_FORM = 'form';
-const DEFAULT_ACTION_TARGET_CLICK = 'button, input[type="submit"], input[type="button"]';
-const DEFAULT_PLACEHOLDER = 'Search';
-
-const EVENT_TYPE = 'byu-search';
-
+const DEFAULT_ACTION_TARGET_SUBMIT_FORM = 'form'
+const DEFAULT_ACTION_TARGET_CLICK = 'button, input[type="submit"], input[type="button"]'
+const DEFAULT_SEARCH_INPUT_SELECTOR = 'input[type="search"], input[type="text"]'
+const DEFAULT_SEARCH_FORM_CLASS = 'default-byu-search-form'
+const DEFAULT_PLACEHOLDER = 'Search'
 const DEFAULT_ACTION_TARGET = {
-    //If you're not familiar with this syntax (computed property names), see https://github.com/lukehoban/es6features#enhanced-object-literals
-    [ACTION_SUBMIT_FORM]: DEFAULT_ACTION_TARGET_SUBMIT_FORM,
-    [ACTION_CLICK]: DEFAULT_ACTION_TARGET_CLICK
-};
+  [ACTION_SUBMIT_FORM]: DEFAULT_ACTION_TARGET_SUBMIT_FORM,
+  [ACTION_CLICK]: DEFAULT_ACTION_TARGET_CLICK
+}
 
-const DEFAULT_SEARCH_INPUT_SELECTOR = 'input[type="search"], input[type="text"]';
+const EVENT_TYPE = 'byu-search'
 
-class ByuSearch extends HTMLElement {
+@customElement('byu-search')
+export class BYUSearch extends LitElement {
+  @property({ type: String }) placeholder = 'Search'
+  @property({ type: String, attribute: 'search-input-selector' }) searchInputSelector = DEFAULT_SEARCH_INPUT_SELECTOR
+  @property({ type: String }) action = null
+  @property({ type: String, attribute: 'action-target' }) actionTarget = null
+  @property({ type: String }) onbyusearch = null
 
-    constructor() {
-        super(); // always call super first
-        this.attachShadow({mode: 'open'});
-    }
+  get _searchSlot () {
+    return this.shadowRoot.querySelector('#search')
+  }
 
-    connectedCallback() {
-        util.applyTemplate(this, 'byu-search', template, () => {
-            this._initialized = true;
+  firstUpdated (_changedProperties) {
+    const searchElSlot = this.shadowRoot.querySelector('#search')
+    const assignedNodesLength = searchElSlot.assignedNodes().length
 
-            this._input = lookupAndConfigureInputElement(this, this.searchInputSelector);
+    if (assignedNodesLength > 0) {
+      let isDefaultForm = true
 
-            setupButtonSearchDispatcher(this);
-            setupSearchListeners(this);
-
-            setupSlotListener(this);
-        });
-    }
-
-    disconnectedCallback() {
-        if (this._input) {
-            teardownInputElement(this, this._input);
+      for (let i = 0; i < assignedNodesLength; i++) {
+        const type = searchElSlot.assignedNodes()[i].nodeType
+        if (!(type === 3 || type === 8) && !searchElSlot.assignedNodes()[i].classList.contains(DEFAULT_SEARCH_FORM_CLASS)) {
+          isDefaultForm = false
         }
+      }
 
-        teardownSearchListeners(this);
-
+      if (!isDefaultForm) {
+        this.shadowRoot.querySelector('#byu-site-search-label').remove()
+        this.shadowRoot.querySelector('#byu-site-search').remove()
+      }
     }
 
-    search() {
-        let el = this._input;
-        if (!el) {
-            throw new Error(`Unable to perform search; no search element matching the selector '${this.searchInputSelector}' can be found!`);
-        }
-        let value = el.value;
-        if (!value) return;
+    this._input = this._lookupAndConfigureInputElement(this, this.searchInputSelector)
+    this._hideExtraElements() // Hide extra inputs and buttons
+    if (this.actionTarget === null) {
+      this.actionTarget = this._defaultActionTarget(this.action)
+    }
+    this._setupSearchListeners(this)
+    this.classList.add('byu-component-rendered')
+  }
 
-        let event = util.createEvent(EVENT_TYPE, {search: value});
+  search () {
+    let el = this._input
+    if (!el) {
+      throw new Error(`Unable to perform search; no search element matching the selector '${this.searchInputSelector}' can be found!`)
+    }
+    let value = el.value
+    if (!value) return
 
-        let cancelled = !this.dispatchEvent(event);
-        if (cancelled) return;
+    let event = new CustomEvent(EVENT_TYPE, {
+      detail: {
+        search: value
+      },
+      bubbles: true,
+      composed: true
+    })
 
-        if (this.action) {
-            runPredefinedAction(this, value);
-        }
+    let cancelled = !this.dispatchEvent(event)
+    if (cancelled) return
+
+    if (this.action) {
+      this._runPredefinedAction(this, value)
+    }
+  }
+
+  _setupSearchListeners (search) {
+    let handler = search.__onbyusearchHandler = function (event) {
+      let name = search.onbyusearch
+      if (!name) return
+      let handler = window[name]
+      if (!handler) {
+        throw new Error(`Unable to find a global function named '${name}'`)
+      }
+      handler.call(search, event)
     }
 
-    static get observedAttributes() {
-        return [ATTR_SEARCH_INPUT_SELECTOR];
-    }
+    search.addEventListener(EVENT_TYPE, handler, false)
+  }
 
-    attributeChangedCallback(attr, oldValue, newValue) {
-        if (!this._initialized) return;
-        switch (attr) {
-            case ATTR_SEARCH_INPUT_SELECTOR:
-                if (this._input) {
-                    teardownInputElement(this, this._input);
-                }
-
-                this._input = lookupAndConfigureInputElement(this, newValue);
-
-                return;
-            //All other attrs are lazily looked up, as needed.
-        }
-    }
-
-    get onbyusearch() {
-        return this.getAttribute(ATTR_SEARCH_HANDLER);
-    }
-
-    set onbyusearch(value) {
-        this.setAttribute(ATTR_SEARCH_HANDLER, value);
-    }
-
-    get onsearch() {
-        return this.getAttribute(ATTR_OLD_SEARCH_HANDLER);
-    }
-
-    set onsearch(value) {
-        this.setAttribute(ATTR_OLD_SEARCH_HANDLER, value);
-    }
-
-    set searchInputSelector(value) {
-        this.setAttribute(ATTR_SEARCH_INPUT_SELECTOR, value);
-    }
-
-    get searchInputSelector() {
-        return this.getAttribute(ATTR_SEARCH_INPUT_SELECTOR) || DEFAULT_SEARCH_INPUT_SELECTOR;
-    }
-
-    set action(value) {
-        this.setAttribute(ATTR_ACTION, value);
-    }
-
-    get action() {
-        //Defaults to null
-        return this.getAttribute(ATTR_ACTION);
-    }
-
-    set actionTarget(value) {
-        this.setAttribute(ATTR_ACTION_TARGET, value);
-    }
-
-    get actionTarget() {
-        //Default depends on action target value
-        return this.getAttribute(ATTR_ACTION_TARGET) || defaultActionTarget(this.action);
-    }
-
-    get placeholder() {
-        return this.getAttribute(ATTR_PLACEHOLDER);
-    }
-
-    set placeholder(value) {
-        this.setAttribute(ATTR_PLACEHOLDER, value);
-    }
-
-    get _searchSlot() {
-        return this.shadowRoot.querySelector('#search');
-    }
-
-}
-
-window.customElements.define('byu-search', ByuSearch);
-window.ByuSearch = ByuSearch;
-
-function setupSlotListener(search) {
-    search._searchSlot.addEventListener('slotchange', e => {
-        handleSlotChange(search, e);
-    });
-}
-
-function handleSlotChange(search, event) {
-    let oldInput = search._input;
-    let newInput = lookupSearchInput(search, search.searchInputSelector);
-
-    if (oldInput === newInput) return;
-
-    search._input = newInput;
-
-    if (oldInput) {
-        teardownInputElement(search, oldInput);
-    }
-    if (newInput) {
-        setupInputElement(search, newInput);
-    } else {
-        console.error(`[byu-search] WARNING! Unable to find a search input element using the selector '${search.searchInputSelector}' on `, search);
-    }
-}
-
-function lookupSearchInput(search, selector) {
-    return util.querySelectorSlot(search._searchSlot, selector)
-}
-
-function lookupAndConfigureInputElement(search, selector) {
-    let input = lookupSearchInput(search, selector);
-
-    if (input) {
-        setupInputElement(search, input);
-    } else {
-        console.error(`[byu-search] WARNING! Unable to find a search input element using the selector '${selector}' on `, search);
-    }
-    return input;
-}
-
-function setupInputElement(search, input) {
-    applyStyleHelpers(search, input);
-    applyA11yHelpers(search, input);
-    setupEnterKeySearchDispatcher(search, input);
-}
-
-function teardownInputElement(search, input) {
-    removeStyleHelpers(search, input);
-    removeA11yHelpers(search, input);
-    teardownEnterKeySearchDispatcher(search, input)
-}
-
-function runPredefinedAction(search, value) {
-    let action = search.action;
+  _runPredefinedAction (search, value) {
+    let action = search.action
 
     switch (action) {
-        case ACTION_SUBMIT_FORM:
-            runSubmitFormAction(search, value);
-            break;
-        case ACTION_CLICK:
-            runClickAction(search, value);
-            break;
-        case ACTION_NAVIGATE:
-            runNavigateAction(search, value);
-            break;
-        default:
-            throw new Error(`Invalid value for ${ATTR_ACTION}: '${action}'`);
+      case ACTION_SUBMIT_FORM:
+        this._runSubmitFormAction(search, value)
+        break
+      case ACTION_CLICK:
+        this._runClickAction(search, value)
+        break
+      case ACTION_NAVIGATE:
+        this._runNavigateAction(search, value)
+        break
+      default:
+        throw new Error(`Invalid value for action: '${action}'`)
     }
-}
+  }
 
-function runSubmitFormAction(search, value) {
-    let target = search.actionTarget;
+  _runSubmitFormAction (search, value) {
+    let target = search.actionTarget
 
-    let form = util.querySelectorSlot(search._searchSlot, target);
+    let form = util.querySelectorSlot(search._searchSlot, target)
 
     if (!form) {
-        throw new Error(`Unable to find target for 'submit-form' action using selector '${target}'`);
+      throw new Error(`Unable to find target for 'submit-form' action using selector '${target}'`)
     }
 
     if (!(form instanceof HTMLFormElement)) {
-        throw new Error(`Element found by selector '${target}' must be a <form>, but was '${form.localName}'`);
+      throw new Error(`Element found by selector '${target}' must be a <form>, but was '${form.localName}'`)
     }
 
-    form.submit();
-}
+    form.submit()
+  }
 
-function runClickAction(search, value) {
-    let target = search.actionTarget;
+  _runClickAction (search, value) {
+    let target = search.actionTarget
 
-    let button = util.querySelectorSlot(search._searchSlot, target);
+    let button = util.querySelectorSlot(search._searchSlot, target)
 
     if (!button) {
-        throw new Error(`Unable to find target for 'click' action using selector '${target}'`);
+      throw new Error(`Unable to find target for 'click' action using selector '${target}'`)
     }
 
-    button.click();
-}
+    button.click()
+  }
 
-function runNavigateAction(search, value) {
-    let target = search.actionTarget;
+  _runNavigateAction (search, value) {
+    let target = search.actionTarget
 
     if (!target) {
-        throw new Error('When using action="navigate", you must specify an action-target');
+      throw new Error('When using action="navigate", you must specify an action-target')
     }
 
     if (target.indexOf('${search}')) {
-        console.warn(`[byu-search] WARNING: Using action="navigate" with a target that does not contain \${search} will not include the search terms in the URL.`, search);
+      console.warn(`[byu-search] WARNING: Using action="navigate" with a target that does not contain \${search} will not include the search terms in the URL.`, search)
     }
 
-    window.location.assign(target.replace('${search}', window.encodeURIComponent(value)));
-}
+    window.location.assign(target.replace('${search}', window.encodeURIComponent(value)))
+  }
 
-function applyStyleHelpers(search, input) {
-    input.classList.add(CLASS_SELECTED_INPUT);
-}
+  _lookupAndConfigureInputElement (search, selector) {
+    let input = this.querySelector(selector) || this.shadowRoot.querySelector(selector)
 
-function removeStyleHelpers(search, input) {
-    input.classList.remove(CLASS_SELECTED_INPUT);
-}
+    if (input) {
+      this._setupInputElement(search, input)
+    } else {
+      console.error(`[byu-search] WARNING! Unable to find a search input element using the selector '${selector}' on `, search)
+    }
 
-// For Accessibility, it's good for us to have a title and placeholder set. So, if there isn't one, we'll set it.
-function applyA11yHelpers(search, input) {
-    if (input.title && input.placeholder) return;
+    return input
+  }
 
-    let helped = [];
+  _hideExtraElements () {
+    const inputs = this.querySelectorAll(DEFAULT_SEARCH_INPUT_SELECTOR + ', button')
+    inputs.forEach((el) => {
+      if (!el.classList.contains(CLASS_SELECTED_INPUT)) {
+        el.classList.add('hidden')
+      }
+    })
+  }
+
+  _setupInputElement (search, input) {
+    this._applyStyleHelpers(search, input)
+    this._applyA11yHelpers(search, input)
+    this._setupEnterKeySearchDispatcher(search, input)
+  }
+
+  _setupEnterKeySearchDispatcher (search, input) {
+    let keypress = input.__byu_search_keyObserver = function (e) {
+      if (e.key === 'Enter') {
+        search.search()
+      }
+    }
+    input.addEventListener('keypress', keypress, false)
+  }
+
+  _applyStyleHelpers (search, input) {
+    input.classList.add(CLASS_SELECTED_INPUT)
+  }
+
+  // For Accessibility, it's good for us to have a title and placeholder set. So, if there isn't one, we'll set it.
+  _applyA11yHelpers (search, input) {
+    if (input.title && input.placeholder) return
+
+    let helped = []
 
     if (!input.placeholder) {
-        input.placeholder = search.placeholder || input.title || DEFAULT_PLACEHOLDER;
-        helped.push('placeholder');
+      input.placeholder = search.placeholder || input.title || DEFAULT_PLACEHOLDER
+      helped.push('placeholder')
     }
     if (!input.title) {
-        input.title = input.placeholder || search.placeholder || DEFAULT_PLACEHOLDER;
-        helped.push('title');
+      input.title = input.placeholder || search.placeholder || DEFAULT_PLACEHOLDER
+      helped.push('title')
     }
 
-    input.__byu_search_a11yHelpersApplied = helped;
+    input.__byu_search_a11yHelpersApplied = helped
+  }
+
+  _defaultActionTarget (action) {
+    if (!action) return null
+    return DEFAULT_ACTION_TARGET[action]
+  }
+
+  /* --- RENDER COMPONENT --- */
+
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
+
+  render () {
+    return html`
+    <div class="byu-search-el">
+        <slot id="search">
+            <label class="byu-search-label default-byu-search-form" for="site-search" id="byu-site-search-label">Search</label>
+            <input type="text" id="byu-site-search" class="default-byu-search-form" name="q" aria-label="Site search" placeholder="${this.placeholder}">
+        </slot>
+        <button class="byu-search-btn" @click="${this.search}">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                <style>.st{stroke-width:10;fill:none;stroke:currentColor;stroke-linecap:round;}</style>
+                <circle class="st" cx="45.5" cy="45.5" r="24.5"/><path class="st" d="M63 63l16 16"/>
+            </svg>
+        </button>
+    </div>
+    `
+  }
 }
-
-function removeA11yHelpers(search, input) {
-    let helpers = input.__byu_search_a11yHelpersApplied;
-    if (!helpers) return;
-
-    if (helpers.includes('title')) {
-        input.title = null;
-    }
-    if (helpers.includes('placeholder')) {
-        input.placeholder = null;
-    }
-    delete input.__byu_search_a11yHelpersApplied;
-}
-
-function setupButtonSearchDispatcher(search) {
-    search.shadowRoot.querySelector('#search-button')
-        .addEventListener('click', function () {
-            search.search();
-        });
-}
-
-function setupEnterKeySearchDispatcher(search, input) {
-    let keypress = input.__byu_search_keyObserver = function (e) {
-        if (e.keyCode === 13) {
-            search.search();
-        }
-    };
-    input.addEventListener('keypress', keypress, false);
-}
-
-function teardownEnterKeySearchDispatcher(search, input) {
-    let keypress = input.__byu_search_keyObserver;
-    if (keypress) input.removeEventListener('keypress', keypress, false);
-}
-
-function setupSearchListeners(search) {
-    let handler = search.__onbyusearchHandler = function (event) {
-        let name = search.onbyusearch;
-        if (!name) return;
-        let handler = window[name];
-        if (!handler) {
-            throw new Error(`Unable to find a global function named '${name}'`);
-        }
-        handler.call(search, event);
-    };
-
-    search.addEventListener(EVENT_TYPE, handler, false);
-
-    let legacyHandler = search.__onsearchLegacyHandler = function (event) {
-        let name = search.onsearch;
-        if (!name) return;
-
-        let handler = window[name];
-        if (!handler) {
-            throw new Error(`Unable to find a global function named '${name}'`);
-        }
-        handler.call(search, event.detail.search, event);
-    };
-
-    search.addEventListener(EVENT_TYPE, legacyHandler, false);
-}
-
-function teardownSearchListeners(search) {
-    if (search.__onbyusearchHandler) {
-        search.removeEventListener(EVENT_TYPE, search.__onbyusearchHandler, false);
-    }
-    if (search.__onsearchLegacyHandler) {
-        search.removeEventListener(EVENT_TYPE, search.__onsearchLegacyHandler, false);
-    }
-}
-
-function defaultActionTarget(action) {
-    if (!action) return null;
-    return DEFAULT_ACTION_TARGET[action];
-}
-

@@ -1,5 +1,5 @@
 # BYU Core Components
-This repository contains the "core" Web Components implementing the BYU theme redesign begun in 2017.
+This repository contains the "core" Web Components implementing the BYU theme.
 
 Specifically, it contains the following components:
 * byu-header
@@ -15,8 +15,6 @@ In order for a BYU website to be considered compliant with current branding stan
 
 ## Important links
 [brand.byu.edu](http://brand.byu.edu) contains a full description of the BYU website branding guidelines
-
-[theme-dev.byu.edu](http://theme-dev.byu.edu) contains implementation guidelines for the current BYU theme, as well as a list of optional components created by the BYU web community that can improve and simplify your website. This site is currently under construction, so please let us know if there are things you'd like on it.
 
 [web.byu.edu](http://web.byu.edu) is the central hub for communication, events, and news relating to the BYU Web Community. It includes a calendar with upcoming events (including WebFests and user group meetings), the proceedings and latest decisions of the Web Advisory Board, and info on the various working groups creating community resources. It also has info on how to join the BYU Web Slack channels.
 

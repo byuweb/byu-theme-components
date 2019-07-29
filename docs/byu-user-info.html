@@ -1,70 +1,53 @@
-<!--
-  ~  @license
-  ~    Copyright 2016 Brigham Young University
-  ~
-  ~    Licensed under the Apache License, Version 2.0 (the "License");
-  ~    you may not use this file except in compliance with the License.
-  ~    You may obtain a copy of the License at
-  ~
-  ~        http://www.apache.org/licenses/LICENSE-2.0
-  ~
-  ~    Unless required by applicable law or agreed to in writing, software
-  ~    distributed under the License is distributed on an "AS IS" BASIS,
-  ~    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  ~    See the License for the specific language governing permissions and
-  ~    limitations under the License.
-  -->
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en" id="html">
 <head>
-    <title></title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <script src="load-components.js"></script>
-
-    <script async src="lib/html-imports/html-imports.min.js"></script>
-
-    <link rel="import" href="lib/iron-demo-helpers/demo-snippet.html">
+    <link rel="stylesheet" href="lib/prism/prism.css" media="all">
+    <script type="text/javascript" src="lib/prism/prism.js"></script>
+    <script type="text/javascript" src="lib/bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        html {
+        html, body {
             height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Public Sans', Arial, sans-serif;
+            background-color: #FAFAFA
         }
-        
-        body {
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif;
+        }
+
+        .containing-element {
             display: flex;
             flex-direction: column;
             height: 100%;
         }
-        /* wrap the page in this for an easy sticky footer and max-width */
-        
+
         .page-content {
-            flex: 1;
-            margin: 0 auto;
+            flex-grow: 1;
             max-width: 1200px;
-            width: 100%;
-            padding: 16px;
-            box-sizing: border-box;
+            margin: 0 auto;
         }
     </style>
+    <title>Components - v2</title>
 </head>
-
 <body>
+<div class="containing-element">
     <byu-header>
-        <span slot="site-title">Components Demo Site</span>
-        <byu-menu slot="nav" collapsed>
+        <span slot="site-title">Components v2</span>
+        <byu-menu slot="nav">
             <a href="index.html">Home</a>
             <a href="byu-header.html">Header</a>
             <a href="byu-menu.html">Menu</a>
             <a href="byu-search.html">Search</a>
-            <a class="active" href="byu-user-info.html">User Info</a>
+            <a href="byu-user-info.html" class="active">User Login</a>
             <a href="byu-footer.html">Footer</a>
+            <a href="changes.html">Changes</a>
         </byu-menu>
-        <byu-search slot="search"></byu-search>
     </byu-header>
-
-
     <div class="page-content">
         <h1>User Info Demo</h1>
 
@@ -82,7 +65,8 @@
         </demo-snippet>
 
         <h2>Logged In User</h2>
-        <p>If your website provides anything to the slot 'user-name' then it will know that the user is logged in. If this is not provided, it will believe no one is logged in.</p>
+        <p>If your website provides anything to the slot 'user-name' then it will know that the user is logged in. If
+            this is not provided, it will believe no one is logged in.</p>
         <demo-snippet>
             <template>
                 <byu-header>
@@ -101,7 +85,8 @@
             <template>
                 <byu-header>
                     <span slot="site-title">Components Demo Site</span>
-                    <byu-search slot="search" action="https://www.google.com/#q=$1" method="get" placeholder="Search"></byu-search>
+                    <byu-search slot="search" action="https://www.google.com/#q=$1" method="get"
+                                placeholder="Search"></byu-search>
                     <byu-user-info slot="user" login-url="#login">
                         <a slot="login" href="#login">Sign In</a>
                         <a slot="logout" href="#logout">Sign Out</a>
@@ -123,7 +108,8 @@
             <template>
                 <byu-header>
                     <span slot="site-title">Components Demo Site</span>
-                    <byu-search slot="search" action="https://www.google.com/#q=$1" method="get" placeholder="Search"></byu-search>
+                    <byu-search slot="search" action="https://www.google.com/#q=$1" method="get"
+                                placeholder="Search"></byu-search>
                     <byu-user-info slot="user" login-url="#login">
                         <a slot="login" href="#login">Sign In</a>
                         <a slot="logout" href="#logout">Sign Out</a>
@@ -144,8 +130,10 @@
         <h2>Overriding CMS Styles</h2>
 
         <p>
-            Many Content Management Systems will add extra divs and spans around your login/logout links. Unfortunately, Web Components
-            only allow you to style directly in the Shadow DOM. To fix this, you'll need some custom CSS. The exact CSS needed
+            Many Content Management Systems will add extra divs and spans around your login/logout links. Unfortunately,
+            Web Components
+            only allow you to style directly in the Shadow DOM. To fix this, you'll need some custom CSS. The exact CSS
+            needed
             will vary depending on your CMS, but this should give you the idea.
         </p>
 
@@ -154,10 +142,10 @@
                 <style>
                     .my-custom-login-class a {
                         color: white;
-                        font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif;
+                        font-family: 'Public Sans', Arial, sans-serif;
                         cursor: pointer;
                     }
-                    
+
                     .my-custom-login-class a:hover {
                         color: white;
                         text-decoration: none;
@@ -179,12 +167,7 @@
         </demo-snippet>
 
     </div>
-
-
-    <footer>
-        <byu-footer></byu-footer>
-    </footer>
-
+    <byu-footer></byu-footer>
+</div>
 </body>
-
 </html>

@@ -1,24 +1,20 @@
 ---
-name: Theme Header/Footer Components
-description: Header and Footer components for 2017 Theme
+name: BYU Theme Components
+description: BYU themed web components.
 resources:
   - src: dist/**
     dest: ./
 docs: https://github.com/byuweb/byu-theme-components
 type: 'web-component'
 preload:
-  byu-theme-components.min.css:
-  - lib: shared-icons
-    version: latest
-    file: logos/monogram-white.svg
-  - lib: theme-fonts
-    version: 1.x.x
-    file: ringside/fonts.css
   byu-theme-components.min.js:
-  - ./components.min.js
+  - ./byu-theme-components.min.js
   - lib: shared-icons
     version: latest
     file: logos/monogram-white.svg
   - lib: theme-fonts
     version: latest
     file: ringside/fonts.css
+  - lib: theme-fonts
+    version: latest
+    file: public-sans/fonts.css

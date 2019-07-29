@@ -1,0 +1,21 @@
+@mixin siteSearchSelectedInput
+  appearance: none
+  padding: $spacing3 0.65em
+  display: block
+  line-height: 1.2
+  border: 1px solid #fff
+  font-size: 1rem
+  box-sizing: border-box
+  border-radius: 0
+  margin-bottom: 0
+
+  @media(max-width: $breakMdLg)
+    width: 100%
+
+  @media(min-width: $breakMdSm)
+    padding: $spacing3 1.25em
+
+  @supports(display: grid)
+    @media(min-width: $breakMd)
+      padding: 0.4em 1em
+      border-radius: 0.9625em

@@ -1,0 +1,14 @@
+{
+  "plugins": ["lit"],
+  "extends": ["plugin:lit/recommended"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "legacyDecorators": true
+    },
+    "ecmaVersion": 6
+  },
+  "env": {
+    "browser": true
+  }
+}

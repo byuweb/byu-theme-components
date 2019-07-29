@@ -1,21 +1,38 @@
-'use strict';
+/*
+ *    Copyright 2019 Brigham Young University
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
 
-import template from './byu-footer-action-button.html';
-import * as util from "byu-web-component-utils";
+import { LitElement, html, customElement, css, unsafeCSS } from 'lit-element'
+import style from './byu-footer-action-button.sass'
 
+@customElement('byu-footer-action-button')
+export class BYUFooterActionButton extends LitElement {
 
-class BYUFooterActionButton extends HTMLElement {
+  firstUpdated (_changedProperties) {
+    this.classList.add('byu-component-rendered')
+  }
 
-    constructor() {
-        super();
-        this.attachShadow({mode: 'open'});
-    }
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
 
-    connectedCallback() {
-        util.applyTemplate(this, 'byu-footer-action-button', template);
-    }
+  render () {
+    return html`
+    <div class="wrapper">
+      <slot name="actiontext"></slot>
+    </div>
+    `
+  }
 }
-
-window.customElements.define('byu-footer-action-button', BYUFooterActionButton);
-window.BYUFooterActionButton = BYUFooterActionButton;
-

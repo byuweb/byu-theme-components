@@ -1,148 +1,51 @@
-"use strict";
-import template from "./byu-menu.html";
-import * as util from 'byu-web-component-utils';
-import activeCss from './active-styles.scss';
+/*
+ *    Copyright 2019 Brigham Young University
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
 
-const ATTR_ACTIVE_SELECTOR = "active-selector";
-const DEFAULT_ACTIVE_SELECTOR = ".active";
-class BYUMenu extends HTMLElement {
+'use strict'
 
-    get activeSelector() {
-        return this.getAttribute(ATTR_ACTIVE_SELECTOR) || DEFAULT_ACTIVE_SELECTOR;
+import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-element'
+import style from './byu-menu.sass'
+
+const ACTIVE_MENU_ATTR = 'active'
+
+@customElement('byu-menu')
+export class BYUMenu extends LitElement {
+  @property ({ type: String, attribute: 'active-selector' }) activeSelector = ''
+
+  firstUpdated (_changedProperties) {
+    if (this.activeSelector !== '') {
+      this._updateActiveSelector(this)
     }
+    this.classList.add('byu-component-rendered')
+  }
 
-    set activeSelector(val) {
-        if (val) {
-            this.setAttribute(ATTR_ACTIVE_SELECTOR, val);
-        } else {
-            this.setAttribute(ATTR_ACTIVE_SELECTOR, DEFAULT_ACTIVE_SELECTOR);
-        }
-    }
+  _updateActiveSelector(menu) {
+    const el = menu.querySelector(this.activeSelector)
+    el.classList.add(ACTIVE_MENU_ATTR)
+  }
 
-    get showMore() {
-        return isShowingMoreMenu(this);
-    }
+  static get styles () {
+    return css`${unsafeCSS(style)}`
+  }
 
-    set showMore(show) {
-        const el = this.shadowRoot.querySelector('.byu-menu-more-menu');
-        if (show && !isShowingMoreMenu(this)) enableHideClick(this);
-        toggleClass(el, 'byu-menu-more-expanded', show);
-    }
-
-    constructor() {
-        super(); // always call super first
-        this.attachShadow({ mode: 'open' });
-    }
-
-    connectedCallback() {
-        render(this, true);
-    }
-
-    attributeChangedCallback(attr, oldValue, newValue) {
-        switch (attr) {
-            case ATTR_ACTIVE_SELECTOR:
-               render(this, false);
-               return;
-        }
-    }
-
-    static get observedAttributes() {
-        return [ATTR_ACTIVE_SELECTOR];
-    }
-
-    get _menuSlot() {
-        return this.shadowRoot.querySelector('#byu-menu-items');
-    }
-
-    get _menuMoreSlot() {
-        return this.shadowRoot.querySelector('#byu-menu-more-slot');
-    }
+  render () {
+    return html`
+<nav class="byu-menu-el">
+    <slot class="byu-menu-items"></slot>
+</nav>
+    `
+  }
 }
-
-function render(component, force) {
-    let activeSelector = component.activeSelector;
-    if (!force && activeSelector === component._renderedActiveSelector) {
-        return;
-    }
-
-    let css = activeCss.toString().replace('__byu-menu-active-placeholder__', activeSelector);
-    let tmpl = `<style>${css}</style>${template}`;
-
-    util.applyTemplate(component, 'byu-menu', tmpl, () => {
-        component._renderedActiveSelector = activeSelector;
-        updateMenuItemsLayout(component);
-        addSlotListeners(component);
-        // when the more button is clicked then show the more menu
-        component.shadowRoot.querySelector('.byu-menu-more').addEventListener('click', function () {
-            component.showMore = true;
-        });
-    });
-}
-
-function addSlotListeners(component) {
-    component.shadowRoot.querySelector('slot')
-        .addEventListener('slotchange', e => {
-            //Run on microtask timing to let polyfilled shadow DOM changes to propagate
-            setTimeout(function() {
-              updateMenuItemsLayout(component);
-            });
-        });
-}
-
-function enableHideClick(component) {
-
-    const fn = function () {
-        document.removeEventListener('click', fn);
-        component.showMore = false;
-    };
-
-    setTimeout(function () {
-        document.addEventListener('click', fn);
-    });
-}
-
-function hasClass(el, className) {
-    const classes = el.className.split(/ +/);
-    return classes.indexOf(className) !== -1;
-}
-
-function isShowingMoreMenu(component) {
-    return hasClass(component.shadowRoot.querySelector('.byu-menu-more-menu'), 'byu-menu-more-expanded');
-}
-
-function toggleClass(el, className, value) {
-    const classes = el.className.split(/ +/);
-    const index = classes.indexOf(className);
-    const exists = index !== -1;
-    const setTo = arguments.length > 2 ? arguments[2] : !exists;
-    if (setTo && !exists) {
-        classes.push(className);
-    } else if (!setTo && exists) {
-        classes.splice(index, 1);
-    }
-    el.className = classes.join(' ');
-}
-
-function updateMenuItemsLayout(component) {
-    const links = component.children;
-    const length = links.length;
-    const hasOverflow = length > 6;
-    const limit = hasOverflow ? 5 : 6;
-
-    for (let index = 0; index < length; index++) {
-        const link = links[index];
-        link.setAttribute('slot', index < limit ? '' : 'more');
-    }
-
-    const nav = component.shadowRoot.querySelector('.outer-nav');
-    if (nav) toggleClass(nav, 'byu-menu-more-visible', hasOverflow);
-
-    if (length < 4) {
-        component.setAttribute('left-align', '');
-    } else {
-        component.removeAttribute('left-align');
-    }
-}
-
-window.customElements.define('byu-menu', BYUMenu);
-window.BYUMenu = BYUMenu;
