@@ -54,7 +54,7 @@
   var isForced = window.location.search && window.location.search.indexOf('load-local=true') >= 0;
 
   if (isLocalhost || isForced) {
-    min = false;
+    min = true;
     root = '/dist'
   }
 
