@@ -34,11 +34,11 @@
   box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
   letter-spacing: 0.5px
 
+  .wrapper ::slotted(*)
+    +actionButtonLink
+
 @media (max-width: $breakMdLg)
   \:host
     padding: 6.5px 0
     font-size: 11px
     line-height: 13px
-
-.wrapper ::slotted(*)
-  +actionButtonLink

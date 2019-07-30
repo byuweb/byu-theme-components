@@ -18,17 +18,18 @@
 @import "../shared-styles/helpers"
 @import byu-breadcrumbs-mixins
 
-// Breadcrumb above the titles
-.byu-breadcrumbs-el
-  ::slotted(*)
-    +breadcrumbLink()
+\:host
+  // Breadcrumb above the titles
+  .byu-breadcrumbs-el
+    ::slotted(*)
+      +breadcrumbLink()
 
-  ::slotted(*:hover), ::slotted(*:focus)
-    opacity: 1
+    ::slotted(*:hover), ::slotted(*:focus)
+      opacity: 1
 
-  ::slotted(*:last-child)
-    border: none
+    ::slotted(*:last-child)
+      border: none
 
-// Hax for Edge
-.byu-breadcrumbs-el.style-scope
-  font-size: $fontSize14
+  // Hax for Edge
+  .byu-breadcrumbs-el.style-scope
+    font-size: $fontSize14

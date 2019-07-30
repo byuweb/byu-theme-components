@@ -21,54 +21,55 @@
 // Sign in
 //********************
 
-.byu-id
-  background: $grey05
-  background-image: linear-gradient($grey10, #fff 4px, #fff 100%)
-  padding: 0.65em
-  color: $byuNavy !important
-  text-align: right
-  height: 100%
-  box-sizing: border-box
-  grid-row: 2 / 3
-
-  @media(min-width: $breakMdSm)
-    padding: 0.65em 1.1em
-
-  a, a:link, a:visited, ::slotted(*)
+\:host
+  .byu-id
+    background: $grey05
+    background-image: linear-gradient($grey10, #fff 4px, #fff 100%)
+    padding: 0.65em
     color: $byuNavy !important
-    display: inline-block
-    padding: $spacing1 0
-    text-decoration: none
+    text-align: right
+    height: 100%
+    box-sizing: border-box
+    grid-row: 2 / 3
 
-  svg
-    width: 1.25em
-    height: 1.25em
-    display: inline-block
-    vertical-align: baseline
-    top: 0.25em
-    margin: 0 0.25em
+    @media(min-width: $breakMdSm)
+      padding: 0.65em 1.1em
 
-  @supports(display: grid)
+    a, a:link, a:visited, ::slotted(*)
+      color: $byuNavy !important
+      display: inline-block
+      padding: $spacing1 0
+      text-decoration: none
 
-    @media(min-width: $breakSm)
-      white-space: nowrap
+    svg
+      width: 1.25em
+      height: 1.25em
+      display: inline-block
+      vertical-align: baseline
+      top: 0.25em
+      margin: 0 0.25em
 
-    @media(min-width: $breakMd)
-      background: transparent
-      order: 2
-      color: #fff !important
-      padding: 0 0.5em
-      display: flex
-      align-items: center
-      justify-content: flex-end
+    @supports(display: grid)
 
-      svg
-        top: 0
-        margin: 0 0.5em
-
-      a, a:link, a:visited, ::slotted(*)
-        color: #fff !important
+      @media(min-width: $breakSm)
         white-space: nowrap
 
-    @media(min-width: $breakMdLg)
-      padding: 0 1em
+      @media(min-width: $breakMd)
+        background: transparent
+        order: 2
+        color: #fff !important
+        padding: 0 0.5em
+        display: flex
+        align-items: center
+        justify-content: flex-end
+
+        svg
+          top: 0
+          margin: 0 0.5em
+
+        a, a:link, a:visited, ::slotted(*)
+          color: #fff !important
+          white-space: nowrap
+
+      @media(min-width: $breakMdLg)
+        padding: 0 1em
