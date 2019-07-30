@@ -34,7 +34,8 @@ export class BYUMenu extends LitElement {
 
   _updateActiveSelector(menu) {
     const el = menu.querySelector(this.activeSelector)
-    el.classList.add(ACTIVE_MENU_ATTR)
+    if (el)
+      el.classList.add(ACTIVE_MENU_ATTR)
   }
 
   static get styles () {

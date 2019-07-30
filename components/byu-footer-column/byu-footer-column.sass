@@ -17,88 +17,89 @@
 @import ../shared-styles/vars
 @import byu-footer-column-mixins
 
-.column-title
-  +footerColunmTitle
-
-@media (max-width: $breakMdLg)
+\:host
   .column-title
-    font-size: $fontSize12
-    padding-bottom: $spacing0
+    +footerColunmTitle
 
-.header
-  width: 100%
-  margin: 0 0 $spacing2
-
-  \::slotted(*)
-    +footerColumnHeader
-
-  \::slotted(br)
-    display: none
-
-  \::slotted(*)
-    max-width: 100%
-
-.content ::slotted(:not(byu-footer-action-button))
-  +baseColumnContent
-
-.content ::slotted(a)
-  +columnContentLink
-
-.content ::slotted(p), .content ::slotted(div)
-  +columnContentNotLink
-
-.content ::slotted(a:hover)
-  color: $navy
-
-.content ::slotted(a:focus)
-  color: $navy
-  text-decoration: underline
-
-.content > a
-  +columnContentLink
-
-.content > div, .content > p
-  +columnContentNotLink
-
-.content > a:hover
-  color: $navy
-
-@media (max-width: $breakMdLg)
-  .content
-    \::slotted(:not(byu-footer-action-button))
+  @media (max-width: $breakMdLg)
+    .column-title
       font-size: $fontSize12
+      padding-bottom: $spacing0
 
-  .header ::slotted(*)
+  slot[name="header"]
+    width: 100%
+    margin: 0 0 $spacing2
+
+    \::slotted(*)
+      +footerColumnHeader
+
+    \::slotted(br)
+      display: none
+
+    \::slotted(*)
+      max-width: 100%
+
+  .content ::slotted(:not(byu-footer-action-button))
+    +baseColumnContent
+
+  .content ::slotted(a)
+    +columnContentLink
+
+  .content ::slotted(p), .content ::slotted(div)
+    +columnContentNotLink
+
+  .content ::slotted(a:hover)
+    color: $navy
+
+  .content ::slotted(a:focus)
+    color: $navy
+    text-decoration: underline
+
+  .content > a
+    +columnContentLink
+
+  .content > div, .content > p
+    +columnContentNotLink
+
+  .content > a:hover
+    color: $navy
+
+  @media (max-width: $breakMdLg)
+    .content
+      \::slotted(:not(byu-footer-action-button))
+        font-size: $fontSize12
+
+    slot[name="header"] ::slotted(*)
+      font-size: $fontSize12
+      max-width: 230px
+
+  .footerActionButton
+    background-color: $royal
     font-size: $fontSize12
-    max-width: 230px
+    color: $white
+    display: inline-block
+    text-align: center
+    line-height: $fontSize16
+    padding: $spacing3 $spacing2
+    width: auto
+    min-width: 125px
+    margin: $spacing4 0
+    -webkit-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
+    -moz-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
+    box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
+    letter-spacing: 0.5px
 
-.footerActionButton
-  background-color: $royal
-  font-size: $fontSize12
-  color: $white
-  display: inline-block
-  text-align: center
-  line-height: $fontSize16
-  padding: $spacing3 $spacing2
-  width: auto
-  min-width: 125px
-  margin: $spacing4 0
-  -webkit-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
-  -moz-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
-  box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
-  letter-spacing: 0.5px
+  .social-media-links
+    display: grid
+    grid-template-columns: repeat(6, 1fr)
+    color: transparent
+    background-size: contain
+    background-repeat: no-repeat
+    background-clip: content-box
+    background-position: center
+    margin: $spacing2 $spacing2 0 0
+    align-items: center
 
-.social-media-links
-  display: grid
-  grid-template-columns: repeat(6, 1fr)
-  color: transparent
-  background-size: contain
-  background-repeat: no-repeat
-  background-clip: content-box
-  background-position: center
-  margin: $spacing2 $spacing2 0 0
-  align-items: center
-
-.social-media-links > a > img
-  height: 28px
-  width: 28px
+  .social-media-links > a > img
+    height: 28px
+    width: 28px

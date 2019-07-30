@@ -19,142 +19,265 @@
 @import byu-header-mixins
 
 
-\:host()
-  font-size: 16px;
+\:host
+  font-size: 16px
 
-.byu-header-el
-  z-index: 10
-  font-size: 1.125rem
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
-  border-bottom: 1px solid #ddd
-  font-family: $font-heading
+  .byu-header-el
+    z-index: 10
+    font-size: 1.125rem
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
+    border-bottom: 1px solid #ddd
+    font-family: $font-heading
 
-  a, a:link, a:visited
-    color: #fff
-    text-decoration: none
-    transition: opacity 200ms ease
+    a, a:link, a:visited
+      color: #fff
+      text-decoration: none
+      transition: opacity 200ms ease
 
-  @media( min-width: $breakMdSm )
-    font-size: 1.3125rem
+    @media( min-width: $breakMdSm )
+      font-size: 1.3125rem
 
-  @media( min-width: $breakMdLg )
-    font-size: 1.5rem
+    @media( min-width: $breakMdLg )
+      font-size: 1.5rem
 
-  .byu-site-banner, .actionsHeightWrapper
-    background: $byuNavy
-    min-height: $fontSize48
+    .byu-site-banner, .actionsHeightWrapper
+      background: $byuNavy
+      min-height: $fontSize48
+
+      @supports(display: grid)
+        @media(min-width: $break0)
+          display: grid
+          grid-template-columns: 4em auto
+
+        @media(min-width: $breakMdSm)
+          grid-template-columns: 4.75em auto
+
+        @media(min-width: $breakMd)
+          grid-template-columns: 4.75em auto min-content
+
+    .byu-link
+      background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 3em) auto no-repeat
+      display: block
+      height: 2em
+      width: 4em
+      text-decoration: none
+
+      @supports(display: grid)
+        @media(min-width: $break0)
+          // flex: 0 0 5em
+          // min-width: 3.5em
+          height: auto
+
+        @media(min-width: $breakMdSm)
+          width: 4.75em
+          background-position: 1em center
+
+    .byu-titles
+      position: relative
+      padding: 0.5em 0.75em
+      flex-grow: 1
+
+      // Add a line separating BYU from the titles
+      &:before
+        content: " "
+        display: block
+        position: absolute
+        width: 94%
+        height: 1px
+        right: 3%
+        top: 0
+        background: $dividerColor
+
+      @supports(display: grid)
+        @media(min-width: $break0)
+          align-self: center
+
+          // Line should be vertical if header is in horizontal layout
+          &:before
+            width: 1px
+            height: 74%
+            right: auto
+            left: 0
+            top: 13%
+
+        @media(min-width: $breakMdSm)
+          padding: 0.5em 1em
+
+    // Title slots
+    .byu-titles .subtitle[slot="site-title"]
+      +siteSubTitle
+
+    .byu-titles [slot="site-title"]
+      +siteTitle
+
+    #byu-titles-slot, .byu-titles-slot-wrapper
+      display: flex
+      flex-direction: column
+
+    #byu-titles-slot::slotted(*)
+      +siteTitle
+
+    // Subtitle AND supertitle (only difference is placement)
+    #byu-titles-slot::slotted(*.subtitle)
+      +siteSubTitle
+
+      @media(max-width: $breakMdSm)
+        font-size: 14px
+
+
+    // Breadcrumb above the titles
+    .byu-site-breadcrumbs
+      line-height: 1.4
+      font-size: 0.67em
+
+  //********************
+  // Action Button, Sign-in and Search Section
+  //********************
+
+  .byu-action-id-search
+    font-size: $fontSize16
+
+    a, svg
+      font-size: 1rem
 
     @supports(display: grid)
       @media(min-width: $break0)
+        grid-column: 1 / 3
         display: grid
-        grid-template-columns: 4em auto
-
-      @media(min-width: $breakMdSm)
-        grid-template-columns: 4.75em auto
+        grid-template-columns: auto min-content
 
       @media(min-width: $breakMd)
-        grid-template-columns: 4.75em auto min-content
+        grid-column: 3 / 4
+        display: flex
+        flex-direction: row
+        font-size: 0.9375rem
+        align-items: center
+        background: transparent none
 
-  .byu-link
-    background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 3em) auto no-repeat
-    display: block
-    height: 2em
-    width: 4em
-    text-decoration: none
+      @media(min-width: $breakMdLg)
+        font-size: 1rem
 
-    @supports(display: grid)
-      @media(min-width: $break0)
-        // flex: 0 0 5em
-        // min-width: 3.5em
-        height: auto
+  //********************
+  // JS-Enabled Header Styles
+  //********************
 
-      @media(min-width: $breakMdSm)
-        width: 4.75em
-        background-position: 1em center
+  $menuButtonSize: 1.8em
 
-  .byu-titles
-    padding: 0.5em 0.75em
-    flex-grow: 1
+  .byu-menu-button
+    border-radius: $cornerRadius
+    display: none
+    height: $menuButtonSize
+    margin-top: $menuButtonSize * -0.5
+    overflow: hidden
+    padding: 0
+    position: absolute
+    right: 0.5rem
+    text-indent: 50em
+    top: 50%
+    width: $menuButtonSize
+    border: 1px solid $dividerColor
+    background: transparent
+    transition: background 200ms ease, transform 200ms ease
+    background-position: center center
+    color: #fff
 
-    // Add a line separating BYU from the titles
-    &:before
+    &:hover
+      background-color: mix($byuNavy, $royalWeb)
+
+    &:focus
+      border-color: mix($byuNavy, #fff)
+      outline: none
+
+    &[aria-expanded=true]
+      background-color: $royalWeb
+
+    &:before, &:after
       content: " "
-      display: block
       position: absolute
-      width: 94%
-      height: 1px
-      right: 3%
+      display: block
       top: 0
-      background: $dividerColor
+      left: 0
+      width: $menuButtonSize
+      height: $menuButtonSize
+      background-position: center center
+      transition: background 200ms ease, transform 200ms ease
+
+    &:before
+      opacity: 1
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M2 3h6M2 5h6M2 7h6"/></svg>')
+
+    &:after
+      opacity: 0
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,2.5 L 7.5,7.5"/><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,7.5 L 7.5,2.5"/></svg>')
+
+    &[aria-expanded=true]:after, &[aria-expanded=true]:before
+      transform: rotate(360deg)
+
+    &[aria-expanded=true]:before
+      opacity: 0
+
+    &[aria-expanded=true]:after
+      opacity: 1
+
+  .byu-header-el.js-enabled
+    @media( max-width: ($breakMd - $break0) )
+      .byu-action-id-search, .byu-site-navigation, .byu-menu-el
+        height: 0
+        overflow: hidden
+        display: none
+
+      .byu-titles
+        padding-right: 2em
+
+      .byu-menu-button
+        display: block
+
+  .byu-header-el.js-enabled.menu-open
+    @media( max-width: ($breakMd - $break0) )
+      .byu-action-id-search, .byu-site-navigation, .byu-menu-el
+        height: auto
+        display: inherit
+
+  //********************
+  // Action Button
+  //********************
+
+  .byu-action-btn
+    padding: 0.25em 0.4em
+    white-space: nowrap
+    background: #fff
+
+    \::slotted(*)
+      +actionButtonText
+
+    \::slotted(*:hover), ::slotted(*:focus)
+      background: mix($royalWeb, #fff, 90%)
+      text-shadow: 0 0 $spacing2 rgba($byuNavy, 0.75)
+
+    @media(min-width: $breakMdSm)
+      padding: 0.25em 0.85em
 
     @supports(display: grid)
       @media(min-width: $break0)
-        align-self: center
+        padding: 0.65em
+        grid-column: 1 / 2
+        grid-row: 2 / 3
+        background-image: linear-gradient($grey10, #fff 5px, #fff 100%)
 
-        // Line should be vertical if header is in horizontal layout
-        &:before
-          width: 1px
-          height: 74%
-          right: auto
-          left: 0
-          top: 13%
+      @media(min-width: $breakMd)
+        background: transparent
+        order: 1
+        padding: 0 0.5em
 
-      @media(min-width: $breakMdSm)
-        padding: 0.5em 1em
+        a
+          background: $royalWeb
+          padding: 0.25em 1em
 
-  // Title slots
-  .byu-titles .subtitle[slot="site-title"]
-    +siteSubTitle
+      @media(min-width: $breakMdLg)
+        padding: 0 1em
 
-  .byu-titles [slot="site-title"]
-    +siteTitle
-
-  #byu-titles-slot, .byu-titles-slot-wrapper
-    display: flex
-    flex-direction: column
-
-  #byu-titles-slot::slotted(*)
-    +siteTitle
-
-  // Subtitle AND supertitle (only difference is placement)
-  #byu-titles-slot::slotted(*.subtitle)
-    +siteSubTitle
-
-    @media(max-width: $breakMdSm)
-      font-size: 14px
-
-
-  // Breadcrumb above the titles
-  .byu-site-breadcrumbs
-    line-height: 1.4
-    font-size: 0.67em
-
-//********************
-// Action Button, Sign-in and Search Section
-//********************
-
-.byu-action-id-search
-  font-size: $fontSize16
-
-  a, svg
-    font-size: 1rem
-
-  @supports(display: grid)
-    @media(min-width: $break0)
-      grid-column: 1 / 3
-      display: grid
-      grid-template-columns: auto min-content
-
-    @media(min-width: $breakMd)
-      grid-column: 3 / 4
-      display: flex
-      flex-direction: row
-      font-size: 0.9375rem
-      align-items: center
-      background: transparent none
-
-    @media(min-width: $breakMdLg)
-      font-size: 1rem
+        a
+          padding: 0.25em 1.5em
 
 //********************
 // Search
@@ -202,125 +325,3 @@ byu-user-info
 
     @media(min-width: $breakMdLg)
       padding: 0 1em
-
-//********************
-// Action Button
-//********************
-
-.byu-action-btn
-  padding: 0.25em 0.4em
-  white-space: nowrap
-  background: #fff
-
-  \::slotted(*)
-    +actionButtonText
-
-  \::slotted(*:hover), ::slotted(*:focus)
-    background: mix($royalWeb, #fff, 90%)
-    text-shadow: 0 0 $spacing2 rgba($byuNavy, 0.75)
-
-  @media(min-width: $breakMdSm)
-    padding: 0.25em 0.85em
-
-  @supports(display: grid)
-    @media(min-width: $break0)
-      padding: 0.65em
-      grid-column: 1 / 2
-      grid-row: 2 / 3
-      background-image: linear-gradient($grey10, #fff 5px, #fff 100%)
-
-    @media(min-width: $breakMd)
-      background: transparent
-      order: 1
-      padding: 0 0.5em
-
-      a
-        background: $royalWeb
-        padding: 0.25em 1em
-
-    @media(min-width: $breakMdLg)
-      padding: 0 1em
-
-      a
-        padding: 0.25em 1.5em
-
-//********************
-// JS-Enabled Header Styles
-//********************
-
-$menuButtonSize: 1.8em
-
-.byu-menu-button
-  border-radius: $cornerRadius
-  display: none
-  height: $menuButtonSize
-  margin-top: $menuButtonSize * -0.5
-  overflow: hidden
-  padding: 0
-  position: absolute
-  right: 0.5rem
-  text-indent: 50em
-  top: 50%
-  width: $menuButtonSize
-  border: 1px solid $dividerColor
-  background: transparent
-  transition: background 200ms ease, transform 200ms ease
-  background-position: center center
-  color: #fff
-
-  &:hover
-    background-color: mix($byuNavy, $royalWeb)
-
-  &:focus
-    border-color: mix($byuNavy, #fff)
-    outline: none
-
-  &[aria-expanded=true]
-    background-color: $royalWeb
-
-  &:before, &:after
-    content: " "
-    position: absolute
-    display: block
-    top: 0
-    left: 0
-    width: $menuButtonSize
-    height: $menuButtonSize
-    background-position: center center
-    transition: background 200ms ease, transform 200ms ease
-
-  &:before
-    opacity: 1
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M2 3h6M2 5h6M2 7h6"/></svg>')
-
-  &:after
-    opacity: 0
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,2.5 L 7.5,7.5"/><path fill="none" stroke="white" stroke-width="0.75" d="M 2.5,7.5 L 7.5,2.5"/></svg>')
-
-  &[aria-expanded=true]:after, &[aria-expanded=true]:before
-    transform: rotate(360deg)
-
-  &[aria-expanded=true]:before
-    opacity: 0
-
-  &[aria-expanded=true]:after
-    opacity: 1
-
-.byu-header-el.js-enabled
-  @media( max-width: ($breakMd - $break0) )
-    .byu-action-id-search, .byu-site-navigation, .byu-menu-el
-      height: 0
-      overflow: hidden
-      display: none
-
-    .byu-titles
-      padding-right: 2em
-
-    .byu-menu-button
-      display: block
-
-.byu-header-el.js-enabled.menu-open
-  @media( max-width: ($breakMd - $break0) )
-    .byu-action-id-search, .byu-site-navigation, .byu-menu-el
-      height: auto
-      display: inherit

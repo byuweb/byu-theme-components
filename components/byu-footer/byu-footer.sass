@@ -16,163 +16,163 @@
 
 @import '../shared-styles/vars'
 
-\:host()
+\:host
   font-size: 16px !important
 
-.university-footer
-  background-color: $byuNavy
-  text-align: center
-  font-family: $font-heading
-  font-weight: $font-weight-normal
-  font-size: $fontSize14
-  line-height: $fontSize14
-  color: $white !important
-  width: 100%
-  padding: $spacing5 0
-  display: flex
-  justify-content: center
-  align-items: center
-  flex-direction: column
+  .university-footer
+    background-color: $byuNavy
+    text-align: center
+    font-family: $font-heading
+    font-weight: $font-weight-normal
+    font-size: $fontSize14
+    line-height: $fontSize14
+    color: $white !important
+    width: 100%
+    padding: $spacing5 0
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
 
-  a
-    color: white !important
-    text-decoration: none
+    a
+      color: white !important
+      text-decoration: none
 
-    &:hover
-      text-decoration: underline
+      &:hover
+        text-decoration: underline
 
-.university-logo-wrapper
-  max-width: 1200px
-  width: 100%
-  padding: $spacing1 $spacing2
-  box-sizing: border-box
-
-
-.university-logo
-  max-width: 100%
-  width: 280px
-  height: $fontSize24
+  .university-logo-wrapper
+    max-width: 1200px
+    width: 100%
+    padding: $spacing1 $spacing2
+    box-sizing: border-box
 
 
-@media (min-width: $breakMdLg)
   .university-logo
-    width: 345px
+    max-width: 100%
+    width: 280px
+    height: $fontSize24
 
-.university-info
-  display: flex
-  flex-direction: column
-  align-items: center
-  letter-spacing: -0.6px
-  text-transform: uppercase
 
-  > :not(:first-of-type)
-    margin-top: $spacing1
+  @media (min-width: $breakMdLg)
+    .university-logo
+      width: 345px
 
-@media (min-width: $breakMdSm)
   .university-info
-    flex-direction: row
+    display: flex
+    flex-direction: column
+    align-items: center
+    letter-spacing: -0.6px
+    text-transform: uppercase
 
     > :not(:first-of-type)
-      margin-top: 0
+      margin-top: $spacing1
 
-      &::before
-        display: inline-block
-        color: $white !important
-        content: '|'
-        text-align: center
-        width: 1em
+  @media (min-width: $breakMdSm)
+    .university-info
+      flex-direction: row
 
-.site-footer-wrapper
-  background-color: $white
+      > :not(:first-of-type)
+        margin-top: 0
 
+        &::before
+          display: inline-block
+          color: $white !important
+          content: '|'
+          text-align: center
+          width: 1em
 
-.site-footer
-  margin: 0 auto
-  height: auto
-  box-sizing: border-box
-  display: flex
-  flex-direction: column
-  max-width: 1200px
-  @media screen and (min-width: $breakMdSm)
-    flex-wrap: wrap
+  .site-footer-wrapper
+    background-color: $white
 
 
-  ::slotted(*)
-    margin: $spacing3 $spacing2 0
-    padding: 0 $spacing4
-
-
-  ::slotted(*:last-child)
-    padding-bottom: $spacing6
-
-
-  ::slotted(.double-wide)
-    flex-grow: 2
-
-
-  ::slotted(.triple-wide)
-    flex-grow: 3
-
-
-
-@media (max-width: $breakMdSm)
-  .site-footer::slotted
-    padding: 0 $spacing4
-
-
-$calcSubtractWidth: ($spacing2 + $spacing3) * 2
-
-.university-footer
-  font-size: $fontSize9
-  line-height: $fontSize9
-
-
-@media (min-width: $breakMdSm)
   .site-footer
-    flex-direction: row
+    margin: 0 auto
+    height: auto
+    box-sizing: border-box
+    display: flex
+    flex-direction: column
+    max-width: 1200px
+    @media screen and (min-width: $breakMdSm)
+      flex-wrap: wrap
+
 
     ::slotted(*)
-      width: calc(45% - #{$calcSubtractWidth})
+      margin: $spacing3 $spacing2 0
+      padding: 0 $spacing4
+
+
+    ::slotted(*:last-child)
+      padding-bottom: $spacing6
 
 
     ::slotted(.double-wide)
-      width: calc(100% - #{$calcSubtractWidth})
+      flex-grow: 2
 
 
     ::slotted(.triple-wide)
-      width: calc(100% - #{$calcSubtractWidth})
+      flex-grow: 3
 
 
-$columnBaseWidth: 20%
-$columnMaxWidth: 30%
 
-@media (min-width: $breakMdLg)
-  .site-footer
-    flex-wrap: nowrap
-    justify-content: center
-    padding: 0
-
-    ::slotted(*)
-      width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth})
-      margin: $spacing5 $spacing2 $spacing6
-      max-width: calc(#{$columnMaxWidth} - #{$calcSubtractWidth})
+  @media (max-width: $breakMdSm)
+    .site-footer::slotted
+      padding: 0 $spacing4
 
 
-    ::slotted(.double-wide)
-      width: calc(#{$columnBaseWidth} * 2 - #{$calcSubtractWidth})
-      max-width: calc(#{$columnMaxWidth} * 2 - #{$calcSubtractWidth})
-
-
-    ::slotted(.triple-wide)
-      width: calc(#{$columnBaseWidth} * 3 - #{$calcSubtractWidth})
-      max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth})
-
+  $calcSubtractWidth: ($spacing2 + $spacing3) * 2
 
   .university-footer
-    font-size: $fontSize11
-    line-height: $fontSize11
+    font-size: $fontSize9
+    line-height: $fontSize9
 
 
-  .university-info
-    padding-top: $spacing1
-    letter-spacing: 0
+  @media (min-width: $breakMdSm)
+    .site-footer
+      flex-direction: row
+
+      ::slotted(*)
+        width: calc(45% - #{$calcSubtractWidth})
+
+
+      ::slotted(.double-wide)
+        width: calc(100% - #{$calcSubtractWidth})
+
+
+      ::slotted(.triple-wide)
+        width: calc(100% - #{$calcSubtractWidth})
+
+
+  $columnBaseWidth: 20%
+  $columnMaxWidth: 30%
+
+  @media (min-width: $breakMdLg)
+    .site-footer
+      flex-wrap: nowrap
+      justify-content: center
+      padding: 0
+
+      ::slotted(*)
+        width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth})
+        margin: $spacing5 $spacing2 $spacing6
+        max-width: calc(#{$columnMaxWidth} - #{$calcSubtractWidth})
+
+
+      ::slotted(.double-wide)
+        width: calc(#{$columnBaseWidth} * 2 - #{$calcSubtractWidth})
+        max-width: calc(#{$columnMaxWidth} * 2 - #{$calcSubtractWidth})
+
+
+      ::slotted(.triple-wide)
+        width: calc(#{$columnBaseWidth} * 3 - #{$calcSubtractWidth})
+        max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth})
+
+
+    .university-footer
+      font-size: $fontSize11
+      line-height: $fontSize11
+
+
+    .university-info
+      padding-top: $spacing1
+      letter-spacing: 0
