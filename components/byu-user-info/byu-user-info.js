@@ -16,12 +16,29 @@
 
 'use strict'
 
-import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
+import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-element'
 import style from './byu-user-info.sass'
 
 @customElement('byu-user-info')
 export class BYUUserInfo extends LitElement {
+  @property({ type: String, attribute: 'login-url' }) loginUrl = ''
+
   firstUpdated (_changedProperties) {
+    this._addSlotListeners()
+    this._addAriaAttributes()
+
+    this.classList.add('byu-component-rendered')
+  }
+
+  _addSlotListeners () {
+    this._setHasUser()
+    const userSlot = this.shadowRoot.querySelector('#user-name')
+    userSlot.addEventListener('slotchange', e => {
+      this._setHasUser()
+    })
+  }
+
+  _setHasUser () {
     const userSlot = this.shadowRoot.querySelector('#user-name')
     const logoutSlot = this.shadowRoot.querySelector('#logout')
     const loginSlot = this.shadowRoot.querySelector('#login')
@@ -31,7 +48,10 @@ export class BYUUserInfo extends LitElement {
     } else {
       loginSlot.assignedNodes()[0].classList.add('hidden')
     }
-    this.classList.add('byu-component-rendered')
+  }
+
+  _addAriaAttributes () {
+    this.setAttribute('role', 'button')
   }
 
   static get styles () {
