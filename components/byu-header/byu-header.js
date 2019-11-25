@@ -124,6 +124,8 @@ export class BYUHeader extends LitElement {
         </div>
     </div>
     <slot name="nav" class="byu-site-navigation" id="byu-nav-slot"></slot>
+    <!-- Include this so fixed width menus do show navy on the edges. -->
+    <div class="byu-menu-background"></div>
 </header>
     `
   }

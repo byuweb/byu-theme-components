@@ -28,23 +28,37 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
     border-bottom: 1px solid #ddd
     font-family: $font-heading
+    background-color: $navy
+    position: relative
+
+    // White background for BYU menu
+    .byu-menu-background
+      background-color: white
+      height: 36px
+      position: absolute
+      bottom: 0
+      width: 100%
+      z-index: -1
+
 
     a, a:link, a:visited
       color: #fff
       text-decoration: none
       transition: opacity 200ms ease
 
-    @media( min-width: $breakMdSm )
+    @media(min-width: $breakMdSm)
       font-size: 1.3125rem
 
-    @media( min-width: $breakMdLg )
+    @media(min-width: $breakMdLg)
       font-size: 1.5rem
 
     .byu-site-banner, .actionsHeightWrapper
       background: $byuNavy
       min-height: $fontSize48
+      max-width: var(--fixed-header-width, 100%)
+      margin: 0 auto
 
-      @supports(display: grid)
+      @supports (display: grid)
         @media(min-width: $break0)
           display: grid
           grid-template-columns: 4em auto
@@ -62,7 +76,7 @@
       width: 4em
       text-decoration: none
 
-      @supports(display: grid)
+      @supports (display: grid)
         @media(min-width: $break0)
           // flex: 0 0 5em
           // min-width: 3.5em
@@ -88,7 +102,7 @@
         top: 0
         background: $dividerColor
 
-      @supports(display: grid)
+      @supports (display: grid)
         @media(min-width: $break0)
           align-self: center
 
@@ -140,7 +154,7 @@
     a, svg
       font-size: 1rem
 
-    @supports(display: grid)
+    @supports (display: grid)
       @media(min-width: $break0)
         grid-column: 1 / 3
         display: grid
@@ -220,7 +234,7 @@
       opacity: 1
 
   .byu-header-el.js-enabled
-    @media( max-width: ($breakMd - $break0) )
+    @media(max-width: ($breakMd - $break0))
       .byu-action-id-search, .byu-site-navigation, .byu-menu-el
         height: 0
         overflow: hidden
@@ -233,7 +247,7 @@
         display: block
 
   .byu-header-el.js-enabled.menu-open
-    @media( max-width: ($breakMd - $break0) )
+    @media(max-width: ($breakMd - $break0))
       .byu-action-id-search, .byu-site-navigation, .byu-menu-el
         height: auto
         display: inherit
@@ -257,7 +271,7 @@
     @media(min-width: $breakMdSm)
       padding: 0.25em 0.85em
 
-    @supports(display: grid)
+    @supports (display: grid)
       @media(min-width: $break0)
         padding: 0.65em
         grid-column: 1 / 2
@@ -284,7 +298,7 @@
 //********************
 
 byu-search
-  @supports(display: grid)
+  @supports (display: grid)
     @media(min-width: $break0)
       grid-column: 1 / 3
 
@@ -302,7 +316,7 @@ byu-search
 //********************
 
 byu-user-info
-  @supports(display: grid)
+  @supports (display: grid)
     @media(min-width: $break0)
       white-space: nowrap
 

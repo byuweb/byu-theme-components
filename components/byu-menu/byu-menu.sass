@@ -24,12 +24,15 @@
 
 \:host
   .byu-menu-el
-    margin: 0
+    max-width: var(--fixed-header-width, 100%)
+    margin: 0 auto
     padding: 0
     font-size: $fontSize16 !important
     letter-spacing: 0
     border-top: 1px solid $grey05
     background: #fff
+    box-sizing: border-box
+    z-index: 5
 
     \::slotted(a), ::slotted(a:link), ::slotted(a:visited)
       +menuLink
