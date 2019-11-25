@@ -34,11 +34,19 @@
     // White background for BYU menu
     .byu-menu-background
       background-color: white
-      height: 36px
+      border-top: 1px solid $grey05
       position: absolute
       bottom: 0
       width: 100%
       z-index: -1
+
+      .byu-nbsp
+        display: block
+        padding: 0.5em 0.75em !important
+        font-size: 1rem !important
+
+        @media(min-width: $breakMd)
+          padding: 0.5em 1.35em !important
 
 
     a, a:link, a:visited
