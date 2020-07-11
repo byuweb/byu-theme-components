@@ -122,7 +122,7 @@ byu-header:not(.byu-component-rendered)
     margin: auto 16px
 
   byu-search
-    background-color: #002e5d
+    background-color: $byuNavy
     border-radius: 15px
     height: 33.5px
     width: 228.7px
@@ -160,11 +160,17 @@ byu-header:not(.byu-component-rendered)
     a
       color: #002e5d !important
       font-size: 16px
-      padding: 8px 12px
-      margin-right: 6px
+      padding: 11px 22px
+      margin: 0 6px 1px 0
+      line-height: 1.6
+      border-bottom: solid 3px rgba(0, 0, 0, 0)
 
       &.is-active
-        background-color: #e6e6e6
+        border-bottom: solid 3px $byuNavy !important
+
+      &:hover
+        background-color: $grey02 !important
+        border-bottom: solid 3px $byuNavy !important
 
   @media( min-width: $breakMdSm )
     font-size: 1.3125rem
