@@ -4,6 +4,7 @@
   display: block
   line-height: 1.2
   border: 1px solid #fff
+  font-family: $font-heading
   font-size: 1rem
   box-sizing: border-box
   border-radius: 0
@@ -19,3 +20,8 @@
     @media(min-width: $breakMd)
       padding: 0.4em 1em
       border-radius: 0.9625em
+
+  &::placeholder
+    font-family: $font-heading
+    opacity: 1
+    color: $textgrey !important

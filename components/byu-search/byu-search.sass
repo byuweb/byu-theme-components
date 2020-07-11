@@ -36,7 +36,7 @@
 
       @media(min-width: $breakLg)
         margin: 0 1em
-        min-width: 13em
+        min-width: 144px // Set px to match BrightSpot
 
     .byu-search-label
       @extend .visually-hidden
@@ -44,18 +44,15 @@
     #byu-site-search
       @include siteSearchSelectedInput()
 
-    #byu-site-search::placeholder
-      font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif
-
     .byu-search-btn
       @extend %button-reset
       color: $byuNavy
       display: block
       position: absolute
       top: $spacing1
-      right: 0
-      height: $spacing2 + $spacing2 + 1em
-      width: $spacing2 + $spacing2 + 1em
+      right: 16px
+      height: 35px
+      width: 35px
       background: transparent
       border: 1px solid transparent
       font-size: 1rem
@@ -73,8 +70,6 @@
 
       @supports(display: grid)
         @media(min-width: $breakMd)
-          width: 1.8em
-          height: 1.85em
           top: 0
 
     #search::slotted(input)
