@@ -16,8 +16,9 @@
 
 byu-footer:not(.byu-component-rendered)
   display: grid
-  grid-template: 1fr 82px / auto repeat(4, 256px) auto
+  grid-template: 1fr 82px / auto repeat(4, 300px) auto
   background-color: #fff
+  padding-top: 60px
 
   &::before
     grid-area: 2/1/3/7
@@ -41,13 +42,12 @@ byu-footer:not(.byu-component-rendered)
 
   byu-footer-column *
     display: block
-    font-size: 12.5px
+    font-size: 14px
     font-family: $font-text
     margin: 0 0 13px 0
 
   byu-footer-column
-    margin: 32px 8px 52px
-    padding: 0 20px
+    margin: 0 40px 40px 0
 
     &:nth-child(1)
       grid-area: 1/2/2/3
@@ -71,7 +71,7 @@ byu-footer:not(.byu-component-rendered)
 
     *[slot="header"]
       color: #141414
-      font-family: "HCo Ringside Narrow SSm", "Noto Sans", "Open Sans", Helvetica, Arial, sans-serif
+      font-family: $font-heading
       text-transform: uppercase
       font-weight: 700
       font-size: 14px
@@ -81,7 +81,7 @@ byu-footer:not(.byu-component-rendered)
     byu-footer-action-button a
       color: #fff !important
       background-color: #0062b8
-      font-family: "HCo Ringside Narrow SSm", "Noto Sans", "Open Sans", Helvetica, Arial, sans-serif
+      font-family: $font-heading
       font-weight: 500 !important
       display: inline-block
       padding: 10px 20px
