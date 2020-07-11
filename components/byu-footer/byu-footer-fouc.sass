@@ -16,17 +16,18 @@
 
 byu-footer:not(.byu-component-rendered)
   display: grid
-  grid-template: 1fr 70px / auto repeat(4, 256px) auto
+  grid-template: 1fr 82px / auto repeat(4, 256px) auto
   background-color: #fff
 
   &::before
     grid-area: 2/1/3/7
     content: ""
     color: #fff
+    // TODO: Get SVG redesigned to match BrightSpot footer
     background: url(https://cdn.byu.edu/product-logos/latest/staging/footer-logo-full.svg) 0 0 no-repeat
     position: relative
     z-index: 100
-    width: 345px
+    width: 450px
     height: 29px
     margin: auto auto
 
@@ -41,7 +42,7 @@ byu-footer:not(.byu-component-rendered)
   byu-footer-column *
     display: block
     font-size: 12.5px
-    font-family: "Public Sans", "Noto Sans", "Open Sans", Helvetica, Arial, sans-serif
+    font-family: $font-text
     margin: 0 0 13px 0
 
   byu-footer-column
