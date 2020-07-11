@@ -28,7 +28,7 @@
     line-height: $fontSize24
     color: $white !important
     width: 100%
-    padding: $spacing5 0
+    padding: $spacing4 0
     display: flex
     justify-content: center
     align-items: center
@@ -47,12 +47,10 @@
     padding: $spacing1 $spacing2
     box-sizing: border-box
 
-
   .university-logo
     max-width: 100%
     width: 345px
     height: $fontSize24
-
 
   @media (min-width: $breakMdLg)
     .university-logo
@@ -85,47 +83,36 @@
   .site-footer-wrapper
     background-color: $white
 
-
   .site-footer
     margin: 0 auto
+    padding-top: 60px
     height: auto
     box-sizing: border-box
     display: flex
     flex-direction: column
-    max-width: 1200px
+    max-width: 1240px
+
     @media screen and (min-width: $breakMdSm)
       flex-wrap: wrap
 
-
     ::slotted(*)
-      margin: $spacing3 $spacing2 0
-      padding: 0 $spacing4
-
-
-    ::slotted(*:last-child)
-      padding-bottom: $spacing6
-
+      margin: 0 40px 40px 0
 
     ::slotted(.double-wide)
       flex-grow: 2
 
-
     ::slotted(.triple-wide)
       flex-grow: 3
-
-
 
   @media (max-width: $breakMdSm)
     .site-footer::slotted
       padding: 0 $spacing4
-
 
   $calcSubtractWidth: ($spacing2 + $spacing3) * 2
 
   .university-footer
     font-size: 14px
     line-height: $fontSize24
-
 
   @media (min-width: $breakMdSm)
     .site-footer
@@ -134,44 +121,35 @@
       ::slotted(*)
         width: calc(45% - #{$calcSubtractWidth})
 
-
       ::slotted(.double-wide)
         width: calc(100% - #{$calcSubtractWidth})
-
 
       ::slotted(.triple-wide)
         width: calc(100% - #{$calcSubtractWidth})
 
-
-  $columnBaseWidth: 20%
+  $columnBaseWidth: 25%
   $columnMaxWidth: 30%
 
   @media (min-width: $breakMdLg)
     .site-footer
       flex-wrap: nowrap
       justify-content: center
-      padding: 0
 
       ::slotted(*)
         width: calc(#{$columnBaseWidth} - #{$calcSubtractWidth})
-        margin: $spacing5 $spacing2 $spacing6
         max-width: calc(#{$columnMaxWidth} - #{$calcSubtractWidth})
-
 
       ::slotted(.double-wide)
         width: calc(#{$columnBaseWidth} * 2 - #{$calcSubtractWidth})
         max-width: calc(#{$columnMaxWidth} * 2 - #{$calcSubtractWidth})
 
-
       ::slotted(.triple-wide)
         width: calc(#{$columnBaseWidth} * 3 - #{$calcSubtractWidth})
         max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth})
 
-
     .university-footer
       font-size: 14px
       line-height: $fontSize24
-
 
     .university-info
       letter-spacing: 0
