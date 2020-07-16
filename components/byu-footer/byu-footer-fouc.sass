@@ -20,6 +20,9 @@ byu-footer:not(.byu-component-rendered)
   background-color: #fff
   padding-top: 60px
 
+  @media (min-width: $breakMdSm)
+    padding-top: 30px
+
   &::before
     grid-area: 2/1/3/7
     content: ""
@@ -48,9 +51,14 @@ byu-footer:not(.byu-component-rendered)
 
   byu-footer-column
     margin: 0 40px 40px 0
+    min-width: 250px
 
     &:nth-child(1)
       grid-area: 1/2/2/3
+
+      @media (min-width: $breakMdSm)
+        padding-left: 70px
+        margin-left: 0
 
     &:nth-child(2)
       grid-area: 1/3/2/4
@@ -73,6 +81,7 @@ byu-footer:not(.byu-component-rendered)
       color: #141414
       font-family: $font-heading
       text-transform: uppercase
+      letter-spacing: 1.5px
       font-weight: 700
       font-size: 14px
       padding: 0 0 10px
