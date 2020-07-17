@@ -172,7 +172,7 @@ byu-header:not(.byu-component-rendered)
         background-color: $grey02 !important
         border-bottom: solid 3px $byuNavy !important
 
-  @media( min-width: $breakMdSm )
+  @media( min-width: $breakMd )
     font-size: 1.3125rem
 
   @media( min-width: $breakMdLg )
@@ -194,7 +194,7 @@ byu-header:not(.byu-component-rendered)
         font-size: 14px
 
     *[slot="site-title"]
-      font-size: 21px
+      font-size: 1.125rem
       margin: 4px 50px 6px 20px
 
     .subtitle[slot="site-title"]
@@ -211,6 +211,11 @@ byu-header:not(.byu-component-rendered)
 
     byu-menu
       display: none
+
+  @media(max-width: $breakMd)
+    &::before
+      height: 16px
+      width: 56px
 
   @media( max-width: $breakMdSm )
     grid-template-columns: 72px 1px auto repeat(3,min-content)
