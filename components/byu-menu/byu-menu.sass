@@ -22,6 +22,8 @@
 // Navigation Menu
 //********************
 
+$activeItemBorder: solid 3px $byuNavy
+
 \:host
   .byu-menu-el
     margin: 0
@@ -35,14 +37,16 @@
       +menuLink
 
     \::slotted(a.active)
-      border-bottom: solid 3px $byuNavy
+      border-left: $activeItemBorder
+      border-bottom: none
+
+      @media(min-width: $breakMd)
+        border-left: none
+        border-bottom: $activeItemBorder
 
     \::slotted(*:hover), ::slotted(*:focus)
       background-color: $grey02
-      border-bottom: solid 3px $byuNavy !important
-
-    @media(min-width: $breakMdSm)
-      padding: 0 0.5em
+      border-bottom: $activeItemBorder !important
 
     @media(min-width: $breakMd)
       padding-left: 5.5em
