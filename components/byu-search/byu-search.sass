@@ -50,12 +50,15 @@
       display: block
       position: absolute
       top: $spacing1
-      right: 16px
+      right: 4px
       height: 35px
       width: 35px
       background: transparent
       border: 1px solid transparent
       font-size: 1rem
+
+      @media(min-width: $breakMd)
+        right: 0
 
       svg
         width: 100%

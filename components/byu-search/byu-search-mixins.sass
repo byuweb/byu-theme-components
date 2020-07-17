@@ -1,10 +1,10 @@
 @mixin siteSearchSelectedInput
-  padding: $spacing3 0.65em
   display: block
-  width: 144px
-  height: 35px
+  width: 100%
+  padding: 12px 20px
   line-height: 1.2
   border: 1px solid #fff
+  border-bottom: 1px solid #ddd
   font-family: $font-heading
   font-size: 1rem
   box-sizing: border-box
@@ -12,6 +12,12 @@
   margin-bottom: 0
   -webkit-appearance: none // Get ride of 'x' in search input
   -moz-appearance: none
+
+  @media(min-width: $breakMd)
+    width: 144px
+    height: 35px
+    padding: $spacing3 0.65em
+    border: 1px solid #fff
 
   &::placeholder
     font-family: $font-heading
