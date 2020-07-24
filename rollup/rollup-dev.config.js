@@ -1,10 +1,10 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import babel from 'rollup-plugin-babel'
-import minify from 'rollup-plugin-babel-minify'
-import json from 'rollup-plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import babel from '@rollup/plugin-babel'
+import { terser } from 'rollup-plugin-terser'
+import json from '@rollup/plugin-json'
 import serve from 'rollup-plugin-serve'
-import multiEntry from 'rollup-plugin-multi-entry'
+import multiEntry from '@rollup/plugin-multi-entry'
 import bundleSize from 'rollup-plugin-bundle-size'
 
 export default {
@@ -24,17 +24,15 @@ export default {
       compact: true
     }),
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
+      babelHelpers: 'bundled'
     }),
     commonjs({
       include: 'node_modules/**'
     }),
     serve('.'),
     multiEntry(),
-    minify({
-      'mangle': { 'exclude': [] },
-      'comments': false
-    }),
+    terser(),
     bundleSize()
   ]
 }
