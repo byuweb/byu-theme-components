@@ -16,6 +16,8 @@
 
 @import '../shared-styles/vars'
 
+$tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't word wrap
+
 \:host
   font-size: 16px !important
 
@@ -28,7 +30,6 @@
     line-height: $fontSize24
     color: $white !important
     width: 100%
-    padding: $spacing4 0
     display: flex
     justify-content: center
     align-items: center
@@ -49,26 +50,57 @@
 
   .university-logo
     max-width: 100%
-    width: 345px
-    height: $fontSize24
-
-  @media (min-width: $breakMdLg)
-    .university-logo
-      width: 450px
-      height: 18px
+    width: 450px
+    height: 18px
 
   .university-info
     display: flex
     flex-direction: column
     align-items: center
-    letter-spacing: -0.6px
+    text-transform: uppercase
+    line-height: 16px
 
-    > :not(:first-of-type)
-      margin-top: $spacing1
+  .university-footer-gte-1440
+    display: none
 
-  @media (min-width: $breakMdSm)
+  .university-footer-lt-1440
+    display: flex
+    align-items: center
+    flex-direction: column
+    width: 100%
+    padding: 30px 20px
+    box-sizing: border-box
+    font-size: 10px
+
+  .byu-link
+    display: block
+    height: 2em
+    width: 6.5em
+    text-decoration: none
+    margin-bottom: 16px
+
+  @media (min-width: $breakMd)
+    .university-footer-lt-1440
+      flex-direction: row
+
+    .byu-link
+      height: 2.2em
+      width: 8em
+      margin-bottom: 0
+
+    .university-info
+      flex: auto
+
+  @media (min-width: $tabletBreak)
+    .university-footer-lt-1440
+      padding: 30px 80px
+      font-size: 14px
+      max-width: 1240px
+      margin: 0 auto
+
     .university-info
       flex-direction: row
+      margin-left: 210px
 
       > :not(:first-of-type)
         margin-top: 0
@@ -79,6 +111,20 @@
           content: '|'
           text-align: center
           width: 1em
+
+  @media (min-width: $breakXl)
+    .university-footer
+      padding: $spacing4
+
+    .university-footer-lt-1440
+      display: none
+
+    .university-footer-gte-1440
+      display: block
+
+    .university-info
+      margin-left: 0
+      margin-top: $spacing5
 
   .site-footer-wrapper
     background-color: $white
@@ -108,10 +154,6 @@
       padding: 0 $spacing4
 
   $calcSubtractWidth: ($spacing2 + $spacing3) * 2
-
-  .university-footer
-    font-size: 14px
-    line-height: $fontSize24
 
   @media (min-width: 680px)
     .site-footer
@@ -146,13 +188,6 @@
       ::slotted(.triple-wide)
         width: calc(#{$columnBaseWidth} * 3 - #{$calcSubtractWidth})
         max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth})
-
-    .university-footer
-      font-size: 14px
-      line-height: $fontSize24
-
-    .university-info
-      letter-spacing: 0
 
   @media (min-width: 1300px)
     .site-footer
