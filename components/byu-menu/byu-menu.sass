@@ -45,7 +45,11 @@ $activeItemBorder: solid 3px $byuNavy
 
     \::slotted(*:hover), ::slotted(*:focus)
       background-color: $grey02
-      border-bottom: $activeItemBorder !important
+      border-left: $activeItemBorder !important
+
+      @media(min-width: $breakMd)
+        border-left: none
+        border-bottom: $activeItemBorder !important
 
     @media(min-width: $breakMd)
       padding-left: 5.5em
