@@ -11,11 +11,11 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            font-family: 'Public Sans', Arial, sans-serif;
+            font-family: 'Public Sans', 'Noto Sans', 'Open Sans', Helvetica, Arial, sans-serif;
             background: #FAFAFA
         }
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'HCo Ringside Narrow SSm', Arial, sans-serif;
+            font-family: 'HCo Ringside Narrow SSm', 'Open Sans', Helvetica, Arial, sans-serif;
         }
         .containing-element {
             display: flex;
@@ -80,7 +80,23 @@
 
         <pre><code class="language-css">
             html, body {
-                background: #FAFAFA
+                background: #FAFAFA;
+            }
+        </code></pre>
+
+        <h2>Using Fonts</h2>
+
+        <p>The components already reference the font stylesheets for you, but will not style your whole page. We
+            recommend including the following CSS in your page to apply the fonts to the rest of the page in the
+            correct places.
+        </p>
+
+        <pre><code class="language-css">
+            html, body {
+                font-family: 'Public Sans', 'Noto Sans', 'Open Sans', Helvetica, Arial, sans-serif;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                font-family: 'HCo Ringside Narrow SSm', 'Open Sans', Helvetica, Arial, sans-serif;
             }
         </code></pre>
     </div>
