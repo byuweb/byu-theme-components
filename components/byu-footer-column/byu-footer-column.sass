@@ -23,7 +23,6 @@
 
   @media (max-width: $breakMdLg)
     .column-title
-      font-size: $fontSize12
       padding-bottom: $spacing0
 
   slot[name="header"]
@@ -63,15 +62,6 @@
 
   .content > a:hover
     color: $navy
-
-  @media (max-width: $breakMdLg)
-    .content
-      \::slotted(:not(byu-footer-action-button))
-        font-size: $fontSize12
-
-    slot[name="header"] ::slotted(*)
-      font-size: $fontSize12
-      max-width: 230px
 
   .footerActionButton
     background-color: $royal

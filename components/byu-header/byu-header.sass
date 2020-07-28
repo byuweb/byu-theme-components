@@ -34,10 +34,7 @@
       text-decoration: none
       transition: opacity 200ms ease
 
-    @media( min-width: $breakMdSm )
-      font-size: 1.3125rem
-
-    @media( min-width: $breakMdLg )
+    @media( min-width: $breakMd )
       font-size: 1.5rem
 
     .byu-site-banner, .actionsHeightWrapper
@@ -56,7 +53,7 @@
           grid-template-columns: 4.75em auto min-content
 
     .byu-link
-      background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 3em) auto no-repeat
+      background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 2.9em) auto no-repeat
       display: block
       height: 2em
       width: 4em
@@ -75,6 +72,7 @@
     .byu-titles
       position: relative
       padding: 0.5em 0.75em
+      margin: 6px 0
       flex-grow: 1
 
       // Add a line separating BYU from the titles
@@ -161,10 +159,9 @@
   // JS-Enabled Header Styles
   //********************
 
-  $menuButtonSize: 1.8em
+  $menuButtonSize: 32px
 
   .byu-menu-button
-    border-radius: $cornerRadius
     display: none
     height: $menuButtonSize
     margin-top: $menuButtonSize * -0.5
@@ -176,7 +173,7 @@
     top: 50%
     width: $menuButtonSize
     border: 1px solid $dividerColor
-    background: transparent
+    background: $hamburgerMenuBackgroundColor
     transition: background 200ms ease, transform 200ms ease
     background-position: center center
     color: #fff
@@ -262,7 +259,6 @@
         padding: 0.65em
         grid-column: 1 / 2
         grid-row: 2 / 3
-        background-image: linear-gradient($grey10, #fff 5px, #fff 100%)
 
       @media(min-width: $breakMd)
         background: transparent
@@ -284,6 +280,8 @@
 //********************
 
 byu-search
+  position: relative
+
   @supports(display: grid)
     @media(min-width: $break0)
       grid-column: 1 / 3
@@ -291,11 +289,9 @@ byu-search
     @media(min-width: $breakMd)
       min-width: 9em
       order: 3
-      margin: 0 1em 0 0.5em
 
     @media(min-width: $breakLg)
-      margin: 0 1em 0 0
-      min-width: 13em
+      min-width: 144px // Set px to match BrightSpot
 
 //********************
 // Sign in

@@ -42,9 +42,9 @@ byu-header:not(.byu-component-rendered)
 
   &::after
     grid-area: 1/2/4/3
-    background-color: #33587d
+    background-color: $dividerColor
     content: ""
-    margin: 13px 0
+    margin: 19px 0
     min-height: 40px
 
   byu-breadcrumbs
@@ -122,18 +122,18 @@ byu-header:not(.byu-component-rendered)
     margin: auto 16px
 
   byu-search
-    background-color: #002e5d
+    background-color: $byuNavy
     border-radius: 15px
-    height: 33.5px
-    width: 228.7px
+    height: 35px
+    width: 144px
     grid-area: 1/6/4/7
     margin: auto 16px auto 0
 
     &::before
-      content: "Search requires JS"
+      content: "Must have JS"
       color: #000
       font-size: 16px
-      font-family: Arial, sans-serif
+      font-family: $font-heading
       font-weight: 400
       padding: 6px 16px
 
@@ -160,13 +160,19 @@ byu-header:not(.byu-component-rendered)
     a
       color: #002e5d !important
       font-size: 16px
-      padding: 8px 12px
-      margin-right: 6px
+      padding: 11px 22px
+      margin: 0 6px 1px 0
+      line-height: 1.6
+      border-bottom: solid 3px rgba(0, 0, 0, 0)
 
       &.is-active
-        background-color: #e6e6e6
+        border-bottom: solid 3px $byuNavy !important
 
-  @media( min-width: $breakMdSm )
+      &:hover
+        background-color: $grey02 !important
+        border-bottom: solid 3px $byuNavy !important
+
+  @media( min-width: $breakMd )
     font-size: 1.3125rem
 
   @media( min-width: $breakMdLg )
@@ -188,7 +194,7 @@ byu-header:not(.byu-component-rendered)
         font-size: 14px
 
     *[slot="site-title"]
-      font-size: 21px
+      font-size: 1.125rem
       margin: 4px 50px 6px 20px
 
     .subtitle[slot="site-title"]
@@ -205,6 +211,11 @@ byu-header:not(.byu-component-rendered)
 
     byu-menu
       display: none
+
+  @media(max-width: $breakMd)
+    &::before
+      height: 16px
+      width: 56px
 
   @media( max-width: $breakMdSm )
     grid-template-columns: 72px 1px auto repeat(3,min-content)

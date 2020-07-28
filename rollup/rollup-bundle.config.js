@@ -1,9 +1,9 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
-import babel from 'rollup-plugin-babel'
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
+import babel from '@rollup/plugin-babel'
 import bundleSize from 'rollup-plugin-bundle-size'
-import minify from 'rollup-plugin-babel-minify'
-import multiEntry from 'rollup-plugin-multi-entry'
+import { terser } from 'rollup-plugin-terser'
+import multiEntry from '@rollup/plugin-multi-entry'
 import postcss from 'rollup-plugin-postcss'
 import autoprefixer from 'autoprefixer'
 import cssnano from 'cssnano'
@@ -27,7 +27,8 @@ export default {
   },
   plugins: [
     babel({
-      exclude: 'node_modules/**'
+      exclude: 'node_modules/**',
+      babelHelpers: 'bundled'
     }),
     resolve(),
     commonjs({
@@ -42,10 +43,7 @@ export default {
       minimize: true,
       sourceMap: true
     }),
-    minify({
-      'mangle': { 'exclude': [] },
-      'comments': false
-    }),
+    terser(),
     bundleSize()
   ]
 }

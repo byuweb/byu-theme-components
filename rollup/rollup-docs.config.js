@@ -1,5 +1,5 @@
-import resolve from 'rollup-plugin-node-resolve';
-import minify from 'rollup-plugin-babel-minify'
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser'
 
 export default {
   input: 'docsEntryPoint.js',
@@ -10,9 +10,6 @@ export default {
   },
   plugins: [
     resolve(),
-    minify({
-      'mangle': { 'exclude': [] },
-      'comments': false
-    })
+    terser()
   ]
 }

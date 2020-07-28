@@ -1,19 +1,28 @@
 @mixin siteSearchSelectedInput
-  appearance: none
-  padding: $spacing3 0.65em
   display: block
-  line-height: 1.2
+  width: 100%
+  padding: 12px 20px
+  line-height: 25.6px
   border: 1px solid #fff
+  border-bottom: 1px solid #ddd
+  font-family: $font-heading
   font-size: 1rem
   box-sizing: border-box
   border-radius: 0
   margin-bottom: 0
+  -webkit-appearance: none // Get ride of 'x' in search input
+  -moz-appearance: none
 
-  @media(max-width: $breakMdLg)
-    width: 100%
+  @media(min-width: $breakMd)
+    width: 144px
+    height: 35px
+    padding: $spacing3 0.65em
+    border: 1px solid #fff
 
-  @media(min-width: $breakMdSm)
-    padding: $spacing3 1.25em
+  &::placeholder
+    font-family: $font-heading
+    opacity: 1
+    color: $textgrey !important
 
   @supports(display: grid)
     @media(min-width: $breakMd)

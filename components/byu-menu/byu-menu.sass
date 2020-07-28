@@ -22,26 +22,34 @@
 // Navigation Menu
 //********************
 
+$activeItemBorder: solid 3px $byuNavy
+
 \:host
   .byu-menu-el
     margin: 0
     padding: 0
     font-size: $fontSize16 !important
     letter-spacing: 0
-    border-top: 1px solid $grey05
     background: #fff
 
     \::slotted(a), ::slotted(a:link), ::slotted(a:visited)
       +menuLink
 
     \::slotted(a.active)
-      background-color: $grey10 !important
+      border-left: $activeItemBorder
+      border-bottom: none
+
+      @media(min-width: $breakMd)
+        border-left: none
+        border-bottom-color: $navy !important
 
     \::slotted(*:hover), ::slotted(*:focus)
-      background: $grey10 !important
+      background-color: $grey02
 
-    @media(min-width: $breakMdSm)
-      padding: 0 0.5em
+      @media(min-width: $breakMd)
+        border-left: none
+        border-bottom-color: $navy !important
 
     @media(min-width: $breakMd)
       padding-left: 5.5em
+      border-top: 1px solid $grey05
