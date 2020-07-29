@@ -72,3 +72,7 @@
 @mixin defaultContentLinkHover() {
     color: $navy !important;
 }
+
+@mixin defaultContentLinkFocus() {
+    outline: solid 2px $royal !important;
+}

@@ -38,6 +38,10 @@
   @include defaultContentLinkHover();
 }
 
+.content ::slotted(a:focus) {
+  @include defaultContentLinkFocus();
+}
+
 .content > a {
   @include defaultContentLink();
 }
@@ -50,14 +54,17 @@
   @include defaultContentLinkHover();
 }
 
+.content > a:focus {
+  @include defaultContentLinkFocus();
+}
+
 @media (max-width: 1024px) {
   .content {
     ::slotted(:not(byu-footer-action-button)) {
       @include mobileContentNotButton();
     }
-    
-  } 
+  }
   .header ::slotted(*) {
     @include mobileHeaderSlotted();
-  }  
+  }
 }
