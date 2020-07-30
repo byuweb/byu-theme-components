@@ -14,3 +14,7 @@ byu-footer-action-button:not(.byu-component-rendered) > * {
 byu-footer-action-button:not(.byu-component-rendered) a {
     @include footerActionButtonSlottedLink();
 }
+
+byu-footer-action-button:not(.byu-component-rendered) a:focus {
+    @include footerActionButtonSlottedLinkFocus();
+}
