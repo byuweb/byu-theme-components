@@ -1,5 +1,13 @@
 # byu-theme-components CHANGELOG
 
+## 2.1.2 
+
+- Fix footer overflow (#477).
+
+## 2.1.1
+
+- Fix issue with `.active` class on slotted items in the `byu-menu`. (#476)
+
 ## 2.1.0
 
 The design was enhanced to better match the styles of websites hosted in Brightspot. 
