@@ -22,3 +22,7 @@
 .wrapper ::slotted(a) {
     @include footerActionButtonSlottedLink();
 }
+
+.wrapper ::slotted(a:focus) {
+    @include footerActionButtonSlottedLinkFocus();
+}

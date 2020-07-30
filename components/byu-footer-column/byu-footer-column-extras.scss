@@ -26,6 +26,10 @@ byu-footer-column:not(.byu-component-rendered) {
     #defaultContent a:hover {
         @include defaultContentLinkHover();
     }
+
+    #defaultContent a:focus {
+        @include defaultContentLinkFocus();
+    }
 }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
@@ -54,6 +58,10 @@ byu-footer-column a {
 
 byu-footer-column a:hover {
     @include defaultContentLinkHover();
+}
+
+byu-footer-column a:focus {
+    @include defaultContentLinkFocus();
 }
 
 @media (max-width: 1024px) {

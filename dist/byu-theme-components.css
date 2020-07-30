@@ -137,6 +137,9 @@ byu-footer-action-button:not(.byu-component-rendered) > * {
 byu-footer-action-button:not(.byu-component-rendered) a {
   text-decoration: none !important; }
 
+byu-footer-action-button:not(.byu-component-rendered) a:focus {
+  outline: solid 2px white !important; }
+
 /* --- Color variable names are all lower case. Other variables are camel-case --- */
 /* -- breakpoint settings ----- */
 /* --- header settings ------- */
@@ -181,6 +184,8 @@ byu-footer-column:not(.byu-component-rendered) {
     height: 35px; }
   byu-footer-column:not(.byu-component-rendered) #defaultContent a:hover {
     color: #002E5D !important; }
+  byu-footer-column:not(.byu-component-rendered) #defaultContent a:focus {
+    outline: solid 2px #0057B8 !important; }
 
 byu-footer-column:not(.byu-component-rendered) [slot="header"] {
   font-family: "HCo Ringside Narrow SSm", Arial, sans-serif !important;
@@ -240,6 +245,9 @@ byu-footer-column a {
 byu-footer-column a:hover {
   color: #002E5D !important; }
 
+byu-footer-column a:focus {
+  outline: solid 2px #0057B8 !important; }
+
 @media (max-width: 1024px) {
   byu-footer-column a {
     font-size: 12px;
@@ -280,7 +288,7 @@ byu-footer-column a:hover {
   width: 17px;
   background: transparent;
   outline: none;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-tap-highlight-color: transparent;
   padding: 0 !important; }
   .tcon > * {

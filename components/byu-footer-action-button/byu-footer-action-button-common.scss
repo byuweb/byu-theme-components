@@ -45,6 +45,10 @@
     text-decoration: none !important;
 }
 
+@mixin footerActionButtonSlottedLinkFocus() {
+    outline: solid 2px white !important;
+}
+
 @mixin mobileFooterActionButton() {
     padding: 6.5px 0;
     font-size: 11px;
