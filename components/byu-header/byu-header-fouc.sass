@@ -15,6 +15,27 @@
  /
 
 byu-header:not(.byu-component-rendered)
+
+  &[constrain]
+    &::before
+      margin: auto 24px auto calc(5.5em + 24px)
+
+    &::after
+      min-width: 1px
+      margin: 19px 0 19px 5.5em
+
+    *[slot="site-title"]
+      padding-left: 5.5em
+
+    *[slot="actions"]
+      margin: auto 16px
+
+    byu-search
+      padding-right: 5.5em
+
+      &::after
+        margin-right: 5.5em
+
   background-color: $navy
   z-index: 10
   font-size: 1.125rem
