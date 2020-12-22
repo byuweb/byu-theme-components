@@ -17,24 +17,27 @@
 byu-header:not(.byu-component-rendered)
 
   &[constrain]
+    grid-template-columns: 4.7em 4.75em 1px auto repeat(3, min-content) 4.7em
+    byu-menu
+      grid-area: 4/1/5/9
+
     &::before
-      margin: auto 24px auto calc(5.5em + 24px)
+      grid-area: 1/2/4/3
 
     &::after
-      min-width: 1px
-      margin: 19px 0 19px 5.5em
+      grid-area: 1/3/4/4
 
     *[slot="site-title"]
-      padding-left: 5.5em
+      grid-area: 2/4/3/5
 
     *[slot="actions"]
-      margin: auto 16px
+      grid-area: 1/5/4/6
+
+    byu-user-info
+      grid-area: 1/6/4/7
 
     byu-search
-      padding-right: 5.5em
-
-      &::after
-        margin-right: 5.5em
+      grid-area: 1/7/4/8
 
   background-color: $navy
   z-index: 10
