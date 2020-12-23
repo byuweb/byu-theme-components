@@ -20,16 +20,25 @@ import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-e
 import style from './byu-menu.sass'
 
 const ACTIVE_MENU_ATTR = 'active'
+const CONSTRAIN_DEFAULT = false
 
 @customElement('byu-menu')
 export class BYUMenu extends LitElement {
   @property ({ type: String, attribute: 'active-selector' }) activeSelector = ''
+  @property({ type: Boolean, attribute: 'constrain' }) constrain = CONSTRAIN_DEFAULT
 
   firstUpdated (_changedProperties) {
     if (this.activeSelector !== '') {
       this._updateActiveSelector(this)
     }
+    this._addConstrain(this.constrain)
     this.classList.add('byu-component-rendered')
+  }
+
+  _addConstrain(constrain) {
+    if(constrain === true) {
+      this.shadowRoot.querySelector('.byu-menu-el').classList.add('constrain')
+    }
   }
 
   _updateActiveSelector(menu) {
