@@ -17,9 +17,11 @@
 byu-header:not(.byu-component-rendered)
 
   &[constrain]
-    grid-template-columns: 4.7em 4.75em 1px auto repeat(3, min-content) 4.7em
+    grid-template-columns: 3em 4.75em 1px auto repeat(3, min-content) 5.5em
     byu-menu
       grid-area: 4/1/5/9
+      a:first-of-type
+        margin-left: 4.7em
 
     &::before
       grid-area: 1/2/4/3
