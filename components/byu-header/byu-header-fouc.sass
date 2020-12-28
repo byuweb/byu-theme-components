@@ -17,7 +17,7 @@
 byu-header:not(.byu-component-rendered)
 
   &[constrain]
-    grid-template-columns: 3em 4.75em 1px auto repeat(3, min-content) 5.5em
+    grid-template-columns: 2.1em 4.75em 1px auto repeat(3, min-content) 6.25em
     byu-menu
       grid-area: 4/1/5/9
       a:first-of-type
@@ -40,6 +40,8 @@ byu-header:not(.byu-component-rendered)
 
     byu-search
       grid-area: 1/7/4/8
+      &::after
+        right: calc(45px + 6.25em)
 
   background-color: $navy
   z-index: 10
