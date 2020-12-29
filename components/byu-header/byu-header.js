@@ -16,7 +16,7 @@
 
 'use strict'
 
-import {html, css, customElement, LitElement, unsafeCSS, property} from 'lit-element'
+import { html, css, customElement, LitElement, unsafeCSS } from 'lit-element'
 import style from './byu-header.sass'
 
 const JS_INIT_CLASS = 'js-enabled'
@@ -24,25 +24,15 @@ const EXPANDED_ATTR = 'aria-expanded'
 const MENU_OPEN_CLASS = 'menu-open'
 const SITE_NAV_CLASS = 'byu-site-navigation'
 const SITE_ACTION_CLASS = 'byu-action-id-search'
-const CONSTRAIN_DEFAULT = false
 
 @customElement('byu-header')
 export class BYUHeader extends LitElement {
-  @property({ type: Boolean, attribute: 'constrain' }) constrain = CONSTRAIN_DEFAULT
 
   firstUpdated (_changedProperties) {
     this.classList.add('byu-component-rendered')
     const headerEl = this.shadowRoot.querySelector('.byu-header-el')
     this._enableMobileMenu(headerEl)
-    this._addConstrain(this.constrain)
     this.classList.add('byu-component-rendered')
-  }
-
-  _addConstrain(constrain) {
-    if(constrain === true) {
-      this.shadowRoot.querySelector('.byu-site-banner').classList.add('constrain')
-      this.getElementsByTagName('byu-menu')[0].setAttribute('constrain', '')
-    }
   }
 
   _enableMobileMenu (headerEl) {
