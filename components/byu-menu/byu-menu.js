@@ -20,7 +20,6 @@ import { html, css, customElement, LitElement, unsafeCSS, property } from 'lit-e
 import style from './byu-menu.sass'
 
 const ACTIVE_MENU_ATTR = 'active'
-const CONSTRAIN_DEFAULT = false
 
 @customElement('byu-menu')
 export class BYUMenu extends LitElement {
