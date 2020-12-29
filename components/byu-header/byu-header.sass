@@ -23,7 +23,7 @@
   font-size: 16px
 
   .constrain
-    @media(min-width: $breakMd)
+    @media( min-width: $breakMd )
       padding: 0 6.25em 0 2.1em
 
   .byu-header-el
@@ -43,6 +43,8 @@
 
     .byu-site-banner, .actionsHeightWrapper
       background: $byuNavy
+      min-height: $fontSize48
+
       @supports(display: grid)
         @media(min-width: $break0)
           display: grid
@@ -73,6 +75,8 @@
 
     .byu-titles
       position: relative
+      padding: 0.5em 0.75em
+      margin: 6px 0
       flex-grow: 1
 
       // Add a line separating BYU from the titles
