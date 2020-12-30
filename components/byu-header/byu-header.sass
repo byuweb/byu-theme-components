@@ -22,10 +22,6 @@
 \:host
   font-size: 16px
 
-  .constrain
-    @media( min-width: $breakMd )
-      padding: 0 6.25em 0 2.1em
-
   .byu-header-el
     z-index: 10
     font-size: 1.125rem
@@ -56,12 +52,28 @@
         @media(min-width: $breakMd)
           grid-template-columns: 4.75em auto min-content
 
+      &.constrain
+        @supports(display: grid)
+          @media(min-width: $break0)
+            display: grid
+            grid-template-columns: 1fr minmax(auto, 1024px) 1fr
+
+          @media(min-width: $breakMdSm)
+            grid-template-columns: 1fr minmax(auto, 1024px) 1fr
+
+          @media(min-width: $breakMd)
+            grid-template-columns: 1fr minmax(auto, 1024px) min-content 1fr
+
     .byu-link
       background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 2.9em) auto no-repeat
       display: block
       height: 2em
       width: 4em
       text-decoration: none
+
+      &.constrain
+        @supports(display: grid)
+          justify-self: end
 
       @supports(display: grid)
         @media(min-width: $break0)

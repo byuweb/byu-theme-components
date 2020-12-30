@@ -41,6 +41,7 @@ export class BYUHeader extends LitElement {
   _addConstrain(constrain) {
     if(constrain === true) {
       this.shadowRoot.querySelector('.byu-site-banner').classList.add('constrain')
+      this.shadowRoot.querySelector('.byu-link').classList.add('constrain')
       this.getElementsByTagName('byu-menu')[0].setAttribute('constrain', '')
     }
   }
