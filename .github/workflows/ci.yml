@@ -165,6 +165,6 @@ jobs:
       - name: npm ci
         run: npm ci --prefer-offline
 
-      - name: Build Documentation
+      - name: Build Components
         run: npm run build
 
