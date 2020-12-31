@@ -41,9 +41,7 @@ export class BYUFooter extends LitElement {
     <div class="university-footer">
         <div class="university-footer-gte-1440">
             <div class="university-logo-wrapper">
-                <div class="university-logo">
-                    <span class="info-text">Brigham Young University</span>
-                </div>
+              <div class="university-logo"><a href="https://www.byu.edu/">Brigham Young University</a></div>
                 <div class="university-info">
                     <span class="info-text">Provo, UT 84602, USA</span>
                     <span class="info-text"><a class="contact-phone" href="tel:18014224636">801-422-4636</a></span>
@@ -55,9 +53,7 @@ export class BYUFooter extends LitElement {
             </div>
         </div>
         <div class="university-footer-lt-1440">
-            <div class="university-logo">
-              <span class="info-text">Brigham Young University</span>
-            </div>
+            <div class="university-logo"><a href="https://www.byu.edu/">Brigham Young University</a></div>
             <div class="university-info">
                 <span class="info-text">Provo, UT 84602, USA</span>
                 <span class="info-text"><a class="contact-phone" href="tel:18014224636">801-422-4636</a></span>
