@@ -59,6 +59,9 @@ export class BYUFooter extends LitElement {
                 <span class="info-text"><a class="contact-phone" href="tel:18014224636">801-422-4636</a></span>
                 <span class="info-text">${date.getFullYear()} &copy;<span id="currentYear"></span> All Rights Reserved</span>
             </div>
+            <div class="privacy-notice">
+              <span class="info-text"><a href="http://www.byu.edu/privacy" target="_blank">Privacy Notice</a></span>
+            </div>
         </div>
     </div>
     `;
