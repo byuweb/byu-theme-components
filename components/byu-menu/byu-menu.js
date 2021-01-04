@@ -54,7 +54,9 @@ export class BYUMenu extends LitElement {
   render () {
     return html`
 <nav class="byu-menu-el">
-    <slot class="byu-menu-items"></slot>
+    <div class="byu-menu-items-wrapper">
+        <slot class="byu-menu-items"></slot>
+    </div>
 </nav>
     `
   }

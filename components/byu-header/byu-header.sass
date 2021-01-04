@@ -28,6 +28,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
     border-bottom: 1px solid #ddd
     font-family: $font-heading
+    background: $byuNavy
 
     a, a:link, a:visited
       color: #fff
@@ -53,16 +54,8 @@
           grid-template-columns: 4.75em auto min-content
 
       &.constrain
-        @supports(display: grid)
-          @media(min-width: $break0)
-            display: grid
-            grid-template-columns: 1fr minmax(auto, 1024px) 1fr
-
-          @media(min-width: $breakMdSm)
-            grid-template-columns: 1fr minmax(auto, 1024px) 1fr
-
-          @media(min-width: $breakMd)
-            grid-template-columns: 1fr minmax(auto, 1024px) min-content 1fr
+        max-width: 1200px
+        margin: 0 auto
 
     .byu-link
       background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 2.9em) auto no-repeat
