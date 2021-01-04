@@ -171,21 +171,14 @@
     text-indent: 50em
     top: 50%
     width: $menuButtonSize
-    border: 1px solid $dividerColor
-    background: $hamburgerMenuBackgroundColor
+    border: 1px solid $byuNavy
+    background-color: $byuNavy
     transition: background 200ms ease, transform 200ms ease
     background-position: center center
     color: #fff
 
-    &:hover
-      background-color: mix($byuNavy, $royalWeb)
-
     &:focus
-      border-color: mix($byuNavy, #fff)
       outline: none
-
-    &[aria-expanded=true]
-      background-color: $royalWeb
 
     &:before, &:after
       content: " "
