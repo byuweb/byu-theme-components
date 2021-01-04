@@ -54,7 +54,7 @@
           grid-template-columns: 4.75em auto min-content
 
       &.constrain
-        max-width: 1200px
+        max-width: $breakLg
         margin: 0 auto
 
     .byu-link
@@ -65,8 +65,7 @@
       text-decoration: none
 
       &.constrain
-        @supports(display: grid)
-          justify-self: end
+        justify-self: end
 
       @supports(display: grid)
         @media(min-width: $break0)
