@@ -1,0 +1,191 @@
+name: CI Checks
+
+on:
+  pull_request:
+    branches: [ master ]
+    types: [ opened, reopened, synchronize, edited ]
+    paths-ignore:
+      - "tests/**"
+      - ".git*"
+      - "*.md"
+      - "index.html"
+      - "LICENSE"
+
+env:
+  node_version: "14.x"
+
+jobs:
+  audit:
+    name: Audit Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ env.node_version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: audit
+        run: npm audit --audit-level=critical
+
+  lint:
+    name: Lint Project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ env.node_version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: npm ci
+        run: npm ci --prefer-offline
+
+      - name: lint
+        run: npm run lint
+
+  bundle-components:
+    name: Bundle Components
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ env.node_version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: npm ci
+        run: npm ci --prefer-offline
+
+      - name: Clean dist folder
+        run: npm run clean
+
+      - name: lint
+        run: npm run bundle
+
+  compile-fouc:
+    name: Compile FOUC Styles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ env.node_version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: npm ci
+        run: npm ci --prefer-offline
+
+      - name: Clean dist folder
+        run: npm run clean
+
+      - name: Compile FOUC
+        run: npm run compile-fouc
+
+  fouc:
+    name: Build FOUC Styles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ env.node_version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: npm ci
+        run: npm ci --prefer-offline
+
+      - name: Clean dist folder
+        run: npm run clean
+
+      - name: Build FOUC Stylesheets
+        run: npm run fouc
+
+  docs:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ env.node_version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: npm ci
+        run: npm ci --prefer-offline
+
+      - name: Build Documentation
+        run: npm run docs
+
+  components:
+    name: Build Components
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: ${{ env.node_version }}
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: npm ci
+        run: npm ci --prefer-offline
+
+      - name: Build Components
+        run: npm run build
+
