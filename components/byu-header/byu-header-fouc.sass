@@ -20,7 +20,7 @@ byu-header:not(.byu-component-rendered)
 
   &[constrain]
     @media( min-width: $breakMdLg )
-      grid-template-columns: 2.1em 4.75em 1px auto repeat(3, min-content) 6.25em
+      grid-template-columns: 1fr 4.75em 1px minmax(auto, $breakMdSm) repeat(3, min-content) 1fr
       byu-menu
         grid-area: 4/1/5/9
         a:first-of-type
