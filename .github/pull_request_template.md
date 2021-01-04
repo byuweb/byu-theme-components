@@ -20,14 +20,12 @@ browsers separately.*
 - [ ] Mozilla Firefox
 - [ ] Apple Safari
 - [ ] Microsoft Edge
-- [ ] Other (please specify)
 
 ## Mobile Browsers
 
 - [ ] Any browser on iOS
 - [ ] Chrome for Android
 - [ ] Firefox Mobile for Android
-- [ ] Other (please specify)
 
 **We support the last two versions of Chrome, Firefox, Safari, and Edge.**
 
