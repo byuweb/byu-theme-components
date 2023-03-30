@@ -18,7 +18,8 @@ export default {
     'components/byu-menu/*.js',
     'components/byu-search/*.js',
     'components/byu-social-media-links/*.js',
-    'components/byu-user-info/*.js'
+    'components/byu-user-info/*.js',
+    'components/byu-privacy.js'
   ],
   output: {
     file: 'dist/components.min.js',
