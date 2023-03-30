@@ -48,7 +48,8 @@ export class BYUFooter extends LitElement {
                     <span class="info-text">${date.getFullYear()} &copy;<span id="currentYear"></span> All rights reserved.</span>
                 </div>
                 <div class="privacy-notice">
-                    <span class="info-text"><a href="http://www.byu.edu/privacy" target="_blank">Privacy Notice</a></span>
+                    <span class="info-text"><a href="https://privacy.byu.edu/" target="_blank">Privacy Notice</a></span>
+                    <span class="info-text"><a href="https://www.byu.edu/cookie-preferences" target="_blank">Cookie Preferences</a></span>
                 </div>
             </div>
         </div>
@@ -60,7 +61,8 @@ export class BYUFooter extends LitElement {
                 <span class="info-text">${date.getFullYear()} &copy;<span id="currentYear"></span> All Rights Reserved</span>
             </div>
             <div class="privacy-notice">
-              <span class="info-text"><a href="http://www.byu.edu/privacy" target="_blank">Privacy Notice</a></span>
+              <span class="info-text"><a href="https://privacy.byu.edu/" target="_blank">Privacy Notice</a></span>
+              <span class="info-text"><a href="https://www.byu.edu/cookie-preferences" target="_blank">Cookie Preferences</a></span>
             </div>
         </div>
     </div>

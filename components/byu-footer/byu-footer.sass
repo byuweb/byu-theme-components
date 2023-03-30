@@ -116,6 +116,16 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
       justify-content: center
       grid-area: 2/2/3/3
 
+      > :not(:first-of-type)
+        margin-top: 0
+
+        &::before
+          display: inline-block
+          color: $white !important
+          content: '|'
+          text-align: center
+          width: 1em
+
   @media (min-width: $breakXl)
     .university-footer
       padding: $spacing4
