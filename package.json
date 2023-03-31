@@ -1,6 +1,6 @@
 {
   "name": "byu-theme-components",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Components to be used for BYU web pages and applications.",
   "license": "Apache-2.0",
   "contributors": [
@@ -46,7 +46,7 @@
     "husky": "^3.1.0",
     "lit-element": "^2.4.0",
     "make-dir-cli": "^2.0.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^8.0.0",
     "postcss-cli": "^7.1.2",
     "rollup": "^2.35.1",
     "rollup-plugin-bundle-size": "^1.0.3",
