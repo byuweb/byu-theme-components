@@ -54,7 +54,11 @@ export class BYUFooter extends LitElement {
             </div>
         </div>
         <div class="university-footer-lt-1440">
-            <div class="university-logo"><a href="https://www.byu.edu/">Brigham Young University</a></div>
+            <div class="university-logo">
+              <a href="https://byu.edu" target="_blank">
+                <img class="university-logo-image" src="https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg" alt="BYU">
+              </a>
+            </div>
             <div class="university-info">
                 <span class="info-text">Provo, UT 84602, USA</span>
                 <span class="info-text"><a class="contact-phone" href="tel:18014224636">801-422-4636</a></span>
