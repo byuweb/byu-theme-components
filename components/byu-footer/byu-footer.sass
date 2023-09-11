@@ -57,6 +57,10 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
     a:hover
       text-decoration: none
 
+  .university-logo-image
+    height: 23px
+    font-size: 10px
+
   .university-info
     display: flex
     margin-top: $spacing2
@@ -68,7 +72,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
     display: none
 
   .university-footer-lt-1440
-    display: flex
+    display: grid
     align-items: center
     flex-direction: column
     width: 100%
@@ -84,7 +88,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
   @media (min-width: $tabletBreak)
     .university-footer-lt-1440
       display: grid
-      grid-template-columns: 1fr 2fr
+      grid-template-columns: 0fr 2fr
       grid-template-rows: auto
       padding: 30px 80px
       font-size: 14px
