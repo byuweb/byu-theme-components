@@ -9,18 +9,18 @@
     scriptPcookie.src = "https://consent.trustarc.com/v2/notice/3p3tmg?pcookie";
     scriptPcookie.async = true;
     document.head.appendChild(scriptPcookie);
-    
+
     const scriptCore = document.createElement("script");
     scriptCore.type = "text/javascript";
     scriptCore.src = "https://consent.trustarc.com/v2/autoblockasset/core.min.js?cmId=3p3tmg";
     document.head.appendChild(scriptCore);
-    
+
     const scriptAutoblock = document.createElement("script");
     scriptAutoblock.type = "text/javascript";
     scriptAutoblock.src = "https://consent.trustarc.com/v2/autoblock?cmId=3p3tmg";
-    document.head.appendChild(scriptAutoblock);
+    document.head.appendChild
 
-    // Load the consent banner placeholder
+    // Ensure the consent banner placeholder is in the DOM
     let consentBanner = document.getElementById("consent-banner");
     if (!consentBanner) {
       consentBanner = document.createElement("div");
