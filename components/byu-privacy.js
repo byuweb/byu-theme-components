@@ -1,29 +1,31 @@
-/*** BYU MeruData Cookie Consent Banner and Cookie AutoBlocking ***/
+/*** BYU TrustArc Cookie Consent Banner and Cookie AutoBlocking ***/
 ;(function () {
-  const byuMerudataID = "c5d6912a-d8fc-4138-8d1d-6daeb3056f57"
-  const merudataUrl = "https://ccm.merudata.app/assets/"
-  const host = window.location.hostname
+  const host = window.location.hostname;
 
   if (!host.includes("localhost") && !host.includes("-dev")) {
-    // Load the config file
-    let scriptConfig = document.createElement("script")
-    scriptConfig.src = merudataUrl + byuMerudataID + "/ccmconfig.js"
-    scriptConfig.onload = function () {
-      // Load the script file
-      let script = document.createElement("script")
-      script.src = merudataUrl + byuMerudataID + "/d_ccm.min.js"
-      document.head.appendChild(script)
+    // Add TrustArc scripts dynamically
+    const scriptPcookie = document.createElement("script");
+    scriptPcookie.type = "text/javascript";
+    scriptPcookie.src = "https://consent.trustarc.com/v2/notice/3p3tmg?pcookie";
+    scriptPcookie.async = true;
+    document.head.appendChild(scriptPcookie);
+    
+    const scriptCore = document.createElement("script");
+    scriptCore.type = "text/javascript";
+    scriptCore.src = "https://consent.trustarc.com/v2/autoblockasset/core.min.js?cmId=3p3tmg";
+    document.head.appendChild(scriptCore);
+    
+    const scriptAutoblock = document.createElement("script");
+    scriptAutoblock.type = "text/javascript";
+    scriptAutoblock.src = "https://consent.trustarc.com/v2/autoblock?cmId=3p3tmg";
+    document.head.appendChild(scriptAutoblock);
 
-      // Load the stylesheet file
-      let stylesheet = document.createElement("link")
-      stylesheet.rel = "stylesheet"
-      stylesheet.href = merudataUrl + byuMerudataID + "/ccm.min.css"
-      stylesheet.media = "print"
-      stylesheet.onload = function() {
-        this.media = 'all'
-      }
-      document.head.appendChild(stylesheet)
+    // Load the consent banner placeholder
+    let consentBanner = document.getElementById("consent-banner");
+    if (!consentBanner) {
+      consentBanner = document.createElement("div");
+      consentBanner.id = "consent-banner";
+      document.body.appendChild(consentBanner);
     }
-    document.head.appendChild(scriptConfig);
   }
 })()
