@@ -18,7 +18,7 @@
     const scriptAutoblock = document.createElement("script");
     scriptAutoblock.type = "text/javascript";
     scriptAutoblock.src = "https://consent.trustarc.com/v2/autoblock?cmId=3p3tmg";
-    document.head.appendChild
+    document.head.appendChild(scriptAutoblock)
 
     // Ensure the consent banner placeholder is in the DOM
     let consentBanner = document.getElementById("consent-banner");
