@@ -14,7 +14,4 @@ preload:
     file: logos/monogram-white.svg
   - lib: theme-fonts
     version: latest
-    file: ringside/fonts.css
-  - lib: theme-fonts
-    version: latest
     file: public-sans/fonts.css
