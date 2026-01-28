@@ -14,22 +14,22 @@
  /    limitations under the License.
  /
 
-@import ../shared-styles/vars
+@use "../shared-styles/vars"
 
 byu-header:not(.byu-component-rendered)
-  background-color: $navy
+  background-color: vars.$navy
   z-index: 10
   font-size: 1.125rem
   box-shadow: 0 0 10px rgba(0,0,0,.16)
   border-bottom: 1px solid #ddd
-  font-family: $font-heading
+  font-family: vars.$font-heading
   display: grid
   grid-template-columns: 4.75em 1px auto repeat(3, min-content)
   grid-template-rows: repeat(4,min-content)
   padding: 0
 
   a, a:link, a:visited
-    color: $white
+    color: vars.$white
     text-decoration: none
     transition: opacity 200ms ease
 
@@ -58,9 +58,9 @@ byu-header:not(.byu-component-rendered)
 
     a
       color: rgba(255, 255, 255, 0.85)
-      margin-right: $spacing2
-      padding-right: $spacing3
-      border-right: solid 1px $dividerColor
+      margin-right: vars.$spacing2
+      padding-right: vars.$spacing3
+      border-right: solid 1px vars.$dividerColor
       font-size: 16px
 
     a:hover, a:focus
@@ -70,7 +70,7 @@ byu-header:not(.byu-component-rendered)
       border: none
 
   *[slot="site-title"]
-    color: $white
+    color: vars.$white
     grid-area: 2/3/3/4
     font-size: 24px
     margin: 6px 24px
@@ -124,7 +124,7 @@ byu-header:not(.byu-component-rendered)
     margin: auto 16px
 
   byu-search
-    background-color: $byuNavy
+    background-color: vars.$byuNavy
     border-radius: 15px
     height: 35px
     width: 144px
@@ -135,7 +135,7 @@ byu-header:not(.byu-component-rendered)
       content: "Must have JS"
       color: rgba(255, 255, 255, 0.9)
       font-size: 16px
-      font-family: $font-heading
+      font-family: vars.$font-heading
       font-weight: 400
       padding: 6px 16px
 
@@ -168,19 +168,19 @@ byu-header:not(.byu-component-rendered)
       border-bottom: solid 3px rgba(0, 0, 0, 0)
 
       &.is-active
-        border-bottom: solid 3px $byuNavy !important
+        border-bottom: solid 3px vars.$byuNavy !important
 
       &:hover
-        background-color: $grey02 !important
-        border-bottom: solid 3px $byuNavy !important
+        background-color: vars.$grey02 !important
+        border-bottom: solid 3px vars.$byuNavy !important
 
-  @media( min-width: $breakMd )
+  @media( min-width: vars.$breakMd )
     font-size: 1.3125rem
 
-  @media( min-width: $breakMdLg )
+  @media( min-width: vars.$breakMdLg )
     font-size: 1.5rem
 
-  @media( max-width: $breakMdLg )
+  @media( max-width: vars.$breakMdLg )
     grid-template-columns: 100px 1px auto repeat(3,min-content)
 
     &::before
@@ -214,12 +214,12 @@ byu-header:not(.byu-component-rendered)
     byu-menu
       display: none
 
-  @media(max-width: $breakMd)
+  @media(max-width: vars.$breakMd)
     &::before
       height: 16px
       width: 56px
 
-  @media( max-width: $breakMdSm )
+  @media( max-width: vars.$breakMdSm )
     grid-template-columns: 72px 1px auto repeat(3,min-content)
 
     &::before

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en" id="html">
+<head>
+    <script src="load-components.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wdth,wght@0,75,100..700;1,75,100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="lib/bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+            background: #FAFAFA
+        }
+        .containing-element {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .page-content {
+            flex-grow: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px 32px;
+        }
+        api-viewer {
+            --api-viewer-section-bg: #fff;
+            --api-viewer-border-color: #e0e0e0;
+        }
+
+        pre, code { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        pre { background: #f7f5f2; border: 1px solid #e6e1d8; border-radius: 6px; padding: 16px; overflow: auto; line-height: 1.5; }
+        code { background: #f7f5f2; padding: 2px 4px; border-radius: 4px; }
+        pre code { background: transparent; padding: 0; }
+        .demo-live { border: 1px solid #e6e1d8; border-radius: 6px; background: #fff; padding: 16px; margin: 16px 0 0; }
+        .demo-live + pre { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+        .demo-live + pre code { display: block; }
+    </style>
+    <title>Components - API</title>
+</head>
+<body>
+<div class="containing-element">
+    <byu-header>
+        <span slot="site-title">Components v2</span>
+        <byu-menu slot="nav">
+            <a href="index.html">Home</a>
+            <a href="byu-header.html">Header</a>
+            <a href="byu-menu.html">Menu</a>
+            <a href="byu-search.html">Search</a>
+            <a href="byu-user-info.html">User Login</a>
+            <a href="byu-footer.html">Footer</a>
+            <a href="api.html" class="active">API</a>
+            <a href="test.html">Test</a>
+        </byu-menu>
+    </byu-header>
+    <div class="page-content">
+        <h1>Component API Viewer</h1>
+        <p>Auto-generated API docs for BYU Theme Components.</p>
+        <api-viewer src="custom-elements.json"></api-viewer>
+    </div>
+    <byu-footer></byu-footer>
+</div>
+</body>
+</html>

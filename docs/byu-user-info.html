@@ -3,8 +3,11 @@
 <html lang="en" id="html">
 <head>
     <script src="load-components.js"></script>
-    <link rel="stylesheet" href="lib/prism/prism.css" media="all">
-    <script type="text/javascript" src="lib/prism/prism.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-coy.min.css" media="all">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-javascript.min.js"></script>
     <script type="text/javascript" src="lib/bundle.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -27,6 +30,14 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        pre, code { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        pre { background: #f7f5f2; border: 1px solid #e6e1d8; border-radius: 6px; padding: 16px; overflow: auto; line-height: 1.5; }
+        code { background: #f7f5f2; padding: 2px 4px; border-radius: 4px; }
+        pre code { background: transparent; padding: 0; }
+        .demo-live { border: 1px solid #e6e1d8; border-radius: 6px; background: #fff; padding: 16px; margin: 16px 0 0; }
+        .demo-live + pre { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+        .demo-live + pre code { display: block; }
     </style>
     <title>Components - v2</title>
 </head>
@@ -41,6 +52,7 @@
             <a href="byu-search.html">Search</a>
             <a href="byu-user-info.html" class="active">User Login</a>
             <a href="byu-footer.html">Footer</a>
+            <a href="api.html">API</a>
             <a href="test.html">Test</a>
         </byu-menu>
     </byu-header>
@@ -48,24 +60,30 @@
         <h1>User Info Demo</h1>
 
         <h2>Simple Setup</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <span slot="site-title">Components Demo Site</span>
                     <byu-user-info slot="user">
                         <a slot="login" href="#login">Sign In</a>
                         <a slot="logout" href="#logout">Sign Out</a>
                     </byu-user-info>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Components Demo Site&lt;/span&gt;
+  &lt;byu-user-info slot=&quot;user&quot;&gt;
+    &lt;a slot=&quot;login&quot; href=&quot;#login&quot;&gt;Sign In&lt;/a&gt;
+    &lt;a slot=&quot;logout&quot; href=&quot;#logout&quot;&gt;Sign Out&lt;/a&gt;
+  &lt;/byu-user-info&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h2>Logged In User</h2>
         <p>If your website provides anything to the slot 'user-name' then it will know that the user is logged in. If
             this is not provided, it will believe no one is logged in.</p>
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <span slot="site-title">Components Demo Site</span>
                     <byu-user-info slot="user">
                         <a slot="login" href="#login">Sign In</a>
@@ -73,13 +91,21 @@
                         <span slot="user-name">UserFirstName</span>
                     </byu-user-info>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Components Demo Site&lt;/span&gt;
+  &lt;byu-user-info slot=&quot;user&quot;&gt;
+    &lt;a slot=&quot;login&quot; href=&quot;#login&quot;&gt;Sign In&lt;/a&gt;
+    &lt;a slot=&quot;logout&quot; href=&quot;#logout&quot;&gt;Sign Out&lt;/a&gt;
+    &lt;span slot=&quot;user-name&quot;&gt;UserFirstName&lt;/span&gt;
+  &lt;/byu-user-info&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h2>As Part of Header with Search</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <span slot="site-title">Components Demo Site</span>
                     <byu-search slot="search" action="https://www.google.com/#q=$1" method="get"
                                 placeholder="Search"></byu-search>
@@ -96,13 +122,30 @@
                         <a href="javascript: void 0">Link 6</a>
                     </byu-menu>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Components Demo Site&lt;/span&gt;
+  &lt;byu-search slot=&quot;search&quot; action=&quot;https://www.google.com/#q=$1&quot; method=&quot;get&quot;
+  placeholder=&quot;Search&quot;&gt;&lt;/byu-search&gt;
+  &lt;byu-user-info slot=&quot;user&quot; login-url=&quot;#login&quot;&gt;
+    &lt;a slot=&quot;login&quot; href=&quot;#login&quot;&gt;Sign In&lt;/a&gt;
+    &lt;a slot=&quot;logout&quot; href=&quot;#logout&quot;&gt;Sign Out&lt;/a&gt;
+  &lt;/byu-user-info&gt;
+  &lt;byu-menu slot=&quot;nav&quot; collapsed&gt;
+    &lt;a class=&quot;active&quot; href=&quot;javascript: void 0&quot;&gt;Link 1&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 2&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 3&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 4&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 5&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 6&lt;/a&gt;
+  &lt;/byu-menu&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h2>As Part of Header with Search (Logged In)</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <span slot="site-title">Components Demo Site</span>
                     <byu-search slot="search" action="https://www.google.com/#q=$1" method="get"
                                 placeholder="Search"></byu-search>
@@ -120,8 +163,27 @@
                         <a href="javascript: void 0">Link 6</a>
                     </byu-menu>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Components Demo Site&lt;/span&gt;
+  &lt;byu-search slot=&quot;search&quot; action=&quot;https://www.google.com/#q=$1&quot; method=&quot;get&quot;
+  placeholder=&quot;Search&quot;&gt;&lt;/byu-search&gt;
+  &lt;byu-user-info slot=&quot;user&quot; login-url=&quot;#login&quot;&gt;
+    &lt;a slot=&quot;login&quot; href=&quot;#login&quot;&gt;Sign In&lt;/a&gt;
+    &lt;a slot=&quot;logout&quot; href=&quot;#logout&quot;&gt;Sign Out&lt;/a&gt;
+    &lt;span slot=&quot;user-name&quot;&gt;UserFirstName&lt;/span&gt;
+  &lt;/byu-user-info&gt;
+  &lt;byu-menu slot=&quot;nav&quot; collapsed&gt;
+    &lt;a class=&quot;active&quot; href=&quot;javascript: void 0&quot;&gt;Link 1&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 2&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 3&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 4&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 5&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 6&lt;/a&gt;
+  &lt;/byu-menu&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h2>Overriding CMS Styles</h2>
 
@@ -133,9 +195,8 @@
             will vary depending on your CMS, but this should give you the idea.
         </p>
 
-        <demo-snippet>
-            <template>
-                <style>
+        <div class="demo-live">
+<style>
                     .my-custom-login-class a {
                         color: white;
                         font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
@@ -159,8 +220,33 @@
                         <a slot="logout" href="#logout">Sign Out</a>
                     </byu-user-info>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;style&gt;
+  .my-custom-login-class a {
+  color: white;
+  font-family: &#x27;IBM Plex Sans&#x27;, Helvetica, Arial, sans-serif;
+  cursor: pointer;
+  }
+
+  .my-custom-login-class a:hover {
+  color: white;
+  text-decoration: none;
+  }
+&lt;/style&gt;
+
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Components Demo Site&lt;/span&gt;
+  &lt;byu-user-info slot=&quot;user&quot;&gt;
+    &lt;span slot=&quot;login&quot; class=&quot;my-custom-login-class&quot;&gt;
+      &lt;div class=&quot;someCMSClass&quot;&gt;
+        &lt;a class=&quot;someOtherCMSClassAndAttributes&quot;&gt;Sign In&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/span&gt;
+    &lt;a slot=&quot;logout&quot; href=&quot;#logout&quot;&gt;Sign Out&lt;/a&gt;
+  &lt;/byu-user-info&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
     </div>
     <byu-footer></byu-footer>

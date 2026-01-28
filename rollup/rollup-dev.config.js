@@ -1,7 +1,6 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import babel from '@rollup/plugin-babel'
-import { terser } from 'rollup-plugin-terser'
 import json from '@rollup/plugin-json'
 import serve from 'rollup-plugin-serve'
 import multiEntry from '@rollup/plugin-multi-entry'
@@ -32,7 +31,6 @@ export default {
     }),
     serve('.'),
     multiEntry(),
-    terser(),
     bundleSize()
   ]
 }

@@ -14,8 +14,8 @@
  * /    limitations under the License.
  * /
 
-@import byu-search-mixins
+@use "byu-search-mixins"
 
 byu-search
   input.__byu-search-selected-input
-    @include siteSearchSelectedInput()
+    @include byu-search-mixins.siteSearchSelectedInput()

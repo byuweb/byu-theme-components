@@ -14,15 +14,15 @@
  /    limitations under the License.
  /
 
-@import "../shared-styles/vars"
-@import "../shared-styles/helpers"
-@import byu-breadcrumbs-mixins
+@use "../shared-styles/vars"
+@use "../shared-styles/helpers"
+@use "byu-breadcrumbs-mixins"
 
 \:host
   // Breadcrumb above the titles
   .byu-breadcrumbs-el
     ::slotted(*)
-      +breadcrumbLink()
+      +byu-breadcrumbs-mixins.breadcrumbLink()
 
     ::slotted(*:hover), ::slotted(*:focus)
       opacity: 1
@@ -32,4 +32,4 @@
 
   // Hax for Edge
   .byu-breadcrumbs-el.style-scope
-    font-size: $fontSize14
+    font-size: vars.$fontSize14

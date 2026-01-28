@@ -14,23 +14,23 @@
  * /    limitations under the License.
  * /
 
-@import ../shared-styles/vars
-@import byu-footer-column-mixins
+@use "../shared-styles/vars"
+@use "byu-footer-column-mixins"
 
 \:host
   .column-title
-    +footerColunmTitle
+    +byu-footer-column-mixins.footerColunmTitle
 
-  @media (max-width: $breakMdLg)
+  @media (max-width: vars.$breakMdLg)
     .column-title
-      padding-bottom: $spacing0
+      padding-bottom: vars.$spacing0
 
   slot[name="header"]
     width: 100%
-    margin: 0 0 $spacing2
+    margin: 0 0 vars.$spacing2
 
     \::slotted(*)
-      +footerColumnHeader
+      +byu-footer-column-mixins.footerColumnHeader
 
     \::slotted(br)
       display: none
@@ -39,42 +39,42 @@
       max-width: 100%
 
   .content ::slotted(:not(byu-footer-action-button))
-    +baseColumnContent
+    +byu-footer-column-mixins.baseColumnContent
 
   .content ::slotted(a)
-    +columnContentLink
+    +byu-footer-column-mixins.columnContentLink
 
   .content ::slotted(p), .content ::slotted(div)
-    +columnContentNotLink
+    +byu-footer-column-mixins.columnContentNotLink
 
   .content ::slotted(a:hover)
-    color: $navy
+    color: vars.$navy
 
   .content ::slotted(a:focus)
-    color: $navy
+    color: vars.$navy
     text-decoration: underline
-    outline: 2px solid $byuRoyal
+    outline: 2px solid vars.$byuRoyal
 
   .content > a
-    +columnContentLink
+    +byu-footer-column-mixins.columnContentLink
 
   .content > div, .content > p
-    +columnContentNotLink
+    +byu-footer-column-mixins.columnContentNotLink
 
   .content > a:hover
-    color: $navy
+    color: vars.$navy
 
   .footerActionButton
-    background-color: $royal
-    font-size: $fontSize12
-    color: $white
+    background-color: vars.$royal
+    font-size: vars.$fontSize12
+    color: vars.$white
     display: inline-block
     text-align: center
-    line-height: $fontSize16
-    padding: $spacing3 $spacing2
+    line-height: vars.$fontSize16
+    padding: vars.$spacing3 vars.$spacing2
     width: auto
     min-width: 125px
-    margin: $spacing4 0
+    margin: vars.$spacing4 0
     -webkit-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
     -moz-box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
     box-shadow: 0 3px 5px 0 rgba(20, 20, 20, 0.35)
@@ -88,7 +88,7 @@
     background-repeat: no-repeat
     background-clip: content-box
     background-position: center
-    margin: $spacing2 $spacing2 0 0
+    margin: vars.$spacing2 vars.$spacing2 0 0
     align-items: center
 
   .social-media-links > a > img

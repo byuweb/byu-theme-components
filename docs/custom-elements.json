@@ -1,0 +1,733 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-privacy.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-theme-components.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-breadcrumbs/byu-breadcrumbs.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUBreadcrumbs",
+          "members": [
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUBreadcrumbs",
+          "declaration": {
+            "name": "BYUBreadcrumbs",
+            "module": "components/byu-breadcrumbs/byu-breadcrumbs.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-footer/byu-footer.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUFooter",
+          "members": [
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUFooter",
+          "declaration": {
+            "name": "BYUFooter",
+            "module": "components/byu-footer/byu-footer.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-menu/byu-menu.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUMenu",
+          "members": [
+            {
+              "kind": "field",
+              "name": "activeSelector",
+              "type": {
+                "text": "string"
+              },
+              "default": "''"
+            },
+            {
+              "kind": "field",
+              "name": "constrain",
+              "default": "false",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_addConstrain",
+              "parameters": [
+                {
+                  "name": "constrain"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_updateActiveSelector",
+              "parameters": [
+                {
+                  "name": "menu"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUMenu",
+          "declaration": {
+            "name": "BYUMenu",
+            "module": "components/byu-menu/byu-menu.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-header/byu-header.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUHeader",
+          "members": [
+            {
+              "kind": "field",
+              "name": "constrain",
+              "default": "false",
+              "type": {
+                "text": "boolean"
+              }
+            },
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_addConstrain",
+              "parameters": [
+                {
+                  "name": "constrain"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_enableMobileMenu",
+              "parameters": [
+                {
+                  "name": "headerEl"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_initMenuButton",
+              "parameters": [
+                {
+                  "name": "headerEl"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_clickMenuButton",
+              "parameters": [
+                {
+                  "name": "btn"
+                },
+                {
+                  "name": "headerEl"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_openMenu",
+              "parameters": [
+                {
+                  "name": "btn"
+                },
+                {
+                  "name": "headerEl"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_closeMenu",
+              "parameters": [
+                {
+                  "name": "btn"
+                },
+                {
+                  "name": "headerEl"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUHeader",
+          "declaration": {
+            "name": "BYUHeader",
+            "module": "components/byu-header/byu-header.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-footer-column/byu-footer-column.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUFooterColumn",
+          "members": [
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUFooterColumn",
+          "declaration": {
+            "name": "BYUFooterColumn",
+            "module": "components/byu-footer-column/byu-footer-column.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-footer-action-button/byu-footer-action-button.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUFooterActionButton",
+          "members": [
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUFooterActionButton",
+          "declaration": {
+            "name": "BYUFooterActionButton",
+            "module": "components/byu-footer-action-button/byu-footer-action-button.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-search/byu-search.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUSearch",
+          "members": [
+            {
+              "kind": "field",
+              "name": "placeholder",
+              "type": {
+                "text": "string"
+              },
+              "default": "'Search'"
+            },
+            {
+              "kind": "field",
+              "name": "searchInputSelector",
+              "default": "'input[type=\"search\"], input[type=\"text\"]'",
+              "type": {
+                "text": "string"
+              }
+            },
+            {
+              "kind": "field",
+              "name": "action",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "actionTarget",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "onbyusearch",
+              "type": {
+                "text": "null"
+              },
+              "default": "null"
+            },
+            {
+              "kind": "field",
+              "name": "_searchSlot",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "search"
+            },
+            {
+              "kind": "method",
+              "name": "_setupSearchListeners",
+              "parameters": [
+                {
+                  "name": "search"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_runPredefinedAction",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_runSubmitFormAction",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_runClickAction",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_runNavigateAction",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "value"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_lookupAndConfigureInputElement",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "selector"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_hideExtraElements"
+            },
+            {
+              "kind": "method",
+              "name": "_setupInputElement",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "input"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_setupEnterKeySearchDispatcher",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "input"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_applyStyleHelpers",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "input"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_applyA11yHelpers",
+              "parameters": [
+                {
+                  "name": "search"
+                },
+                {
+                  "name": "input"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_defaultActionTarget",
+              "parameters": [
+                {
+                  "name": "action"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUSearch",
+          "declaration": {
+            "name": "BYUSearch",
+            "module": "components/byu-search/byu-search.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-social-media-links/byu-social-media-links.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUSocialMediaLinks",
+          "members": [
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUSocialMediaLinks",
+          "declaration": {
+            "name": "BYUSocialMediaLinks",
+            "module": "components/byu-social-media-links/byu-social-media-links.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "components/byu-user-info/byu-user-info.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "BYUUserInfo",
+          "members": [
+            {
+              "kind": "method",
+              "name": "firstUpdated",
+              "parameters": [
+                {
+                  "name": "_changedProperties"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "_setHasUser"
+            },
+            {
+              "kind": "method",
+              "name": "_addAriaAttributes"
+            },
+            {
+              "kind": "field",
+              "name": "styles",
+              "static": true,
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit-element"
+          },
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "BYUUserInfo",
+          "declaration": {
+            "name": "BYUUserInfo",
+            "module": "components/byu-user-info/byu-user-info.js"
+          }
+        }
+      ]
+    }
+  ]
+}

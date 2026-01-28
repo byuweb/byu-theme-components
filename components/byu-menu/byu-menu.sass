@@ -14,46 +14,46 @@
  * /    limitations under the License.
  * /
 
-@import ../shared-styles/helpers
-@import ../shared-styles/vars
-@import byu-menu-mixins
+@use "../shared-styles/helpers"
+@use "../shared-styles/vars"
+@use "byu-menu-mixins"
 
 //********************
 // Navigation Menu
 //********************
 
-$activeItemBorder: solid 3px $byuNavy
+$activeItemBorder: solid 3px vars.$byuNavy
 
 \:host
 
   .byu-menu-el
     margin: 0
     padding: 0
-    font-size: $fontSize16 !important
+    font-size: vars.$fontSize16 !important
     letter-spacing: 0
     background: #fff
 
     \::slotted(a), ::slotted(a:link), ::slotted(a:visited)
-      +menuLink
+      +byu-menu-mixins.menuLink
 
     \::slotted(a.active)
       border-left: $activeItemBorder
       border-bottom: none
 
-      @media(min-width: $breakMd)
+      @media(min-width: vars.$breakMd)
         border-left: none
-        border-bottom: 3px solid $navy !important
+        border-bottom: 3px solid vars.$navy !important
 
     \::slotted(*:hover), ::slotted(*:focus)
-      background-color: $grey02
+      background-color: vars.$grey02
 
-      @media(min-width: $breakMd)
+      @media(min-width: vars.$breakMd)
         border-left: none
-        border-bottom: 3px solid $navy !important
+        border-bottom: 3px solid vars.$navy !important
 
-    @media(min-width: $breakMd)
+    @media(min-width: vars.$breakMd)
       padding-left: 5.5em
-      border-top: 1px solid $grey05
+      border-top: 1px solid vars.$grey05
 
   .constrain
     .byu-menu-items-wrapper

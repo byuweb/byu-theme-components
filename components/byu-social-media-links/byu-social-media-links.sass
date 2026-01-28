@@ -14,8 +14,8 @@
  * /    limitations under the License.
  * /
 
-@import ../shared-styles/vars
-@import byu-social-media-links-mixins
+@use "../shared-styles/vars"
+@use "byu-social-media-links-mixins"
 
 \:host
   .slot-wrapper
@@ -23,7 +23,7 @@
     flex-direction: row
 
     \::slotted(*)
-      +socialMediaIcon
+      +byu-social-media-links-mixins.socialMediaIcon
 
     //These all have a [slot] selector for backwards-compatibility. New icons don't need it.
     \::slotted(.facebook), ::slotted([slot="facebook"])

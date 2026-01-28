@@ -14,9 +14,12 @@
  * /    limitations under the License.
  * /
 
-@import ../shared-styles/helpers
-@import ../shared-styles/vars
-@import byu-header-mixins
+@use "sass:list"
+
+@use "sass:color"
+@use "../shared-styles/helpers"
+@use "../shared-styles/vars"
+@use "byu-header-mixins"
 
 $headerDividerColor: rgba(255, 255, 255, 0.45)
 $headerTextSubtle: rgba(255, 255, 255, 0.85)
@@ -29,38 +32,38 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
     font-size: 1.125rem
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.16)
     border-bottom: 1px solid #ddd
-    font-family: $font-heading
-    background: $byuNavy
+    font-family: vars.$font-heading
+    background: vars.$byuNavy
 
     a, a:link, a:visited
       color: #fff
       text-decoration: none
       transition: opacity 200ms ease
 
-    @media( min-width: $breakMd )
+    @media( min-width: vars.$breakMd )
       font-size: 1.5rem
 
     .byu-site-banner, .actionsHeightWrapper
-      background: $byuNavy
-      min-height: $fontSize48
+      background: vars.$byuNavy
+      min-height: vars.$fontSize48
 
       @supports(display: grid)
-        @media(min-width: $break0)
+        @media(min-width: vars.$break0)
           display: grid
           grid-template-columns: 4em auto
 
-        @media(min-width: $breakMdSm)
+        @media(min-width: vars.$breakMdSm)
           grid-template-columns: 4.75em auto
 
-        @media(min-width: $breakMd)
+        @media(min-width: vars.$breakMd)
           grid-template-columns: 4.75em auto min-content
 
       &.constrain
-        max-width: $breakLg
+        max-width: vars.$breakLg
         margin: 0 auto
 
     .byu-link
-      background: $byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em (center / 2.9em) auto no-repeat
+      background: vars.$byuNavy url("https://cdn.byu.edu/shared-icons/latest/logos/monogram-white.svg") 0.6em list.slash(center, 2.9em) auto no-repeat
       display: block
       height: 2em
       width: 4em
@@ -70,12 +73,12 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
         justify-self: end
 
       @supports(display: grid)
-        @media(min-width: $break0)
+        @media(min-width: vars.$break0)
           // flex: 0 0 5em
           // min-width: 3.5em
           height: auto
 
-        @media(min-width: $breakMdSm)
+        @media(min-width: vars.$breakMdSm)
           width: 4.75em
           background-position: 1em center
 
@@ -97,7 +100,7 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
         background: $headerDividerColor
 
       @supports(display: grid)
-        @media(min-width: $break0)
+        @media(min-width: vars.$break0)
           align-self: center
 
           // Line should be vertical if header is in horizontal layout
@@ -107,28 +110,28 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
             right: auto
             left: 0
             top: 15%
-        @media(min-width: $breakMdSm)
+        @media(min-width: vars.$breakMdSm)
           padding: 0.5em 1em
 
     // Title slots
     .byu-titles .subtitle[slot="site-title"]
-      +siteSubTitle
+      +byu-header-mixins.siteSubTitle
 
     .byu-titles [slot="site-title"]
-      +siteTitle
+      +byu-header-mixins.siteTitle
 
     #byu-titles-slot, .byu-titles-slot-wrapper
       display: flex
       flex-direction: column
 
     #byu-titles-slot::slotted(*)
-      +siteTitle
+      +byu-header-mixins.siteTitle
 
     // Subtitle AND supertitle (only difference is placement)
     #byu-titles-slot::slotted(*.subtitle)
-      +siteSubTitle
+      +byu-header-mixins.siteSubTitle
 
-      @media(max-width: $breakMdSm)
+      @media(max-width: vars.$breakMdSm)
         font-size: 14px
 
 
@@ -148,18 +151,18 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
   //********************
 
   .byu-action-id-search
-    font-size: $fontSize16
+    font-size: vars.$fontSize16
 
     a, svg
       font-size: 1rem
 
     @supports(display: grid)
-      @media(min-width: $break0)
+      @media(min-width: vars.$break0)
         grid-column: 1 / 3
         display: grid
         grid-template-columns: auto min-content
 
-      @media(min-width: $breakMd)
+      @media(min-width: vars.$breakMd)
         grid-column: 3 / 4
         display: flex
         flex-direction: row
@@ -167,7 +170,7 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
         align-items: center
         background: transparent none
 
-      @media(min-width: $breakMdLg)
+      @media(min-width: vars.$breakMdLg)
         font-size: 1rem
 
   //********************
@@ -188,20 +191,20 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
     top: 50%
     width: $menuButtonSize
     border: 1px solid $headerDividerColor
-    background: $hamburgerMenuBackgroundColor
+    background: vars.$hamburgerMenuBackgroundColor
     transition: background 200ms ease, transform 200ms ease
     background-position: center center
     color: #fff
 
     &:hover
-      background-color: mix($byuNavy, $royalWeb)
+      background-color: color.mix(vars.$byuNavy, vars.$royalWeb)
 
     &:focus
-      border-color: mix($byuNavy, #fff)
+      border-color: color.mix(vars.$byuNavy, #fff)
       outline: none
 
     &[aria-expanded=true]
-      background-color: $royalWeb
+      background-color: vars.$royalWeb
 
     &:before, &:after
       content: " "
@@ -232,7 +235,7 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
       opacity: 1
 
   .byu-header-el.js-enabled
-    @media( max-width: ($breakMd - $break0) )
+    @media( max-width: (vars.$breakMd - vars.$break0) )
       .byu-action-id-search, .byu-site-navigation, .byu-menu-el
         height: 0
         overflow: hidden
@@ -245,7 +248,7 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
         display: block
 
   .byu-header-el.js-enabled.menu-open
-    @media( max-width: ($breakMd - $break0) )
+    @media( max-width: (vars.$breakMd - vars.$break0) )
       .byu-action-id-search, .byu-site-navigation, .byu-menu-el
         height: auto
         display: inherit
@@ -260,31 +263,31 @@ $headerTextSubtle: rgba(255, 255, 255, 0.85)
     background: #fff
 
     \::slotted(*)
-      +actionButtonText
+      +byu-header-mixins.actionButtonText
 
     \::slotted(*:hover), ::slotted(*:focus)
-      background: mix($royalWeb, #fff, 90%)
-      text-shadow: 0 0 $spacing2 rgba($byuNavy, 0.75)
+      background: color.mix(vars.$royalWeb, #fff, 90%)
+      text-shadow: 0 0 vars.$spacing2 rgba(vars.$byuNavy, 0.75)
 
-    @media(min-width: $breakMdSm)
+    @media(min-width: vars.$breakMdSm)
       padding: 0.25em 0.85em
 
     @supports(display: grid)
-      @media(min-width: $break0)
+      @media(min-width: vars.$break0)
         padding: 0.65em
         grid-column: 1 / 2
         grid-row: 2 / 3
 
-      @media(min-width: $breakMd)
+      @media(min-width: vars.$breakMd)
         background: transparent
         order: 1
         padding: 0 0.5em
 
         a
-          background: $royalWeb
+          background: vars.$royalWeb
           padding: 0.25em 1em
 
-      @media(min-width: $breakMdLg)
+      @media(min-width: vars.$breakMdLg)
         padding: 0 1em
 
         a
@@ -298,14 +301,14 @@ byu-search
   position: relative
 
   @supports(display: grid)
-    @media(min-width: $break0)
+    @media(min-width: vars.$break0)
       grid-column: 1 / 3
 
-    @media(min-width: $breakMd)
+    @media(min-width: vars.$breakMd)
       min-width: 9em
       order: 3
 
-    @media(min-width: $breakLg)
+    @media(min-width: vars.$breakLg)
       min-width: 144px // Set px to match BrightSpot
 
 //********************
@@ -314,10 +317,10 @@ byu-search
 
 byu-user-info
   @supports(display: grid)
-    @media(min-width: $break0)
+    @media(min-width: vars.$break0)
       white-space: nowrap
 
-    @media(min-width: $breakMd)
+    @media(min-width: vars.$breakMd)
       background: transparent
       order: 2
       color: #fff
@@ -334,5 +337,5 @@ byu-user-info
         color: #fff
         white-space: nowrap
 
-    @media(min-width: $breakMdLg)
+    @media(min-width: vars.$breakMdLg)
       padding: 0 1em

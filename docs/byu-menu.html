@@ -3,8 +3,11 @@
 <html lang="en" id="html">
 <head>
     <script src="load-components.js"></script>
-    <link rel="stylesheet" href="lib/prism/prism.css" media="all">
-    <script type="text/javascript" src="lib/prism/prism.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-coy.min.css" media="all">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-javascript.min.js"></script>
     <script type="text/javascript" src="lib/bundle.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -69,6 +72,14 @@
         .hidden {
             display: none
         }
+
+        pre, code { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        pre { background: #f7f5f2; border: 1px solid #e6e1d8; border-radius: 6px; padding: 16px; overflow: auto; line-height: 1.5; }
+        code { background: #f7f5f2; padding: 2px 4px; border-radius: 4px; }
+        pre code { background: transparent; padding: 0; }
+        .demo-live { border: 1px solid #e6e1d8; border-radius: 6px; background: #fff; padding: 16px; margin: 16px 0 0; }
+        .demo-live + pre { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+        .demo-live + pre code { display: block; }
     </style>
     <title>Components - v2</title>
 </head>
@@ -83,6 +94,7 @@
             <a href="byu-search.html">Search</a>
             <a href="byu-user-info.html">User Login</a>
             <a href="byu-footer.html">Footer</a>
+            <a href="api.html">API</a>
             <a href="test.html">Test</a>
         </byu-menu>
     </byu-header>
@@ -97,9 +109,8 @@
             Note that this is a css selector, not a class name, so if you're using a class name you'll need to
             prefix it with a '.'</p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <span slot="site-title">Site Title</span>
                     <byu-menu slot="nav" active-selector=".is-active">
                         <a class="is-active" href="javascript: void 0">Link 1</a>
@@ -107,13 +118,21 @@
                         <a href="javascript: void 0">Link 3</a>
                     </byu-menu>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Site Title&lt;/span&gt;
+  &lt;byu-menu slot=&quot;nav&quot; active-selector=&quot;.is-active&quot;&gt;
+    &lt;a class=&quot;is-active&quot; href=&quot;javascript: void 0&quot;&gt;Link 1&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 2&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 3&lt;/a&gt;
+  &lt;/byu-menu&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h2>Six Links</h2>
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <span slot="site-title">Components Demo Site</span>
                     <byu-menu slot="nav">
                         <a class="active" href="javascript: void 0">Link 1</a>
@@ -124,8 +143,20 @@
                         <a href="javascript: void 0">Link 6</a>
                     </byu-menu>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Components Demo Site&lt;/span&gt;
+  &lt;byu-menu slot=&quot;nav&quot;&gt;
+    &lt;a class=&quot;active&quot; href=&quot;javascript: void 0&quot;&gt;Link 1&lt;/a&gt;
+    &lt;a class=&quot;long-link&quot; href=&quot;javascript: void 0&quot;&gt;A Link with a Very Long Title&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 3&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 4&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 5&lt;/a&gt;
+    &lt;a href=&quot;javascript: void 0&quot;&gt;Link 6&lt;/a&gt;
+  &lt;/byu-menu&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h2>Dropdown Menus</h2>
         <p>This version of the <code>byu-menu</code> does not restrict the usage of dropdown menus. Though, because
@@ -136,9 +167,8 @@
             proof-of-concept and not accessible or mobile friendly</strong>. Do not copy this code without the
             appropriate edits.</p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <span slot="site-title">Components Demo Site</span>
                     <byu-menu slot="nav" active-selector=".is-active">
                         <a class="is-active" href="#">Link 1</a>
@@ -156,50 +186,69 @@
                         </div>
                     </byu-menu>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;span slot=&quot;site-title&quot;&gt;Components Demo Site&lt;/span&gt;
+  &lt;byu-menu slot=&quot;nav&quot; active-selector=&quot;.is-active&quot;&gt;
+    &lt;a class=&quot;is-active&quot; href=&quot;#&quot;&gt;Link 1&lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;Link 2&lt;/a&gt;
+    &lt;a href=&quot;#&quot;&gt;Link 3&lt;/a&gt;
+    &lt;div class=&quot;dropdown&quot;&gt;
+      &lt;button class=&quot;dropdown-btn&quot;&gt;Dropdown&lt;/button&gt;
+      &lt;div class=&quot;dropdown-child&quot;&gt;
+        &lt;a href=&quot;http://wwww.yourdonain.com/page1.html&quot;&gt;Child menu 1&lt;/a&gt;
+        &lt;a href=&quot;http://wwww.yourdonain.com/page2.html&quot;&gt;Child menu 2&lt;/a&gt;
+        &lt;a href=&quot;http://wwww.yourdonain.com/page3.html&quot;&gt;Child menu 3&lt;/a&gt;
+        &lt;a href=&quot;http://wwww.yourdonain.com/page4.html&quot;&gt;Child menu 4&lt;/a&gt;
+        &lt;a href=&quot;http://wwww.yourdonain.com/page5.html&quot;&gt;Child menu 5&lt;/a&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/byu-menu&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <p>This is the CSS we've included on this page to make the dropdown function. This example required no Javascript.</p>
 
         <pre><code class="language-css">
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            z-index: 10;
-        }
-        .dropdown-btn {
-            border: none;
-            color: #002E5D;
-            background-color: white;
-            font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
-            font-size: 16px;
-            height: 32px;
-        }
-        .dropdown-btn:hover {
-            background-color: #e6e6e6;
-        }
-        .dropdown-child {
-            display: none;
-            min-width: 200px;
-            position: absolute;
-            background-color: white;
-            box-shadow: 0 4px 8px #c5c5c5;
-        }
-        .dropdown-child a {
-            color: #002e5d;
-            font-size: 16px;
-            padding: 12px;
-            text-decoration: none;
-            display: block;
-        }
-        .dropdown-child a:hover {
-            background-color: #e6e6e6;
-        }
-        .dropdown:hover .dropdown-child {
-            display: block;
-            background-color: white;
-        }
-        </code></pre>
+.dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+.dropdown-btn {
+  border: none;
+  color: #002E5D;
+  background-color: white;
+  font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  height: 32px;
+}
+.dropdown-btn:hover {
+  background-color: #e6e6e6;
+}
+.dropdown-child {
+  display: none;
+  min-width: 200px;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px #c5c5c5;
+}
+.dropdown-child a {
+  color: #002e5d;
+  font-size: 16px;
+  padding: 12px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-child a:hover {
+  background-color: #e6e6e6;
+}
+.dropdown:hover .dropdown-child {
+  display: block;
+  background-color: white;
+}
+</code></pre>
 
     </div>
     <byu-footer></byu-footer>

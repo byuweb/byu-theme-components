@@ -14,8 +14,8 @@
  /    limitations under the License.
  /
 
-@import '../shared-styles/vars'
-@import '../shared-styles/helpers'
+@use '../shared-styles/vars'
+@use '../shared-styles/helpers'
 
 //********************
 // Sign in
@@ -23,21 +23,21 @@
 
 \:host
   .byu-id
-    background-color: $white
+    background-color: vars.$white
     padding: 0.65em
-    color: $byuNavy !important
+    color: vars.$byuNavy !important
     text-align: right
     height: 100%
     box-sizing: border-box
     grid-row: 2 / 3
 
-    @media(min-width: $breakMdSm)
+    @media(min-width: vars.$breakMdSm)
       padding: 0.65em 1.1em
 
     a, a:link, a:visited, ::slotted(*)
-      color: $byuNavy !important
+      color: vars.$byuNavy !important
       display: inline-block
-      padding: $spacing1 0
+      padding: vars.$spacing1 0
       text-decoration: none
 
     svg
@@ -50,10 +50,10 @@
 
     @supports(display: grid)
 
-      @media(min-width: $breakSm)
+      @media(min-width: vars.$breakSm)
         white-space: nowrap
 
-      @media(min-width: $breakMd)
+      @media(min-width: vars.$breakMd)
         background: transparent
         order: 2
         color: #fff !important
@@ -70,5 +70,5 @@
           color: #fff !important
           white-space: nowrap
 
-      @media(min-width: $breakMdLg)
+      @media(min-width: vars.$breakMdLg)
         padding: 0 1em

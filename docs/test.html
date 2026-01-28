@@ -4,8 +4,11 @@
 
 <head>
     <script src="load-components.js"></script>
-    <link rel="stylesheet" href="lib/prism/prism.css" media="all">
-    <script type="text/javascript" src="lib/prism/prism.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-coy.min.css" media="all">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-javascript.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
     html, body {
@@ -25,6 +28,14 @@
         max-width: 1200px;
         margin: 0 auto;
     }
+
+        pre, code { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        pre { background: #f7f5f2; border: 1px solid #e6e1d8; border-radius: 6px; padding: 16px; overflow: auto; line-height: 1.5; }
+        code { background: #f7f5f2; padding: 2px 4px; border-radius: 4px; }
+        pre code { background: transparent; padding: 0; }
+        .demo-live { border: 1px solid #e6e1d8; border-radius: 6px; background: #fff; padding: 16px; margin: 16px 0 0; }
+        .demo-live + pre { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+        .demo-live + pre code { display: block; }
     </style>
     <title>Components - v2</title>
 </head>
@@ -53,6 +64,7 @@
             <a href="byu-search.html">Search</a>
             <a href="byu-user-info.html">User Login</a>
             <a href="byu-footer.html">Footer</a>
+            <a href="api.html">API</a>
             <a href="test.html" class="is-active">Test</a>
         </byu-menu>
     </byu-header>

@@ -1,8 +1,9 @@
 {
   "plugins": ["lit"],
   "extends": ["plugin:lit/recommended"],
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
   "parserOptions": {
+    "requireConfigFile": false,
     "ecmaFeatures": {
       "legacyDecorators": true
     },

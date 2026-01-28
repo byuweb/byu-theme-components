@@ -14,7 +14,7 @@
  /    limitations under the License.
  /
 
-@import '../shared-styles/vars'
+@use '../shared-styles/vars'
 
 $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't word wrap
 
@@ -22,13 +22,13 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
   font-size: 16px !important
 
   .university-footer
-    background-color: $byuNavy
+    background-color: vars.$byuNavy
     text-align: center
-    font-family: $font-text
-    font-weight: $font-weight-semi-bold
+    font-family: vars.$font-text
+    font-weight: vars.$font-weight-semi-bold
     font-size: 13.8px
-    line-height: $fontSize24
-    color: $white !important
+    line-height: vars.$fontSize24
+    color: vars.$white !important
     display: flex
     justify-content: center
     align-items: center
@@ -46,7 +46,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
   .university-logo-wrapper
     max-width: 1200px
     width: 100%
-    padding: $spacing1 $spacing2
+    padding: vars.$spacing1 vars.$spacing2
     box-sizing: border-box
 
   .university-logo
@@ -63,7 +63,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
 
   .university-info
     display: flex
-    margin-top: $spacing2
+    margin-top: vars.$spacing2
     flex-direction: column
     align-items: center
     line-height: 17px
@@ -80,7 +80,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
     box-sizing: border-box
     font-size: 10px
 
-  @media (min-width: $breakMd)
+  @media (min-width: vars.$breakMd)
 
     .university-info
       flex: auto
@@ -110,7 +110,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
 
         &::before
           display: inline-block
-          color: $white !important
+          color: vars.$white !important
           content: '|'
           text-align: center
           width: 1em
@@ -125,14 +125,14 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
 
         &::before
           display: inline-block
-          color: $white !important
+          color: vars.$white !important
           content: '|'
           text-align: center
           width: 1em
 
-  @media (min-width: $breakXl)
+  @media (min-width: vars.$breakXl)
     .university-footer
-      padding: $spacing4
+      padding: vars.$spacing4
 
     .university-footer-lt-1440
       display: none
@@ -142,10 +142,10 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
 
     .university-info
       margin-left: 0
-      margin-top: $spacing2
+      margin-top: vars.$spacing2
 
   .site-footer-wrapper
-    background-color: $white
+    background-color: vars.$white
 
   .site-footer
     height: auto
@@ -170,9 +170,9 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
 
   @media (max-width: 680px)
     .site-footer::slotted
-      padding: 0 $spacing4
+      padding: 0 vars.$spacing4
 
-  $calcSubtractWidth: ($spacing2 + $spacing3) * 2
+  $calcSubtractWidth: (vars.$spacing2 + vars.$spacing3) * 2
 
   @media (min-width: 680px)
     .site-footer
@@ -191,7 +191,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
   $columnBaseWidth: 25%
   $columnMaxWidth: 30%
 
-  @media (min-width: $breakMdLg)
+  @media (min-width: vars.$breakMdLg)
     .site-footer
       flex-wrap: nowrap
       justify-content: center
@@ -208,7 +208,7 @@ $tabletBreak: 1024px // Put exact px to match Brightspot and so info doesn't wor
         width: calc(#{$columnBaseWidth} * 3 - #{$calcSubtractWidth})
         max-width: calc(100% - #{$columnMaxWidth} - #{$calcSubtractWidth})
 
-  @media (min-width: $breakXl)
+  @media (min-width: vars.$breakXl)
     .site-footer
       margin: 0 auto
 

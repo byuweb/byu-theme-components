@@ -1,4 +1,5 @@
-@import byu-header-mixins
+@use "../shared-styles/vars" as *
+@use "byu-header-mixins"
 
 byu-header [slot=site-title] a, byu-header a[slot=site-title]
   color: $white
@@ -8,7 +9,7 @@ byu-header
   z-index: 1
 
   a[slot="site-title"], [slot="site-title"] a
-    @include siteTitle()
+    @include byu-header-mixins.siteTitle()
 
   [slot="actions"]
     color: $white

@@ -3,11 +3,14 @@
 <html lang="en" id="html">
 <head>
     <script src="load-components.js"></script>
-    <link rel="stylesheet" href="lib/prism/prism.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-coy.min.css" media="all">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wdth,wght@0,75,100..700;1,75,100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="lib/prism/prism.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-javascript.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         html, body {
@@ -27,6 +30,14 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        pre, code { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        pre { background: #f7f5f2; border: 1px solid #e6e1d8; border-radius: 6px; padding: 16px; overflow: auto; line-height: 1.5; }
+        code { background: #f7f5f2; padding: 2px 4px; border-radius: 4px; }
+        pre code { background: transparent; padding: 0; }
+        .demo-live { border: 1px solid #e6e1d8; border-radius: 6px; background: #fff; padding: 16px; margin: 16px 0 0; }
+        .demo-live + pre { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+        .demo-live + pre code { display: block; }
     </style>
     <title>Components - v2</title>
 </head>
@@ -46,6 +57,7 @@
             <a href="byu-search.html">Search</a>
             <a href="byu-user-info.html">User Login</a>
             <a href="byu-footer.html">Footer</a>
+            <a href="api.html">API</a>
             <a href="test.html">Test</a>
         </byu-menu>
     </byu-header>
@@ -53,24 +65,28 @@
         <h1>BYU Theme Components</h1>
         <h2>Getting Started</h2>
         <p>
-            Add the following to your <code class="language-html">&lt;head&gt;</code>:
+            Add the following to your <pre><code class="language-html">
+&lt;head&gt;
+</code></pre>:
         </p>
         <pre><code class="language-html">
-            &lt;script async src="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js"&gt;&lt;/script&gt;
-            &lt;link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css" media="all"&gt;
-            &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
-            &lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
-            &lt;link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wdth,wght@0,75,100..700;1,75,100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"&gt;
-            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-        </code></pre>
+&lt;script async src="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.js"&gt;&lt;/script&gt;
+&lt;link rel="stylesheet" href="https://cdn.byu.edu/byu-theme-components/2.x.x/byu-theme-components.min.css" media="all"&gt;
+&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wdth,wght@0,75,100..700;1,75,100..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+</code></pre>
         <p>Then, add this to your page where you want the header to appear:</p>
         <pre><code class="language-html">
-            &lt;byu-header&gt;
-                &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
-            &lt;/byu-header&gt;
-        </code></pre>
+&lt;byu-header&gt;
+  &lt;h1 slot="site-title"&gt;Your Site Title Here&lt;/h1&gt;
+&lt;/byu-header&gt;
+</code></pre>
         <p>And this where you want the footer:</p>
-        <pre><code class="language-html">&lt;byu-footer&gt;&lt;/byu-footer&gt;</code></pre>
+        <pre><code class="language-html">
+&lt;byu-footer&gt;&lt;/byu-footer&gt;
+</code></pre>
         <h2 id="sticky-footer">Footer</h2>
 
         <p>We strongly recommend adding some code to make the footer "stick" to the bottom of the window even when there
@@ -82,10 +98,10 @@
             <code>#FAFAFA</code>. You can use the following CSS to do that: </p>
 
         <pre><code class="language-css">
-            html, body {
-                background: #FAFAFA;
-            }
-        </code></pre>
+html, body {
+  background: #FAFAFA;
+}
+</code></pre>
 
         <h2>Using Fonts</h2>
 
@@ -95,10 +111,10 @@
         </p>
 
         <pre><code class="language-css">
-            html, body {
-                font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
-            }
-        </code></pre>
+html, body {
+  font-family: 'IBM Plex Sans', Helvetica, Arial, sans-serif;
+}
+</code></pre>
     </div>
     <byu-footer></byu-footer>
 </div>

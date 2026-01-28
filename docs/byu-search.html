@@ -3,8 +3,11 @@
 <html lang="en" id="html">
 <head>
     <script src="load-components.js"></script>
-    <link rel="stylesheet" href="lib/prism/prism.css" media="all">
-    <script type="text/javascript" src="lib/prism/prism.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/themes/prism-coy.min.css" media="all">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/prism.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-markup.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-css.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.30.0/components/prism-javascript.min.js"></script>
     <script type="text/javascript" src="lib/bundle.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -27,6 +30,14 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+
+        pre, code { font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+        pre { background: #f7f5f2; border: 1px solid #e6e1d8; border-radius: 6px; padding: 16px; overflow: auto; line-height: 1.5; }
+        code { background: #f7f5f2; padding: 2px 4px; border-radius: 4px; }
+        pre code { background: transparent; padding: 0; }
+        .demo-live { border: 1px solid #e6e1d8; border-radius: 6px; background: #fff; padding: 16px; margin: 16px 0 0; }
+        .demo-live + pre { margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+        .demo-live + pre code { display: block; }
     </style>
     <title>Components - v2</title>
 </head>
@@ -41,6 +52,7 @@
             <a href="byu-search.html" class="active">Search</a>
             <a href="byu-user-info.html">User Login</a>
             <a href="byu-footer.html">Footer</a>
+            <a href="api.html">API</a>
             <a href="test.html">Test</a>
         </byu-menu>
     </byu-header>
@@ -70,47 +82,65 @@
             if something goes wrong while downloading and executing the Javascript which powers <code>byu-search</code>.
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search"></byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot;&gt;&lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" placeholder="Site Search"></byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; placeholder=&quot;Site Search&quot;&gt;&lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search">
                         <input type="search" placeholder="Site Search" />
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot;&gt;
+    &lt;input type=&quot;search&quot; placeholder=&quot;Site Search&quot; /&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <p>
             In many cases, your input will need to be nested in another element, such as a <code>form</code>:
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search">
                         <form>
                             <input type="search" placeholder="Nested Search" />
                         </form>
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot;&gt;
+    &lt;form&gt;
+      &lt;input type=&quot;search&quot; placeholder=&quot;Nested Search&quot; /&gt;
+    &lt;/form&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <p>
             By default, <code>byu-search</code> will search for the first child input and style it. If you need to
@@ -119,9 +149,8 @@
             attribute to a CSS selector which will match your input:
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" search-input-selector=".this-is-my-real-input">
                         <!--This input will get hidden and won't be styled-->
                         <input type="text" placeholder="I shouldn't be showing" />
@@ -130,8 +159,18 @@
                         <input type="text" class="this-is-my-real-input" placeholder="Real Search">
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; search-input-selector=&quot;.this-is-my-real-input&quot;&gt;
+    &lt;!--This input will get hidden and won&#x27;t be styled--&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;I shouldn&#x27;t be showing&quot; /&gt;
+
+    &lt;!--This one will get styled--&gt;
+    &lt;input type=&quot;text&quot; class=&quot;this-is-my-real-input&quot; placeholder=&quot;Real Search&quot;&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <p>
             Beware, though, because this is a two-edged sword! If your <code>search-input-selector</code> value doesn't
@@ -140,15 +179,20 @@
             developer console to warn you about what's happening:
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" search-input-selector=".this-wont-match-anything">
                         <input type="text" placeholder="Real Search">
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; search-input-selector=&quot;.this-wont-match-anything&quot;&gt;
+    &lt;input type=&quot;text&quot; placeholder=&quot;Real Search&quot;&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h1>Handling Searches</h1>
 
@@ -183,9 +227,8 @@
             HTML! Using <code>action="submit-form"</code>, you can enclose your search element in a form.
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" action="submit-form">
                         <!-- When you run this search, the page will reload and you should see the query in the URL. -->
                         <form method="get" action="#action-submit-form">
@@ -194,8 +237,18 @@
                         </form>
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; action=&quot;submit-form&quot;&gt;
+    &lt;!-- When you run this search, the page will reload and you should see the query in the URL. --&gt;
+    &lt;form method=&quot;get&quot; action=&quot;#action-submit-form&quot;&gt;
+      &lt;input type=&quot;search&quot; name=&quot;searchTerms&quot; /&gt;
+      &lt;input type=&quot;hidden&quot; name=&quot;hiddenValue&quot; value=&quot;Some hidden value that your form needs&quot; /&gt;
+    &lt;/form&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <a id="action-click"></a>
         <h3><code>action="click"</code></h3>
@@ -210,9 +263,8 @@
             or <code>input type="button"</code>, and call <code>click()</code> on it:
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" action="click">
                         <div>
                             <input type="search" />
@@ -220,17 +272,25 @@
                         </div>
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; action=&quot;click&quot;&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;search&quot; /&gt;
+      &lt;button onclick=&quot;alert(&#x27;simulated a click on My Search Button&#x27;)&quot;&gt;My Search Button&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <p>
             If you need to customize the element that is clicked, you can pass a CSS selector as the
             <code>actionTarget</code> attribute.
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" action="click" action-target=".real">
                         <div>
                             <input type="search" />
@@ -239,8 +299,18 @@
                         </div>
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; action=&quot;click&quot; action-target=&quot;.real&quot;&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;search&quot; /&gt;
+      &lt;button onclick=&quot;alert(&#x27;this shouldn\&#x27;t ever run&#x27;)&quot;&gt;Bad Button&lt;/button&gt;
+      &lt;button class=&quot;real&quot; onclick=&quot;alert(&#x27;the second button was clicked&#x27;)&quot;&gt;real button&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h4>Caveats/Limitations</h4>
 
@@ -254,9 +324,8 @@
             <code>action="navigate"</code>.
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" action="click" action-target=".link">
                         <div>
                             <input type="search" />
@@ -264,8 +333,17 @@
                         </div>
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; action=&quot;click&quot; action-target=&quot;.link&quot;&gt;
+    &lt;div&gt;
+      &lt;input type=&quot;search&quot; /&gt;
+      &lt;a class=&quot;link&quot; href=&quot;https://example.com/potentially-malicious-page&quot;&gt;&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h3><code>action="navigate"</code></h3>
 
@@ -278,14 +356,18 @@
             <code>actionTarget</code> to <code>"https://google.com/search?q=${search}"</code>.
         </p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search" action="navigate"
                                 action-target="https://google.com/search?q=${search}"></byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot; action=&quot;navigate&quot;
+  action-target=&quot;https://google.com/search?q=${search}&quot;&gt;&lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
         <h2>Custom Actions</h2>
 
@@ -327,8 +409,7 @@
         //I'm using document.write here to circumvent a Chrome bug dealing with the interaction between scripts and templates.
         //  I'm pretty sure it's related to https://bugs.chromium.org/p/chromium/issues/detail?id=572693
         document.write('' +
-            '<demo-snippet>' +
-            '<template>' +
+            '<div class="demo-live">' +
             '<byu-header>\n' +
             '    <byu-search slot="search" onbyusearch="searchCallback" id="onsearch-demo"></byu-search>\n' +
             '</byu-header>\n' +
@@ -337,8 +418,17 @@
             '        alert(\'Searched for \' + event.detail.search + \' using \' + this.id);\n' +
             '    }\n' +
             '</scr' + 'ipt>\n' +
-            '</template>' +
-            '</demo-snippet>'
+            '</div>' +
+            '<pre><code class="language-html">' +
+            '&lt;byu-header&gt;\n' +
+            '    &lt;byu-search slot=&quot;search&quot; onbyusearch=&quot;searchCallback&quot; id=&quot;onsearch-demo&quot;&gt;&lt;/byu-search&gt;\n' +
+            '&lt;/byu-header&gt;\n' +
+            '&lt;script&gt;\n' +
+            '    function searchCallback(event) {\n' +
+            '        alert(&quot;Searched for &quot; + event.detail.search + &quot; using &quot; + this.id);\n' +
+            '    }\n' +
+            '&lt;/script&gt;' +
+            '</code></pre>'
         )
         </script>
 
@@ -355,8 +445,7 @@
         //I'm using document.write here to circumvent a Chrome bug dealing with the interaction between scripts and templates.
         //  I'm pretty sure it's related to https://bugs.chromium.org/p/chromium/issues/detail?id=572693
         document.write(
-            '<demo-snippet>' +
-            '<template>\n' +
+            '<div class="demo-live">' +
             '<byu-header>\n' +
             '    <byu-search slot="search" id="add-listener-demo"></byu-search>\n' +
             '</byu-header>\n' +
@@ -366,8 +455,18 @@
             '        alert(\'Searched for \' + event.detail.search + \' using \' + this.id + \' and addEventListener\');\n' +
             '    });\n' +
             '</scr' + 'ipt>\n' +
-            '</template>' +
-            '</demo-snippet>')
+            '</div>' +
+            '<pre><code class="language-html">' +
+            '&lt;byu-header&gt;\n' +
+            '    &lt;byu-search slot=&quot;search&quot; id=&quot;add-listener-demo&quot;&gt;&lt;/byu-search&gt;\n' +
+            '&lt;/byu-header&gt;\n' +
+            '&lt;script&gt;\n' +
+            '    var searchElement = document.getElementById(&quot;add-listener-demo&quot;);\n' +
+            '    searchElement.addEventListener(&quot;byu-search&quot;, function(event) {\n' +
+            '        alert(&quot;Searched for &quot; + event.detail.search + &quot; using &quot; + this.id + &quot; and addEventListener&quot;);\n' +
+            '    });\n' +
+            '&lt;/script&gt;' +
+            '</code></pre>')
         </script>
 
         <p>
@@ -388,12 +487,11 @@
         //I'm using document.write here to circumvent a Chrome bug dealing with the interaction between scripts and templates.
         //  I'm pretty sure it's related to https://bugs.chromium.org/p/chromium/issues/detail?id=572693
         document.write(
-            '<demo-snippet>' +
-            '<template>\n' +
+            '<div class="demo-live">' +
             '<byu-header>\n' +
             '    <byu-search slot="search" id="cancel-event-demo" action="click">\n' +
             '        <input type="search"/>\n' +
-            '        <button onclick="alert(\'Searched using a click\')"></button>\n' +
+            '        <button onclick="alert(\\'Searched using a click\\')"></button>\n' +
             '    </byu-search>\n' +
             '</byu-header>\n' +
             '<scr' + 'ipt>\n' +
@@ -401,27 +499,48 @@
             '    searchElement.addEventListener(\'byu-search\', function(event) {\n' +
             '        if(event.detail.search === "Utah Football Rocks") {\n' +
             '            event.preventDefault();\n' +
-            '            alert("No, it doesn\'t");\n' +
+            '            alert("No, it doesn\\'t");\n' +
             '        }\n' +
             '    });\n' +
             '</scr' + 'ipt>\n' +
-            '</template>' +
-            '</demo-snippet>')
+            '</div>' +
+            '<pre><code class="language-html">' +
+            '&lt;byu-header&gt;\n' +
+            '    &lt;byu-search slot=&quot;search&quot; id=&quot;cancel-event-demo&quot; action=&quot;click&quot;&gt;\n' +
+            '        &lt;input type=&quot;search&quot;/&gt;\n' +
+            '        &lt;button onclick=&quot;alert(\\'Searched using a click\\')&quot;&gt;&lt;/button&gt;\n' +
+            '    &lt;/byu-search&gt;\n' +
+            '&lt;/byu-header&gt;\n' +
+            '&lt;script&gt;\n' +
+            '    var searchElement = document.getElementById(&quot;cancel-event-demo&quot;);\n' +
+            '    searchElement.addEventListener(&quot;byu-search&quot;, function(event) {\n' +
+            '        if(event.detail.search === &quot;Utah Football Rocks&quot;) {\n' +
+            '            event.preventDefault();\n' +
+            '            alert(&quot;No, it doesn\\'t&quot;);\n' +
+            '        }\n' +
+            '    });\n' +
+            '&lt;/script&gt;' +
+            '</code></pre>')
         </script>
 
         <h2><code>oninput</code> Event</h2>
         <p>It is possible to be notified when the search input value has changed using the standard <code>input</code>
             event. This can be useful for external scripts such as AJAX suggestions.</p>
 
-        <demo-snippet>
-            <template>
-                <byu-header>
+        <div class="demo-live">
+<byu-header>
                     <byu-search slot="search">
                         <input type="search" oninput="searchChanged()">
                     </byu-search>
                 </byu-header>
-            </template>
-        </demo-snippet>
+</div>
+<pre><code class="language-html">
+&lt;byu-header&gt;
+  &lt;byu-search slot=&quot;search&quot;&gt;
+    &lt;input type=&quot;search&quot; oninput=&quot;searchChanged()&quot;&gt;
+  &lt;/byu-search&gt;
+&lt;/byu-header&gt;
+</code></pre>
 
 
     </div>
