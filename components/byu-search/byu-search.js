@@ -253,7 +253,7 @@ export class BYUSearch extends LitElement {
             <label class="byu-search-label default-byu-search-form" for="site-search" id="byu-site-search-label">Search</label>
             <input type="text" id="byu-site-search" class="default-byu-search-form" name="q" aria-label="Site search" placeholder="${this.placeholder}">
         </slot>
-        <button class="byu-search-btn" @click="${this.search}">
+        <button class="byu-search-btn" aria-label="Search" @click="${this.search}">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                 <style>.st{stroke-width:10;fill:none;stroke:currentColor;stroke-linecap:round;}</style>
                 <circle class="st" cx="45.5" cy="45.5" r="24.5"/><path class="st" d="M63 63l16 16"/>
