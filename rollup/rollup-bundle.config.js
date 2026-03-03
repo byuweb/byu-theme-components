@@ -37,6 +37,11 @@ export default {
     }),
     multiEntry(),
     postcss({
+      use: [
+        ['sass', {
+          silenceDeprecations: ['legacy-js-api']
+        }]
+      ],
       plugins: [
         autoprefixer,
         cssnano

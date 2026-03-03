@@ -33,6 +33,16 @@ documentation and code samples. If you're using Drupal or Wordpress, the communi
 download and install. However, one of the primary goals and benefits of using a web components implementation is that
 you don't need to use a specific CMS (or any CMS at all) to utilize the components.
 
+### Local Development
+
+Use Node.js 22 LTS (see [`.nvmrc`](.nvmrc)).
+
+```bash
+nvm use
+npm install
+npm run serve
+```
+
 ## CDN Integration
 
 This repository is integrated with the BYU Web Content Delivery Network (cdn) at cdn.byu.edu. This means that every
