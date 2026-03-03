@@ -14,9 +14,10 @@
  * /    limitations under the License.
  * /
 
-@import ../shared-styles/helpers
-@import ../shared-styles/vars
-@import byu-header-mixins
+@use "sass:color"
+@use "../shared-styles/helpers" as *
+@use "../shared-styles/vars" as *
+@use "byu-header-mixins" as *
 
 
 \:host
@@ -186,10 +187,10 @@
     color: #fff
 
     &:hover
-      background-color: mix($byuNavy, $royalWeb)
+      background-color: color.mix($byuNavy, $royalWeb)
 
     &:focus
-      border-color: mix($byuNavy, #fff)
+      border-color: color.mix($byuNavy, #fff)
       outline: none
 
     &[aria-expanded=true]
@@ -255,7 +256,7 @@
       +actionButtonText
 
     \::slotted(*:hover), ::slotted(*:focus)
-      background: mix($royalWeb, #fff, 90%)
+      background: color.mix($royalWeb, #fff, 90%)
       text-shadow: 0 0 $spacing2 rgba($byuNavy, 0.75)
 
     @media(min-width: $breakMdSm)
