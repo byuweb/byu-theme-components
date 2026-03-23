@@ -505,9 +505,9 @@ const Lr=wr`
     */
     code[class*="language-"],
     pre[class*="language-"] {
-    color: black;
+    color: #111827;
     background: none;
-    text-shadow: 0 1px white;
+    text-shadow: none;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
     white-space: pre;
@@ -554,7 +554,7 @@ const Lr=wr`
 
     :not(pre) > code[class*="language-"],
     pre[class*="language-"] {
-    background: #f5f2f0;
+    background: #f8fafc;
     }
 
     /* Inline code */
@@ -568,11 +568,11 @@ const Lr=wr`
     .token.prolog,
     .token.doctype,
     .token.cdata {
-    color: slategray;
+    color: #475569;
     }
 
     .token.punctuation {
-    color: #999;
+    color: #334155;
     }
 
     .namespace {
@@ -586,7 +586,7 @@ const Lr=wr`
     .token.constant,
     .token.symbol,
     .token.deleted {
-    color: #905;
+    color: #9f1239;
     }
 
     .token.selector,
@@ -595,7 +595,7 @@ const Lr=wr`
     .token.char,
     .token.builtin,
     .token.inserted {
-    color: #690;
+    color: #166534;
     }
 
     .token.operator,
@@ -603,24 +603,24 @@ const Lr=wr`
     .token.url,
     .language-css .token.string,
     .style .token.string {
-    color: #a67f59;
-    background: hsla(0, 0%, 100%, .5);
+    color: #92400e;
+    background: transparent;
     }
 
     .token.atrule,
     .token.attr-value,
     .token.keyword {
-    color: #07a;
+    color: #1d4ed8;
     }
 
     .token.function {
-    color: #DD4A68;
+    color: #9d174d;
     }
 
     .token.regex,
     .token.important,
     .token.variable {
-    color: #e90;
+    color: #b45309;
     }
 
     .token.important,
@@ -655,14 +655,16 @@ nr({_template:wr`
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
                     0 1px 5px 0 rgba(0, 0, 0, 0.12),
                     0 3px 1px -2px rgba(0, 0, 0, 0.2);
+        border: 1px solid #CBD5E1;
         margin-bottom: 40px;
         @apply --demo-snippet;
       }
 
       .demo {
         display: block;
-        border-bottom: 1px solid #e0e0e0;
-        background-color: white;
+        border-bottom: 1px solid #CBD5E1;
+        background-color: #FFFFFF;
+        color: #111827;
         margin: 0;
         padding: 20px;
         @apply --demo-snippet-demo;
@@ -670,7 +672,8 @@ nr({_template:wr`
 
       .code-container {
         margin: 0;
-        background-color: #f5f5f5;
+        background-color: #F8FAFC;
+        color: #111827;
         font-size: 13px;
         overflow: auto;
         position: relative;
@@ -681,7 +684,8 @@ nr({_template:wr`
       .code {
         padding: 20px;
         margin: 0;
-        background-color: var(--google-grey-100);
+        background-color: #F8FAFC;
+        color: #111827;
         font-size: 13px;
         overflow: auto;
         @apply --demo-snippet-code;
@@ -698,7 +702,8 @@ nr({_template:wr`
         text-transform: uppercase;
         border: none;
         cursor: pointer;
-        background: #e0e0e0;
+        background: #E2E8F0;
+        color: #111827;
       }
     </style>
 

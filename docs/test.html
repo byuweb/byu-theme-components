@@ -44,7 +44,7 @@
             <a slot="logout" href="#logout">Sign Out</a>
         </byu-user-info>
         <byu-search slot="search">
-            <input type="search" placeholder="Nested Search">
+            <input type="search" placeholder="Nested Search" aria-label="Nested Search">
         </byu-search>
         <byu-menu slot="nav" active-selector=".is-active">
             <a href="index.html">Home</a>
@@ -62,7 +62,7 @@
             can be done from different types of browser before new releases.
         </p>
         <p>To test a specific branch, just add <code>?branch=BRANCH_NAME</code> to the end of the URL for this site.</p>
-        <script type="text/javascript" lang="javascript">
+        <script>
 
         // this code is used to test that the "slot change" event on byu-user-info
         // actually fires correctly
