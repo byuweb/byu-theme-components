@@ -90,7 +90,7 @@
             <template>
                 <byu-header>
                     <byu-search slot="search">
-                        <input type="search" placeholder="Site Search" />
+                        <input type="search" placeholder="Site Search" aria-label="Site Search" />
                     </byu-search>
                 </byu-header>
             </template>
@@ -105,7 +105,7 @@
                 <byu-header>
                     <byu-search slot="search">
                         <form>
-                            <input type="search" placeholder="Nested Search" />
+                            <input type="search" placeholder="Nested Search" aria-label="Nested Search" />
                         </form>
                     </byu-search>
                 </byu-header>
@@ -124,10 +124,10 @@
                 <byu-header>
                     <byu-search slot="search" search-input-selector=".this-is-my-real-input">
                         <!--This input will get hidden and won't be styled-->
-                        <input type="text" placeholder="I shouldn't be showing" />
+                        <input type="text" placeholder="I shouldn't be showing" aria-label="Hidden Search Example" />
 
                         <!--This one will get styled-->
-                        <input type="text" class="this-is-my-real-input" placeholder="Real Search">
+                        <input type="text" class="this-is-my-real-input" placeholder="Real Search" aria-label="Real Search">
                     </byu-search>
                 </byu-header>
             </template>
@@ -144,7 +144,7 @@
             <template>
                 <byu-header>
                     <byu-search slot="search" search-input-selector=".this-wont-match-anything">
-                        <input type="text" placeholder="Real Search">
+                        <input type="text" placeholder="Real Search" aria-label="Real Search">
                     </byu-search>
                 </byu-header>
             </template>
@@ -189,7 +189,7 @@
                     <byu-search slot="search" action="submit-form">
                         <!-- When you run this search, the page will reload and you should see the query in the URL. -->
                         <form method="get" action="#action-submit-form">
-                            <input type="search" name="searchTerms" />
+                            <input type="search" name="searchTerms" aria-label="Search Terms" />
                             <input type="hidden" name="hiddenValue" value="Some hidden value that your form needs" />
                         </form>
                     </byu-search>
@@ -215,7 +215,7 @@
                 <byu-header>
                     <byu-search slot="search" action="click">
                         <div>
-                            <input type="search" />
+                            <input type="search" aria-label="Search Query" />
                             <button onclick="alert('simulated a click on My Search Button')">My Search Button</button>
                         </div>
                     </byu-search>
@@ -233,7 +233,7 @@
                 <byu-header>
                     <byu-search slot="search" action="click" action-target=".real">
                         <div>
-                            <input type="search" />
+                            <input type="search" aria-label="Search Query" />
                             <button onclick="alert('this shouldn\'t ever run')">Bad Button</button>
                             <button class="real" onclick="alert('the second button was clicked')">real button</button>
                         </div>
@@ -259,8 +259,8 @@
                 <byu-header>
                     <byu-search slot="search" action="click" action-target=".link">
                         <div>
-                            <input type="search" />
-                            <a class="link" href="https://example.com/potentially-malicious-page"></a>
+                            <input type="search" aria-label="Search Query" />
+                            <a class="link" href="https://example.com/potentially-malicious-page" aria-label="Potentially malicious page example"></a>
                         </div>
                     </byu-search>
                 </byu-header>
@@ -392,8 +392,8 @@
             '<template>\n' +
             '<byu-header>\n' +
             '    <byu-search slot="search" id="cancel-event-demo" action="click">\n' +
-            '        <input type="search"/>\n' +
-            '        <button onclick="alert(\'Searched using a click\')"></button>\n' +
+            '        <input type="search" aria-label="Search Query"/>\n' +
+            '        <button onclick="alert(\'Searched using a click\')" aria-label="Search">Search</button>\n' +
             '    </byu-search>\n' +
             '</byu-header>\n' +
             '<scr' + 'ipt>\n' +
@@ -417,7 +417,7 @@
             <template>
                 <byu-header>
                     <byu-search slot="search">
-                        <input type="search" oninput="searchChanged()">
+                        <input type="search" oninput="searchChanged()" aria-label="Search Query">
                     </byu-search>
                 </byu-header>
             </template>
