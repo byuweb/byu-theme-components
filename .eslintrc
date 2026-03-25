@@ -1,4 +1,5 @@
 {
+  "root": true,
   "plugins": ["lit"],
   "extends": ["plugin:lit/recommended"],
   "parser": "babel-eslint",
