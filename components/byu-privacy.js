@@ -3,22 +3,27 @@
   const host = window.location.hostname;
 
   if (!host.includes("localhost") && !host.includes("-dev")) {
+    //adding comment sections
+    document.head.appendChild(document.createComment("<!-- TrustArc Cookie Consent Manager / Auto-block -->"));
     // Add TrustArc scripts dynamically
+    const scriptCore = document.createElement("script");
+    scriptCore.type = "text/javascript";
+    scriptCore.src = "https://consent.trustarc.com/v2/autoblockasset/core.min.js?cmId=3p3tmg";
+    document.head.appendChild(scriptCore);
+
+
+    const scriptAutoblock = document.createElement("script");
+    scriptAutoblock.type = "text/javascript";
+    scriptAutoblock.src = "https://consent.trustarc.com/v2/autoblock?cmId=3p3tmg";
+    document.head.appendChild(scriptAutoblock)
+
+
     const scriptPcookie = document.createElement("script");
     scriptPcookie.type = "text/javascript";
     scriptPcookie.src = "https://consent.trustarc.com/v2/notice/3p3tmg?pcookie";
     scriptPcookie.async = true;
     document.head.appendChild(scriptPcookie);
 
-    const scriptCore = document.createElement("script");
-    scriptCore.type = "text/javascript";
-    scriptCore.src = "https://consent.trustarc.com/v2/autoblockasset/core.min.js?cmId=3p3tmg";
-    document.head.appendChild(scriptCore);
-
-    const scriptAutoblock = document.createElement("script");
-    scriptAutoblock.type = "text/javascript";
-    scriptAutoblock.src = "https://consent.trustarc.com/v2/autoblock?cmId=3p3tmg";
-    document.head.appendChild(scriptAutoblock)
 
     // Ensure the consent banner placeholder is in the DOM
     let consentBanner = document.getElementById("consent-banner");
@@ -27,5 +32,6 @@
       consentBanner.id = "consent-banner";
       document.body.appendChild(consentBanner);
     }
+    document.head.appendChild(document.createComment("<!-- End TrustArc Cookie Consent Manager / Auto-block -->"));
   }
 })()

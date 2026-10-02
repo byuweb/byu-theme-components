@@ -1,4 +1,66 @@
 # byu-theme-components CHANGELOG
+## 2.4.7
+
+-
+
+## 2.4.6
+
+- Remove transparent text and styling related to making text transparent.
+
+## 2.4.5
+
+- added aria-label tags so that the hidden text for the icons will have relevant text for screen readers
+
+## 2.4.4
+
+- removed some extra css that was un-needed and actually introduced new contrast errors
+
+## 2.4.2
+
+- Small accessibility additions: a few background color adjustments and one new aria-label
+
+## 2.4.1
+
+- Removed out-of-date footer info
+
+## 2.4.0
+
+- feat: Updated to new BYU fonts
+- feat: swapped out Cookie Consent from MeruData to TrustArc
+
+## 2.2.2
+- feat: Update footer with official BYU logos to match Brightspot #528
+- fix: include dist changes for byu logo update #529
+
+## 2.2.1
+
+- Update dependabot.yml
+- docs: update official communication channel
+- docs: add additional cookie header info
+- fix: update deps
+- fix: add cookie preferences link
+- docs: rebuilt docs
+- fix: automatically add merudata privacy scripts
+- docs: clarify ownership
+- fix: update packages to remove most security vulnerabilities
+- ci: update action versions
+- docs: remove merudata from usage example
+- build: remove duplicate dep
+- Merge pull request #520 from byuweb/feat/privacy 
+
+
+
+## 2.2.0
+
+- Update to bring components inline with Brightspot changes during Q4 of 2020.
+
+## 2.1.4
+
+- Change the focus of a footer link from an outline to an underline.
+
+## 2.1.3
+
+ - Update social media icon display.
 
 ## 2.1.2 
 
